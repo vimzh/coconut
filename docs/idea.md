@@ -31,7 +31,7 @@ The exact rules for publishing a visitor's run, accessing saved results, and ret
 - Generate expressions at controlled composition depths with explicit input domains and verified reference labels.
 - Turn expressions into clear model prompts while keeping reference labels and validation evidence out of the model input.
 - Extract a model answer into convex, concave, or neither under a defined answer policy.
-- Compare answers with the reference labels and report performance overall and by depth. The first protocol uses three fresh trials and distinguishes unusable model replies from infrastructure failures; scoring and aggregation conventions remain future scoring work.
+- Compare answers with the reference labels using pooled macro-F1, accuracy, and class detail overall and by depth. The first protocol uses three fresh trials; unusable replies count as failures, infrastructure/missing work stays separate, and incomplete scores remain provisional or unavailable. Report trial spread and agreement with their eligible populations.
 - Preserve the evidence needed to inspect the mathematical task, the model's returned answer, and the reported score.
 
 ### Model discovery and inference
@@ -82,7 +82,7 @@ The benchmark's labels and scoring can be independently checked, and the submiss
 
 The project is intended for the micro1 Eval Hackathon. [hackathon.md](../hackathon.md) records the researched requirements and their verification limits. Submission materials must disclose adapted prior work and distinguish the project's contribution. The landing-page content restriction does not remove that submission requirement.
 
-The existing application scaffolding is the starting point. The mathematical verifier, offline evaluation protocol, and reproducible suite generator are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), and [module 03 handoff](handoffs/03-instance-generator-and-suites.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. Scoring, provider integrations, user flow, and measured leaderboard are not implemented yet.
+The existing application scaffolding is the starting point. The mathematical verifier, offline evaluation protocol, reproducible suite generator, and shared scorer are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), [module 03 handoff](handoffs/03-instance-generator-and-suites.md), and [module 04 handoff](handoffs/04-scoring-and-depth-analysis.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. The scorer verifies retained evidence and reports metrics plus usage/timing/cost coverage; current result fixtures are synthetic. Provider integrations, user flow, and measured leaderboard are not implemented yet.
 
 ## Critical Assumptions to Prove
 
@@ -92,7 +92,6 @@ The existing application scaffolding is the starting point. The mathematical ver
 
 ## Open Questions
 
-- How will scores, unusable answers, incomplete runs, and repeated-trial results be aggregated?
 - How long do visitor credentials remain usable, and what happens to an interrupted run that needs credentials again?
 - How are saved runs accessed, retained, and published? Is leaderboard publication automatic or an explicit visitor action?
 - Which complete runs are eligible for ranking, and how are repeat runs of the same model and configuration represented?

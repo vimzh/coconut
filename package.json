@@ -13,6 +13,7 @@
     "typecheck": "bun run --filter '@coconut/*' typecheck",
     "test": "bun run --filter @coconut/api test",
     "suite:generate": "bun apps/api/src/suites/cli.ts generate",
-    "suite:verify": "bun apps/api/src/suites/cli.ts verify"
+    "suite:verify": "bun apps/api/src/suites/cli.ts verify",
+    "score:report": "bun apps/api/src/scoring/cli.ts"
   }
 }
