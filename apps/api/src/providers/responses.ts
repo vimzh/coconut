@@ -31,7 +31,8 @@ function failure(code: AccessFailureCode): ParsedAccessResponse {
   return { status: "not-verified", reportedModelId: null, reportedServingProvider: null, usage: { inputTokens: null, outputTokens: null }, failure: code };
 }
 
-function httpFailure(request: AccessRequest, status: number, body: Record<string, unknown> | undefined): AccessFailureCode {
+export function classifyHttpFailure(status: number, input: unknown, modelOperation: boolean): AccessFailureCode {
+  const body = object(input);
   const error = object(body?.error);
   const metadata = object(error?.metadata);
   const codes = [error?.code, error?.type, metadata?.error_type, metadata?.type];
@@ -39,7 +40,7 @@ function httpFailure(request: AccessRequest, status: number, body: Record<string
   if (status === 402 || includes("insufficient_quota", "billing_not_active", "credit_balance_too_low", "organization_spend_limit_exceeded", "project_spend_limit_exceeded", "organization_usage_limit_exceeded", "payment_required", "openrouter_key_limit", "openrouter_workspace_budget", "openrouter_guardrail_budget")) return "credit-or-quota-exhausted";
   if (status === 401 || includes("invalid_api_key", "authentication")) return "authentication-rejected";
   if (status === 403 || includes("permission_denied")) return "permission-denied";
-  if ((status === 404 && request.operation === "probe") || includes("model_not_found", "model_not_available")) return "model-unavailable";
+  if ((status === 404 && modelOperation) || includes("model_not_found", "model_not_available")) return "model-unavailable";
   if (status === 429 || includes("rate_limit_exceeded")) return "rate-limited";
   if (status >= 500 || status === 404 || includes("provider_overloaded", "provider_unavailable", "timeout", "server")) return "service-unavailable";
   return "invalid-provider-response";
@@ -57,7 +58,7 @@ export function parseAccessResponse(request: AccessRequest, status: number, inpu
   // Never forward free-form bodies, even on 2xx, including reflected secrets in metadata.
   if (reflectsCredential(JSON.stringify(input) ?? "", credential)) return failure("credential-reflection");
   const body = object(input);
-  if (status < 200 || status >= 300 || (body?.error !== undefined && body.error !== null)) return failure(httpFailure(request, status, body));
+  if (status < 200 || status >= 300 || (body?.error !== undefined && body.error !== null)) return failure(classifyHttpFailure(status, body, request.operation === "probe"));
   if (!body) return failure("invalid-provider-response");
   if (request.operation === "authenticate") {
     const valid = request.provider === "openai" ? body.object === "list" && Array.isArray(body.data)

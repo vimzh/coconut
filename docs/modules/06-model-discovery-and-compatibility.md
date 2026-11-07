@@ -8,6 +8,10 @@ Dependent
 
 Foundation
 
+## Implementation Progress
+
+Implementation verified under D-07 / `model-selection-v1`. OpenAI metadata and both profiles are live-checked; Hugging Face search and HF/OR catalogs have anonymous live metadata evidence. OpenRouter/Hugging Face visitor permission and inference gates remain unresolved. The API and CLI are implemented; module 09 owns the browser interface. See the [handoff](../handoffs/06-model-discovery-and-compatibility.md) for contracts, verification, and downstream obligations.
+
 ## Purpose
 
 Make model discovery useful without implying that every listed model can execute the benchmark. Users need truthful access, capability, and identity information before selecting a model.

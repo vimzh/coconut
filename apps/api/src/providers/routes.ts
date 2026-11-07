@@ -1,9 +1,13 @@
 // Stateless HTTP boundary for visitor-supplied provider credentials and safe access evidence.
-import { Hono } from "hono";
+import { Hono, type Context } from "hono";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
+import { searchHuggingFaceModels, selectModel } from "../discovery/client";
+import { DISCOVERY_POLICY, DiscoveryInputError, parseSearchRequest, parseSelectionRequest } from "../discovery/policy";
+import type { ModelSearchClient, ModelSelectionClient } from "../discovery/types";
 import { checkProviderAccess } from "./client";
 import { ACCESS_POLICY, ACCESS_TIMEOUT_MS, AccessInputError, MAX_ACCESS_BODY_BYTES, parseAccessRequest, parseCredential, safeAccessInputError } from "./policy";
 import type { ProviderAccessClient } from "./types";
+import { reflectsCredential } from "./responses";
 
 class RequestError extends Error {
   constructor(readonly code: string, message: string, readonly status: ContentfulStatusCode) {
@@ -64,8 +68,57 @@ async function readAccessBody(request: Request, signal: AbortSignal, interrupted
   }
 }
 
-export function createProviderRoutes(options: { accessClient?: ProviderAccessClient; webOrigin?: string } = {}): Hono {
+function bearerCredential(c: Context): string {
+  const authorization = c.req.header("Authorization");
+  if (authorization === undefined) throw new AccessInputError("missing-credential", "Supply your own provider credential for this operation.");
+  const match = /^Bearer ([^\s,]+)$/i.exec(authorization);
+  if (!match) throw new AccessInputError("invalid-credential", "Supply one valid Authorization bearer credential for this operation.");
+  return parseCredential(match[1]);
+}
+
+type PostOperation = (body: unknown, signal: AbortSignal) => Promise<Response>;
+
+async function guardedPost(c: Context, label: string, prepare: () => PostOperation): Promise<Response> {
+  const cancellation = () => new RequestError("cancelled", `${label} was cancelled. Already-initiated upstream work or charges can remain unknown.`, 408);
+  const callerSignal = c.req.raw.signal;
+  if (callerSignal.aborted) throw cancellation();
+  const controller = new AbortController();
+  let rejectInterrupted!: (error: RequestError) => void;
+  const interrupted = new Promise<never>((_, reject) => { rejectInterrupted = reject; });
+  // Validation can finish before a concurrent interruption is consumed by a read.
+  void interrupted.catch(() => {});
+  const stop = (error: RequestError) => {
+    if (controller.signal.aborted) return;
+    rejectInterrupted(error);
+    controller.abort(error);
+  };
+  const onAbort = () => stop(cancellation());
+  callerSignal.addEventListener("abort", onAbort, { once: true });
+  const timer = setTimeout(() => stop(new RequestError("timeout", `${label} timed out. Already-initiated upstream work or charges can remain unknown.`, 408)), ACCESS_TIMEOUT_MS);
+  try {
+    if (c.req.header("Content-Type")?.split(";", 1)[0]?.trim().toLowerCase() !== "application/json") {
+      throw new RequestError("unsupported-content-type", `Use application/json for ${label.toLowerCase()} requests.`, 415);
+    }
+    const operation = prepare();
+    const body = await readAccessBody(c.req.raw, controller.signal, interrupted);
+    controller.signal.throwIfAborted();
+    return await Promise.race([operation(body, controller.signal), interrupted]);
+  } finally {
+    clearTimeout(timer);
+    callerSignal.removeEventListener("abort", onAbort);
+    controller.abort();
+  }
+}
+
+export function createProviderRoutes(options: {
+  accessClient?: ProviderAccessClient;
+  searchClient?: ModelSearchClient;
+  selectionClient?: ModelSelectionClient;
+  webOrigin?: string;
+} = {}): Hono {
   const accessClient = options.accessClient ?? checkProviderAccess;
+  const searchClient = options.searchClient ?? searchHuggingFaceModels;
+  const selectionClient = options.selectionClient ?? selectModel;
   const webOrigin = validateWebOrigin(options.webOrigin ?? "http://localhost:3200");
   const routes = new Hono();
 
@@ -76,7 +129,12 @@ export function createProviderRoutes(options: { accessClient?: ProviderAccessCli
       const status = safeError.code === "missing-credential" || safeError.code === "invalid-credential" ? 401 : 400;
       return c.json({ error: { code: safeError.code, message: safeError.message } }, status);
     }
-    return c.json({ error: { code: "internal-error", message: "Provider access could not be checked." } }, 500);
+    if (error instanceof DiscoveryInputError) {
+      const safeError = new DiscoveryInputError(error.code === "charge-authorization-required" ? error.code : "invalid-input");
+      return c.json({ error: { code: safeError.code, message: safeError.message } }, 400);
+    }
+    const message = c.req.path.endsWith("/access") ? "Provider access could not be checked." : "Model discovery could not be completed.";
+    return c.json({ error: { code: "internal-error", message } }, 500);
   });
 
   routes.use("*", async (c, next) => {
@@ -109,42 +167,30 @@ export function createProviderRoutes(options: { accessClient?: ProviderAccessCli
   });
 
   routes.get("/policy", (c) => c.json(ACCESS_POLICY));
+  routes.get("/models/policy", (c) => c.json(DISCOVERY_POLICY));
 
-  routes.post("/access", async (c) => {
-    const cancellation = () => new RequestError("cancelled", "Provider access was cancelled. Already-initiated upstream work or charges can remain unknown.", 408);
-    const callerSignal = c.req.raw.signal;
-    if (callerSignal.aborted) throw cancellation();
-    const controller = new AbortController();
-    let rejectInterrupted!: (error: RequestError) => void;
-    const interrupted = new Promise<never>((_, reject) => { rejectInterrupted = reject; });
-    // Validation can finish before a concurrent interruption is consumed by a read.
-    void interrupted.catch(() => {});
-    const stop = (error: RequestError) => {
-      if (controller.signal.aborted) return;
-      rejectInterrupted(error);
-      controller.abort(error);
-    };
-    const onAbort = () => stop(cancellation());
-    callerSignal.addEventListener("abort", onAbort, { once: true });
-    const timer = setTimeout(() => stop(new RequestError("timeout", "Provider access timed out. Already-initiated upstream work or charges can remain unknown.", 408)), ACCESS_TIMEOUT_MS);
-    try {
-      if (c.req.header("Content-Type")?.split(";", 1)[0]?.trim().toLowerCase() !== "application/json") {
-        throw new RequestError("unsupported-content-type", "Use application/json for provider access requests.", 415);
-      }
-      const authorization = c.req.header("Authorization");
-      if (authorization === undefined) throw new AccessInputError("missing-credential", "Supply your own provider credential for this operation.");
-      const match = /^Bearer ([^\s,]+)$/i.exec(authorization);
-      if (!match) throw new AccessInputError("invalid-credential", "Supply one valid Authorization bearer credential for this operation.");
-      const credential = parseCredential(match[1]);
-      const request = parseAccessRequest(await readAccessBody(c.req.raw, controller.signal, interrupted));
-      controller.signal.throwIfAborted();
-      return c.json(await Promise.race([accessClient(request, credential, controller.signal), interrupted]));
-    } finally {
-      clearTimeout(timer);
-      callerSignal.removeEventListener("abort", onAbort);
-      controller.abort();
+  routes.post("/access", (c) => guardedPost(c, "Provider access", () => {
+    const credential = bearerCredential(c);
+    return async (body, signal) => c.json(await accessClient(parseAccessRequest(body), credential, signal));
+  }));
+
+  routes.post("/models/search", (c) => guardedPost(c, "Model discovery", () => {
+    if (c.req.header("Authorization") !== undefined) {
+      throw new RequestError("credential-not-permitted", "Model search is anonymous. Omit the Authorization header.", 400);
     }
-  });
+    return async (body, signal) => c.json(await searchClient(parseSearchRequest(body), signal));
+  }));
+
+  routes.post("/models/select", (c) => guardedPost(c, "Model discovery", () => {
+    const credential = bearerCredential(c);
+    return async (body, signal) => {
+      const request = parseSelectionRequest(body);
+      if (reflectsCredential(JSON.stringify(request), credential)) throw new DiscoveryInputError();
+      const result = await selectionClient(request, credential, signal);
+      if (reflectsCredential(JSON.stringify(result), credential)) throw new Error("Unsafe selection evidence.");
+      return c.json(result);
+    };
+  }));
 
   return routes;
 }

@@ -1,25 +1,15 @@
 // One explicit credential, one bounded provider request, and only safe evidence.
 import {
-  ACCESS_TIMEOUT_MS, AccessInputError, buildProviderPlan, MAX_PROVIDER_RESPONSE_BYTES,
+  ACCESS_TIMEOUT_MS, AccessInputError, buildProviderPlan,
   parseAccessRequest, parseCredential, PROBE_MAX_OUTPUT_TOKENS, safeAccessInputError,
 } from "./policy";
 import { FAILURE_MESSAGES, parseAccessResponse, reflectsCredential } from "./responses";
-import type { AccessFailureCode, AccessRequest, ProviderAccessClient } from "./types";
+import type { AccessRequest, ProviderAccessClient } from "./types";
 import { requestOpenAIAccess } from "./openai";
-
-class TransportFailure extends Error {
-  constructor(readonly code: AccessFailureCode) {
-    super(FAILURE_MESSAGES[code]);
-  }
-}
-
-function discardBody(response: Response): void {
-  // Cleanup must not extend the deadline when a stream's cancel hook stalls.
-  try { void response.body?.cancel().catch(() => {}); } catch { /* The operation already reports failure. */ }
-}
+import { runProviderTransport, type ProviderFetch } from "./transport";
 
 export function createProviderAccessClient(
-  fetcher: (url: string, init: RequestInit) => Promise<Response> = fetch,
+  fetcher: ProviderFetch = fetch,
 ): ProviderAccessClient {
   return async (input, suppliedCredential, signal) => {
     let request: AccessRequest;
@@ -50,103 +40,27 @@ export function createProviderAccessClient(
         timeoutMs: ACCESS_TIMEOUT_MS,
       },
     };
-    const controller = new AbortController();
-    let stopped: "cancelled" | "timeout" | null = null;
-    let sent = false;
-    let received = false;
-    let httpStatus: number | null = null;
-    let cancelReader: (() => void) | undefined;
-    let rejectStopped: (error: TransportFailure) => void;
-    const interrupted = new Promise<never>((_, reject) => { rejectStopped = reject; });
-    // A synchronous fetch implementation can abort before the first race is attached.
-    void interrupted.catch(() => {});
-    const stop = (code: "cancelled" | "timeout") => {
-      if (stopped !== null) return;
-      stopped = code;
-      controller.abort();
-      rejectStopped(new TransportFailure(code));
-    };
-    const onAbort = () => stop("cancelled");
-    const timer = setTimeout(() => stop("timeout"), ACCESS_TIMEOUT_MS);
-    signal?.addEventListener("abort", onAbort, { once: true });
-
-    const send = async (url: string, init: RequestInit): Promise<Response> => {
-      if (controller.signal.aborted) throw new TransportFailure(stopped ?? "cancelled");
-      sent = true;
-      const pending = fetcher(url, init);
-      // An injected or broken transport may ignore abort and resolve after settlement.
-      void pending.then((response) => { if (controller.signal.aborted) discardBody(response); }, () => {});
-      const response = await Promise.race([pending, interrupted]);
-      received = true;
-      httpStatus = Number.isInteger(response.status) && response.status >= 100 && response.status <= 599 ? response.status : null;
-      return response;
-    };
-    const readBody = async (response: Response): Promise<string> => {
-      if (response.type === "opaqueredirect" || response.redirected || (response.status >= 300 && response.status < 400)) {
-        discardBody(response);
-        throw new TransportFailure("redirect-blocked");
-      }
-      const declaredLength = response.headers.get("content-length");
-      if (declaredLength !== null && /^\d+$/.test(declaredLength) && Number(declaredLength) > MAX_PROVIDER_RESPONSE_BYTES) {
-        discardBody(response);
-        throw new TransportFailure("response-too-large");
-      }
-      if (response.body === null) throw new TransportFailure("invalid-provider-response");
-      const reader = response.body.getReader();
-      cancelReader = () => {
-        try { void reader.cancel().catch(() => {}); } catch { /* Cleanup cannot replace safe evidence. */ }
-      };
-      const decoder = new TextDecoder("utf-8", { fatal: true });
-      let bytes = 0;
-      let text = "";
-      while (true) {
-        const chunk = await Promise.race([reader.read(), interrupted]);
-        if (chunk.done) break;
-        bytes += chunk.value.byteLength;
-        if (bytes > MAX_PROVIDER_RESPONSE_BYTES) throw new TransportFailure("response-too-large");
-        try { text += decoder.decode(chunk.value, { stream: true }); }
-        catch { throw new TransportFailure("invalid-provider-response"); }
-      }
-      try { text += decoder.decode(); }
-      catch { throw new TransportFailure("invalid-provider-response"); }
-      if (reflectsCredential(text, credential)) throw new TransportFailure("credential-reflection");
-      return text;
-    };
-
-    try {
-      if (signal?.aborted) throw new TransportFailure("cancelled");
+    const outcome = await runProviderTransport({ fetcher, credential, signal, maxAttempts: 1 }, async (transport) => {
       const headers: Record<string, string> = { Authorization: `Bearer ${credential}` };
       if (plan.method === "POST") headers["Content-Type"] = "application/json";
-      const pending = request.provider === "openai"
-        ? requestOpenAIAccess(request, credential, controller.signal, send, readBody)
-        : send(plan.url, { method: plan.method, headers, body: plan.body, signal: controller.signal, redirect: "manual", credentials: "omit" });
-      const response = await Promise.race([pending, interrupted]);
-      const text = await readBody(response);
-      let body: unknown;
-      try { body = JSON.parse(text); }
-      catch { throw new TransportFailure("invalid-provider-response"); }
-      const parsed = parseAccessResponse(request, response.status, body, credential);
+      const response = await (request.provider === "openai"
+        ? requestOpenAIAccess(request, credential, transport.signal, transport.send, transport.readBody)
+        : transport.send(plan.url, { method: plan.method, headers, body: plan.body, signal: transport.signal, redirect: "manual", credentials: "omit" }));
+      return parseAccessResponse(request, response.status, await transport.readJson(response), credential);
+    });
+    if (outcome.ok) {
+      const parsed = outcome.value;
       return {
         ...evidence, status: parsed.status, reportedModelId: parsed.reportedModelId,
-        reportedServingProvider: parsed.reportedServingProvider, usage: parsed.usage, httpStatus,
+        reportedServingProvider: parsed.reportedServingProvider, usage: parsed.usage, httpStatus: outcome.httpStatus,
         failure: parsed.failure === null ? null : { code: parsed.failure, message: FAILURE_MESSAGES[parsed.failure], remoteOutcome: "response-received" },
       };
-    } catch (error) {
-      const code = stopped ?? (error instanceof TransportFailure ? error.code : "network-error");
-      return {
-        ...evidence, status: "not-verified", reportedModelId: null, reportedServingProvider: null,
-        httpStatus, usage: { inputTokens: null, outputTokens: null },
-        failure: {
-          code, message: FAILURE_MESSAGES[code],
-          remoteOutcome: !sent ? "not-sent" : stopped !== null || code === "cancelled" || code === "timeout" || !received ? "unknown" : "response-received",
-        },
-      };
-    } finally {
-      clearTimeout(timer);
-      signal?.removeEventListener("abort", onAbort);
-      cancelReader?.();
-      controller.abort();
     }
+    return {
+      ...evidence, status: "not-verified", reportedModelId: null, reportedServingProvider: null,
+      httpStatus: outcome.httpStatus, usage: { inputTokens: null, outputTokens: null },
+      failure: { code: outcome.code, message: FAILURE_MESSAGES[outcome.code], remoteOutcome: outcome.remoteOutcome },
+    };
   };
 }
 

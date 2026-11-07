@@ -1,7 +1,7 @@
 // Uses the official SDK while preserving the access transport's wire and failure bounds.
 import OpenAI from "openai";
 import { ACCESS_TIMEOUT_MS, buildProviderPlan, PROBE_MAX_OUTPUT_TOKENS, PROBE_PROMPT } from "./policy";
-import type { AccessRequest } from "./types";
+import type { AccessRequest, ProviderPlan } from "./types";
 
 export async function requestOpenAIAccess(
   request: AccessRequest,
@@ -11,6 +11,21 @@ export async function requestOpenAIAccess(
   readBody: (response: Response) => Promise<string>,
 ): Promise<Response> {
   const plan = buildProviderPlan(request);
+  return requestOpenAI(plan, credential, signal, send, readBody, (client) => request.operation === "authenticate"
+    ? client.models.list({ signal }).asResponse()
+    : client.responses.create({
+      model: request.modelId, input: PROBE_PROMPT, max_output_tokens: PROBE_MAX_OUTPUT_TOKENS, store: false,
+    }, { signal }).asResponse());
+}
+
+export async function requestOpenAI(
+  plan: ProviderPlan,
+  credential: string,
+  signal: AbortSignal,
+  send: (url: string, init: RequestInit) => Promise<Response>,
+  readBody: (response: Response) => Promise<string>,
+  invoke: (client: OpenAI) => Promise<Response>,
+): Promise<Response> {
   let rejected: Response | undefined;
   let transportError: unknown;
   // The pinned SDK patch disables ambient header reads during construction.
@@ -25,7 +40,7 @@ export async function requestOpenAIAccess(
         // SDK environment headers must never override a visitor's credential or add routing data.
         const headers: Record<string, string> = { Authorization: `Bearer ${credential}` };
         if (plan.method === "POST") headers["Content-Type"] = "application/json";
-        const response = await send(url, { method: plan.method, headers, body: init.body, signal: init.signal, redirect: "manual", credentials: "omit" });
+        const response = await send(url, { method: plan.method, headers, body: init.body, signal: init.signal ?? signal, redirect: "manual", credentials: "omit" });
         if (response.ok) return response;
         // SDK HTTP errors eagerly read the body; bound it before allowing that read.
         rejected = new Response(await readBody(response), { status: response.status, headers: response.headers });
@@ -34,11 +49,7 @@ export async function requestOpenAIAccess(
     },
   });
   try {
-    return await (request.operation === "authenticate"
-      ? client.models.list({ signal }).asResponse()
-      : client.responses.create({
-        model: request.modelId, input: PROBE_PROMPT, max_output_tokens: PROBE_MAX_OUTPUT_TOKENS, store: false,
-      }, { signal }).asResponse());
+    return await invoke(client);
   } catch (error) {
     if (transportError !== undefined) throw transportError;
     // Keep the original bounded HTTP failure for the shared categorical parser.

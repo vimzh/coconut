@@ -1,0 +1,529 @@
+{
+  "version": "1",
+  "kind": "development-compatibility-evidence",
+  "recordedAt": "2026-11-07T19:35:42.076Z",
+  "environment": {
+    "bun": "1.4.4",
+    "platform": "darwin",
+    "bunNodeCompatibility": "v26.3.0",
+    "verificationNode": "v24.22.1"
+  },
+  "scope": "Historical catalog and profile-check observations; no mathematical evaluation or model ranking.",
+  "openaiSelections": [
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "898cc6f8-0c22-4d16-9fb8-8d3b400775e8",
+      "checkedAt": "2026-11-07T19:33:44.257Z",
+      "expiresAt": "2026-11-07T19:38:44.257Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "metadata": {
+        "modelId": "gpt-6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "needs-verification",
+      "capabilities": {
+        "textInput": "unknown",
+        "textOutput": "unknown",
+        "outputTokenLimit": "unknown",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": false,
+        "unsupported": [],
+        "unverified": [
+          "textInput",
+          "textOutput",
+          "outputTokenLimit"
+        ]
+      },
+      "probe": {
+        "status": "not-requested",
+        "reportedModelId": null,
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": null,
+          "outputTokens": null
+        },
+        "outputLimitRequestAccepted": false,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": null
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-6-luna"
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 0,
+        "maxOutputTokens": 0,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    },
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "8c7474b0-5672-44ae-b56a-3a6dc71722c0",
+      "checkedAt": "2026-11-07T19:33:56.492Z",
+      "expiresAt": "2026-11-07T19:38:56.492Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "probe",
+        "acceptCharges": true
+      },
+      "metadata": {
+        "modelId": "gpt-6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "ready",
+      "capabilities": {
+        "textInput": "supported",
+        "textOutput": "supported",
+        "outputTokenLimit": "supported",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": true,
+        "unsupported": [],
+        "unverified": []
+      },
+      "probe": {
+        "reportedModelId": "gpt-6-luna",
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": 44,
+          "outputTokens": 28
+        },
+        "status": "verified",
+        "outputLimitRequestAccepted": true,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": "answer"
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-6-luna",
+        "https://api.openai.com/v1/responses"
+      ],
+      "httpAttempts": 2,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 1,
+        "maxOutputTokens": 4096,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    },
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "6a0c8050-0855-4d00-ae76-1b37f9df4ddd",
+      "checkedAt": "2026-11-07T19:33:56.492Z",
+      "expiresAt": "2026-11-07T19:38:56.492Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-schema-v1",
+        "verification": "probe",
+        "acceptCharges": true
+      },
+      "metadata": {
+        "modelId": "gpt-6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "ready",
+      "capabilities": {
+        "textInput": "supported",
+        "textOutput": "supported",
+        "outputTokenLimit": "supported",
+        "jsonSchema": "supported"
+      },
+      "compatibility": {
+        "compatible": true,
+        "unsupported": [],
+        "unverified": []
+      },
+      "probe": {
+        "reportedModelId": "gpt-6-luna",
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": 87,
+          "outputTokens": 37
+        },
+        "status": "verified",
+        "outputLimitRequestAccepted": true,
+        "nativeSchemaRequestAccepted": true,
+        "outcome": "answer"
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-6-luna",
+        "https://api.openai.com/v1/responses"
+      ],
+      "httpAttempts": 2,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 1,
+        "maxOutputTokens": 4096,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    }
+  ],
+  "searches": [
+    {
+      "version": "1",
+      "requestId": "baf0a304-c794-49eb-8ba5-e598a34f3c97",
+      "checkedAt": "2026-11-07T19:33:56.492Z",
+      "request": {
+        "query": "gpt-oss",
+        "limit": 3
+      },
+      "source": "https://huggingface.co/api/models?search=gpt-oss&limit=3&expand=pipeline_tag&expand=inferenceProviderMapping",
+      "status": "complete",
+      "models": [
+        {
+          "modelId": "openai/gpt-oss-20b",
+          "displayName": "openai/gpt-oss-20b",
+          "task": "text-generation",
+          "routes": [
+            {
+              "provider": "groq",
+              "providerModelId": "openai/gpt-oss-20b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "featherless-ai",
+              "providerModelId": "openai/gpt-oss-20b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "ovhcloud",
+              "providerModelId": "gpt-oss-20b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "deepinfra",
+              "providerModelId": "openai/gpt-oss-20b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "novita",
+              "providerModelId": "openai/gpt-oss-20b",
+              "status": "error",
+              "task": "conversational"
+            }
+          ]
+        },
+        {
+          "modelId": "openai/gpt-oss-120b",
+          "displayName": "openai/gpt-oss-120b",
+          "task": "text-generation",
+          "routes": [
+            {
+              "provider": "groq",
+              "providerModelId": "openai/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "novita",
+              "providerModelId": "openai/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "cerebras",
+              "providerModelId": "gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "together",
+              "providerModelId": "openai/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "fireworks-ai",
+              "providerModelId": "accounts/fireworks/models/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "featherless-ai",
+              "providerModelId": "openai/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "scaleway",
+              "providerModelId": "gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "baseten",
+              "providerModelId": "openai/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "ovhcloud",
+              "providerModelId": "gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            },
+            {
+              "provider": "deepinfra",
+              "providerModelId": "openai/gpt-oss-120b",
+              "status": "live",
+              "task": "conversational"
+            }
+          ]
+        },
+        {
+          "modelId": "unsloth/gpt-oss-20b-GGUF",
+          "displayName": "unsloth/gpt-oss-20b-GGUF",
+          "task": "text-generation",
+          "routes": []
+        }
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "failure": null
+    },
+    {
+      "version": "1",
+      "requestId": "3b647bd1-67a6-4b15-8177-d17f4093e1a7",
+      "checkedAt": "2026-11-07T19:33:56.492Z",
+      "request": {
+        "query": "coconut-no-match-9f45c3f1",
+        "limit": 3
+      },
+      "source": "https://huggingface.co/api/models?search=coconut-no-match-9f45c3f1&limit=3&expand=pipeline_tag&expand=inferenceProviderMapping",
+      "status": "complete",
+      "models": [],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "failure": null
+    }
+  ],
+  "publicMetadata": [
+    {
+      "kind": "anonymous-public-metadata",
+      "checkedAt": "2026-11-07T19:35:41.049Z",
+      "request": {
+        "provider": "hugging-face",
+        "modelId": "openai/gpt-oss-120b",
+        "servingProvider": "groq",
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "sources": [
+        "https://huggingface.co/api/models/openai/gpt-oss-120b?expand=pipeline_tag&expand=inferenceProviderMapping",
+        "https://router.huggingface.co/v1/models/openai/gpt-oss-120b"
+      ],
+      "outcome": {
+        "ok": true,
+        "value": {
+          "modelId": "openai/gpt-oss-120b",
+          "canonicalId": null,
+          "displayName": "openai/gpt-oss-120b",
+          "providerModelId": "openai/gpt-oss-120b",
+          "servingProvider": "groq",
+          "providerDisplayName": null,
+          "routeStatus": "live",
+          "hosted": "available",
+          "exactRoute": true,
+          "capabilities": {
+            "textInput": "supported",
+            "textOutput": "supported",
+            "outputTokenLimit": "unknown",
+            "jsonSchema": "unsupported"
+          },
+          "structuredOutput": "unsupported",
+          "contextWindow": 131072,
+          "maxOutputTokens": null,
+          "tokenParameter": "max_tokens",
+          "supportedParameters": null,
+          "pricing": {
+            "currency": "USD",
+            "unit": "million-tokens",
+            "input": "0.15",
+            "output": "0.75",
+            "source": "https://router.huggingface.co/v1/models/openai/gpt-oss-120b",
+            "retrievedAt": "2026-11-07T19:35:41.049Z"
+          }
+        },
+        "attempts": 2,
+        "httpStatus": 200
+      },
+      "inferenceRequests": 0,
+      "establishesVisitorPermission": false
+    },
+    {
+      "kind": "anonymous-public-metadata",
+      "checkedAt": "2026-11-07T19:35:41.849Z",
+      "request": {
+        "provider": "openrouter",
+        "modelId": "openai/gpt-4o-mini",
+        "servingProvider": "openai",
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "sources": [
+        "https://openrouter.ai/api/v1/models/openai/gpt-4o-mini/endpoints"
+      ],
+      "outcome": {
+        "ok": true,
+        "value": {
+          "modelId": "openai/gpt-4o-mini",
+          "canonicalId": null,
+          "displayName": "OpenAI: GPT-4o-mini",
+          "providerModelId": "openai/gpt-4o-mini",
+          "servingProvider": "openai",
+          "providerDisplayName": "OpenAI",
+          "routeStatus": 0,
+          "hosted": "available",
+          "exactRoute": true,
+          "capabilities": {
+            "textInput": "supported",
+            "textOutput": "supported",
+            "outputTokenLimit": "supported",
+            "jsonSchema": "unknown"
+          },
+          "structuredOutput": "advertised",
+          "contextWindow": 128000,
+          "maxOutputTokens": 16384,
+          "tokenParameter": "max_tokens",
+          "supportedParameters": [
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "frequency_penalty",
+            "logit_bias",
+            "logprobs",
+            "prediction",
+            "presence_penalty",
+            "stop",
+            "temperature",
+            "top_logprobs",
+            "top_p",
+            "web_search_options"
+          ],
+          "pricing": {
+            "currency": "USD",
+            "unit": "token",
+            "input": "0.00000015",
+            "output": "0.0000006",
+            "source": "https://openrouter.ai/api/v1/models/openai/gpt-4o-mini/endpoints",
+            "retrievedAt": "2026-11-07T19:35:41.849Z"
+          }
+        },
+        "attempts": 1,
+        "httpStatus": 200
+      },
+      "inferenceRequests": 0,
+      "establishesVisitorPermission": false
+    }
+  ],
+  "normalizationNotes": [
+    "The initial probe parser filled reportedServingProvider from the direct service. The retained records correct that field to null: the Responses contract does not independently report a serving provider. No additional inference was made for this reporting-only correction.",
+    "Explicit price sources and lookup-start timestamps were attached from the recorded request provenance; advertised price values were unchanged."
+  ],
+  "recordedVerificationRequests": {
+    "openaiMetadata": 3,
+    "openaiInference": 2,
+    "huggingFaceSearch": 2,
+    "huggingFaceModelMetadata": 2,
+    "openRouterModelMetadata": 1,
+    "retries": 0
+  },
+  "gates": {
+    "openai": "Both profiles observed on gpt-6-luna at their recorded times; future permission and prompt context fit remain unverified.",
+    "openrouter": "Anonymous metadata and fixtures only; visitor permission and live inference unresolved.",
+    "huggingFace": "Anonymous search/metadata and fixtures only; visitor permission and live inference unresolved."
+  }
+}

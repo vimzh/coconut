@@ -74,3 +74,17 @@ bun --env-file=apps/api/.env run provider:check --provider openai --credential-e
 ```
 
 The second command incurs provider usage. Optional `--output <new-path>` retains only safe evidence and refuses overwrites. OpenRouter uses `OPENROUTER_API_KEY`; Hugging Face uses `HF_TOKEN`, and router probes also require `--serving-provider <slug>`. OpenAI has live authentication/inference evidence; the other two services currently have fixture verification only. See the [module 05 handoff](docs/handoffs/05-provider-access-and-credentials.md) for lifecycle, evidence, and unresolved service gates.
+
+Model discovery and profile compatibility use a separate flow:
+
+```sh
+bun run model:search --query gpt-oss --limit 5
+bun --env-file=apps/api/.env run model:select --provider openai --model gpt-6-luna --profile one-shot-json-v1 --credential-env OPENAI_API_KEY
+bun --env-file=apps/api/.env run model:select --provider openai --model gpt-6-luna --profile one-shot-schema-v1 --credential-env OPENAI_API_KEY --verify --accept-charges
+```
+
+Search reads the anonymous Hugging Face catalog, including models without advertised hosting. Selection defaults to metadata lookup and requires a fresh visitor credential; it makes no inference request. Both probe flags authorize one profile-specific compatibility check with a 4,096-output-token ceiling and no retry. A successful check measures request acceptance and answer formatting, and produces no evaluation score. Missing capabilities, context limits, and prices remain unknown. Native schema request acceptance does not guarantee every future response conforms.
+
+`GET /providers/models/policy` documents the limits. `POST /providers/models/search` accepts `{"query":"gpt-oss","limit":5}` and rejects Authorization headers. `POST /providers/models/select` requires a bearer credential and `provider`, `modelId`, `servingProvider`, `profileId`, and `verification` (`metadata` or `probe`). Probe mode also requires `acceptCharges:true`. OpenRouter and Hugging Face require an explicit advertised serving-provider slug; automatic routing and model substitution are rejected. Failed lookups differ from successful empty searches.
+
+Selection records preserve requested, catalog, native, and reported identities separately. Evidence expires after five minutes and must be re-resolved with the current credential before evaluation; it is not an authorization token. The actual evaluation prompt still needs a context-fit check. See the [module 06 handoff](docs/handoffs/06-model-discovery-and-compatibility.md) for contracts and service verification limits.

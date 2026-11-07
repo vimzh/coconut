@@ -53,6 +53,26 @@ export function parseCredential(input: unknown): string {
   return input;
 }
 
+export function validateModelRoute(provider: ProviderId, modelId: unknown, servingProvider: unknown): { modelId: string; servingProvider: string | null } {
+  if (typeof modelId !== "string" || !/^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$/.test(modelId)) {
+    throw new AccessInputError("invalid-input", "Provide an explicit model identifier of at most 256 safe characters.");
+  }
+  const routerSelectors = [
+    "openrouter/auto", "openrouter/auto-code", "openrouter/auto-beta", "openrouter/free",
+    "openrouter/bodybuilder", "openrouter/fusion", "openrouter/pareto-code", "typesafe/jev-router", "nvidia/switchyard",
+  ];
+  if (provider === "openrouter" && (modelId.includes(":") || routerSelectors.includes(modelId.toLowerCase()))) {
+    throw new AccessInputError("invalid-input", "OpenRouter probes require an explicit model without automatic selectors or variant suffixes.");
+  }
+  if (provider === "openai") {
+    if (servingProvider !== null) throw new AccessInputError("invalid-input", "OpenAI probes require a null serving-provider field.");
+  } else if (typeof servingProvider !== "string" || !/^[a-z0-9][a-z0-9._/-]{0,127}$/.test(servingProvider) || ["auto", "fastest", "cheapest", "preferred"].includes(servingProvider)) {
+    throw new AccessInputError("invalid-input", "Router probes require an explicit serving-provider slug, without automatic routing.");
+  }
+  if (provider === "hugging-face" && modelId.includes(":")) throw new AccessInputError("invalid-input", "Supply the Hugging Face model and serving provider separately.");
+  return { modelId, servingProvider: servingProvider as string | null };
+}
+
 export function parseAccessRequest(input: unknown): AccessRequest {
   try {
     const data = readDataRecord(input, "Access operation");
@@ -67,23 +87,8 @@ export function parseAccessRequest(input: unknown): AccessRequest {
     if (data.operation !== "probe") throw new AccessInputError("invalid-input", "Choose authenticate or probe explicitly.");
     requireFields(data, ["provider", "operation", "modelId", "servingProvider", "acceptCharges"]);
     if (data.acceptCharges !== true) throw new AccessInputError("charge-authorization-required", "A probe requires explicit acknowledgement of provider charges.");
-    if (typeof data.modelId !== "string" || !/^[A-Za-z0-9][A-Za-z0-9._:/-]{0,255}$/.test(data.modelId)) {
-      throw new AccessInputError("invalid-input", "Provide an explicit model identifier of at most 256 safe characters.");
-    }
-    const routerSelectors = [
-      "openrouter/auto", "openrouter/auto-code", "openrouter/auto-beta", "openrouter/free",
-      "openrouter/bodybuilder", "openrouter/fusion", "openrouter/pareto-code", "typesafe/jev-router", "nvidia/switchyard",
-    ];
-    if (provider === "openrouter" && (data.modelId.includes(":") || routerSelectors.includes(data.modelId.toLowerCase()))) {
-      throw new AccessInputError("invalid-input", "OpenRouter probes require an explicit model without automatic selectors or variant suffixes.");
-    }
-    if (provider === "openai") {
-      if (data.servingProvider !== null) throw new AccessInputError("invalid-input", "OpenAI probes require a null serving-provider field.");
-    } else if (typeof data.servingProvider !== "string" || !/^[a-z0-9][a-z0-9._/-]{0,127}$/.test(data.servingProvider) || ["auto", "fastest", "cheapest", "preferred"].includes(data.servingProvider)) {
-      throw new AccessInputError("invalid-input", "Router probes require an explicit serving-provider slug, without automatic routing.");
-    }
-    if (provider === "hugging-face" && data.modelId.includes(":")) throw new AccessInputError("invalid-input", "Supply the Hugging Face model and serving provider separately.");
-    return Object.freeze({ provider, operation: "probe", modelId: data.modelId, servingProvider: data.servingProvider as string | null, acceptCharges: true });
+    const route = validateModelRoute(provider, data.modelId, data.servingProvider);
+    return Object.freeze({ provider, operation: "probe", ...route, acceptCharges: true });
   } catch (error) {
     if (error instanceof ProtocolInputError) throw new AccessInputError("invalid-input", "Access operation must contain exactly the documented data fields.");
     throw error;
