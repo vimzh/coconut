@@ -1,5 +1,5 @@
 // Discovery evidence distinguishes catalog claims from a current credential's profile check.
-import type { CapabilityEvidence, CompatibilityResult, ProfileId } from "../protocol";
+import type { CapabilityEvidence, CompatibilityResult, ProfileId, ReasoningEffort } from "../protocol";
 import type { AccessFailureCode, AccessUsage, ProviderId } from "../providers";
 
 export interface SearchRequest { readonly query: string; readonly limit: number }
@@ -80,12 +80,14 @@ export interface ProfileProbe {
   readonly usage: AccessUsage;
   readonly outputLimitRequestAccepted: boolean;
   readonly nativeSchemaRequestAccepted: boolean;
+  readonly reportedReasoningEffort?: ReasoningEffort | null;
+  readonly reasoningEffortRequestAccepted?: boolean;
   readonly outcome: string | null;
 }
 
 export interface SelectionResult {
   readonly version: "1";
-  readonly policyId: "model-selection-v1";
+  readonly policyId: "model-selection-v1" | "model-selection-v2";
   readonly requestId: string;
   readonly checkedAt: string;
   readonly expiresAt: string;
@@ -102,7 +104,7 @@ export interface SelectionResult {
   readonly budget: {
     readonly maxHttpAttempts: 3;
     readonly maxInferenceRequests: 0 | 1;
-    readonly maxOutputTokens: 0 | 4096;
+    readonly maxOutputTokens: 0 | 4096 | 16384;
     readonly timeoutMs: 20000;
   };
   readonly blockers: readonly string[];

@@ -1,0 +1,416 @@
+{
+  "version": "1",
+  "kind": "exploratory-inference-calibration",
+  "reference": {
+    "expression": {
+      "op": "square",
+      "arg": {
+        "op": "variable"
+      }
+    },
+    "domain": {
+      "min": "-1",
+      "max": "1"
+    },
+    "claimedLabel": "convex"
+  },
+  "scope": "Single independently verified quadratic for transport/normalization verification; not confirmation evidence or a capability claim.",
+  "results": [
+    {
+      "version": "1",
+      "policyId": "individual-inference-v1",
+      "attemptId": "d032f27c-1913-4462-be64-ca443e2e2701",
+      "startedAt": "2026-11-07T20:03:57.478Z",
+      "finishedAt": "2026-11-07T20:04:01.460Z",
+      "requested": {
+        "provider": "openai",
+        "modelId": "gpt-6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1"
+      },
+      "selection": {
+        "version": "1",
+        "policyId": "model-selection-v1",
+        "requestId": "ca7426e4-975b-4120-a4ba-ac1d3de7ba87",
+        "checkedAt": "2026-11-07T20:03:57.478Z",
+        "expiresAt": "2026-11-07T20:08:57.478Z",
+        "request": {
+          "provider": "openai",
+          "modelId": "gpt-6-luna",
+          "servingProvider": null,
+          "profileId": "one-shot-json-v1",
+          "verification": "metadata"
+        },
+        "metadata": {
+          "modelId": "gpt-6-luna",
+          "canonicalId": null,
+          "displayName": "gpt-6-luna",
+          "providerModelId": null,
+          "servingProvider": null,
+          "providerDisplayName": null,
+          "routeStatus": null,
+          "hosted": "unknown",
+          "exactRoute": true,
+          "capabilities": {
+            "textInput": "unknown",
+            "textOutput": "unknown",
+            "outputTokenLimit": "unknown",
+            "jsonSchema": "unknown"
+          },
+          "structuredOutput": "unknown",
+          "contextWindow": null,
+          "maxOutputTokens": null,
+          "tokenParameter": "max_output_tokens",
+          "supportedParameters": null,
+          "pricing": null
+        },
+        "status": "needs-verification",
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "compatibility": {
+          "compatible": false,
+          "unsupported": [],
+          "unverified": [
+            "textInput",
+            "textOutput",
+            "outputTokenLimit"
+          ]
+        },
+        "probe": {
+          "status": "not-requested",
+          "reportedModelId": null,
+          "reportedServingProvider": null,
+          "usage": {
+            "inputTokens": null,
+            "outputTokens": null
+          },
+          "outputLimitRequestAccepted": false,
+          "nativeSchemaRequestAccepted": false,
+          "outcome": null
+        },
+        "contextFit": "not-checked",
+        "sources": [
+          "https://api.openai.com/v1/models/gpt-6-luna"
+        ],
+        "httpAttempts": 1,
+        "httpStatus": 200,
+        "budget": {
+          "maxHttpAttempts": 3,
+          "maxInferenceRequests": 0,
+          "maxOutputTokens": 0,
+          "timeoutMs": 20000
+        },
+        "blockers": [],
+        "failure": null
+      },
+      "metadata": {
+        "modelId": "gpt-6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "prompt": {
+        "protocolVersion": "1",
+        "profileId": "one-shot-json-v1",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Classify a real-valued scalar function over its entire stated closed interval.\nUse \"convex\" for convex but not concave, \"concave\" for concave but not convex, and \"neither\" for neither convex nor concave.\nAffine and constant functions are excluded from these tasks.\nThe variable is x. Fractions are exact; ^2 means square; abs means absolute value; max and min act pointwise on their scalar arguments.\nReturn exactly one JSON object with exactly two string fields: \"label\" and \"explanation\".\nUse each field exactly once.\nThe label must be exactly one of \"convex\", \"concave\", or \"neither\", in lowercase.\nGive a brief, nonblank explanation in well-formed Unicode of at most 4096 Unicode code points.\nKeep the entire response within 65536 UTF-16 code units.\nDo not include markdown fences, additional fields, or text outside the JSON object."
+          },
+          {
+            "role": "user",
+            "content": "f(x) = (x^2)\nDomain: x in [-1, 1]."
+          }
+        ],
+        "responseFormat": {
+          "kind": "prompted-json"
+        },
+        "generation": {
+          "maxOutputTokens": 4096,
+          "sampling": "provider-default",
+          "reasoning": "provider-default",
+          "tools": "none"
+        }
+      },
+      "reportedModelId": "gpt-6-luna",
+      "reportedServingProvider": null,
+      "effective": {
+        "maxOutputTokens": 4096,
+        "reasoningEffort": "medium",
+        "truncation": "disabled",
+        "nativeSchemaAccepted": null
+      },
+      "finishReason": "completed",
+      "contextFit": "provider-enforced",
+      "evidence": {
+        "sequence": 1,
+        "outcome": {
+          "protocolVersion": "1",
+          "profileId": "one-shot-json-v1",
+          "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is 2 > 0 throughout [-1, 1], so f is convex and not concave.\"}",
+          "kind": "answer",
+          "label": "convex",
+          "explanation": "The second derivative is 2 > 0 throughout [-1, 1], so f is convex and not concave."
+        },
+        "errorKind": null,
+        "elapsedMs": 3981.831833,
+        "usage": {
+          "input": {
+            "count": 220,
+            "semantics": "openai.input_tokens"
+          },
+          "output": {
+            "count": 73,
+            "semantics": "openai.output_tokens (includes reported reasoning tokens)"
+          },
+          "reasoning": {
+            "count": 32,
+            "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)"
+          }
+        },
+        "cost": null
+      },
+      "failure": null,
+      "httpAttempts": 2,
+      "inferenceRequests": 1,
+      "budget": {
+        "maxInferenceRequests": 1,
+        "maxOutputTokens": 4096,
+        "metadataTimeoutMs": 20000,
+        "inferenceTimeoutMs": 180000,
+        "retries": 0
+      }
+    },
+    {
+      "version": "1",
+      "policyId": "individual-inference-v1",
+      "attemptId": "f9fa4dd0-b590-4170-83f4-3eea58c5a610",
+      "startedAt": "2026-11-07T20:03:57.480Z",
+      "finishedAt": "2026-11-07T20:04:01.357Z",
+      "requested": {
+        "provider": "openai",
+        "modelId": "gpt-6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-schema-v1"
+      },
+      "selection": {
+        "version": "1",
+        "policyId": "model-selection-v1",
+        "requestId": "a36f873c-f775-429b-a5a4-de3d14f9719c",
+        "checkedAt": "2026-11-07T20:03:57.480Z",
+        "expiresAt": "2026-11-07T20:08:57.480Z",
+        "request": {
+          "provider": "openai",
+          "modelId": "gpt-6-luna",
+          "servingProvider": null,
+          "profileId": "one-shot-schema-v1",
+          "verification": "metadata"
+        },
+        "metadata": {
+          "modelId": "gpt-6-luna",
+          "canonicalId": null,
+          "displayName": "gpt-6-luna",
+          "providerModelId": null,
+          "servingProvider": null,
+          "providerDisplayName": null,
+          "routeStatus": null,
+          "hosted": "unknown",
+          "exactRoute": true,
+          "capabilities": {
+            "textInput": "unknown",
+            "textOutput": "unknown",
+            "outputTokenLimit": "unknown",
+            "jsonSchema": "unknown"
+          },
+          "structuredOutput": "unknown",
+          "contextWindow": null,
+          "maxOutputTokens": null,
+          "tokenParameter": "max_output_tokens",
+          "supportedParameters": null,
+          "pricing": null
+        },
+        "status": "needs-verification",
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "compatibility": {
+          "compatible": false,
+          "unsupported": [],
+          "unverified": [
+            "textInput",
+            "textOutput",
+            "outputTokenLimit",
+            "jsonSchema"
+          ]
+        },
+        "probe": {
+          "status": "not-requested",
+          "reportedModelId": null,
+          "reportedServingProvider": null,
+          "usage": {
+            "inputTokens": null,
+            "outputTokens": null
+          },
+          "outputLimitRequestAccepted": false,
+          "nativeSchemaRequestAccepted": false,
+          "outcome": null
+        },
+        "contextFit": "not-checked",
+        "sources": [
+          "https://api.openai.com/v1/models/gpt-6-luna"
+        ],
+        "httpAttempts": 1,
+        "httpStatus": 200,
+        "budget": {
+          "maxHttpAttempts": 3,
+          "maxInferenceRequests": 0,
+          "maxOutputTokens": 0,
+          "timeoutMs": 20000
+        },
+        "blockers": [],
+        "failure": null
+      },
+      "metadata": {
+        "modelId": "gpt-6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "prompt": {
+        "protocolVersion": "1",
+        "profileId": "one-shot-schema-v1",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Classify a real-valued scalar function over its entire stated closed interval.\nUse \"convex\" for convex but not concave, \"concave\" for concave but not convex, and \"neither\" for neither convex nor concave.\nAffine and constant functions are excluded from these tasks.\nThe variable is x. Fractions are exact; ^2 means square; abs means absolute value; max and min act pointwise on their scalar arguments.\nReturn exactly one JSON object with exactly two string fields: \"label\" and \"explanation\".\nUse each field exactly once.\nThe label must be exactly one of \"convex\", \"concave\", or \"neither\", in lowercase.\nGive a brief, nonblank explanation in well-formed Unicode of at most 4096 Unicode code points.\nKeep the entire response within 65536 UTF-16 code units.\nDo not include markdown fences, additional fields, or text outside the JSON object."
+          },
+          {
+            "role": "user",
+            "content": "f(x) = (x^2)\nDomain: x in [-1, 1]."
+          }
+        ],
+        "responseFormat": {
+          "kind": "json-schema",
+          "name": "classification_answer_v1",
+          "strict": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "enum": [
+                  "convex",
+                  "concave",
+                  "neither"
+                ]
+              },
+              "explanation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "explanation"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "generation": {
+          "maxOutputTokens": 4096,
+          "sampling": "provider-default",
+          "reasoning": "provider-default",
+          "tools": "none"
+        }
+      },
+      "reportedModelId": "gpt-6-luna",
+      "reportedServingProvider": null,
+      "effective": {
+        "maxOutputTokens": 4096,
+        "reasoningEffort": "medium",
+        "truncation": "disabled",
+        "nativeSchemaAccepted": true
+      },
+      "finishReason": "completed",
+      "contextFit": "provider-enforced",
+      "evidence": {
+        "sequence": 1,
+        "outcome": {
+          "protocolVersion": "1",
+          "profileId": "one-shot-schema-v1",
+          "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is f''(x) = 2 > 0 throughout [-1, 1], so f is convex and not concave.\"}",
+          "kind": "answer",
+          "label": "convex",
+          "explanation": "The second derivative is f''(x) = 2 > 0 throughout [-1, 1], so f is convex and not concave."
+        },
+        "errorKind": null,
+        "elapsedMs": 3876.5703329999997,
+        "usage": {
+          "input": {
+            "count": 263,
+            "semantics": "openai.input_tokens"
+          },
+          "output": {
+            "count": 82,
+            "semantics": "openai.output_tokens (includes reported reasoning tokens)"
+          },
+          "reasoning": {
+            "count": 29,
+            "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)"
+          }
+        },
+        "cost": null
+      },
+      "failure": null,
+      "httpAttempts": 2,
+      "inferenceRequests": 1,
+      "budget": {
+        "maxInferenceRequests": 1,
+        "maxOutputTokens": 4096,
+        "metadataTimeoutMs": 20000,
+        "inferenceTimeoutMs": 180000,
+        "retries": 0
+      }
+    }
+  ]
+}

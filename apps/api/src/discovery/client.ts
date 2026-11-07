@@ -1,6 +1,6 @@
 // Resolve catalog evidence and one explicitly authorized profile check without retaining credentials.
 import type { ResponseCreateParamsNonStreaming } from "openai/resources/responses/responses";
-import { checkCompatibility, type CapabilityEvidence } from "../protocol";
+import { checkCompatibility, getProfile, type CapabilityEvidence } from "../protocol";
 import { requestOpenAI } from "../providers/openai";
 import { parseCredential, safeAccessInputError } from "../providers/policy";
 import { classifyHttpFailure, FAILURE_MESSAGES, reflectsCredential } from "../providers/responses";
@@ -9,7 +9,7 @@ import { freezeData } from "../suites/generator";
 import { parseHuggingFaceModel, parseHuggingFaceSearch, parseOpenAIModel, parseOpenRouterModel } from "./catalog";
 import { DiscoveryInputError, modelMetadataUrls, modelSearchUrl, parseSearchRequest, parseSelectionRequest, SELECTION_TTL_MS } from "./policy";
 import { buildProfileProbe, parseProfileProbe } from "./probe";
-import type { DiscoveryFailure, ModelMetadata, ModelSearchClient, ModelSelectionClient, ProfileProbe, SelectionResult } from "./types";
+import type { DiscoveryFailure, ModelMetadata, ModelSearchClient, ModelSelectionClient, ProfileProbe, SelectionRequest } from "./types";
 
 const unknownCapabilities: CapabilityEvidence = { textInput: "unknown", textOutput: "unknown", outputTokenLimit: "unknown", jsonSchema: "unknown" };
 const unusedProbe: ProfileProbe = {
@@ -47,12 +47,14 @@ export function createModelSearchClient(fetcher: ProviderFetch = fetch): ModelSe
   };
 }
 
-function selectionBlockers(metadata: ModelMetadata, profileId: SelectionResult["request"]["profileId"]): string[] {
+function selectionBlockers(metadata: ModelMetadata, request: SelectionRequest): string[] {
   const blockers: string[] = [];
+  const profile = getProfile(request.profileId);
+  if (request.provider !== "openai" && profile.reasoning !== "provider-default") blockers.push("Explicit reasoning efforts are supported only through direct OpenAI operations. Select a permitted provider or version-1 profile explicitly.");
   if (!metadata.exactRoute && metadata.hosted !== "unknown") blockers.push("The exact requested serving route is absent or ambiguous. Select an advertised leaf route explicitly.");
   if (metadata.hosted === "unavailable") blockers.push("The selected model has no available advertised conversational route.");
-  if (metadata.contextWindow !== null && metadata.contextWindow <= 4096) blockers.push("The advertised context window leaves no room for input after reserving the profile's 4096 output tokens.");
-  const compatibility = checkCompatibility(profileId, metadata.capabilities);
+  if (metadata.contextWindow !== null && metadata.contextWindow <= profile.maxOutputTokens) blockers.push(`The advertised context window leaves no room for input after reserving the profile's ${profile.maxOutputTokens} output tokens.`);
+  const compatibility = checkCompatibility(request.profileId, metadata.capabilities);
   if (compatibility.unsupported.length) blockers.push(`Unsupported profile requirements: ${compatibility.unsupported.join(", ")}. Select another permitted model, route, or profile explicitly.`);
   return blockers;
 }
@@ -60,6 +62,7 @@ function selectionBlockers(metadata: ModelMetadata, profileId: SelectionResult["
 export function createModelSelectionClient(fetcher: ProviderFetch = fetch): ModelSelectionClient {
   return async (input, suppliedCredential, signal) => {
     const request = parseSelectionRequest(input);
+    const profile = getProfile(request.profileId);
     let credential: string;
     try { credential = parseCredential(suppliedCredential); }
     catch (error) { throw safeAccessInputError(error); }
@@ -86,7 +89,7 @@ export function createModelSelectionClient(fetcher: ProviderFetch = fetch): Mode
         : parseHuggingFaceModel(bodies[0], bodies[1], request));
       if (metadata.pricing !== null) metadata = { ...metadata, pricing: { ...metadata.pricing, retrievedAt: checkedAt } };
       capabilities = { ...metadata.capabilities };
-      blockers = selectionBlockers(metadata, request.profileId);
+      blockers = selectionBlockers(metadata, request);
       if (request.verification === "metadata") return;
       if (blockers.length) { probe = { ...unusedProbe, status: "blocked" }; return; }
       // Public hosting metadata is required before sending a credential to a router.
@@ -94,7 +97,7 @@ export function createModelSelectionClient(fetcher: ProviderFetch = fetch): Mode
         probe = { ...unusedProbe, status: "blocked", outcome: "Serving-route availability remains unknown; no inference request was sent." };
         return;
       }
-      if (metadata.tokenParameter === null || (request.profileId === "one-shot-schema-v1" && request.provider !== "openai" && metadata.structuredOutput !== "advertised")) {
+      if (metadata.tokenParameter === null || (profile.responseFormat.kind === "json-schema" && request.provider !== "openai" && metadata.structuredOutput !== "advertised")) {
         probe = { ...unusedProbe, status: "blocked", outcome: "Required request parameters remain unverified; no inference request was sent." };
         return;
       }
@@ -119,12 +122,12 @@ export function createModelSelectionClient(fetcher: ProviderFetch = fetch): Mode
     const status = failure !== null ? "failed" : blockers.length ? "blocked"
       : probe.status === "verified" && compatibility.compatible ? "ready" : "needs-verification";
     return freezeData({
-      version: "1", policyId: "model-selection-v1", requestId: crypto.randomUUID(), checkedAt,
+      version: "1", policyId: profile.reasoning === "provider-default" ? "model-selection-v1" : "model-selection-v2", requestId: crypto.randomUUID(), checkedAt,
       expiresAt: new Date(Date.parse(checkedAt) + SELECTION_TTL_MS).toISOString(), request, metadata, status,
       capabilities, compatibility, probe, contextFit: "not-checked", sources,
       httpAttempts: outcome.attempts, httpStatus: outcome.httpStatus,
       budget: { maxHttpAttempts: 3, maxInferenceRequests: request.verification === "probe" ? 1 : 0,
-        maxOutputTokens: request.verification === "probe" ? 4096 : 0, timeoutMs: 20000 }, blockers, failure,
+        maxOutputTokens: request.verification === "probe" ? profile.maxOutputTokens : 0, timeoutMs: 20000 }, blockers, failure,
     });
   };
 }

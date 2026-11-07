@@ -4,7 +4,7 @@ import type {
   Capability,
   CompatibilityResult,
   EvaluationProfile,
-  ProfileId,
+  ReasoningEffort,
   Workload,
 } from "./types";
 import { ProtocolInputError, readDataRecord, requireFields } from "./validation";
@@ -40,7 +40,7 @@ const common = {
   tools: "none",
 } as const;
 
-const profiles: Readonly<Record<ProfileId, EvaluationProfile>> = Object.freeze({
+const legacyProfiles = Object.freeze({
   "one-shot-json-v1": Object.freeze({
     ...common,
     id: "one-shot-json-v1",
@@ -60,14 +60,28 @@ const profiles: Readonly<Record<ProfileId, EvaluationProfile>> = Object.freeze({
   }),
 });
 
+const reasoningEfforts: readonly ReasoningEffort[] = ["none", "minimal", "low", "medium", "high", "xhigh", "max"];
+const profiles: readonly EvaluationProfile[] = Object.freeze([
+  ...Object.values(legacyProfiles),
+  ...reasoningEfforts.flatMap((reasoning): EvaluationProfile[] => [
+    Object.freeze({ ...legacyProfiles["one-shot-json-v1"], id: `one-shot-json-v2-${reasoning}`, maxOutputTokens: 16384, reasoning }),
+    Object.freeze({ ...legacyProfiles["one-shot-schema-v1"], id: `one-shot-schema-v2-${reasoning}`, maxOutputTokens: 16384, reasoning }),
+  ]),
+]);
+
+export function listProfiles(): readonly EvaluationProfile[] {
+  return profiles;
+}
+
 export function getProfile(profileId: unknown): EvaluationProfile {
-  if (profileId !== "one-shot-json-v1" && profileId !== "one-shot-schema-v1") {
+  const profile = profiles.find((candidate) => candidate.id === profileId);
+  if (!profile) {
     throw new ProtocolInputError(
       "unknown-profile",
-      "Use an explicit profile: one-shot-json-v1 or one-shot-schema-v1.",
+      "Use a registered versioned profile with an explicit answer format and reasoning setting.",
     );
   }
-  return profiles[profileId];
+  return profile;
 }
 
 export function checkCompatibility(profileId: unknown, evidence: unknown): CompatibilityResult {

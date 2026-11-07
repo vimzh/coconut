@@ -1,7 +1,9 @@
 // Provider-neutral contracts for versioned tasks, budgets, and model outcomes.
 import type { Label } from "../math";
 
-export type ProfileId = "one-shot-json-v1" | "one-shot-schema-v1";
+export type ReasoningEffort = "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
+export type ProfileId = "one-shot-json-v1" | "one-shot-schema-v1"
+  | `one-shot-json-v2-${ReasoningEffort}` | `one-shot-schema-v2-${ReasoningEffort}`;
 export type Capability = "textInput" | "textOutput" | "outputTokenLimit" | "jsonSchema";
 export type CapabilityState = "supported" | "unsupported" | "unknown";
 export type CapabilityEvidence = Readonly<Record<Capability, CapabilityState>>;
@@ -31,10 +33,10 @@ export interface EvaluationProfile {
   readonly method: "one-shot";
   readonly trialsPerInstance: 3;
   readonly maxInstances: 1000;
-  readonly maxOutputTokens: 4096;
+  readonly maxOutputTokens: 4096 | 16384;
   readonly maxAttemptsPerTrial: 2;
   readonly sampling: "provider-default";
-  readonly reasoning: "provider-default";
+  readonly reasoning: "provider-default" | ReasoningEffort;
   readonly conversation: "fresh-per-trial";
   readonly tools: "none";
   readonly requirements: readonly Capability[];
@@ -54,7 +56,7 @@ export interface Workload {
   readonly trialsPerInstance: 3;
   readonly logicalCalls: number;
   readonly maxAttempts: number;
-  readonly maxOutputTokens: 4096;
+  readonly maxOutputTokens: 4096 | 16384;
   readonly maxOutputTokensTotal: number;
 }
 

@@ -30,8 +30,10 @@ export function buildProfileProbe(request: SelectionRequest, metadata: ModelMeta
     return { url: "https://api.openai.com/v1/responses", method: "POST", body: JSON.stringify({
       model: request.modelId, input: `${prompt}${native ? " Use the supplied response schema." : " Return only the JSON object."}`,
       max_output_tokens: profile.maxOutputTokens, store: false, ...(native ? { text: { format: native } } : {}),
+      ...(profile.reasoning !== "provider-default" ? { reasoning: { effort: profile.reasoning } } : {}),
     }) };
   }
+  if (profile.reasoning !== "provider-default") throw new TransportFailure("invalid-provider-response");
   const tokenParameter = metadata.tokenParameter;
   if ((tokenParameter !== "max_tokens" && tokenParameter !== "max_completion_tokens")
     || (native !== null && metadata.structuredOutput !== "advertised")) throw new TransportFailure("invalid-provider-response");
@@ -53,8 +55,15 @@ export function buildProfileProbe(request: SelectionRequest, metadata: ModelMeta
 
 export function parseProfileProbe(input: unknown, request: SelectionRequest, metadata: ModelMetadata): { probe: ProfileProbe; failure: AccessFailureCode | null } {
   const body = object(input);
+  const profile = getProfile(request.profileId);
+  const effort = object(body?.reasoning)?.effort;
+  const reasoningEvidence: Pick<ProfileProbe, "reportedReasoningEffort" | "reasoningEffortRequestAccepted"> = profile.reasoning === "provider-default" ? {} : {
+    reportedReasoningEffort: effort === "none" || effort === "minimal" || effort === "low" || effort === "medium" || effort === "high" || effort === "xhigh" || effort === "max" ? effort : null,
+    reasoningEffortRequestAccepted: request.provider === "openai" && effort === profile.reasoning,
+  };
   const usage = object(body?.usage);
   const identity = {
+    ...reasoningEvidence,
     reportedModelId: identifier(body?.model),
     reportedServingProvider: identifier(body?.provider),
     usage: {
@@ -68,12 +77,13 @@ export function parseProfileProbe(input: unknown, request: SelectionRequest, met
   if (!body) return failed("invalid-provider-response");
   if (body.error !== undefined && body.error !== null) return failed(classifyHttpFailure(200, body, true));
   if (identity.reportedModelId === null) return failed("invalid-provider-response");
-  if (identity.usage.outputTokens !== null && identity.usage.outputTokens > getProfile(request.profileId).maxOutputTokens) return failed("invalid-provider-response", "output-limit-exceeded");
+  if (identity.usage.outputTokens !== null && identity.usage.outputTokens > profile.maxOutputTokens) return failed("invalid-provider-response", "output-limit-exceeded");
+  if (profile.reasoning !== "provider-default" && !reasoningEvidence.reasoningEffortRequestAccepted) return failed("invalid-provider-response", "reasoning-effort-unverified");
   let text: string;
   if (request.provider === "openai") {
     if (body.status !== "completed" || (body.incomplete_details !== undefined && body.incomplete_details !== null)) return failed("output-incomplete");
     if (!Array.isArray(body.output)) return failed("invalid-provider-response");
-    // Provider-default reasoning may add bookkeeping items; it cannot replace assistant text.
+    // Reasoning bookkeeping cannot replace the required assistant text.
     const outputs = body.output.map(object);
     if (outputs.some((item) => item === null || (item.type !== "reasoning" && item.type !== "message"))) return failed("invalid-provider-response");
     const messages = outputs.filter((item) => item?.type === "message");
@@ -100,7 +110,6 @@ export function parseProfileProbe(input: unknown, request: SelectionRequest, met
   }
   const answer = extractAnswer({ status: "completed", text }, request.profileId);
   if (answer.kind !== "answer") return failed(answer.kind === "invalid" && answer.reason === "empty" ? "no-output" : "invalid-provider-response", answer.kind === "invalid" ? answer.reason : answer.kind);
-  const profile = getProfile(request.profileId);
   const outputLimitRequestAccepted = request.provider === "openai" ? body.max_output_tokens === profile.maxOutputTokens
     : metadata.tokenParameter === "max_tokens" || metadata.tokenParameter === "max_completion_tokens";
   let nativeSchemaRequestAccepted = false;

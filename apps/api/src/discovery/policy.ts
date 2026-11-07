@@ -1,5 +1,5 @@
 // Strict selection requests never accept capability overrides, destinations, or implicit charges.
-import { getProfile } from "../protocol";
+import { getProfile, listProfiles } from "../protocol";
 import { readDataRecord, requireFields } from "../protocol/validation";
 import { validateModelRoute } from "../providers/policy";
 import { freezeData } from "../suites/generator";
@@ -7,9 +7,11 @@ import type { SearchRequest, SelectionRequest } from "./types";
 
 export const SELECTION_TTL_MS = 300_000;
 export const DISCOVERY_POLICY = freezeData({
-  version: "1", policyId: "model-selection-v1", search: "Anonymous Hugging Face catalog only; no credential or inference.",
+  version: "2", policyId: "model-selection-v2", search: "Anonymous Hugging Face catalog only; no credential or inference.",
   selection: "Metadata lookup makes no inference request. Profile probing requires explicit charge acknowledgement.",
-  maxSearchResults: 20, timeoutMs: 20_000, maxHttpAttempts: 3, maxProbeInferenceRequests: 1, maxProbeOutputTokens: 4096,
+  maxSearchResults: 20, timeoutMs: 20_000, maxHttpAttempts: 3, maxProbeInferenceRequests: 1, maxProbeOutputTokens: 16384,
+  profiles: listProfiles().map(({ id, reasoning, maxOutputTokens }) => ({ id, reasoning, maxOutputTokens })),
+  reasoning: "Version-1 profiles retain provider-default reasoning and 4096 output tokens. Explicit version-2 efforts request 16384 output tokens and are supported only for direct OpenAI operations; model support requires an exact observed effort echo. Routed explicit-effort probes are blocked.",
   freshnessMs: SELECTION_TTL_MS, credentials: "current-operation-only", persistence: "none",
   claims: "Metadata is advertised capability. A probe verifies one observed request; future availability, universal output conformance, and model accuracy remain unproved.",
   execution: "Selection records are not authorization tokens. Re-resolve untrusted selections with the current credential before execution; check each real prompt's context fit.",

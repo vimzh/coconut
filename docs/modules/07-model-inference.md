@@ -8,6 +8,10 @@ Dependent
 
 Foundation
 
+## Implementation Progress
+
+Implemented and verified under D-08 / `individual-inference-v1`. OpenAI has live calibration for both original profiles; OpenRouter/Hugging Face remain fixture-verified with live gates unresolved. Explicit reasoning uses separate versioned profiles. See the [handoff](../handoffs/07-model-inference.md) and [reasoning extension](../handoffs/reasoning-profile-extension.md) for outcomes, limits, and module 08 obligations.
+
 ## Purpose
 
 Execute an individual model request consistently across the promised services while preserving enough evidence to distinguish a model answer from an execution failure.

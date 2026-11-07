@@ -28,9 +28,10 @@ function response(selected: SelectionRequest, text = answer): Record<string, unk
   };
   const profile = getProfile(selected.profileId);
   return {
-    model: "reported-model", status: "completed", max_output_tokens: 4096,
+    model: "reported-model", status: "completed", max_output_tokens: profile.maxOutputTokens,
     output: [{ type: "message", role: "assistant", status: "completed", content: [{ type: "output_text", text }] }],
     usage: { input_tokens: 6, output_tokens: 8 },
+    ...(profile.reasoning !== "provider-default" ? { reasoning: { effort: profile.reasoning } } : {}),
     ...(profile.responseFormat.kind === "json-schema" ? { text: { format: { type: "json_schema", name: profile.responseFormat.name, strict: true, schema: ANSWER_SCHEMA } } } : {}),
   };
 }
@@ -85,6 +86,50 @@ describe("fixed profile probe plans", () => {
 });
 
 describe("profile probe response evidence", () => {
+  it("requires every explicit OpenAI effort echo independently of valid answer text", () => {
+    for (const effort of ["none", "minimal", "low", "medium", "high", "xhigh", "max"] as const) for (const format of ["json", "schema"] as const) {
+      const selected = request("openai", `one-shot-${format}-v2-${effort}`);
+      const model = metadata(selected);
+      const body = JSON.parse(buildProfileProbe(selected, model).body!);
+      expect(body.reasoning).toEqual({ effort });
+      expect(body.max_output_tokens).toBe(16384);
+      expect(body).not.toHaveProperty("temperature");
+      const original = response(selected);
+      const result = parseProfileProbe(original, selected, model);
+      expect(result.failure).toBeNull();
+      expect(result.probe).toMatchObject({ status: "verified", outputLimitRequestAccepted: true,
+        reportedReasoningEffort: effort, reasoningEffortRequestAccepted: true,
+        nativeSchemaRequestAccepted: format === "schema" });
+      for (const reasoning of [undefined, null, {}, { effort: null }, { effort: "unrecognized-private-value" }, { effort: effort === "high" ? "low" : "high" }]) {
+        const rejected = parseProfileProbe({ ...original, reasoning }, selected, model);
+        expect(rejected).toMatchObject({ failure: "invalid-provider-response", probe: {
+          status: "not-verified", outcome: "reasoning-effort-unverified", reasoningEffortRequestAccepted: false,
+        } });
+        expect(JSON.stringify(rejected)).not.toContain("unrecognized-private-value");
+      }
+      expect(parseProfileProbe({ ...original, usage: { output_tokens: 16384 } }, selected, model).failure).toBeNull();
+      expect(parseProfileProbe({ ...original, usage: { output_tokens: 16385 } }, selected, model)).toMatchObject({ failure: "invalid-provider-response", probe: { outcome: "output-limit-exceeded" } });
+      expect(parseProfileProbe({ ...original, max_output_tokens: 4096 }, selected, model).probe.outputLimitRequestAccepted).toBe(false);
+      if (format === "schema") expect(parseProfileProbe({ ...original, text: undefined }, selected, model).probe.nativeSchemaRequestAccepted).toBe(false);
+    }
+  });
+
+  it("keeps version-1 request and probe shapes unchanged even if an effort is returned", () => {
+    const selected = request();
+    expect(JSON.parse(buildProfileProbe(selected, metadata(selected)).body!)).not.toHaveProperty("reasoning");
+    const result = parseProfileProbe({ ...response(selected), reasoning: { effort: "high" } }, selected, metadata(selected));
+    expect(result.probe).not.toHaveProperty("reportedReasoningEffort");
+    expect(result.probe).not.toHaveProperty("reasoningEffortRequestAccepted");
+  });
+
+  it("rejects routed explicit-effort probes even when exact metadata advertises schema support", () => {
+    for (const provider of ["openrouter", "hugging-face"] as const) {
+      const selected = request(provider, "one-shot-schema-v2-high");
+      expect(() => buildProfileProbe(selected, metadata(selected))).toThrow(TransportFailure);
+      expect(parseProfileProbe({ ...response(selected), reasoning: { effort: "high" } }, selected, metadata(selected))).toMatchObject({ failure: "invalid-provider-response", probe: { outcome: "reasoning-effort-unverified" } });
+    }
+  });
+
   it("accepts reported usage at the exact requested ceiling", () => {
     for (const provider of ["openai", "openrouter", "hugging-face"] as const) {
       const selected = request(provider);

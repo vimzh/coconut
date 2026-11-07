@@ -49,6 +49,14 @@ describe("OpenAI model metadata", () => {
 });
 
 describe("OpenRouter route metadata", () => {
+  it("checks output capacity against the requested versioned profile", () => {
+    const selected: SelectionRequest = { ...request("openrouter"), profileId: "one-shot-json-v2-high" };
+    for (const max_completion_tokens of [4096, 16383, 16384, 32768]) {
+      const parsed = parseOpenRouterModel(openRouter([{ ...endpoint, max_completion_tokens }]), selected);
+      expect(parsed.capabilities.outputTokenLimit).toBe(max_completion_tokens < 16384 ? "unsupported" : "supported");
+    }
+  });
+
   it("uses exact endpoint metadata and preserves decimal prices without numeric coercion", () => {
     const result = parseOpenRouterModel(openRouter(), request("openrouter"));
     expect(result).toMatchObject({ canonicalId: "owner/model-a-stable", providerModelId: "owner/model-a", servingProvider: "host-a", providerDisplayName: "Host A", hosted: "available", routeStatus: 0, exactRoute: true, contextWindow: 32000, maxOutputTokens: 4096, tokenParameter: "max_tokens", structuredOutput: "advertised", pricing: { currency: "USD", unit: "token", input: "0.00000015", output: "0.0000006" } });

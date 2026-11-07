@@ -72,6 +72,56 @@ describe("public catalog search orchestration", () => {
 });
 
 describe("credentialed model selection", () => {
+  it("uses the explicit profile's cap and effort without altering legacy evidence", async () => {
+    for (const format of ["json", "schema"] as const) {
+      const selected: SelectionRequest = { ...request("openai", true, format === "schema"), profileId: `one-shot-${format}-v2-max` };
+      const { calls, fetcher } = wire([openAI, { ...completed, max_output_tokens: 16384, reasoning: { effort: "max" } }]);
+      const result = await createModelSelectionClient(fetcher)(selected, credential);
+      expect(result).toMatchObject({ version: "1", policyId: "model-selection-v2", status: "ready", httpAttempts: 2,
+        budget: { maxOutputTokens: 16384 }, probe: { reportedReasoningEffort: "max", reasoningEffortRequestAccepted: true } });
+      expect(JSON.parse(calls[1]!.init.body as string)).toMatchObject({ max_output_tokens: 16384, reasoning: { effort: "max" } });
+      expect(JSON.stringify(result)).not.toContain(credential);
+    }
+    const { fetcher } = wire([openAI, completed]);
+    const legacy = await createModelSelectionClient(fetcher)(request("openai", true), credential);
+    expect(legacy.policyId).toBe("model-selection-v1");
+    expect(legacy.budget.maxOutputTokens).toBe(4096);
+    expect(legacy.probe).not.toHaveProperty("reportedReasoningEffort");
+    expect(legacy.probe).not.toHaveProperty("reasoningEffortRequestAccepted");
+  });
+
+  it("fails closed when a valid answer omits or changes the requested effort", async () => {
+    for (const reasoning of [undefined, { effort: "medium" }]) {
+      const { calls, fetcher } = wire([openAI, { ...completed, max_output_tokens: 16384, reasoning }]);
+      const selected: SelectionRequest = { ...request("openai", true), profileId: "one-shot-json-v2-high" };
+      const result = await createModelSelectionClient(fetcher)(selected, credential);
+      expect(result).toMatchObject({ status: "failed", httpAttempts: 2, failure: { code: "invalid-provider-response" },
+        probe: { status: "not-verified", reasoningEffortRequestAccepted: false, outcome: "reasoning-effort-unverified" } });
+      expect(calls).toHaveLength(2);
+    }
+  });
+
+  it("blocks explicit efforts on both routers before paid work for metadata and probe selections", async () => {
+    for (const provider of ["openrouter", "hugging-face"] as const) for (const verify of [false, true]) {
+      const bodies = provider === "openrouter" ? [orMetadata({ max_completion_tokens: 16384 })] : [hub, hfMetadata];
+      const { calls, fetcher } = wire(bodies);
+      const selected: SelectionRequest = { ...request(provider, verify), profileId: "one-shot-schema-v2-high" };
+      const result = await createModelSelectionClient(fetcher)(selected, credential);
+      expect(result).toMatchObject({ status: "blocked", policyId: "model-selection-v2", failure: null, httpAttempts: bodies.length });
+      expect(result.blockers.join(" ")).toContain("direct OpenAI");
+      expect(result.probe.status).toBe(verify ? "blocked" : "not-requested");
+      expect(calls.every(({ init }) => init.method === "GET")).toBe(true);
+      expect(calls.every(({ init }) => !new Headers(init.headers).has("authorization"))).toBe(true);
+    }
+  });
+
+  it("reserves the selected profile's full output budget in context checks", async () => {
+    const { fetcher } = wire([orMetadata({ context_length: 16384, max_completion_tokens: 16384 })]);
+    const selected: SelectionRequest = { ...request("openrouter", true), profileId: "one-shot-json-v2-low" };
+    const result = await createModelSelectionClient(fetcher)(selected, credential);
+    expect(result.blockers.join(" ")).toContain("16384 output tokens");
+  });
+
   it("retrieves OpenAI metadata through the SDK without inventing compatibility or making inference", async () => {
     const { calls, fetcher } = wire([openAI]);
     const result = await createModelSelectionClient(fetcher)(request(), credential);

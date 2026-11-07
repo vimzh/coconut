@@ -25,14 +25,16 @@ export async function requestOpenAI(
   send: (url: string, init: RequestInit) => Promise<Response>,
   readBody: (response: Response) => Promise<string>,
   invoke: (client: OpenAI) => Promise<Response>,
+  timeoutMs: number = ACCESS_TIMEOUT_MS,
 ): Promise<Response> {
+  if (!Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 180_000) throw new Error("OpenAI timeout must be an integer from 1 through 180000 milliseconds.");
   let rejected: Response | undefined;
   let transportError: unknown;
   // The pinned SDK patch disables ambient header reads during construction.
   const client = new OpenAI({
     apiKey: credential, adminAPIKey: null, organization: null, project: null, webhookSecret: null,
     baseURL: "https://api.openai.com/v1", dataResidency: null,
-    maxRetries: 0, timeout: ACCESS_TIMEOUT_MS, logLevel: "off",
+    maxRetries: 0, timeout: timeoutMs, logLevel: "off",
     fetch: async (input, init) => {
       try {
         const url = input instanceof Request ? input.url : String(input);

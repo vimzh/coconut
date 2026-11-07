@@ -9,6 +9,21 @@ const url = "https://provider.example/models";
 afterEach(() => mock.restore());
 
 describe("bounded provider operations", () => {
+  it("allows categorical HTTP-error evidence without accepting malformed success JSON", async () => {
+    for (const status of [200, 401, 429, 503]) {
+      const result = await runProviderTransport({ credential: null, maxAttempts: 1, fetcher: async () => new Response("not JSON", { status }) }, async transport => transport.readJson(await transport.send(url, {})));
+      if (status === 200) expect(result).toMatchObject({ ok: false, code: "invalid-provider-response" });
+      else expect(result).toMatchObject({ ok: true, value: null, httpStatus: status });
+    }
+  });
+
+  it("rejects timeout overrides outside the explicit operation ceiling before sending", async () => {
+    for (const timeoutMs of [0, -1, 180001, NaN, Infinity, 1.5]) {
+      const fetcher = mock(async () => Response.json({}));
+      await expect(runProviderTransport({ fetcher, credential: null, maxAttempts: 1, timeoutMs }, async () => undefined)).rejects.toThrow("Provider timeout");
+      expect(fetcher).not.toHaveBeenCalled();
+    }
+  });
   it("counts and bounds the actual sends before a fourth request can leave", async () => {
     const fetcher = mock(async () => Response.json({ ready: true }));
     const result = await runProviderTransport({ fetcher, credential, maxAttempts: 3 }, async (transport) => {

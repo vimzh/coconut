@@ -1,5 +1,5 @@
 // Normalize catalog claims without turning hosting metadata into visitor permission or schema proof.
-import type { CapabilityState } from "../protocol/types";
+import { getProfile, type CapabilityState } from "../protocol";
 import { modelMetadataUrls } from "./policy";
 import type { AdvertisedRoute, ModelMetadata, SearchModel, SelectionRequest } from "./types";
 
@@ -126,7 +126,7 @@ export function parseOpenRouterModel(input: unknown, request: SelectionRequest):
     supportedParameters: parameters, pricing: selected ? pricing(selected.pricing, false, request) : null, structuredOutput,
     capabilities: {
       textInput: modality(architecture?.input_modalities), textOutput: modality(architecture?.output_modalities),
-      outputTokenLimit: maxOutputTokens !== null && maxOutputTokens < 4096 ? "unsupported" : tokenParameter !== null && maxOutputTokens !== null ? "supported" : "unknown",
+      outputTokenLimit: maxOutputTokens !== null && maxOutputTokens < getProfile(request.profileId).maxOutputTokens ? "unsupported" : tokenParameter !== null && maxOutputTokens !== null ? "supported" : "unknown",
       jsonSchema: structuredOutput === "unsupported" ? "unsupported" : "unknown",
     },
   };

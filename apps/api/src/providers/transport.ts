@@ -36,10 +36,12 @@ function discardBody(response: Response): void {
 }
 
 export async function runProviderTransport<T>(
-  options: { fetcher?: ProviderFetch; credential: string | null; signal?: AbortSignal; maxAttempts: 1 | 2 | 3 },
+  options: { fetcher?: ProviderFetch; credential: string | null; signal?: AbortSignal; maxAttempts: 1 | 2 | 3; timeoutMs?: number },
   work: (transport: ProviderTransport) => Promise<T>,
 ): Promise<TransportOutcome<T>> {
   if (![1, 2, 3].includes(options.maxAttempts)) throw new Error("Provider operations require a request limit from 1 through 3.");
+  const timeoutMs = options.timeoutMs ?? ACCESS_TIMEOUT_MS;
+  if (!Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 180_000) throw new Error("Provider timeout must be an integer from 1 through 180000 milliseconds.");
   const fetcher = options.fetcher ?? fetch;
   const controller = new AbortController();
   let stopped: "cancelled" | "timeout" | null = null;
@@ -59,7 +61,7 @@ export async function runProviderTransport<T>(
     rejectStopped(new TransportFailure(code));
   };
   const onAbort = () => stop("cancelled");
-  const timer = setTimeout(() => stop("timeout"), ACCESS_TIMEOUT_MS);
+  const timer = setTimeout(() => stop("timeout"), timeoutMs);
   options.signal?.addEventListener("abort", onAbort, { once: true });
 
   const send = async (url: string, init: RequestInit): Promise<Response> => {
@@ -138,7 +140,11 @@ export async function runProviderTransport<T>(
       const text = await readBody(response);
       let body: unknown;
       try { body = JSON.parse(text); }
-      catch { throw new TransportFailure("invalid-provider-response"); }
+      catch {
+        // Error status still carries actionable evidence when its bounded body is text or empty.
+        if (response.status >= 400 && !response.ok) return null;
+        throw new TransportFailure("invalid-provider-response");
+      }
       if (options.credential !== null && reflectsCredential(JSON.stringify(body), options.credential)) throw new TransportFailure("credential-reflection");
       return body;
     },

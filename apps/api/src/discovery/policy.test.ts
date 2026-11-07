@@ -64,6 +64,17 @@ describe("strict discovery data records", () => {
 });
 
 describe("explicit model selection policy", () => {
+  it("enumerates profile-specific probe limits without changing selection or consent fields", () => {
+    expect(DISCOVERY_POLICY.profiles).toHaveLength(16);
+    expect(Object.isFrozen(DISCOVERY_POLICY.profiles)).toBe(true);
+    for (const profile of DISCOVERY_POLICY.profiles) {
+      expect(Object.isFrozen(profile)).toBe(true);
+      expect(parseSelectionRequest({ ...selection, profileId: profile.id }).profileId).toBe(profile.id);
+      expect(profile.maxOutputTokens).toBe(profile.reasoning === "provider-default" ? 4096 : 16384);
+      expect(() => parseSelectionRequest({ ...selection, profileId: profile.id, verification: "probe" })).toThrow(DiscoveryInputError);
+    }
+  });
+
   it("accepts each provider and profile without inference consent in metadata mode", () => {
     for (const profileId of ["one-shot-json-v1", "one-shot-schema-v1"] as const) {
       for (const input of [selection, routed, { ...routed, provider: "hugging-face" }] as const) {
@@ -131,7 +142,7 @@ describe("explicit model selection policy", () => {
       "https://router.huggingface.co/v1/models/owner/model-a",
     ]);
     expect(Object.isFrozen(DISCOVERY_POLICY)).toBe(true);
-    expect(DISCOVERY_POLICY).toMatchObject({ freshnessMs: 300000, maxSearchResults: 20, maxHttpAttempts: 3, maxProbeInferenceRequests: 1, maxProbeOutputTokens: 4096, persistence: "none" });
+    expect(DISCOVERY_POLICY).toMatchObject({ version: "2", policyId: "model-selection-v2", freshnessMs: 300000, maxSearchResults: 20, maxHttpAttempts: 3, maxProbeInferenceRequests: 1, maxProbeOutputTokens: 16384, persistence: "none" });
   });
 });
 
