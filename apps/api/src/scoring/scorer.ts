@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import { buildPrompt, calculateWorkload, getProfile } from "../protocol";
 import { validateSuiteArtifact } from "../suites/artifact";
 import { buildNumericalPrompts } from "../numerics/prompt";
-import type { NumericalBackend } from "../numerics/types";
+import type { NumericalBackend, NumericalPromptVersion } from "../numerics/types";
 import { freezeData } from "../suites/generator";
 import { scoreClassifications, type ClassificationReport } from "./classification";
 import { computeDiagnostics, type DiagnosticsReport } from "./diagnostics";
@@ -36,7 +36,7 @@ export interface ScoringReport {
     readonly model: RunEvidence["model"];
     readonly workload: ReturnType<typeof calculateWorkload>;
     readonly evidenceSha256: string;
-    readonly certification?: { readonly backend: NumericalBackend; readonly promptVersion: "smooth-v1" };
+    readonly certification?: { readonly backend: NumericalBackend; readonly promptVersion: NumericalPromptVersion };
   };
   readonly run: RunEvidence["run"];
   readonly overall: SliceReport;
@@ -62,7 +62,7 @@ export async function scoreEvaluation(input: unknown): Promise<ScoringReport> {
     };
   });
   const prompts = suite.formatVersion === "2"
-    ? await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), evidence.profileId)
+    ? await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), evidence.profileId, suite.promptVersion)
     : suite.cases.map((entry) => buildPrompt(entry.reference, evidence.profileId));
   const lengths: ExpressionLength[] = suite.cases.map((entry, index) => {
     const prompt = prompts[index];

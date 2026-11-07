@@ -2,6 +2,9 @@
 import type { Label } from "../math";
 import type { SuiteRequest, GenerationSummary } from "../suites/types";
 
+export type NumericalPromptVersion = "smooth-v1" | "smooth-v2";
+export type NumericalSuiteRequest = SuiteRequest & { readonly promptVersion?: "smooth-v2" };
+
 export type SmoothExpression =
   | { readonly op: "variable" }
   | { readonly op: "constant"; readonly value: string }
@@ -57,10 +60,10 @@ export interface NumericalSuite {
   readonly depthPolicyVersion: "smooth-v1";
   readonly verifierVersion: "arb-jet-v1";
   readonly protocolVersion: "1";
-  readonly promptVersion: "smooth-v1";
+  readonly promptVersion: NumericalPromptVersion;
   readonly backend: NumericalBackend;
   readonly id: string;
-  readonly request: SuiteRequest;
+  readonly request: NumericalSuiteRequest;
   readonly cases: readonly NumericalCase[];
   readonly summary: GenerationSummary;
   readonly distinctness: "disjoint-value-enclosures-v1";
@@ -81,7 +84,7 @@ export type NumericalGenerationResult =
   | {
       readonly status: "incomplete";
       readonly reason: "cancelled" | "attempt-limit";
-      readonly request: SuiteRequest;
+      readonly request: NumericalSuiteRequest;
       readonly cases: readonly NumericalCase[];
       readonly summary: GenerationSummary;
       readonly attempts: readonly CandidateAttempt[];

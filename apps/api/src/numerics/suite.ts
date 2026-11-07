@@ -2,23 +2,39 @@
 import { createHash } from "node:crypto";
 import type { Label } from "../math";
 import { freezeData, LABELS, MAX_CANDIDATES_PER_CASE, parseSuiteRequest, SuiteInputError } from "../suites/generator";
-import type { Coverage, GenerationSummary, SuiteRequest } from "../suites/types";
+import type { Coverage, GenerationSummary } from "../suites/types";
+import { readDataRecord, requireFields } from "../protocol/validation";
 import { certifyReferences } from "./backend";
 import { createSmoothCandidate } from "./candidates";
-import type { CandidateAttempt, NumericalCase, NumericalCertificate, NumericalGenerationResult, NumericalSuite } from "./types";
+import type { CandidateAttempt, NumericalCase, NumericalCertificate, NumericalGenerationResult, NumericalSuite, NumericalSuiteRequest } from "./types";
 
 export const SMOOTH_DEPTHS = Object.freeze([7, 9, 11]);
-export const DEFAULT_NUMERICAL_REQUEST: SuiteRequest = freezeData({
+export const DEFAULT_NUMERICAL_REQUEST: NumericalSuiteRequest = freezeData({
   seed: "coconut-smooth-v1", depths: [...SMOOTH_DEPTHS], casesPerClass: 3,
-  profileId: "one-shot-json-v1", purpose: "evaluation",
+  profileId: "one-shot-json-v1", purpose: "evaluation", promptVersion: "smooth-v2",
 });
 
-export function parseNumericalRequest(input: unknown): SuiteRequest {
-  const request = parseSuiteRequest(input);
-  if (request.depths.some((depth) => !SMOOTH_DEPTHS.includes(depth)) || request.casesPerClass > 10) {
-    throw new SuiteInputError("Smooth suites require depths from [7, 9, 11] and at most 10 cases per class per depth.");
+export function parseNumericalRequest(input: unknown): NumericalSuiteRequest {
+  try {
+    const data = readDataRecord(input, "Numerical suite request");
+    let request: NumericalSuiteRequest;
+    if (Object.hasOwn(data, "promptVersion")) {
+      requireFields(data, ["seed", "depths", "casesPerClass", "profileId", "purpose", "promptVersion"]);
+      if (data.promptVersion !== "smooth-v2") throw new SuiteInputError("Explicit numerical prompt version must be smooth-v2; legacy requests omit the field.");
+      const { promptVersion, ...base } = data;
+      request = freezeData({ ...parseSuiteRequest(base), promptVersion });
+    } else {
+      // Preserve the original request shape so historical identities replay exactly.
+      request = parseSuiteRequest(data);
+    }
+    if (request.depths.some((depth) => !SMOOTH_DEPTHS.includes(depth)) || request.casesPerClass > 10) {
+      throw new SuiteInputError("Smooth suites require depths from [7, 9, 11] and at most 10 cases per class per depth.");
+    }
+    return request;
+  } catch (error) {
+    if (error instanceof SuiteInputError) throw error;
+    throw new SuiteInputError(error instanceof Error ? error.message : "Invalid numerical suite request.");
   }
-  return request;
 }
 
 export const numericalDigest = (value: unknown): string => createHash("sha256").update(JSON.stringify(value)).digest("hex");
@@ -105,7 +121,7 @@ export async function generateNumericalSuite(input: unknown, signal?: AbortSigna
   }
   const content: Omit<NumericalSuite, "id"> = {
     formatVersion: "2", generatorVersion: "smooth-v1", depthPolicyVersion: "smooth-v1",
-    verifierVersion: "arb-jet-v1", protocolVersion: "1", promptVersion: "smooth-v1", backend,
+    verifierVersion: "arb-jet-v1", protocolVersion: "1", promptVersion: request.promptVersion ?? "smooth-v1", backend,
     request, cases: ordered, summary: summary(), distinctness: "disjoint-value-enclosures-v1", attempts,
   };
   return freezeData({ status: "complete", suite: { ...content, id: `suite-smooth-v1-${numericalDigest(content)}` } });

@@ -31,6 +31,7 @@ The exact rules for publishing a visitor's run, accessing saved results, and ret
 - Generate expressions at controlled composition depths with explicit input domains and verified reference labels.
 - Offer a separately versioned smooth-function track with exponential, logarithmic, square-root, rational, and polynomial families. Rigorous derivative enclosures certify labels across entire intervals; unresolved cases stay unverified. Retain proofs of pairwise distinct functions alongside generation failures.
 - Turn expressions into clear model prompts while keeping reference labels and validation evidence out of the model input.
+- New smooth evaluations use separately versioned, domain-aware instructions with a brief mathematical justification. Keep earlier wording reproducible and separate comparison populations when instructions change; the [adaptation record](research/prompt-adaptation.md) documents the source and current contract.
 - Extract a model answer into convex, concave, or neither under a defined answer policy.
 - Compare answers with the reference labels using pooled macro-F1, accuracy, and class detail overall and by depth. The first protocol uses three fresh trials; unusable replies count as failures, infrastructure/missing work stays separate, and incomplete scores remain provisional or unavailable. Report trial spread and agreement with their eligible populations.
 - Preserve the evidence needed to inspect the mathematical task, the model's returned answer, and the reported score.

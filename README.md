@@ -39,12 +39,14 @@ Generation refuses to overwrite an existing file. Supply `--request <json-path>`
 The separate smooth engine adds exponential, logarithmic, square-root, rational, and polynomial functions. Native Arb arithmetic encloses derivatives with rigorous error bounds; adaptive interval covers establish global curvature and domain validity. Unresolved cases remain unverified. Its retained 27-case suite covers three labels at measured depths 7, 9, and 11:
 
 ```sh
-bun run numerics:verify --input apps/api/data/suites/smooth-v1.json
-bun run numerics:generate --output /tmp/coconut-smooth-v1.json
+bun run numerics:verify --input apps/api/data/suites/smooth-v2.json
+bun run numerics:generate --output /tmp/coconut-smooth-v2.json
 bun run numerics:benchmark --output /tmp/coconut-numerical-timing.json
 ```
 
 Numerical artifacts use a separate format, generator, verifier, and task wording identity; the shared scorer accepts either artifact version. The legacy suite remains reproducible. Native batches accept up to 64 references with a 60-second deadline; provider keys are excluded from the worker environment. These commands currently run from the repository checkout; deployment must package the Python environment and worker alongside it. See the [numerical engine plan](docs/plans/numerical-certification-and-generation.md) and [handoff](docs/handoffs/numerical-certification-and-generation.md) for guarantees, actual timing, and limits. Richer function coverage does not establish model difficulty or comparable scores across suites.
+
+New numerical requests explicitly select `promptVersion: "smooth-v2"`. This default uses domain-aware instructions, permits any valid mathematical method, and asks for a brief JSON justification. Historical five-field requests and `smooth-v1.json` retain their original wording and identities. The [prompt adaptation record](docs/research/prompt-adaptation.md) contains the exact current instructions, source provenance, and comparison limits.
 
 Generate a scoring report from the controlled offline fixture:
 

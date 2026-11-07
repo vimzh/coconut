@@ -4,6 +4,7 @@ import { extractAnswer } from "../protocol";
 import { scoreEvaluation } from "../scoring";
 import type { RunEvidence } from "../scoring/types";
 import { validateSuiteArtifact } from "../suites/artifact";
+import type { SuiteRequest } from "../suites/types";
 import { validateNumericalSuite } from "./manifest";
 import { buildNumericalPrompt, buildNumericalPrompts } from "./prompt";
 import { DEFAULT_NUMERICAL_REQUEST, generateNumericalSuite, parseNumericalRequest, provedDistinct } from "./suite";
@@ -14,6 +15,11 @@ async function smallSuite(): Promise<NumericalSuite> {
   const result = await generateNumericalSuite({ ...DEFAULT_NUMERICAL_REQUEST, depths: [7], casesPerClass: 1 });
   if (result.status !== "complete") throw new Error(`Fixture incomplete: ${JSON.stringify(result.summary)}`);
   return result.suite;
+}
+
+function legacyRequest(request: NumericalSuite["request"]): SuiteRequest {
+  const { seed, depths, casesPerClass, profileId, purpose } = request;
+  return { seed, depths, casesPerClass, profileId, purpose };
 }
 
 function evidence(suite: NumericalSuite): RunEvidence {
@@ -53,9 +59,43 @@ describe("smooth suites", () => {
       expect(provedDistinct(suite.cases[i].certificate, suite.cases[j].certificate)).toBe(true);
     }
     expect(await validateNumericalSuite(JSON.parse(JSON.stringify(suite)))).toEqual(suite);
-    expect(await Bun.file(new URL("../../data/suites/smooth-v1.json", import.meta.url)).text()).toBe(`${JSON.stringify(suite)}\n`);
+    expect(suite.promptVersion).toBe("smooth-v2");
+    expect(suite.request).toHaveProperty("promptVersion", "smooth-v2");
+    expect(await Bun.file(new URL("../../data/suites/smooth-v2.json", import.meta.url)).text()).toBe(`${JSON.stringify(suite)}\n`);
     expect(Object.isFrozen(suite.cases[0].certificate.cover)).toBe(true);
   }, 30000);
+
+  it("replays the retained legacy artifact without changing its request or exact bytes", async () => {
+    const bytes = await Bun.file(new URL("../../data/suites/smooth-v1.json", import.meta.url)).text();
+    const retained = await validateNumericalSuite(JSON.parse(bytes));
+    expect(`${JSON.stringify(retained)}\n`).toBe(bytes);
+    expect(retained.promptVersion).toBe("smooth-v1");
+    expect(retained.request).not.toHaveProperty("promptVersion");
+    const generated = await generateNumericalSuite(retained.request);
+    expect(generated.status).toBe("complete");
+    if (generated.status === "complete") expect(generated.suite).toEqual(retained);
+  });
+
+  it("changes wording identity while preserving all mathematical cases and evidence", async () => {
+    const current = await smallSuite();
+    const previous = await generateNumericalSuite(legacyRequest(current.request));
+    if (previous.status !== "complete") throw new Error("Legacy fixture incomplete.");
+    const legacy = previous.suite;
+    expect(legacy.promptVersion).toBe("smooth-v1");
+    expect(current.promptVersion).toBe("smooth-v2");
+    expect(legacy.cases).toEqual(current.cases);
+    expect(legacy.attempts).toEqual(current.attempts);
+    expect(legacy.summary).toEqual(current.summary);
+    expect(legacy.backend).toEqual(current.backend);
+    expect(legacy.generatorVersion).toBe(current.generatorVersion);
+    expect(legacy.id).not.toBe(current.id);
+    expect(legacy.request).toEqual(legacyRequest(current.request));
+    for (const altered of [structuredClone(current), structuredClone(legacy)]) {
+      if (altered.promptVersion === "smooth-v2") Reflect.deleteProperty(altered.request, "promptVersion");
+      else Object.assign(altered.request, { promptVersion: "smooth-v2" });
+      await expect(validateNumericalSuite(altered)).rejects.toThrow("reproduction");
+    }
+  });
 
   it("preserves deterministic identity and changes identity with the seed or purpose", async () => {
     const suite = await smallSuite();
@@ -102,6 +142,22 @@ describe("smooth suites", () => {
     }
   });
 
+  it("accepts only the explicit new request version and never invokes version accessors", () => {
+    const legacy = legacyRequest(DEFAULT_NUMERICAL_REQUEST);
+    expect(parseNumericalRequest(legacy)).toEqual(legacy);
+    expect(parseNumericalRequest(DEFAULT_NUMERICAL_REQUEST)).toEqual(DEFAULT_NUMERICAL_REQUEST);
+    for (const promptVersion of [undefined, null, "smooth-v1", "smooth-v3", 2]) {
+      expect(() => parseNumericalRequest({ ...legacy, promptVersion })).toThrow();
+    }
+    let reads = 0;
+    const getter = Object.defineProperty({ ...legacy }, "promptVersion", {
+      enumerable: true,
+      get() { reads++; throw new Error("Version accessor must not run."); },
+    });
+    expect(() => parseNumericalRequest(getter)).toThrow();
+    expect(reads).toBe(0);
+  });
+
   it("fills requests crossing the native batch boundary without changing order", async () => {
     const result = await generateNumericalSuite({ ...DEFAULT_NUMERICAL_REQUEST, casesPerClass: 10 });
     expect(result.status).toBe("complete");
@@ -146,12 +202,12 @@ describe("smooth suites", () => {
       const prompts = await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), profile);
       for (let i = 0; i < prompts.length; i++) {
         const prompt = prompts[i];
-        expect(prompt.promptVersion).toBe("smooth-v1");
+        expect(prompt.promptVersion).toBe("smooth-v2");
         expect(prompt.messages[1].content).toBe(`f(x) = ${suite.cases[i].certificate.renderedExpression}\nDomain: x in [-1, 1].`);
         for (const forbidden of [suite.cases[i].id, suite.cases[i].family, "certificate", "claimedLabel", "witness", "arb-jet"]) {
           expect(JSON.stringify(prompt)).not.toContain(forbidden);
         }
-        expect(prompt.messages[0].content).toContain("natural logarithm");
+        expect(prompt.messages[0].content).toContain("exp and log use base e");
       }
     }
     await expect(buildNumericalPrompt({ ...suite.cases[0].reference, claimedLabel: "neither" }, "one-shot-json-v1"))
@@ -163,11 +219,32 @@ describe("smooth suites", () => {
     const report = await scoreEvaluation({ suite, evidence: evidence(suite) });
     expect(report.overall.classification.macroF1).toBe(1);
     expect(report.overall.classification.population.plannedTrials).toBe(9);
-    expect(report.identity.certification).toEqual({ backend: suite.backend, promptVersion: "smooth-v1" });
+    expect(report.identity.certification).toEqual({ backend: suite.backend, promptVersion: "smooth-v2" });
     expect(report.identity.verifierVersion).toBe("arb-jet-v1");
     expect(report.identity.workload.logicalCalls).toBe(9);
     const illustrative = await generateNumericalSuite({ ...suite.request, purpose: "illustration" });
     if (illustrative.status !== "complete") throw new Error("Illustration fixture incomplete.");
     await expect(scoreEvaluation({ suite: illustrative.suite, evidence: evidence(illustrative.suite) })).rejects.toThrow("Illustrative");
+  });
+
+  it("scores each recorded wording version with its actual prompt lengths", async () => {
+    const current = await smallSuite();
+    const previous = await generateNumericalSuite(legacyRequest(current.request));
+    if (previous.status !== "complete") throw new Error("Legacy scoring fixture incomplete.");
+    const reports = [];
+    for (const suite of [previous.suite, current]) {
+      const prompts = await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), suite.request.profileId, suite.promptVersion);
+      const report = await scoreEvaluation({ suite, evidence: evidence(suite) });
+      expect(report.identity.certification).toEqual({ backend: suite.backend, promptVersion: suite.promptVersion });
+      for (let index = 0; index < suite.cases.length; index++) {
+        const measured = report.overall.diagnostics.lengths.perCase.find((entry) => entry.caseId === suite.cases[index].id);
+        const expected = prompts[index].messages.reduce((total, message) => total + [...message.content].length, 0);
+        expect(measured?.promptCharacters).toBe(expected);
+      }
+      reports.push(report);
+    }
+    expect(reports[0].id).not.toBe(reports[1].id);
+    expect(reports[0].overall.classification).toEqual(reports[1].overall.classification);
+    expect(reports[0].overall.diagnostics.lengths.promptCharacters).not.toEqual(reports[1].overall.diagnostics.lengths.promptCharacters);
   });
 });

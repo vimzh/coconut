@@ -4,6 +4,8 @@
 
 The smooth track is the recommended starting point for new evaluation-run and interface development. It adds rigorous numerical certification and seven smooth function families, while preserving the exact engine and every retained version-1 artifact. This extension connects generation, full replay, model-visible prompts, existing answer extraction, and shared scoring. It does not implement model discovery, evaluation inference, run persistence, or UI modules.
 
+**Prompt update:** New evaluations now select wording version `smooth-v2`; the mathematical generator, cases, certification, budgets, and extractor remain as described below. The [adaptation record](../research/prompt-adaptation.md) documents the current prompt and new artifact. The original `smooth-v1` artifact, wording, and measurements in this handoff remain reproducible historical evidence.
+
 The trusted numerical implementation is Python 3.13 with `python-flint==0.9.0` and observed/required FLINT `3.6.0`. `uv.lock` fixes package distributions; the bridge rejects an unexpected native identity. The worker uses fixed 192-bit precision and outward-rounded Arb endpoints. Exact rational endpoints are serialized directly, without converting through Python floats or decimal display strings.
 
 ## Mathematical contract

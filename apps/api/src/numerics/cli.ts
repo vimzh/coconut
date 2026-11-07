@@ -35,7 +35,7 @@ export async function runNumericalCli(args: readonly string[]): Promise<void> {
     const path = options.get("--input");
     if (!path) throw new Error(usage);
     const suite = await validateNumericalSuite(await readJson(path));
-    console.log(JSON.stringify({ id: suite.id, backend: suite.backend, summary: suite.summary }));
+    console.log(JSON.stringify({ id: suite.id, promptVersion: suite.promptVersion, backend: suite.backend, summary: suite.summary }));
     return;
   }
   const output = options.get("--output");
@@ -45,7 +45,7 @@ export async function runNumericalCli(args: readonly string[]): Promise<void> {
   if (result.status !== "complete") throw new Error(`Numerical generation incomplete: ${result.reason}; accepted ${result.summary.accepted}.`);
   const suite = await validateNumericalSuite(result.suite);
   await writeFile(output, `${JSON.stringify(suite)}\n`, { flag: "wx" });
-  console.log(JSON.stringify({ id: suite.id, backend: suite.backend, summary: suite.summary }));
+  console.log(JSON.stringify({ id: suite.id, promptVersion: suite.promptVersion, backend: suite.backend, summary: suite.summary }));
 }
 
 if (import.meta.main) {
