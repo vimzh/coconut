@@ -46,7 +46,7 @@ The exact rules for publishing a visitor's run, accessing saved results, and ret
 
 - Provide a user-facing flow for connection, model selection, evaluation setup, execution progress, and result inspection.
 - Explain missing credentials, unsupported models, incomplete runs, and provider errors clearly.
-- Keep visitor credentials out of public views, saved transcripts, and logs. The credential lifetime and saved-connection policy remain open.
+- Keep visitor credentials out of public views, saved transcripts, and logs. D-06 uses explicit credentials per foreground operation, no server persistence or owner-key fallback, and future current-page-only UI state with re-entry after refresh/restart.
 
 ### Leaderboard
 
@@ -82,7 +82,7 @@ The benchmark's labels and scoring can be independently checked, and the submiss
 
 The project is intended for the micro1 Eval Hackathon. [hackathon.md](../hackathon.md) records the researched requirements and their verification limits. Submission materials must disclose adapted prior work and distinguish the project's contribution. The landing-page content restriction does not remove that submission requirement.
 
-The existing application scaffolding is the starting point. The mathematical verifier, offline evaluation protocol, reproducible suite generator, and shared scorer are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), [module 03 handoff](handoffs/03-instance-generator-and-suites.md), and [module 04 handoff](handoffs/04-scoring-and-depth-analysis.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. The scorer verifies retained evidence and reports metrics plus usage/timing/cost coverage; current result fixtures are synthetic. Provider integrations, user flow, and measured leaderboard are not implemented yet.
+The existing application scaffolding is the starting point. The mathematical verifier, offline evaluation protocol, reproducible suite generator, and shared scorer are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), [module 03 handoff](handoffs/03-instance-generator-and-suites.md), and [module 04 handoff](handoffs/04-scoring-and-depth-analysis.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. The scorer verifies retained evidence and reports metrics plus usage/timing/cost coverage; current scoring fixtures are synthetic. The [module 05 provider-access layer](handoffs/05-provider-access-and-credentials.md) implements stateless credentials, authentication checks, and bounded explicit probes for all three services. OpenAI has live access evidence; OpenRouter and Hugging Face gates remain unresolved under OpenAI-only development testing. Model discovery, complete inference/run execution, user flow, and measured leaderboard are not implemented yet.
 
 ## Critical Assumptions to Prove
 
@@ -92,7 +92,6 @@ The existing application scaffolding is the starting point. The mathematical ver
 
 ## Open Questions
 
-- How long do visitor credentials remain usable, and what happens to an interrupted run that needs credentials again?
 - How are saved runs accessed, retained, and published? Is leaderboard publication automatic or an explicit visitor action?
 - Which complete runs are eligible for ranking, and how are repeat runs of the same model and configuration represented?
 - What model/provider information can each service actually supply, and how will unavailable identity, pricing, usage, or compatibility information be presented?

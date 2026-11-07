@@ -14,6 +14,7 @@
     "test": "bun run --filter @coconut/api test",
     "suite:generate": "bun apps/api/src/suites/cli.ts generate",
     "suite:verify": "bun apps/api/src/suites/cli.ts verify",
-    "score:report": "bun apps/api/src/scoring/cli.ts"
+    "score:report": "bun apps/api/src/scoring/cli.ts",
+    "provider:check": "bun apps/api/src/providers/cli.ts"
   }
 }

@@ -8,7 +8,7 @@ bun run dev
 ```
 
 - `apps/web`: Next.js App Router with TypeScript, at http://localhost:3200.
-- `apps/api`: Hono on Bun, at http://localhost:3201. `GET /health` returns `{"status":"ok"}`.
+- `apps/api`: Hono on Bun, bound to loopback at http://localhost:3201. `GET /health` returns `{"status":"ok"}`.
 
 Run all commands from the repository root:
 
@@ -40,3 +40,20 @@ bun run score:report --input apps/api/data/scoring/mixed-v1.input.json --output 
 ```
 
 Use a new output path. This fixture contains synthetic answers, usage, and costs for verification; it is not measured model performance. The shared scorer reports pooled macro-F1, class/depth detail, trial spread and agreement, completion, and evidence-backed usage/timing/cost diagnostics. The [module 04 plan](docs/plans/04-scoring-and-depth-analysis.md) defines the evidence contract and unavailable/provisional values.
+
+Provider access uses a separate visitor credential on every operation:
+
+- `GET /providers/policy` explains the credential lifetime, charges, and probe limits.
+- `POST /providers/access` takes `Authorization: Bearer <visitor credential>` and JSON `{"provider":"openai","operation":"authenticate"}`. This operation performs no inference.
+- A probe additionally requires `operation:"probe"`, an explicit `modelId`, `servingProvider` (null for OpenAI; an explicit slug for routers), and `acceptCharges:true`. It makes one inference request with a 128-output-token ceiling and no retry.
+
+The application stores no reusable credentials and never substitutes an environment key. Disconnect means clearing page-held credentials and aborting work; refresh/restart requires re-entry. The HTTP boundary permits HTTPS or loopback development and exact-origin CORS; set `COCONUT_WEB_ORIGIN` to the frontend origin when it differs from `http://localhost:3200`. Hosted TLS and proxy-log configuration still need deployment verification.
+
+For an explicitly authorized local development check, the separate CLI reads a selected environment variable:
+
+```sh
+bun --env-file=apps/api/.env run provider:check --provider openai --credential-env OPENAI_API_KEY
+bun --env-file=apps/api/.env run provider:check --provider openai --credential-env OPENAI_API_KEY --model gpt-6-luna --accept-charges
+```
+
+The second command incurs provider usage. Optional `--output <new-path>` retains only safe evidence and refuses overwrites. OpenRouter uses `OPENROUTER_API_KEY`; Hugging Face uses `HF_TOKEN`, and router probes also require `--serving-provider <slug>`. OpenAI has live authentication/inference evidence; the other two services currently have fixture verification only. See the [module 05 handoff](docs/handoffs/05-provider-access-and-credentials.md) for lifecycle, evidence, and unresolved service gates.
