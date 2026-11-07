@@ -82,7 +82,7 @@ The benchmark's labels and scoring can be independently checked, and the submiss
 
 The project is intended for the micro1 Eval Hackathon. [hackathon.md](../hackathon.md) records the researched requirements and their verification limits. Submission materials must disclose adapted prior work and distinguish the project's contribution. The landing-page content restriction does not remove that submission requirement.
 
-The existing application scaffolding is the starting point. No evaluation engine, provider integration, user flow, or measured leaderboard has been verified yet.
+The existing application scaffolding is the starting point. The mathematical verifier is implemented for the bounded exact-arithmetic subset recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md). The remaining evaluation engine, provider integrations, user flow, and measured leaderboard are not implemented yet.
 
 ## Critical Assumptions to Prove
 

@@ -2,7 +2,7 @@
 
 ## Source of Truth
 
-[idea.md](idea.md) defines the product. These modules make that scope executable; they do not authorize additional product features. The user delegated the approximate phase count, so this plan uses **12 modules** to isolate the delicate work without creating filler phases. No implementation module is complete yet.
+[idea.md](idea.md) defines the product. These modules make that scope executable; they do not authorize additional product features. The user delegated the approximate phase count, so this plan uses **12 modules** to isolate the delicate work without creating filler phases. Module 01 is complete within its documented mathematical boundary; modules 02 through 12 remain unimplemented.
 
 The existing [repository README](../README.md) describes the application scaffold and verification commands. Preserve that baseline unless a module's technical plan documents a necessary change. Existing scaffolding is not evidence that a feature or feasibility gate passes.
 
@@ -10,7 +10,7 @@ The existing [repository README](../README.md) describes the application scaffol
 
 Before planning, read `docs/idea.md`, this roadmap, the assigned module, and its prerequisite handoffs. Write a repository-specific technical plan under `docs/plans/` before coding. Inspect the current code rather than assuming the scaffold remains unchanged.
 
-The Status column describes dependency independence, not implementation progress. All modules start unimplemented. Finish a module only when its completion criteria and verification pass and its handoff records the evidence. Resolve assigned decisions in the registry before dependent work uses them. A failed gate blocks the work listed in its Blocks column; preserve its evidence and record the next required decision.
+The Status column describes dependency independence, not implementation progress; current progress is recorded below. Finish a module only when its completion criteria and verification pass and its handoff records the evidence. Resolve assigned decisions in the registry before dependent work uses them. A failed gate blocks the work listed in its Blocks column; preserve its evidence and record the next required decision.
 
 ## Module Map
 
@@ -40,14 +40,14 @@ The Status column describes dependency independence, not implementation progress
 
 ## Implementation Progress
 
-- **01: In progress.** D-01 is resolved in the [technical plan](plans/01-mathematical-verifier.md); G-MATH awaits implementation verification and review.
+- **01: Complete.** D-01 is resolved in the [technical plan](plans/01-mathematical-verifier.md); G-MATH is Go for the bounded exact-arithmetic subset. See the [handoff and verification evidence](handoffs/01-mathematical-verifier.md).
 - **02 through 12: Not started.** Their prerequisites and open decisions remain in force.
 
 ## Critical Feasibility Gates
 
 | Gate | Owner | Reference Target | Evidence Required | Blocks |
 | --- | --- | --- | --- | --- |
-| G-MATH | 01 | The first benchmark's stated function families and convex input domains, with increasing composition depth and mutually interpretable class labels. | Independent checks of correct and incorrect references, domain validity, affine/constant handling, and sound treatment of numerical uncertainty. Record Go or No-go with accepted boundaries. | 02, 03 and all downstream benchmark work. |
+| G-MATH | 01 | The first benchmark's stated function families and convex input domains, with increasing composition depth and mutually interpretable class labels. | **Go for the bounded exact-arithmetic subset.** Correct/incorrect references, domain validity, overlap, resource uncertainty, certificate replay, and a depth-100 structural case pass checks and review. See [evidence and limitations](handoffs/01-mathematical-verifier.md). | 02, 03 and all downstream benchmark work must preserve the accepted boundary. |
 | G-PROVIDERS | 05 | Visitor-owned access to OpenAI, OpenRouter, and Hugging Face Inference Providers. | Per-service authentication and permitted inference evidence under an explicitly authorized test budget; credential redaction and lifecycle checks; record Go or No-go for each service. | 06, 07 and downstream provider-backed work for an unproven service. Product completion requires all promised services. |
 | G-SIGNAL | 08 | The frozen suite and protocol, tested on an available frontier model with the agreed repeated-trial budget. | Reproducible results, checked reference labels, inspected failure transcripts, and an explanation of a meaningful limitation. If evidence does not support that claim, record No-go and revise through a new documented suite/protocol version. | Failure claims on public pages and final hackathon readiness; never fabricate or selectively discard results. |
 
