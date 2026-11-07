@@ -1,0 +1,67 @@
+diff --git a/client.js b/client.js
+index 715395d4832f5609347baa05206210b7c2bb10ae..f1fb540b6419b466fc412e8fbb5e3e5fc368fec3 100644
+--- a/client.js
++++ b/client.js
+@@ -251,17 +251,6 @@ class OpenAI {
+         this.maxRetries = tslib_1.__classPrivateFieldGet(this, _OpenAI_instances, "m", _OpenAI_normalizeRetries).call(this, options.maxRetries);
+         this.fetch = options.fetch ?? Shims.getDefaultFetch();
+         tslib_1.__classPrivateFieldSet(this, _OpenAI_encoder, Opts.FallbackEncoder, "f");
+-        const customHeadersEnv = provider || credential ? undefined : (0, env_1.readEnv)('OPENAI_CUSTOM_HEADERS');
+-        if (customHeadersEnv) {
+-            const parsed = {};
+-            for (const line of customHeadersEnv.split('\n')) {
+-                const colon = line.indexOf(':');
+-                if (colon >= 0) {
+-                    parsed[line.substring(0, colon).trim()] = line.substring(colon + 1).trim();
+-                }
+-            }
+-            options.defaultHeaders = (0, headers_1.buildHeaders)([parsed, options.defaultHeaders]);
+-        }
+         this._options = options;
+         this._provider = providerRuntime;
+         if (x509Identity) {
+diff --git a/client.mjs b/client.mjs
+index deb5b9fa344b5c42fe50f1967c2e9fe910d819dd..7ce1c0e77d9bec64daf7fffc121ab39e575a75bb 100644
+--- a/client.mjs
++++ b/client.mjs
+@@ -248,17 +248,6 @@ export class OpenAI {
+         this.maxRetries = __classPrivateFieldGet(this, _OpenAI_instances, "m", _OpenAI_normalizeRetries).call(this, options.maxRetries);
+         this.fetch = options.fetch ?? Shims.getDefaultFetch();
+         __classPrivateFieldSet(this, _OpenAI_encoder, Opts.FallbackEncoder, "f");
+-        const customHeadersEnv = provider || credential ? undefined : readEnv('OPENAI_CUSTOM_HEADERS');
+-        if (customHeadersEnv) {
+-            const parsed = {};
+-            for (const line of customHeadersEnv.split('\n')) {
+-                const colon = line.indexOf(':');
+-                if (colon >= 0) {
+-                    parsed[line.substring(0, colon).trim()] = line.substring(colon + 1).trim();
+-                }
+-            }
+-            options.defaultHeaders = buildHeaders([parsed, options.defaultHeaders]);
+-        }
+         this._options = options;
+         this._provider = providerRuntime;
+         if (x509Identity) {
+diff --git a/src/client.ts b/src/client.ts
+index 60cfeed023c44a397bdb70a602f26b0009681308..7c874b7bd013d124c140457bc79c3b8efd83dae7 100644
+--- a/src/client.ts
++++ b/src/client.ts
+@@ -655,18 +655,6 @@ export class OpenAI {
+     this.fetch = options.fetch ?? Shims.getDefaultFetch();
+     this.#encoder = Opts.FallbackEncoder;
+ 
+-    const customHeadersEnv = provider || credential ? undefined : readEnv('OPENAI_CUSTOM_HEADERS');
+-    if (customHeadersEnv) {
+-      const parsed: Record<string, string> = {};
+-      for (const line of customHeadersEnv.split('\n')) {
+-        const colon = line.indexOf(':');
+-        if (colon >= 0) {
+-          parsed[line.substring(0, colon).trim()] = line.substring(colon + 1).trim();
+-        }
+-      }
+-      options.defaultHeaders = buildHeaders([parsed, options.defaultHeaders]);
+-    }
+-
+     this._options = options;
+     this._provider = providerRuntime;
+ 

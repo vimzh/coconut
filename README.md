@@ -54,7 +54,9 @@ bun run score:report --input apps/api/data/scoring/mixed-v1.input.json --output 
 
 Use a new output path. This fixture contains synthetic answers, usage, and costs for verification; it is not measured model performance. The shared scorer reports pooled macro-F1, class/depth detail, trial spread and agreement, completion, and evidence-backed usage/timing/cost diagnostics. The [module 04 plan](docs/plans/04-scoring-and-depth-analysis.md) defines the evidence contract and unavailable/provisional values.
 
-Provider access uses a separate visitor credential on every operation:
+Provider access uses a separate visitor credential on every operation.
+
+OpenAI authentication and inference probes use the official `openai` TypeScript SDK, pinned to `7.53.0` with a tracked patch disabling inherited environment headers. SDK automatic retries and logging are disabled; the application retains its explicit visitor credentials, fixed endpoints, 20-second deadline, and bounded response handling. Future OpenAI inference work should use the SDK under the same credential rules. See the [SDK integration handoff](docs/handoffs/openai-sdk.md).
 
 - `GET /providers/policy` explains the credential lifetime, charges, and probe limits.
 - `POST /providers/access` takes `Authorization: Bearer <visitor credential>` and JSON `{"provider":"openai","operation":"authenticate"}`. This operation performs no inference.

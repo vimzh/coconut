@@ -22,5 +22,8 @@
     "numerics:generate": "bun apps/api/src/numerics/cli.ts generate",
     "numerics:verify": "bun apps/api/src/numerics/cli.ts verify",
     "numerics:benchmark": "bun apps/api/src/numerics/benchmark.ts"
+  },
+  "patchedDependencies": {
+    "openai@7.53.0": "patches/openai@7.53.0.patch"
   }
 }

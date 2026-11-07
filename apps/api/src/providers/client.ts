@@ -5,6 +5,7 @@ import {
 } from "./policy";
 import { FAILURE_MESSAGES, parseAccessResponse, reflectsCredential } from "./responses";
 import type { AccessFailureCode, AccessRequest, ProviderAccessClient } from "./types";
+import { requestOpenAIAccess } from "./openai";
 
 class TransportFailure extends Error {
   constructor(readonly code: AccessFailureCode) {
@@ -69,20 +70,18 @@ export function createProviderAccessClient(
     const timer = setTimeout(() => stop("timeout"), ACCESS_TIMEOUT_MS);
     signal?.addEventListener("abort", onAbort, { once: true });
 
-    try {
-      if (signal?.aborted) throw new TransportFailure("cancelled");
-      const headers: Record<string, string> = { Authorization: `Bearer ${credential}` };
-      if (plan.method === "POST") headers["Content-Type"] = "application/json";
+    const send = async (url: string, init: RequestInit): Promise<Response> => {
+      if (controller.signal.aborted) throw new TransportFailure(stopped ?? "cancelled");
       sent = true;
-      const pending = fetcher(plan.url, {
-        method: plan.method, headers, body: plan.body, signal: controller.signal,
-        redirect: "manual", credentials: "omit",
-      });
+      const pending = fetcher(url, init);
       // An injected or broken transport may ignore abort and resolve after settlement.
       void pending.then((response) => { if (controller.signal.aborted) discardBody(response); }, () => {});
       const response = await Promise.race([pending, interrupted]);
       received = true;
       httpStatus = Number.isInteger(response.status) && response.status >= 100 && response.status <= 599 ? response.status : null;
+      return response;
+    };
+    const readBody = async (response: Response): Promise<string> => {
       if (response.type === "opaqueredirect" || response.redirected || (response.status >= 300 && response.status < 400)) {
         discardBody(response);
         throw new TransportFailure("redirect-blocked");
@@ -111,6 +110,18 @@ export function createProviderAccessClient(
       try { text += decoder.decode(); }
       catch { throw new TransportFailure("invalid-provider-response"); }
       if (reflectsCredential(text, credential)) throw new TransportFailure("credential-reflection");
+      return text;
+    };
+
+    try {
+      if (signal?.aborted) throw new TransportFailure("cancelled");
+      const headers: Record<string, string> = { Authorization: `Bearer ${credential}` };
+      if (plan.method === "POST") headers["Content-Type"] = "application/json";
+      const pending = request.provider === "openai"
+        ? requestOpenAIAccess(request, credential, controller.signal, send, readBody)
+        : send(plan.url, { method: plan.method, headers, body: plan.body, signal: controller.signal, redirect: "manual", credentials: "omit" });
+      const response = await Promise.race([pending, interrupted]);
+      const text = await readBody(response);
       let body: unknown;
       try { body = JSON.parse(text); }
       catch { throw new TransportFailure("invalid-provider-response"); }

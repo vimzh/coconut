@@ -1,0 +1,2 @@
+# Unified patch context markers contain intentional whitespace.
+patches/*.patch -whitespace

@@ -44,6 +44,8 @@ Reference generation, answer grading, scoring, suite scheduling, repeated-trial 
 
 ### Faithful execution
 
+Use the official `openai` TypeScript SDK for OpenAI requests, with an explicit visitor credential, SDK automatic retries disabled, and the credential/transport safeguards recorded in the [SDK handoff](../handoffs/openai-sdk.md). Any D-08 retry policy must retain individual attempts and budget them explicitly.
+
 Use the selected service, compatible model, and approved generation settings. Preserve the model-visible prompt supplied under 02 without including reference labels, certificates, or scoring evidence. Distinguish requested settings from effective values reported by the service; unsupported or unverified requirements follow D-07.
 
 Reject incompatible parameters clearly. Never switch models, change methods, omit settings, or route through a different service implicitly to make a request succeed. If availability changes after discovery, return an actionable execution outcome for the run owner to handle.

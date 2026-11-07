@@ -4,7 +4,9 @@
 
 **Implementation and local verification complete; G-PROVIDERS is partially resolved.** OpenAI has live authentication/inference evidence and credential-safety verification: **Go** for the tested operation. OpenRouter and Hugging Face are implemented and fixture-tested, with live gates **unresolved** under the user's OpenAI-only development instruction. This is not full three-service feasibility or final product completion. Do not mark untested services Go or assume one service satisfies another's gate.
 
-D-06 is resolved in the [technical plan](../plans/05-provider-access-and-credentials.md). Access evidence/policy version: **`1`**. No dependencies, mathematical rules, scoring definitions, or evaluation profiles changed. Research rigor is recorded in local ignored `AGENTS.md`: proved facts, empirical observations, and unresolved hypotheses remain distinct; an access probe is not a mathematical evaluation result.
+D-06 is resolved in the [technical plan](../plans/05-provider-access-and-credentials.md). Access evidence/policy version: **`1`**. At the original module checkpoint, no dependencies, mathematical rules, scoring definitions, or evaluation profiles changed. Research rigor is recorded in local ignored `AGENTS.md`: proved facts, empirical observations, and unresolved hypotheses remain distinct; an access probe is not a mathematical evaluation result.
+
+**SDK follow-up:** OpenAI requests now use the pinned official TypeScript SDK under the same access/credential contract. The [SDK integration handoff](openai-sdk.md) records the implementation, safeguards, and separate live evidence. The original module evidence and request counts below remain historical records.
 
 ## Artifacts and public interfaces
 

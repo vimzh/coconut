@@ -1,5 +1,7 @@
 // Transport fixtures prove request bounds and secret isolation without live services.
 import { afterEach, describe, expect, it, mock, spyOn } from "bun:test";
+import { Models } from "openai/resources/models";
+import { Responses } from "openai/resources/responses/responses";
 import { checkProviderAccess, createProviderAccessClient } from "./client";
 import { ACCESS_TIMEOUT_MS, AccessInputError, MAX_PROVIDER_RESPONSE_BYTES } from "./policy";
 import { FAILURE_MESSAGES } from "./responses";
@@ -43,9 +45,29 @@ function assertSafeFailure(result: AccessResult, code: NonNullable<AccessResult[
   expect(JSON.stringify(result)).not.toContain(credential);
 }
 
+async function waitUntil(condition: () => boolean): Promise<void> {
+  const deadline = performance.now() + 1000;
+  while (!condition()) {
+    if (performance.now() >= deadline) throw new Error("Expected transport progress did not occur.");
+    await new Promise<void>((resolve) => setImmediate(resolve));
+  }
+}
+
 afterEach(() => mock.restore());
 
 describe("single-attempt provider access transport", () => {
+  it("uses the official SDK resource methods without automatic catalog pagination", async () => {
+    const list = spyOn(Models.prototype, "list");
+    const create = spyOn(Responses.prototype, "create");
+    const fetcher = mock(async (url: string) => Response.json(url.endsWith("/models") ? authBodies.openai : probeBodies.openai));
+    const client = createProviderAccessClient(fetcher);
+    expect((await client(auth(), credential)).status).toBe("authenticated");
+    expect((await client(probe(), credential)).status).toBe("inference-verified");
+    expect(list).toHaveBeenCalledTimes(1);
+    expect(create).toHaveBeenCalledTimes(1);
+    expect(fetcher).toHaveBeenCalledTimes(2);
+  });
+
   for (const provider of ["openai", "openrouter", "hugging-face"] as const) {
     it(`authenticates ${provider} without inference or retained account data`, async () => {
       const fetcher = mock(async () => Response.json(authBodies[provider]));
@@ -142,6 +164,50 @@ describe("single-attempt provider access transport", () => {
     expect(fetcher).not.toHaveBeenCalled();
   });
 
+  it("ignores ambient SDK credentials, routing headers, endpoints, and debug logging", async () => {
+    const ambient = "synthetic-ambient-owner-token-abcdef";
+    const variables = {
+      OPENAI_API_KEY: ambient,
+      OPENAI_ADMIN_KEY: ambient,
+      OPENAI_BASE_URL: "https://untrusted.invalid/v1",
+      OPENAI_ORG_ID: "ambient-organization",
+      OPENAI_PROJECT_ID: "ambient-project",
+      OPENAI_CUSTOM_HEADERS: `Authorization: Bearer ${ambient}\nX-Private: ${ambient}\nOpenAI-Project: ambient-project`,
+      OPENAI_LOG: "debug",
+    };
+    const previous = new Map(Object.keys(variables).map((key) => [key, process.env[key]]));
+    const spies = ["log", "warn", "error", "info", "debug"].map((method) => spyOn(console, method as "log").mockImplementation(() => {}));
+    const fetcher = mock(async (url: string) => Response.json(url.endsWith("/models") ? authBodies.openai : probeBodies.openai));
+    try {
+      Object.assign(process.env, variables);
+      const client = createProviderAccessClient(fetcher);
+      const results: AccessResult[] = [];
+      for (const customHeaders of [variables.OPENAI_CUSTOM_HEADERS, "Invalid Header: value", "X-Invalid: value\u0007"]) {
+        process.env.OPENAI_CUSTOM_HEADERS = customHeaders;
+        const current = [await client(auth(), credential), await client(probe(), credential)];
+        expect(current.map((result) => result.status)).toEqual(["authenticated", "inference-verified"]);
+        expect(process.env.OPENAI_CUSTOM_HEADERS).toBe(customHeaders);
+        results.push(...current);
+      }
+      expect(fetcher).toHaveBeenCalledTimes(6);
+      for (const [index, call] of fetcher.mock.calls.entries()) {
+        const [url, init] = call as unknown as [string, RequestInit];
+        expect(url).toBe(`https://api.openai.com/v1/${index % 2 === 0 ? "models" : "responses"}`);
+        expect(init.headers).toEqual(index % 2 === 0 ? { Authorization: `Bearer ${credential}` } : { Authorization: `Bearer ${credential}`, "Content-Type": "application/json" });
+        expect(init.redirect).toBe("manual");
+        expect(init.credentials).toBe("omit");
+      }
+      expect(JSON.stringify(results)).not.toContain(ambient);
+      expect(JSON.stringify(fetcher.mock.calls)).not.toContain(ambient);
+      for (const spy of spies) expect(spy).not.toHaveBeenCalled();
+    } finally {
+      for (const [key, value] of previous) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+  });
+
   for (const [status, code] of [[401, "authentication-rejected"], [403, "permission-denied"], [402, "credit-or-quota-exhausted"], [404, "model-unavailable"], [429, "rate-limited"], [503, "service-unavailable"]] as const) {
     it(`categorizes HTTP ${status} without forwarding arbitrary errors or retrying`, async () => {
       const fetcher = mock(async () => Response.json({ error: { message: "discard-secret-marker" } }, { status }));
@@ -152,6 +218,32 @@ describe("single-attempt provider access transport", () => {
       expect(JSON.stringify(result)).not.toContain("discard-secret-marker");
     });
   }
+
+  it("bounds and sanitizes HTTP failure bodies before the SDK reads them", async () => {
+    let cancellations = 0;
+    const oversized = new Response(new ReadableStream<Uint8Array>({
+      start(controller) { controller.enqueue(new Uint8Array(MAX_PROVIDER_RESPONSE_BYTES)); controller.enqueue(new Uint8Array([32])); },
+      cancel() { cancellations++; return new Promise(() => {}); },
+    }), { status: 429 });
+    const fetcher = mock(async () => oversized);
+    const limited = await createProviderAccessClient(fetcher)(probe(), credential);
+    assertSafeFailure(limited, "response-too-large");
+    expect(limited.httpStatus).toBe(429);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(cancellations).toBe(1);
+    for (const body of [
+      { error: { message: credential } },
+      { error: { message: "discard-me" }, metadata: Buffer.from(credential).toString("base64") },
+    ]) {
+      const response = Response.json(body, { status: 401 });
+      const result = await createProviderAccessClient(async () => response)(probe(), credential);
+      assertSafeFailure(result, "credential-reflection");
+      expect(result.httpStatus).toBe(401);
+    }
+    const malformed = await createProviderAccessClient(async () => new Response(new Uint8Array([0xff]), { status: 503 }))(probe(), credential);
+    assertSafeFailure(malformed, "invalid-provider-response");
+    expect(malformed.httpStatus).toBe(503);
+  });
 
   it("rejects 2xx error bodies, malformed success, missing text, and unfinished output", async () => {
     for (const [body, code] of [
@@ -258,6 +350,7 @@ describe("single-attempt provider access transport", () => {
     const controller = new AbortController();
     const first = client(auth(), credential, controller.signal);
     const second = client(auth(), secondCredential);
+    await waitUntil(() => pending.length === 2);
     controller.abort(new Error(credential));
     pending[1](Response.json(authBodies.openai));
     const [a, b] = await Promise.all([first, second]);
@@ -268,6 +361,7 @@ describe("single-attempt provider access transport", () => {
     pending[0](Response.json({ error: credential }));
     expect(JSON.stringify([a, b])).not.toContain(secondCredential);
     const third = client(auth(), secondCredential);
+    await waitUntil(() => pending.length === 3);
     pending[2](Response.json(authBodies.openai));
     expect((await third).status).toBe("authenticated");
     expect(seen[2]).toBe(`Bearer ${secondCredential}`);
@@ -293,12 +387,13 @@ describe("single-attempt provider access transport", () => {
     });
     const controller = new AbortController();
     const operation = createProviderAccessClient(fetcher)(probe(), credential, controller.signal);
+    await waitUntil(() => fetcher.mock.calls.length === 1);
     controller.abort(new Error(credential));
     assertSafeFailure(await operation, "cancelled", "unknown");
     expect(upstreamSignal?.aborted).toBe(true);
     expect(fetcher).toHaveBeenCalledTimes(1);
     finish(new Response(new ReadableStream({ cancel() { cancellations++; } })));
-    await Promise.resolve();
+    await waitUntil(() => cancellations === 1);
     expect(cancellations).toBe(1);
   });
 
@@ -318,7 +413,7 @@ describe("single-attempt provider access transport", () => {
     let expire: (() => void) | undefined;
     const original = globalThis.setTimeout;
     spyOn(globalThis, "setTimeout").mockImplementation(((callback: () => void, ms?: number) => {
-      if (ms === ACCESS_TIMEOUT_MS) { expire = callback; return original(() => {}, 60_000); }
+      if (ms === ACCESS_TIMEOUT_MS) { expire ??= callback; return original(() => {}, 60_000); }
       return original(callback, ms);
     }) as typeof setTimeout);
     let upstreamSignal: AbortSignal | undefined;
@@ -327,6 +422,7 @@ describe("single-attempt provider access transport", () => {
       return new Promise<Response>(() => {});
     });
     const operation = createProviderAccessClient(fetcher)(probe(), credential);
+    await waitUntil(() => fetcher.mock.calls.length === 1);
     expect(expire).toBeDefined();
     expire!();
     assertSafeFailure(await operation, "timeout", "unknown");
@@ -338,29 +434,34 @@ describe("single-attempt provider access transport", () => {
     let expire: (() => void) | undefined;
     const original = globalThis.setTimeout;
     spyOn(globalThis, "setTimeout").mockImplementation(((callback: () => void, ms?: number) => {
-      if (ms === ACCESS_TIMEOUT_MS) { expire = callback; return original(() => {}, 60_000); }
+      if (ms === ACCESS_TIMEOUT_MS) { expire ??= callback; return original(() => {}, 60_000); }
       return original(callback, ms);
     }) as typeof setTimeout);
-    let reading: () => void = () => {};
-    const started = new Promise<void>((resolve) => { reading = resolve; });
-    let cancellations = 0;
-    const response = new Response(new ReadableStream<Uint8Array>({
-      pull() { reading(); return new Promise(() => {}); },
-      cancel() { cancellations++; return new Promise(() => {}); },
-    }, { highWaterMark: 0 }));
-    const operation = createProviderAccessClient(async () => response)(auth(), credential);
-    await started;
-    expire!();
-    const result = await operation;
-    assertSafeFailure(result, "timeout", "unknown");
-    expect(result.httpStatus).toBe(200);
-    expect(cancellations).toBe(1);
+    for (const status of [200, 429]) {
+      expire = undefined;
+      let reading: () => void = () => {};
+      const started = new Promise<void>((resolve) => { reading = resolve; });
+      let cancellations = 0;
+      const response = new Response(new ReadableStream<Uint8Array>({
+        pull() { reading(); return new Promise(() => {}); },
+        cancel() { cancellations++; return new Promise(() => {}); },
+      }, { highWaterMark: 0 }), { status });
+      const operation = createProviderAccessClient(async () => response)(auth(), credential);
+      await started;
+      expire!();
+      const result = await operation;
+      assertSafeFailure(result, "timeout", "unknown");
+      expect(result.httpStatus).toBe(status);
+      expect(cancellations).toBe(1);
+    }
   });
 
   it("sanitizes stream read failures", async () => {
-    const stream = new ReadableStream<Uint8Array>({ pull(controller) { controller.error(new Error(credential)); } });
-    const result = await createProviderAccessClient(async () => new Response(stream))(auth(), credential);
-    assertSafeFailure(result, "network-error");
-    expect(result.httpStatus).toBe(200);
+    for (const status of [200, 503]) {
+      const stream = new ReadableStream<Uint8Array>({ pull(controller) { controller.error(new Error(credential)); } });
+      const result = await createProviderAccessClient(async () => new Response(stream, { status }))(auth(), credential);
+      assertSafeFailure(result, "network-error");
+      expect(result.httpStatus).toBe(status);
+    }
   });
 });
