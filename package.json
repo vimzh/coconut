@@ -11,6 +11,8 @@
     "start": "bun run --parallel --filter '@coconut/*' start",
     "lint": "bun run --filter '@coconut/*' lint",
     "typecheck": "bun run --filter '@coconut/*' typecheck",
-    "test": "bun run --filter @coconut/api test"
+    "test": "bun run --filter @coconut/api test",
+    "suite:generate": "bun apps/api/src/suites/cli.ts generate",
+    "suite:verify": "bun apps/api/src/suites/cli.ts verify"
   }
 }
