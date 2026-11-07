@@ -1,7 +1,9 @@
 // Reconciles frozen references and execution evidence into one versioned report.
 import { createHash } from "node:crypto";
 import { buildPrompt, calculateWorkload, getProfile } from "../protocol";
-import { validateFrozenSuite } from "../suites";
+import { validateSuiteArtifact } from "../suites/artifact";
+import { buildNumericalPrompts } from "../numerics/prompt";
+import type { NumericalBackend } from "../numerics/types";
 import { freezeData } from "../suites/generator";
 import { scoreClassifications, type ClassificationReport } from "./classification";
 import { computeDiagnostics, type DiagnosticsReport } from "./diagnostics";
@@ -34,6 +36,7 @@ export interface ScoringReport {
     readonly model: RunEvidence["model"];
     readonly workload: ReturnType<typeof calculateWorkload>;
     readonly evidenceSha256: string;
+    readonly certification?: { readonly backend: NumericalBackend; readonly promptVersion: "smooth-v1" };
   };
   readonly run: RunEvidence["run"];
   readonly overall: SliceReport;
@@ -47,7 +50,7 @@ export async function scoreEvaluation(input: unknown): Promise<ScoringReport> {
   const envelope = record(input, "Scoring input", ["suite", "evidence"]);
   // Snapshot caller-owned outcomes before suite replay yields to the event loop.
   const snapshot = parseEvidence(envelope.evidence);
-  const suite = await validateFrozenSuite(envelope.suite);
+  const suite = await validateSuiteArtifact(envelope.suite);
   if (suite.request.purpose !== "evaluation") throw new ScoringInputError("Illustrative suites are not evaluation input.");
   const evidence = bindEvidence(snapshot, suite);
   const cases = new Map(suite.cases.map((entry) => [entry.id, entry]));
@@ -58,8 +61,11 @@ export async function scoreEvaluation(input: unknown): Promise<ScoringReport> {
       outcome: trial.finalAttempt === null ? null : trial.attempts[trial.finalAttempt - 1].outcome,
     };
   });
-  const lengths: ExpressionLength[] = suite.cases.map((entry) => {
-    const prompt = buildPrompt(entry.reference, evidence.profileId);
+  const prompts = suite.formatVersion === "2"
+    ? await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), evidence.profileId)
+    : suite.cases.map((entry) => buildPrompt(entry.reference, evidence.profileId));
+  const lengths: ExpressionLength[] = suite.cases.map((entry, index) => {
+    const prompt = prompts[index];
     return {
       caseId: entry.id, depth: entry.depth, expressionSha256: digest(entry.certificate.renderedExpression),
       expressionCharacters: [...entry.certificate.renderedExpression].length, nodeCount: entry.certificate.nodeCount,
@@ -87,6 +93,7 @@ export async function scoreEvaluation(input: unknown): Promise<ScoringReport> {
       protocolVersion: suite.protocolVersion, profileId: evidence.profileId, method: profile.method,
       model: evidence.model, workload: calculateWorkload(evidence.profileId, suite.cases.length),
       evidenceSha256: digest(JSON.stringify(evidence)),
+      ...(suite.formatVersion === "2" ? { certification: { backend: suite.backend, promptVersion: suite.promptVersion } } : {}),
     },
     run: evidence.run, overall, baselineDepth: suite.request.depths[0],
     byDepth: slices.map((entry) => ({

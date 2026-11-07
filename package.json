@@ -15,6 +15,12 @@
     "suite:generate": "bun apps/api/src/suites/cli.ts generate",
     "suite:verify": "bun apps/api/src/suites/cli.ts verify",
     "score:report": "bun apps/api/src/scoring/cli.ts",
-    "provider:check": "bun apps/api/src/providers/cli.ts"
+    "provider:check": "bun apps/api/src/providers/cli.ts",
+    "numerics:setup": "uv sync --project services/numerics --python 3.13 --frozen",
+    "numerics:test": "uv run --project services/numerics --frozen --no-sync python -m unittest discover -s services/numerics",
+    "numerics:lint": "uv run --project services/numerics --frozen --no-sync ruff check services/numerics",
+    "numerics:generate": "bun apps/api/src/numerics/cli.ts generate",
+    "numerics:verify": "bun apps/api/src/numerics/cli.ts verify",
+    "numerics:benchmark": "bun apps/api/src/numerics/benchmark.ts"
   }
 }

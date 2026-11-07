@@ -1,0 +1,84 @@
+{
+  "experimentVersion": "1",
+  "seed": "coconut-smooth-v1",
+  "environment": {
+    "bun": "1.4.4",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M5",
+    "backend": {
+      "id": "arb-jet-v1",
+      "pythonFlint": "0.9.0",
+      "flint": "3.6.0",
+      "policyVersion": "1"
+    }
+  },
+  "policy": {
+    "repetitions": 5,
+    "nativeProcess": "new-per-batch",
+    "nativeTimingIncludes": "serialization, process startup, certification, and result validation",
+    "exactTimingIncludes": "in-process verification of identical references",
+    "modelCalls": 0
+  },
+  "coldSingleCase": {
+    "count": 1,
+    "elapsedMs": 48.692917,
+    "status": "verified"
+  },
+  "matchedAlgebraic": {
+    "description": "16 shifted squares and the same 16 functions expressed as nonconstant products; 32 identical inputs for both engines",
+    "count": 32,
+    "exact": {
+      "outcomes": {
+        "verified": 16,
+        "unverified": 16,
+        "excluded": 0,
+        "rejected": 0
+      },
+      "samplesMs": [
+        9.120125000000002,
+        7.995417000000032,
+        8.007584000000065,
+        7.970040999999924,
+        8.116166000000021
+      ],
+      "medianMs": 8.007584000000065,
+      "medianMsPerCase": 0.25023700000000204
+    },
+    "native": {
+      "outcomes": {
+        "verified": 32,
+        "unverified": 0,
+        "excluded": 0,
+        "rejected": 0
+      },
+      "samplesMs": [
+        49.597666000000004,
+        53.65879100000001,
+        49.4307500000001,
+        50.339000000000055,
+        50.0547499999999
+      ],
+      "medianMs": 50.0547499999999,
+      "medianMsPerCase": 1.5642109374999968
+    }
+  },
+  "smooth": {
+    "count": 27,
+    "outcomes": {
+      "verified": 27,
+      "unverified": 0,
+      "excluded": 0,
+      "rejected": 0
+    },
+    "samplesMs": [
+      89.23225000000002,
+      94.176084,
+      89.42041699999993,
+      91.65037499999994,
+      91.77979199999993
+    ],
+    "medianMs": 91.65037499999994,
+    "medianMsPerCase": 3.394458333333331
+  }
+}

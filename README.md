@@ -1,9 +1,10 @@
 # Coconut
 
-Bun monorepo with a Next.js frontend and Hono backend. Requires Bun 1.4.4 and Node.js 24 LTS for Next.js and ESLint.
+Bun monorepo with a Next.js frontend and Hono backend. Requires Bun 1.4.4 and Node.js 24 LTS for Next.js and ESLint. The numerical engine also requires [uv](https://docs.astral.sh/uv/getting-started/installation/); setup installs its pinned Python 3.13 environment and native arithmetic dependency.
 
 ```sh
 bun install
+bun run numerics:setup
 bun run dev
 ```
 
@@ -16,6 +17,8 @@ Run all commands from the repository root:
 bun run lint
 bun run typecheck
 bun run test
+bun run numerics:test
+bun run numerics:lint
 bun run build
 bun run start
 ```
@@ -32,6 +35,16 @@ bun run suite:generate --output /tmp/coconut-reference-v1.json
 ```
 
 Generation refuses to overwrite an existing file. Supply `--request <json-path>` for a supported custom request. The [module 03 plan](docs/plans/03-instance-generator-and-suites.md) defines request fields, supported depths, identity, and coverage. Suite artifacts contain private reference evidence and are server-side data; only the protocol prompt builder supplies model-visible content.
+
+The separate smooth engine adds exponential, logarithmic, square-root, rational, and polynomial functions. Native Arb arithmetic encloses derivatives with rigorous error bounds; adaptive interval covers establish global curvature and domain validity. Unresolved cases remain unverified. Its retained 27-case suite covers three labels at measured depths 7, 9, and 11:
+
+```sh
+bun run numerics:verify --input apps/api/data/suites/smooth-v1.json
+bun run numerics:generate --output /tmp/coconut-smooth-v1.json
+bun run numerics:benchmark --output /tmp/coconut-numerical-timing.json
+```
+
+Numerical artifacts use a separate format, generator, verifier, and task wording identity; the shared scorer accepts either artifact version. The legacy suite remains reproducible. Native batches accept up to 64 references with a 60-second deadline; provider keys are excluded from the worker environment. These commands currently run from the repository checkout; deployment must package the Python environment and worker alongside it. See the [numerical engine plan](docs/plans/numerical-certification-and-generation.md) and [handoff](docs/handoffs/numerical-certification-and-generation.md) for guarantees, actual timing, and limits. Richer function coverage does not establish model difficulty or comparable scores across suites.
 
 Generate a scoring report from the controlled offline fixture:
 

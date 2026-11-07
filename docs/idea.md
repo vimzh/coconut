@@ -6,7 +6,7 @@ A web platform where people use their own model-provider credentials to test how
 
 ## The Idea
 
-The project combines a mathematical evaluation engine, a model discovery and inference layer, and a user interface. The evaluation asks whether a function is convex, concave, or neither over a stated domain. Its difficulty changes with the depth of composition, meaning how many levels of functions are nested inside one another.
+The project combines a mathematical evaluation engine, a model discovery and inference layer, and a user interface. The evaluation asks whether a function is convex, concave, or neither over a stated domain. Composition depth and function family provide different task configurations; their effect on model difficulty must be measured.
 
 This is the product source of truth for the project currently named Coconut in the repository. The descriptive title above is a working title, not a finalized public brand. Detailed measurement, privacy, and publication choices remain open below.
 
@@ -29,6 +29,7 @@ The exact rules for publishing a visitor's run, accessing saved results, and ret
 ### Evaluation engine
 
 - Generate expressions at controlled composition depths with explicit input domains and verified reference labels.
+- Offer a separately versioned smooth-function track with exponential, logarithmic, square-root, rational, and polynomial families. Rigorous derivative enclosures certify labels across entire intervals; unresolved cases stay unverified. Retain proofs of pairwise distinct functions alongside generation failures.
 - Turn expressions into clear model prompts while keeping reference labels and validation evidence out of the model input.
 - Extract a model answer into convex, concave, or neither under a defined answer policy.
 - Compare answers with the reference labels using pooled macro-F1, accuracy, and class detail overall and by depth. The first protocol uses three fresh trials; unusable replies count as failures, infrastructure/missing work stays separate, and incomplete scores remain provisional or unavailable. Report trial spread and agreement with their eligible populations.
@@ -68,7 +69,7 @@ The initial product is a website. Model execution uses the supported hosted serv
 
 The complete journey works: a visitor can understand the benchmark, use their own supported credentials, select a runnable model, execute an evaluation, and inspect correctly calculated results. Visitors can compare eligible results on the leaderboard and understand which comparisons are meaningful.
 
-The benchmark's labels and scoring can be independently checked, and the submission's main results can be reproduced from documented inputs and settings. A successful run is not a promise that a particular model will fail.
+The benchmark's labels and scoring can be independently checked, and the submission's main results can be reproduced from documented inputs and settings. A successful run is not a promise that a particular model will fail. Richer certified function coverage is a project contribution; neither structural depth nor the use of numerics establishes difficulty by itself.
 
 ## Principles
 
@@ -83,6 +84,8 @@ The benchmark's labels and scoring can be independently checked, and the submiss
 The project is intended for the micro1 Eval Hackathon. [hackathon.md](../hackathon.md) records the researched requirements and their verification limits. Submission materials must disclose adapted prior work and distinguish the project's contribution. The landing-page content restriction does not remove that submission requirement.
 
 The existing application scaffolding is the starting point. The mathematical verifier, offline evaluation protocol, reproducible suite generator, and shared scorer are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), [module 03 handoff](handoffs/03-instance-generator-and-suites.md), and [module 04 handoff](handoffs/04-scoring-and-depth-analysis.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. The scorer verifies retained evidence and reports metrics plus usage/timing/cost coverage; current scoring fixtures are synthetic. The [module 05 provider-access layer](handoffs/05-provider-access-and-credentials.md) implements stateless credentials, authentication checks, and bounded explicit probes for all three services. OpenAI has live access evidence; OpenRouter and Hugging Face gates remain unresolved under OpenAI-only development testing. Model discovery, complete inference/run execution, user flow, and measured leaderboard are not implemented yet.
+
+The [numerical engine extension](handoffs/numerical-certification-and-generation.md) now adds a separate 27-case smooth suite at measured depths 7, 9, and 11. It uses native arbitrary-precision interval arithmetic, adaptive domain covers, strict curvature witnesses, and replayable evidence. The original 75-case suite remains available. The tracks have different identities and must not share a leaderboard comparison population. Current evidence establishes mathematical certification and software behavior; model performance on the new track remains unmeasured.
 
 ## Critical Assumptions to Prove
 

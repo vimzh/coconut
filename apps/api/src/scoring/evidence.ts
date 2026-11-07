@@ -112,7 +112,9 @@ export function parseEvidence(input: unknown): RunEvidence {
   });
 }
 
-export function bindEvidence(evidence: RunEvidence, suite: FrozenSuite): RunEvidence {
+export function bindEvidence(evidence: RunEvidence, suite: Pick<FrozenSuite, "id" | "protocolVersion" | "request"> & {
+  readonly cases: readonly { readonly id: string }[];
+}): RunEvidence {
   if (evidence.suiteId !== suite.id || evidence.protocolVersion !== suite.protocolVersion || evidence.profileId !== suite.request.profileId) {
     throw new ScoringInputError("Run evidence must match the exact frozen suite, protocol, and profile.");
   }
