@@ -38,6 +38,11 @@ The Status column describes dependency independence, not implementation progress
 - Module 12 closes the integrated journey. Numbering is a navigation and dependency order, not a requirement to finish every earlier-numbered module before starting an independent branch.
 - Separate module ownership isolates difficult reasoning even where prerequisite outputs are required. Agree file ownership in the technical plans before agents implement overlapping application areas.
 
+## Implementation Progress
+
+- **01: In progress.** D-01 is resolved in the [technical plan](plans/01-mathematical-verifier.md); G-MATH awaits implementation verification and review.
+- **02 through 12: Not started.** Their prerequisites and open decisions remain in force.
+
 ## Critical Feasibility Gates
 
 | Gate | Owner | Reference Target | Evidence Required | Blocks |
@@ -66,7 +71,7 @@ All entries begin Open. The owner updates Status and Resolution with the chosen 
 
 | ID | Decision | Owner Module | Needed Before | Status | Resolution |
 | --- | --- | --- | --- | --- | --- |
-| D-01 | Supported mathematical families/domains, label overlap, validity evidence, and numerical-certification boundary. | 01 | G-MATH; 02, 03 | Open | Pending |
+| D-01 | Supported mathematical families/domains, label overlap, validity evidence, and numerical-certification boundary. | 01 | G-MATH; 02, 03 | Resolved | Exact rational scalar expressions over finite rational intervals; bounded supported operations; overlap excluded; sufficient proofs and strict exact midpoint witnesses. Unsupported or inconclusive cases are explicit. See the [technical plan](plans/01-mathematical-verifier.md). |
 | D-02 | Model-visible prompt, answer format, permitted explanation, and invalid/refusal/truncation outcome contract. | 02 | 03, 04, 06, 07 | Open | Pending |
 | D-03 | Initial reasoning methods, repeated-trial counts, allowed generation settings, request budgets, and comparison profiles. | 02 | 03, 04, 06, 07, 08 | Open | Pending |
 | D-04 | Reference suite composition, actual depth measure/levels, class coverage, versions, and frozen-instance identity. | 03 | 08, 10, 11 | Open | Pending |
