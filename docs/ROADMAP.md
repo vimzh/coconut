@@ -2,7 +2,7 @@
 
 ## Source of Truth
 
-[idea.md](idea.md) defines the product. These modules make that scope executable; they do not authorize additional product features. The user delegated the approximate phase count, so this plan uses **12 modules** to isolate the delicate work without creating filler phases. Module 01 is complete within its documented mathematical boundary; modules 02 through 12 remain unimplemented.
+[idea.md](idea.md) defines the product. These modules make that scope executable; they do not authorize additional product features. The user delegated the approximate phase count, so this plan uses **12 modules** to isolate the delicate work without creating filler phases. Module 01 is complete within its documented mathematical boundary; module 02 is in progress and modules 03 through 12 remain unimplemented.
 
 The existing [repository README](../README.md) describes the application scaffold and verification commands. Preserve that baseline unless a module's technical plan documents a necessary change. Existing scaffolding is not evidence that a feature or feasibility gate passes.
 
@@ -41,7 +41,8 @@ The Status column describes dependency independence, not implementation progress
 ## Implementation Progress
 
 - **01: Complete.** D-01 is resolved in the [technical plan](plans/01-mathematical-verifier.md); G-MATH is Go for the bounded exact-arithmetic subset. See the [handoff and verification evidence](handoffs/01-mathematical-verifier.md).
-- **02 through 12: Not started.** Their prerequisites and open decisions remain in force.
+- **02: In progress.** D-02 and D-03 are resolved in the [technical plan](plans/02-evaluation-protocol-and-answers.md); implementation and final verification are in progress.
+- **03 through 12: Not started.** Their prerequisites and open decisions remain in force.
 
 ## Critical Feasibility Gates
 
@@ -72,8 +73,8 @@ All entries begin Open. The owner updates Status and Resolution with the chosen 
 | ID | Decision | Owner Module | Needed Before | Status | Resolution |
 | --- | --- | --- | --- | --- | --- |
 | D-01 | Supported mathematical families/domains, label overlap, validity evidence, and numerical-certification boundary. | 01 | G-MATH; 02, 03 | Resolved | Exact rational scalar expressions over finite rational intervals; bounded supported operations; overlap excluded; sufficient proofs and strict exact midpoint witnesses. Unsupported or inconclusive cases are explicit. See the [technical plan](plans/01-mathematical-verifier.md). |
-| D-02 | Model-visible prompt, answer format, permitted explanation, and invalid/refusal/truncation outcome contract. | 02 | 03, 04, 06, 07 | Open | Pending |
-| D-03 | Initial reasoning methods, repeated-trial counts, allowed generation settings, request budgets, and comparison profiles. | 02 | 03, 04, 06, 07, 08 | Open | Pending |
+| D-02 | Model-visible prompt, answer format, permitted explanation, and invalid/refusal/truncation outcome contract. | 02 | 03, 04, 06, 07 | Resolved | Exact expression/domain prompts; single JSON object with label and brief explanation; deterministic extraction; completion failures remain distinct. See the [technical plan](plans/02-evaluation-protocol-and-answers.md). |
+| D-03 | Initial reasoning methods, repeated-trial counts, allowed generation settings, request budgets, and comparison profiles. | 02 | 03, 04, 06, 07, 08 | Resolved | One-shot only; separate prompted-JSON and strict-schema profiles; three fresh trials, 4,096 output tokens per attempt, endpoint defaults, at most two transport attempts per trial and 1,000 instances per profile. See the [technical plan](plans/02-evaluation-protocol-and-answers.md). |
 | D-04 | Reference suite composition, actual depth measure/levels, class coverage, versions, and frozen-instance identity. | 03 | 08, 10, 11 | Open | Pending |
 | D-05 | Primary score, aggregation across trials/depths, missing-answer/error policy, spread, and supporting metrics. | 04 | 08, 10, 11 | Open | Pending |
 | D-06 | Credential lifetime, validation, retention/redaction boundary, and interruption/re-entry behavior. | 05 | G-PROVIDERS; 06, 07, 08, 09 | Open | Pending |
