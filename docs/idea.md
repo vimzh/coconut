@@ -31,7 +31,7 @@ The exact rules for publishing a visitor's run, accessing saved results, and ret
 - Generate expressions at controlled composition depths with explicit input domains and verified reference labels.
 - Turn expressions into clear model prompts while keeping reference labels and validation evidence out of the model input.
 - Extract a model answer into convex, concave, or neither under a defined answer policy.
-- Compare answers with the reference labels and report performance overall and by depth. The primary metric, repeated-trial policy, and treatment of unusable answers must be finalized.
+- Compare answers with the reference labels and report performance overall and by depth. The first protocol uses three fresh trials and distinguishes unusable model replies from infrastructure failures; scoring and aggregation conventions remain future scoring work.
 - Preserve the evidence needed to inspect the mathematical task, the model's returned answer, and the reported score.
 
 ### Model discovery and inference
@@ -82,7 +82,7 @@ The benchmark's labels and scoring can be independently checked, and the submiss
 
 The project is intended for the micro1 Eval Hackathon. [hackathon.md](../hackathon.md) records the researched requirements and their verification limits. Submission materials must disclose adapted prior work and distinguish the project's contribution. The landing-page content restriction does not remove that submission requirement.
 
-The existing application scaffolding is the starting point. The mathematical verifier is implemented for the bounded exact-arithmetic subset recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md). The remaining evaluation engine, provider integrations, user flow, and measured leaderboard are not implemented yet.
+The existing application scaffolding is the starting point. The mathematical verifier and offline evaluation protocol are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md) and [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md). Suite generation, scoring, provider integrations, user flow, and measured leaderboard are not implemented yet.
 
 ## Critical Assumptions to Prove
 
@@ -92,9 +92,8 @@ The existing application scaffolding is the starting point. The mathematical ver
 
 ## Open Questions
 
-- What function families, input domains, depth definition, and validation evidence will the first benchmark support? How will affine or constant functions, which can be both convex and concave, be handled?
 - What reference suite, depth levels, class distribution, and reproducibility information will define comparable runs?
-- Which reasoning methods are included initially, and what answer format, trial counts, generation limits, and scoring rules apply?
+- How will scores, unusable answers, incomplete runs, and repeated-trial results be aggregated?
 - How long do visitor credentials remain usable, and what happens to an interrupted run that needs credentials again?
 - How are saved runs accessed, retained, and published? Is leaderboard publication automatic or an explicit visitor action?
 - Which complete runs are eligible for ranking, and how are repeat runs of the same model and configuration represented?

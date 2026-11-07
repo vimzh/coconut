@@ -2,7 +2,7 @@
 
 ## Source of Truth
 
-[idea.md](idea.md) defines the product. These modules make that scope executable; they do not authorize additional product features. The user delegated the approximate phase count, so this plan uses **12 modules** to isolate the delicate work without creating filler phases. Module 01 is complete within its documented mathematical boundary; module 02 is in progress and modules 03 through 12 remain unimplemented.
+[idea.md](idea.md) defines the product. These modules make that scope executable; they do not authorize additional product features. The user delegated the approximate phase count, so this plan uses **12 modules** to isolate the delicate work without creating filler phases. Modules 01 and 02 are complete within their documented mathematical and offline protocol boundaries; modules 03 through 12 remain unimplemented.
 
 The existing [repository README](../README.md) describes the application scaffold and verification commands. Preserve that baseline unless a module's technical plan documents a necessary change. Existing scaffolding is not evidence that a feature or feasibility gate passes.
 
@@ -41,7 +41,7 @@ The Status column describes dependency independence, not implementation progress
 ## Implementation Progress
 
 - **01: Complete.** D-01 is resolved in the [technical plan](plans/01-mathematical-verifier.md); G-MATH is Go for the bounded exact-arithmetic subset. See the [handoff and verification evidence](handoffs/01-mathematical-verifier.md).
-- **02: In progress.** D-02 and D-03 are resolved in the [technical plan](plans/02-evaluation-protocol-and-answers.md); implementation and final verification are in progress.
+- **02: Complete.** D-02 and D-03 are resolved in the [technical plan](plans/02-evaluation-protocol-and-answers.md); prompts, profiles, budgets, extraction, and offline integration pass verification and review. See the [handoff](handoffs/02-evaluation-protocol-and-answers.md).
 - **03 through 12: Not started.** Their prerequisites and open decisions remain in force.
 
 ## Critical Feasibility Gates
