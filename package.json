@@ -1,0 +1,16 @@
+{
+  "name": "coconut",
+  "private": true,
+  "packageManager": "bun@1.4.4",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "bun run --parallel --filter '@coconut/*' dev",
+    "build": "bun run --filter '@coconut/*' build",
+    "start": "bun run --parallel --filter '@coconut/*' start",
+    "lint": "bun run --filter '@coconut/*' lint",
+    "typecheck": "bun run --filter '@coconut/*' typecheck",
+    "test": "bun run --filter @coconut/api test"
+  }
+}
