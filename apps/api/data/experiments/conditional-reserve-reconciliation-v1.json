@@ -1,0 +1,31 @@
+{
+  "version": "1",
+  "kind": "offline-study-reconciliation",
+  "checkedAt": "2026-11-08T10:42:00.980Z",
+  "sourceManifestSha256": "a27c2ec00a34ac5d448c172126ece0c5a40d9407b1ed44c511f03d42abd69d41",
+  "sourceLedgerSha256": "07ca4c3b50c7dc300440157d1551c0749d7b463e073cf1e07bb3aadd17daefa3",
+  "records": [
+    {
+      "cellId": "reserve-cell-4b474d1ad1f02c35ef98bb0110f25e48db6467e1e6bd4aaeafee22008c56eabc",
+      "runId": "ae009f7f-a0d7-4250-a739-297f253aec6d",
+      "recordSha256": "e98802d28d40545de9cd082e46ae8b8ace4ba247f050684b6e84deb00b487868",
+      "state": "failed",
+      "plannedTrials": 54,
+      "retainedTrials": 4,
+      "inferenceRequests": 4
+    },
+    {
+      "cellId": "reserve-cell-eb1a076663c7ed5e8d35ee58b0c2094f63b4e637ac731a89a7dd78e4d72ecb2c",
+      "runId": "9bca7252-af69-44ab-b313-71dadbf5ec8b",
+      "recordSha256": "10edc34a12fd3d91ed2ba0bae0a00e8102b20c707e590c6d439ff9398deb9f55",
+      "state": "failed",
+      "plannedTrials": 54,
+      "retainedTrials": 4,
+      "inferenceRequests": 4
+    }
+  ],
+  "counts": {
+    "mathematicalInferenceRequests": 8,
+    "unknownRemoteInferenceRequests": 8
+  }
+}

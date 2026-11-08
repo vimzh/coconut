@@ -1,0 +1,21 @@
+{
+  "version": "1",
+  "kind": "published-experiment-archive",
+  "createdAt": "2026-11-08T10:28:38.142Z",
+  "manifestSha256": "a27c2ec00a34ac5d448c172126ece0c5a40d9407b1ed44c511f03d42abd69d41",
+  "ledgerSha256": "4dd3b01ac5c70373ad2ada2221cebfc64333debe08afe05262d02d97aa21127f",
+  "records": [],
+  "omitted": [
+    {
+      "cellId": "reserve-cell-4b474d1ad1f02c35ef98bb0110f25e48db6467e1e6bd4aaeafee22008c56eabc",
+      "state": "failed",
+      "reason": "No explicit retained publication; no private evidence was exported."
+    },
+    {
+      "cellId": "reserve-cell-eb1a076663c7ed5e8d35ee58b0c2094f63b4e637ac731a89a7dd78e4d72ecb2c",
+      "state": "failed",
+      "reason": "No explicit retained publication; no private evidence was exported."
+    }
+  ],
+  "interpretation": "Exact published RunViews and independently reconciled report arithmetic. Private, failed and unpublished evidence stays private. Original and repeated experiments remain separate; this archive makes no model-superiority or mathematical-failure claim."
+}

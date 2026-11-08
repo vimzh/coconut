@@ -1,0 +1,85 @@
+{
+  "version": "1",
+  "kind": "offline-study-reconciliation",
+  "checkedAt": "2026-11-08T09:52:16.965Z",
+  "sourceManifestSha256": "583601ed027c0227ca0063734ca65f92bd590cc048688b46e984d530f7b900c5",
+  "sourceLedgerSha256": "46d28bd521978c77b559001e6482e02d8565af200ad0d903e9d628984c79c710",
+  "records": [
+    {
+      "cellId": "cell-12286b840df293a8cad106220bc56c26ff8219a5f940231617e3da0c8d4395fb",
+      "runId": "a00aa6e1-7ee9-49cd-95ac-1b388475d2bd",
+      "recordSha256": "bfe54e518e10e1c0141981c0b80c5d492a90b466235c1a18c7909459f93113c0",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-db64c8841b7269467852ac22ae4e451788947f5543331bd5e2a94ea957e054a9",
+      "runId": "774f5378-8a22-4f49-95d9-7ed9f8a31bc3",
+      "recordSha256": "cafe2207e3541699d2725ccbb47d92ba28e284f2aebe0a674571916d2e4a711a",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-2bac7da93440348d14b745333eb6da1cc3793f9b40e18b46c60cd541527df55a",
+      "runId": "12aba25e-8690-4e97-8462-f0d5eeab9cac",
+      "recordSha256": "103002d8f9a84d0161a893f081c6d2cacd157fac34274e371df64501fbe6a15e",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-4399930f78ce72261659e937f6b13cc6e8ad9b22efc256c0e28ea7997476cf00",
+      "runId": "f9b8f883-782a-413f-87a7-276dac8ea3f3",
+      "recordSha256": "ed38e4df1a69e3d02e54045f3634ab85450ab6841d35c967667caaaa8a8cf4b8",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-d1ed39b36cec93e9153c9032c3f610bf57638b916858de12064ca588becf89f4",
+      "runId": "b00786cc-44e9-489b-8763-5c598feefcd1",
+      "recordSha256": "c6e36bd41e8302344e3778fa8efa6e89a60c8ff3ed2120403c038304126ccf66",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-88396cb7a20eb8dc828a13f207c4189987b89177e41615166cc26884013da434",
+      "runId": "43a63de1-2738-4c65-ac8e-463901fe5c7f",
+      "recordSha256": "0e4a2c60a862bf0bf0d390a43106023be41b09f43a9e61f7029087d38c72509a",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-35f6071948d68718e38b18c463fd01a7cde41300dd9a9c526334dde4c5608c69",
+      "runId": "0dd34878-1186-4435-959e-03db9c4af2c0",
+      "recordSha256": "d8952705c836d0c8cff395ae5e7f804b06add9f018b8c34ebeb0ab424c83bd7c",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    },
+    {
+      "cellId": "cell-b4218a00e6245216414b5b2716562448aa9e991f892cbcfb0ae3eb8a5d1142ef",
+      "runId": "a3cdc053-99a2-4da2-898f-73ae3b532c33",
+      "recordSha256": "b46fe796e50dcd0f61f0f2400debdf38fa7d123fc9b5bac6618d909425cc0b3f",
+      "state": "completed",
+      "plannedTrials": 27,
+      "retainedTrials": 27,
+      "inferenceRequests": 27
+    }
+  ],
+  "counts": {
+    "mathematicalInferenceRequests": 216,
+    "unknownRemoteInferenceRequests": 0
+  }
+}

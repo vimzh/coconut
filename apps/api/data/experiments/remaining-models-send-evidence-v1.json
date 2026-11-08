@@ -1,0 +1,1838 @@
+{
+  "version": "1",
+  "kind": "study-send-reconciliation",
+  "checkedAt": "2026-11-08T09:52:16.965Z",
+  "sourceManifestSha256": "583601ed027c0227ca0063734ca65f92bd590cc048688b46e984d530f7b900c5",
+  "sourceLedgerSha256": "46d28bd521978c77b559001e6482e02d8565af200ad0d903e9d628984c79c710",
+  "sourceReconciliationSha256": "62fd2e46804b369a5c9b9ee0f649abbd06624e97688cac35330d91f0202b01b5",
+  "records": [
+    {
+      "cellId": "cell-12286b840df293a8cad106220bc56c26ff8219a5f940231617e3da0c8d4395fb",
+      "runId": "a00aa6e1-7ee9-49cd-95ac-1b388475d2bd",
+      "viewSha256": "bfe54e518e10e1c0141981c0b80c5d492a90b466235c1a18c7909459f93113c0",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "790d77f10bf90b279f7f4fdacbc9ba927769aa96af6977990e38d298ab650ed9",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "71bfd7ee885afc16fe1cf807148d0135dbac685aed22e1c2dc4f67849fe22351",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "700023618cc7bf0c0ecc6e93c27dd01ec0bd63b423bf9a48c13a6382695688d1",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "ccb095cff85a4fcda02799cae3cb3d6e106cbf12ac157596693424f712851fbf",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "01a1bdd50b1fad7decebeb061b8944646ea94919587192dac1ce2f2ef64f32ec",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "bda3f773692ff0b13f3b5666de0d01015192acf46f1e8709735b77256d217c2b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "0bc0369e709b2e11d29edc5bc73a48fb1bc0627b68dd4a7965db188b24c45344",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "6823c451762ab8f5457f54f530498fe5c243decab21f0eeceea106536261ac32",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "b45da2aab8769c49abd833868c2e5a805aa33861d4c0d20c253d139fba03e395",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "3d9fd409a6d8a9331272c5e1ada623e29fb03e5aacf0de99a6d91504d50f6ae8",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "611d8665d71259d30a876740b1b829b8493a938b91126d0463d3e1211786fb6a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "47371ab1522542388969e7a3b328d910d626d07e0a7d5b5d3b031f5a192fa435",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "eabb6d721697a4d0856ca495569fb6f5019d7f1f3fe179c7a29824c2742b5643",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "829f144cd5dc9164039fa395071a657a9706a89a6a4a9c8667f93ad019af4c60",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "dce96cf2eba4227127e39e64fbfc9ec67a8b618c164f1bc4e80fc428cb38daee",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "ebdab37b9d1b59ebe6176d784aa187f266767302fa2db01fe10ed534b67e544f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "6807714665bf7107a4fb2c02f8818d8795a5ed8c669d5abec47b88548c07e67a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "5e93643ecc2bae9d4233368a3cebf61ef0e79cb4e0575ca5333ac3d366b35220",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "9f1a4dae81bc8e8e2317da6b6e387c22d3eabb7ce39570828190ca025eefb0f8",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "0096af97aed974a1b32c05ec12897e57a31fb9a3084ccb979950604c7548f223",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "0f50f4665a819fb5bfa84e15d74bae097b9179c82317c8e2b14ce80fb9b663fc",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "19d4b8f436b6a4f9e0b8144aa7fb846707351010abdf7196c0936606ae62290d",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "64a628099a48cee8b81fa37f6a08799ef0fd6d25b2afb8403b8b750c8dca344a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "3e9c96ed24d0972215f406fdbcbb1c1b84340fe95dcc2d9f89bf004571106a1e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "ad017201e958e5a6c1f730d53766d0cfe2613045b9787770b71257083cf29d3b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "cab618ef8ecadc77aad8824b5f63e4d118d20ee0f685bdadd393be39fd3498b1",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "512bd05f0ef0b693e2171e2ec6698be4e1393f45004a549b9c10aba2901ffa6d",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-db64c8841b7269467852ac22ae4e451788947f5543331bd5e2a94ea957e054a9",
+      "runId": "774f5378-8a22-4f49-95d9-7ed9f8a31bc3",
+      "viewSha256": "cafe2207e3541699d2725ccbb47d92ba28e284f2aebe0a674571916d2e4a711a",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "2125e3517d3a4d8d2cb0affa5624df69721588a7647e5ed6c5a42e064452c29d",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "f864ae59fbd0b6f3140bc31fea542cad97b584ddf596f40c91a0c28a0065b55e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "c84e1b880a85f60100e77f214b90bf963554a3dc73f139585f31accc9646123b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "410d49dc2e03257f1afd370dd597dd794d39f510847ebc055f73b6f390446d68",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "bdc05699cb42d4b7396d16c20150644766a229b364a3a622c94f8f465696ca77",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "69ecd2af198f08798ab2556e19750f56e7260dd7b5cb53f1bc65dd5da3dd2181",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "a7a3a3d0975809bc6eefefa216831c7af6d7a00231fc5fad2f4abb1bbdfbc835",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "c107845e1145e08650df1ea72aac02457316612474c4059b741a4f506eaa2af5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "85f47cca3105fac8f8ca27e7e9a0698e739069a072d931381d3eb0589de10879",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "aa29475ac7b366472817cf224c3448a61eb9128a28569fd2531fc0111daf86f7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "be611bf7877a10a65dba147cb076022ad8091e67a4608da1dae0f91dbc1b71da",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "ffe223270c3fc6645c8e20162f723236e21c54000a52f74d2f724815289742f0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "6f5bf25d24e05cc86bd376360d0b249b90afa75220876c61f85f2f9d88d7725e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "55eb42c62269951badbd28d0f52df71bfa8a576545019224f056aecda2a5fd9f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "921d1712c10edd145ba30e2fa70b24fe5d03507bce203460142120285b9f339e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "338bf66f6453c1934fc1d40c956645af65d64f92d1b671ebea2ad0a6d80bc21c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "c7483eb162c4e20cc1772ca702fd23677d62716ffdbe91e07d55de7f276c95c4",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "0ecf7c0bb63e115d3e40d7e759bd166b9b3df2e6696e442afddc7846c1f9fedb",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "9984692d7cb2adfaff3704fd1c0e3bd69bddee948ae76670a4029e853d7646de",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "7ab69292abb0eea0f186d1203f90af011cc5241e07328714173987d9e622475c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "912e0b7810841a38fc9c4ee6b72840d6212384e6a13f19238e3efe9e0e12a286",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "a44708e3108832bca4f337851e0fdacfa96402d67cd12e132cf6b334a6281516",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "f3e105d920f38ff9f2432b122caaf7a6bcae21eec363f10e46aaa219212f59a7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "89d05bf8e192b7f02ba496a6db9b9a9c2059b1791395c713fe88d716d1f81307",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "87e084f1c7f505e24d3adb0149593b4b16a30610714f621e22e0bb137247b58e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "c4952a31b5bb14c9eef06fc060142f6c58f52532bcb3af103fc90d9f0a3b02c3",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "ba766a6039a994f16d0644667b97a17da031e54f65c225144afc9ef6bb0f283c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-2bac7da93440348d14b745333eb6da1cc3793f9b40e18b46c60cd541527df55a",
+      "runId": "12aba25e-8690-4e97-8462-f0d5eeab9cac",
+      "viewSha256": "103002d8f9a84d0161a893f081c6d2cacd157fac34274e371df64501fbe6a15e",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "ca77fd187e09ddd1e651850229da9bd77e324c70de5435c668571c813c1297c7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "14e830cf7158d04c6600e2eb5910a1ded204d8f3ad8a6b4c57fe22d7aa599968",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "e8691fa064d6db9f07e585f0e5f64febb65bc8d0f0d0091f1d4ea9d8d0811f46",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "271a5781b3793d9ee6d741663965abca5b3fca1f64952613559be7c618132b90",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "9554e452f613cbfc131b203cf3bf1c676eb3515053c7211eec7909a61ff9c16a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "c8d666bfbc216338c20fe129d688fca0882df3ccf1804213b998771e7ae7a447",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "9ff100b90358520ba8542b9ca2f58f53fdfcb65776c923a493f546b26f8eb7da",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "9599381e252e0d2ca0aa7da2859518edc6b8833bda0c3e84858cdf77bac99307",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "eee6151ca80a90a9343c4302cfaf9bfdb982b2ff43d9d26ee7ff73c30b7ba8b9",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "e2588fc6a5772528001933ccb27ed99ccbfd92937e1f0a581b7378854ac75bb1",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "d07a57f8abccb2254218d687152124af29e72cf2aa723be40c300ed43f81a315",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "3454b59beb451e9a1750518fb77c75d7471f6a391417075b43fb3c6b16db8732",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "af1a55ae2034a3033329495b36c3d4e30a8fbd1d457d0f0e94ab255daece8403",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "a260e5f348ff2a29682ca7b230793d77f09c26817555b4c5ee3da094cf587502",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "afbb0d344670f3d4f534d49a2ea27a95728e8d94c2deeb72fd67f3e1fc8364e8",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "f56c99918921059a02eb53358fc023c8757162ca19d9a341f090f6bd6317dee6",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "4cd9b04d6ef971ccef2c54b239b295240319bf3446867a6e0e1b59a4540d226e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "9ef3944d051702afe259f932d27724db21c29150c1360d68f17ccceb2ae9e76a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "a27c69cf4d123559754a2706d17b16bf55b9a32566eb7c017248b6e3bdfe37a9",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "5621e3f641f38584a8e30056b0849b0e1237fb27eb62315b2682c5b3df323fd5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "1e099908c081b38531df85fc410853a5680b8e5f95636e9d09f1dd7fda97f013",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "3b7dace6e542e26efbd0a7bb5ab1dff0bc1d3c8ff8b97b65bef979f965e9ea9b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "79188cd04baec9b5111de53976181d24ddba9d4c6d884d005346a2e2f9d91e24",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "7469b197196826b8f48c6326ffd5b75e2d6648ab7039aac87554c3c43e525ac0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "a4b6c0b8de920798531d4a35ed845b756cf7294baaaeb415d6c816059c178dbb",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "fb8bbf87cf5622a3acda192fcd6dda836e983b7c5bbc500190b869b142f08b46",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "a268344b1af7f05ccc2a3ee410b4e599ca617bf4e4be804216f135968f74a670",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-4399930f78ce72261659e937f6b13cc6e8ad9b22efc256c0e28ea7997476cf00",
+      "runId": "f9b8f883-782a-413f-87a7-276dac8ea3f3",
+      "viewSha256": "ed38e4df1a69e3d02e54045f3634ab85450ab6841d35c967667caaaa8a8cf4b8",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "85cb98846b2741730998da60388279a6d65957c6498fca85f454373d419cad8b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "89ad8cc19cd0745a6147e703fca283eaa6264808b070335892429d4009dd68f7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "3882fe0c9813f45146220f9882571f93a91cbdcbc92e86aa2805d245391dd690",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "d183d611e1cf3c1735baba138407d10f543674ed2ad8479b65efcad96aa74e4f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "7e33375c9a3de150e490db42b86a53cc8d34026166e32d39c16733b2a6165a84",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "c6bfc99a232230e33e7a9000065a644e8adf4bd719af4d468747adcf0ab6f566",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "31ee16ef4fcb1e14b18c66781cf3ccfea7e4e71cdafb82e1d4ff6ff2dc4a2819",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "1d4325e3c4a37fe494d51833b00812227132e4deb85416350c00de943a641059",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "87fb2b4e16897e7db9fa9d42cac7e13c8381f611ca3f0f5f6130de530826250f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "bc79b707c6e9824adc9c9f7c44df3a1146059f02b50bc46bdc28624c448dc753",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "acd3d0141d8962d8f9d7416e5bd3abd7885ee2878451f83323879e0acde003ab",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "727aff190a6a1e0437adbf65228e21f830c11951fcc300da6d7e897372bbdb9e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "27169e5a68eba01becf4df3a10af573a79f7f8d8a213e64dce0e97b6c5af0414",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "b202efc982aa89152c1fff083f532f4dd0ca6ecfae4ce02de281957e1a53e8de",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "249632df873a73110715ffcd386ca2aea043a81884d1dbfaf44fb8d915cb7ed5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "7f2f47ef37cab5167d21ca5e0d9af9b1df026e8058ed8f2ce9ad5c9af7c34f69",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "71966d53612615204fbad7db7f4504356cf2f52d022da0abc297c303f29cbd12",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "5eb2fceab81e071432912c07e2059d04637c5dcd952a281a52d1a7bf32a5389f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "3dd06eb051238ae95d16273442427fefabb9cd0a642b31d7279ddef53d6a618d",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "83bf2de80e8808821b3810ad583ca7c3453372d6168a5659125d4ea02bc7f1eb",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "e827791f32ac76aa9812251b78ed3e39cf1bf56f82785b5f7d394e6ad7a20899",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "9546073a7f3bc158e6dbd92137e114b50931673f456016fe6d42d3c83b93f6a8",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "e3b0b20abcb2561eb02bf2c26b1a41a4bef4b881a156f58a0c903b99366948f0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "abaeddf2eacb7b1c3f5a26f5396d3977ab7265688e3f849e05136cf0a5f0de28",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "4ddc4ac2ed4984e94f61d089bdd8fb9c90426599232d72ffbae0d350ca4016c3",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "bf821f7368da2ac4a18f7c8fac8ac60dab358cc78384ddb5a555cd472c571d9e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "cbc9d31af6cbade6d698567f45bcd9304bc1c52202d503ddecdcc57471da4cd6",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-d1ed39b36cec93e9153c9032c3f610bf57638b916858de12064ca588becf89f4",
+      "runId": "b00786cc-44e9-489b-8763-5c598feefcd1",
+      "viewSha256": "c6e36bd41e8302344e3778fa8efa6e89a60c8ff3ed2120403c038304126ccf66",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "15d467e7c3d26d64e93f064118639decf9b679fd959b407af7329de76d52bd1d",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "43dbe78c2c19f7eb6cda6bf58b58081b5692c14acfa8e2caf94ea2046b6bf460",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "675c18249b6fa997a2051f9ab9317e268af1c2ad7bbc02238bb45858be55fd18",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "9ece54f509ed3fe7f6456ab07c5585cd896ef0e14f095ad69eb8462f7bacb4e7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "971a9eeee732264f73ded1913682afd6e1a5fd04a67201ba2af8b636f474243f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "d920b9df900d979800e245468bdcc7fc9da4bdc9302567c654acc910a5e0febb",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "7f621e9bd7f1e6eadf172f3d873080995235a591f5831d483678b60512da6530",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "a7a81e65536b405025084d163b8b85d9c533ddf958ff4832c8e7d2510ca065f5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "48f818e7b1fb502c05fb0da75b9d0381a6925c99cf1920c865727994e8802888",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "fb88417da25d23729a7e350578f831a8724220f2ba8a02c619f516fb26e1083a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "c6102f4f5ba8f39ba94b6e4fe3df8c7b00337dc8dc0f039dfd5a6fb65bafecb2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "23f0063ca03abab428f5e7507e5daa8695f8f3be50d20ffb7c5ef3cdda64fe47",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "9f0085ff129d53eba0f4bb967c645ce61241374f558ee88a93d8001670aada18",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "c847033b680c5d893281650904d8c36b46f635c184fc19b1e14f47b6c7adbb9c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "1c8dcb0e08757da292c827a4bab3de5ff583e6ed4ce3e4b1965c9c7df3e53722",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "7ede91b1acb872167f824c5e98bfa63eb7ba3dde1b32ba7f31fdc21cb07b69b0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "31036a5001a96209fac9e101227e5788e4df7b1f4ad0d1a629a850fbde4a23da",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "e135c957a7a66b2c535946bdb502343bed52a2ffe268fcaae43e327ece0062c6",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "816540863c9381fd02ebb30a5aa144883297328551b56047038d17f3cd3205e2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "bdc775d95245fdb6faefc0d32b67a6da79b9507a666f718ef2c7e2aea2fd6623",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "cfd637142e6c6340f131256e129917b646a66a5f904353fc595db75b2e47df92",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "24222dcef242a8cd877358594e8704ed40b67752146e429e5a64d3d999720315",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "050aafb6de59a5ef3a5a51b01d560d22261316a26380c6a98fa5ecdf43e20c57",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "0cd810ba318fd1af3d79f3adfdd85b3840f744ab0df87ed2767e5c227df9c63b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "9c7d69f236e64ebe819ee7c73118d019618b9710c97ece8dce983f189134fda5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "70dc7fbbd72c5ab08e47350a9616f8dd2af3a433f74a7559a9d7ee002cd3a3ad",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "a2f5d6e12906655e34fdbb2388ea21d44d31cce19ebd709b3cdeae47e20130c3",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-88396cb7a20eb8dc828a13f207c4189987b89177e41615166cc26884013da434",
+      "runId": "43a63de1-2738-4c65-ac8e-463901fe5c7f",
+      "viewSha256": "0e4a2c60a862bf0bf0d390a43106023be41b09f43a9e61f7029087d38c72509a",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "6f6607e08bb28dac8a71e1a1bc3546ea6c22b8ff72c0f828eae1ad56b578d84e",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "bc0fad3b604c127a71f25443f9c335d6668b8ebb2136b3680b7db16af2777731",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "ec1fccf2def88d2ae1286fa81f27b80d3344c4cb0eab2ef7471949e77e9c9775",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "4d8f551b62f84ae5404ec53effb639c2bc5dc1478136379543d9dc38546050e2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "a4553b0f88999b72e2cfb5c2b4aa30519162bba5238eca2e0a6bd56ccc9bd1ea",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "d46e81b0d44efc7414a97c398383899a388394727b6ed5759d6106738ae61b6a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "d54b34f422656c66d19df027e03efa17b0b62e92cce7ecdfb2761370a61eec20",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "e5781389ca6820cc24505bddfab31edd70c3e4d155125799f5a4157685cc8aa5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "e18410be90644c0f5cd8a3a14e0bf6d116a31d7d488cb1947d3a34826887947a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "da4837c3ce61429345804c0408fb4e2757b6f1bcc945a8ba8352956e26b6d2d3",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "7790ecfc18b79400d54a5811b1c3de841e154d6ed8acd05b6e049a757f237396",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "cd90708ac952d13706e185e9ebf30f66c2ce26e683cffd026e0ee7cb4a5f124f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "503aa82f6efc5c5f549fbb6c965353ef098b7118f242b3d04b7c70b8d0ff77a2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "a4b541a3f9a9c1ca43ebd364fe78a7a80114564339077e2fcb64f24069bbeddf",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "05208ce594f7ecb086139be827a7db7579001fbd6cbf0e6f00737702ac0e1650",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "b96bd9611df516e78769d54fe5024788efc7e542a4ca0f8664e5e68e69a7d465",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "fc88743a4330c181cbfb9c2e30a68f1532cbd5cbd188d459655b53542a9fbb6c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "bdb48c4b0b331cc10a7c132489421dc0fa02bb6a359ce25fc707604faa04f5a7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "a6ae30c16e8d41aaa5e9b38c4000ce6981abf4c0b0f2451399d75fca1cb618aa",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "5264a9cc4c26bce1093c050b12c7de097804cfe5b197b6d80fc4f1bbb74d1431",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "37310a2844a841b39bd2d0f79e95d22c7b5d256686f704b01d9b3ff6b32279b2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "a563caa1e44fdd5380a20b7172ef2da02ac708e1afb0ecee508d0fa60e91cced",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "6bc8617665cf5883b20134865340abfc833a17de35f8eec9d3c05959f472dbcf",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "02336dfe350d08a72b85ef4b8c0edf310edb2e6e81011d27be034f3194774792",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "4fd762df416331c55afe9bada643f64d19187f8b51092282706e64456d6b0b46",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "b79c17fef8faba2ee697f478dd23b74d70deed9ff372c90443cb4c7d2c1878d7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "1fcf153159140a6453418a8c1d8e1bca5bf24914e20de416b8c74ef9af2b6c67",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-35f6071948d68718e38b18c463fd01a7cde41300dd9a9c526334dde4c5608c69",
+      "runId": "0dd34878-1186-4435-959e-03db9c4af2c0",
+      "viewSha256": "d8952705c836d0c8cff395ae5e7f804b06add9f018b8c34ebeb0ab424c83bd7c",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "8cf3221c290fdd407c698bde29f03e40111cdbb80ce3c14f39ee7de6523dbc49",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "bf995726e6cf91471a30b5a93f19a8335590368f307d014473a5bc13125c3be3",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "f6056c0d73a39a5cd0164587f475839b2541889812c9dfd1eec3e8665e05f41f",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "2ee0276898f84169ed02ae14af1cc7aa3446887ea2fdb2a8a498a10b1d868baf",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "c1ba714307fb6236b7e3b19cbb5c37bc41fdd7886f26da1c45412e1da1d43b21",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "8805084609bbb2783e7db47e426bffb3eb29ca5100d980fec3a11617fa501e5c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "89f30f9a5aa6d75b4952dfcafdcee693f7d84de7ad898bca50bbe46d40830a11",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "43cca1d00ad5a4ef971c1361631e7700e696230b7b4c989527edcf97c6d9d15a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "6b861be1cbaf90888a5e6d17b3ed4ba051880dc4cd96e981498dc5d1beea9d92",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "3672fdd62858f2200406fe5fbedc3f7cd76fcdff79b8473c43c7bff4795e7bf3",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "e22eaeb53fbede20bd22c9bf6e0c1930713bf959c5d1f100e85ea821e3b8f274",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "995e4e534d6d0abc3ba86c8175101fcc13c762f6a97d7fbb9a81ed2d8e007a00",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "b972b462afb008204e05ebae589fc1f582ef93e93fc4e32cef7385fdf678095b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "05e37770dc0ef301b375c8a967424a56bb8909e3f6ca218d487aab3f809a68da",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "25f269ce8c5c2b18483939dc14290128dcd3c6bcc290fc68d7117d6b9cb14035",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "215eda282b083522b911cfc5830da8005365ccd730ef17e0fc5074460e55df48",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "6275a0f2e1338b7b0a886fda32b48fa830002cb8a38a65fe5462bda1a4f465fa",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "d89fd1b4c7b7f482729395ae1fa42a15f82153074c4e202df2de77c0b34e7e64",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "eebfc98a525eb0e74d22a1b2650c2bb4c60a13c34f999d4f09b4dfdfb0bff0b8",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "c2cb4aba5931d950030c68397a7f3e24ccdaad0b2ad9e016718890d50c3ff2f6",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "72ec0dda48d07171c0806529821eb16509147fe121addc442f7e1205d7921476",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "c8ffa91a1f6d0f4b707a56ddce311d47feefe6360c6e374f55b0041a7722f137",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "d99ba9d638c1f1e7a606b58f10e00eb5eb4aa30d82454955e4b35736d5109e37",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "8a1c529d0027f26f5e29c24e4f4c671338d77e762317c36847fedd2478074435",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "917eba4cf26c8c567e23ef4134a425b1b3090953a1c2b570f398cb308f9c0d28",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "ab11622935cbe453e817d0194f047a8a87e6089e1ff7d50d44bb10dbe2994163",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "f96e8b8cc5d0f3fbf1d67ab451cfc15fabeb44cdaf75758acf00a1c5b74962ff",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    },
+    {
+      "cellId": "cell-b4218a00e6245216414b5b2716562448aa9e991f892cbcfb0ae3eb8a5d1142ef",
+      "runId": "a3cdc053-99a2-4da2-898f-73ae3b532c33",
+      "viewSha256": "b46fe796e50dcd0f61f0f2400debdf38fa7d123fc9b5bac6618d909425cc0b3f",
+      "state": "completed",
+      "activeTrials": 0,
+      "plannedTrials": 27,
+      "finishedTrials": 27,
+      "inferenceRequests": 27,
+      "attempts": [
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 1,
+          "resultSha256": "9f4f3ab4a1cb147aed9f11b4bc099b00a676e813c19ab1050af110a0595ecb77",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 2,
+          "resultSha256": "d208b5e7bf6991bb9ae6fa8be900d84ccfdc4294ad8558cfb34078ca910ec28a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-a94d876e228b7db42bb3dbaff40a74faafd8b8922df532959524338ad25d8993",
+          "trialIndex": 0,
+          "resultSha256": "901e5807030033baed00dbb853e0a9797853cc645a8b29bc7bfc23a460c4203a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 0,
+          "resultSha256": "64ffe7da9edfc7a81ecb31d4da4eeaff73494972d3fe55d1de80bba1a810c5a0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 1,
+          "resultSha256": "5e268dc51e7e597c2aed80dbfc949bc57c9b450bdb0f6d8fc5290dd4b6349510",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-3ded0605eb70875ff94041ce0b026e45e21cfa426e344566c204ee9e91842b67",
+          "trialIndex": 2,
+          "resultSha256": "54a82642caec2c357f84b4f38c3bc595f3301818a0a7150fe4900fb89b0bfc4d",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 0,
+          "resultSha256": "9e38cb1f8b0b3fec46d05d141a37ff87028517e7125f808afd4fcb209ac703ad",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 1,
+          "resultSha256": "800ae5d939b32e13c3b0743bf5bbc665ea4f05ba0e20269f1c8d50f7d1abb215",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-4a4fdbe6265cf1888374120282256e6551d869a7055f10792ed3c8a7cf707b60",
+          "trialIndex": 2,
+          "resultSha256": "2c6089bf45ded442456b4bf444ff8e3c6c109f1b98ff118be5d1ca71eb660d79",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 0,
+          "resultSha256": "5993ca19a9438a4c1c4f84bb2937e5fff9ca809d4a02151a69d4916b456e9d8a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 0,
+          "resultSha256": "e853884ee2c6d6a2d35e942a84b027ca162266411623f721e43224c26b16167a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 1,
+          "resultSha256": "f8e5c5792ac5bae0faf94df93ff26ffca621a8d1caea60da82bd6ebdf3b41988",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-f9361d79094bd5c814ed678e754e38194e9e682a29e661bd9e6710250ff47a17",
+          "trialIndex": 2,
+          "resultSha256": "a9d88e248139482c9b23a5fc44482f44ff8ba8bb3f2d3a09a9a7083a3f004fbd",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 2,
+          "resultSha256": "e965378d26a061334edc8680c63fd391de3502a8adc097b01d652c84cddf623c",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-2d15efb101aec52cfdca87c95c2bb642fdc7d791c5f242eade10001d0142730d",
+          "trialIndex": 1,
+          "resultSha256": "0d109ce9a5b9133dc473aed970fdd4466e95b8ebe099f7b2658f8a4de301cca5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 0,
+          "resultSha256": "94a64aa2228fcee5364d764d8c9c08a5438f97982492d16ba4fd215a6bf8f182",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 1,
+          "resultSha256": "68e98a35929ff36a11e72f4ecba87aeb9ba8831f01e71d4488f632ea4c913926",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-eb90a990ebffc26f0dd9288b4ba5647fa29c6d4b386fbfd6ce6b75d8374564df",
+          "trialIndex": 2,
+          "resultSha256": "f001d6377d7c8ff4c9a1675b69c0341c3a4411d8ffd8353bed835f2a4dc513a0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 0,
+          "resultSha256": "65d538187c39e3dc3f187164dc7945f4623e82737b59f4fb311e506c679f20b5",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 1,
+          "resultSha256": "0fa1632b227cc3facdbe9b59f5ec99ac3023c0c2320a0b26efbff8f81a0dc03a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 2,
+          "resultSha256": "22a90e9cd3dd9027d0938fd843e64ec431b004aa448abad4adf037bef78dc87b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-fd5c537ec771be84a4d11d9a1acb0564fca6896705dbdd49852f069988badb4d",
+          "trialIndex": 0,
+          "resultSha256": "acc0af02a27bbe119346016acfe1d101a5adb6981c9b5f52f4c91be2c6226029",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 1,
+          "resultSha256": "7b022805d03926bbdf3a37f1cd5bb539f105a0ec9aca62d5dd7aa3a686c4ba89",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-6debaa264a76685a8aed90224f89f0d1ebe81b973a919c7729ad73cc68c82f13",
+          "trialIndex": 2,
+          "resultSha256": "8bf64d48058d0a73af3e8c5a3d20d461cb68fd05b36b6f1e472411af5b7bddb2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 0,
+          "resultSha256": "d41cb7492fdf1398c11c07d99aa5e2fa524289a458ea5a2f50ba3b74bf7759f2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 2,
+          "resultSha256": "7ab18e702ba893f5ebb9d9d14b6efd5762f13377e95ba84c869cd8553f66f2d7",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        },
+        {
+          "caseId": "case-challenge-v1-d5e0caa703647596a948c092dd36e57868b395ac84ff3a15d1c399f67251e109",
+          "trialIndex": 1,
+          "resultSha256": "84ed37627e3cd5deb80e05ed98732143f61bc3780f28f23b050e116949d51c95",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": null
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "mathematicalInferenceRequests": 216,
+    "unknownRemoteInferenceRequests": 0
+  }
+}

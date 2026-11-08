@@ -1,0 +1,49 @@
+{
+  "version": "1",
+  "kind": "interior-exploratory-progress",
+  "manifestSha256": "a4f109d0ddd550442d10978bfd1854c07ba04bb4f6268dc7cdaead701106d536",
+  "startedAt": "2026-11-08T08:20:33.323Z",
+  "updatedAt": "2026-11-08T09:10:21.584Z",
+  "state": "settled",
+  "capabilityCallsThisExecution": 0,
+  "priorReservedInferenceCeiling": 7648,
+  "maxNewInferenceRequests": 432,
+  "cumulativeInferenceCeiling": 8080,
+  "cells": [
+    {
+      "id": "interior-cell-80d8ec7427bacfe209de3e8d5121f71ba6572c828f3edf9a05c8e5cecdb07390",
+      "state": "completed",
+      "runId": "dfd70b94-ee70-4365-8b08-58ff09c07e6f",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-23b2a3ac2d1f85fa5fc07fbdf87774fa9ae32c3fdc9864f5318417f8721df8ba",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "interior-cell-ab1819504a381ee20082fd766c9be6365b379db8453bddbe3b14259e1b013941",
+      "state": "completed",
+      "runId": "793e500f-2bee-4af8-b56b-5256731f00c7",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-3864d61eac66cd0097d09a4286a9bc4a8c1fe2f712a58e4fcef0b0a81c135aae",
+      "published": true,
+      "archived": true,
+      "error": null
+    }
+  ],
+  "interpretation": {
+    "population": "exploratory",
+    "ranked": false,
+    "confidenceInterval": "unavailable",
+    "strongSignalEligible": false,
+    "scope": "Three families and eight shared clusters fail the unchanged six-family/20-cluster confirmation and interval conditions. Report descriptive outcomes and individually reviewed observed point failures only; no broad ranking or general failure claim follows."
+  }
+}

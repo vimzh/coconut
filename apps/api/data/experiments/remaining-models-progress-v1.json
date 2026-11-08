@@ -1,0 +1,144 @@
+{
+  "version": "1",
+  "kind": "remaining-model-screening-progress",
+  "manifestSha256": "583601ed027c0227ca0063734ca65f92bd590cc048688b46e984d530f7b900c5",
+  "startedAt": "2026-11-08T09:33:04.195Z",
+  "updatedAt": "2026-11-08T09:41:12.655Z",
+  "state": "settled",
+  "capabilityCallsThisExecution": 0,
+  "budget": {
+    "sharedInferenceCeiling": 8192,
+    "priorActualInferenceRequests": 7522,
+    "maxNewInferenceRequests": 216,
+    "cumulativeInferenceCeiling": 7738,
+    "parallelRuns": 3,
+    "runConcurrency": 4,
+    "maxConcurrency": 12,
+    "retries": 0,
+    "trialsPerCase": 3,
+    "attemptsPerTrial": 1,
+    "metadataTimeoutMs": 20000,
+    "inferenceTimeoutMs": 180000
+  },
+  "cells": [
+    {
+      "id": "cell-12286b840df293a8cad106220bc56c26ff8219a5f940231617e3da0c8d4395fb",
+      "state": "completed",
+      "runId": "a00aa6e1-7ee9-49cd-95ac-1b388475d2bd",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b26d0ba69cb259bc17fbc2d9c8a07f4898c78fdf218e2a25d2422581cd2acd03",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-db64c8841b7269467852ac22ae4e451788947f5543331bd5e2a94ea957e054a9",
+      "state": "completed",
+      "runId": "774f5378-8a22-4f49-95d9-7ed9f8a31bc3",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-f0c352f5ee95b714a2bf998fec226645f9e9f2ce567dca3db389a5faedc9fca4",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-2bac7da93440348d14b745333eb6da1cc3793f9b40e18b46c60cd541527df55a",
+      "state": "completed",
+      "runId": "12aba25e-8690-4e97-8462-f0d5eeab9cac",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-60b323ae54115af0ea7537bb3cd712e822df191d0f6da2bc10f772b785533a63",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-4399930f78ce72261659e937f6b13cc6e8ad9b22efc256c0e28ea7997476cf00",
+      "state": "completed",
+      "runId": "f9b8f883-782a-413f-87a7-276dac8ea3f3",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-592256a98662241ed5b87b5f93ffc346d8ea874cb44174529b019be3a4fa56aa",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-d1ed39b36cec93e9153c9032c3f610bf57638b916858de12064ca588becf89f4",
+      "state": "completed",
+      "runId": "b00786cc-44e9-489b-8763-5c598feefcd1",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9803213ec491154cc982f2b85dde171da36d3d75d262d80ad8a30cfb6ccc4422",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-88396cb7a20eb8dc828a13f207c4189987b89177e41615166cc26884013da434",
+      "state": "completed",
+      "runId": "43a63de1-2738-4c65-ac8e-463901fe5c7f",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-3b5ddfc33c09a71e1634ac9770822c1de5a153c54168eccec96eac71af465e93",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-35f6071948d68718e38b18c463fd01a7cde41300dd9a9c526334dde4c5608c69",
+      "state": "completed",
+      "runId": "0dd34878-1186-4435-959e-03db9c4af2c0",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-7f2a0b53707f4afcdf2948b843fbceea2b8ef150ac0edc64392999db7ef6b93f",
+      "published": true,
+      "archived": true,
+      "error": null
+    },
+    {
+      "id": "cell-b4218a00e6245216414b5b2716562448aa9e991f892cbcfb0ae3eb8a5d1142ef",
+      "state": "completed",
+      "runId": "a3cdc053-99a2-4da2-898f-73ae3b532c33",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9d2504298b85be1ccf3b200a82eef4d7ded688cd92e8c8bf82bd48ff97aaa4eb",
+      "published": true,
+      "archived": true,
+      "error": null
+    }
+  ],
+  "interpretation": {
+    "population": "screening",
+    "ranked": false,
+    "confidenceInterval": "unavailable",
+    "strongSignalEligible": false,
+    "scope": "Eight separately recorded screening cells, 27 fresh planned trials each. Report descriptive outcomes with complete denominators only; aliases and snapshots stay distinct. Prior exposures and incomplete evidence do not establish a confidence interval, model ranking, or stronger signal."
+  }
+}

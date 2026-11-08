@@ -1,0 +1,31 @@
+{
+  "version": "1",
+  "kind": "offline-study-reconciliation",
+  "checkedAt": "2026-11-08T09:19:28.112Z",
+  "sourceManifestSha256": "a4f109d0ddd550442d10978bfd1854c07ba04bb4f6268dc7cdaead701106d536",
+  "sourceLedgerSha256": "d92527579936e750e144255d316aa332553ef09956a2171c509527d58e654f4a",
+  "records": [
+    {
+      "cellId": "interior-cell-80d8ec7427bacfe209de3e8d5121f71ba6572c828f3edf9a05c8e5cecdb07390",
+      "runId": "dfd70b94-ee70-4365-8b08-58ff09c07e6f",
+      "recordSha256": "82e3fef29e67abc04efaa9ec34d99370de11c24f1bafe9eb67817bc72d08764d",
+      "state": "completed",
+      "plannedTrials": 216,
+      "retainedTrials": 216,
+      "inferenceRequests": 216
+    },
+    {
+      "cellId": "interior-cell-ab1819504a381ee20082fd766c9be6365b379db8453bddbe3b14259e1b013941",
+      "runId": "793e500f-2bee-4af8-b56b-5256731f00c7",
+      "recordSha256": "3460530d2302fa151b093f8b702ee0aa6834b115a2d3a045aa53fb80f731db02",
+      "state": "completed",
+      "plannedTrials": 216,
+      "retainedTrials": 216,
+      "inferenceRequests": 216
+    }
+  ],
+  "counts": {
+    "mathematicalInferenceRequests": 432,
+    "unknownRemoteInferenceRequests": 0
+  }
+}

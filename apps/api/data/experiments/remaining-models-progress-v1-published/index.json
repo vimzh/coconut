@@ -1,0 +1,72 @@
+{
+  "version": "1",
+  "kind": "published-remaining-model-screening-archive",
+  "createdAt": "2026-11-08T09:41:12.655Z",
+  "manifestSha256": "583601ed027c0227ca0063734ca65f92bd590cc048688b46e984d530f7b900c5",
+  "records": [
+    {
+      "cellId": "cell-db64c8841b7269467852ac22ae4e451788947f5543331bd5e2a94ea957e054a9",
+      "runId": "774f5378-8a22-4f49-95d9-7ed9f8a31bc3",
+      "file": "774f5378-8a22-4f49-95d9-7ed9f8a31bc3.json",
+      "sha256": "1b8578b9f246c420ab862f1ec3607baf4f160a334bd61fc644a4f7d12d207ccf",
+      "reportId": "report-v1-f0c352f5ee95b714a2bf998fec226645f9e9f2ce567dca3db389a5faedc9fca4"
+    },
+    {
+      "cellId": "cell-12286b840df293a8cad106220bc56c26ff8219a5f940231617e3da0c8d4395fb",
+      "runId": "a00aa6e1-7ee9-49cd-95ac-1b388475d2bd",
+      "file": "a00aa6e1-7ee9-49cd-95ac-1b388475d2bd.json",
+      "sha256": "fb9bf737580606bbc7dd1bccd0349bda597163fe792bd8e16a5e46ad54ac43b9",
+      "reportId": "report-v1-b26d0ba69cb259bc17fbc2d9c8a07f4898c78fdf218e2a25d2422581cd2acd03"
+    },
+    {
+      "cellId": "cell-2bac7da93440348d14b745333eb6da1cc3793f9b40e18b46c60cd541527df55a",
+      "runId": "12aba25e-8690-4e97-8462-f0d5eeab9cac",
+      "file": "12aba25e-8690-4e97-8462-f0d5eeab9cac.json",
+      "sha256": "924fe747ba54cca08e2bbf40bae1a38adadd57a8ad9160d2ae31bd424f186899",
+      "reportId": "report-v1-60b323ae54115af0ea7537bb3cd712e822df191d0f6da2bc10f772b785533a63"
+    },
+    {
+      "cellId": "cell-88396cb7a20eb8dc828a13f207c4189987b89177e41615166cc26884013da434",
+      "runId": "43a63de1-2738-4c65-ac8e-463901fe5c7f",
+      "file": "43a63de1-2738-4c65-ac8e-463901fe5c7f.json",
+      "sha256": "89be5597ada67d676048b7b4b26212356421ed4504477bc69788ab5ae1469b34",
+      "reportId": "report-v1-3b5ddfc33c09a71e1634ac9770822c1de5a153c54168eccec96eac71af465e93"
+    },
+    {
+      "cellId": "cell-d1ed39b36cec93e9153c9032c3f610bf57638b916858de12064ca588becf89f4",
+      "runId": "b00786cc-44e9-489b-8763-5c598feefcd1",
+      "file": "b00786cc-44e9-489b-8763-5c598feefcd1.json",
+      "sha256": "2c6624ec8cc8cc74e7195590df8970ad9e84e353746d6861b3438d6b95758403",
+      "reportId": "report-v1-9803213ec491154cc982f2b85dde171da36d3d75d262d80ad8a30cfb6ccc4422"
+    },
+    {
+      "cellId": "cell-4399930f78ce72261659e937f6b13cc6e8ad9b22efc256c0e28ea7997476cf00",
+      "runId": "f9b8f883-782a-413f-87a7-276dac8ea3f3",
+      "file": "f9b8f883-782a-413f-87a7-276dac8ea3f3.json",
+      "sha256": "0d16eed77d47820a3e46d61dc0490bf1f894ab3263f58f7326d9e5fc7308e389",
+      "reportId": "report-v1-592256a98662241ed5b87b5f93ffc346d8ea874cb44174529b019be3a4fa56aa"
+    },
+    {
+      "cellId": "cell-35f6071948d68718e38b18c463fd01a7cde41300dd9a9c526334dde4c5608c69",
+      "runId": "0dd34878-1186-4435-959e-03db9c4af2c0",
+      "file": "0dd34878-1186-4435-959e-03db9c4af2c0.json",
+      "sha256": "9f24bf2557801f09bb1f3e0bf10f8f3bc7073ba5e998c87c659e9df0b117f8ba",
+      "reportId": "report-v1-7f2a0b53707f4afcdf2948b843fbceea2b8ef150ac0edc64392999db7ef6b93f"
+    },
+    {
+      "cellId": "cell-b4218a00e6245216414b5b2716562448aa9e991f892cbcfb0ae3eb8a5d1142ef",
+      "runId": "a3cdc053-99a2-4da2-898f-73ae3b532c33",
+      "file": "a3cdc053-99a2-4da2-898f-73ae3b532c33.json",
+      "sha256": "c2ff0526da771ab2c79c87c87d2d364334fecb6fd3a38322b7e20f3365f1c16b",
+      "reportId": "report-v1-9d2504298b85be1ccf3b200a82eef4d7ded688cd92e8c8bf82bd48ff97aaa4eb"
+    }
+  ],
+  "omitted": [],
+  "interpretation": {
+    "population": "screening",
+    "ranked": false,
+    "confidenceInterval": "unavailable",
+    "strongSignalEligible": false,
+    "scope": "Eight separately recorded screening cells, 27 fresh planned trials each. Report descriptive outcomes with complete denominators only; aliases and snapshots stay distinct. Prior exposures and incomplete evidence do not establish a confidence interval, model ranking, or stronger signal."
+  }
+}

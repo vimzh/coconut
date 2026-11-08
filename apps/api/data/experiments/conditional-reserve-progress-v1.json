@@ -1,0 +1,58 @@
+{
+  "version": "1",
+  "kind": "conditional-reserve-progress",
+  "manifestSha256": "a27c2ec00a34ac5d448c172126ece0c5a40d9407b1ed44c511f03d42abd69d41",
+  "startedAt": "2026-11-08T10:25:27.979Z",
+  "updatedAt": "2026-11-08T10:28:38.142Z",
+  "state": "settled",
+  "capabilityCallsThisExecution": 0,
+  "budget": {
+    "priorActualInferenceRequests": 7738,
+    "maxNewInferenceRequests": 108,
+    "cumulativeInferenceCeiling": 7846,
+    "sharedInferenceCeiling": 8192,
+    "parallelRuns": 2,
+    "runConcurrency": 4,
+    "maxConcurrency": 8,
+    "retries": 0,
+    "trialsPerCase": 3,
+    "attemptsPerTrial": 1,
+    "metadataTimeoutMs": 20000,
+    "inferenceTimeoutMs": 180000
+  },
+  "cells": [
+    {
+      "id": "reserve-cell-4b474d1ad1f02c35ef98bb0110f25e48db6467e1e6bd4aaeafee22008c56eabc",
+      "state": "failed",
+      "runId": "ae009f7f-a0d7-4250-a739-297f253aec6d",
+      "progress": {
+        "planned": 54,
+        "finished": 4,
+        "inferenceRequests": 4
+      },
+      "published": false,
+      "archived": false,
+      "error": "Incomplete reserve execution remains retained with its original denominator."
+    },
+    {
+      "id": "reserve-cell-eb1a076663c7ed5e8d35ee58b0c2094f63b4e637ac731a89a7dd78e4d72ecb2c",
+      "state": "failed",
+      "runId": "9bca7252-af69-44ab-b313-71dadbf5ec8b",
+      "progress": {
+        "planned": 54,
+        "finished": 4,
+        "inferenceRequests": 4
+      },
+      "published": false,
+      "archived": false,
+      "error": "Incomplete reserve execution remains retained with its original denominator."
+    }
+  ],
+  "interpretation": {
+    "population": "exploratory",
+    "ranked": false,
+    "confidenceInterval": "unavailable",
+    "strongSignalEligible": false,
+    "scope": "Adaptive follow-up after the disclosed amendment and completed P5 outcomes. Eighteen fixed tasks share two related groups; 54 fresh trials per model are descriptive. Eleven baseline remote outcomes remain unknown. No interval, ranking, inherited confirmation or stronger signal follows."
+  }
+}

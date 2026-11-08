@@ -1,0 +1,30 @@
+{
+  "version": "1",
+  "kind": "published-interior-exploratory-archive",
+  "createdAt": "2026-11-08T09:10:21.584Z",
+  "manifestSha256": "a4f109d0ddd550442d10978bfd1854c07ba04bb4f6268dc7cdaead701106d536",
+  "records": [
+    {
+      "cellId": "interior-cell-ab1819504a381ee20082fd766c9be6365b379db8453bddbe3b14259e1b013941",
+      "runId": "793e500f-2bee-4af8-b56b-5256731f00c7",
+      "file": "793e500f-2bee-4af8-b56b-5256731f00c7.json",
+      "sha256": "07bd4c8f37ce04ad7a7b9b3f78a2fd46197ba33462d6bf69f1cfaa4f534fa1ca",
+      "reportId": "report-v1-3864d61eac66cd0097d09a4286a9bc4a8c1fe2f712a58e4fcef0b0a81c135aae"
+    },
+    {
+      "cellId": "interior-cell-80d8ec7427bacfe209de3e8d5121f71ba6572c828f3edf9a05c8e5cecdb07390",
+      "runId": "dfd70b94-ee70-4365-8b08-58ff09c07e6f",
+      "file": "dfd70b94-ee70-4365-8b08-58ff09c07e6f.json",
+      "sha256": "ffd297a0d90a9d876ca2abf20923032759dcbe1cddc0dfcc139454b2e9de63ae",
+      "reportId": "report-v1-23b2a3ac2d1f85fa5fc07fbdf87774fa9ae32c3fdc9864f5318417f8721df8ba"
+    }
+  ],
+  "omitted": [],
+  "interpretation": {
+    "population": "exploratory",
+    "ranked": false,
+    "confidenceInterval": "unavailable",
+    "strongSignalEligible": false,
+    "scope": "Three families and eight shared clusters fail the unchanged six-family/20-cluster confirmation and interval conditions. Report descriptive outcomes and individually reviewed observed point failures only; no broad ranking or general failure claim follows."
+  }
+}

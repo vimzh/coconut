@@ -1,0 +1,126 @@
+{
+  "version": "1",
+  "kind": "study-send-reconciliation",
+  "checkedAt": "2026-11-08T10:42:00.980Z",
+  "sourceManifestSha256": "a27c2ec00a34ac5d448c172126ece0c5a40d9407b1ed44c511f03d42abd69d41",
+  "sourceLedgerSha256": "07ca4c3b50c7dc300440157d1551c0749d7b463e073cf1e07bb3aadd17daefa3",
+  "sourceReconciliationSha256": "ee62acdec9b1ee0ec81a6a7704042f9f01b9a8629dc869c4b3ba3a9225403fed",
+  "records": [
+    {
+      "cellId": "reserve-cell-4b474d1ad1f02c35ef98bb0110f25e48db6467e1e6bd4aaeafee22008c56eabc",
+      "runId": "ae009f7f-a0d7-4250-a739-297f253aec6d",
+      "viewSha256": "e98802d28d40545de9cd082e46ae8b8ace4ba247f050684b6e84deb00b487868",
+      "state": "failed",
+      "activeTrials": 0,
+      "plannedTrials": 54,
+      "finishedTrials": 4,
+      "inferenceRequests": 4,
+      "attempts": [
+        {
+          "caseId": "case-reserve-v1-62cd4ed4f5314be5b67c12327bf1f57e3cd9ed3464bcb392c436fb9c67ffbf7c",
+          "trialIndex": 0,
+          "resultSha256": "105b7ae545bde514b6ba65b093392ddf3fdf004e1acfea1b60695547b8ea28d0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "timeout",
+            "remoteOutcome": "unknown"
+          }
+        },
+        {
+          "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+          "trialIndex": 2,
+          "resultSha256": "82e323dd7a817831367de445858fec9c5a149473ba91431a1611a0da962e885b",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "cancelled",
+            "remoteOutcome": "unknown"
+          }
+        },
+        {
+          "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+          "trialIndex": 0,
+          "resultSha256": "9da8be0e87461b6d36ab621ca9bfa536c7c8d64c19d4f4716cee1155c95ee7a0",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "cancelled",
+            "remoteOutcome": "unknown"
+          }
+        },
+        {
+          "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+          "trialIndex": 1,
+          "resultSha256": "a0fbb90eeda062c59bff149702791352eb8974d491c8265cd1e13fd79f8f4ffe",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "cancelled",
+            "remoteOutcome": "unknown"
+          }
+        }
+      ]
+    },
+    {
+      "cellId": "reserve-cell-eb1a076663c7ed5e8d35ee58b0c2094f63b4e637ac731a89a7dd78e4d72ecb2c",
+      "runId": "9bca7252-af69-44ab-b313-71dadbf5ec8b",
+      "viewSha256": "10edc34a12fd3d91ed2ba0bae0a00e8102b20c707e590c6d439ff9398deb9f55",
+      "state": "failed",
+      "activeTrials": 0,
+      "plannedTrials": 54,
+      "finishedTrials": 4,
+      "inferenceRequests": 4,
+      "attempts": [
+        {
+          "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+          "trialIndex": 2,
+          "resultSha256": "ee4b77ec64b8d763e81e14dfac0f5aae47a30e9db23a71d3774efdc8788504b1",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "timeout",
+            "remoteOutcome": "unknown"
+          }
+        },
+        {
+          "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+          "trialIndex": 0,
+          "resultSha256": "d17a652fea315bb45f4c89ad7eef0ea5a0d0ab2847f6db467d9c131a3b4c7cb2",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "cancelled",
+            "remoteOutcome": "unknown"
+          }
+        },
+        {
+          "caseId": "case-reserve-v1-62cd4ed4f5314be5b67c12327bf1f57e3cd9ed3464bcb392c436fb9c67ffbf7c",
+          "trialIndex": 0,
+          "resultSha256": "1626623bc45de4fb94cda6fd3688f00988ad994340e82ef1fdc7d217c4d47071",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "cancelled",
+            "remoteOutcome": "unknown"
+          }
+        },
+        {
+          "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+          "trialIndex": 1,
+          "resultSha256": "bfd2f5097586f008975206edf06893c4636b3fbdaf6413f388baa06a57ef594a",
+          "inferenceRequests": 1,
+          "httpAttempts": 2,
+          "failure": {
+            "code": "cancelled",
+            "remoteOutcome": "unknown"
+          }
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "mathematicalInferenceRequests": 8,
+    "unknownRemoteInferenceRequests": 8
+  }
+}
