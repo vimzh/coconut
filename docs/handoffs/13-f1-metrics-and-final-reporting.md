@@ -2,7 +2,7 @@
 
 ## Status
 
-**Original retained arithmetic audit passed; final integrated reporting readiness remains pending.** Module 12 and final browser/public-comparison evidence are still being completed. This is a verified checkpoint with explicit limitations, not a declaration that the module's integration prerequisites or product scientific gates have passed. Deployment and hackathon submission/material preparation are excluded by the current user scope.
+**Original and terminal replication reporting audits passed within their recorded populations; later experiments remain pending.** Module 12 has local production/browser and clean-checkout evidence. The separately frozen interior study is still running, and the remaining-model supplement is implemented but not yet frozen or launched. This checkpoint does not declare all scientific gates passed. Deployment and hackathon submission/material preparation remain excluded.
 
 The [independent audit record](../research/reporting-audit-v1.md) describes its AI-assisted reviewer role, exact population, separately written arithmetic, source hashes, commands and limits. No human review is claimed. Module 04 remains the only production scorer; this module checks its retained output without changing any grade, reference or protocol.
 
@@ -36,4 +36,16 @@ The source review found a browser adapter reply-length mismatch: 65,536 accepted
 
 ## Remaining requirements
 
-Record final module 09/10/11 handoffs and module 12 browser/production evidence, including accessibility, responsive plots, export equality and comparison grouping. Audit each later replication separately; preserve the original failed evidence and disclose the repetition. Complete external provider gates only when actual authorized live evidence exists. A video/archive/submission or deployment is not performed or implied by this checkpoint.
+The [module 12 handoff](12-integration-and-submission.md) now records module 09/10/11 browser, production, export and comparison evidence, plus isolated clean-checkout checks. Audit each later study separately and retain its exact population and exposure history. External provider gates require authorized live evidence; deployment and submission are not implied.
+
+## Terminal replication and prefix addendum
+
+The [terminal replication review](../research/openai-replication-review-v2.md) binds the interrupted ledger at 2026-11-08 07:59:46.559 UTC: **171 completed publications, 35 failed, one interrupted, 26 capability-unverified and five unstarted cells**. There are records for 46 requested IDs and complete cells for 43; this does not establish successful testing of all 47 candidates. All **207 retained reports** pass independent arithmetic. Actual frontend projections pass for all 171 complete public views, **525 depth slices and 1,575 filtered exports**.
+
+Completed publications contain **5,751 model outcomes: 5,066 correct labels, 493 wrong valid labels, 69 invalid replies and 123 truncations**. The separate [prefix addendum](../research/openai-partial-prefix-review-v1.md) closes inspection of the 60 wrong labels and 13 truncations retained in incomplete runs. Together the two reviews inspect **all 758 retained wrong/invalid/truncated outcomes**, without pooling incompatible populations or changing a grade. Wrong-label/correct-conclusion contradictions remain distinct from substantiated mathematical-reasoning errors. All incomplete prefixes remain provisional/unavailable and unranked.
+
+The [anonymous public archive](../../apps/api/data/experiments/openai-progress-v2-published/index.json) retains exactly 171 explicitly published RunViews and lists 67 omitted cells. Failed raw answers and private access receipts remain outside that archive. The cancelling snapshot of one interrupted run and its separate settled cancelled report are both retained; trial and send counts did not change. The operator settlement reader now waits under a bounded acceptance deadline before future final exports; 30 focused experiment tests, API lint/types/build and independent code review cover that repair.
+
+The [replication reconciliation](../../apps/api/data/experiments/openai-reconciliation-v2.json) counts **6,678 new mathematical sends**, giving **7,090 cumulative** with the retained 412 prior allowance. The separately derived [original](../../apps/api/data/experiments/openai-send-evidence-v1.json) and [replication](../../apps/api/data/experiments/openai-send-evidence-v2.json) attempt projections independently reproduce 225/11 and 6,678/101 mathematical/unknown-remote sends respectively. Unknown sends are already included in send totals and never treated as free.
+
+The declared-frontier baseline has **1,402 retained valid labels, all correct**, across original prefixes, full high/max confirmation and all scheduled screening settings. All 432 visible explanations in the two max confirmation runs were independently reviewed in the [full explanation audit](../research/frontier-explanation-review-v2.md), with no substantiated false mathematical claim found. Eleven earlier remote outcomes remain unknown. These are bounded observations, and G-SIGNAL remains No-go for a supported frontier failure finding. Later interior/reserve/supplement results must receive their own reconciliation and claim review before final readiness is assessed.
