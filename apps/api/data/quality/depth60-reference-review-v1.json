@@ -1,0 +1,120 @@
+{
+  "suiteFileSha256": "88b20bd12bb54fbe1f33c9c36a752f9ed7e9d2663e19b29fb411ddfeb6c93707",
+  "verdict": "pass",
+  "cases": [
+    {
+      "id": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "depth": 60,
+      "nodeCount": 349,
+      "label": "convex",
+      "envelope": "min",
+      "activePieces": 57,
+      "piecewiseSlopes": [
+        "-181/152",
+        "6575/2584"
+      ]
+    },
+    {
+      "id": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "depth": 60,
+      "nodeCount": 349,
+      "label": "convex",
+      "envelope": "max",
+      "activePieces": 57,
+      "piecewiseSlopes": [
+        "-12379/20672",
+        "783/323"
+      ]
+    },
+    {
+      "id": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "depth": 60,
+      "nodeCount": 349,
+      "label": "convex",
+      "envelope": "max",
+      "activePieces": 57,
+      "piecewiseSlopes": [
+        "-27121/20672",
+        "38315/20672"
+      ]
+    },
+    {
+      "id": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "depth": 60,
+      "nodeCount": 349,
+      "label": "concave",
+      "envelope": "min",
+      "activePieces": 57,
+      "piecewiseSlopes": [
+        "-5505/20672",
+        "-33891/20672"
+      ]
+    },
+    {
+      "id": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "depth": 60,
+      "nodeCount": 349,
+      "label": "concave",
+      "envelope": "max",
+      "activePieces": 57,
+      "piecewiseSlopes": [
+        "6759/5168",
+        "-2251/1216"
+      ]
+    },
+    {
+      "id": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "depth": 60,
+      "nodeCount": 349,
+      "label": "concave",
+      "envelope": "min",
+      "activePieces": 57,
+      "piecewiseSlopes": [
+        "18307/10336",
+        "12959/20672"
+      ]
+    },
+    {
+      "id": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "depth": 60,
+      "nodeCount": 345,
+      "label": "neither",
+      "envelope": "max",
+      "activePieces": 56,
+      "jensenGaps": [
+        "3063/34816",
+        "-3063/34816"
+      ]
+    },
+    {
+      "id": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "depth": 60,
+      "nodeCount": 345,
+      "label": "neither",
+      "envelope": "max",
+      "activePieces": 56,
+      "jensenGaps": [
+        "49131/278528",
+        "-49131/278528"
+      ]
+    },
+    {
+      "id": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "depth": 60,
+      "nodeCount": 345,
+      "label": "neither",
+      "envelope": "max",
+      "activePieces": 56,
+      "jensenGaps": [
+        "-245635/1114112",
+        "245635/1114112"
+      ]
+    }
+  ],
+  "reviewer": "AI-assisted independent mathematical check",
+  "limitations": [
+    "This independently recomputes exact rational structure, envelope activity, slope monotonicity, and retained Jensen witnesses; it is not a formal proof-assistant derivation.",
+    "It is tailored to the retained exact-envelope construction and is not a general symbolic equivalence or curvature prover.",
+    "It establishes reference-label and structural evidence only; it does not establish model behavior, population-level difficulty, or a causal depth effect."
+  ]
+}

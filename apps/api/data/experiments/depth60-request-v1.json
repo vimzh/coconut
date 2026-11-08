@@ -1,0 +1,9 @@
+{
+  "seed": "coconut-depth60-pilot-v1",
+  "depths": [
+    60
+  ],
+  "casesPerClass": 3,
+  "profileId": "one-shot-json-v1",
+  "purpose": "evaluation"
+}

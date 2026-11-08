@@ -1,0 +1,4726 @@
+{
+  "version": "1",
+  "methodId": "depth60-pilot-v1",
+  "finishedAt": "2026-11-08T12:25:34.161Z",
+  "manifestSha256": "d5b89ca5e8682935a8e21214cc9fc2761ecdd14b68f0945160b16eaf1f388fb1",
+  "inferenceRequests": 54,
+  "cumulativeConservativeRequests": 7908,
+  "concurrency": 12,
+  "rateLimitEvidence": [
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998942"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998942"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998942"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998887"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998895"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998887"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998890"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998897"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998887"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998887"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998887"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998895"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998897"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998895"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998942"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998942"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29998",
+        "x-ratelimit-remaining-tokens": "149998895"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998945"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998892"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998895"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998892"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998892"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998892"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998895"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998950"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998947"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998947"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998947"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998947"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998947"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998897"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998897"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998902"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998897"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998897"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998900"
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998902"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "values": {
+        "x-ratelimit-limit-requests": "30000",
+        "x-ratelimit-limit-tokens": "150000000",
+        "x-ratelimit-remaining-requests": "29999",
+        "x-ratelimit-remaining-tokens": "149998902"
+      }
+    }
+  ],
+  "rows": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "trialIndex": 0,
+      "resultSha256": "e97a29724772fe91d9c422be4d9d8073dfef10cf60192f62574e090bbeeebb14",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "trialIndex": 0,
+      "resultSha256": "6e6342dbebe46aa9e9ede27efd31c150ce8030dfca55f5c3be9023be1a8c1a43",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "trialIndex": 1,
+      "resultSha256": "7a8b99c758872dad0e9abf10c7b17980e8dcaa81406452df193775c0a5e4eba9",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "trialIndex": 1,
+      "resultSha256": "5faaf8cebfe75d99e0c917eeefccf4fca994f807228bea269b2d05f3542cc138",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "trialIndex": 2,
+      "resultSha256": "254e3d73c282710ab86cc45d076f8abaa9ff40be0a5a32a374985c9bb0753d9b",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "trialIndex": 2,
+      "resultSha256": "7d27850eec3d34213c21bd4b554932dd125036348a969d5d6424e1cb390dcda1",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "trialIndex": 0,
+      "resultSha256": "fd1efba494124cde13d75730eab668ed06c48a3ae34195e99f3ed0e538919ce7",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "trialIndex": 0,
+      "resultSha256": "ac32175739830596cb3da6f498b2bb5a7ce0f6325bf23be146df7c00a19328b5",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "trialIndex": 1,
+      "resultSha256": "3390f2e4bc92ce6933897a74578d435319c3536047b73bfe81e94d60c6d9c6cf",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "trialIndex": 1,
+      "resultSha256": "80b299699d3dc4ce8ff0f4b72da38339b5c89fffa395e2200da298fbaa11b16e",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "trialIndex": 2,
+      "resultSha256": "f67b38075f97831b09b8c0189c0bfb5f3af792f0d1f261d87332c0b702dc00be",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "trialIndex": 2,
+      "resultSha256": "1fe50ede1c9ac61abe23be896cb868cdc362950a7ff70b2c0dd6c03c14b92b07",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "trialIndex": 0,
+      "resultSha256": "c15293fb23e41e8c5bf7d18b897c4fb415eb790782f67b98e6d3b4b7904f2d86",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "trialIndex": 0,
+      "resultSha256": "482df1edd16b8e8861e8c225db1384c1769502c4d602520f85cef6ae27a6eb35",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "trialIndex": 1,
+      "resultSha256": "bc2af77240108db0dbbbd800b11f272cb240c9731d5ee22ff528c4529ba1bc12",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "trialIndex": 1,
+      "resultSha256": "879dfbd3c6d15bb8df28c17c5f90bab99a3dfeb95f1f480c718b8bdef953c1b3",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "trialIndex": 2,
+      "resultSha256": "2e3e857d8d6cbc272c617f6b55580f8b003334065e31bbbe3096e4463606d79b",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "trialIndex": 2,
+      "resultSha256": "45280ac65d9519f7c8d8b2d113b5ff40aefc9f4b0531e1b6bc0bf0c40a3b1a6a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "trialIndex": 0,
+      "resultSha256": "0fd8f2916756370e718fa2b29f06620d1b2cb3899272bad5728a196a4932363e",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "trialIndex": 0,
+      "resultSha256": "4735e650c96e161675625735301de4867bed234672b06bf4d14757d104d4465a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "trialIndex": 1,
+      "resultSha256": "8084f152d1be4246008144963c586fe78f90f02fac88e9f61db96e41fe143ae0",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "trialIndex": 1,
+      "resultSha256": "5391bb452976716c29c600dada56bea4b39d83d773f3753d50cbba3864a1ba9d",
+      "outcome": "invalid",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "trialIndex": 2,
+      "resultSha256": "9b7b2f65b7d7346a6ae51ffe59e5aebb9c0ee86b227725ada9b0abdf78ea3e8b",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "trialIndex": 2,
+      "resultSha256": "00c58c384023c69649acec56ebc2e1130ebf1939a79079ece8dd555b1014476a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "trialIndex": 0,
+      "resultSha256": "807d47b5b2b5f80727f3482654bc3c6d2fad970bf1a940e155495a022d33a509",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "trialIndex": 0,
+      "resultSha256": "234ce686fb28b532e81058a3c653a94515c3792b6f16a95938a57d73b3e1c229",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "trialIndex": 1,
+      "resultSha256": "21f30c5d259d95034ffbd7d4cbb12028c1dbf7d4e584fc33a0afdc298bb40dcd",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "trialIndex": 1,
+      "resultSha256": "5ab6342e56256e2591546eb3efbd2df0cdbb442ce84d049afff647b4d06aa506",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "trialIndex": 2,
+      "resultSha256": "376169713de116f3f5f695729d3a5422fae537e1fd6a602dc6b1c0d3f1f2c61a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "trialIndex": 2,
+      "resultSha256": "13ca2b575b93059837553e8193ddf15a4c691a4469efc780f80d9fc33c09c722",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "trialIndex": 0,
+      "resultSha256": "27c6c52b9be0a6cd7a653fff6741730fca035d55cca29a7b8d936196f44d71b8",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "trialIndex": 0,
+      "resultSha256": "5c370278b756da6f680459f726e62d3edf2c317586fa85fdc1de3f0baf5ec64d",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "trialIndex": 1,
+      "resultSha256": "807a17a2655347fcd5ed2be5817f8e73c04747f3b4fb85636333014078f45e11",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "trialIndex": 1,
+      "resultSha256": "fc3b09610c7669f08fef59275b7bf6a4632208ff88795d140b34f8523e748ab1",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "trialIndex": 2,
+      "resultSha256": "9c6fcbc06c1e064636ae5788452e6191d433cbeb856ef61b631f3c4f3ac1da6c",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "trialIndex": 2,
+      "resultSha256": "205da720306c00b29d4dec8fbd8700afb9680b42499dc82b43a7da52b7e4b2f9",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "trialIndex": 0,
+      "resultSha256": "4fa222d202d10d7e194c94d0e25b8288098b84760eec1dc74c0ec38bee734a8a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "trialIndex": 0,
+      "resultSha256": "8820886c6a2d6afac180e6e1ae0d31301cea6144156793c7c4fd67c195d4526f",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "trialIndex": 1,
+      "resultSha256": "fbfea1209a09c0cdcd0ec624ea453239274feb35c0a4ca2a00c9f86c875d20c6",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "trialIndex": 1,
+      "resultSha256": "c0382300da053ecc84ea2a6ab5a262c2dda545aef0543f215c1a5432ce20aa79",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "trialIndex": 2,
+      "resultSha256": "e8b7307c65904b62ab8cb8db27a801d5f66e2d3b46005100feebf4c999596d5e",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "trialIndex": 2,
+      "resultSha256": "c3498ad3e951582855a47663da83de6b9d2319ff1991e0066afcea7f5eea475d",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "trialIndex": 0,
+      "resultSha256": "20f4d3b04153e273b9b83031236c400d3e8546de8ffc7836a33b3bd9548035f4",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "trialIndex": 0,
+      "resultSha256": "26499667b591a59093c707ae2b1fbaa15cf912b95bf0462e7f0d44037480b553",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "trialIndex": 1,
+      "resultSha256": "f5e5cf45b58a6ec47ec4ea7b91c6fa250d8f960d0a0fab597fc4915c00ac4b7e",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "trialIndex": 1,
+      "resultSha256": "3800128664de5b8fa2ac8d82afc395d8134f6fbfd20f590b1b9e52d28c365355",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "trialIndex": 2,
+      "resultSha256": "def292ea896385dd5080b2ec5a1fe8c145364e1d0263aee54001a25f01b306a9",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "trialIndex": 2,
+      "resultSha256": "c538142fcb24b74f7aef93a5289f958c045e8d6076e8e704999fcd44a0ed48e7",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "trialIndex": 0,
+      "resultSha256": "52806c32f73531000e5b426310f848efaa8ecfda6c2297e17d8a313fae6e7b69",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "trialIndex": 0,
+      "resultSha256": "1fc409a57c22341a763455699a729ebc6452b6e101fb6a6036624d7414492fa2",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "trialIndex": 1,
+      "resultSha256": "29f3c6f575a9621d33cb1b21d7a37d7f26d7ff6acdf832498c057c1ff9ebb9c6",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "trialIndex": 1,
+      "resultSha256": "f27aa029c473e314c11db0f3b70b2859f3bea08dc1c854e509f8470f1e6bf0ef",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "trialIndex": 2,
+      "resultSha256": "0b9bd9cecd584dcf781c02563c39b77dcaee7dadc9999f1f801783d67b9d1a07",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "trialIndex": 2,
+      "resultSha256": "9203da56db8c04946419d2de237e029ef5bc9498f14428bfba549b0dfdf1d4fe",
+      "outcome": "answer",
+      "failure": null
+    }
+  ],
+  "reports": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "report": {
+        "reportVersion": "1",
+        "scorerVersion": "1",
+        "policyId": "pooled-macro-f1-v1",
+        "identity": {
+          "runId": "depth60-v1-gpt-4.1-mini",
+          "suiteId": "suite-v1-dce0928ad06933d700bedfff11a9b5609eb63c47da2090879904da479af29b24",
+          "generatorVersion": "1",
+          "depthPolicyVersion": "1",
+          "verifierVersion": "1",
+          "protocolVersion": "1",
+          "profileId": "one-shot-json-v1",
+          "method": "one-shot",
+          "model": {
+            "provider": "openai",
+            "modelId": "gpt-4.1-mini",
+            "endpointId": "responses",
+            "settingsId": "provider-default-4096"
+          },
+          "workload": {
+            "protocolVersion": "1",
+            "profileId": "one-shot-json-v1",
+            "instanceCount": 9,
+            "trialsPerInstance": 3,
+            "logicalCalls": 27,
+            "maxAttempts": 54,
+            "maxOutputTokens": 4096,
+            "maxOutputTokensTotal": 221184
+          },
+          "evidenceSha256": "0e39d1229ce84f2ca1134006cf5621524f5de6932ec4a5871314f99ba2993d90"
+        },
+        "run": {
+          "elapsedMs": null,
+          "concurrency": 12
+        },
+        "overall": {
+          "classification": {
+            "population": {
+              "plannedTrials": 27,
+              "includedTrials": 27,
+              "excludedTrials": 0,
+              "correctTrials": 11,
+              "status": "complete"
+            },
+            "macroF1": 0.2900641025641026,
+            "accuracy": {
+              "numerator": 11,
+              "denominator": 27,
+              "value": 0.4074074074074074
+            },
+            "classes": {
+              "convex": {
+                "tp": 9,
+                "fp": 14,
+                "fn": 0,
+                "support": 9,
+                "precision": 0.391304347826087,
+                "recall": 1,
+                "f1": 0.5625
+              },
+              "concave": {
+                "tp": 2,
+                "fp": 2,
+                "fn": 7,
+                "support": 9,
+                "precision": 0.5,
+                "recall": 0.2222222222222222,
+                "f1": 0.3076923076923077
+              },
+              "neither": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 9,
+                "support": 9,
+                "precision": null,
+                "recall": 0,
+                "f1": 0
+              }
+            },
+            "absentReferenceClasses": [],
+            "confusion": {
+              "columns": [
+                "convex",
+                "concave",
+                "neither",
+                "unusable"
+              ],
+              "rows": {
+                "convex": {
+                  "counts": {
+                    "convex": 9,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 1,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "concave": {
+                  "counts": {
+                    "convex": 7,
+                    "concave": 2,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0.7777777777777778,
+                    "concave": 0.2222222222222222,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "neither": {
+                  "counts": {
+                    "convex": 7,
+                    "concave": 2,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0.7777777777777778,
+                    "concave": 0.2222222222222222,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                }
+              }
+            },
+            "directionalErrors": {
+              "convexToNeither": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "concaveToNeither": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              }
+            },
+            "outcomes": {
+              "answer": {
+                "numerator": 27,
+                "denominator": 27,
+                "value": 1
+              },
+              "invalid": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "empty": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "conflicting": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "refused": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "truncated": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "provider-error": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "interrupted": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "cancelled": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "unattempted": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              }
+            },
+            "trials": [
+              {
+                "trialIndex": 0,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 9,
+                    "includedTrials": 9,
+                    "excludedTrials": 0,
+                    "correctTrials": 3,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.16666666666666666,
+                  "accuracy": {
+                    "numerator": 3,
+                    "denominator": 9,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 3,
+                      "fp": 6,
+                      "fn": 0,
+                      "support": 3,
+                      "precision": 0.3333333333333333,
+                      "recall": 1,
+                      "f1": 0.5
+                    },
+                    "concave": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 3,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 3,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 3,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 9,
+                      "denominator": 9,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 1,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 9,
+                    "includedTrials": 9,
+                    "excludedTrials": 0,
+                    "correctTrials": 4,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.3333333333333333,
+                  "accuracy": {
+                    "numerator": 4,
+                    "denominator": 9,
+                    "value": 0.4444444444444444
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 3,
+                      "fp": 4,
+                      "fn": 0,
+                      "support": 3,
+                      "precision": 0.42857142857142855,
+                      "recall": 1,
+                      "f1": 0.6
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 2,
+                      "support": 3,
+                      "precision": 0.5,
+                      "recall": 0.3333333333333333,
+                      "f1": 0.4
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 3,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 2,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0.6666666666666666,
+                          "concave": 0.3333333333333333,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 2,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0.6666666666666666,
+                          "concave": 0.3333333333333333,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 9,
+                      "denominator": 9,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 2,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 9,
+                    "includedTrials": 9,
+                    "excludedTrials": 0,
+                    "correctTrials": 4,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.3333333333333333,
+                  "accuracy": {
+                    "numerator": 4,
+                    "denominator": 9,
+                    "value": 0.4444444444444444
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 3,
+                      "fp": 4,
+                      "fn": 0,
+                      "support": 3,
+                      "precision": 0.42857142857142855,
+                      "recall": 1,
+                      "f1": 0.6
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 2,
+                      "support": 3,
+                      "precision": 0.5,
+                      "recall": 0.3333333333333333,
+                      "f1": 0.4
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 3,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 2,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0.6666666666666666,
+                          "concave": 0.3333333333333333,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 2,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0.6666666666666666,
+                          "concave": 0.3333333333333333,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 9,
+                      "denominator": 9,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              }
+            ],
+            "spread": {
+              "plannedReplicates": 3,
+              "eligibleReplicates": 3,
+              "macroF1": {
+                "count": 3,
+                "mean": 0.27777777777777773,
+                "min": 0.16666666666666666,
+                "max": 0.3333333333333333,
+                "sampleStandardDeviation": 0.09622504486493763
+              },
+              "recall": {
+                "convex": {
+                  "count": 3,
+                  "mean": 1,
+                  "min": 1,
+                  "max": 1,
+                  "sampleStandardDeviation": 0
+                },
+                "concave": {
+                  "count": 3,
+                  "mean": 0.2222222222222222,
+                  "min": 0,
+                  "max": 0.3333333333333333,
+                  "sampleStandardDeviation": 0.19245008972987526
+                },
+                "neither": {
+                  "count": 3,
+                  "mean": 0,
+                  "min": 0,
+                  "max": 0,
+                  "sampleStandardDeviation": 0
+                }
+              }
+            },
+            "agreement": {
+              "eligibleInstances": 9,
+              "totalInstances": 9,
+              "agreeingPairs": 21,
+              "totalPairs": 27,
+              "value": 0.7777777777777778
+            }
+          },
+          "diagnostics": {
+            "usage": {
+              "attempts": {
+                "total": 27,
+                "fields": {
+                  "input": {
+                    "reporting": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.input_tokens",
+                        "total": 28839,
+                        "reporting": 27,
+                        "mean": 1068.111111111111
+                      }
+                    ]
+                  },
+                  "output": {
+                    "reporting": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                        "total": 3984,
+                        "reporting": 27,
+                        "mean": 147.55555555555554
+                      }
+                    ]
+                  },
+                  "reasoning": {
+                    "reporting": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                        "total": 0,
+                        "reporting": 27,
+                        "mean": 0
+                      }
+                    ]
+                  }
+                }
+              },
+              "logicalTrials": {
+                "total": 27,
+                "fields": {
+                  "input": {
+                    "complete": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.input_tokens",
+                        "total": 28839,
+                        "reporting": 27,
+                        "mean": 1068.111111111111
+                      }
+                    ]
+                  },
+                  "output": {
+                    "complete": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                        "total": 3984,
+                        "reporting": 27,
+                        "mean": 147.55555555555554
+                      }
+                    ]
+                  },
+                  "reasoning": {
+                    "complete": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                        "total": 0,
+                        "reporting": 27,
+                        "mean": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "cost": {
+              "attempts": 27,
+              "reporting": 0,
+              "missing": 27,
+              "groups": [],
+              "total": null
+            },
+            "latency": {
+              "eligible": 27,
+              "reporting": 27,
+              "missing": 0,
+              "p50Ms": 2437.3082919999997,
+              "p95Ms": 3490.098041000001,
+              "infrastructureTrials": 0,
+              "infrastructureAttempts": 0,
+              "timeoutTrials": 0,
+              "timeoutAttempts": 0,
+              "unattemptedTrials": 0
+            },
+            "lengths": {
+              "cases": 9,
+              "expressionCharacters": {
+                "count": 9,
+                "min": 1867,
+                "max": 1948,
+                "mean": 1906.3333333333333
+              },
+              "nodeCount": {
+                "count": 9,
+                "min": 345,
+                "max": 349,
+                "mean": 347.6666666666667
+              },
+              "promptCharacters": {
+                "count": 9,
+                "min": 2733,
+                "max": 2814,
+                "mean": 2772.3333333333335
+              },
+              "perCase": [
+                {
+                  "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+                  "depth": 60,
+                  "expressionSha256": "591764e1f63e344ea004271f68a99f8dcd2145ce5d19d4e9e1a090a1f1db5fe9",
+                  "expressionCharacters": 1916,
+                  "nodeCount": 349,
+                  "promptCharacters": 2782
+                },
+                {
+                  "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+                  "depth": 60,
+                  "expressionSha256": "b2c4ca8551b2e5e8174a45a83bc0d2b3e313d1970f6a1beec2f2e46cee8e82ec",
+                  "expressionCharacters": 1943,
+                  "nodeCount": 349,
+                  "promptCharacters": 2809
+                },
+                {
+                  "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+                  "depth": 60,
+                  "expressionSha256": "3dda093486b45cc760863c2488dfba73aa2546765db368c734d75e92ee7944d4",
+                  "expressionCharacters": 1906,
+                  "nodeCount": 345,
+                  "promptCharacters": 2772
+                },
+                {
+                  "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+                  "depth": 60,
+                  "expressionSha256": "f5c7604d4786924b29f851fe6b8a524d3a00eb8d6eb913d99c1145a8ce872e00",
+                  "expressionCharacters": 1911,
+                  "nodeCount": 345,
+                  "promptCharacters": 2777
+                },
+                {
+                  "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+                  "depth": 60,
+                  "expressionSha256": "7b71bcdec2ee2da3a1bc9b6968f910de8466933e56ac8d7f381fb27be4b86adc",
+                  "expressionCharacters": 1900,
+                  "nodeCount": 349,
+                  "promptCharacters": 2766
+                },
+                {
+                  "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+                  "depth": 60,
+                  "expressionSha256": "845ae7b1c7bb31921e8179e47421ef6ec027e6c04cbdf3885f846200034d6440",
+                  "expressionCharacters": 1891,
+                  "nodeCount": 349,
+                  "promptCharacters": 2757
+                },
+                {
+                  "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+                  "depth": 60,
+                  "expressionSha256": "95b131e8bb0076d410359c8f9d3a94f79dbe1c8ac9d5596f5c2a220a2d60b5d2",
+                  "expressionCharacters": 1948,
+                  "nodeCount": 349,
+                  "promptCharacters": 2814
+                },
+                {
+                  "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+                  "depth": 60,
+                  "expressionSha256": "3bae9c8a71d11671c0eb7f75804d7ab31fb366fecd2c528afc1f61c54e312fb9",
+                  "expressionCharacters": 1875,
+                  "nodeCount": 349,
+                  "promptCharacters": 2741
+                },
+                {
+                  "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+                  "depth": 60,
+                  "expressionSha256": "9e7d6416bcc4f4f8e5ab719737cdb51688f783991f44121ede099dbba2d8336f",
+                  "expressionCharacters": 1867,
+                  "nodeCount": 345,
+                  "promptCharacters": 2733
+                }
+              ],
+              "expressionTokens": {
+                "totalCases": 9,
+                "compatibleCases": 0,
+                "missingCases": 9,
+                "incompatibleCases": 0,
+                "groups": []
+              }
+            },
+            "intermediateSteps": {
+              "status": "not-applicable",
+              "reason": "Current one-shot profiles expose no ordered intermediate steps or step-checking contract."
+            }
+          }
+        },
+        "baselineDepth": 60,
+        "byDepth": [
+          {
+            "depth": 60,
+            "classification": {
+              "population": {
+                "plannedTrials": 27,
+                "includedTrials": 27,
+                "excludedTrials": 0,
+                "correctTrials": 11,
+                "status": "complete"
+              },
+              "macroF1": 0.2900641025641026,
+              "accuracy": {
+                "numerator": 11,
+                "denominator": 27,
+                "value": 0.4074074074074074
+              },
+              "classes": {
+                "convex": {
+                  "tp": 9,
+                  "fp": 14,
+                  "fn": 0,
+                  "support": 9,
+                  "precision": 0.391304347826087,
+                  "recall": 1,
+                  "f1": 0.5625
+                },
+                "concave": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 7,
+                  "support": 9,
+                  "precision": 0.5,
+                  "recall": 0.2222222222222222,
+                  "f1": 0.3076923076923077
+                },
+                "neither": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 9,
+                  "support": 9,
+                  "precision": null,
+                  "recall": 0,
+                  "f1": 0
+                }
+              },
+              "absentReferenceClasses": [],
+              "confusion": {
+                "columns": [
+                  "convex",
+                  "concave",
+                  "neither",
+                  "unusable"
+                ],
+                "rows": {
+                  "convex": {
+                    "counts": {
+                      "convex": 9,
+                      "concave": 0,
+                      "neither": 0,
+                      "unusable": 0
+                    },
+                    "rowRates": {
+                      "convex": 1,
+                      "concave": 0,
+                      "neither": 0,
+                      "unusable": 0
+                    }
+                  },
+                  "concave": {
+                    "counts": {
+                      "convex": 7,
+                      "concave": 2,
+                      "neither": 0,
+                      "unusable": 0
+                    },
+                    "rowRates": {
+                      "convex": 0.7777777777777778,
+                      "concave": 0.2222222222222222,
+                      "neither": 0,
+                      "unusable": 0
+                    }
+                  },
+                  "neither": {
+                    "counts": {
+                      "convex": 7,
+                      "concave": 2,
+                      "neither": 0,
+                      "unusable": 0
+                    },
+                    "rowRates": {
+                      "convex": 0.7777777777777778,
+                      "concave": 0.2222222222222222,
+                      "neither": 0,
+                      "unusable": 0
+                    }
+                  }
+                }
+              },
+              "directionalErrors": {
+                "convexToNeither": {
+                  "numerator": 0,
+                  "denominator": 9,
+                  "value": 0
+                },
+                "concaveToNeither": {
+                  "numerator": 0,
+                  "denominator": 9,
+                  "value": 0
+                }
+              },
+              "outcomes": {
+                "answer": {
+                  "numerator": 27,
+                  "denominator": 27,
+                  "value": 1
+                },
+                "invalid": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "empty": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "conflicting": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "refused": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "truncated": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "provider-error": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "interrupted": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "cancelled": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "unattempted": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                }
+              },
+              "trials": [
+                {
+                  "trialIndex": 0,
+                  "metrics": {
+                    "population": {
+                      "plannedTrials": 9,
+                      "includedTrials": 9,
+                      "excludedTrials": 0,
+                      "correctTrials": 3,
+                      "status": "complete"
+                    },
+                    "macroF1": 0.16666666666666666,
+                    "accuracy": {
+                      "numerator": 3,
+                      "denominator": 9,
+                      "value": 0.3333333333333333
+                    },
+                    "classes": {
+                      "convex": {
+                        "tp": 3,
+                        "fp": 6,
+                        "fn": 0,
+                        "support": 3,
+                        "precision": 0.3333333333333333,
+                        "recall": 1,
+                        "f1": 0.5
+                      },
+                      "concave": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      },
+                      "neither": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      }
+                    },
+                    "absentReferenceClasses": [],
+                    "confusion": {
+                      "columns": [
+                        "convex",
+                        "concave",
+                        "neither",
+                        "unusable"
+                      ],
+                      "rows": {
+                        "convex": {
+                          "counts": {
+                            "convex": 3,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 1,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        },
+                        "concave": {
+                          "counts": {
+                            "convex": 3,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 1,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        },
+                        "neither": {
+                          "counts": {
+                            "convex": 3,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 1,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        }
+                      }
+                    },
+                    "directionalErrors": {
+                      "convexToNeither": {
+                        "numerator": 0,
+                        "denominator": 3,
+                        "value": 0
+                      },
+                      "concaveToNeither": {
+                        "numerator": 0,
+                        "denominator": 3,
+                        "value": 0
+                      }
+                    },
+                    "outcomes": {
+                      "answer": {
+                        "numerator": 9,
+                        "denominator": 9,
+                        "value": 1
+                      },
+                      "invalid": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "empty": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "conflicting": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "refused": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "truncated": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "provider-error": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "interrupted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "cancelled": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "unattempted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      }
+                    }
+                  },
+                  "eligibleForSpread": true
+                },
+                {
+                  "trialIndex": 1,
+                  "metrics": {
+                    "population": {
+                      "plannedTrials": 9,
+                      "includedTrials": 9,
+                      "excludedTrials": 0,
+                      "correctTrials": 4,
+                      "status": "complete"
+                    },
+                    "macroF1": 0.3333333333333333,
+                    "accuracy": {
+                      "numerator": 4,
+                      "denominator": 9,
+                      "value": 0.4444444444444444
+                    },
+                    "classes": {
+                      "convex": {
+                        "tp": 3,
+                        "fp": 4,
+                        "fn": 0,
+                        "support": 3,
+                        "precision": 0.42857142857142855,
+                        "recall": 1,
+                        "f1": 0.6
+                      },
+                      "concave": {
+                        "tp": 1,
+                        "fp": 1,
+                        "fn": 2,
+                        "support": 3,
+                        "precision": 0.5,
+                        "recall": 0.3333333333333333,
+                        "f1": 0.4
+                      },
+                      "neither": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      }
+                    },
+                    "absentReferenceClasses": [],
+                    "confusion": {
+                      "columns": [
+                        "convex",
+                        "concave",
+                        "neither",
+                        "unusable"
+                      ],
+                      "rows": {
+                        "convex": {
+                          "counts": {
+                            "convex": 3,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 1,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        },
+                        "concave": {
+                          "counts": {
+                            "convex": 2,
+                            "concave": 1,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0.6666666666666666,
+                            "concave": 0.3333333333333333,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        },
+                        "neither": {
+                          "counts": {
+                            "convex": 2,
+                            "concave": 1,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0.6666666666666666,
+                            "concave": 0.3333333333333333,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        }
+                      }
+                    },
+                    "directionalErrors": {
+                      "convexToNeither": {
+                        "numerator": 0,
+                        "denominator": 3,
+                        "value": 0
+                      },
+                      "concaveToNeither": {
+                        "numerator": 0,
+                        "denominator": 3,
+                        "value": 0
+                      }
+                    },
+                    "outcomes": {
+                      "answer": {
+                        "numerator": 9,
+                        "denominator": 9,
+                        "value": 1
+                      },
+                      "invalid": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "empty": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "conflicting": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "refused": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "truncated": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "provider-error": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "interrupted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "cancelled": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "unattempted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      }
+                    }
+                  },
+                  "eligibleForSpread": true
+                },
+                {
+                  "trialIndex": 2,
+                  "metrics": {
+                    "population": {
+                      "plannedTrials": 9,
+                      "includedTrials": 9,
+                      "excludedTrials": 0,
+                      "correctTrials": 4,
+                      "status": "complete"
+                    },
+                    "macroF1": 0.3333333333333333,
+                    "accuracy": {
+                      "numerator": 4,
+                      "denominator": 9,
+                      "value": 0.4444444444444444
+                    },
+                    "classes": {
+                      "convex": {
+                        "tp": 3,
+                        "fp": 4,
+                        "fn": 0,
+                        "support": 3,
+                        "precision": 0.42857142857142855,
+                        "recall": 1,
+                        "f1": 0.6
+                      },
+                      "concave": {
+                        "tp": 1,
+                        "fp": 1,
+                        "fn": 2,
+                        "support": 3,
+                        "precision": 0.5,
+                        "recall": 0.3333333333333333,
+                        "f1": 0.4
+                      },
+                      "neither": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      }
+                    },
+                    "absentReferenceClasses": [],
+                    "confusion": {
+                      "columns": [
+                        "convex",
+                        "concave",
+                        "neither",
+                        "unusable"
+                      ],
+                      "rows": {
+                        "convex": {
+                          "counts": {
+                            "convex": 3,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 1,
+                            "concave": 0,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        },
+                        "concave": {
+                          "counts": {
+                            "convex": 2,
+                            "concave": 1,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0.6666666666666666,
+                            "concave": 0.3333333333333333,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        },
+                        "neither": {
+                          "counts": {
+                            "convex": 2,
+                            "concave": 1,
+                            "neither": 0,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0.6666666666666666,
+                            "concave": 0.3333333333333333,
+                            "neither": 0,
+                            "unusable": 0
+                          }
+                        }
+                      }
+                    },
+                    "directionalErrors": {
+                      "convexToNeither": {
+                        "numerator": 0,
+                        "denominator": 3,
+                        "value": 0
+                      },
+                      "concaveToNeither": {
+                        "numerator": 0,
+                        "denominator": 3,
+                        "value": 0
+                      }
+                    },
+                    "outcomes": {
+                      "answer": {
+                        "numerator": 9,
+                        "denominator": 9,
+                        "value": 1
+                      },
+                      "invalid": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "empty": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "conflicting": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "refused": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "truncated": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "provider-error": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "interrupted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "cancelled": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "unattempted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      }
+                    }
+                  },
+                  "eligibleForSpread": true
+                }
+              ],
+              "spread": {
+                "plannedReplicates": 3,
+                "eligibleReplicates": 3,
+                "macroF1": {
+                  "count": 3,
+                  "mean": 0.27777777777777773,
+                  "min": 0.16666666666666666,
+                  "max": 0.3333333333333333,
+                  "sampleStandardDeviation": 0.09622504486493763
+                },
+                "recall": {
+                  "convex": {
+                    "count": 3,
+                    "mean": 1,
+                    "min": 1,
+                    "max": 1,
+                    "sampleStandardDeviation": 0
+                  },
+                  "concave": {
+                    "count": 3,
+                    "mean": 0.2222222222222222,
+                    "min": 0,
+                    "max": 0.3333333333333333,
+                    "sampleStandardDeviation": 0.19245008972987526
+                  },
+                  "neither": {
+                    "count": 3,
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sampleStandardDeviation": 0
+                  }
+                }
+              },
+              "agreement": {
+                "eligibleInstances": 9,
+                "totalInstances": 9,
+                "agreeingPairs": 21,
+                "totalPairs": 27,
+                "value": 0.7777777777777778
+              }
+            },
+            "diagnostics": {
+              "usage": {
+                "attempts": {
+                  "total": 27,
+                  "fields": {
+                    "input": {
+                      "reporting": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.input_tokens",
+                          "total": 28839,
+                          "reporting": 27,
+                          "mean": 1068.111111111111
+                        }
+                      ]
+                    },
+                    "output": {
+                      "reporting": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                          "total": 3984,
+                          "reporting": 27,
+                          "mean": 147.55555555555554
+                        }
+                      ]
+                    },
+                    "reasoning": {
+                      "reporting": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                          "total": 0,
+                          "reporting": 27,
+                          "mean": 0
+                        }
+                      ]
+                    }
+                  }
+                },
+                "logicalTrials": {
+                  "total": 27,
+                  "fields": {
+                    "input": {
+                      "complete": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.input_tokens",
+                          "total": 28839,
+                          "reporting": 27,
+                          "mean": 1068.111111111111
+                        }
+                      ]
+                    },
+                    "output": {
+                      "complete": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                          "total": 3984,
+                          "reporting": 27,
+                          "mean": 147.55555555555554
+                        }
+                      ]
+                    },
+                    "reasoning": {
+                      "complete": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                          "total": 0,
+                          "reporting": 27,
+                          "mean": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "cost": {
+                "attempts": 27,
+                "reporting": 0,
+                "missing": 27,
+                "groups": [],
+                "total": null
+              },
+              "latency": {
+                "eligible": 27,
+                "reporting": 27,
+                "missing": 0,
+                "p50Ms": 2437.3082919999997,
+                "p95Ms": 3490.098041000001,
+                "infrastructureTrials": 0,
+                "infrastructureAttempts": 0,
+                "timeoutTrials": 0,
+                "timeoutAttempts": 0,
+                "unattemptedTrials": 0
+              },
+              "lengths": {
+                "cases": 9,
+                "expressionCharacters": {
+                  "count": 9,
+                  "min": 1867,
+                  "max": 1948,
+                  "mean": 1906.3333333333333
+                },
+                "nodeCount": {
+                  "count": 9,
+                  "min": 345,
+                  "max": 349,
+                  "mean": 347.6666666666667
+                },
+                "promptCharacters": {
+                  "count": 9,
+                  "min": 2733,
+                  "max": 2814,
+                  "mean": 2772.3333333333335
+                },
+                "perCase": [
+                  {
+                    "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+                    "depth": 60,
+                    "expressionSha256": "591764e1f63e344ea004271f68a99f8dcd2145ce5d19d4e9e1a090a1f1db5fe9",
+                    "expressionCharacters": 1916,
+                    "nodeCount": 349,
+                    "promptCharacters": 2782
+                  },
+                  {
+                    "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+                    "depth": 60,
+                    "expressionSha256": "b2c4ca8551b2e5e8174a45a83bc0d2b3e313d1970f6a1beec2f2e46cee8e82ec",
+                    "expressionCharacters": 1943,
+                    "nodeCount": 349,
+                    "promptCharacters": 2809
+                  },
+                  {
+                    "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+                    "depth": 60,
+                    "expressionSha256": "3dda093486b45cc760863c2488dfba73aa2546765db368c734d75e92ee7944d4",
+                    "expressionCharacters": 1906,
+                    "nodeCount": 345,
+                    "promptCharacters": 2772
+                  },
+                  {
+                    "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+                    "depth": 60,
+                    "expressionSha256": "f5c7604d4786924b29f851fe6b8a524d3a00eb8d6eb913d99c1145a8ce872e00",
+                    "expressionCharacters": 1911,
+                    "nodeCount": 345,
+                    "promptCharacters": 2777
+                  },
+                  {
+                    "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+                    "depth": 60,
+                    "expressionSha256": "7b71bcdec2ee2da3a1bc9b6968f910de8466933e56ac8d7f381fb27be4b86adc",
+                    "expressionCharacters": 1900,
+                    "nodeCount": 349,
+                    "promptCharacters": 2766
+                  },
+                  {
+                    "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+                    "depth": 60,
+                    "expressionSha256": "845ae7b1c7bb31921e8179e47421ef6ec027e6c04cbdf3885f846200034d6440",
+                    "expressionCharacters": 1891,
+                    "nodeCount": 349,
+                    "promptCharacters": 2757
+                  },
+                  {
+                    "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+                    "depth": 60,
+                    "expressionSha256": "95b131e8bb0076d410359c8f9d3a94f79dbe1c8ac9d5596f5c2a220a2d60b5d2",
+                    "expressionCharacters": 1948,
+                    "nodeCount": 349,
+                    "promptCharacters": 2814
+                  },
+                  {
+                    "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+                    "depth": 60,
+                    "expressionSha256": "3bae9c8a71d11671c0eb7f75804d7ab31fb366fecd2c528afc1f61c54e312fb9",
+                    "expressionCharacters": 1875,
+                    "nodeCount": 349,
+                    "promptCharacters": 2741
+                  },
+                  {
+                    "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+                    "depth": 60,
+                    "expressionSha256": "9e7d6416bcc4f4f8e5ab719737cdb51688f783991f44121ede099dbba2d8336f",
+                    "expressionCharacters": 1867,
+                    "nodeCount": 345,
+                    "promptCharacters": 2733
+                  }
+                ],
+                "expressionTokens": {
+                  "totalCases": 9,
+                  "compatibleCases": 0,
+                  "missingCases": 9,
+                  "incompatibleCases": 0,
+                  "groups": []
+                }
+              },
+              "intermediateSteps": {
+                "status": "not-applicable",
+                "reason": "Current one-shot profiles expose no ordered intermediate steps or step-checking contract."
+              }
+            },
+            "macroF1Difference": 0
+          }
+        ],
+        "id": "report-v1-ed345bc36f75606fae549156c04d3128676a04404659d6c7d19632fe072ebaa5"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "report": {
+        "reportVersion": "1",
+        "scorerVersion": "1",
+        "policyId": "pooled-macro-f1-v1",
+        "identity": {
+          "runId": "depth60-v1-gpt-4o-mini",
+          "suiteId": "suite-v1-dce0928ad06933d700bedfff11a9b5609eb63c47da2090879904da479af29b24",
+          "generatorVersion": "1",
+          "depthPolicyVersion": "1",
+          "verifierVersion": "1",
+          "protocolVersion": "1",
+          "profileId": "one-shot-json-v1",
+          "method": "one-shot",
+          "model": {
+            "provider": "openai",
+            "modelId": "gpt-4o-mini",
+            "endpointId": "responses",
+            "settingsId": "provider-default-4096"
+          },
+          "workload": {
+            "protocolVersion": "1",
+            "profileId": "one-shot-json-v1",
+            "instanceCount": 9,
+            "trialsPerInstance": 3,
+            "logicalCalls": 27,
+            "maxAttempts": 54,
+            "maxOutputTokens": 4096,
+            "maxOutputTokensTotal": 221184
+          },
+          "evidenceSha256": "f2fc69595979f420bf1d546453c529bc034288116ebe024911e13c945b626c10"
+        },
+        "run": {
+          "elapsedMs": null,
+          "concurrency": 12
+        },
+        "overall": {
+          "classification": {
+            "population": {
+              "plannedTrials": 27,
+              "includedTrials": 27,
+              "excludedTrials": 0,
+              "correctTrials": 11,
+              "status": "complete"
+            },
+            "macroF1": 0.3151779230210603,
+            "accuracy": {
+              "numerator": 11,
+              "denominator": 27,
+              "value": 0.4074074074074074
+            },
+            "classes": {
+              "convex": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 9,
+                "support": 9,
+                "precision": null,
+                "recall": 0,
+                "f1": 0
+              },
+              "concave": {
+                "tp": 3,
+                "fp": 5,
+                "fn": 6,
+                "support": 9,
+                "precision": 0.375,
+                "recall": 0.3333333333333333,
+                "f1": 0.35294117647058826
+              },
+              "neither": {
+                "tp": 8,
+                "fp": 10,
+                "fn": 1,
+                "support": 9,
+                "precision": 0.4444444444444444,
+                "recall": 0.8888888888888888,
+                "f1": 0.5925925925925926
+              }
+            },
+            "absentReferenceClasses": [],
+            "confusion": {
+              "columns": [
+                "convex",
+                "concave",
+                "neither",
+                "unusable"
+              ],
+              "rows": {
+                "convex": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 4,
+                    "neither": 5,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.4444444444444444,
+                    "neither": 0.5555555555555556,
+                    "unusable": 0
+                  }
+                },
+                "concave": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 3,
+                    "neither": 5,
+                    "unusable": 1
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.3333333333333333,
+                    "neither": 0.5555555555555556,
+                    "unusable": 0.1111111111111111
+                  }
+                },
+                "neither": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 1,
+                    "neither": 8,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.1111111111111111,
+                    "neither": 0.8888888888888888,
+                    "unusable": 0
+                  }
+                }
+              }
+            },
+            "directionalErrors": {
+              "convexToNeither": {
+                "numerator": 5,
+                "denominator": 9,
+                "value": 0.5555555555555556
+              },
+              "concaveToNeither": {
+                "numerator": 5,
+                "denominator": 9,
+                "value": 0.5555555555555556
+              }
+            },
+            "outcomes": {
+              "answer": {
+                "numerator": 26,
+                "denominator": 27,
+                "value": 0.9629629629629629
+              },
+              "invalid": {
+                "numerator": 1,
+                "denominator": 27,
+                "value": 0.037037037037037035
+              },
+              "empty": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "conflicting": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "refused": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "truncated": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "provider-error": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "interrupted": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "cancelled": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              },
+              "unattempted": {
+                "numerator": 0,
+                "denominator": 27,
+                "value": 0
+              }
+            },
+            "trials": [
+              {
+                "trialIndex": 0,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 9,
+                    "includedTrials": 9,
+                    "excludedTrials": 0,
+                    "correctTrials": 4,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.34848484848484845,
+                  "accuracy": {
+                    "numerator": 4,
+                    "denominator": 9,
+                    "value": 0.4444444444444444
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 2,
+                      "support": 3,
+                      "precision": 1,
+                      "recall": 0.3333333333333333,
+                      "f1": 0.5
+                    },
+                    "neither": {
+                      "tp": 3,
+                      "fp": 5,
+                      "fn": 0,
+                      "support": 3,
+                      "precision": 0.375,
+                      "recall": 1,
+                      "f1": 0.5454545454545454
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 3,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 2,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0.3333333333333333,
+                          "neither": 0.6666666666666666,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 3,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "concaveToNeither": {
+                      "numerator": 2,
+                      "denominator": 3,
+                      "value": 0.6666666666666666
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 9,
+                      "denominator": 9,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 1,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 9,
+                    "includedTrials": 9,
+                    "excludedTrials": 0,
+                    "correctTrials": 3,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.2857142857142857,
+                  "accuracy": {
+                    "numerator": 3,
+                    "denominator": 9,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 3,
+                      "fn": 2,
+                      "support": 3,
+                      "precision": 0.25,
+                      "recall": 0.3333333333333333,
+                      "f1": 0.2857142857142857
+                    },
+                    "neither": {
+                      "tp": 2,
+                      "fp": 2,
+                      "fn": 1,
+                      "support": 3,
+                      "precision": 0.5,
+                      "recall": 0.6666666666666666,
+                      "f1": 0.5714285714285714
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 2,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0.6666666666666666,
+                          "neither": 0.3333333333333333,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 1,
+                          "unusable": 1
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0.3333333333333333,
+                          "neither": 0.3333333333333333,
+                          "unusable": 0.3333333333333333
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 2,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0.3333333333333333,
+                          "neither": 0.6666666666666666,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 1,
+                      "denominator": 3,
+                      "value": 0.3333333333333333
+                    },
+                    "concaveToNeither": {
+                      "numerator": 1,
+                      "denominator": 3,
+                      "value": 0.3333333333333333
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 8,
+                      "denominator": 9,
+                      "value": 0.8888888888888888
+                    },
+                    "invalid": {
+                      "numerator": 1,
+                      "denominator": 9,
+                      "value": 0.1111111111111111
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 2,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 9,
+                    "includedTrials": 9,
+                    "excludedTrials": 0,
+                    "correctTrials": 4,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.3333333333333333,
+                  "accuracy": {
+                    "numerator": 4,
+                    "denominator": 9,
+                    "value": 0.4444444444444444
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 3,
+                      "support": 3,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 2,
+                      "fn": 2,
+                      "support": 3,
+                      "precision": 0.3333333333333333,
+                      "recall": 0.3333333333333333,
+                      "f1": 0.3333333333333333
+                    },
+                    "neither": {
+                      "tp": 3,
+                      "fp": 3,
+                      "fn": 0,
+                      "support": 3,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 2,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0.6666666666666666,
+                          "neither": 0.3333333333333333,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 2,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0.3333333333333333,
+                          "neither": 0.6666666666666666,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 3,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 1,
+                      "denominator": 3,
+                      "value": 0.3333333333333333
+                    },
+                    "concaveToNeither": {
+                      "numerator": 2,
+                      "denominator": 3,
+                      "value": 0.6666666666666666
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 9,
+                      "denominator": 9,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 9,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              }
+            ],
+            "spread": {
+              "plannedReplicates": 3,
+              "eligibleReplicates": 3,
+              "macroF1": {
+                "count": 3,
+                "mean": 0.32251082251082247,
+                "min": 0.2857142857142857,
+                "max": 0.34848484848484845,
+                "sampleStandardDeviation": 0.03275486136454882
+              },
+              "recall": {
+                "convex": {
+                  "count": 3,
+                  "mean": 0,
+                  "min": 0,
+                  "max": 0,
+                  "sampleStandardDeviation": 0
+                },
+                "concave": {
+                  "count": 3,
+                  "mean": 0.3333333333333333,
+                  "min": 0.3333333333333333,
+                  "max": 0.3333333333333333,
+                  "sampleStandardDeviation": 0
+                },
+                "neither": {
+                  "count": 3,
+                  "mean": 0.8888888888888888,
+                  "min": 0.6666666666666666,
+                  "max": 1,
+                  "sampleStandardDeviation": 0.1924500897298753
+                }
+              }
+            },
+            "agreement": {
+              "eligibleInstances": 8,
+              "totalInstances": 9,
+              "agreeingPairs": 14,
+              "totalPairs": 24,
+              "value": 0.5833333333333334
+            }
+          },
+          "diagnostics": {
+            "usage": {
+              "attempts": {
+                "total": 27,
+                "fields": {
+                  "input": {
+                    "reporting": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.input_tokens",
+                        "total": 28839,
+                        "reporting": 27,
+                        "mean": 1068.111111111111
+                      }
+                    ]
+                  },
+                  "output": {
+                    "reporting": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                        "total": 2348,
+                        "reporting": 27,
+                        "mean": 86.96296296296296
+                      }
+                    ]
+                  },
+                  "reasoning": {
+                    "reporting": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                        "total": 0,
+                        "reporting": 27,
+                        "mean": 0
+                      }
+                    ]
+                  }
+                }
+              },
+              "logicalTrials": {
+                "total": 27,
+                "fields": {
+                  "input": {
+                    "complete": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.input_tokens",
+                        "total": 28839,
+                        "reporting": 27,
+                        "mean": 1068.111111111111
+                      }
+                    ]
+                  },
+                  "output": {
+                    "complete": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                        "total": 2348,
+                        "reporting": 27,
+                        "mean": 86.96296296296296
+                      }
+                    ]
+                  },
+                  "reasoning": {
+                    "complete": 27,
+                    "missing": 0,
+                    "groups": [
+                      {
+                        "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                        "total": 0,
+                        "reporting": 27,
+                        "mean": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "cost": {
+              "attempts": 27,
+              "reporting": 0,
+              "missing": 27,
+              "groups": [],
+              "total": null
+            },
+            "latency": {
+              "eligible": 27,
+              "reporting": 27,
+              "missing": 0,
+              "p50Ms": 2552.5595410000005,
+              "p95Ms": 3431.6008749999996,
+              "infrastructureTrials": 0,
+              "infrastructureAttempts": 0,
+              "timeoutTrials": 0,
+              "timeoutAttempts": 0,
+              "unattemptedTrials": 0
+            },
+            "lengths": {
+              "cases": 9,
+              "expressionCharacters": {
+                "count": 9,
+                "min": 1867,
+                "max": 1948,
+                "mean": 1906.3333333333333
+              },
+              "nodeCount": {
+                "count": 9,
+                "min": 345,
+                "max": 349,
+                "mean": 347.6666666666667
+              },
+              "promptCharacters": {
+                "count": 9,
+                "min": 2733,
+                "max": 2814,
+                "mean": 2772.3333333333335
+              },
+              "perCase": [
+                {
+                  "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+                  "depth": 60,
+                  "expressionSha256": "591764e1f63e344ea004271f68a99f8dcd2145ce5d19d4e9e1a090a1f1db5fe9",
+                  "expressionCharacters": 1916,
+                  "nodeCount": 349,
+                  "promptCharacters": 2782
+                },
+                {
+                  "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+                  "depth": 60,
+                  "expressionSha256": "b2c4ca8551b2e5e8174a45a83bc0d2b3e313d1970f6a1beec2f2e46cee8e82ec",
+                  "expressionCharacters": 1943,
+                  "nodeCount": 349,
+                  "promptCharacters": 2809
+                },
+                {
+                  "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+                  "depth": 60,
+                  "expressionSha256": "3dda093486b45cc760863c2488dfba73aa2546765db368c734d75e92ee7944d4",
+                  "expressionCharacters": 1906,
+                  "nodeCount": 345,
+                  "promptCharacters": 2772
+                },
+                {
+                  "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+                  "depth": 60,
+                  "expressionSha256": "f5c7604d4786924b29f851fe6b8a524d3a00eb8d6eb913d99c1145a8ce872e00",
+                  "expressionCharacters": 1911,
+                  "nodeCount": 345,
+                  "promptCharacters": 2777
+                },
+                {
+                  "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+                  "depth": 60,
+                  "expressionSha256": "7b71bcdec2ee2da3a1bc9b6968f910de8466933e56ac8d7f381fb27be4b86adc",
+                  "expressionCharacters": 1900,
+                  "nodeCount": 349,
+                  "promptCharacters": 2766
+                },
+                {
+                  "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+                  "depth": 60,
+                  "expressionSha256": "845ae7b1c7bb31921e8179e47421ef6ec027e6c04cbdf3885f846200034d6440",
+                  "expressionCharacters": 1891,
+                  "nodeCount": 349,
+                  "promptCharacters": 2757
+                },
+                {
+                  "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+                  "depth": 60,
+                  "expressionSha256": "95b131e8bb0076d410359c8f9d3a94f79dbe1c8ac9d5596f5c2a220a2d60b5d2",
+                  "expressionCharacters": 1948,
+                  "nodeCount": 349,
+                  "promptCharacters": 2814
+                },
+                {
+                  "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+                  "depth": 60,
+                  "expressionSha256": "3bae9c8a71d11671c0eb7f75804d7ab31fb366fecd2c528afc1f61c54e312fb9",
+                  "expressionCharacters": 1875,
+                  "nodeCount": 349,
+                  "promptCharacters": 2741
+                },
+                {
+                  "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+                  "depth": 60,
+                  "expressionSha256": "9e7d6416bcc4f4f8e5ab719737cdb51688f783991f44121ede099dbba2d8336f",
+                  "expressionCharacters": 1867,
+                  "nodeCount": 345,
+                  "promptCharacters": 2733
+                }
+              ],
+              "expressionTokens": {
+                "totalCases": 9,
+                "compatibleCases": 0,
+                "missingCases": 9,
+                "incompatibleCases": 0,
+                "groups": []
+              }
+            },
+            "intermediateSteps": {
+              "status": "not-applicable",
+              "reason": "Current one-shot profiles expose no ordered intermediate steps or step-checking contract."
+            }
+          }
+        },
+        "baselineDepth": 60,
+        "byDepth": [
+          {
+            "depth": 60,
+            "classification": {
+              "population": {
+                "plannedTrials": 27,
+                "includedTrials": 27,
+                "excludedTrials": 0,
+                "correctTrials": 11,
+                "status": "complete"
+              },
+              "macroF1": 0.3151779230210603,
+              "accuracy": {
+                "numerator": 11,
+                "denominator": 27,
+                "value": 0.4074074074074074
+              },
+              "classes": {
+                "convex": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 9,
+                  "support": 9,
+                  "precision": null,
+                  "recall": 0,
+                  "f1": 0
+                },
+                "concave": {
+                  "tp": 3,
+                  "fp": 5,
+                  "fn": 6,
+                  "support": 9,
+                  "precision": 0.375,
+                  "recall": 0.3333333333333333,
+                  "f1": 0.35294117647058826
+                },
+                "neither": {
+                  "tp": 8,
+                  "fp": 10,
+                  "fn": 1,
+                  "support": 9,
+                  "precision": 0.4444444444444444,
+                  "recall": 0.8888888888888888,
+                  "f1": 0.5925925925925926
+                }
+              },
+              "absentReferenceClasses": [],
+              "confusion": {
+                "columns": [
+                  "convex",
+                  "concave",
+                  "neither",
+                  "unusable"
+                ],
+                "rows": {
+                  "convex": {
+                    "counts": {
+                      "convex": 0,
+                      "concave": 4,
+                      "neither": 5,
+                      "unusable": 0
+                    },
+                    "rowRates": {
+                      "convex": 0,
+                      "concave": 0.4444444444444444,
+                      "neither": 0.5555555555555556,
+                      "unusable": 0
+                    }
+                  },
+                  "concave": {
+                    "counts": {
+                      "convex": 0,
+                      "concave": 3,
+                      "neither": 5,
+                      "unusable": 1
+                    },
+                    "rowRates": {
+                      "convex": 0,
+                      "concave": 0.3333333333333333,
+                      "neither": 0.5555555555555556,
+                      "unusable": 0.1111111111111111
+                    }
+                  },
+                  "neither": {
+                    "counts": {
+                      "convex": 0,
+                      "concave": 1,
+                      "neither": 8,
+                      "unusable": 0
+                    },
+                    "rowRates": {
+                      "convex": 0,
+                      "concave": 0.1111111111111111,
+                      "neither": 0.8888888888888888,
+                      "unusable": 0
+                    }
+                  }
+                }
+              },
+              "directionalErrors": {
+                "convexToNeither": {
+                  "numerator": 5,
+                  "denominator": 9,
+                  "value": 0.5555555555555556
+                },
+                "concaveToNeither": {
+                  "numerator": 5,
+                  "denominator": 9,
+                  "value": 0.5555555555555556
+                }
+              },
+              "outcomes": {
+                "answer": {
+                  "numerator": 26,
+                  "denominator": 27,
+                  "value": 0.9629629629629629
+                },
+                "invalid": {
+                  "numerator": 1,
+                  "denominator": 27,
+                  "value": 0.037037037037037035
+                },
+                "empty": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "conflicting": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "refused": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "truncated": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "provider-error": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "interrupted": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "cancelled": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                },
+                "unattempted": {
+                  "numerator": 0,
+                  "denominator": 27,
+                  "value": 0
+                }
+              },
+              "trials": [
+                {
+                  "trialIndex": 0,
+                  "metrics": {
+                    "population": {
+                      "plannedTrials": 9,
+                      "includedTrials": 9,
+                      "excludedTrials": 0,
+                      "correctTrials": 4,
+                      "status": "complete"
+                    },
+                    "macroF1": 0.34848484848484845,
+                    "accuracy": {
+                      "numerator": 4,
+                      "denominator": 9,
+                      "value": 0.4444444444444444
+                    },
+                    "classes": {
+                      "convex": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      },
+                      "concave": {
+                        "tp": 1,
+                        "fp": 0,
+                        "fn": 2,
+                        "support": 3,
+                        "precision": 1,
+                        "recall": 0.3333333333333333,
+                        "f1": 0.5
+                      },
+                      "neither": {
+                        "tp": 3,
+                        "fp": 5,
+                        "fn": 0,
+                        "support": 3,
+                        "precision": 0.375,
+                        "recall": 1,
+                        "f1": 0.5454545454545454
+                      }
+                    },
+                    "absentReferenceClasses": [],
+                    "confusion": {
+                      "columns": [
+                        "convex",
+                        "concave",
+                        "neither",
+                        "unusable"
+                      ],
+                      "rows": {
+                        "convex": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 0,
+                            "neither": 3,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0,
+                            "neither": 1,
+                            "unusable": 0
+                          }
+                        },
+                        "concave": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 1,
+                            "neither": 2,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0.3333333333333333,
+                            "neither": 0.6666666666666666,
+                            "unusable": 0
+                          }
+                        },
+                        "neither": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 0,
+                            "neither": 3,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0,
+                            "neither": 1,
+                            "unusable": 0
+                          }
+                        }
+                      }
+                    },
+                    "directionalErrors": {
+                      "convexToNeither": {
+                        "numerator": 3,
+                        "denominator": 3,
+                        "value": 1
+                      },
+                      "concaveToNeither": {
+                        "numerator": 2,
+                        "denominator": 3,
+                        "value": 0.6666666666666666
+                      }
+                    },
+                    "outcomes": {
+                      "answer": {
+                        "numerator": 9,
+                        "denominator": 9,
+                        "value": 1
+                      },
+                      "invalid": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "empty": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "conflicting": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "refused": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "truncated": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "provider-error": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "interrupted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "cancelled": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "unattempted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      }
+                    }
+                  },
+                  "eligibleForSpread": true
+                },
+                {
+                  "trialIndex": 1,
+                  "metrics": {
+                    "population": {
+                      "plannedTrials": 9,
+                      "includedTrials": 9,
+                      "excludedTrials": 0,
+                      "correctTrials": 3,
+                      "status": "complete"
+                    },
+                    "macroF1": 0.2857142857142857,
+                    "accuracy": {
+                      "numerator": 3,
+                      "denominator": 9,
+                      "value": 0.3333333333333333
+                    },
+                    "classes": {
+                      "convex": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      },
+                      "concave": {
+                        "tp": 1,
+                        "fp": 3,
+                        "fn": 2,
+                        "support": 3,
+                        "precision": 0.25,
+                        "recall": 0.3333333333333333,
+                        "f1": 0.2857142857142857
+                      },
+                      "neither": {
+                        "tp": 2,
+                        "fp": 2,
+                        "fn": 1,
+                        "support": 3,
+                        "precision": 0.5,
+                        "recall": 0.6666666666666666,
+                        "f1": 0.5714285714285714
+                      }
+                    },
+                    "absentReferenceClasses": [],
+                    "confusion": {
+                      "columns": [
+                        "convex",
+                        "concave",
+                        "neither",
+                        "unusable"
+                      ],
+                      "rows": {
+                        "convex": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 2,
+                            "neither": 1,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0.6666666666666666,
+                            "neither": 0.3333333333333333,
+                            "unusable": 0
+                          }
+                        },
+                        "concave": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 1,
+                            "neither": 1,
+                            "unusable": 1
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0.3333333333333333,
+                            "neither": 0.3333333333333333,
+                            "unusable": 0.3333333333333333
+                          }
+                        },
+                        "neither": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 1,
+                            "neither": 2,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0.3333333333333333,
+                            "neither": 0.6666666666666666,
+                            "unusable": 0
+                          }
+                        }
+                      }
+                    },
+                    "directionalErrors": {
+                      "convexToNeither": {
+                        "numerator": 1,
+                        "denominator": 3,
+                        "value": 0.3333333333333333
+                      },
+                      "concaveToNeither": {
+                        "numerator": 1,
+                        "denominator": 3,
+                        "value": 0.3333333333333333
+                      }
+                    },
+                    "outcomes": {
+                      "answer": {
+                        "numerator": 8,
+                        "denominator": 9,
+                        "value": 0.8888888888888888
+                      },
+                      "invalid": {
+                        "numerator": 1,
+                        "denominator": 9,
+                        "value": 0.1111111111111111
+                      },
+                      "empty": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "conflicting": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "refused": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "truncated": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "provider-error": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "interrupted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "cancelled": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "unattempted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      }
+                    }
+                  },
+                  "eligibleForSpread": true
+                },
+                {
+                  "trialIndex": 2,
+                  "metrics": {
+                    "population": {
+                      "plannedTrials": 9,
+                      "includedTrials": 9,
+                      "excludedTrials": 0,
+                      "correctTrials": 4,
+                      "status": "complete"
+                    },
+                    "macroF1": 0.3333333333333333,
+                    "accuracy": {
+                      "numerator": 4,
+                      "denominator": 9,
+                      "value": 0.4444444444444444
+                    },
+                    "classes": {
+                      "convex": {
+                        "tp": 0,
+                        "fp": 0,
+                        "fn": 3,
+                        "support": 3,
+                        "precision": null,
+                        "recall": 0,
+                        "f1": 0
+                      },
+                      "concave": {
+                        "tp": 1,
+                        "fp": 2,
+                        "fn": 2,
+                        "support": 3,
+                        "precision": 0.3333333333333333,
+                        "recall": 0.3333333333333333,
+                        "f1": 0.3333333333333333
+                      },
+                      "neither": {
+                        "tp": 3,
+                        "fp": 3,
+                        "fn": 0,
+                        "support": 3,
+                        "precision": 0.5,
+                        "recall": 1,
+                        "f1": 0.6666666666666666
+                      }
+                    },
+                    "absentReferenceClasses": [],
+                    "confusion": {
+                      "columns": [
+                        "convex",
+                        "concave",
+                        "neither",
+                        "unusable"
+                      ],
+                      "rows": {
+                        "convex": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 2,
+                            "neither": 1,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0.6666666666666666,
+                            "neither": 0.3333333333333333,
+                            "unusable": 0
+                          }
+                        },
+                        "concave": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 1,
+                            "neither": 2,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0.3333333333333333,
+                            "neither": 0.6666666666666666,
+                            "unusable": 0
+                          }
+                        },
+                        "neither": {
+                          "counts": {
+                            "convex": 0,
+                            "concave": 0,
+                            "neither": 3,
+                            "unusable": 0
+                          },
+                          "rowRates": {
+                            "convex": 0,
+                            "concave": 0,
+                            "neither": 1,
+                            "unusable": 0
+                          }
+                        }
+                      }
+                    },
+                    "directionalErrors": {
+                      "convexToNeither": {
+                        "numerator": 1,
+                        "denominator": 3,
+                        "value": 0.3333333333333333
+                      },
+                      "concaveToNeither": {
+                        "numerator": 2,
+                        "denominator": 3,
+                        "value": 0.6666666666666666
+                      }
+                    },
+                    "outcomes": {
+                      "answer": {
+                        "numerator": 9,
+                        "denominator": 9,
+                        "value": 1
+                      },
+                      "invalid": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "empty": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "conflicting": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "refused": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "truncated": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "provider-error": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "interrupted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "cancelled": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      },
+                      "unattempted": {
+                        "numerator": 0,
+                        "denominator": 9,
+                        "value": 0
+                      }
+                    }
+                  },
+                  "eligibleForSpread": true
+                }
+              ],
+              "spread": {
+                "plannedReplicates": 3,
+                "eligibleReplicates": 3,
+                "macroF1": {
+                  "count": 3,
+                  "mean": 0.32251082251082247,
+                  "min": 0.2857142857142857,
+                  "max": 0.34848484848484845,
+                  "sampleStandardDeviation": 0.03275486136454882
+                },
+                "recall": {
+                  "convex": {
+                    "count": 3,
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sampleStandardDeviation": 0
+                  },
+                  "concave": {
+                    "count": 3,
+                    "mean": 0.3333333333333333,
+                    "min": 0.3333333333333333,
+                    "max": 0.3333333333333333,
+                    "sampleStandardDeviation": 0
+                  },
+                  "neither": {
+                    "count": 3,
+                    "mean": 0.8888888888888888,
+                    "min": 0.6666666666666666,
+                    "max": 1,
+                    "sampleStandardDeviation": 0.1924500897298753
+                  }
+                }
+              },
+              "agreement": {
+                "eligibleInstances": 8,
+                "totalInstances": 9,
+                "agreeingPairs": 14,
+                "totalPairs": 24,
+                "value": 0.5833333333333334
+              }
+            },
+            "diagnostics": {
+              "usage": {
+                "attempts": {
+                  "total": 27,
+                  "fields": {
+                    "input": {
+                      "reporting": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.input_tokens",
+                          "total": 28839,
+                          "reporting": 27,
+                          "mean": 1068.111111111111
+                        }
+                      ]
+                    },
+                    "output": {
+                      "reporting": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                          "total": 2348,
+                          "reporting": 27,
+                          "mean": 86.96296296296296
+                        }
+                      ]
+                    },
+                    "reasoning": {
+                      "reporting": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                          "total": 0,
+                          "reporting": 27,
+                          "mean": 0
+                        }
+                      ]
+                    }
+                  }
+                },
+                "logicalTrials": {
+                  "total": 27,
+                  "fields": {
+                    "input": {
+                      "complete": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.input_tokens",
+                          "total": 28839,
+                          "reporting": 27,
+                          "mean": 1068.111111111111
+                        }
+                      ]
+                    },
+                    "output": {
+                      "complete": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens (includes reported reasoning tokens)",
+                          "total": 2348,
+                          "reporting": 27,
+                          "mean": 86.96296296296296
+                        }
+                      ]
+                    },
+                    "reasoning": {
+                      "complete": 27,
+                      "missing": 0,
+                      "groups": [
+                        {
+                          "semantics": "openai.output_tokens_details.reasoning_tokens (subset of output)",
+                          "total": 0,
+                          "reporting": 27,
+                          "mean": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "cost": {
+                "attempts": 27,
+                "reporting": 0,
+                "missing": 27,
+                "groups": [],
+                "total": null
+              },
+              "latency": {
+                "eligible": 27,
+                "reporting": 27,
+                "missing": 0,
+                "p50Ms": 2552.5595410000005,
+                "p95Ms": 3431.6008749999996,
+                "infrastructureTrials": 0,
+                "infrastructureAttempts": 0,
+                "timeoutTrials": 0,
+                "timeoutAttempts": 0,
+                "unattemptedTrials": 0
+              },
+              "lengths": {
+                "cases": 9,
+                "expressionCharacters": {
+                  "count": 9,
+                  "min": 1867,
+                  "max": 1948,
+                  "mean": 1906.3333333333333
+                },
+                "nodeCount": {
+                  "count": 9,
+                  "min": 345,
+                  "max": 349,
+                  "mean": 347.6666666666667
+                },
+                "promptCharacters": {
+                  "count": 9,
+                  "min": 2733,
+                  "max": 2814,
+                  "mean": 2772.3333333333335
+                },
+                "perCase": [
+                  {
+                    "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+                    "depth": 60,
+                    "expressionSha256": "591764e1f63e344ea004271f68a99f8dcd2145ce5d19d4e9e1a090a1f1db5fe9",
+                    "expressionCharacters": 1916,
+                    "nodeCount": 349,
+                    "promptCharacters": 2782
+                  },
+                  {
+                    "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+                    "depth": 60,
+                    "expressionSha256": "b2c4ca8551b2e5e8174a45a83bc0d2b3e313d1970f6a1beec2f2e46cee8e82ec",
+                    "expressionCharacters": 1943,
+                    "nodeCount": 349,
+                    "promptCharacters": 2809
+                  },
+                  {
+                    "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+                    "depth": 60,
+                    "expressionSha256": "3dda093486b45cc760863c2488dfba73aa2546765db368c734d75e92ee7944d4",
+                    "expressionCharacters": 1906,
+                    "nodeCount": 345,
+                    "promptCharacters": 2772
+                  },
+                  {
+                    "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+                    "depth": 60,
+                    "expressionSha256": "f5c7604d4786924b29f851fe6b8a524d3a00eb8d6eb913d99c1145a8ce872e00",
+                    "expressionCharacters": 1911,
+                    "nodeCount": 345,
+                    "promptCharacters": 2777
+                  },
+                  {
+                    "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+                    "depth": 60,
+                    "expressionSha256": "7b71bcdec2ee2da3a1bc9b6968f910de8466933e56ac8d7f381fb27be4b86adc",
+                    "expressionCharacters": 1900,
+                    "nodeCount": 349,
+                    "promptCharacters": 2766
+                  },
+                  {
+                    "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+                    "depth": 60,
+                    "expressionSha256": "845ae7b1c7bb31921e8179e47421ef6ec027e6c04cbdf3885f846200034d6440",
+                    "expressionCharacters": 1891,
+                    "nodeCount": 349,
+                    "promptCharacters": 2757
+                  },
+                  {
+                    "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+                    "depth": 60,
+                    "expressionSha256": "95b131e8bb0076d410359c8f9d3a94f79dbe1c8ac9d5596f5c2a220a2d60b5d2",
+                    "expressionCharacters": 1948,
+                    "nodeCount": 349,
+                    "promptCharacters": 2814
+                  },
+                  {
+                    "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+                    "depth": 60,
+                    "expressionSha256": "3bae9c8a71d11671c0eb7f75804d7ab31fb366fecd2c528afc1f61c54e312fb9",
+                    "expressionCharacters": 1875,
+                    "nodeCount": 349,
+                    "promptCharacters": 2741
+                  },
+                  {
+                    "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+                    "depth": 60,
+                    "expressionSha256": "9e7d6416bcc4f4f8e5ab719737cdb51688f783991f44121ede099dbba2d8336f",
+                    "expressionCharacters": 1867,
+                    "nodeCount": 345,
+                    "promptCharacters": 2733
+                  }
+                ],
+                "expressionTokens": {
+                  "totalCases": 9,
+                  "compatibleCases": 0,
+                  "missingCases": 9,
+                  "incompatibleCases": 0,
+                  "groups": []
+                }
+              },
+              "intermediateSteps": {
+                "status": "not-applicable",
+                "reason": "Current one-shot profiles expose no ordered intermediate steps or step-checking contract."
+              }
+            },
+            "macroF1Difference": 0
+          }
+        ],
+        "id": "report-v1-17e68b42adbb8ca9d5eee825e96471ceb849f466a3e56e71fb4d8ee1b56e4f50"
+      }
+    }
+  ],
+  "interpretation": "Exploratory, unranked exact-envelope tasks. Structural depth also changes expression length and active pieces; no causal depth, frontier-failure or independent-family claim."
+}
