@@ -79,6 +79,27 @@ describe("run browser API", () => {
     }
   });
 
+  it("loads all six suite keys and preserves the separate reserve workload", async () => {
+    const catalog = ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1"].map((suiteKey) => ({ ...suite, key: suiteKey }));
+    const reserve = { ...suite, key: "reserve-v1", name: "Fine-scale curvature exploration", suiteId: "suite-reserve-fixture", caseCount: 18, depths: [17, 23], generatorVersion: "reserve-v1", promptVersion: "smooth-v2" };
+    responses.push(Response.json({ version: "1", suites: [...catalog, reserve] }));
+    assert.deepEqual(await loadRunSuites(), [...catalog, reserve]);
+    assert.equal(calls.length, 1);
+  });
+
+  it("sends the explicit reserve key and rejects altered reserve keys before fetch", async () => {
+    const reserveInput: RunRequest = { ...input, suiteKey: "reserve-v1" };
+    responses.push(ndjson([started, ended]));
+    await startRun(reserveInput, key, () => {});
+    assert.deepEqual(JSON.parse(calls[0].init.body as string), reserveInput);
+    for (const suiteKey of ["reserve-v2", "reserve-v1/../challenge-v1", " reserve-v1"]) {
+      await assert.rejects(startRun({ ...reserveInput, suiteKey } as RunRequest, key, () => {}), failure("invalid-input"));
+      responses.push(Response.json({ version: "1", suites: [{ ...suite, key: suiteKey }] }));
+      await assert.rejects(loadRunSuites(), failure("unexpected-response"));
+    }
+    assert.equal(calls.length, 4);
+  });
+
   it("rejects incompatible policies, duplicate suites, and invalid depth populations", async () => {
     for (const body of [{ ...policy, retries: 1 }, { ...policy, resumption: "supported" }, { ...policy, defaultConcurrency: 13 }]) {
       responses.push(Response.json(body));

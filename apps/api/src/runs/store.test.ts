@@ -72,7 +72,7 @@ it("returns the private code once, isolates access and owns seven-day timestamps
 it("rejects a workload key that mislabels the retained generator or population", () => {
   const store = memory();
   try {
-    for (const suiteKey of ["reference-v1", "smooth-v2", "challenge-v1", "interior-v1"] as const) {
+    for (const suiteKey of ["reference-v1", "smooth-v2", "challenge-v1", "interior-v1", "reserve-v1"] as const) {
       expectCode(() => store.create({ ...initial, request: { ...initial.request, suiteKey } }), "invalid-record");
     }
   } finally { store.close(); }

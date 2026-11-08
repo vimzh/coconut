@@ -19,6 +19,6 @@ it("loads certified suite artifacts and the native worker from the built API", a
     expect(errors).toBe("");
     const result = JSON.parse(out);
     expect(result.status).toBe(200);
-    expect(result.data.suites.map((suite: { key: string; caseCount: number }) => [suite.key, suite.caseCount])).toEqual([["reference-v1", 75], ["smooth-v2", 27], ["challenge-v1", 72], ["screening-v1", 9], ["interior-v1", 72]]);
+    expect(result.data.suites.map((suite: { key: string; caseCount: number }) => [suite.key, suite.caseCount])).toEqual([["reference-v1", 75], ["smooth-v2", 27], ["challenge-v1", 72], ["screening-v1", 9], ["interior-v1", 72], ["reserve-v1", 18]]);
   } finally { await rm(output, { recursive: true, force: true }); }
 }, 30000);

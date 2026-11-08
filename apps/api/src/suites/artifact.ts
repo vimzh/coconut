@@ -2,6 +2,7 @@
 import { validateNumericalSuite } from "../numerics/manifest";
 import { validateChallengeSuite } from "../challenge";
 import { validateInteriorSuite } from "../interior";
+import { validateReserveSuite } from "../reserve";
 import { SuiteInputError } from "./generator";
 import { validateFrozenSuite } from "./manifest";
 
@@ -13,6 +14,7 @@ export async function validateSuiteArtifact(input: unknown) {
     const generator = Object.getOwnPropertyDescriptor(input, "generatorVersion");
     if (generator && !("value" in generator)) throw new SuiteInputError("Suite generator version must be data.");
     if (generator?.value === "interior-v1") return validateInteriorSuite(input);
+    if (generator?.value === "reserve-v1") return validateReserveSuite(input);
     return generator?.value === "challenge-v1" ? validateChallengeSuite(input) : validateNumericalSuite(input);
   }
   throw new SuiteInputError("Unsupported suite format version.");

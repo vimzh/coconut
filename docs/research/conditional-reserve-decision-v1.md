@@ -1,0 +1,13 @@
+# Fixed reserve: implementation decision
+
+At **2026-11-08T09:20:00.911Z**, the coordinator checked the amended observed-data condition and decided to implement and independently review the unchanged 18-task reserve. This is a deliberate decision after terminal P5 results, not an automatic launch.
+
+Both P5 cells completed 216 valid correct labels, with no wrong, unusable or infrastructure outcome. The exact published source hashes and trial-identity checks are in [the decision record](../../apps/api/data/research/conditional-reserve-decision-v1.json), canonical SHA-256 `29aea846d30bce67bc2e57fc7429824a5ea825362d5e4e9a44dd04e365158fa7`. The baseline has 1,402 retained correct labels and zero observed wrong labels. Its 11 unknown remote outcomes remain unknown; the original absolute condition is not claimed true. The [earlier amendment](conditional-reserve-operational-amendment-v1.md) was recorded before terminal P5 results, at disclosed partial exposure of 140/148 correct labels.
+
+The proposal remains fixed at raw SHA-256 `766261f379ea91fc748b0e612068b9717a33ccc612be14747f16e306e4457b85`. Runtime integration will use a separately versioned `reserve-v1` artifact, 18 cases, three families and two related source groups. It remains exploratory, unranked, with no eligible confidence interval or inherited confirmation status.
+
+The next paid step is the separately frozen eight-cell o3 supplement, admitted only by terminal actual-send accounting. Its maximum 216 requests plus the optional 108-request reserve gives a conservative future ceiling of **7,846**, from 7,522 retained prior requests, within 8,192. Unknown sends are already included. Reserve execution must wait for supplement settlement, source/mathematical verification, independent review and a separate immutable manifest; no running API will be restarted during paid work.
+
+No reserve runtime artifact or model call exists at this decision checkpoint. This follow-up is adaptive exploration after observed ceiling performance; it changes no original task, label, score, D-12 threshold or historical evidence and guarantees no model error.
+
+The settlement, accounting and immutable-manifest gates above govern the coordinator's **108-request research experiment**. Ordinary visitors use the platform's existing explicit-key/charge-consent policy for their own 54-request evaluations and may select other supported profiles. Their runs do not become this frozen study merely by choosing the same suite. The current API remains on the earlier five-suite build until paid work settles and the new mathematical/runtime review passes; the coordinator then enables the reviewed sixth suite during the planned idle rollout.

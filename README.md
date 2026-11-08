@@ -51,6 +51,13 @@ bun run interior:verify --input apps/api/data/suites/interior-v1.json
 bun run interior:generate --output /tmp/coconut-interior-new.json
 ```
 
+The separate **fine-scale curvature exploration** contains 18 tasks at depths 17 and 23, using logarithm, reciprocal and square-root compositions of two related source polynomials. All three labels appear twice per family. Exact Bernstein bounds, rational witnesses and native certificates verify the labels; an exact off-grid source-value comparison separates pairs that the nine coarse probes cannot distinguish. Its two related source groups remain exploratory and unranked, with no eligible confidence interval or inherited confirmation status. The [implementation decision](docs/research/conditional-reserve-decision-v1.md) retains its adaptive scope and authorization boundary.
+
+```sh
+bun run reserve:verify --input apps/api/data/suites/reserve-v1.json
+bun run reserve:generate --output /tmp/coconut-reserve-new.json
+```
+
 The offline suite generator retains exact expressions and verifier certificates. Verify the frozen 75-case reference suite, or reproduce it into a new file:
 
 ```sh

@@ -1,0 +1,268 @@
+{
+  "version": "1",
+  "kind": "independent-reserve-runtime-review",
+  "checkedAt": "2026-11-08T09:48:41.912Z",
+  "status": "verified",
+  "membershipFingerprint": "195d6616cc365b2d69b704d8be7ea74c8b9dc7f2d8dd2c2867aa137b0fe5f615",
+  "reviewDocumentPath": "docs/research/independent-reserve-review-v1.md",
+  "reviewedWorkingTreeHead": "395ad4dee21803af9a0eb9840fedfb8b635a56cf",
+  "artifact": {
+    "path": "apps/api/data/suites/reserve-v1.json",
+    "fileSha256": "2abd3bc34737a3bfed4e6ba28a67cb28dd42c26e8f92b96a8688cad399cd5d49",
+    "bytes": 349464,
+    "suiteId": "suite-reserve-v1-54c719576846a0437a431372204593bd8ea47f4af99def6a654db4a93502e7c7"
+  },
+  "proposalFileSha256": "766261f379ea91fc748b0e612068b9717a33ccc612be14747f16e306e4457b85",
+  "sourceFiles": [
+    {
+      "path": "apps/api/src/reserve/candidates.ts",
+      "fileSha256": "0e46ffdd4c001c88134b4c6e46b74c13e29cc16c7a5c23666e57a2bc9c517e79"
+    },
+    {
+      "path": "apps/api/src/reserve/cli.test.ts",
+      "fileSha256": "18d75cc3fc2bd1ed73c3f0ab64e331ecafefe830687f3a5953418351482678e8"
+    },
+    {
+      "path": "apps/api/src/reserve/cli.ts",
+      "fileSha256": "6fd3773f7e6221b747252f26f00e0e15a76efc1be95280f62b001f91e35f9572"
+    },
+    {
+      "path": "apps/api/src/reserve/index.ts",
+      "fileSha256": "e6439dba8ea2c3757766699c90187dad72ebc2242777bf8b83a97ab8e02ef299"
+    },
+    {
+      "path": "apps/api/src/reserve/reference.ts",
+      "fileSha256": "b63de0b79eac5275337447354e982144d0d4874d2c76b354badac7b565df6126"
+    },
+    {
+      "path": "apps/api/src/reserve/reserve.test.ts",
+      "fileSha256": "234f600a1a0ae357946a0fc27c66076905cfd59c43867f367d9977e8a333985a"
+    },
+    {
+      "path": "apps/api/src/reserve/suite.ts",
+      "fileSha256": "3a4bebeee407bcb1c8727c3bd77ada3d33ba1a54a189221d0b7cf9b260cfdea5"
+    },
+    {
+      "path": "apps/api/src/reserve/types.ts",
+      "fileSha256": "50d810d31ee3fb466e28bb2c7254e21090016d8fe992b9ffa75cd0845ef6ebbe"
+    }
+  ],
+  "role": {
+    "independentAiAssistedReviewer": true,
+    "humanApproval": false,
+    "method": "Separate Python Fraction and polynomial implementation, source inspection, fresh native replay and max-profile generation. The reviewer did not import the application polynomial/analytic proof implementation to obtain expected mathematical identities."
+  },
+  "coverage": {
+    "canonicalReferences": 18,
+    "sourcePolynomials": 2,
+    "sourceDegrees": [
+      9,
+      10
+    ],
+    "independentCurvatureNumerators": 6,
+    "numeratorDegrees": [
+      34,
+      38
+    ],
+    "exactBernsteinCells": 39,
+    "strictGlobalCases": 12,
+    "neitherCases": 6,
+    "strictInteriorWitnesses": 12,
+    "misleadingCoarseCurvatureChecks": 54,
+    "gridClosedJensenChecks": 96,
+    "unorderedDistinctPairs": 153,
+    "nativeProbeSeparations": 144,
+    "exactAnchorSeparations": 9,
+    "unresolvedPairs": 0,
+    "modelPromptsChecked": 18,
+    "detectedPromptMetadataLeaks": 0
+  },
+  "references": [
+    {
+      "caseId": "case-reserve-v1-be32747b06e64fc91692f94dd6ad606045c4abf53116e0058dc137854a92fe32",
+      "label": "convex",
+      "family": "reserve-logarithm",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "0d7528f2afb7f485be3738d951455faf85c714c0320b0b376ce19e6a1b5dd098",
+      "certificateSha256": "2baf61bc032b899ee3c7b66e01c6dfaa739becfc11ef2791c0c1eacb7eca4e84",
+      "analyticCertificateSha256": "5048e1d77cbe7e0df8b9010988b62d6584e26e3ee3c7e48f4955391656c69642"
+    },
+    {
+      "caseId": "case-reserve-v1-62cd4ed4f5314be5b67c12327bf1f57e3cd9ed3464bcb392c436fb9c67ffbf7c",
+      "label": "concave",
+      "family": "reserve-logarithm",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "e18947b4e7166727ec9e62777a236223d0f18162637e9bd53b64578fe46189b9",
+      "certificateSha256": "51dbf025a4eb758e4d607fe0d029ff108226359e1d45f9f1d5beca9e6dd0f056",
+      "analyticCertificateSha256": "ab56eccf955366ad83a06fd9ce0fa46250b392837bc4a956edbfe375b97e37ae"
+    },
+    {
+      "caseId": "case-reserve-v1-b3e23b6a1b4ea60fb213b068e833841fb4b70d26865d1cb74ac57338842c456b",
+      "label": "neither",
+      "family": "reserve-logarithm",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "97f7c3a0dcfad9ef187e1245618050928cdcb75652166ac80256152987c79d2e",
+      "certificateSha256": "0212cdd5b3e431e5319e18f8323c8850d9e2ce29f527faeca8600b1503fa957a",
+      "analyticCertificateSha256": "3821d2c44bc01a588c8a297a4c66709acabbef5deab4265a2e6bb09c729e442f"
+    },
+    {
+      "caseId": "case-reserve-v1-dc027c26a654c4ad1e4952a4be8cbf23cf91dce807978fb73f3b0a4f8a7e80f0",
+      "label": "convex",
+      "family": "reserve-logarithm",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "fadf3cbe9cb2ae91d39a9059dfa8eca8684a33871b97b2ba2c233d4ca03451fa",
+      "certificateSha256": "4ec90b04f509a612f20a1ebf91b919b635e5a9ff62964e2edfdd1fd891729db2",
+      "analyticCertificateSha256": "c9eaee5cdf14a5001f1075f2012d0f0c2871e9b7a865b6bb2f4a955013ee747a"
+    },
+    {
+      "caseId": "case-reserve-v1-dcb012a3bdbbd736ad6fb34ec019af90094f8c6fc632d5f967e596a017f45b49",
+      "label": "concave",
+      "family": "reserve-logarithm",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "fa7c270a663555bd6baa2606e2e31a6a6456a5d09eba74a50f26c615099f6816",
+      "certificateSha256": "b1cbe93a47bd7c2a34e1c1cdeb5b5d0fae325ed32b62e02b5a3c776d89e16034",
+      "analyticCertificateSha256": "20a7ce121c84ce66ad301f20b4f7e3919163d6311e2cc3cb053ba04db3eddbca"
+    },
+    {
+      "caseId": "case-reserve-v1-3e9452346971c90708450958b7401f244952e8bc6b0de90e9f5133e5d2f528f3",
+      "label": "neither",
+      "family": "reserve-logarithm",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "644e06b62b6486e19dc08f3b187f18f51d8f5d84454b14128ed75c0c160163c8",
+      "certificateSha256": "16c7a162377bc66eca1e6940fd76c5f288caad613bb438d0cf3ad4b7ff6f4768",
+      "analyticCertificateSha256": "542348137e20edc015f2caadd6e2f063c782909e70dbdf98db3624ad6b1b78f1"
+    },
+    {
+      "caseId": "case-reserve-v1-cb455dd2b3925b06c4a4d3a75dd29f282f2536b68e9dc25cc1b9ba32cd4aa3d9",
+      "label": "convex",
+      "family": "reserve-reciprocal",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "b6303be88a5b031bd6474b25671595534fb50a86cd5b36094a22cccae1efcd24",
+      "certificateSha256": "de29797f5f15aac7a6943e38a28414e9061e78a9094c93421286e7428b11ecb5",
+      "analyticCertificateSha256": "77721fc0b02ee49c06e437a6f2a29bc0bb65a6bc84c06868219c3a253cb45522"
+    },
+    {
+      "caseId": "case-reserve-v1-41853aa1c3f73afc05aaa369485bd8873b1131994455dfa43312b12b570c463e",
+      "label": "concave",
+      "family": "reserve-reciprocal",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "6a2ccb59583632a772f2e118042e0ca260713be48a25096dbd858ce75108253d",
+      "certificateSha256": "608a34007fa066abb52bb794bff25bbd85b6cce19bf23082d6328934164d190d",
+      "analyticCertificateSha256": "faa3ad19c182cd14a570ca720998b6e7530b4c90262c3ca5584873e73b613db5"
+    },
+    {
+      "caseId": "case-reserve-v1-97a8b00a8a61419153f168b0420bbe42f7508e9e5734fd3ce1c167d23c6e2e2d",
+      "label": "neither",
+      "family": "reserve-reciprocal",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "b177ec2926f154c2cc78998a7f5b043025fd9c850a3b2823de432ea59e93893d",
+      "certificateSha256": "4b691164289e5e35551440fbbfd72ebd3102542a5a44b2b14ebe88acbd392446",
+      "analyticCertificateSha256": "d88d69823e93390050a36f2e05ccd0aa05c859af2ced362c80f69a7145bea070"
+    },
+    {
+      "caseId": "case-reserve-v1-b63c84ef222447ed9f6f2c985641ee3089f65ad140a69dbc2089478f5782b682",
+      "label": "convex",
+      "family": "reserve-reciprocal",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "93289018d1c92295a13fc88d689dd8ed4eeaf589cf67e615b13b08bc4b0b34a4",
+      "certificateSha256": "26ad23bfd7cd056f4f53709d5c98e2b504d52d16c989c9a06956c3ac4b946a3f",
+      "analyticCertificateSha256": "5d4455c4a46cb0358fc5b22cd575b780bd59d94faa284c5127fcbc95fbbbe0c3"
+    },
+    {
+      "caseId": "case-reserve-v1-a45b1a51a44e9f66c044e1ed71e9567234963922e71c88ebf6f0fd9611f26270",
+      "label": "concave",
+      "family": "reserve-reciprocal",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "17cb5c7a3176614eaef50971d126a77f0337416dcfd0e4a35c0e89c8e4f5503b",
+      "certificateSha256": "11e6e0bc5c9ab8d2ab171f34d585e0ed2586fd76a0b7c84bd219a9ac1ea4c2b9",
+      "analyticCertificateSha256": "99b5e740db303d9100af68d963cc37c9732d1754059042a62bb5060a3dd19204"
+    },
+    {
+      "caseId": "case-reserve-v1-e9df805bdaef3e61e30ba6e1d0ac38cdba568db1c9975000076a161320da67b5",
+      "label": "neither",
+      "family": "reserve-reciprocal",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "ff10d10fc36b8dc8a7f4e1934e674d65bfa83620fe7b114e8582e5a2b37f2474",
+      "certificateSha256": "c6f818f04fdb2aa1d30bcbf046d5fcc0e678b14fd86556dfb2824f83f81fcada",
+      "analyticCertificateSha256": "dd0b64f1f90d402ac3566e73e139e901e79fe9d7c26a83c0f3b84f4032d76ac7"
+    },
+    {
+      "caseId": "case-reserve-v1-0ae06da656f7c1a00cb3bb30cb3f4e459130704fa7ecf31dfac1253d3f2c2ebd",
+      "label": "convex",
+      "family": "reserve-square-root",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "a8e88a7ba7c51f93caf8d80889368824e106c1a4877d9b1e55280349a4824549",
+      "certificateSha256": "6672db3563062918640b8706a5b8a9db4ccc2066a094cc7544c59b4e43d22237",
+      "analyticCertificateSha256": "fdcaeeea5c8f128f8f765e3541a7fbfcfdeb0fb842ddd0a66ba3c140e1cb9bb0"
+    },
+    {
+      "caseId": "case-reserve-v1-a293b4a174b401f764e1c7d07ef6b31df4ca3d0e3c1e84de4d8aa46ea4d197fc",
+      "label": "concave",
+      "family": "reserve-square-root",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "57aa564fed3a4b0e491b2aef80c4c57fad0e11f1298b8d9e6ca3534df66741c6",
+      "certificateSha256": "da9982290e140a4ba886ef29fff9333d19940dafc4fae3d16584e980a2caee6f",
+      "analyticCertificateSha256": "519846a9bd28db3bbfa7f680da00409c004321d57d6b0619ff790ddd88f130c9"
+    },
+    {
+      "caseId": "case-reserve-v1-be913a2b21f8e43d1ceddaaa9d9387289b8479d99f86c7f7c869327687ccec8d",
+      "label": "neither",
+      "family": "reserve-square-root",
+      "clusterId": "cluster-reserve-v1-fdff733bba1db879dec209a43818e860274728db8bc4db152fffa1bc695e5867",
+      "referenceSha256": "9cd6fe896ea71927ced69d2380f02b0ee4da3a731a7975d180aade7b1f9ffdbe",
+      "certificateSha256": "349858d2942f8fc6a01d94e4876dbac0680b201cfd116b42b74235ac511d7c01",
+      "analyticCertificateSha256": "c3b242dd653eb52ee6807ddf0f6e757fd428fc6d5af516b1c2faf9e602a4ad77"
+    },
+    {
+      "caseId": "case-reserve-v1-41ce56a9ee9969f2b5d383e658f5570e4fb6462decafab6730604fd77930497c",
+      "label": "convex",
+      "family": "reserve-square-root",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "1d01cbae50ebf391e1edfe5c51da2af086e6b6ad64d4a68456436f65fcf888ee",
+      "certificateSha256": "bda2593276f8a2125bdc5b15227b816c44daaf3fd715d9af776591786388dd9e",
+      "analyticCertificateSha256": "31975dbc72be556cc954901817871a2691859ec7f92949ae420682f8d46d256f"
+    },
+    {
+      "caseId": "case-reserve-v1-927641b4e8449b6f0186f8b154641c06b42ec8814bcc9f3ab1dbba2f1c92c8a0",
+      "label": "concave",
+      "family": "reserve-square-root",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "58f2204b8f163a443a5092dfad4875f7ea1ecbfdfd3281094b3b6eb8aaa47928",
+      "certificateSha256": "2c787431b2f8a1f13265cde85c3584a7696ff55fd2be2b9d08eded059a08682e",
+      "analyticCertificateSha256": "193f792fe2a9e54d3efb305df6cd9565753fb0a5f52e1a42838dc1c2c78ef559"
+    },
+    {
+      "caseId": "case-reserve-v1-cd751c6a000c46bf0df8c4f735fe60e8d1728ce4f8645b2f11a4b8d3a2d84aee",
+      "label": "neither",
+      "family": "reserve-square-root",
+      "clusterId": "cluster-reserve-v1-246b1eba5d86e22e490894b9b51b44e76a65da27734ff6ad0ae867fdcabe6e7f",
+      "referenceSha256": "f725f6ffd1a4ea2613822834d3c75dbf4611aadcf39be4e252e3306fff540100",
+      "certificateSha256": "781d233f221c1b6ec766e71b946e0dd360f78a47b1a0ee5f78c9b974349b2069",
+      "analyticCertificateSha256": "669781cb9a1319156c7b9f830a69430356b88150ba54bbf5101701086285e21c"
+    }
+  ],
+  "replay": {
+    "canonicalMembershipMatched": true,
+    "allReferencesAndCertificatesMatchFixedProposal": true,
+    "freshNativeValidationMatched": true,
+    "maxProfileSameCasesAndCertificates": true,
+    "nativePrecisionBits": 192,
+    "maxCoverLeaves": 132,
+    "maxProcessedBinaryCells": 263,
+    "unchangedLimits": {
+      "maxDepth": 32,
+      "maxNodes": 256,
+      "maxCells": 512,
+      "maxNodeEvaluations": 200000
+    },
+    "maxProfileSuiteId": "suite-reserve-v1-c4efdfed64c8ff0696db7c6f2bb2a85b8bf563bf253d84cd0547e62c7803b224"
+  },
+  "findings": [],
+  "limitations": [
+    "No independent reimplementation of Arb interval arithmetic; native certificates were freshly replayed while labels were independently proved with exact rational/Bernstein calculations.",
+    "No active API, private run, credential, model outcome or paid inference was inspected by this review.",
+    "Full repository suites were not rerun by the reviewer; implementer test/build outcomes are separately recorded.",
+    "Source hashes were captured by the coordinator after the completed read-only review; the reviewed mathematical membership is bound independently by the verified fingerprint and artifact bytes.",
+    "This review verifies a fixed mathematical/runtime population and does not establish model difficulty, a confidence interval, ranking eligibility or G-SIGNAL. Three families and two related source groups remain exploratory."
+  ]
+}

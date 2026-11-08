@@ -1,0 +1,63 @@
+{
+  "version": "1",
+  "kind": "conditional-reserve-implementation-decision",
+  "decidedAt": "2026-11-08T09:20:00.911Z",
+  "decision": "proceed-to-runtime-implementation-and-independent-review",
+  "amendmentPath": "apps/api/data/research/conditional-reserve-amendment-v1.json",
+  "amendmentSha256": "5ab07c79467049062a5c01a538a9d88cb5c33e0bf041cdb462b6c6249b2d9e5a",
+  "originalAbsoluteConditionProved": false,
+  "amendedObservedConditionSatisfied": true,
+  "baselineReviewPath": "apps/api/data/quality/replication-review-v2.json",
+  "baselineReviewSha256": "2839d0cec6879f1ce9c5bd605c4994bf122059696709af4a5757b608ff1a7ce7",
+  "baselineRetainedValidCorrect": 1402,
+  "baselineObservedWrong": 0,
+  "baselineUnknownRemoteOutcomes": 11,
+  "p5": {
+    "manifestSha256": "a4f109d0ddd550442d10978bfd1854c07ba04bb4f6268dc7cdaead701106d536",
+    "ledgerSha256": "d92527579936e750e144255d316aa332553ef09956a2171c509527d58e654f4a",
+    "cells": [
+      {
+        "requestedModelId": "gpt-6-astra",
+        "runId": "dfd70b94-ee70-4365-8b08-58ff09c07e6f",
+        "publicViewSha256": "ffd297a0d90a9d876ca2abf20923032759dcbe1cddc0dfcc139454b2e9de63ae",
+        "validCorrect": 216,
+        "wrong": 0,
+        "unusable": 0,
+        "infrastructure": 0
+      },
+      {
+        "requestedModelId": "gpt-6.1-sol",
+        "runId": "793e500f-2bee-4af8-b56b-5256731f00c7",
+        "publicViewSha256": "07bd4c8f37ce04ad7a7b9b3f78a2fd46197ba33462d6bf69f1cfaa4f534fa1ca",
+        "validCorrect": 216,
+        "wrong": 0,
+        "unusable": 0,
+        "infrastructure": 0
+      }
+    ]
+  },
+  "fixedProposalFileSha256": "766261f379ea91fc748b0e612068b9717a33ccc612be14747f16e306e4457b85",
+  "plannedRuntime": {
+    "suiteKey": "reserve-v1",
+    "generatorVersion": "reserve-v1",
+    "caseCount": 18,
+    "relatedSourceGroups": 2,
+    "population": "exploratory",
+    "ranked": false,
+    "confidenceInterval": "unavailable"
+  },
+  "budget": {
+    "priorActualInferenceRequests": 7522,
+    "pendingRemainingModelSupplementMaximum": 216,
+    "reserveMaximum": 108,
+    "conservativeFutureCeiling": 7846,
+    "sharedCeiling": 8192
+  },
+  "sequence": "Run the separately frozen o3 supplement after its accounting passes while implementing and reviewing the fixed reserve runtime. No API restart during paid work. Freeze/run the 108-call reserve only after that supplement is terminal and actual-send accounting is reconciled.",
+  "limits": [
+    "This decision follows all P5 outcomes and the explicit earlier amendment after disclosed partial exposure; it is adaptive exploration, not preregistered confirmation.",
+    "The literal original absence condition remains unproved; eleven original remote outcomes remain unknown and already counted against the budget.",
+    "No reserve model request, runtime suite or execution manifest exists at this decision checkpoint. Independent reference replay, source integration, tests, review and a separate immutable execution freeze are still required.",
+    "Fixed membership, labels and D-12 criteria are not changed. No guaranteed model failure, confidence interval, ranking or stronger signal claim follows."
+  ]
+}

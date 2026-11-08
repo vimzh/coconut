@@ -2,6 +2,7 @@
 import { createReadStream } from "node:fs";
 import { generateChallengeSuite, getChallengeRequest } from "../challenge";
 import { generateInteriorSuite, getInteriorRequest } from "../interior";
+import { generateReserveSuite, getReserveRequest } from "../reserve";
 import { generateNumericalSuite } from "../numerics/suite";
 import { getProfile, type ProfileId } from "../protocol";
 import { apiDataFile } from "../runtime-paths";
@@ -16,6 +17,7 @@ const choices = Object.freeze({
   "challenge-v1": { file: "challenge-v1.json", name: "Curvature challenge", description: "72 tasks across eight families, balanced by class and parameter group.", recommended: true },
   "screening-v1": { file: "challenge-v1.json", name: "Exploratory screening", description: "Nine tasks using parameter groups held out from the confirmation challenge.", recommended: false },
   "interior-v1": { file: "interior-v1.json", name: "Interior curvature exploration", description: "72 quintic-composition tasks across three families and eight shared source-polynomial groups. Exploratory and unranked.", recommended: false },
+  "reserve-v1": { file: "reserve-v1.json", name: "Fine-scale curvature exploration", description: "18 nonlinear polynomial-composition tasks across three families and two related source groups. Exploratory and unranked.", recommended: false },
 });
 const cache = new Map<string, Promise<RunSuite>>();
 const MAX_CACHE = 64;
@@ -26,6 +28,7 @@ const baseIds = {
   "challenge-v1": "suite-challenge-v1-6a1bf3255f8104661db7ce0ae4f3be4182e8ac3b8b9240774aacfc339e433dd9",
   "screening-v1": "suite-challenge-v1-6a1bf3255f8104661db7ce0ae4f3be4182e8ac3b8b9240774aacfc339e433dd9",
   "interior-v1": "suite-interior-v1-99c5b377b79244e5c5e7e267548964a14fb1ae64eb92998d44166024dcf5d10c",
+  "reserve-v1": "suite-reserve-v1-54c719576846a0437a431372204593bd8ea47f4af99def6a654db4a93502e7c7",
 };
 
 async function readArtifact(key: RunSuiteKey): Promise<RunSuite> {
@@ -50,6 +53,7 @@ async function build(key: RunSuiteKey, profileId: ProfileId): Promise<RunSuite> 
   const generated = key === "screening-v1" || key === "challenge-v1"
     ? await generateChallengeSuite(getChallengeRequest(key === "screening-v1" ? "screening" : "confirmation", profileId))
     : key === "interior-v1" ? await generateInteriorSuite(getInteriorRequest(profileId))
+    : key === "reserve-v1" ? await generateReserveSuite(getReserveRequest(profileId))
     : base.formatVersion === "1" ? await generateSuite({ ...base.request, profileId })
       : await generateNumericalSuite({ ...base.request, profileId });
   if (generated.status !== "complete") throw new SuiteInputError("Run suite coverage could not be completed.");

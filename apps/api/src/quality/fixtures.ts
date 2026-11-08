@@ -39,7 +39,7 @@ export async function fixtureRun(input?: RunSuite): Promise<Mutable<RunRecord>> 
   return structuredClone({
     version: "1", id: evidence.runId, revision: 1, createdAt: "2026-11-08T00:00:00.000Z", updatedAt: "2026-11-08T00:00:00.010Z",
     expiresAt: "2026-11-09T00:00:00.000Z", state: "completed",
-    request: { suiteKey: suite.generatorVersion === "interior-v1" ? "interior-v1" : suite.generatorVersion === "challenge-v1" ? suite.request.population === "screening" ? "screening-v1" : "challenge-v1"
+    request: { suiteKey: suite.generatorVersion === "reserve-v1" ? "reserve-v1" : suite.generatorVersion === "interior-v1" ? "interior-v1" : suite.generatorVersion === "challenge-v1" ? suite.request.population === "screening" ? "screening-v1" : "challenge-v1"
       : suite.formatVersion === "2" ? "smooth-v2" : "reference-v1", ...requested, concurrency: 2, acceptCharges: true },
     suite, prompts, workload, results, evidence, report: await scoreEvaluation({ suite, evidence }), failure: null,
     progress: { plannedTrials: workload.logicalCalls, startedTrials: workload.logicalCalls, activeTrials: 0, finishedTrials: workload.logicalCalls,

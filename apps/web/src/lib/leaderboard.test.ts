@@ -136,6 +136,40 @@ describe("public comparison policy", () => {
     assert.equal(board(run)[0].entries[0].eligible, false);
   });
 
+  it("keeps reserve generator evidence unranked even when its population is forged as confirmation", () => {
+    for (const population of ["exploratory", "confirmation", "reference"]) {
+      const run = fixture();
+      run.request.suiteKey = "reserve-v1";
+      run.suite.population = population;
+      run.suite.generatorVersion = "reserve-v1";
+      run.report.identity.generatorVersion = "reserve-v1";
+      const entry = board(run)[0].entries[0];
+      assert.equal(entry.eligible, false);
+      assert.equal(entry.rank, null);
+      assert.equal(entry.representativeId, null);
+      assert.equal(entry.macroF1, run.report.overall.classification.macroF1);
+      assert.match(entry.reasons.join(" "), /exploratory.*unranked/);
+    }
+  });
+
+  it("keeps an exploratory population unranked independently of its suite key and generator", () => {
+    const run = fixture();
+    run.suite.population = "exploratory";
+    const entry = board(run)[0].entries[0];
+    assert.equal(entry.eligible, false);
+    assert.equal(entry.rank, null);
+    assert.equal(entry.macroF1, retained.overall.classification.macroF1);
+  });
+
+  it("rejects a substituted reserve generator when it contradicts the retained report", () => {
+    const run = fixture();
+    run.request.suiteKey = "reserve-v1";
+    run.suite.generatorVersion = "reserve-v1";
+    run.report.identity.generatorVersion = "reserve-v1";
+    run.suite.generatorVersion = "1";
+    assert.throws(() => board(run), LeaderboardInputError);
+  });
+
   it("leaves screening scores visible without assigning ranks", () => {
     const run = fixture();
     run.suite.population = "screening";

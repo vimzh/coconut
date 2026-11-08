@@ -13,6 +13,10 @@ const reviewedMembers = new Set([
   "0fbb8432f942d9678233726f74e6deb3d003cd96e7d90eb98f76051a6d91033b",
 ]);
 const reviewedInteriorMembers = "a503a736a8f19c18598f4758993fb40c136f2e4a31b80d2c9857ba86d13919b9";
+const reserveReferenceReview: { readonly membersSha256: string; readonly reference: string; readonly status: "matched" | "missing" } = {
+  membersSha256: "195d6616cc365b2d69b704d8be7ea74c8b9dc7f2d8dd2c2867aa137b0fe5f615",
+  reference: "docs/research/independent-reserve-review-v1.md", status: "matched",
+};
 
 export function requireBoundedSuite(suite: RunSuite): void {
   if (!Array.isArray(suite?.cases) || suite.cases.length === 0 || suite.cases.length > MAX_QUALITY_CASES) {
@@ -79,6 +83,16 @@ export function analyzeValidatedSuite(suite: RunSuite): SuiteQualityReport {
   const labelCounts = counts(); suite.cases.forEach((entry) => labelCounts[entry.label]++);
   const isChallenge = suite.generatorVersion === "challenge-v1";
   const isInterior = suite.generatorVersion === "interior-v1";
+  const isReserve = suite.generatorVersion === "reserve-v1";
+  const reserveMembersMatched = isReserve && reserveReferenceReview.membersSha256 === sha256(suite.cases.map(entry => ({ family: entry.family,
+    reference: entry.reference, analyticCertificate: "analyticCertificate" in entry ? entry.analyticCertificate : null })));
+  const reserveReviewMatched = reserveMembersMatched && reserveReferenceReview.status === "matched";
+  if (isReserve) findings.push(finding("independent-reserve-review", "reference", reserveReviewMatched ? "warning" : "missing-evidence",
+    reserveReviewMatched ? "passed" : "unresolved", reserveReviewMatched
+      ? "Exact reference/analytic-certificate membership matches the recorded AI-assisted independent review of all 18 reserve tasks."
+      : reserveMembersMatched ? `Membership matches expected fingerprint ${reserveReferenceReview.membersSha256}, but a completed independent runtime review is not recorded.`
+        : `This reserve membership differs from expected fingerprint ${reserveReferenceReview.membersSha256}; its independent review cannot be applied.`, [],
+    "This mathematical review is not human approval, independent task support, confirmation coverage or model-performance evidence."));
   const interiorReviewMatched = isInterior && reviewedInteriorMembers === sha256(suite.cases.map(entry => ({ family: entry.family,
     reference: entry.reference, analyticCertificate: "analyticCertificate" in entry ? entry.analyticCertificate : null })));
   if (isInterior) findings.push(finding("independent-interior-review", "reference", interiorReviewMatched ? "warning" : "missing-evidence",
@@ -88,6 +102,9 @@ export function analyzeValidatedSuite(suite: RunSuite): SuiteQualityReport {
     "This mathematical review is not human approval, independent task support, confirmation coverage or model-performance evidence."));
   if (suite.generatorVersion === "interior-v1") findings.push(finding("exploratory-interior-coverage", "coverage", "missing-evidence", "unresolved",
     "This separately designed exploratory population has three families and eight shared source-polynomial clusters; it does not meet the frozen confirmation coverage or uncertainty criteria.", [],
+    "Report exact descriptive outcomes only. No confirmation Go, ranked comparison, broad model-failure claim or confidence interval is established."));
+  if (isReserve) findings.push(finding("exploratory-reserve-coverage", "coverage", "missing-evidence", "unresolved",
+    "This fixed exploratory population has 18 tasks in three families and two related source-polynomial clusters; it does not meet confirmation coverage or uncertainty criteria.", [],
     "Report exact descriptive outcomes only. No confirmation Go, ranked comparison, broad model-failure claim or confidence interval is established."));
   const reviewMatched = isChallenge && reviewedMembers.has(sha256(suite.cases.map((entry) => ({
     family: entry.family, reference: entry.reference, analyticCertificate: "analyticCertificate" in entry ? entry.analyticCertificate : null,
@@ -157,6 +174,9 @@ export function analyzeValidatedSuite(suite: RunSuite): SuiteQualityReport {
       ...(isInterior ? [{ role: "AI-assisted independent mathematical review" as const,
         reference: "docs/research/independent-interior-review-v1.md", status: interiorReviewMatched ? "matched" as const : "missing" as const,
         limitation: "Three families and eight shared source-polynomial clusters remain exploratory; no human approval or model-failure claim." }] : []),
+      ...(isReserve ? [{ role: "AI-assisted independent mathematical review" as const,
+        reference: reserveReferenceReview.reference, status: reserveReviewMatched ? "matched" as const : "missing" as const,
+        limitation: "Three families and two related source-polynomial clusters remain exploratory; no human approval, confirmation or model-failure claim." }] : []),
     ], findings, gate: qualityGate(findings),
   };
   return finish(content, "suite-quality-v1");
