@@ -1,32 +1,31 @@
-/* Dense green grain lives behind white type across the landing surface and its panels. */
+/* Saturated green, white type, and minimal rounding frame the landing page's noise layer. */
 .paper {
   color-scheme: dark;
   --background: #3c704a;
-  --foreground: #fffdf7;
+  --foreground: #ffffff;
   --card: #315d3e;
-  --card-foreground: #fffdf7;
+  --card-foreground: #ffffff;
   --primary: #174c2d;
-  --primary-foreground: #fffdf7;
+  --primary-foreground: #ffffff;
   --secondary: #2e5b3b;
-  --secondary-foreground: #fffdf7;
+  --secondary-foreground: #ffffff;
   --muted: #285636;
-  --muted-foreground: #fffdf7;
-  --accent: #fffdf7;
+  --muted-foreground: #ffffff;
+  --accent: #ffffff;
   --accent-foreground: #174c2d;
   --border: #e9f4df66;
   --input: #e9f4df80;
-  --ring: #fffdf7;
-  --paper-texture: url("/noise.svg");
+  --ring: #ffffff;
+  --panel-radius: 4px;
+  --control-radius: 3px;
+  --status-radius: 2px;
   --policy-badge-background: #214e30;
-  --policy-badge-ink: #fffdf7;
+  --policy-badge-ink: #ffffff;
   --policy-restricted-background: #173f28;
-  --policy-restricted-ink: #fffdf7;
-  background-image:
-    var(--paper-texture),
-    radial-gradient(ellipse at 50% 35%, #41764b, #366440);
-  background-blend-mode: soft-light, normal;
-  background-attachment: scroll, fixed;
-  background-size: 192px 192px, 100vw 100vh;
+  --policy-restricted-ink: #ffffff;
+  background-image: radial-gradient(ellipse at 50% 35%, #41764b, #366440);
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
 }
 
 .paper > header {
@@ -38,9 +37,12 @@
 }
 
 .paper :global(.bg-card):not(header) {
-  background-image: var(--paper-texture);
-  background-size: 192px 192px;
-  background-blend-mode: soft-light;
+  border-radius: var(--panel-radius);
+}
+
+.paper :is([data-slot="button"], [data-slot="input"]),
+.paper > header a {
+  border-radius: var(--control-radius);
 }
 
 .paper [data-slot="button"]:hover {
@@ -50,7 +52,7 @@
 
 .paper > header img {
   border: 1px solid var(--border);
-  border-radius: 50%;
+  border-radius: var(--control-radius);
   background: #fffdf7;
   padding: 2px;
 }

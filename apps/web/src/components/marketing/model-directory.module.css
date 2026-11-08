@@ -5,10 +5,10 @@
 .heading p { margin-top: 12px; max-width: 660px; color: var(--muted-foreground); font-size: 15px; line-height: 1.7; }
 .heading .snapshot { flex: none; margin: 0; font-size: 12px; text-align: right; }
 .snapshot span { display: block; color: var(--foreground); font-family: var(--font-mono); font-size: 13px; }
-.catalog { overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background-color: var(--card); background-image: var(--paper-texture); background-size: 192px 192px; background-blend-mode: soft-light; }
+.catalog { overflow: hidden; border: 1px solid var(--border); border-radius: var(--panel-radius, 4px); background-color: var(--card); }
 .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--border); padding: 16px; }
 .filters { display: flex; flex-wrap: wrap; gap: 4px; }
-.filters button { display: flex; align-items: center; gap: 10px; min-height: 40px; border-radius: 7px; padding: 8px 12px; color: var(--muted-foreground); font-size: 13px; cursor: pointer; }
+.filters button { display: flex; align-items: center; gap: 10px; min-height: 40px; border-radius: var(--control-radius, 3px); padding: 8px 12px; color: var(--muted-foreground); font-size: 13px; cursor: pointer; }
 .filters button:hover { background: var(--muted); color: var(--foreground); }
 .filters button[aria-pressed="true"] { background: var(--primary); color: var(--primary-foreground); }
 .filters button span { font-family: var(--font-mono); font-size: 11px; }
@@ -17,13 +17,13 @@
 .viewport { max-height: 650px; overflow: auto; scrollbar-color: var(--border) transparent; scrollbar-width: thin; }
 .viewport > div { overflow: visible; }
 .table { min-width: 740px; }
-.table thead th { position: sticky; top: 0; z-index: 1; height: 44px; background-color: var(--card); background-image: var(--paper-texture); background-size: 192px 192px; background-blend-mode: soft-light; box-shadow: 0 1px var(--border); color: var(--muted-foreground); font-size: 12px; font-weight: 400; }
+.table thead th { position: sticky; top: 0; z-index: 1; height: 44px; background-color: var(--card); box-shadow: 0 1px var(--border); color: var(--muted-foreground); font-size: 12px; font-weight: 400; }
 .table tbody tr:hover { background: color-mix(in srgb, var(--muted) 45%, transparent); }
 .table td { padding-top: 13px; padding-bottom: 13px; }
 .table .rank { width: 80px; padding-left: 24px; font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground); }
 .modelCell { width: 55%; }
 .identity { display: flex; align-items: center; gap: 14px; }
-.logo { display: grid; flex: none; width: 38px; height: 38px; place-items: center; border: 1px solid var(--border); border-radius: 9px; background: #f6f5e9; }
+.logo { display: grid; flex: none; width: 38px; height: 38px; place-items: center; border: 1px solid var(--border); border-radius: var(--control-radius, 4px); background: #f6f5e9; }
 .logo img { width: 26px; height: 26px; object-fit: contain; }
 .modelText { min-width: 0; }
 .nameLine { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
@@ -31,7 +31,7 @@
 .modelLink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .modelLink svg { color: var(--muted-foreground); }
 .modelId { display: block; margin-top: 3px; color: var(--muted-foreground); font-family: var(--font-mono); font-size: 11px; line-height: 1.5; }
-.status { border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; color: var(--muted-foreground); font-size: 10px; line-height: 1.6; }
+.status { border: 1px solid var(--border); border-radius: var(--status-radius, 2px); padding: 1px 5px; color: var(--muted-foreground); font-size: 10px; line-height: 1.6; }
 .sourceCell { width: 160px; }
 .sourceLabels { display: flex; flex-direction: column; align-items: start; gap: 3px; color: var(--muted-foreground); font-size: 12px; }
 .table .tokens { padding-right: 24px; text-align: right; font-family: var(--font-mono); font-size: 13px; }
