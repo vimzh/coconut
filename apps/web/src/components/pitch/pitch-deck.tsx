@@ -46,7 +46,6 @@ export function PitchDeck({ children, titles }: { children: ReactNode; titles: r
     <div className={styles.deck}>
       <header className={styles.header}>
         <Link href="/" className={styles.wordmark}><Image src="/coconut.svg" width={36} height={36} alt="" className={styles.logo} /><span>CoconutEval<span className={styles.wordmarkDot}>.</span></span></Link>
-        <span className={styles.headerNote}>Testing how models classify functions</span>
         <Link href="/evaluate" className={styles.headerLink}>Open evaluation <ArrowRight size={14} aria-hidden="true" /></Link>
       </header>
 

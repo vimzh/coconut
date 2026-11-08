@@ -7,14 +7,13 @@ import { AgentScenarios } from "./agent-scenarios";
 import { OptimizationVisual } from "./optimization-visuals";
 import styles from "./pitch.module.css";
 
-function SlideHeading({ label, children }: { label: string; children: ReactNode }) {
-  return <div className={styles.heading}><p className={styles.eyebrow}>{label}</p><h2>{children}</h2></div>;
+function SlideHeading({ children }: { children: ReactNode }) {
+  return <div className={styles.heading}><h2>{children}</h2></div>;
 }
 
 export function IntroductionSlide() {
   return (
     <div className={styles.introduction}>
-      <p className={styles.eyebrow}>An evaluation of mathematical reasoning</p>
       <h1 className={styles.title}>CoconutEval<span>.</span></h1>
       <p className={styles.introCopy}>How well does a language model understand<br className={styles.desktopBreak} /> the shape of a function?</p>
       <div className={styles.functionStudy}>
@@ -37,32 +36,32 @@ export function IntroductionSlide() {
 export function TaskSlide() {
   return (
     <div className={styles.definitionSlide}>
-      <SlideHeading label="First, the shapes">Convex, concave, or neither.</SlideHeading>
-      <p className={styles.lead}>A chord is a straight line segment joining two points on a graph.</p>
-      <p className={styles.definitionSetup}>For a function f: D → ℝ, with D = [−1, 1], take any x, y ∈ D and t ∈ [0, 1]. Let z = tx + (1 − t)y.</p>
+      <SlideHeading>Convex, concave, or neither.</SlideHeading>
+      <p className={styles.lead}>All three functions use the interval D = [−1, 1].</p>
       <div className={styles.classificationGrid}>
         <article className={styles.classification}>
           <h3>Convex</h3>
           <p className={styles.sampleEquation}>f(x) = x<sup>2</sup></p>
-          <FunctionGraph kind="convex" className={styles.functionGraph} />
+          <div className={styles.classificationPlot}><FunctionGraph kind="convex" className={styles.functionGraph} /></div>
           <p className={styles.shapeExplanation}>Curves upward like a cup (∪).</p>
           <p className={styles.definitionEquation}>f(z) ≤ tf(x) + (1 − t)f(y)</p>
         </article>
         <article className={styles.classification}>
           <h3>Concave</h3>
           <p className={styles.sampleEquation}>f(x) = −x<sup>2</sup></p>
-          <FunctionGraph kind="concave" className={styles.functionGraph} />
+          <div className={styles.classificationPlot}><FunctionGraph kind="concave" className={styles.functionGraph} /></div>
           <p className={styles.shapeExplanation}>Curves downward like an upside-down cup (∩).</p>
           <p className={styles.definitionEquation}>f(z) ≥ tf(x) + (1 − t)f(y)</p>
         </article>
         <article className={styles.classification}>
           <h3>Neither</h3>
           <p className={styles.sampleEquation}>f(x) = x<sup>3</sup></p>
-          <FunctionGraph kind="neither" className={styles.functionGraph} />
-          <p className={styles.neitherDefinition}>Neither convex nor concave on D.</p>
+          <div className={styles.classificationPlot}><FunctionGraph kind="neither" className={styles.functionGraph} /></div>
           <p className={styles.shapeExplanation}>Some chords lie above the graph; others lie below it.</p>
+          <p className={styles.neitherDefinition}>Neither convex nor concave on D.</p>
         </article>
       </div>
+      <p className={styles.definitionSetup}>A chord joins two graph points with a straight segment. For f: D → ℝ, any x, y ∈ D and t ∈ [0, 1], set z = tx + (1 − t)y.</p>
       <div className={styles.bottomNote}><span>Each inequality must hold for every x, y and t above.</span><span>Affine functions satisfy both; this evaluation excludes them.</span></div>
     </div>
   );
@@ -77,7 +76,7 @@ const technicalUseCases = [
 export function RelevanceSlide() {
   return (
     <div>
-      <SlideHeading label="Why convexity matters">Check the objective<br />and the constraints.</SlideHeading>
+      <SlideHeading>Check the objective<br />and the constraints.</SlideHeading>
       <div className={styles.useCaseGrid}>
         {technicalUseCases.map(({ kind, title, detail }, index) => (
           <article className={styles.useCase} key={title}>
@@ -96,7 +95,7 @@ export function RelevanceSlide() {
 export function AgentSlide() {
   return (
     <div>
-      <SlideHeading label="Three hypothetical agent scenarios">Check the whole rule.</SlideHeading>
+      <SlideHeading>Check the whole rule.</SlideHeading>
       <AgentScenarios />
       <p className={styles.caveat}>These examples explain why conditions matter. We have not tested whether CoconutEval scores predict success in these agent workflows.</p>
     </div>
@@ -112,7 +111,7 @@ const methodSteps = [
 export function MethodSlide() {
   return (
     <div>
-      <SlideHeading label="How it works">Verify, ask, and score.</SlideHeading>
+      <SlideHeading>Verify, ask, and score.</SlideHeading>
       <div className={styles.methodGrid}>
         <ol className={styles.steps}>
           {methodSteps.map(({ title, detail }, index) => (
@@ -120,7 +119,7 @@ export function MethodSlide() {
           ))}
         </ol>
         <aside className={styles.scopeStudy}>
-          <p className={styles.eyebrow}>Where the minus sign sits matters</p>
+          <h3 className={styles.studyTitle}>Where the minus sign sits matters</h3>
           <div className={styles.scopeExamples}>
             <figure className={styles.scopeExample}>
               <figcaption><span>−(x − 1)<sup>2</sup></span><span>Concave</span></figcaption>
@@ -155,7 +154,7 @@ const failureSignals = [
 export function InterpretationSlide() {
   return (
     <div>
-      <SlideHeading label="Reading the score">What does the score tell us?</SlideHeading>
+      <SlideHeading>What does the score tell us?</SlideHeading>
       <p className={styles.scoreDefinition}>Macro-F1 averages the F1 scores for convex, concave, and neither. A higher value means better classification on the tested tasks.</p>
       <div className={styles.interpretationGrid}>
         <div className={styles.strongPanel}>
