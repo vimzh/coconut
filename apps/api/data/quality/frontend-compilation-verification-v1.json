@@ -1,0 +1,105 @@
+{
+  "verification": "incremental frontend compilation against current tracked source",
+  "verdict": "VERIFIED WITH GAPS",
+  "source": {
+    "sha": "d9fae2f99bb95d87d1efbdcc7f38353ce5fb25a4",
+    "snapshot": "/tmp/coconut-frontend-final-qa-v1.JHrbeK",
+    "snapshotMethod": "git archive d9fae2f99bb95d87d1efbdcc7f38353ce5fb25a4 | tar -xf -",
+    "baseSha": "e7ff1efbe71112c4fdab788525f431b7efbc6ce4",
+    "preexistingRootState": "untracked apps/api/data/experiments/openai-progress-v2.json; excluded from archive",
+    "excluded": ["root working tree", ".env", "AGENTS.md", "private API data", "provider credentials"]
+  },
+  "diffAssessment": {
+    "range": "e7ff1ef..d9fae2f",
+    "apiSourcePaths": "no changes under apps/api/src or apps/api/package.json",
+    "rootPackageManifest": "no change to package.json",
+    "nativePaths": "no changes under services/numerics",
+    "apiDataOnly": [
+      "apps/api/data/quality/clean-product-verification-v1.json",
+      "apps/api/data/quality/frontier-explanations-v2.json"
+    ],
+    "webDependencyChange": "removed @fontsource/ibm-plex-sans@5.3.0 from apps/web/package.json",
+    "lockfileChange": "corresponding removal only: three deleted bun.lock lines",
+    "uiChangePaths": [
+      "apps/web/src/app/fonts/helvetica-neue-{bold,medium,regular}.woff2",
+      "apps/web/src/app/globals.css",
+      "apps/web/src/app/layout.tsx",
+      "apps/web/src/app/pitch/page.tsx",
+      "apps/web/src/components/marketing/curvature-examples.tsx",
+      "apps/web/src/components/pitch/agent-scenarios.{tsx,module.css}",
+      "apps/web/src/components/pitch/optimization-visuals.{tsx,module.css}",
+      "apps/web/src/components/pitch/pitch-{deck,slides}.tsx",
+      "apps/web/src/components/pitch/pitch.module.css"
+    ],
+    "conclusion": "No API runtime source, API dependency, root dependency, or native source change invalidates the prior clean API/native execution evidence. New API quality data artifacts are not API runtime-source changes; they were not independently verified here."
+  },
+  "environment": {
+    "bun": "1.4.4 (38afee6c8)",
+    "credentialPolicy": "commands used env -i with only PATH, TMPDIR, and CI; no provider credential variables were passed",
+    "serversStarted": [],
+    "portsTouched": []
+  },
+  "checks": [
+    {
+      "command": "env -i PATH=<Bun/uv/node paths> TMPDIR=/tmp/coconut-frontend-final-qa-tmp CI=1 bun install --frozen-lockfile",
+      "status": "passed",
+      "exit": 0,
+      "timing": "2026-11-08T07:40:10Z; tool-reported 18ms (wall-second rounding 0)",
+      "evidence": "Fresh archive-local dependency directory; 472 installs across 575 packages, no changes. The preceding fresh-install invocation created the directory but outlived output collection, so this captured run is authoritative."
+    },
+    {
+      "command": "env -i PATH=<Bun/uv/node paths> TMPDIR=/tmp/coconut-frontend-final-qa-tmp CI=1 bun run --filter @coconut/web test",
+      "status": "passed",
+      "exit": 0,
+      "timing": "2026-11-08T07:40:23Z; tool-reported 130ms (wall-second rounding 0)",
+      "evidence": "58 tests across five web library files; zero failures"
+    },
+    {
+      "command": "env -i PATH=<Bun/uv/node paths> TMPDIR=/tmp/coconut-frontend-final-qa-tmp CI=1 bun run --filter @coconut/web lint",
+      "status": "passed",
+      "exit": 0,
+      "timing": "2026-11-08T07:40:23Z; 2 seconds",
+      "evidence": "exited 0"
+    },
+    {
+      "command": "env -i PATH=<Bun/uv/node paths> TMPDIR=/tmp/coconut-frontend-final-qa-tmp CI=1 bun run --filter @coconut/web typecheck",
+      "status": "passed",
+      "exit": 0,
+      "timing": "2026-11-08T07:40:25Z; 3 seconds",
+      "evidence": "Next route types generated successfully before TypeScript check; exited 0"
+    },
+    {
+      "command": "env -i PATH=<Bun/uv/node paths> TMPDIR=/tmp/coconut-frontend-final-qa-tmp CI=1 bun run --filter @coconut/web build",
+      "status": "passed",
+      "exit": 0,
+      "timing": "2026-11-08T07:40:36Z; 5 seconds",
+      "apiOrigin": "documented default http://localhost:3201 (NEXT_PUBLIC_API_ORIGIN omitted)",
+      "evidence": "Next 16.4.5 compiled, type checked, and generated seven static pages"
+    }
+  ],
+  "warnings": [
+    "Next reported no build cache and its standard anonymous telemetry notice; build succeeded.",
+    "No browser or production server was started, so no visual, font-loading, responsive, or runtime interaction claim is made."
+  ],
+  "notRepeated": [
+    "full API suite",
+    "native setup/test/lint",
+    "API lint/typecheck/build"
+  ],
+  "rationaleForNotRepeating": "The exact range check found no changes to apps/api/src, apps/api/package.json, root package.json, or services/numerics; the only dependency delta was a web font package removal with matching lockfile deletion. Prior clean API/native verification remains applicable to those unchanged paths.",
+  "workspaceEffects": {
+    "rootEdits": "none",
+    "sourceEdits": "none",
+    "createdArtifacts": [
+      "/tmp/coconut-frontend-final-qa-v1.JHrbeK",
+      "/tmp/coconut-frontend-final-qa-v1.json",
+      "/tmp/coconut-frontend-final-qa-v1.md"
+    ]
+  },
+  "gaps": [
+    "No rendered UI, browser, font loading, accessibility, viewport, or interaction verification.",
+    "No runtime API or production server verification in this incremental pass.",
+    "No verification of the two new API quality-data artifacts beyond source-path/diff classification.",
+    "No claim about the untracked mutable experiment ledger or any later root changes."
+  ]
+}
