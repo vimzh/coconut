@@ -4,10 +4,10 @@ import { randomUUID } from "node:crypto";
 import { basename, dirname, join, resolve } from "node:path";
 import { auditRun, qualityDataHash, type SignalCapabilityEvidence } from "../quality";
 import { reflectsCredential } from "../providers/responses";
-import type { RunEvent, RunRequest, RunView } from "../runs/types";
+import type { RunEvent, RunRequest } from "../runs/types";
 import { effortWasAccepted, type CapabilityObservation } from "./capabilities";
 import type { FrozenExperiment } from "./manifest";
-import { launchForegroundRun, LOCAL_API, readApplicationJson, readPrivateRun } from "./http";
+import { launchForegroundRun, LOCAL_API, PrivateRunSettlementError, readApplicationJson, readSettledPrivateRun } from "./http";
 import { matrixFailureRequiresStop } from "./matrix-policy";
 
 type Cell = FrozenExperiment["cells"][number];
@@ -97,12 +97,17 @@ export async function runFrozenExperiment(output: string, credential: string, pu
       try {
         const request: RunRequest = { suiteKey: cell.phase === "confirmation" ? "challenge-v1" : "screening-v1", provider: "openai", modelId: cell.modelId, servingProvider: null, profileId: cell.profileId, concurrency: 4, acceptCharges: true };
         await launchForegroundRun(request, credential, controller.signal, observe);
-        const saved = receipt as { runId: string; accessCode: string } | null;
-        if (!saved) throw new Error("No private run receipt was retained.");
-        const view = await readPrivateRun(saved.runId, saved.accessCode, credential);
-        if (view.record.suite.id !== cell.suiteId || qualityDataHash(view.record.suite) !== cell.suiteSha256 || qualityDataHash(view.record.prompts) !== cell.promptsSha256 || view.record.evidence.model.settingsId !== cell.settingsId) throw new Error("The executed cell differs from its frozen identity.");
+      } catch { status.error = "The foreground operation did not establish a terminal outcome. No paid retry or replacement run was started."; }
+      const saved = receipt as { runId: string; accessCode: string } | null;
+      if (!saved) { status.state = "interrupted"; status.error = "No private run receipt was retained; execution remains unresolved."; controller.abort(); await save(); return; }
+      try {
+        const view = await readSettledPrivateRun(saved.runId, saved.accessCode, credential);
+        if (view.record.suite.id !== cell.suiteId || qualityDataHash(view.record.suite) !== cell.suiteSha256 || qualityDataHash(view.record.prompts) !== cell.promptsSha256 || view.record.evidence.model.settingsId !== cell.settingsId) {
+          status.state = "failed";
+          throw new Error("The executed cell differs from its frozen identity.");
+        }
         await atomicJson(`${root}records/${saved.runId}.json`, view, credential);
-        status.state = view.record.state === "running" || view.record.state === "cancelling" ? "interrupted" : view.record.state;
+        status.state = view.record.state;
         status.reportId = view.record.report?.id ?? null;
         status.progress = { finished: view.record.progress.finishedTrials, planned: view.record.progress.plannedTrials, inferenceRequests: view.record.progress.inferenceRequests };
         if (matrixFailureRequiresStop(view.record)) controller.abort();
@@ -117,22 +122,10 @@ export async function runFrozenExperiment(output: string, credential: string, pu
           await mkdir(`${root}quality`, { recursive: true, mode: 0o700 });
           await atomicJson(`${root}quality/${saved.runId}.json`, quality, credential);
         } catch { status.error = "Execution evidence is retained; offline quality analysis needs review."; }
-      } catch {
-        status.state = "interrupted";
-        status.error = "The cell did not establish a complete verified outcome. No paid retry or replacement run was started.";
-        const saved = receipt as { runId: string; accessCode: string } | null;
-        if (saved) {
-          try {
-            const view: RunView = await readPrivateRun(saved.runId, saved.accessCode, credential);
-            await atomicJson(`${root}records/${saved.runId}.json`, view, credential);
-            status.progress = { finished: view.record.progress.finishedTrials, planned: view.record.progress.plannedTrials, inferenceRequests: view.record.progress.inferenceRequests };
-            if (view.record.suite.id === cell.suiteId && qualityDataHash(view.record.suite) === cell.suiteSha256 && qualityDataHash(view.record.prompts) === cell.promptsSha256 && view.record.evidence.model.settingsId === cell.settingsId) {
-              status.state = view.record.state === "running" || view.record.state === "cancelling" ? "interrupted" : view.record.state;
-              status.reportId = view.record.report?.id ?? null;
-              if (matrixFailureRequiresStop(view.record)) controller.abort();
-            } else { status.state = "failed"; status.error = "Retained execution differs from its frozen matrix cell; no verified score is claimed."; }
-          } catch { status.error = "Private receipt retained; final remote work or evidence availability remains unresolved."; }
-        }
+      } catch (error) {
+        if (status.state === "active") status.state = "interrupted";
+        status.error = error instanceof PrivateRunSettlementError ? error.message : "Private receipt retained; final execution evidence could not be verified or stored. Inspect storage and the original run before further paid work.";
+        controller.abort();
       }
       await save();
       const done = statuses.filter(cell => cell.state !== "pending" && cell.state !== "active").length;

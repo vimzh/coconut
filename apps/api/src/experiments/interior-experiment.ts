@@ -14,7 +14,7 @@ import { loadRunSuite } from "../runs/registry";
 import type { RunEvent, RunView } from "../runs/types";
 import type { InteriorSuite } from "../interior";
 import { effortWasAccepted, type CapabilityObservation } from "./capabilities";
-import { launchForegroundRun, LOCAL_API, readApplicationJson, readPrivateRun } from "./http";
+import { launchForegroundRun, LOCAL_API, PrivateRunSettlementError, readApplicationJson, readSettledPrivateRun } from "./http";
 import type { FrozenExperiment } from "./manifest";
 import { matrixFailureRequiresStop } from "./matrix-policy";
 import { experimentPaths } from "./run";
@@ -188,9 +188,9 @@ export async function runInteriorExperiment(manifestPath: string, output: string
       const saved = receipt as { runId: string; accessCode: string } | null;
       if (!saved) { status.state = "interrupted"; controller.abort(); await save(); return; }
       try {
-        const view = await readPrivateRun(saved.runId, saved.accessCode, credential); assertCellView(cell, view, saved.runId, manifest.frozenAt);
+        const view = await readSettledPrivateRun(saved.runId, saved.accessCode, credential); assertCellView(cell, view, saved.runId, manifest.frozenAt);
         await atomicJson(`${root}records/${saved.runId}.json`, view, credential);
-        status.state = view.record.state === "running" || view.record.state === "cancelling" ? "interrupted" : view.record.state;
+        status.state = view.record.state;
         status.progress = { finished: view.record.progress.finishedTrials, planned: 216, inferenceRequests: view.record.progress.inferenceRequests }; status.reportId = view.record.report?.id ?? null;
         if (matrixFailureRequiresStop(view.record)) controller.abort();
         if (publish && view.record.state === "completed") {
@@ -202,7 +202,11 @@ export async function runInteriorExperiment(manifestPath: string, output: string
           await atomicJson(join(publicRoot, file), published, credential); status.archived = true;
           archived.push({ cellId: cell.id, runId: saved.runId, file, sha256: qualityDataHash(published), reportId: published.record.report!.id });
         }
-      } catch { status.error = "Retained execution, publication, or archive needs review. No replacement call was started."; if (status.state === "active") { status.state = "interrupted"; controller.abort(); } }
+      } catch (error) {
+        status.error = error instanceof PrivateRunSettlementError ? error.message : "Private receipt retained; execution evidence, publication, or archive could not be verified or stored. Inspect storage and the original run before further paid work.";
+        if (status.state === "active") status.state = "interrupted";
+        controller.abort();
+      }
       await save();
       console.log(JSON.stringify({ phase: "interior-exploratory", modelId: cell.modelId, state: status.state, finished: status.progress.finished, planned: 216, inferenceRequests: status.progress.inferenceRequests, published: status.published, archived: status.archived }));
     }));
