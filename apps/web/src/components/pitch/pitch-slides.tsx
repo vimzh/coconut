@@ -102,6 +102,38 @@ export function AgentSlide() {
   );
 }
 
+const taskDesignChecks = [
+  { title: "Every condition is visible", detail: "The complete expression, exact interval, operator meanings, and response format are supplied together." },
+  { title: "The reference is checked first", detail: "Each admitted task has a verified label. Unresolved references stay out of the evaluation." },
+  { title: "Any valid method is allowed", detail: "Use simplification, derivatives, inequalities, or composition rules. The grade checks the final label." },
+];
+
+const compositionChecks = [
+  { title: "Combine familiar operations", detail: "A sign or input range can change which mathematical rule applies to the next operation." },
+  { title: "Carry earlier restrictions forward", detail: "Simplifying an expression does not erase the original function’s domain restrictions." },
+  { title: "Get the whole expression right", detail: "One fresh request contains the whole expression. The answer must hold over the entire supplied interval." },
+];
+
+export function CompositionSlide() {
+  return (
+    <div className={styles.interpretationSlide}>
+      <SlideHeading>Every condition is stated.</SlideHeading>
+      <p className={styles.scoreDefinition}>Simple pieces, stacked together. The intended challenge is preserving stated conditions through the composition. The task is designed to avoid hidden assumptions and trick wording.</p>
+      <div className={styles.interpretationGrid}>
+        <div className={styles.strongPanel}>
+          <h3 className={styles.columnHeading}>What makes the task clear</h3>
+          {taskDesignChecks.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
+        </div>
+        <div className={styles.failurePanel}>
+          <h3 className={styles.columnHeading}>The composition we ask it to handle</h3>
+          {compositionChecks.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
+        </div>
+      </div>
+      <div className={styles.closing}><p>All output rules are stated. We inspect format failures separately from mathematical errors; model difficulty must be measured.</p></div>
+    </div>
+  );
+}
+
 const methodSteps = [
   { title: "Verify the reference answer", detail: "Generate a function and interval. Verify its label before adding it to the evaluation." },
   { title: "Ask the model", detail: "Send the expression and interval in three fresh requests. Keep the reference answer and proof out of the prompt." },
