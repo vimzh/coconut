@@ -1,0 +1,56 @@
+{
+  "verification": "isolated frontend verification for the depth-60 additional-results landing component",
+  "verdict": "VERIFIED WITH GAPS",
+  "scope": {
+    "trackedSnapshotHead": "a7b2143ac7c045976bb36c11fc2258f54a971662",
+    "finalObservedRootHead": "00101a99777d3b06820b1ffda364e850c9e74226",
+    "assembly": "git archive of tracked snapshot head plus only the two authorized root-owned overlays",
+    "overlayManifestSha256": "272f64c3c0a21ddcead45ed56f335c3a9b0081152f25eb33a8925b8b0d1c99d1",
+    "overlay": [
+      {"path":"apps/web/src/components/marketing/depth60-results.tsx","sha256":"adbd6dc22c3c20bd76cf1e50d213beb57480559ffa6026b6ec5912fb2b1b7abe"},
+      {"path":"apps/api/data/quality/depth60-landing-v1.json","sha256":"bb2d256e9ff9b5ed52eb775b52790edf77038bee5f125a1664774cf833cdd192"}
+    ],
+    "finalOverlayComparison": "Both authorized root overlay hashes matched the tested snapshot after checks. Other concurrent frontend WIP was intentionally omitted and is not covered."
+  },
+  "environment": {
+    "bun": "1.4.4 (38afee6c8)",
+    "commandEnvironment": "env -i with PATH=/Users/vanshgaur/.bun/bin:/usr/local/bin:/usr/bin:/bin, TMPDIR=/tmp, and CI=1; no provider credential variables",
+    "dependencies": "fresh bun install --frozen-lockfile in the archive-local snapshot; 470 packages in 23.57s",
+    "excluded": [".env files", "AGENTS.md", "apps/api/data/private", "root node_modules", "root .venv", "root .next"],
+    "externalInferenceOrPaidCalls": false
+  },
+  "behaviorCoverage": [
+    {"behavior":"Combined data contains exactly six models in the required source order, with macro-F1 displays 29.0, 31.5, 21.3, 50.2, 100.0, and 100.0.","evidence":"Production-mode browser DOM read of the isolated homepage showed six ordered rows and exact values.","status":"verified manually"},
+    {"behavior":"Displayed workload is the unranked depth-60 exploratory population: 9 tasks, 3 trials, 162 requests across 2 batches, max 12 concurrency, and 4,096 output-token cap.","evidence":"Loaded data contract and production browser section copy/workload text.","status":"verified manually"},
+    {"behavior":"The two overlays compile, typecheck, and build in the current dependency set.","evidence":"Fresh isolated frozen install followed by web tests, lint, Next typecheck, and production build all exited 0.","status":"verified automatically"},
+    {"behavior":"The six-row score table does not cause page-level horizontal overflow at desktop or 390px mobile; its table region is internally scrollable on mobile.","evidence":"Production browser DOM measurements: desktop document width 1280/viewport 1280; mobile document/body width 390, region width 356, region scroll width/table width 520.","status":"verified manually"}
+  ],
+  "checks": [
+    {"command":"bun 1.4.4 install --frozen-lockfile","exit":0,"result":"470 packages installed in 23.57s"},
+    {"command":"bun 1.4.4 run --filter @coconut/web test","exit":0,"result":"70 passed, 0 failed, seven files, 1.327s"},
+    {"command":"bun 1.4.4 run --filter @coconut/web lint","exit":0,"result":"clean"},
+    {"command":"bun 1.4.4 run --filter @coconut/web typecheck","exit":0,"result":"Next route types generated and TypeScript check completed"},
+    {"command":"bun 1.4.4 run --filter @coconut/web build","exit":0,"result":"Next 16.4.5 production build compiled, typechecked, and generated six routes"},
+    {"command":"isolated next start --port 3219 and anonymous Paseo browser read of /","exit":0,"result":"actual production-mode homepage rendered the specified six rows; no API, DB, provider, credential, or run action used"}
+  ],
+  "browserObservation": {
+    "mode":"isolated local Next production server, not root dev/HMR or hosted deployment",
+    "server":"snapshot apps/web production build on port 3219; stopped after observation",
+    "desktop": {"viewport":"1280x800","documentWidth":1280,"mainCount":1,"h1":"Test a model’s convexity judgment"},
+    "mobile": {"viewport":"390x844","documentWidth":390,"bodyWidth":390,"scoreRegionClientWidth":356,"scoreRegionScrollWidth":520,"tableWidth":520,"internallyHorizontallyScrollable":true},
+    "rows": [["gpt-4.1-mini","11 / 27","16","0","29.0"],["gpt-4o-mini","11 / 27","15","1","31.5"],["gpt-5.4-nano","7 / 27","20","0","21.3"],["gpt-5.4-mini","14 / 27","13","0","50.2"],["gpt-5.6-luna","27 / 27","0","0","100.0"],["gpt-6-luna","27 / 27","0","0","100.0"]],
+    "sideEffects":"Homepage had no credential inputs; no inference, provider access, API request, database write, or evaluation action occurred.",
+    "console":"One non-fatal browser warning reported a preloaded CSS resource was not used within a few seconds; no console error was observed."
+  },
+  "gaps": [
+    "No API/native rerun, paid inference, provider credential, database, hosted deployment, or root service verification; all are outside this isolated static-landing scope.",
+    "Other concurrent frontend WIP and any changes after the two hash-bound overlays are not covered.",
+    "Next reported ordinary missing-build-cache and anonymous telemetry notices; neither prevented the build."
+  ],
+  "workspaceEffects": {
+    "rootProductEdits":"none",
+    "createdByQA":["apps/api/data/quality/depth60-additional-verification-v1.json","docs/research/depth60-additional-verification-v1.md"],
+    "temporaryArtifactsRetained":["/tmp/coconut-depth60-v1.7HYJwv","/tmp/coconut-depth60-v1-overlay.sha256","/tmp/coconut-depth60-v1-install.log","/tmp/coconut-depth60-v1-test.log","/tmp/coconut-depth60-v1-lint.log","/tmp/coconut-depth60-v1-typecheck.log","/tmp/coconut-depth60-v1-build.log"],
+    "isolatedProcess":"port 3219 was stopped after browser evidence"
+  }
+}

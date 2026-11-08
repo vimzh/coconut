@@ -1,0 +1,1337 @@
+{
+  "version": "1",
+  "kind": "independent-depth60-additional-transcript-review",
+  "methodId": "depth60-additional-v1",
+  "verdict": "pass",
+  "sourceFileSha256": "c3ca744474fb2e9273d23119ad03f4909a3af4f0dda70f6377f1be6c698c2fcf",
+  "sourceManifestFileSha256": "b264ad7651cd966a44e399ec79a45ec11a9a9abf1dc6b359f62c33390885a609",
+  "sourceProgressFileSha256": "39dc202ff7849a9e7d220b8591c2a0eeea1ac6d83d282a4666fb212f06152fcb",
+  "suiteFileSha256": "88b20bd12bb54fbe1f33c9c36a752f9ed7e9d2663e19b29fb411ddfeb6c93707",
+  "reviewer": "Two AI-assisted independent readers; no human expert approval",
+  "reviewedWrongUnusable": 33,
+  "primaryCounts": {
+    "label-explanation-inconsistency": 9,
+    "written-mathematical-error": 12,
+    "expression-misread": 12
+  },
+  "byModel": {
+    "gpt-5.4-nano": {
+      "written-mathematical-error": 9,
+      "label-explanation-inconsistency": 5,
+      "expression-misread": 6
+    },
+    "gpt-5.4-mini": {
+      "label-explanation-inconsistency": 4,
+      "written-mathematical-error": 3,
+      "expression-misread": 6
+    }
+  },
+  "unresolved": 0,
+  "rubric": "Exclusive primary classes. The 9 primary inconsistencies have a correct prose curvature conclusion. Mini case8 trial1 has an additional secondary label/prose inconsistency while primarily analyzing a wrong surrogate; primary counts are not counts of all overlapping flags.",
+  "correctLabelExplanationsNotQualitativelyReviewed": 75,
+  "independentSecondReader": {
+    "notesFileSha256": "f5d47896716dfcc9d483ea654206a92fd45f7cff3ef17ea29800e5a3ee077ed9",
+    "notesCanonicalSha256": "7da02db8ff757060bcf0e32d45fc4c250b5d3ac088bc824081b5e4bae91a754a",
+    "reviewed": 33,
+    "agreement": true
+  },
+  "originalPilotReview": {
+    "path": "apps/api/data/quality/depth60-transcript-review-v1.json",
+    "fileSha256": "573018812b3828846eb84e27d472d6b3a5c4c234ab607587e3143a5c80fd6c5e",
+    "sourceFileSha256": "0b38bc17e616b765f44ccb7bac0f527d65b3ffbc201d4716b9631f001cff3ab8",
+    "reusedReviewedWrongUnusable": 32
+  },
+  "hashAlgorithms": {
+    "sourceFiles": "SHA-256 of exact retained file bytes",
+    "resultSha256": "SHA-256 of insertion-order compact JSON.stringify, matching retained progress",
+    "referenceSha256": "SHA-256 of recursively key-sorted compact JSON, with array order preserved",
+    "resultCanonicalSha256": "SHA-256 of recursively key-sorted compact JSON",
+    "rawTextSha256": "SHA-256 of complete retained visible UTF-8 text"
+  },
+  "references": {
+    "0": {
+      "outerScale": "-16/17",
+      "affineSlope": "13/19",
+      "affineOffset": "2/23",
+      "coreOperation": "min",
+      "activeKink": "-501/512",
+      "leftSlope": "-181/152",
+      "rightSlope": "-1453/1292",
+      "slopeJump": "9/136",
+      "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+    },
+    "1": {
+      "outerScale": "13/17",
+      "affineSlope": "17/19",
+      "affineOffset": "19/23",
+      "coreOperation": "max",
+      "activeKink": "-497/512",
+      "leftSlope": "-12379/20672",
+      "rightSlope": "-24017/41344",
+      "slopeJump": "39/2176",
+      "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+    },
+    "2": {
+      "outerScale": "14/17",
+      "affineSlope": "6/19",
+      "affineOffset": "-21/23",
+      "coreOperation": "max",
+      "activeKink": "-251/256",
+      "leftSlope": "-27121/20672",
+      "rightSlope": "-26589/20672",
+      "slopeJump": "7/272",
+      "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+    },
+    "3": {
+      "outerScale": "6/17",
+      "affineSlope": "-18/19",
+      "affineOffset": "-31/23",
+      "coreOperation": "min",
+      "activeKink": "-491/512",
+      "leftSlope": "-5505/20672",
+      "rightSlope": "-1419/5168",
+      "slopeJump": "-9/1088",
+      "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+    },
+    "4": {
+      "outerScale": "-14/17",
+      "affineSlope": "-4/19",
+      "affineOffset": "20/23",
+      "coreOperation": "max",
+      "activeKink": "-467/512",
+      "leftSlope": "6759/5168",
+      "rightSlope": "26371/20672",
+      "slopeJump": "-35/1088",
+      "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+    },
+    "5": {
+      "outerScale": "5/17",
+      "affineSlope": "23/19",
+      "affineOffset": "1",
+      "coreOperation": "min",
+      "activeKink": "-487/512",
+      "leftSlope": "18307/10336",
+      "rightSlope": "73133/41344",
+      "slopeJump": "-5/2176",
+      "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+    },
+    "6": {
+      "outerScale": "4/17",
+      "affineSlope": "-18/19",
+      "affineOffset": "11/23",
+      "coreOperation": "x times max of affine functions",
+      "envelopeAtZero": "-49/65536",
+      "jensenWitnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "gap": "3063/34816"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "gap": "-3063/34816"
+        }
+      ],
+      "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+    },
+    "7": {
+      "outerScale": "8/17",
+      "affineSlope": "-2/19",
+      "affineOffset": "12/23",
+      "coreOperation": "x times max of affine functions",
+      "envelopeAtZero": "-25/65536",
+      "jensenWitnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "gap": "49131/278528"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "gap": "-49131/278528"
+        }
+      ],
+      "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+    },
+    "8": {
+      "outerScale": "-10/17",
+      "affineSlope": "23/19",
+      "affineOffset": "31/23",
+      "coreOperation": "x times max of affine functions",
+      "envelopeAtZero": "-9/16384",
+      "jensenWitnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "gap": "-245635/1114112"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "gap": "245635/1114112"
+        }
+      ],
+      "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+    }
+  },
+  "reviews": [
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "caseIndex": 0,
+      "trialIndex": 0,
+      "resultSha256": "d534d068497b054c9897eb94fac9eb779777510ac34862f7af287180513a402d",
+      "resultCanonicalSha256": "4a1cb26185b8df6eafc9a70b11cd18b3ebbcb91d4920cfeef4f4b271ccd88f05",
+      "rawTextSha256": "5fa43ffb74d9a5d1f3a2846a711e2fe945332cbd6383e2d90a6f7e8cb7bc50dc",
+      "referenceSha256": "9eabab785ee0baa1e6d94f3ee85b305643ecbb2106149c36bd332b7f2cb33c16",
+      "explanationSha256": "b188d39cb85b3c25b49039abbfa1034acb2841461b150e891880fcc770172d74",
+      "officialKind": "answer",
+      "predictedLabel": "concave",
+      "referenceLabel": "convex",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose concludes convex, correctly applying the negative scaling of a min-envelope; the returned label is concave.",
+      "exactEvidence": {
+        "outerScale": "-16/17",
+        "affineSlope": "13/19",
+        "affineOffset": "2/23",
+        "coreOperation": "min",
+        "activeKink": "-501/512",
+        "leftSlope": "-181/152",
+        "rightSlope": "-1453/1292",
+        "slopeJump": "9/136",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "caseIndex": 0,
+      "trialIndex": 1,
+      "resultSha256": "7faba16b66ca763693807548afe0b7a1d2d724a9aace59c2d4f9b0fa2c2dc5db",
+      "resultCanonicalSha256": "ccb04b245092fb537dd6b539c1e805305a9d1fda7157078423815707edbda0d0",
+      "rawTextSha256": "66bcb64c9d9b4925386b2a6520b03d82d22edc6fd9ddff769db726e8b64488c5",
+      "referenceSha256": "9eabab785ee0baa1e6d94f3ee85b305643ecbb2106149c36bd332b7f2cb33c16",
+      "explanationSha256": "2d0ebfa07e9d71f615abe627c875a96764c069cf622f8167c698da9e620c82ca",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [],
+      "detail": "A min-envelope cannot have arbitrary increasing and decreasing slopes; here negative scaling produces globally nondecreasing slopes. Failure to state a guarantee does not establish neither.",
+      "exactEvidence": {
+        "outerScale": "-16/17",
+        "affineSlope": "13/19",
+        "affineOffset": "2/23",
+        "coreOperation": "min",
+        "activeKink": "-501/512",
+        "leftSlope": "-181/152",
+        "rightSlope": "-1453/1292",
+        "slopeJump": "9/136",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-839b10c6b23ea983b0a0d5eb3c171ea4f2c342c2184b07da1619824d26fc6b77",
+      "caseIndex": 0,
+      "trialIndex": 1,
+      "resultSha256": "c7e95a835a1f0912d71d11a2bd233ffc74ea765fb108b8b5890ecef4d7eeee55",
+      "resultCanonicalSha256": "fe4f852abedd4495f9685e9d4df1d0683f4ae445f58a927362509729f7ef19e9",
+      "rawTextSha256": "88e712cc4220a85b243a00c33e580ee712d43f380f90d7894ee23f1442575f40",
+      "referenceSha256": "9eabab785ee0baa1e6d94f3ee85b305643ecbb2106149c36bd332b7f2cb33c16",
+      "explanationSha256": "030c67770a90da48f1eeedbc791461062d56869a79b8670922adf55fb6d1059a",
+      "officialKind": "answer",
+      "predictedLabel": "concave",
+      "referenceLabel": "convex",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose concludes convex, correctly applying the negative scaling of a min-envelope; the returned label is concave.",
+      "exactEvidence": {
+        "outerScale": "-16/17",
+        "affineSlope": "13/19",
+        "affineOffset": "2/23",
+        "coreOperation": "min",
+        "activeKink": "-501/512",
+        "leftSlope": "-181/152",
+        "rightSlope": "-1453/1292",
+        "slopeJump": "9/136",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "caseIndex": 1,
+      "trialIndex": 1,
+      "resultSha256": "b4a5bcf4dc039a34eb06c61ce972d48074502bc2f903f58b55c3b710e4d9b7b5",
+      "resultCanonicalSha256": "f1eeadb2d75e737e6c2dc46f4026ec40da8199fa37dd900cdf07dc35be51b455",
+      "rawTextSha256": "d528c699963e0389461901c981d2bac7c2e2fb047a68e119df3c579dd5401875",
+      "referenceSha256": "ac87deb6d1b037a003cf488a0c8700e3415b4bab4e81388670c771c4a459664a",
+      "explanationSha256": "c33d7ae9d04387db178e8c4ffbd6d2c643e7230c4fbba42207cb842ea0b159f5",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "unsupported-extra-structure"
+      ],
+      "detail": "The stated positive-scaled max-of-affines plus affine expression is globally convex. Claimed extra nesting, asymmetry or concave components do not create an exception to this closure rule.",
+      "exactEvidence": {
+        "outerScale": "13/17",
+        "affineSlope": "17/19",
+        "affineOffset": "19/23",
+        "coreOperation": "max",
+        "activeKink": "-497/512",
+        "leftSlope": "-12379/20672",
+        "rightSlope": "-24017/41344",
+        "slopeJump": "39/2176",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-56ae1913848067aee6ca186fda5b818ae61e326845ba87d810588804d4b0b6a7",
+      "caseIndex": 1,
+      "trialIndex": 2,
+      "resultSha256": "b7b286c02ceea48f80bdf5e68d326a58404c813802973d8bbe25631a07eb4c5c",
+      "resultCanonicalSha256": "0d50201dcc45877af6fcba3e5339ba2b9bde42b3262eb2eb4774aa713ddad729",
+      "rawTextSha256": "2a051dc2d616f96425054d435e999c5023aa792e3fca6d48026b550f1f1af042",
+      "referenceSha256": "ac87deb6d1b037a003cf488a0c8700e3415b4bab4e81388670c771c4a459664a",
+      "explanationSha256": "8be2e414cb2cd14e4b90a615a335aa5e588c04deb2c59880abfc54fcb049c75f",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "unsupported-extra-structure"
+      ],
+      "detail": "The stated positive-scaled max-of-affines plus affine expression is globally convex. Claimed extra nesting, asymmetry or concave components do not create an exception to this closure rule.",
+      "exactEvidence": {
+        "outerScale": "13/17",
+        "affineSlope": "17/19",
+        "affineOffset": "19/23",
+        "coreOperation": "max",
+        "activeKink": "-497/512",
+        "leftSlope": "-12379/20672",
+        "rightSlope": "-24017/41344",
+        "slopeJump": "39/2176",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "caseIndex": 2,
+      "trialIndex": 0,
+      "resultSha256": "733e3c4395397f6dac1a4a7c2c77aadcc046c7754ad0561ae09ed038c632752a",
+      "resultCanonicalSha256": "5bbd6b9c2e8bee58cc3cbbd2b42971eb82c7d5ebc767444cef6b30f95a0155f1",
+      "rawTextSha256": "329791508b21281db0ad4105bc07f045e65c56323fb1cf293a853b4ce7a0b1f6",
+      "referenceSha256": "20b3133c5f5f270e0603330f5a64a967bc9786da40e82243322308aa45dbc609",
+      "explanationSha256": "aa3134c364d1ba55373973044b79b0ed83fa7f7e365a006de6c1ccfb62ac402d",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "unsupported-extra-structure"
+      ],
+      "detail": "Positive scaling 14/17 and affine addition preserve max-envelope convexity. The claimed destruction by affine terms or inability to write a single max is false: a*max_i(l_i)+b*x+c=max_i(a*l_i+b*x+c) for a>0.",
+      "exactEvidence": {
+        "outerScale": "14/17",
+        "affineSlope": "6/19",
+        "affineOffset": "-21/23",
+        "coreOperation": "max",
+        "activeKink": "-251/256",
+        "leftSlope": "-27121/20672",
+        "rightSlope": "-26589/20672",
+        "slopeJump": "7/272",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "caseIndex": 2,
+      "trialIndex": 1,
+      "resultSha256": "eb4e036eedad3e59149034f627b90ad4b45e6c708ce220320e04dc2851d4e183",
+      "resultCanonicalSha256": "e336d166a31b07791d6d67bc24ea55ce88f65cc2d44da263926e5c2a587626b0",
+      "rawTextSha256": "35c3c48ab81f806b09b13cb366bee43212d85373fc8026afe82c38d8654797b9",
+      "referenceSha256": "20b3133c5f5f270e0603330f5a64a967bc9786da40e82243322308aa45dbc609",
+      "explanationSha256": "b155301676f66899ab6f358fc68c655633ed9aabd69424519159a71290377cd2",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "unsupported-extra-structure"
+      ],
+      "detail": "Positive scaling 14/17 and affine addition preserve max-envelope convexity. The claimed destruction by affine terms or inability to write a single max is false: a*max_i(l_i)+b*x+c=max_i(a*l_i+b*x+c) for a>0.",
+      "exactEvidence": {
+        "outerScale": "14/17",
+        "affineSlope": "6/19",
+        "affineOffset": "-21/23",
+        "coreOperation": "max",
+        "activeKink": "-251/256",
+        "leftSlope": "-27121/20672",
+        "rightSlope": "-26589/20672",
+        "slopeJump": "7/272",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-4c80299880433005ae4a1328d4f44afa457fc4c3f80a3425e70ea9cb5d70244d",
+      "caseIndex": 2,
+      "trialIndex": 2,
+      "resultSha256": "d8d86768018f11e1d1f03ee4ee7a08f095bbf54e08eb680ff4849a38dd7ba5b7",
+      "resultCanonicalSha256": "6429f017e550770ab012be05290461048f6c4c48e3f9b049fcea08aa120b3b2d",
+      "rawTextSha256": "da9cf8276eb8487280d206885bb6a2e9aa1bab586c7b2bcaa9f2f5cd3a2601ab",
+      "referenceSha256": "20b3133c5f5f270e0603330f5a64a967bc9786da40e82243322308aa45dbc609",
+      "explanationSha256": "7af9bc536bf9d5c108db12ae4aa13a9d4869a56103102452fa3f3a350b51ce91",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "unsupported-extra-structure"
+      ],
+      "detail": "Positive scaling 14/17 and affine addition preserve max-envelope convexity. The claimed destruction by affine terms or inability to write a single max is false: a*max_i(l_i)+b*x+c=max_i(a*l_i+b*x+c) for a>0.",
+      "exactEvidence": {
+        "outerScale": "14/17",
+        "affineSlope": "6/19",
+        "affineOffset": "-21/23",
+        "coreOperation": "max",
+        "activeKink": "-251/256",
+        "leftSlope": "-27121/20672",
+        "rightSlope": "-26589/20672",
+        "slopeJump": "7/272",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "caseIndex": 3,
+      "trialIndex": 0,
+      "resultSha256": "1386ce12c01590cedea1156fef9f974fc1c2b848f3097a9fa619e06256215111",
+      "resultCanonicalSha256": "e200d0865380065b80d572a115c26181e6be6fc073a0b70c315089db7f4b9bdd",
+      "rawTextSha256": "cc8fc7755a2122be173fa61179b1cf1281ffd520c8e5ce5dbd1ebd2f39078b7f",
+      "referenceSha256": "2c52a1ef2bce2319cb80905910be500d8d444e24accbcde53295b7077d048e45",
+      "explanationSha256": "efc48d0725f03dc349cfdb62c3b459328a2911709de45c0e8a405f62dd79322b",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose correctly concludes concave for a positive-scaled min-envelope; returned label is convex.",
+      "exactEvidence": {
+        "outerScale": "6/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "-31/23",
+        "coreOperation": "min",
+        "activeKink": "-491/512",
+        "leftSlope": "-5505/20672",
+        "rightSlope": "-1419/5168",
+        "slopeJump": "-9/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "caseIndex": 3,
+      "trialIndex": 1,
+      "resultSha256": "d7d041d635fcb26295c5b45f40bd1e5d95246533cddc5aae8da02179c6010c00",
+      "resultCanonicalSha256": "93283b76f85a3fb15b06c6788b9240088a45126a1cf43e76832caab80829b878",
+      "rawTextSha256": "2b72cde3b7966d7a90a7cd46d95cf269e0f4ad550e5d974087c302596f9070d5",
+      "referenceSha256": "2c52a1ef2bce2319cb80905910be500d8d444e24accbcde53295b7077d048e45",
+      "explanationSha256": "c77f09c5d9241585e8708c6e2438dfa03f4eada9c2a4a537cb7c5f7b138715cb",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose correctly concludes concave for a positive-scaled min-envelope; returned label is convex.",
+      "exactEvidence": {
+        "outerScale": "6/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "-31/23",
+        "coreOperation": "min",
+        "activeKink": "-491/512",
+        "leftSlope": "-5505/20672",
+        "rightSlope": "-1419/5168",
+        "slopeJump": "-9/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-7cc52e94101b3c2b6dd9a25c6a4d05dde02bdc5d2cd6df0a758888f70c54fa18",
+      "caseIndex": 3,
+      "trialIndex": 2,
+      "resultSha256": "e556d3524faa82ed1a846ac718554c53f30e2554c0454a3fc96d446079678a73",
+      "resultCanonicalSha256": "44a1c9c7726444770bd99372e640a036918cce841938653ce011f4ee8685bb17",
+      "rawTextSha256": "6345489894bd3ac0e551402ee254a2b60a9af92eebb741ea6139d0ca3839ce59",
+      "referenceSha256": "2c52a1ef2bce2319cb80905910be500d8d444e24accbcde53295b7077d048e45",
+      "explanationSha256": "72ccd45e9fe96fb196994b5c613321769bb73df1a8dde206973538d16b4a5ee0",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "internal-argument-inconsistency"
+      ],
+      "detail": "The premises correctly identify a concave min-envelope with positive scale, then falsely conclude convex; a strict downward slope jump excludes convexity.",
+      "exactEvidence": {
+        "outerScale": "6/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "-31/23",
+        "coreOperation": "min",
+        "activeKink": "-491/512",
+        "leftSlope": "-5505/20672",
+        "rightSlope": "-1419/5168",
+        "slopeJump": "-9/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "caseIndex": 4,
+      "trialIndex": 0,
+      "resultSha256": "745b84bcc788b1147516d66d2d22b83aa368ecc8e1a93404ff49fd0883cbb6aa",
+      "resultCanonicalSha256": "bd71b8acae222ef202c95fc3997792e37940e81ca3ebe6f80046391020b1489b",
+      "rawTextSha256": "918a881ec4318fcf97fab45648ef37a632f40caaebef39337f2838586b160991",
+      "referenceSha256": "2227b84d20421ad9ef4b40a35d14ab4669258a1dd4e1c1349ae59e703fb417d2",
+      "explanationSha256": "5bc90e9621703d0eadb39be17cefaedd8839eae6ce8df8b2fdd6bb2dd80b28c0",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation replaces the actual negative coefficient -14/17 by a positive scalar and invents max(0,h); it analyzes a different function.",
+      "exactEvidence": {
+        "outerScale": "-14/17",
+        "affineSlope": "-4/19",
+        "affineOffset": "20/23",
+        "coreOperation": "max",
+        "activeKink": "-467/512",
+        "leftSlope": "6759/5168",
+        "rightSlope": "26371/20672",
+        "slopeJump": "-35/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "caseIndex": 4,
+      "trialIndex": 0,
+      "resultSha256": "234e6bd7dd35a0a59d4b2928b4fc0fdb516103bfaa82b0c381a17268f724b8af",
+      "resultCanonicalSha256": "fc344d4182c0cd5bbec274aad5617d5c3b9bb0308022cc1957ce0d6b216347b2",
+      "rawTextSha256": "a635f3fffd99078a913d96c614d1c5023dfe67d854c5eec0eb5dae0723db1cfe",
+      "referenceSha256": "2227b84d20421ad9ef4b40a35d14ab4669258a1dd4e1c1349ae59e703fb417d2",
+      "explanationSha256": "b5abe7005d37d7c713ba05ec033da4d96fc811a4d61d0d0048cf2a57d3e76efa",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose concludes concave, correctly applying -14/17 to a max-envelope; the returned label is convex.",
+      "exactEvidence": {
+        "outerScale": "-14/17",
+        "affineSlope": "-4/19",
+        "affineOffset": "20/23",
+        "coreOperation": "max",
+        "activeKink": "-467/512",
+        "leftSlope": "6759/5168",
+        "rightSlope": "26371/20672",
+        "slopeJump": "-35/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "caseIndex": 4,
+      "trialIndex": 1,
+      "resultSha256": "fd93efb3f6c8436732698a3acc744dd2fa6691f9f60e600c015e69c248099642",
+      "resultCanonicalSha256": "d0e2de4cac3bf2eb9c918c63d108d862722ee656c1fdb0494cd15124f8013088",
+      "rawTextSha256": "8f3a9a0775fdf84196692dc3dcd7162a3d211750dd0905a01309d858c1da7c2d",
+      "referenceSha256": "2227b84d20421ad9ef4b40a35d14ab4669258a1dd4e1c1349ae59e703fb417d2",
+      "explanationSha256": "3e358c82b7536def41c022aba210371efe973ded9f01271fcdf63285c97fe2d2",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "internal-argument-inconsistency"
+      ],
+      "detail": "Distributing the negative coefficient does not produce a positive-scaled max: -a*max_i(l_i)=min_i(-a*l_i), a>0. The actual slopes jump downward.",
+      "exactEvidence": {
+        "outerScale": "-14/17",
+        "affineSlope": "-4/19",
+        "affineOffset": "20/23",
+        "coreOperation": "max",
+        "activeKink": "-467/512",
+        "leftSlope": "6759/5168",
+        "rightSlope": "26371/20672",
+        "slopeJump": "-35/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "caseIndex": 4,
+      "trialIndex": 1,
+      "resultSha256": "ae5aba25fea42044b497933ea32f913c188b075068b5091f108d95876fb266b5",
+      "resultCanonicalSha256": "c91cf9d58ac543b1d37c741841720cd145b381424eb317d664cc87cfb37bad14",
+      "rawTextSha256": "dff3c53b02396b741d82e5d7910202da0958d32f2863b77b508d1209ad8d7624",
+      "referenceSha256": "2227b84d20421ad9ef4b40a35d14ab4669258a1dd4e1c1349ae59e703fb417d2",
+      "explanationSha256": "1723f5e72516c7aa9d4b2a6bfe100a317df5b1656ff900e067f9e499bf86f729",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "internal-argument-inconsistency"
+      ],
+      "detail": "The negative factor -14/17 flips the max-envelope to concavity. A dominant max/sign-pattern argument cannot override this scalar identity.",
+      "exactEvidence": {
+        "outerScale": "-14/17",
+        "affineSlope": "-4/19",
+        "affineOffset": "20/23",
+        "coreOperation": "max",
+        "activeKink": "-467/512",
+        "leftSlope": "6759/5168",
+        "rightSlope": "26371/20672",
+        "slopeJump": "-35/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "caseIndex": 4,
+      "trialIndex": 2,
+      "resultSha256": "61c8bf32c7ecbe51769beb59df15634021b303e0932b1b0102f0697863879753",
+      "resultCanonicalSha256": "dff16455988e5a25321bbedd68a323a7f1c99542d1dc01ba72ad1370543fb7bc",
+      "rawTextSha256": "dc342ac4ad369819848a1b6b35d8a469eb8c196d61a22d79d4ae09aee6beb3b7",
+      "referenceSha256": "2227b84d20421ad9ef4b40a35d14ab4669258a1dd4e1c1349ae59e703fb417d2",
+      "explanationSha256": "17b08a830c672d9c185f0264e2135e9e6c96880140d6943732a8eebe685855f6",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "Despite a stray scope description, the complete prose explicitly concludes concave and not convex, agreeing with the reference; returned label is neither.",
+      "exactEvidence": {
+        "outerScale": "-14/17",
+        "affineSlope": "-4/19",
+        "affineOffset": "20/23",
+        "coreOperation": "max",
+        "activeKink": "-467/512",
+        "leftSlope": "6759/5168",
+        "rightSlope": "26371/20672",
+        "slopeJump": "-35/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-91a302c05247fb11f62b6bafe2a3fc652d670cd66fc8eef61b3699bbc92e6c10",
+      "caseIndex": 4,
+      "trialIndex": 2,
+      "resultSha256": "f61ab23d2fc84f004a72a0455f80fe131988c4655ddcafb53105c44149a7b99a",
+      "resultCanonicalSha256": "3defc27c5266576f64ebadf42130c8e9f358aefbe6a4bf55d0ffaf840df73a91",
+      "rawTextSha256": "f4798fbc443861e178cec8419dfdab84d6e0b4289d94665ccdf968bbf3bb946e",
+      "referenceSha256": "2227b84d20421ad9ef4b40a35d14ab4669258a1dd4e1c1349ae59e703fb417d2",
+      "explanationSha256": "afe0a19bf2f9a9a991b731f23ffdb2a156f20444eb111962817f73355aceb3cb",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [
+        "internal-argument-inconsistency"
+      ],
+      "detail": "The negative factor -14/17 flips the max-envelope to concavity. A dominant max/sign-pattern argument cannot override this scalar identity.",
+      "exactEvidence": {
+        "outerScale": "-14/17",
+        "affineSlope": "-4/19",
+        "affineOffset": "20/23",
+        "coreOperation": "max",
+        "activeKink": "-467/512",
+        "leftSlope": "6759/5168",
+        "rightSlope": "26371/20672",
+        "slopeJump": "-35/1088",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "caseIndex": 5,
+      "trialIndex": 0,
+      "resultSha256": "778a0c8b2ed361bb90d0683ac4c5c55129b011b8c4022cf9e1be8532a1ef3ff4",
+      "resultCanonicalSha256": "a33211ee822e37d2933bebb2e106aaf1f7c12922b75177f320101cc7fa8494f4",
+      "rawTextSha256": "c11c2813f406e0a90f7be62738219b9652d6b628e074e89a472664c644566b7e",
+      "referenceSha256": "56c2f16d90d99703c447f96bad2dbadfdbf2b5a30612ef55c2aa6b1faa7df8a4",
+      "explanationSha256": "fee123234f2e78198628afb5e85947f4ec8882a44b7e84093338c4b366ae3e9f",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [],
+      "detail": "Piecewise affinity and absence of strict concavity do not exclude ordinary exclusive concavity. The asserted nondecreasing slopes are false; the actual slopes jump downward.",
+      "exactEvidence": {
+        "outerScale": "5/17",
+        "affineSlope": "23/19",
+        "affineOffset": "1",
+        "coreOperation": "min",
+        "activeKink": "-487/512",
+        "leftSlope": "18307/10336",
+        "rightSlope": "73133/41344",
+        "slopeJump": "-5/2176",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "caseIndex": 5,
+      "trialIndex": 1,
+      "resultSha256": "dc98e6efefdae173733ebe58c871541fd8774cdd635fd5dcb999bce33eb67cbd",
+      "resultCanonicalSha256": "ce4ffdcc358a6e265628a08a2ce5a3b363c9c473f9ade3a8704c8879f4a72601",
+      "rawTextSha256": "01a4dea4be6d09f750e1f3923aeae9bc30d268c6a6b3845b148a99df11a10929",
+      "referenceSha256": "56c2f16d90d99703c447f96bad2dbadfdbf2b5a30612ef55c2aa6b1faa7df8a4",
+      "explanationSha256": "34826b43060bf249feeb77493d31cc9fc9dfa3671e59afc24ece758c5ef55dc1",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose correctly concludes concave and not convex; returned label is convex.",
+      "exactEvidence": {
+        "outerScale": "5/17",
+        "affineSlope": "23/19",
+        "affineOffset": "1",
+        "coreOperation": "min",
+        "activeKink": "-487/512",
+        "leftSlope": "18307/10336",
+        "rightSlope": "73133/41344",
+        "slopeJump": "-5/2176",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "caseIndex": 5,
+      "trialIndex": 1,
+      "resultSha256": "92041abce64cd8d0f590599d6754aa96f23e9da49a95bb7f1727ba05fd3abd34",
+      "resultCanonicalSha256": "c9d94c4d9c9e3f47ab4f70f44fb61f6c49d7956cdd17127302af4e0d9e8cdb0f",
+      "rawTextSha256": "7ee33c35a47fad92e11011440dd71667367237b36d5faefbc1d1a9cef6522094",
+      "referenceSha256": "56c2f16d90d99703c447f96bad2dbadfdbf2b5a30612ef55c2aa6b1faa7df8a4",
+      "explanationSha256": "0ef9bdaf108c6fb48657ac9350a5808d9fb561330a7faa5ffa26ba409466e3c9",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The prose proves concavity and explicitly excludes convexity; returned label is convex.",
+      "exactEvidence": {
+        "outerScale": "5/17",
+        "affineSlope": "23/19",
+        "affineOffset": "1",
+        "coreOperation": "min",
+        "activeKink": "-487/512",
+        "leftSlope": "18307/10336",
+        "rightSlope": "73133/41344",
+        "slopeJump": "-5/2176",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-998d7e6967162dce3626af04b6067b477975c68ca851774a352cc4458b6629c6",
+      "caseIndex": 5,
+      "trialIndex": 2,
+      "resultSha256": "faf7fa9e5740255e64340139b5bc93479bf8eeb08e7726f50ccafffbc59dcf83",
+      "resultCanonicalSha256": "a2ffbcdd606ee4deb51810ebb245494dd91b99644d636f982d0aaae23d06c9ed",
+      "rawTextSha256": "0a6abc09c92ed56511edb0d9ada4fed5850838ac34a1bfc3165f917d65212f89",
+      "referenceSha256": "56c2f16d90d99703c447f96bad2dbadfdbf2b5a30612ef55c2aa6b1faa7df8a4",
+      "explanationSha256": "5c998bd04e2884a245b12a06c593ef4cffe27d7acb9f60abb03e14d1e4303369",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "concave",
+      "diagnosis": "label-explanation-inconsistency",
+      "secondaryFlags": [],
+      "detail": "The complete prose correctly concludes concave and not convex; returned label is convex.",
+      "exactEvidence": {
+        "outerScale": "5/17",
+        "affineSlope": "23/19",
+        "affineOffset": "1",
+        "coreOperation": "min",
+        "activeKink": "-487/512",
+        "leftSlope": "18307/10336",
+        "rightSlope": "73133/41344",
+        "slopeJump": "-5/2176",
+        "globalRule": "min of affine functions is concave; max of affine functions is convex; negative output scale swaps these properties and affine addition preserves them."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "caseIndex": 6,
+      "trialIndex": 0,
+      "resultSha256": "bdf42c7ce9b87c79003f2764ff22ec2f5ae6551a5829bf4dd80353f1b2715493",
+      "resultCanonicalSha256": "af4faa4206d5c55c588f299b078efa3b3696386c18caa52122aa54cf48fb880d",
+      "rawTextSha256": "6b89fcf1a6ee22ef0266ac13e758ea24d951192fd8468d22b601ff8f5e5d4cf4",
+      "referenceSha256": "843c610bab17d92959717ad62539c2a09f4f3a3726f49ce62c307b6c29346b3b",
+      "explanationSha256": "763d0d7f6ba24d9e8085ec110a05d67777918d4b92c169c678a43134351c93b8",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and analyzes only constant*max_i(l_i)+affine, not the supplied constant*x*max_i(l_i)+affine.",
+      "exactEvidence": {
+        "outerScale": "4/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "11/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-49/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "3063/34816"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-3063/34816"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "caseIndex": 6,
+      "trialIndex": 0,
+      "resultSha256": "59b20a1895a8e92e93878f8f74fdde0e3c7cc200f7c4bbc66349b7d96f222744",
+      "resultCanonicalSha256": "f8edeff26a2d06d21cfacf880849a55ca6de0f866a2d3121e615669086aa3da2",
+      "rawTextSha256": "a3b3718a25f4171e703f2a3e094747b86dad82729d63fb9287ba327c468c3e05",
+      "referenceSha256": "843c610bab17d92959717ad62539c2a09f4f3a3726f49ce62c307b6c29346b3b",
+      "explanationSha256": "0edbee973eefb97e6fe2eaf3f938f9513ad00bd24005863aab9caabdc27cac90",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and applies positive constant scaling to the envelope alone.",
+      "exactEvidence": {
+        "outerScale": "4/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "11/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-49/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "3063/34816"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-3063/34816"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "caseIndex": 6,
+      "trialIndex": 1,
+      "resultSha256": "ec2001cd8dbfa0f2a934074e3bcee468af6a1f6e635c7f40967160135d218e3f",
+      "resultCanonicalSha256": "3ab72323d8eb6a99dd6ab88e05db438ba6e0d2c1f7dcf3b4ffbdd2a722498c28",
+      "rawTextSha256": "0e0e79331e12f7a5a5a1d0d34f1c319f261891a8c796a224ccafc525a857746a",
+      "referenceSha256": "843c610bab17d92959717ad62539c2a09f4f3a3726f49ce62c307b6c29346b3b",
+      "explanationSha256": "3cfde5f01849d93936853805db3deccafcf21e4dac9d6db548828bcf10f8c3e5",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and analyzes only constant*max_i(l_i)+affine, not the supplied constant*x*max_i(l_i)+affine.",
+      "exactEvidence": {
+        "outerScale": "4/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "11/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-49/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "3063/34816"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-3063/34816"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "caseIndex": 6,
+      "trialIndex": 1,
+      "resultSha256": "8dec6951890fb6cde348183655a1942fcae8ba22524379f53bdd84b4cb9e12ed",
+      "resultCanonicalSha256": "137766dff4fe66aa78c5287d426bc155d265ab61af8c1db06e3b6c927e0e3792",
+      "rawTextSha256": "140c9ed16484268590cfe971220d0ba13a8eb8476aa223fc141d9550a2446b11",
+      "referenceSha256": "843c610bab17d92959717ad62539c2a09f4f3a3726f49ce62c307b6c29346b3b",
+      "explanationSha256": "4199bdee479fbf5042ba0fcf35664cf37c3e55e6b347d12c4c4c00b38fabf9bd",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and applies positive constant scaling to the envelope alone.",
+      "exactEvidence": {
+        "outerScale": "4/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "11/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-49/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "3063/34816"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-3063/34816"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-5f1352421920dea76075fee2e4f2f0b7a8818f6fe6c946012059626c010553b3",
+      "caseIndex": 6,
+      "trialIndex": 2,
+      "resultSha256": "d4d084f77ae077917e76906ee8c29e84b1b78244b4c1c2a012a0f4e32e3497bc",
+      "resultCanonicalSha256": "a4d38107f57ccc04c3dd312743cfb73113f972d643067fe37bee5d13b05f0ab9",
+      "rawTextSha256": "adc6786014beefa1c3900f0e3bdc20ce95b988c6ea9d99dcd66fb6d6dfb8184a",
+      "referenceSha256": "843c610bab17d92959717ad62539c2a09f4f3a3726f49ce62c307b6c29346b3b",
+      "explanationSha256": "d8a84c99bfd4c39ef9bf65c64f2e634221128fbcf0c4620dc24086c51c22e9ec",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and analyzes only constant*max_i(l_i)+affine, not the supplied constant*x*max_i(l_i)+affine.",
+      "exactEvidence": {
+        "outerScale": "4/17",
+        "affineSlope": "-18/19",
+        "affineOffset": "11/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-49/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "3063/34816"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-3063/34816"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "caseIndex": 7,
+      "trialIndex": 0,
+      "resultSha256": "6277f536abaf2b0e521bd998aee014baaa87a1c588c5755107db9c08219ef00c",
+      "resultCanonicalSha256": "b6f7700c57b2ef9f2440fe3f6ecc8259bb02cd95faa6b3a730367b7a57a29bb4",
+      "rawTextSha256": "b66f2c15b7806fe1a5bd05de6ae1c0badb406d50c4dbb036272e009ce5b0c231",
+      "referenceSha256": "09ffd3c293b12b8ed7c75a1516720dfb80dd4a6f75dcb4083b28f35d030c4db5",
+      "explanationSha256": "f75f6bfe0ffba49f25a1b0092cdfaedd4201346b1a77e9439da682f950bd3fe4",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and applies max-envelope closure to the wrong expression.",
+      "exactEvidence": {
+        "outerScale": "8/17",
+        "affineSlope": "-2/19",
+        "affineOffset": "12/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-25/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "49131/278528"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-49131/278528"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "caseIndex": 7,
+      "trialIndex": 0,
+      "resultSha256": "f74e715207d66256fd1b80675b24fbb62a4dc9af509ed0580629b384728f3ab3",
+      "resultCanonicalSha256": "3ad03f0c0042df7ae909611109003f6a1c870dc2f974494daf75b5807a3797a3",
+      "rawTextSha256": "78653da0d5a0e20058af8ab41e303fee7d84d9ac7dfecba78b26f5039a44dc5c",
+      "referenceSha256": "09ffd3c293b12b8ed7c75a1516720dfb80dd4a6f75dcb4083b28f35d030c4db5",
+      "explanationSha256": "aeb635e691b7fbcb55894269d7ab63115fdd2f0703d483eb78014752d66ad25f",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x; the supplied variable product has both strict Jensen violations.",
+      "exactEvidence": {
+        "outerScale": "8/17",
+        "affineSlope": "-2/19",
+        "affineOffset": "12/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-25/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "49131/278528"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-49131/278528"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "caseIndex": 7,
+      "trialIndex": 1,
+      "resultSha256": "0485b4c98fad2c82823ab520585244e90a39a67d23976c5312ebaec63cfb642f",
+      "resultCanonicalSha256": "aa0443ae8db3fa8970f30ad4beb1f09e5177faa15ed1c217edb8c45a244c2462",
+      "rawTextSha256": "809c65f80a9458c1f9b417ad5e9b31f1716cae9d9de990c5672cb784839bdb54",
+      "referenceSha256": "09ffd3c293b12b8ed7c75a1516720dfb80dd4a6f75dcb4083b28f35d030c4db5",
+      "explanationSha256": "834630d59c3b6e7c8a830df39f04bf27852dbdb7949017813b3808f64444ccde",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x and applies max-envelope closure to the wrong expression.",
+      "exactEvidence": {
+        "outerScale": "8/17",
+        "affineSlope": "-2/19",
+        "affineOffset": "12/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-25/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "49131/278528"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-49131/278528"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "caseIndex": 7,
+      "trialIndex": 1,
+      "resultSha256": "e9c802f42cbd0b2a49e5156c4827509426261646add93dc54522d452814d3dbe",
+      "resultCanonicalSha256": "daae2849b439ab22a0af4243cb4cbbc1941ee7fabbfa301f7972a0579c2e306f",
+      "rawTextSha256": "e052e0c2465da7cc5f29b0a26d48c03fc6957fe6b0e19885957b41127e8f7c28",
+      "referenceSha256": "09ffd3c293b12b8ed7c75a1516720dfb80dd4a6f75dcb4083b28f35d030c4db5",
+      "explanationSha256": "bda7918a33359107ce73c90df52375e94d8040f0c886322f8821f2c6fac071c5",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "written-mathematical-error",
+      "secondaryFlags": [],
+      "detail": "The prose notices x*max but falsely claims multiplication by x preserves convexity over [-1,1]. The envelope is also not nonnegative: G(0)=-25/65536. Exact Jensen gaps have both signs.",
+      "exactEvidence": {
+        "outerScale": "8/17",
+        "affineSlope": "-2/19",
+        "affineOffset": "12/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-25/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "49131/278528"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-49131/278528"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-7894ec50ab294ce200e084fb81b6297bc0986d9ecd8c4b21a4bbccc4de978556",
+      "caseIndex": 7,
+      "trialIndex": 2,
+      "resultSha256": "cf7cfd87b42b33a7bbddfee3b20dad63ae95294b3db50dcec49d69bced9529bd",
+      "resultCanonicalSha256": "fc7c2daf5006f66a88be2ee5d008cbfe694983729e46ec0012e5488a1d25fe0b",
+      "rawTextSha256": "137b4cb8f18603f40b4533e94e5fed02fb956e1dd34a9a1803c3a357b58dc465",
+      "referenceSha256": "09ffd3c293b12b8ed7c75a1516720dfb80dd4a6f75dcb4083b28f35d030c4db5",
+      "explanationSha256": "397e66ff547d9f3a659707924ea08f9c6ec62f712119726ddfeedde26dcb021a",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [],
+      "detail": "The explanation omits the explicit multiplicative x; the supplied variable product has both strict Jensen violations.",
+      "exactEvidence": {
+        "outerScale": "8/17",
+        "affineSlope": "-2/19",
+        "affineOffset": "12/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-25/65536",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "49131/278528"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "-49131/278528"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "caseIndex": 8,
+      "trialIndex": 0,
+      "resultSha256": "0063390fe9e08619f63d84beb7fc11830c30a49bdc9a8a0f756c61bf7453c5a5",
+      "resultCanonicalSha256": "9582f352d9c9b1b246c5ac5f4e97fc1a8e14b78842f50f61c5845627c5ba13b1",
+      "rawTextSha256": "042a30c01a7a014186be8f907d585a661e85f94892a9e9a0a4194bafd2afd28c",
+      "referenceSha256": "9f061c770ee5933d0fc55206aa1f86f8930544d14ab4221051385cbd36ddac97",
+      "explanationSha256": "90676a57b185822df3b48f598e550e1e4460d3cec8602f8829af375642ab29bb",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [
+        "written-mathematical-error"
+      ],
+      "detail": "The explanation drops the multiplicative x and calls the result piecewise linear with nondecreasing slopes. It also asserts a false dominant-max exception to negative scaling.",
+      "exactEvidence": {
+        "outerScale": "-10/17",
+        "affineSlope": "23/19",
+        "affineOffset": "31/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-9/16384",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "-245635/1114112"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "245635/1114112"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "caseId": "case-v1-a830ae3f2ff2c22d69fbaa0564fd94dd5b6557dd437a2777de18b7d755c1fb37",
+      "caseIndex": 8,
+      "trialIndex": 1,
+      "resultSha256": "d9a73c289e0aec33a87adc492260f540439a62725a53f3df6a2bfd6c25d61266",
+      "resultCanonicalSha256": "059de65891279b0c6e531a82de5a5406aedb704bb1776819bda9d535b15366f7",
+      "rawTextSha256": "1fcdb02fe521e662d06676706c133d3395da719d2e9f5b0b962683259fd301da",
+      "referenceSha256": "9f061c770ee5933d0fc55206aa1f86f8930544d14ab4221051385cbd36ddac97",
+      "explanationSha256": "ccfbb60cbe7c5bb445e12a320d7cf890b25382db7535986e93bfd7fb02a2c1a3",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "diagnosis": "expression-misread",
+      "secondaryFlags": [
+        "label-explanation-inconsistency"
+      ],
+      "detail": "The prose drops multiplicative x and concludes concave for the wrong surrogate. The returned label is convex, additionally contradicting that prose conclusion; the actual function is neither.",
+      "exactEvidence": {
+        "outerScale": "-10/17",
+        "affineSlope": "23/19",
+        "affineOffset": "31/23",
+        "coreOperation": "x times max of affine functions",
+        "envelopeAtZero": "-9/16384",
+        "jensenWitnesses": [
+          {
+            "x": "-1",
+            "y": "0",
+            "midpoint": "-1/2",
+            "gap": "-245635/1114112"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "midpoint": "1/2",
+            "gap": "245635/1114112"
+          }
+        ],
+        "rule": "The multiplicative x is not a constant. Positive and negative strict midpoint gaps refute convexity and concavity respectively."
+      },
+      "fullVisibleTextInspected": true,
+      "officialOutcomeChanged": false
+    }
+  ],
+  "limitations": [
+    "Exclusive primary diagnoses describe visible submitted text, not hidden reasoning, model intent or causal mechanisms. Secondary flags can overlap.",
+    "The nine primary label/prose inconsistencies have correct prose conclusions; official returned labels remain wrong. No grade was repaired.",
+    "All references match the unchanged independently verified exact nine-case suite. Correct-label explanations were not qualitatively certified.",
+    "Adaptive follow-up, related fixed tasks and provider-default compute prevent ranks, confidence intervals, causal depth or frontier-failure claims."
+  ]
+}

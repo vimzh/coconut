@@ -1,0 +1,147 @@
+{
+  "version": "1",
+  "kind": "depth60-landing-results",
+  "depth": 60,
+  "suiteId": "suite-v1-dce0928ad06933d700bedfff11a9b5609eb63c47da2090879904da479af29b24",
+  "profileId": "one-shot-json-v1",
+  "caseCount": 9,
+  "trialsPerCase": 3,
+  "maxOutputTokens": 4096,
+  "inferenceRequests": 162,
+  "maxConcurrency": 12,
+  "studies": [
+    {
+      "methodId": "depth60-pilot-v1",
+      "auditPath": "apps/api/data/quality/depth60-results-audit-v1.json",
+      "auditFileSha256": "7cc537ceebc8b328134886ca0732e858a1bc2ac76704a2ecbf7a57b8f2dbed9b",
+      "inferenceRequests": 54,
+      "concurrency": 12,
+      "trialSpanSeconds": 16.858
+    },
+    {
+      "methodId": "depth60-additional-v1",
+      "auditPath": "apps/api/data/quality/depth60-additional-results-audit-v1.json",
+      "auditFileSha256": "4b34858d63d68ec0df954948c9ca6937fab017ffdfd5ccbc677ab0e2d9d12d1e",
+      "inferenceRequests": 108,
+      "concurrency": 12,
+      "trialSpanSeconds": 74.814
+    }
+  ],
+  "models": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "reportedModelIds": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "studyId": "depth60-pilot-v1",
+      "populationStatus": "complete",
+      "planned": 27,
+      "included": 27,
+      "correct": 11,
+      "wrongValid": 16,
+      "invalid": 0,
+      "truncated": 0,
+      "refused": 0,
+      "infrastructure": 0,
+      "unattempted": 0,
+      "macroF1": 0.2900641025641026,
+      "accuracy": 0.4074074074074074
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "reportedModelIds": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "studyId": "depth60-pilot-v1",
+      "populationStatus": "complete",
+      "planned": 27,
+      "included": 27,
+      "correct": 11,
+      "wrongValid": 15,
+      "invalid": 1,
+      "truncated": 0,
+      "refused": 0,
+      "infrastructure": 0,
+      "unattempted": 0,
+      "macroF1": 0.3151779230210603,
+      "accuracy": 0.4074074074074074
+    },
+    {
+      "modelId": "gpt-5.4-nano",
+      "reportedModelIds": [
+        "gpt-5.4-nano-2026-03-17"
+      ],
+      "studyId": "depth60-additional-v1",
+      "populationStatus": "complete",
+      "planned": 27,
+      "included": 27,
+      "correct": 7,
+      "wrongValid": 20,
+      "invalid": 0,
+      "truncated": 0,
+      "refused": 0,
+      "infrastructure": 0,
+      "unattempted": 0,
+      "macroF1": 0.21333333333333335,
+      "accuracy": 0.25925925925925924
+    },
+    {
+      "modelId": "gpt-5.4-mini",
+      "reportedModelIds": [
+        "gpt-5.4-mini-2026-03-17"
+      ],
+      "studyId": "depth60-additional-v1",
+      "populationStatus": "complete",
+      "planned": 27,
+      "included": 27,
+      "correct": 14,
+      "wrongValid": 13,
+      "invalid": 0,
+      "truncated": 0,
+      "refused": 0,
+      "infrastructure": 0,
+      "unattempted": 0,
+      "macroF1": 0.5023849607182941,
+      "accuracy": 0.5185185185185185
+    },
+    {
+      "modelId": "gpt-5.6-luna",
+      "reportedModelIds": [
+        "gpt-5.6-luna"
+      ],
+      "studyId": "depth60-additional-v1",
+      "populationStatus": "complete",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "wrongValid": 0,
+      "invalid": 0,
+      "truncated": 0,
+      "refused": 0,
+      "infrastructure": 0,
+      "unattempted": 0,
+      "macroF1": 1,
+      "accuracy": 1.0
+    },
+    {
+      "modelId": "gpt-6-luna",
+      "reportedModelIds": [
+        "gpt-6-luna"
+      ],
+      "studyId": "depth60-additional-v1",
+      "populationStatus": "complete",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "wrongValid": 0,
+      "invalid": 0,
+      "truncated": 0,
+      "refused": 0,
+      "infrastructure": 0,
+      "unattempted": 0,
+      "macroF1": 1,
+      "accuracy": 1.0
+    }
+  ],
+  "interpretation": "Exploratory unranked results on the identical fixed nine-task suite. Compare exact requested profiles and output caps. Provider-default reasoning may differ by model. Separate batches do not create independent tasks, a causal depth threshold or a general model ranking."
+}
