@@ -1,0 +1,133 @@
+{
+  "sourceFileSha256": "a85c6fa9ef169d6525cb85d6472c6c4233a79fe5fd51c16c685021c8ed7f5876",
+  "verdict": "pass",
+  "reviewer": "AI-assisted independent transcript review",
+  "reviews": [
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-7d10a8e709f577644f56adcfd09aeb401bef1ce4e3605a7bc5df0c113096c746",
+      "trialIndex": 2,
+      "rawTextSha256": "d793ad14d6bba3dec19235e8300ddc21a06bc677b6e4e97cef5100251d130739",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Correctly identifies individual absolute values as convex but incorrectly denies that their sum is globally convex."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-d29f4e4c262fd6627889a93ad40d54047659a8ce1d686be4a587b1c5132452e3",
+      "trialIndex": 0,
+      "rawTextSha256": "6bdbee7c4bfee3042131bc3fbfd87b218a6d1990ca9d739a6961ea9e5dc896b4",
+      "officialKind": "answer",
+      "predictedLabel": "concave",
+      "referenceLabel": "convex",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Misclassifies the upward V-shaped absolute-value sum as concave."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-d29f4e4c262fd6627889a93ad40d54047659a8ce1d686be4a587b1c5132452e3",
+      "trialIndex": 1,
+      "rawTextSha256": "b8f718c825bcd152ad7583b7af22dd856cbd570cff08070a5cd818b21464e8c8",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "convex",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Treats multiple absolute-value kinks as preventing global convexity, contrary to closure of convexity under finite sums."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-44e940c8f79439f880e571a0ad49944193de850366ab307976ea12afd2920b22",
+      "trialIndex": 0,
+      "rawTextSha256": "ccb32c3bc189fe097579f95a720e55fd882b0db8b6489549018f386854ec5a5d",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "concave",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Does not propagate the leading negation of a convex sum, which makes the retained function concave."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-44e940c8f79439f880e571a0ad49944193de850366ab307976ea12afd2920b22",
+      "trialIndex": 2,
+      "rawTextSha256": "dfb60e01d462637081986e4c69da83d798811aa815232808c52cfd3acdc1217b",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "concave",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Treats vertices of the negated absolute-value sum as mixed curvature rather than concavity from the outer negation."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-517318ab52536183b6a2fce08b02058d1d4d2ccf620cba9cbf937d931a9e82ac",
+      "trialIndex": 1,
+      "rawTextSha256": "5e610129d30d1798391ef5a0774cc2417b390961bfdb63b351c955e31db31a63",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "concave",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Recognizes the outer negative sign but incorrectly concludes that it yields neither instead of concavity."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-cd830c03399aa021797a5f0b8c8102d3037765fe06def08af6d2c75e7a0e77fd",
+      "trialIndex": 0,
+      "rawTextSha256": "6bc31cb19ac52ec47e4c7683fc5b7df1aaff62cbfe6164924c8a3a7aec63df13",
+      "officialKind": "answer",
+      "predictedLabel": "neither",
+      "referenceLabel": "concave",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Does not apply the outer-negation rule for a sum of convex absolute-value terms."
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-depth100-v1-6e873c9f7f17da7d0407d8692e93c742f967ba2ce6b845ccb6e8ba523e7cd6f1",
+      "trialIndex": 0,
+      "rawTextSha256": "cd713d88edc46be15bd9933026cf6607aff8d367c8801e701124ee7bb78a6ca6",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Uses an unsupported rule that multiplying a nonnegative convex function by x preserves convexity on a symmetric interval."
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-depth100-v1-6e873c9f7f17da7d0407d8692e93c742f967ba2ce6b845ccb6e8ba523e7cd6f1",
+      "trialIndex": 0,
+      "rawTextSha256": "1b3be3ffe34541326b73d291c73394cbf9d43d5b5161c2ddb02dee2ab78195ba",
+      "officialKind": "answer",
+      "predictedLabel": "concave",
+      "referenceLabel": "neither",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Asserts that a linear factor preserves concavity of the absolute-value sum without establishing that product rule."
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-depth100-v1-6e873c9f7f17da7d0407d8692e93c742f967ba2ce6b845ccb6e8ba523e7cd6f1",
+      "trialIndex": 2,
+      "rawTextSha256": "55fc0b877cdc464d4e4e8e415ff2437339acc72296404f3865e9ed0a4eb8e049",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Again applies the unsupported convexity-preservation rule to x times a nonnegative convex function."
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-depth100-v1-da66830e69dae41bc16da4810649f68cc8c2b270c91f78a933d2f13e5d6fc128",
+      "trialIndex": 2,
+      "rawTextSha256": "bf5c5f7b8a8f18430fc32d73fbc558f3a01cb66b8a8e74fae3e9c38987c61549",
+      "officialKind": "answer",
+      "predictedLabel": "convex",
+      "referenceLabel": "neither",
+      "visibleTextDiagnosis": "false-math",
+      "explanation": "Notes sign reversal across the interval but still concludes global convexity without reconciling the opposing exact Jensen witnesses."
+    }
+  ],
+  "limitations": [
+    "Diagnoses classify only visible submitted text and retained official extraction outcomes; they do not infer hidden reasoning or model intent.",
+    "Reference labels were checked by the separate exact-rational depth-100 reference checker; this review does not repair official outcomes.",
+    "Transcript diagnoses do not establish general model behavior, causal mechanisms, or broader benchmark claims."
+  ]
+}

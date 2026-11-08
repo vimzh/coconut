@@ -1,0 +1,23 @@
+{
+  "version": "1",
+  "methodId": "depth100-pilot-v1",
+  "frozenAt": "2026-11-08T12:40:48.107Z",
+  "populationFileSha256": "7c74cde202ff97f200e0599a5f2b58b8f176b013688c1ff3ead0c707f0ed80d1",
+  "reviewFileSha256": "321eb7099db2baae3f3f62cf2353911adcd111a9d63f07f940fbb15151d537eb",
+  "priorProgressFileSha256": "c7c4a99f026d6677ef9a5bad09e94e670c0da03284bd12cfbdbb1d29f8c23526",
+  "models": [
+    "gpt-4.1-mini",
+    "gpt-4o-mini"
+  ],
+  "profileId": "one-shot-json-v1",
+  "caseCount": 9,
+  "trialsPerCase": 3,
+  "maxInferenceRequests": 54,
+  "priorInferenceRequests": 7908,
+  "cumulativeInferenceCeiling": 7962,
+  "sharedCeiling": 8192,
+  "maxConcurrency": 12,
+  "retries": 0,
+  "maxOutputTokens": 4096,
+  "inferenceDeadlineMs": 180000
+}

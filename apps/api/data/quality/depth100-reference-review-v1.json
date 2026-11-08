@@ -1,0 +1,160 @@
+{
+  "suiteFileSha256": "7c74cde202ff97f200e0599a5f2b58b8f176b013688c1ff3ead0c707f0ed80d1",
+  "verdict": "pass",
+  "cases": [
+    {
+      "id": "case-depth100-v1-7d10a8e709f577644f56adcfd09aeb401bef1ce4e3605a7bc5df0c113096c746",
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 494,
+      "form": "sum-abs",
+      "centerCount": 99,
+      "canonicalCentersSha256": "58ff78520878189dcfcc2ccf246427f3dd7630dd43b9586cd040284cb5070129",
+      "jensenGaps": [
+        "-1943/32"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-8186e6372845e44bf8657bc9b8076eb803bc96841c4eaf61d173fbdf9a058c3d",
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 494,
+      "form": "sum-abs",
+      "centerCount": 99,
+      "canonicalCentersSha256": "118ae48bea5e510c1e8f89cbab2b18cac9f848db58ead811d23e313de2850dbb",
+      "jensenGaps": [
+        "-2141/34"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-d29f4e4c262fd6627889a93ad40d54047659a8ce1d686be4a587b1c5132452e3",
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 494,
+      "form": "sum-abs",
+      "centerCount": 99,
+      "canonicalCentersSha256": "1d19124071477c7a5599a941d69ccb918a205119a134fb812864b63c493810eb",
+      "jensenGaps": [
+        "-2339/36"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-44e940c8f79439f880e571a0ad49944193de850366ab307976ea12afd2920b22",
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 490,
+      "form": "negated-sum-abs",
+      "centerCount": 98,
+      "canonicalCentersSha256": "7f3eec11a1a60cffd5d6491880fda0017cce3d1e2a60f7555271e2b9d59e5a17",
+      "jensenGaps": [
+        "1911/32"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-517318ab52536183b6a2fce08b02058d1d4d2ccf620cba9cbf937d931a9e82ac",
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 490,
+      "form": "negated-sum-abs",
+      "centerCount": 98,
+      "canonicalCentersSha256": "a52187911460b8b67d766dbcabd2312a2c9b538f2a615d58f585693e34e4bf45",
+      "jensenGaps": [
+        "2107/34"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-cd830c03399aa021797a5f0b8c8102d3037765fe06def08af6d2c75e7a0e77fd",
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 490,
+      "form": "negated-sum-abs",
+      "centerCount": 98,
+      "canonicalCentersSha256": "7744d93b6b3aefd797dd152ece232af88c905211120ece86e4bffbb3c72b2d9f",
+      "jensenGaps": [
+        "2303/36"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-d954cd73898ee09de2b76f23c706d8b1e6d1a6b7c016e18c64b9b4cee5253d68",
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 491,
+      "form": "x-times-sum-abs",
+      "centerCount": 98,
+      "canonicalCentersSha256": "7f3eec11a1a60cffd5d6491880fda0017cce3d1e2a60f7555271e2b9d59e5a17",
+      "jensenGaps": [
+        "1415/64",
+        "-1415/64"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-6e873c9f7f17da7d0407d8692e93c742f967ba2ce6b845ccb6e8ba523e7cd6f1",
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 491,
+      "form": "x-times-sum-abs",
+      "centerCount": 98,
+      "canonicalCentersSha256": "a52187911460b8b67d766dbcabd2312a2c9b538f2a615d58f585693e34e4bf45",
+      "jensenGaps": [
+        "773/34",
+        "-773/34"
+      ]
+    },
+    {
+      "id": "case-depth100-v1-da66830e69dae41bc16da4810649f68cc8c2b270c91f78a933d2f13e5d6fc128",
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 100,
+      "nodeCount": 491,
+      "form": "x-times-sum-abs",
+      "centerCount": 98,
+      "canonicalCentersSha256": "7744d93b6b3aefd797dd152ece232af88c905211120ece86e4bffbb3c72b2d9f",
+      "jensenGaps": [
+        "1673/72",
+        "-1673/72"
+      ]
+    }
+  ],
+  "functionSignaturesUnique": true,
+  "reviewer": "AI-assisted independent mathematical check",
+  "limitations": [
+    "The checker proves this fixed sum-of-absolute-affine construction with exact rational arithmetic; it is not a proof-assistant derivation or a general curvature prover.",
+    "The population is research-only and highly templated: depth is coupled to kink count and expression length, so it cannot identify a causal depth effect or be pooled with existing suites.",
+    "Reference validity does not establish model behavior, provider support, or a broader benchmark claim."
+  ]
+}
