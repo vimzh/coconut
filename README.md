@@ -97,6 +97,8 @@ bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
 
 See the [development guide](docs/development.md) for tests, production build/start commands, origin configuration, and additional suite tools.
 
+A separate private deep-import workflow now integrates a pinned external generator with exact-display reference checks and a bounded single-response Astra pilot. The [14b handoff](docs/handoffs/14b-randomized-certified-evaluation.md) records reproduction commands and its inconclusive result: one correct answer, one timeout and one unattempted question, using two development sends. This supplies no frontier mathematical-failure finding; upstream public redistribution clearance and the final 800-task study remain pending.
+
 ## What's next
 
 - Verify OpenRouter and Hugging Face inference with authorized service access.

@@ -3,11 +3,30 @@ import { expect, test } from "bun:test";
 import { createHash } from "node:crypto";
 import type { InferenceResult } from "../inference/types";
 import type { AnswerOutcome, PromptBlueprint } from "../protocol";
+import { scoreClassifications } from "../scoring/classification";
+import type { Observation } from "../scoring/types";
 import { assertFrozenPanel, assertPanelRequestBody, executePanel, freezePanel, nextSearchDecision, PILOT_POLICY, pilotHash, reviewPanel, scorePanelRows, scoreSearchResults } from "./pilot";
 import type { DispatchReceipt, FrozenPanel, ImportedCase, PanelResult, PanelReview, PanelRow, PriorDispatch, ReviewedPanel } from "./types";
 
 const credential = "synthetic-adaptive-panel-credential-123456789";
 const labels = ["convex", "concave", "neither"] as const;
+
+test("single-response arithmetic preserves an 800-case population without adding repeats", () => {
+  const depths = [5, 10, 20, 40, 80, 160, 320, 512];
+  const observations: Observation[] = Array.from({ length: 800 }, (_, index) => ({ caseId: `synthetic-final-${index}`, depth: depths[Math.floor(index / 100)], trialIndex: 0, referenceLabel: labels[index % 3], outcome: answer(labels[index % 3]) }));
+  const perfect = scoreClassifications(observations, 1);
+  expect(perfect.population.plannedTrials).toBe(800);
+  expect(perfect.accuracy).toEqual({ numerator: 800, denominator: 800, value: 1 });
+  expect(perfect.macroF1).toBe(1);
+  expect(labels.map(label => perfect.classes[label].support)).toEqual([267, 267, 266]);
+  const threeWrong = scoreClassifications(observations.map((row, index) => index < 3 ? { ...row, outcome: answer(labels[(index + 1) % 3]) } : row), 1);
+  expect(threeWrong.accuracy).toEqual({ numerator: 797, denominator: 800, value: 797 / 800 });
+  expect(threeWrong.macroF1).toBeCloseTo((266 / 267 + 266 / 267 + 265 / 266) / 3, 14);
+  const partial = scoreClassifications(observations.map((row, index) => index === 0 ? { ...row, outcome: null } : row), 1);
+  expect(partial.population.status).toBe("provisional");
+  expect(partial.population.plannedTrials).toBe(800);
+  expect(partial.accuracy).toEqual({ numerator: 799, denominator: 799, value: 1 });
+});
 function panel(depth = 216, ordinal = 1): FrozenPanel {
   const cases: ImportedCase[] = labels.map((label, index) => ({ id: `synthetic-${ordinal}-${depth}-${index}`, label, expression: [`(x)^2`, `-(x)^2`, `(x)^3`][index], domain: { min: "-1", max: "1" }, referenceSha256: pilotHash({ depth, ordinal, index }), coreHashes: [pilotHash({ core: index, ordinal })], requestedDepth: depth, actualDepth: depth + (index === 1 ? 1 : 0), astDepth: 3, nonlinearPath: 1, nodeCount: 5 }));
   return freezePanel(cases, { ordinal, requestedDepth: depth, sourceSha256: pilotHash("synthetic-source"), admissionReviewSha256: pilotHash("synthetic-reference-review") });

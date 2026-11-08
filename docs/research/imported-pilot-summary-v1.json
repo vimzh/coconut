@@ -1,0 +1,214 @@
+{
+  "version": "1",
+  "kind": "private-adaptive-pilot-summary",
+  "implementationCommit": "d12bdf4",
+  "methodId": "adaptive-single-response-v1",
+  "sourceRevision": "6f156c8c9b6b0b85f6a191bd4eb912e12e670082",
+  "sourcePolicy": "external-checkout-no-vendoring-permission-unresolved",
+  "panelId": "adaptive-panel-08191d9b1e1dffb8a5537f2aa7b5d06f4a00c87813318ee3c297219b78aa54b0",
+  "requestedDepth": 216,
+  "panelResultSha256": "0a5a05e75728a986cfdb4b4583d04916dc61245e50384488b76585d7aedfd604",
+  "reviewSha256": "9fa49ccb86e71c98b8e86157335b6aa3295a415f331f5ada8f8376354280bd15",
+  "admissionBundleSha256": "99d603a5390921ca94798db1b21da4d901447caf60d310f33e40e127573bb71e",
+  "plannedQuestions": 3,
+  "dispatchedAttempts": 2,
+  "retainedModelOutcomes": 1,
+  "correctValid": 1,
+  "wrongValid": 0,
+  "unusable": 0,
+  "providerTimeouts": 1,
+  "unattempted": 1,
+  "unknownRemoteOutcomes": 1,
+  "classification": {
+    "population": {
+      "plannedTrials": 3,
+      "includedTrials": 1,
+      "excludedTrials": 2,
+      "correctTrials": 1,
+      "status": "provisional"
+    },
+    "macroF1": 0.3333333333333333,
+    "accuracy": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1
+    },
+    "classes": {
+      "convex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": 0
+      },
+      "concave": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": 0
+      },
+      "neither": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1
+      }
+    },
+    "absentReferenceClasses": [
+      "convex",
+      "concave"
+    ],
+    "confusion": {
+      "columns": [
+        "convex",
+        "concave",
+        "neither",
+        "unusable"
+      ],
+      "rows": {
+        "convex": {
+          "counts": {
+            "convex": 0,
+            "concave": 0,
+            "neither": 0,
+            "unusable": 0
+          },
+          "rowRates": null
+        },
+        "concave": {
+          "counts": {
+            "convex": 0,
+            "concave": 0,
+            "neither": 0,
+            "unusable": 0
+          },
+          "rowRates": null
+        },
+        "neither": {
+          "counts": {
+            "convex": 0,
+            "concave": 0,
+            "neither": 1,
+            "unusable": 0
+          },
+          "rowRates": {
+            "convex": 0,
+            "concave": 0,
+            "neither": 1,
+            "unusable": 0
+          }
+        }
+      }
+    },
+    "directionalErrors": {
+      "convexToNeither": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "concaveToNeither": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      }
+    },
+    "outcomes": {
+      "answer": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1
+      },
+      "invalid": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0
+      },
+      "empty": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0
+      },
+      "conflicting": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0
+      },
+      "refused": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0
+      },
+      "truncated": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0
+      },
+      "provider-error": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      },
+      "interrupted": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0
+      },
+      "cancelled": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0
+      },
+      "unattempted": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    "repeatedTrialSpread": null,
+    "agreementAcrossRepeats": null
+  },
+  "pilotSignal": "inconclusive-no-mathematical-error-endpoint",
+  "decision": {
+    "action": "stop",
+    "reason": "inconclusive",
+    "lower": null,
+    "higher": null
+  },
+  "budget": {
+    "initialDevelopmentSends": 0,
+    "spentDevelopmentSends": 2,
+    "remainingSharedDevelopmentSends": 28,
+    "probeSends": 0,
+    "retries": 0
+  },
+  "knownUsage": {
+    "inputTokens": 2624,
+    "outputTokensIncludingReasoning": 8647,
+    "reasoningTokensSubsetOfOutput": 8307,
+    "timeoutUsage": null,
+    "billedCost": null
+  },
+  "attemptElapsedMs": [
+    143419.49375,
+    181022.542833
+  ],
+  "requestedModel": "gpt-6-astra",
+  "reportedModelForCompletedAnswer": "gpt-6-astra",
+  "settings": {
+    "profileId": "one-shot-json-v2-max",
+    "reasoning": "max",
+    "maxOutputTokens": 16384,
+    "inferenceTimeoutMs": 180000,
+    "trialsPerQuestion": 1
+  },
+  "scope": "Provisional single-response development evidence. No complete panel score, frontier mathematical-failure finding, threshold, ranking or final800 study.",
+  "privateEvidence": "apps/api/data/private/randomized-v1/panel-1/"
+}

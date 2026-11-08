@@ -2,7 +2,7 @@
 
 ## Status and Order
 
-Planned — user-directed amendment on 2026-11-08. Complete [14a product cleanup](14a-product-flow-cleanup.md) first, then integrate the upstream generator and conduct a small development pilot before [Phase 15](15-deep-composition-stress-evaluation.md). This document changes requirements; it does not implement the adapter or dispatch model calls.
+Implemented and verified within the [handoff's scoped gates](../handoffs/14b-randomized-certified-evaluation.md) on 2026-11-08, after [14a product cleanup](14a-product-flow-cleanup.md). The first depth-216 pilot is terminal and **inconclusive**: one correct answer, one 180-second timeout with unknown remote outcome, one unattempted question; two sends, no retries or deeper panels. No mathematical-failure signal is established. Public redistribution clearance and Phase 15 full-population feasibility remain unresolved.
 
 This replaces the earlier requirement to build a new multi-route random generator. The MVP reuses an existing generator and adds the minimum admission, reproduction and execution glue needed for a trustworthy evaluation. The previous research remains in the [research record](../research/randomized-evaluation-design-v1.md); speculative sampling frameworks and extra diagnostic panels are deferred.
 
@@ -109,4 +109,4 @@ Minimum implementation checks:
 
 Deliver the pinned-source/import specification, admitted artifacts and reference evidence, candidate/exposure ledger, initially frozen search-rule manifest, immutable per-panel manifests and the complete adaptive decision/outcome ledger, independent arithmetic/reference/visible-text review, scoped gate verdicts and `docs/handoffs/14b-randomized-certified-evaluation.md`. Include reproduction commands, reported model/settings, actual sends, usage/runtime and unresolved licensing or admission gaps.
 
-This document's current checkpoint is documentation-only: source/link/contract checks are applicable now; implementation and Astra results remain pending.
+Implementation, independent reference/transport review, tests and actual pilot evidence are recorded in the [handoff](../handoffs/14b-randomized-certified-evaluation.md). The scoped integration/exposure handoff is separate from the inconclusive empirical signal; the original search has stopped under its frozen rule. Any further diagnostic must preserve the two used sends and receive its own pre-run amendment. Phase 15 has not been implemented or dispatched.

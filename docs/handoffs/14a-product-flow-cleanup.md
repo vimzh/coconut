@@ -48,6 +48,6 @@ Additional local captures and the temporary acceptance harness are at `/tmp/coco
 
 No new live-provider verification was performed. Existing OpenRouter/Hugging Face, browser-engine, deployment and scientific-evidence limitations remain. The static current score summary intentionally has no public transcript destination; answer inspection requires an authorized retained run.
 
-Module 14b is next: integrate the pinned generator and independent admission checks, then perform its separately bounded development pilot. Phase 15 should insert its implemented, frozen suite through the existing run catalog and `scripts/export-suite-previews.ts`; this cleanup does not expose a future runnable workload or authorize final-study dispatch.
+At this cleanup checkpoint, Module 14b was next. Its subsequent [completed integration/pilot handoff](14b-randomized-certified-evaluation.md) records scoped technical gates and an inconclusive two-send pilot; Phase 15 feasibility remains next. Phase 15 should insert its implemented, frozen suite through the existing run catalog and `scripts/export-suite-previews.ts`; this cleanup does not expose a future runnable workload or authorize final-study dispatch.
 
 Frontend Design and Unslop informed this restrained presentation pass. Unslop guidance credit: Damir Sokolovsky, [@heydamir](https://x.com/heydamir), CC BY 4.0. The existing typography, palette, mathematical illustrations and component interfaces were preserved.
