@@ -12,7 +12,7 @@ That decision matters when choosing optimization methods for allocating resource
 
 Now let's put that in nontechnical terms. Imagine a customer-support agent handling this refund policy: within 30 days, the item must be unopened or have arrived damaged. The customer opened a damaged delivery and requested a refund on day 12. If the agent fixates on the word opened, it can reject a valid request by overlooking the damage exception.
 
-In programming terms, think of nested if/else logic. Each check is simple; the full combination is what matters. That's the agent-reliability question behind this project: as steps stack up, does the model keep earlier rules and restrictions in force? CoconutEval measures function classification; whether those scores predict agent behavior still needs testing.
+It’s like checking whether a deeply nested set of policy rules (eligibility, access control, insurance exceptions) still holds after many layers of “unless” and overrides. Each individual rule is simple. The question is whether a model that handles a couple of layers can keep track as those rules become deeply nested. CoconutEval measures function classification; whether those scores predict agent behavior still needs testing.
 
 Our confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
 

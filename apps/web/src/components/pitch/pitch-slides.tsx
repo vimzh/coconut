@@ -118,7 +118,7 @@ export function CompositionSlide() {
   return (
     <div className={styles.interpretationSlide}>
       <SlideHeading>Every condition is stated.</SlideHeading>
-      <p className={styles.scoreDefinition}>Simple pieces, stacked together. The intended challenge is preserving stated conditions through the composition. The task is designed to avoid hidden assumptions and trick wording.</p>
+      <p className={styles.scoreDefinition}>It’s like checking whether a deeply nested set of policy rules (eligibility, access control, insurance exceptions) still holds after many layers of “unless” and overrides. Can the model keep track as those simple rules stack up?</p>
       <div className={styles.interpretationGrid}>
         <div className={styles.strongPanel}>
           <h3 className={styles.columnHeading}>What makes the task clear</h3>
@@ -129,7 +129,7 @@ export function CompositionSlide() {
           {compositionChecks.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
       </div>
-      <div className={styles.closing}><p>All output rules are stated. We inspect format failures separately from mathematical errors; model difficulty must be measured.</p></div>
+      <div className={styles.closing}><p>Every condition and output rule is stated. The task is designed to avoid trick wording; difficulty is measured.</p></div>
     </div>
   );
 }
