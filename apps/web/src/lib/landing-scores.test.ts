@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import snapshot from "../../public/landing-scores.json";
 import { directoryModels } from "./model-directory-data";
-import { getLandingScores, landingScoreColumns, landingScoresAsOf } from "./landing-scores";
+import { getLandingScores, getLandingDepthScores, landingScoreColumns, landingScoresAsOf } from "./landing-scores";
 import { createLandingScoreSnapshot, selectLandingMeasurement } from "../../../../scripts/export-landing-scores";
 
 describe("landing score evidence", () => {
@@ -69,6 +69,21 @@ describe("landing score evidence", () => {
     const source = JSON.parse(await readFile(fileURLToPath(new URL(`../../../../${luna.sourcePath}`, import.meta.url)), "utf8"));
     assert.equal(luna.macroF1, source.record.report.overall.classification.macroF1);
     assert.equal(luna.accuracy, source.record.report.overall.classification.accuracy.value);
+    for (const model of snapshot.models) {
+      for (const [index, runId] of model.selectedRunIds.entries()) {
+        const slices = getLandingDepthScores(model.modelId, index);
+        if (runId === null) { assert.deepEqual(slices, []); continue; }
+        const measurement = snapshot.measurements.find((entry) => entry.runId === runId)!;
+        const archive = JSON.parse(await readFile(fileURLToPath(new URL(`../../../../${measurement.sourcePath}`, import.meta.url)), "utf8"));
+        assert.deepEqual(slices, archive.record.report.byDepth.map((slice: { depth: number; classification: { macroF1: number | null; population: { plannedTrials: number; includedTrials: number } } }) => ({
+          depth: slice.depth, macroF1: slice.classification.macroF1,
+          plannedTrials: slice.classification.population.plannedTrials, includedTrials: slice.classification.population.includedTrials,
+        })));
+        assert.deepEqual(slices.map((slice) => slice.depth), [...landingScoreColumns[index].depths]);
+        assert.equal(slices.reduce((sum, slice) => sum + slice.includedTrials, 0), measurement.includedTrials);
+      }
+    }
+    assert.deepEqual(getLandingDepthScores("untested-model", 0), []);
     assert.equal(getLandingScores("gpt-6-luna")[3], 0.9976689976689976);
     assert.deepEqual(getLandingScores("gpt-6-astra").slice(3), [1, 1]);
     assert.deepEqual(getLandingScores("gpt-6.1-sol").slice(3), [1, 1]);

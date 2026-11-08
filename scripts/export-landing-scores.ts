@@ -163,6 +163,15 @@ export async function createLandingScoreSnapshot(repositoryRoot = root) {
       plannedTrials: entry.planned, includedTrials: entry.included, macroF1: entry.macroF1, accuracy: entry.accuracy,
       unusable: entry.unusable, trialMin: entry.trialMin, trialMax: entry.trialMax,
       reportedModels: entry.reportedModels, reportedProviders: entry.reportedProviders,
+      byDepth: list(report.byDepth).map((value) => {
+        const slice = data(value), metrics = data(slice.classification), population = data(metrics.population);
+        const depth = slice.depth, score = metrics.macroF1;
+        if (typeof depth !== "number" || !Number.isInteger(depth) || depth < 0 ||
+          (score !== null && (typeof score !== "number" || !Number.isFinite(score) || score < 0 || score > 1)) ||
+          typeof population.plannedTrials !== "number" || typeof population.includedTrials !== "number")
+          throw new Error(`Invalid archived depth score: ${entry.id}`);
+        return { depth, macroF1: score, plannedTrials: population.plannedTrials, includedTrials: population.includedTrials };
+      }),
     };
   }).sort((a, b) => a.runId.localeCompare(b.runId));
   const models = directoryModels.map((model) => {

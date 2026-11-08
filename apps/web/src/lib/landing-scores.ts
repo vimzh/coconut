@@ -41,3 +41,8 @@ export function getLandingScores(modelId: string): readonly (number | null)[] {
 export function getLandingRunCount(modelId: string): number {
   return snapshot.measurements.filter((measurement) => measurement.modelId === modelId).length;
 }
+
+export function getLandingDepthScores(modelId: string, columnIndex: number) {
+  const runId = snapshot.models.find((model) => model.modelId === modelId)?.selectedRunIds[columnIndex];
+  return snapshot.measurements.find((measurement) => measurement.runId === runId)?.byDepth ?? [];
+}
