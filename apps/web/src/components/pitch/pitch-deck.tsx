@@ -51,7 +51,7 @@ export function PitchDeck({ children, titles }: { children: ReactNode; titles: r
       </header>
 
       <main ref={stage} className={styles.stage} id="pitch-content" tabIndex={-1}>
-        <section className={styles.slide} aria-roledescription="slide" aria-label={`${active + 1} of ${count}: ${titles[active]}`}>
+        <section key={active} className={styles.slide} aria-roledescription="slide" aria-label={`${active + 1} of ${count}: ${titles[active]}`}>
           {slides[active]}
         </section>
       </main>

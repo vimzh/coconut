@@ -1,6 +1,6 @@
 # CoconutEval pitch
 
-Five slides for a short live presentation. The browser deck is at `/pitch`; use Left/Right, Page Up/Page Down, Home/End, or the bottom-right arrow buttons. On narrow screens, scroll within a slide. This is a web presentation, not a `.pptx` export.
+Six slides for a short live presentation. The browser deck is at `/pitch`; use Left/Right, Page Up/Page Down, Home/End, or the bottom-right arrow buttons. On narrow screens, scroll within a slide. This is a web presentation, not a `.pptx` export.
 
 The copy below paraphrases the project documentation. Mathematical examples are illustrative and separate from scored tasks. The six use cases describe applications and analogies, not measured transfer to optimization or agent workflows.
 
@@ -52,9 +52,9 @@ The three displayed examples have second derivatives 2, −2, and 6x respectivel
 
 The platform includes separately versioned task populations. Preserve their suite identities and settings when showing results. Operation depth is recorded, but it varies with family and size and is not an isolated measure of mathematical difficulty.
 
-## Slide 3 — Why it matters
+## Slide 3 — Why convexity matters
 
-**One missed condition can change the answer.**
+**Check the objective and the constraints.**
 
 ### Three technical applications in mathematical optimization
 
@@ -62,23 +62,39 @@ The platform includes separately versioned task populations. Preserve their suit
 2. **Inverse problems:** check whether adding a regularizer keeps a data-fitting objective convex.
 3. **Resource allocation:** check costs and capacity constraints before choosing a convex solver.
 
-### Hypothetical agent scenarios
+Each application has a small illustrative diagram: a state/action feedback loop, a fit-plus-regularizer objective, and a fixed capacity divided among three demands. These are conceptual schematics, not measured performance plots.
 
-1. **A travel-planning agent:** a traveller wants a cheaper flight to Delhi, arriving before 6 pm, with at least 90 minutes between flights. A route arrives at 5 pm but has a 45-minute layover. Booking it would break the connection rule.
-2. **A customer-support agent:** a store allows refund requests within 30 days for unopened items or items that arrived damaged. A customer reports a damaged delivery on day 12, after opening the box. Rejecting it solely because the box was opened would miss the exception.
-3. **A coding agent:** a developer asks an agent to let managers export invoices, alongside admins. Both roles must belong to the invoice’s workspace. Adding ‘or manager’ outside that check could admit a manager from another workspace.
-
-**These examples explain why conditions matter. CoconutEval tests function classification. We have not tested whether its scores predict success in these workflows.**
+**CoconutEval measures scalar function classification. These applications are illustrative; transfer to full optimization systems remains untested.**
 
 ### Speaker notes
 
 Convexity is relevant when deciding whether an optimization formulation has the structure required by a selected method. The entire formulation matters, including its feasible region; classifying a scalar objective does not validate a complete control, inverse-problem, or allocation system. These examples name why curvature knowledge is useful, not systems CoconutEval has tested.
 
+## Slide 4 — Agent scenarios
+
+**Check the whole rule.**
+
+Show three cards. Each separates the request, a visual rule check, and the decision:
+
+| Agent | Request | Rule check | Decision |
+| --- | --- | --- | --- |
+| Travel planner | Find a cheaper flight to Delhi that arrives before 6 pm. | Required connection: 90 min. Proposed connection: 45 min, shown at half the required bar length. The route arrives at 5 pm. | Reject this route. The arrival works; the connection breaks the rule. |
+| Customer support | An opened item reportedly arrived damaged. The refund request comes on day 12. | Day 12 is within the 30-day window. Unopened fails, but reported damage is the policy’s OR exception. | Check the damage exception. Opening the box alone is not a reason to reject. |
+| Coding agent | Let managers export invoices alongside admins. Both roles must belong to the invoice’s workspace. | A workspace boundary encloses `Admin OR Manager`, with membership required for both. | Keep the workspace check. A separate “or manager” could let someone from another workspace export invoices. |
+
+**These examples explain why conditions matter. We have not tested whether CoconutEval scores predict success in these agent workflows.**
+
+### Speaker notes and detailed scenarios
+
+1. **A travel-planning agent:** a traveller wants a cheaper flight to Delhi, arriving before 6 pm, with at least 90 minutes between flights. A route arrives at 5 pm but has a 45-minute layover. Booking it would break the connection rule.
+2. **A customer-support agent:** a store allows refund requests within 30 days for unopened items or items that arrived damaged. A customer reports a damaged delivery on day 12, after opening the box. Rejecting it solely because the box was opened would miss the exception.
+3. **A coding agent:** a developer asks an agent to let managers export invoices, alongside admins. Both roles must belong to the invoice’s workspace. Adding ‘or manager’ outside that check could admit a manager from another workspace.
+
 The nontechnical examples make the dependency pattern familiar: an early condition must still hold after later steps are combined. They are proposed illustrations for this pitch. There is no retained evidence that CoconutEval predicts performance in travel planning, customer support, or coding agents.
 
 These scenarios use hypothetical rules and numbers. In the travel example, meeting the price and arrival goals does not satisfy the connection requirement. In the refund example, the damage exception overrides the unopened-item condition within the 30-day window. In the coding example, workspace membership must cover both roles: `same workspace AND (admin OR manager)`.
 
-## Slide 4 — How it works
+## Slide 5 — How it works
 
 **Verify, ask, and score.**
 
@@ -109,7 +125,7 @@ The review separates mathematical mistakes, expression/domain misreadings, answe
 
 If newer results are used during the presentation, update this document and the deck from a retained, reviewed result together. The [interior experiment plan](research/interior-experiment-v1.md) alone is not model-performance evidence. The [first matrix reconciliation](research/experiment-reconciliation-v1.md) documents infrastructure failures and incomplete prefixes; those are not mathematical model failures.
 
-## Slide 5 — Reading the score
+## Slide 6 — Reading the score
 
 **What does the score tell us?**
 
@@ -139,13 +155,14 @@ Our scorer counts unusable returned answers against the corresponding reference 
 
 ## Design and implementation brief
 
-- White `#ffffff` canvas; black `#111111` text; gray `#585858` secondary type, `#dedede` rules, and `#ededed` coordinate grid.
+- White `#ffffff` chrome and `#fafcfb` canvas; dark ink `#182422`, secondary type `#53605b`, and quiet `#dce6df` borders. Pale mint `#eaf5ef`, blue `#edf3fb`, and amber `#fff5df` cards group the examples. Dark green, blue, and amber curves identify convex, concave, and neither alongside their text labels.
 - Existing IBM Plex Sans for the narrative and IBM Plex Mono for labels/counts. System Georgia/Times for mathematical expressions. No new font or presentation dependency.
 - Draw each teaching function beside its explanation, including both minus-sign examples. The shared SVG component samples the actual expressions on the stated interval, shows axes and selected chords, and provides a specific accessible graph description. The homepage and methodology use the same definition examples.
-- The shared coconut mascot is `apps/web/public/coconut.svg`. The pitch header renders it in grayscale to keep the deck monochrome; the main site uses its original brown shell.
-- Keep five slides, a centered opening, persistent bottom-right arrows, a slide counter, and keyboard navigation. Clamp navigation at the first and last slides. Keep the presentation separate from the workbench layout.
+- The shared coconut mascot is `apps/web/public/coconut.svg`. The pitch and main site use its original brown shell.
+- Keep six slides, a centered opening, persistent bottom-right arrows, a slide counter, and keyboard navigation. Give optimization and agent scenarios their own slides. Clamp navigation at the first and last slides. Keep the presentation separate from the workbench layout.
 - Animate the teaching graphs: a point traces each curve as it draws, followed by the dashed chord, endpoints, and any shaded region or annotation. Each sequence finishes within 2.2 seconds, then stays still. Replay when a graph returns after leaving the viewport or a pitch slide opens again. Axes and definitions stay in place. Reduced-motion settings show the complete static plot immediately.
-- Preserve keyboard focus, readable narrow-screen layouts, and scrolling for dense slides. Use the existing colors and typography for motion; add no animation dependency.
+- Use finite diagram and check animations: the optimization connectors draw once, and each agent card reveals its conditions before the outcome. Slides fade in and replay their visual sequence on return. Preserve keyboard focus, readable narrow-screen layouts, and scrolling for dense slides. Add no animation dependency.
+- Design refinement follows frontend-design and [unslop by Damir Sokolovsky](https://heydamir.design/unslop), adapted to these mathematical explanations. Unslop guidance is licensed under CC BY 4.0.
 
 ## Evidence and attribution
 
@@ -159,11 +176,11 @@ Verified on 8 November 2026:
 - `bun run --filter @coconut/web typecheck`: passed.
 - `bun run --filter @coconut/web test`: 58 tests passed.
 - `bun run --filter @coconut/web build`: passed; `/pitch` is statically generated.
-- Browser checks: all five slides at 1440×900, 1280×720, and 390×844; previous/next buttons, Left/Right boundaries, Home/End, Page Up/Page Down, and scroll reset. Dense slides scroll within the mobile viewport while controls remain available. Screenshots were inspected and the console had no application errors.
+- Browser checks: all six slides at 1440×900, 1280×720, and 390×844; previous/next buttons, Left/Right boundaries, Home/End, Page Up/Page Down, and scroll reset. Dense slides scroll within the mobile viewport while controls remain available. Screenshots were inspected and the console had no application errors.
 - The standard-definition update adds the quantified inequalities and a shared graph component for five teaching functions. Independent SVG checks covered all 405 sampled points, six chord endpoint pairs, their midpoint inequalities, and accessible labels. The homepage, methodology, and pitch use the same definition examples.
 - Updated pitch layouts fit at 1440×900 and 1280×720 without scrolling. Mobile slides scroll vertically without horizontal overflow, with navigation always visible. Updated homepage and methodology examples were checked on desktop and mobile.
 - Graph animation checks: tracer positions match the plotted path at sampled progress points on all seven teaching graphs. Curve/chord/endpoint sequences finish with no running animations and retain the full static graph. Viewport exit/re-entry and pitch-slide return restart the sequence; mobile navigation stays visible.
-- Reduced-motion styles were verified through browser CSS media-rule simulation: complete curves, chords and endpoints remain visible, with no animation or tracer. Changing the operating-system motion preference and testing other browser engines remain unverified.
-- The expanded agent scenarios preserve all six use cases. Technical applications and agent scenarios occupy separate rows on desktop and stack on narrow screens. The slide fits at 1440×900 and 1280×720; at 390×844, its content scrolls with navigation visible and no horizontal overflow. Frontend lint, type checks, build, and all 58 tests pass.
+- Reduced-motion styles were verified through browser CSS media-rule simulation: complete curves, chords, endpoints, scenario checks, and decisions remain visible. The new scenario slide has zero animations under the simulated setting. Changing the operating-system motion preference and testing other browser engines remain unverified.
+- The six-slide revision preserves all six use cases and moves the agent scenarios to their own slide. All slides fit at 1440×900 and 1280×720; at 390×844, content scrolls with navigation visible and no horizontal or card overflow. Scenario animations finish before 2.2 seconds and then stay still. Bar lengths preserve the 90/45-minute comparison and day-12/30-day window. Frontend lint, type checks, build, and all 58 tests pass.
 
 The preview uses port 3210 because the existing server on 3200 serves an earlier production build. The default application port remains 3200; restarting that server with the new build makes `/pitch` available there. No backend changes or paid model requests were needed. Native PowerPoint export and verification in other browser engines are outside this implementation.

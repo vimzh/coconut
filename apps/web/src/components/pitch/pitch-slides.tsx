@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { AnimatedGraph } from "@/components/marketing/animated-graph";
 import { FunctionGraph } from "@/components/marketing/function-graph";
+import { AgentScenarios } from "./agent-scenarios";
+import { OptimizationVisual } from "./optimization-visuals";
 import styles from "./pitch.module.css";
 
 function SlideHeading({ label, children }: { label: string; children: ReactNode }) {
@@ -67,40 +69,36 @@ export function TaskSlide() {
 }
 
 const technicalUseCases = [
-  { title: "Optimal control", detail: "Check whether a control cost and its constraints form a convex problem." },
-  { title: "Inverse problems", detail: "Check whether adding a regularizer keeps a data-fitting objective convex." },
-  { title: "Resource allocation", detail: "Check costs and capacity constraints before choosing a convex solver." },
-];
-
-const everydayUseCases = [
-  { title: "A travel-planning agent", detail: "A traveller wants a cheaper flight to Delhi, arriving before 6 pm, with at least 90 minutes between flights. A route arrives at 5 pm but has a 45-minute layover. Booking it would break the connection rule." },
-  { title: "A customer-support agent", detail: "A store allows refund requests within 30 days for unopened items or items that arrived damaged. A customer reports a damaged delivery on day 12, after opening the box. Rejecting it solely because the box was opened would miss the exception." },
-  { title: "A coding agent", detail: "A developer asks an agent to let managers export invoices, alongside admins. Both roles must belong to the invoice’s workspace. Adding ‘or manager’ outside that check could admit a manager from another workspace." },
-];
+  { kind: "control", title: "Optimal control", detail: "Check whether a control cost and its constraints form a convex problem." },
+  { kind: "inverse", title: "Inverse problems", detail: "Check whether adding a regularizer keeps a data-fitting objective convex." },
+  { kind: "allocation", title: "Resource allocation", detail: "Check costs and capacity constraints before choosing a convex solver." },
+] as const;
 
 export function RelevanceSlide() {
   return (
     <div>
-      <SlideHeading label="Why it matters">One missed condition can change the answer.</SlideHeading>
+      <SlideHeading label="Why convexity matters">Check the objective<br />and the constraints.</SlideHeading>
       <div className={styles.useCaseGrid}>
-        <div className={styles.useCaseColumn}>
-          <h3 className={styles.columnHeading}>In mathematical optimization</h3>
-          {technicalUseCases.map(({ title, detail }, index) => (
-            <article className={styles.useCase} key={title}>
-              <span className={styles.itemIndex}>0{index + 1}</span><div><h4>{title}</h4><p>{detail}</p></div>
-            </article>
-          ))}
-        </div>
-        <div className={styles.useCaseColumn}>
-          <h3 className={styles.columnHeading}>Hypothetical agent scenarios</h3>
-          {everydayUseCases.map(({ title, detail }, index) => (
-            <article className={styles.useCase} key={title}>
-              <span className={styles.itemIndex}>0{index + 1}</span><div><h4>{title}</h4><p>{detail}</p></div>
-            </article>
-          ))}
-        </div>
+        {technicalUseCases.map(({ kind, title, detail }, index) => (
+          <article className={styles.useCase} key={title}>
+            <span className={styles.itemIndex}>0{index + 1}</span>
+            <h3>{title}</h3>
+            <OptimizationVisual kind={kind} />
+            <p>{detail}</p>
+          </article>
+        ))}
       </div>
-      <p className={styles.caveat}>These examples explain why conditions matter. CoconutEval tests function classification. We have not tested whether its scores predict success in these workflows.</p>
+      <p className={styles.caveat}>CoconutEval measures scalar function classification. These applications are illustrative; transfer to full optimization systems remains untested.</p>
+    </div>
+  );
+}
+
+export function AgentSlide() {
+  return (
+    <div>
+      <SlideHeading label="Three hypothetical agent scenarios">Check the whole rule.</SlideHeading>
+      <AgentScenarios />
+      <p className={styles.caveat}>These examples explain why conditions matter. We have not tested whether CoconutEval scores predict success in these agent workflows.</p>
     </div>
   );
 }
@@ -160,11 +158,11 @@ export function InterpretationSlide() {
       <SlideHeading label="Reading the score">What does the score tell us?</SlideHeading>
       <p className={styles.scoreDefinition}>Macro-F1 averages the F1 scores for convex, concave, and neither. A higher value means better classification on the tested tasks.</p>
       <div className={styles.interpretationGrid}>
-        <div>
+        <div className={styles.strongPanel}>
           <h3 className={styles.columnHeading}>High score: verify these three things</h3>
           {strongSignals.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
-        <div>
+        <div className={styles.failurePanel}>
           <h3 className={styles.columnHeading}>Low score: check these three causes</h3>
           {failureSignals.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>

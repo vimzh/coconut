@@ -1,0 +1,17 @@
+/* Small explanatory schematics use a single accent and a fixed geometry. */
+.visual { display: block; width: 100%; height: auto; color: #286448; }
+.visual[data-kind="inverse"] { color: #315b86; }
+.visual[data-kind="allocation"] { color: #866319; }
+.box { fill: #ffffff; stroke: #dce6df; stroke-width: 1; }
+.flow, .arrow { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.target { fill: #ffffff; stroke: currentColor; stroke-width: 1.5; }
+.capacity { fill: none; stroke: currentColor; stroke-width: 1; }
+.text { fill: #182422; font: 14px var(--font-mono); text-anchor: middle; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .flow { stroke-dasharray: 1; animation: connect 1400ms ease-out both; }
+  .allocated { transform-box: fill-box; transform-origin: left center; animation: allocate 1000ms ease-out both; }
+}
+
+@keyframes connect { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes allocate { from { transform: scaleX(0); } to { transform: scaleX(1); } }
