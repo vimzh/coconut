@@ -1,0 +1,374 @@
+{
+  "version": "1",
+  "verdict": "pass",
+  "sourceFileSha256": "a0030655d664626161a5216920f3ee308f0d849704bcb2bbb5b2ae6ddcc20c3a",
+  "inferenceRequests": 351,
+  "cumulativeConservativeRequests": 8511,
+  "cells": [
+    {
+      "cell": "screening-standard",
+      "modelId": "gpt-5.4-mini",
+      "planned": 27,
+      "included": 27,
+      "correct": 12,
+      "macroF1": 0.4041062801932367,
+      "confusion": {
+        "convex": {
+          "convex": 8,
+          "concave": 1,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 2,
+          "concave": 2,
+          "neither": 5,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 4,
+          "concave": 3,
+          "neither": 2,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth60",
+      "modelId": "gpt-5.6-terra",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth60",
+      "modelId": "gpt-6.1-terra",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth100",
+      "modelId": "gpt-5.4-mini",
+      "planned": 27,
+      "included": 27,
+      "correct": 24,
+      "macroF1": 0.8857142857142857,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 3,
+          "concave": 6,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth100",
+      "modelId": "gpt-5.6-luna",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth100",
+      "modelId": "gpt-6-luna",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth100",
+      "modelId": "gpt-5.6-terra",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth100",
+      "modelId": "gpt-6.1-terra",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth216",
+      "modelId": "gpt-5.4-mini",
+      "planned": 27,
+      "included": 27,
+      "correct": 25,
+      "macroF1": 0.9249999999999999,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 2,
+          "concave": 7,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth216",
+      "modelId": "gpt-5.6-luna",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth216",
+      "modelId": "gpt-6-luna",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth216",
+      "modelId": "gpt-5.6-terra",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    },
+    {
+      "cell": "depth216",
+      "modelId": "gpt-6.1-terra",
+      "planned": 27,
+      "included": 27,
+      "correct": 27,
+      "macroF1": 1.0,
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 0,
+          "neither": 9,
+          "unusable": 0
+        }
+      }
+    }
+  ],
+  "interpretation": "Arithmetic and dispatch audit only; valid wrong labels do not by themselves establish a repeated mathematical limitation."
+}

@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { directoryModels, modelCompanies } from "@/lib/model-directory-data";
 import { getLandingScores, getLandingDepthScores, landingScoreColumns } from "@/lib/landing-scores";
+import { getFastScreeningCell } from "@/lib/landing-fast-scores";
 import { getLandingPilotScore, landingPilotDepths } from "@/lib/landing-pilots";
 import styles from "./model-scores.module.css";
 
@@ -13,8 +14,13 @@ export function ModelScores() {
   const [columnIndex, setColumnIndex] = useState(0);
   const column = landingScoreColumns[columnIndex];
   const rows = directoryModels
-    .filter((model) => model.status !== "deprecated")
-    .map((model) => ({ model, score: getLandingScores(model.id)[columnIndex], depths: getLandingDepthScores(model.id, columnIndex) }))
+    .filter((model) => model.openai && (model.status !== "deprecated" || model.id === "gpt-5.4-nano"))
+    .map((model) => {
+      const archivedDepths = getLandingDepthScores(model.id, columnIndex);
+      const followUp = getFastScreeningCell(model.id, columnIndex);
+      return { model, score: getLandingScores(model.id)[columnIndex] ?? followUp?.macroF1 ?? null,
+        depths: archivedDepths.length ? archivedDepths : followUp?.byDepth ?? [] };
+    })
     .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.model.name.localeCompare(b.model.name));
   return (
     <section aria-labelledby="model-scores-title" className={styles.section}>
@@ -30,7 +36,7 @@ export function ModelScores() {
       <p className={styles.metric}>Macro-F1 · 0–100 · Sorted by overall score for this setting</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Model scores by depth; scroll horizontally for all depths">
         <table className={styles.table} aria-describedby="model-depth-note">
-          <caption className="sr-only">Per-depth scores from completed archived evaluations for {column.group} {column.label}. Missing results remain unscored.</caption>
+          <caption className="sr-only">Per-depth scores from completed archived evaluations and audited follow-up trials for {column.group} {column.label}. Missing results remain unscored.</caption>
           <thead>
             <tr>
               <th scope="col" className={styles.model}>Model</th>
@@ -68,7 +74,7 @@ export function ModelScores() {
         </table>
       </div>
       <p id="model-depth-note" className={styles.notes}>
-        {column.group} · {column.label} · {column.requests} requests per complete evaluation. Depth slices contain different tasks; score differences do not isolate a depth effect. Screening is exploratory and unranked. Depths 60 and 100 are separate nine-task pilots with default reasoning; the setting selector applies to the other columns.
+        {column.group} · {column.label} · {column.requests} requests per complete evaluation. Depth slices contain different tasks; score differences do not isolate a depth effect. Screening is exploratory and unranked; Standard includes the new same-task follow-up. Depths 60, 100 and 216 are separate nine-task pilots with default reasoning; the setting selector applies to the other columns.
       </p>
     </section>
   );

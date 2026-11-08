@@ -1,0 +1,146 @@
+{
+  "version": "1",
+  "methodId": "fast-table-fill-v1",
+  "frozenAt": "2026-11-08T13:25:44.770Z",
+  "models": [
+    "gpt-5.4-mini",
+    "gpt-5.6-luna",
+    "gpt-6-luna",
+    "gpt-5.6-terra",
+    "gpt-6.1-terra"
+  ],
+  "cells": [
+    {
+      "key": "screening-standard",
+      "models": [
+        "gpt-5.4-mini"
+      ]
+    },
+    {
+      "key": "depth60",
+      "models": [
+        "gpt-5.6-terra",
+        "gpt-6.1-terra"
+      ]
+    },
+    {
+      "key": "depth100",
+      "models": [
+        "gpt-5.4-mini",
+        "gpt-5.6-luna",
+        "gpt-6-luna",
+        "gpt-5.6-terra",
+        "gpt-6.1-terra"
+      ]
+    },
+    {
+      "key": "depth216",
+      "models": [
+        "gpt-5.4-mini",
+        "gpt-5.6-luna",
+        "gpt-6-luna",
+        "gpt-5.6-terra",
+        "gpt-6.1-terra"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "experiments/fast-table-fill-access-v1.json",
+      "sha256": "740faee83f2079dd22cf4614d3857c7041ef6de6f8201acd2060626062b60e09"
+    },
+    {
+      "path": "experiments/depth216-progress-v1.json",
+      "sha256": "3ea37234a0863219c427265f1df09ad206bfba22a95f135fdd2545746e516016"
+    },
+    {
+      "path": "experiments/depth216-matrix-v1.json",
+      "sha256": "592bd02787d081e650a8a416b2ac2a33a8cedc33a4a35c96369a14a88708d2e1"
+    },
+    {
+      "path": "private/depth216-v1/result.json",
+      "sha256": "a95f06ba3a6360c97362fa4c5ca89baa03f7ca53319fad771f0c152c3f16969b"
+    },
+    {
+      "path": "experiments/deep-pair-progress-v1.json",
+      "sha256": "4a3285948e06eba8d8c0a8ddc4cda6815f7b3c3d2911dd2ec332a45fc237122e"
+    },
+    {
+      "path": "experiments/deep-pair-matrix-v1.json",
+      "sha256": "8d03a0a0af28e6b2f9002d20b7fbb3446a53368b795a4f2d2057a48779205e94"
+    },
+    {
+      "path": "private/deep-pair-v1/result.json",
+      "sha256": "4038619380c6a9797239aa3156c92d6e07ecfe61e457d909dc1f12a6bab24c08"
+    },
+    {
+      "path": "suites/depth60-v1.json",
+      "sha256": "88b20bd12bb54fbe1f33c9c36a752f9ed7e9d2663e19b29fb411ddfeb6c93707"
+    },
+    {
+      "path": "research/depth100-population-v1.json",
+      "sha256": "7c74cde202ff97f200e0599a5f2b58b8f176b013688c1ff3ead0c707f0ed80d1"
+    },
+    {
+      "path": "research/depth216-population-v1.json",
+      "sha256": "34828752c7ad240609c722a993c76df21517ddc2fcfa54df5281337140eebc22"
+    },
+    {
+      "path": "quality/depth60-reference-review-v1.json",
+      "sha256": "df32f60dda1f1e4f3d88dee6a7ed51452ba2ac75aa2d903967bb6ed4229fb545"
+    },
+    {
+      "path": "quality/depth100-reference-review-v1.json",
+      "sha256": "321eb7099db2baae3f3f62cf2353911adcd111a9d63f07f940fbb15151d537eb"
+    },
+    {
+      "path": "quality/depth216-reference-review-v1.json",
+      "sha256": "ea987b74f44c8edc2eea2f469774d2040248831161c64b74f23f4d63313a4b8d"
+    },
+    {
+      "path": "apps/api/data/experiments/openai-progress-v2-published/6e0b6355-ccfd-4f29-a7c6-99f525cc3505.json",
+      "sha256": "064e1cd3a214b662123235fbbb1739f2a92a45a88ef2c8b1a8dad5eba0ccf0a6"
+    },
+    {
+      "path": "../src/inference/client.ts",
+      "sha256": "3ef5b565fad47845958fa08f1b706dff89d098601a15fa265a548d08af10c21d"
+    },
+    {
+      "path": "../src/inference/policy.ts",
+      "sha256": "6d08ddd793912710f5176a3dbe7e7b49e52cb194e7fb67f79fd159b3358557cf"
+    },
+    {
+      "path": "../src/providers/openai.ts",
+      "sha256": "452085d06fc5840db9381ccf40b49414a2ebbd734ac8d721aebade20ee929a72"
+    },
+    {
+      "path": "../src/providers/transport.ts",
+      "sha256": "45a573f65d9b452bf2a703b9434e72c9a254801fe06606d69f0829e54cbc75d1"
+    },
+    {
+      "path": "../package.json",
+      "sha256": "eba6cd06b76d689820bbe09aaa02560f6699df91225112e0a062492c440e096a"
+    },
+    {
+      "path": "../../../patches/openai@7.53.0.patch",
+      "sha256": "bfc9a1179aca384724d383a7af762bf358ac36a7fcc9865d852d59cc3e2d95ca"
+    },
+    {
+      "path": "runner",
+      "sha256": "60b827d86e03845f75c20b00c6bddea043f03fcd3a44acb8d4bd9fac90a61020"
+    }
+  ],
+  "promptsSha256": "9edbe65a59301035b4203dab9ac56add06db4b5a7f081334dd4f45e7abd21c95",
+  "rowsSha256": "c6d6980ef5bf87de7ad57c0371af4b83b22e224510b841368e4a4f4eeafde44b",
+  "priorInferenceRequests": 8160,
+  "newAuthorizedMaximum": 351,
+  "cumulativeMaximum": 8511,
+  "historicalCeilingUnchanged": 8192,
+  "profileId": "one-shot-json-v1",
+  "maxOutputTokens": 4096,
+  "inferenceDeadlineMs": 180000,
+  "retries": 0,
+  "maxConcurrency": 24,
+  "screeningConcurrency": 4,
+  "interpretation": "New user-authorized exploratory follow-up after prior outcomes were inspected; separate populations and depth-216 research policy. Original frozen budgets and results remain unchanged."
+}
