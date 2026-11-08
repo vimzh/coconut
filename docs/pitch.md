@@ -6,7 +6,7 @@ The copy below paraphrases the project documentation. Mathematical examples are 
 
 ## Slide 1 — CoconutEval
 
-**A mathematical lens on model reasoning**
+**An evaluation of mathematical reasoning**
 
 **CoconutEval.**
 
@@ -14,7 +14,7 @@ How well does a language model understand the shape of a function?
 
 `f(x) = x²`, with `x ∈ [−1, 1]`
 
-One function. A stated domain. A verifiable answer.
+Classify the function as convex, concave, or neither on the given interval.
 
 ### Speaker notes
 
@@ -26,19 +26,25 @@ The audience is hackathon judges and people evaluating language models. The goal
 
 **Convex, concave, or neither.**
 
-A chord is a straight line segment between two points on a curve. CoconutEval asks which relationship holds on the whole interval.
+A chord is a straight line segment joining two points on a graph.
 
-| Answer | Illustrative function on `[-1, 1]` | Meaning |
-| --- | --- | --- |
-| Convex | `x²` | Bowl-shaped: every chord lies on or above the curve. |
-| Concave | `−x²` | Dome-shaped: every chord lies on or below the curve. |
-| Neither | `x³` | Here, the bend changes direction. Both conditions fail somewhere in the interval. |
+For a function `f: D → ℝ`, with `D = [−1, 1]`, take any `x, y ∈ D` and `t ∈ [0, 1]`. Let `z = tx + (1 − t)y`.
 
-Show a small graph beside each example. Dashed chords sit above the convex curve and below the concave curve; the cubic shows both relationships on different parts of the interval.
+| Answer | Illustrative function | Standard definition on D | Graph interpretation (paraphrase) |
+| --- | --- | --- | --- |
+| Convex | `f(x) = x²` | `f(z) ≤ t f(x) + (1 − t)f(y)` for every permitted x, y and t. | The graph lies on or below every chord. |
+| Concave | `f(x) = −x²` | `f(z) ≥ t f(x) + (1 − t)f(y)` for every permitted x, y and t. | The graph lies on or above every chord. |
+| Neither | `f(x) = x³` | Neither convex nor concave on D. | Some chords lie above the graph; others lie below it. |
+
+Show a labeled graph beside each example. Solid lines show the functions. Dashed lines join actual graph points: `(-1, 1)` to `(1, 1)` for x²; `(-1, -1)` to `(1, -1)` for −x²; and `(-1, -1)` to `(0, 0)` and `(0, 0)` to `(1, 1)` for x³.
+
+Each inequality must hold for every x, y and t above. Affine functions satisfy both; this evaluation excludes them.
 
 ### Speaker notes
 
-Begin with the drawings before introducing nested expressions. A chord joins any two points of a graph with a straight segment. A convex function stays on or below every such segment; a concave function stays on or above it. The condition must hold for every pair in the stated interval, not just the chord in the illustration. “Bowl” and “dome” are visual intuition, not a requirement to have a turning point or a global minimum/maximum.
+Begin with the drawings before introducing nested expressions. The formulas use the standard definitions, checked against [Stanford’s convex-functions lecture notes, slide 3–2](https://see.stanford.edu/materials/lsocoee364a/03ConvexFunctions.pdf#page=2) and the [official CVXPY curvature documentation](https://www.cvxpy.org/tutorial/dcp/index.html#curvature). The graph descriptions are paraphrases. The general definition requires a convex domain; the displayed interval D satisfies that requirement. The condition must hold for every permitted pair and weight, not just the selected chords in the drawings.
+
+Here z is a point between x and y. The right-hand side is the height of their chord at z. Convexity compares the function’s height with that chord height; concavity reverses the inequality. This is the definition, not a requirement to look like a bowl or dome.
 
 Nested expressions combine operations whose signs, ranges, and domains affect the final answer. Our task requires a label for the whole supplied interval. For example, `x³` is neither on `[-1, 1]`, but convex on `[0, 1]`.
 
@@ -52,17 +58,17 @@ The platform includes separately versioned task populations. Preserve their suit
 
 ### Three technical applications in mathematical optimization
 
-1. **Optimal control:** check a quadratic control objective together with its penalties and feasible region.
-2. **Inverse problems:** track curvature when a data-fitting loss is composed with a regularizer.
-3. **Resource allocation:** verify the objective and constraints before relying on a convex formulation.
+1. **Optimal control:** check whether a control cost and its constraints form a convex problem.
+2. **Inverse problems:** check whether adding a regularizer keeps a data-fitting objective convex.
+3. **Resource allocation:** check costs and capacity constraints before choosing a convex solver.
 
 ### Three everyday agent analogies
 
-1. **A travel-planning agent:** keep a connection-time requirement intact when rearranging an itinerary.
-2. **A customer-support agent:** apply a refund policy together with its nested eligibility exceptions.
-3. **A coding agent:** preserve scope and prerequisites when editing a conditional workflow.
+1. **A travel-planning agent:** leave enough time for connections when changing a flight plan.
+2. **A customer-support agent:** check a refund policy’s conditions and exceptions before approving a refund.
+3. **A coding agent:** keep a permission check in the right branch when editing code.
 
-**Applications and analogies. This evaluation measures curvature classification; transfer to these workflows remains untested.**
+**These examples explain why conditions matter. CoconutEval tests function classification. We have not tested whether its scores predict success in these workflows.**
 
 ### Speaker notes
 
@@ -72,26 +78,28 @@ The nontechnical examples make the dependency pattern familiar: an early conditi
 
 ## Slide 4 — How it works
 
-**We ask a small question. Every condition still counts.**
+**Verify, ask, and score.**
 
-1. **Certify the task:** generate a function and interval. Admit it only with reference evidence.
-2. **Ask the model:** send the expression and domain in three fresh trials. Hide reference labels and proofs.
-3. **Check every answer:** report macro-F1 and recall. Separate unusable replies from provider failures. Inspect wrong labels.
+1. **Verify the reference answer:** generate a function and interval. Verify its label before adding it to the evaluation.
+2. **Ask the model:** send the expression and interval in three fresh requests. Keep the reference answer and proof out of the prompt.
+3. **Score and inspect the answers:** report macro-F1 and each class’s recall. Track unusable replies and provider failures separately. Read the wrong answers.
 
-### A sign changes the shape
+### Where the minus sign sits matters
 
 | Expression on `[-1, 1]` | Reference label |
 | --- | --- |
 | `−(x − 1)²` | Concave |
 | `(−(x − 1))²` | Convex |
 
-Parentheses, operator scope, and the domain all belong to the task.
+Draw both functions beside their expressions, with axes and dashed chords. The first squares the term, then negates it. The second negates the term, then squares it.
 
-**The evidence so far:** four completed high/max frontier confirmation runs were label-perfect. Exploratory errors in older/non-frontier settings do not establish a frontier limitation.
+Examples on `[-1, 1]`. These are not measured model errors.
+
+**The evidence so far:** all labels were correct in four reviewed frontier-model confirmation runs. Some exploratory runs with older or non-frontier models had errors. We have not established a frontier-model limitation.
 
 ### Speaker notes
 
-The sign examples have second derivatives −2 and 2. They demonstrate what a scope error would change; do not describe them as actual failed model transcripts.
+The sign examples have second derivatives −2 and 2. They demonstrate what a scope error would change. Their labels follow from those derivatives; the sign of a function’s values alone does not establish curvature. Do not describe them as actual failed model transcripts.
 
 Use the retained [replication review](research/openai-replication-review-v1.md) as the evidence source. Its documented checkpoint records four completed high/max confirmation cells for the two predeclared frontier identities, each with 216 correct labels out of 216 and macro-F1 1. The valid wrong labels occurred in a smaller exploratory screen using older/non-frontier settings. Those observations do not establish that frontier models fail this task.
 
@@ -101,21 +109,23 @@ If newer results are used during the presentation, update this document and the 
 
 ## Slide 5 — Reading the score
 
-**A score starts the investigation.**
+**What does the score tell us?**
 
-### With a high score, look for
+Macro-F1 averages the F1 scores for convex, concave, and neither. A higher value means better classification on the tested tasks.
 
-1. **Distinguishes the classes:** gets convex, concave, and neither right rather than favoring one label.
-2. **Respects the stated domain:** recognizes `x³` as neither on `[-1, 1]`, and convex on `[0, 1]`.
-3. **Preserves operator scope:** distinguishes `−(x − 1)²` from `(−(x − 1))²`.
+### High score: verify these three things
 
-### With a low score, check for
+1. **All three classes are handled well:** check that recall is high for convex, concave, and neither.
+2. **The interval is used correctly:** check answers to tasks that depend on the interval’s endpoints.
+3. **The expression is read correctly:** check explanations for correct use of parentheses and minus signs.
 
-1. **Defaults to a label:** predicts neither even when the whole interval is certified convex.
-2. **Overlooks a condition:** misses a domain restriction or moves a minus sign outside its scope.
-3. **Fails the answer contract:** returns invalid JSON or runs out of output budget. Inspect these separately.
+### Low score: check these three causes
 
-Read the transcripts, class recall, and trial variation alongside the score. Results describe the tested suite and settings; general agent reliability remains a separate question.
+1. **One class is often missed:** check whether the model keeps choosing the same label.
+2. **The expression or interval is misread:** look for a missed restriction or a misplaced minus sign.
+3. **The reply cannot be scored as a label:** check for invalid JSON or a reply cut short by its output limit.
+
+Read the answers, per-class recall, and variation across trials. A high score alone does not prove correct reasoning or reliable agent behavior.
 
 **Explore CoconutEval** → `/evaluate`
 
@@ -129,7 +139,7 @@ Our scorer counts unusable returned answers against the corresponding reference 
 
 - White `#ffffff` canvas; black `#111111` text; gray `#585858` secondary type, `#dedede` rules, and `#ededed` coordinate grid.
 - Existing IBM Plex Sans for the narrative and IBM Plex Mono for labels/counts. System Georgia/Times for mathematical expressions. No new font or presentation dependency.
-- The signature visual is a restrained function-and-chord study. Other slides use readable columns, equations, and rules rather than decorative graphics.
+- Draw each teaching function beside its explanation, including both minus-sign examples. The shared SVG component samples the actual expressions on the stated interval, shows axes and selected chords, and provides a specific accessible graph description. The homepage and methodology use the same definition examples.
 - The shared coconut mascot is `apps/web/public/coconut.svg`. The pitch header renders it in grayscale to keep the deck monochrome; the main site uses its original brown shell.
 - Keep five slides, a centered opening, persistent bottom-right arrows, a slide counter, and keyboard navigation. Clamp navigation at the first and last slides. Keep the presentation separate from the workbench layout.
 - Preserve keyboard focus, readable narrow-screen layouts, and scrolling for dense slides. No animation is required.
@@ -147,6 +157,7 @@ Verified on 8 November 2026:
 - `bun run --filter @coconut/web test`: 58 tests passed.
 - `bun run --filter @coconut/web build`: passed; `/pitch` is statically generated.
 - Browser checks: all five slides at 1440×900, 1280×720, and 390×844; previous/next buttons, Left/Right boundaries, Home/End, Page Up/Page Down, and scroll reset. Dense slides scroll within the mobile viewport while controls remain available. Screenshots were inspected and the console had no application errors.
-- The introductory-shapes update adds three labeled curve/chord diagrams before the use cases. Its desktop/mobile screenshots were inspected, the full slide fits at 1280×720, and frontend lint/type checks/build and all 58 existing tests pass again.
+- The standard-definition update adds the quantified inequalities and a shared graph component for five teaching functions. Independent SVG checks covered all 405 sampled points, six chord endpoint pairs, their midpoint inequalities, and accessible labels. The homepage, methodology, and pitch use the same definition examples.
+- Updated pitch layouts fit at 1440×900 and 1280×720 without scrolling. Mobile slides scroll vertically without horizontal overflow, with navigation always visible. Updated homepage and methodology examples were checked on desktop and mobile.
 
 The preview uses port 3210 because the existing server on 3200 serves an earlier production build. The default application port remains 3200; restarting that server with the new build makes `/pitch` available there. No backend changes or paid model requests were needed. Native PowerPoint export and verification in other browser engines are outside this implementation.

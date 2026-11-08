@@ -1,7 +1,7 @@
 // Static pitch content; examples illustrate the task and are separate from measured results.
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { CurvatureSketch } from "./curvature-sketch";
+import { FunctionGraph } from "@/components/marketing/function-graph";
 import styles from "./pitch.module.css";
 
 function SlideHeading({ label, children }: { label: string; children: ReactNode }) {
@@ -11,7 +11,7 @@ function SlideHeading({ label, children }: { label: string; children: ReactNode 
 export function IntroductionSlide() {
   return (
     <div className={styles.introduction}>
-      <p className={styles.eyebrow}>A mathematical lens on model reasoning</p>
+      <p className={styles.eyebrow}>An evaluation of mathematical reasoning</p>
       <h1 className={styles.title}>CoconutEval<span>.</span></h1>
       <p className={styles.introCopy}>How well does a language model understand<br className={styles.desktopBreak} /> the shape of a function?</p>
       <div className={styles.functionStudy}>
@@ -26,51 +26,55 @@ export function IntroductionSlide() {
         </svg>
         <div className={styles.equation}><span>f(x) = x<sup>2</sup></span><span className={styles.equationDomain}>x ∈ [−1, 1]</span></div>
       </div>
-      <p className={styles.introFootnote}>One function. A stated domain. A verifiable answer.</p>
+      <p className={styles.introFootnote}>Classify the function as convex, concave, or neither on the given interval.</p>
     </div>
   );
 }
 
 export function TaskSlide() {
   return (
-    <div>
+    <div className={styles.definitionSlide}>
       <SlideHeading label="First, the shapes">Convex, concave, or neither.</SlideHeading>
-      <p className={styles.lead}>A chord is a straight line segment between two points on a curve. CoconutEval asks which relationship holds on the whole interval.</p>
+      <p className={styles.lead}>A chord is a straight line segment joining two points on a graph.</p>
+      <p className={styles.definitionSetup}>For a function f: D → ℝ, with D = [−1, 1], take any x, y ∈ D and t ∈ [0, 1]. Let z = tx + (1 − t)y.</p>
       <div className={styles.classificationGrid}>
         <article className={styles.classification}>
-          <span className={styles.mathIndex}>I</span><h3>Convex</h3>
-          <CurvatureSketch kind="convex" />
-          <p className={styles.sampleEquation}>x<sup>2</sup></p>
-          <p>Bowl-shaped: every chord lies on or above the curve.</p>
+          <h3>Convex</h3>
+          <p className={styles.sampleEquation}>f(x) = x<sup>2</sup></p>
+          <FunctionGraph kind="convex" className={styles.functionGraph} />
+          <p className={styles.definitionEquation}>f(z) ≤ tf(x) + (1 − t)f(y)</p>
+          <p>The graph lies on or below every chord.</p>
         </article>
         <article className={styles.classification}>
-          <span className={styles.mathIndex}>II</span><h3>Concave</h3>
-          <CurvatureSketch kind="concave" />
-          <p className={styles.sampleEquation}>−x<sup>2</sup></p>
-          <p>Dome-shaped: every chord lies on or below the curve.</p>
+          <h3>Concave</h3>
+          <p className={styles.sampleEquation}>f(x) = −x<sup>2</sup></p>
+          <FunctionGraph kind="concave" className={styles.functionGraph} />
+          <p className={styles.definitionEquation}>f(z) ≥ tf(x) + (1 − t)f(y)</p>
+          <p>The graph lies on or above every chord.</p>
         </article>
         <article className={styles.classification}>
-          <span className={styles.mathIndex}>III</span><h3>Neither</h3>
-          <CurvatureSketch kind="neither" />
-          <p className={styles.sampleEquation}>x<sup>3</sup></p>
-          <p>Here, the bend changes direction. Both conditions fail somewhere in the interval.</p>
+          <h3>Neither</h3>
+          <p className={styles.sampleEquation}>f(x) = x<sup>3</sup></p>
+          <FunctionGraph kind="neither" className={styles.functionGraph} />
+          <p className={styles.neitherDefinition}>Neither convex nor concave on D.</p>
+          <p>Some chords lie above the graph; others lie below it.</p>
         </article>
       </div>
-      <div className={styles.bottomNote}><span>All three examples use x ∈ [−1, 1]</span><span>Illustrations, separate from scored tasks</span></div>
+      <div className={styles.bottomNote}><span>Each inequality must hold for every x, y and t above.</span><span>Affine functions satisfy both; this evaluation excludes them.</span></div>
     </div>
   );
 }
 
 const technicalUseCases = [
-  { title: "Optimal control", detail: "Check a quadratic control objective together with its penalties and feasible region." },
-  { title: "Inverse problems", detail: "Track curvature when a data-fitting loss is composed with a regularizer." },
-  { title: "Resource allocation", detail: "Verify the objective and constraints before relying on a convex formulation." },
+  { title: "Optimal control", detail: "Check whether a control cost and its constraints form a convex problem." },
+  { title: "Inverse problems", detail: "Check whether adding a regularizer keeps a data-fitting objective convex." },
+  { title: "Resource allocation", detail: "Check costs and capacity constraints before choosing a convex solver." },
 ];
 
 const everydayUseCases = [
-  { title: "A travel-planning agent", detail: "Keep a connection-time requirement intact when rearranging an itinerary." },
-  { title: "A customer-support agent", detail: "Apply a refund policy together with its nested eligibility exceptions." },
-  { title: "A coding agent", detail: "Preserve scope and prerequisites when editing a conditional workflow." },
+  { title: "A travel-planning agent", detail: "Leave enough time for connections when changing a flight plan." },
+  { title: "A customer-support agent", detail: "Check a refund policy’s conditions and exceptions before approving a refund." },
+  { title: "A coding agent", detail: "Keep a permission check in the right branch when editing code." },
 ];
 
 export function RelevanceSlide() {
@@ -87,7 +91,7 @@ export function RelevanceSlide() {
           ))}
         </div>
         <div className={styles.useCaseColumn}>
-          <h3 className={styles.columnHeading}>The same dependency pattern in agents</h3>
+          <h3 className={styles.columnHeading}>Similar challenges for agents</h3>
           {everydayUseCases.map(({ title, detail }, index) => (
             <article className={styles.useCase} key={title}>
               <span className={styles.itemIndex}>0{index + 1}</span><div><h4>{title}</h4><p>{detail}</p></div>
@@ -95,21 +99,21 @@ export function RelevanceSlide() {
           ))}
         </div>
       </div>
-      <p className={styles.caveat}>Applications and analogies. This evaluation measures curvature classification; transfer to these workflows remains untested.</p>
+      <p className={styles.caveat}>These examples explain why conditions matter. CoconutEval tests function classification. We have not tested whether its scores predict success in these workflows.</p>
     </div>
   );
 }
 
 const methodSteps = [
-  { title: "Certify the task", detail: "Generate a function and interval. Admit it only with reference evidence." },
-  { title: "Ask the model", detail: "Send the expression and domain in three fresh trials. Hide reference labels and proofs." },
-  { title: "Check every answer", detail: "Report macro-F1 and recall. Separate unusable replies from provider failures. Inspect wrong labels." },
+  { title: "Verify the reference answer", detail: "Generate a function and interval. Verify its label before adding it to the evaluation." },
+  { title: "Ask the model", detail: "Send the expression and interval in three fresh requests. Keep the reference answer and proof out of the prompt." },
+  { title: "Score and inspect the answers", detail: "Report macro-F1 and each class’s recall. Track unusable replies and provider failures separately. Read the wrong answers." },
 ];
 
 export function MethodSlide() {
   return (
     <div>
-      <SlideHeading label="How it works">We ask a small question.<br />Every condition still counts.</SlideHeading>
+      <SlideHeading label="How it works">Verify, ask, and score.</SlideHeading>
       <div className={styles.methodGrid}>
         <ol className={styles.steps}>
           {methodSteps.map(({ title, detail }, index) => (
@@ -117,46 +121,55 @@ export function MethodSlide() {
           ))}
         </ol>
         <aside className={styles.scopeStudy}>
-          <p className={styles.eyebrow}>A sign changes the shape</p>
-          <div className={styles.scopeExample}><span>−(x − 1)<sup>2</sup></span><span>Concave</span></div>
-          <div className={styles.scopeExample}><span>(−(x − 1))<sup>2</sup></span><span>Convex</span></div>
-          <p>Parentheses, operator scope, and the domain all belong to the task.</p>
-          <p className={styles.studyCaption}>Illustrative expressions on [−1, 1]</p>
+          <p className={styles.eyebrow}>Where the minus sign sits matters</p>
+          <div className={styles.scopeExamples}>
+            <figure className={styles.scopeExample}>
+              <figcaption><span>−(x − 1)<sup>2</sup></span><span>Concave</span></figcaption>
+              <FunctionGraph kind="shifted-concave" className={styles.scopeGraph} />
+            </figure>
+            <figure className={styles.scopeExample}>
+              <figcaption><span>(−(x − 1))<sup>2</sup></span><span>Convex</span></figcaption>
+              <FunctionGraph kind="shifted-convex" className={styles.scopeGraph} />
+            </figure>
+          </div>
+          <p>The first squares the term, then negates it. The second negates the term, then squares it.</p>
+          <p className={styles.studyCaption}>Examples on [−1, 1]. These are not measured model errors.</p>
         </aside>
       </div>
-      <p className={styles.evidenceNote}><strong>The evidence so far</strong> Four completed high/max frontier confirmation runs were label-perfect. Exploratory errors in older/non-frontier settings do not establish a frontier limitation.</p>
+      <p className={styles.evidenceNote}><strong>The evidence so far</strong> All labels were correct in four reviewed frontier-model confirmation runs. Some exploratory runs with older or non-frontier models had errors. We have not established a frontier-model limitation.</p>
     </div>
   );
 }
 
 const strongSignals = [
-  { title: "Distinguishes the classes", detail: "Gets convex, concave, and neither right rather than favoring one label." },
-  { title: "Respects the stated domain", detail: "Recognizes x³ as neither on [−1, 1], and convex on [0, 1]." },
-  { title: "Preserves operator scope", detail: "Distinguishes −(x − 1)² from (−(x − 1))²." },
+  { title: "All three classes are handled well", detail: "Check that recall is high for convex, concave, and neither." },
+  { title: "The interval is used correctly", detail: "Check answers to tasks that depend on the interval’s endpoints." },
+  { title: "The expression is read correctly", detail: "Check explanations for correct use of parentheses and minus signs." },
 ];
 
 const failureSignals = [
-  { title: "Defaults to a label", detail: "Predicts neither even when the whole interval is certified convex." },
-  { title: "Overlooks a condition", detail: "Misses a domain restriction or moves a minus sign outside its scope." },
-  { title: "Fails the answer contract", detail: "Returns invalid JSON or runs out of output budget. Inspect these separately." },
+  { title: "One class is often missed", detail: "Check whether the model keeps choosing the same label." },
+  { title: "The expression or interval is misread", detail: "Look for a missed restriction or a misplaced minus sign." },
+  { title: "The reply cannot be scored as a label", detail: "Check for invalid JSON or a reply cut short by its output limit." },
 ];
 
 export function InterpretationSlide() {
   return (
     <div>
-      <SlideHeading label="Reading the score">A score starts<br />the investigation.</SlideHeading>
+      <SlideHeading label="Reading the score">What does the score tell us?</SlideHeading>
+      <p className={styles.scoreDefinition}>Macro-F1 averages the F1 scores for convex, concave, and neither. A higher value means better classification on the tested tasks.</p>
       <div className={styles.interpretationGrid}>
         <div>
-          <h3 className={styles.columnHeading}>With a high score, look for</h3>
+          <h3 className={styles.columnHeading}>High score: verify these three things</h3>
           {strongSignals.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
         <div>
-          <h3 className={styles.columnHeading}>With a low score, check for</h3>
+          <h3 className={styles.columnHeading}>Low score: check these three causes</h3>
           {failureSignals.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
       </div>
       <div className={styles.closing}>
-        <p>Read the transcripts, class recall, and trial variation alongside the score.<br />Results describe the tested suite and settings; general agent reliability remains a separate question.</p>
+        <p>Read the answers, per-class recall, and variation across trials.<br />A high score alone does not prove correct reasoning or reliable agent behavior.</p>
         <Link href="/evaluate">Explore CoconutEval <span aria-hidden="true">↗</span></Link>
       </div>
     </div>

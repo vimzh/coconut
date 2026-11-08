@@ -1,8 +1,25 @@
 // These public teaching examples are separate from the retained evaluation populations.
+import { FunctionGraph } from "@/components/marketing/function-graph";
+
 const examples = [
-  { expression: "x²", label: "Convex", reason: "Its second derivative is 2, positive throughout the interval." },
-  { expression: "−x²", label: "Concave", reason: "Its second derivative is −2, negative throughout the interval." },
-  { expression: "x³", label: "Neither", reason: "Its second derivative, 6x, is negative to the left of zero and positive to the right." },
+  {
+    kind: "convex", expression: "x²", label: "Convex",
+    definition: "The graph lies at or below every chord joining two graph points.",
+    condition: "f(z) ≤ t f(x) + (1 − t)f(y)",
+    reason: "For x², f″(x) = 2 > 0 throughout D, so it is convex.",
+  },
+  {
+    kind: "concave", expression: "−x²", label: "Concave",
+    definition: "The graph lies at or above every chord joining two graph points.",
+    condition: "f(z) ≥ t f(x) + (1 − t)f(y)",
+    reason: "For −x², f″(x) = −2 < 0 throughout D, so it is concave.",
+  },
+  {
+    kind: "neither", expression: "x³", label: "Neither",
+    definition: "Both definitions fail on D: the graph is above its left chord and below its right chord.",
+    condition: null,
+    reason: "For x³, f″(x) = 6x is negative on (−1, 0) and positive on (0, 1), so it is neither on D.",
+  },
 ] as const;
 
 export function CurvatureExamples() {
@@ -10,19 +27,28 @@ export function CurvatureExamples() {
     <div className="overflow-hidden rounded-xl border border-border bg-card">
       <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-border px-5 py-4 sm:px-6">
         <p className="text-sm font-medium">Illustrative examples</p>
-        <p className="font-mono text-sm text-muted-foreground">x ∈ [−1, 1]</p>
+        <p className="font-mono text-sm text-muted-foreground">D = [−1, 1]</p>
       </div>
-      <dl className="divide-y divide-border">
-        {examples.map(({ expression, label, reason }) => (
-          <div key={label} className="grid gap-3 px-5 py-5 sm:grid-cols-[96px_112px_minmax(0,1fr)] sm:items-baseline sm:px-6">
-            <dt className="font-mono text-2xl">{expression}</dt>
-            <dd className="font-medium">{label}</dd>
-            <dd className="text-sm leading-6 text-muted-foreground">{reason}</dd>
+      <p className="border-b border-border px-5 py-4 text-sm leading-6 text-muted-foreground sm:px-6">
+        For every x, y ∈ D and t ∈ [0, 1], set z = tx + (1 − t)y. The chord height at z is t f(x) + (1 − t)f(y).
+      </p>
+      <div className="divide-y divide-border">
+        {examples.map(({ kind, expression, label, definition, condition, reason }) => (
+          <div key={label} className="grid gap-4 px-5 py-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,200px)] sm:items-center sm:gap-6 sm:px-6">
+            <div>
+              <h3 className="flex flex-wrap items-baseline gap-x-4 gap-y-1 font-medium">
+                <span>{label}</span><span className="font-mono text-xl">f(x) = {expression}</span>
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{definition}</p>
+              {condition && <p className="mt-2 font-mono text-sm leading-6">{condition}</p>}
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{reason}</p>
+            </div>
+            <FunctionGraph kind={kind} className="mx-auto max-w-[320px]" />
           </div>
         ))}
-      </dl>
+      </div>
       <p className="border-t border-border px-5 py-4 text-xs leading-5 text-muted-foreground sm:px-6">
-        These examples explain the labels. They are separate from the tasks used to score models.
+        Solid lines show functions; dashed lines show selected chords. The derivative checks establish the labels on the whole interval. These examples are separate from the tasks used to score models.
       </p>
     </div>
   );
