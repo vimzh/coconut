@@ -1,6 +1,7 @@
 // Static pitch content; examples illustrate the task and are separate from measured results.
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { AnimatedGraph } from "@/components/marketing/animated-graph";
 import { FunctionGraph } from "@/components/marketing/function-graph";
 import styles from "./pitch.module.css";
 
@@ -15,15 +16,15 @@ export function IntroductionSlide() {
       <h1 className={styles.title}>CoconutEval<span>.</span></h1>
       <p className={styles.introCopy}>How well does a language model understand<br className={styles.desktopBreak} /> the shape of a function?</p>
       <div className={styles.functionStudy}>
-        <svg viewBox="0 0 480 156" role="img" aria-label="The convex curve y equals x squared, with a chord above the curve">
+        <AnimatedGraph curve="M60 22Q240 226 420 22" viewBox="0 0 480 156" role="img" aria-label="The convex curve y equals x squared, with a chord above the curve">
           <defs><pattern id="pitch-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#ededed" strokeWidth="1" /></pattern></defs>
           <rect width="480" height="156" fill="url(#pitch-grid)" />
           <path d="M20 124H460 M240 12V144" className={styles.axis} />
-          <path d="M60 22Q240 226 420 22" className={styles.curve} />
-          <path d="M126 83H354" className={styles.chord} />
-          <circle cx="126" cy="83" r="3.5" /><circle cx="354" cy="83" r="3.5" />
+          <path data-graph="curve" pathLength="1" d="M60 22Q240 226 420 22" className={styles.curve} />
+          <path data-graph="chord" d="M126 83H354" className={styles.chord} />
+          <circle data-graph="point" cx="126" cy="83" r="3.5" /><circle data-graph="point" cx="354" cy="83" r="3.5" />
           <text x="450" y="143">x</text><text x="249" y="19">f(x)</text>
-        </svg>
+        </AnimatedGraph>
         <div className={styles.equation}><span>f(x) = x<sup>2</sup></span><span className={styles.equationDomain}>x ∈ [−1, 1]</span></div>
       </div>
       <p className={styles.introFootnote}>Classify the function as convex, concave, or neither on the given interval.</p>

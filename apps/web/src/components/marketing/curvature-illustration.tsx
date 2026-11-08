@@ -1,4 +1,6 @@
 // A native curve and chord illustrate convexity without presenting a measured model result.
+import { AnimatedGraph } from "./animated-graph";
+
 function plotPoint(x: number) {
   return { x: 280 + 224 * x, y: 324 - 180 * Math.log1p(Math.exp(x * x)) };
 }
@@ -23,23 +25,23 @@ export function CurvatureIllustration() {
         <span className="font-mono text-sm sm:text-base">f(x) = log(1 + exp(x²))</span>
       </div>
 
-      <svg viewBox="0 0 560 420" role="img" aria-labelledby="curvature-plot-title curvature-plot-description" className="mt-4 block w-full">
+      <AnimatedGraph curve={curvePath(-1, 1)} viewBox="0 0 560 420" role="img" aria-labelledby="curvature-plot-title curvature-plot-description" className="mt-4 block w-full text-accent">
         <title id="curvature-plot-title">A convex curve on the closed interval from minus one to one</title>
         <desc id="curvature-plot-description">The natural logarithm of one plus the exponential of x squared sits below a dashed chord joining x equals minus 0.8 and 0.8. Its second derivative is positive throughout the interval. The drawing illustrates the chord condition; one pictured chord alone is not a global proof.</desc>
         <g fill="none" stroke="var(--border)" strokeWidth="1">
           <path d="M56 54H504M56 144H504M56 234H504" />
           <path d="M56 324H520M280 52V348" strokeWidth="1.5" />
         </g>
-        <path d={gap} fill="var(--accent)" opacity="0.07" />
-        <path d={chord} fill="none" stroke="var(--muted-foreground)" strokeWidth="2" strokeDasharray="8 8" />
-        <path d={curvePath(-1, 1)} fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" />
+        <g data-graph="area"><path d={gap} fill="var(--accent)" opacity="0.07" /></g>
+        <path data-graph="chord" d={chord} fill="none" stroke="var(--muted-foreground)" strokeWidth="2" strokeDasharray="8 8" />
+        <path data-graph="curve" pathLength="1" d={curvePath(-1, 1)} fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" />
         <g fill="var(--card)" stroke="var(--accent)" strokeWidth="2">
-          <circle cx={left.x} cy={left.y} r="5" />
-          <circle cx={right.x} cy={right.y} r="5" />
+          <circle data-graph="point" cx={left.x} cy={left.y} r="5" />
+          <circle data-graph="point" cx={right.x} cy={right.y} r="5" />
         </g>
         <g fill="var(--accent)">
-          <circle cx="56" cy={plotPoint(-1).y} r="4" />
-          <circle cx="504" cy={plotPoint(1).y} r="4" />
+          <circle data-graph="point" cx="56" cy={plotPoint(-1).y} r="4" />
+          <circle data-graph="point" cx="504" cy={plotPoint(1).y} r="4" />
         </g>
         <g className="fill-muted-foreground font-mono text-xl">
           <text x="56" y="360" textAnchor="middle">−1</text>
@@ -50,9 +52,9 @@ export function CurvatureIllustration() {
           <text x="256" y="240" textAnchor="end">0.5</text>
           <text x="528" y="332">x</text>
         </g>
-        <text x="108" y={left.y - 18} className="fill-muted-foreground text-xl">Chord</text>
-        <text x="400" y="210" className="fill-accent text-xl">Curve</text>
-      </svg>
+        <text data-graph="annotation" x="108" y={left.y - 18} className="fill-muted-foreground text-xl">Chord</text>
+        <text data-graph="annotation" x="400" y="210" className="fill-accent text-xl">Curve</text>
+      </AnimatedGraph>
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4 text-sm">
         <span className="font-medium text-accent">Convex throughout the interval</span>

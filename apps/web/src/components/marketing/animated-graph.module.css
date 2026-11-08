@@ -1,0 +1,65 @@
+/* Motion follows the actual SVG path; the completed graph stays still. */
+.graph {
+  --graph-delay: 0ms;
+  --graph-draw-duration: 1400ms;
+}
+
+.graph [data-graph="tracer"] { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .graph[data-motion="pending"] [data-graph="curve"] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .graph[data-motion="pending"] :is([data-graph="chord"], [data-graph="point"], [data-graph="area"], [data-graph="annotation"]) { opacity: 0; }
+
+  .graph[data-motion="playing"] [data-graph="curve"] {
+    stroke-dasharray: 1;
+    animation: draw var(--graph-draw-duration) linear var(--graph-delay) both;
+  }
+
+  .graph[data-motion="playing"] [data-graph="tracer"] {
+    animation: trace var(--graph-draw-duration) linear var(--graph-delay) both;
+  }
+
+  .graph[data-motion="playing"] [data-graph="chord"] {
+    animation: reveal 650ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--graph-delay) + var(--graph-draw-duration) - 150ms) both;
+  }
+
+  .graph[data-motion="playing"] [data-graph="point"] {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: mark 400ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--graph-delay) + var(--graph-draw-duration) + 250ms) both;
+  }
+
+  .graph[data-motion="playing"] :is([data-graph="area"], [data-graph="annotation"]) {
+    animation: appear 600ms ease-out calc(var(--graph-delay) + var(--graph-draw-duration) + 150ms) both;
+  }
+}
+
+@keyframes draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes trace {
+  0% { offset-distance: 0%; opacity: 0; }
+  8%, 92% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@keyframes reveal {
+  from { clip-path: inset(-10% 100% -10% -5%); }
+  to { clip-path: inset(-10% -5%); }
+}
+
+@keyframes mark {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

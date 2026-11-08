@@ -142,7 +142,8 @@ Our scorer counts unusable returned answers against the corresponding reference 
 - Draw each teaching function beside its explanation, including both minus-sign examples. The shared SVG component samples the actual expressions on the stated interval, shows axes and selected chords, and provides a specific accessible graph description. The homepage and methodology use the same definition examples.
 - The shared coconut mascot is `apps/web/public/coconut.svg`. The pitch header renders it in grayscale to keep the deck monochrome; the main site uses its original brown shell.
 - Keep five slides, a centered opening, persistent bottom-right arrows, a slide counter, and keyboard navigation. Clamp navigation at the first and last slides. Keep the presentation separate from the workbench layout.
-- Preserve keyboard focus, readable narrow-screen layouts, and scrolling for dense slides. No animation is required.
+- Animate the teaching graphs: a point traces each curve as it draws, followed by the dashed chord, endpoints, and any shaded region or annotation. Each sequence finishes within 2.2 seconds, then stays still. Replay when a graph returns after leaving the viewport or a pitch slide opens again. Axes and definitions stay in place. Reduced-motion settings show the complete static plot immediately.
+- Preserve keyboard focus, readable narrow-screen layouts, and scrolling for dense slides. Use the existing colors and typography for motion; add no animation dependency.
 
 ## Evidence and attribution
 
@@ -159,5 +160,7 @@ Verified on 8 November 2026:
 - Browser checks: all five slides at 1440×900, 1280×720, and 390×844; previous/next buttons, Left/Right boundaries, Home/End, Page Up/Page Down, and scroll reset. Dense slides scroll within the mobile viewport while controls remain available. Screenshots were inspected and the console had no application errors.
 - The standard-definition update adds the quantified inequalities and a shared graph component for five teaching functions. Independent SVG checks covered all 405 sampled points, six chord endpoint pairs, their midpoint inequalities, and accessible labels. The homepage, methodology, and pitch use the same definition examples.
 - Updated pitch layouts fit at 1440×900 and 1280×720 without scrolling. Mobile slides scroll vertically without horizontal overflow, with navigation always visible. Updated homepage and methodology examples were checked on desktop and mobile.
+- Graph animation checks: tracer positions match the plotted path at sampled progress points on all seven teaching graphs. Curve/chord/endpoint sequences finish with no running animations and retain the full static graph. Viewport exit/re-entry and pitch-slide return restart the sequence; mobile navigation stays visible.
+- Reduced-motion styles were verified through browser CSS media-rule simulation: complete curves, chords and endpoints remain visible, with no animation or tracer. Changing the operating-system motion preference and testing other browser engines remain unverified.
 
 The preview uses port 3210 because the existing server on 3200 serves an earlier production build. The default application port remains 3200; restarting that server with the new build makes `/pitch` available there. No backend changes or paid model requests were needed. Native PowerPoint export and verification in other browser engines are outside this implementation.

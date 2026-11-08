@@ -1,5 +1,6 @@
 // Sample the introductory functions and draw chords between actual graph points.
 import { cn } from "@/lib/utils";
+import { AnimatedGraph } from "./animated-graph";
 
 const graphs = {
   convex: {
@@ -39,17 +40,17 @@ export function FunctionGraph({ kind, className }: { kind: keyof typeof graphs; 
   const axisY = plotY(0);
 
   return (
-    <svg viewBox="0 0 320 180" role="img" aria-label={label} className={cn("block h-auto w-full text-foreground", className)}>
+    <AnimatedGraph curve={curve} viewBox="0 0 320 180" role="img" aria-label={label} className={cn("block h-auto w-full text-foreground", className)}>
       <g fill="none" stroke="currentColor" strokeWidth="1" opacity="0.25">
         <path d={`M24 ${axisY}H298M160 12V158`} />
         {[-1, 1].map((x) => <path key={x} d={`M${plotX(x)} ${axisY - 3}v6`} />)}
         {[min, max].filter((y) => y !== 0).map((y) => <path key={y} d={`M157 ${plotY(y)}h6`} />)}
       </g>
-      <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.5">
+      <g data-graph="chord" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.5">
         {chords.map(([left, right]) => <path key={left} d={`M${point(left)}L${point(right)}`} />)}
       </g>
-      <path d={curve} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      {endpoints.map((x) => <circle key={x} cx={plotX(x)} cy={plotY(evaluate(x))} r="3" fill="currentColor" />)}
+      <path data-graph="curve" pathLength="1" d={curve} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {endpoints.map((x) => <circle data-graph="point" key={x} cx={plotX(x)} cy={plotY(evaluate(x))} r="3" fill="currentColor" />)}
       <g fill="currentColor" className="font-mono text-[18px]" opacity="0.65">
         <text x="34" y={axisY + 24} textAnchor="middle">−1</text>
         <text x="170" y={axisY + 24}>0</text>
@@ -58,6 +59,6 @@ export function FunctionGraph({ kind, className }: { kind: keyof typeof graphs; 
         <text x="304" y={axisY + 6}>x</text>
         <text x="170" y="18">f(x)</text>
       </g>
-    </svg>
+    </AnimatedGraph>
   );
 }
