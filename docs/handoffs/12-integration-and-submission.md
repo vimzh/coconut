@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-Local product integration is implemented and verified at the retained checkpoints below. The original, replication, P5, remaining-model and failed standard-reserve studies have separate terminal reporting audits. Current-worktree QA and a separately frozen, active longer-deadline SDK diagnostic remain unfinished evidence. This is not an unrestricted readiness verdict: OpenRouter/Hugging Face live inference and a supported declared-frontier mathematical-failure finding remain unproven.
+Local product integration is implemented and verified at the retained checkpoints below. The original, replication, P5, remaining-model and failed standard-reserve studies have separate terminal reporting audits. Final source-bound local QA passed; the separately frozen, active longer-deadline SDK diagnostic still needs terminal reconciliation. This is not an unrestricted readiness verdict: OpenRouter/Hugging Face live inference and a supported declared-frontier mathematical-failure finding remain unproven.
 
 The current user instruction excludes deployment and hackathon submission materials. No hosted deployment, entry upload, code ZIP, video, or event-agreement action is part of this handoff. The [technical plan](../plans/12-integration-and-submission.md) records the scoped integration work.
 
@@ -30,7 +30,7 @@ Native 200% zoom, an operating-system reduced-motion override, other browser eng
 
 ## Software verification checkpoints
 
-The following are completed historical checkpoints, with their source/environment limits retained. The current-worktree QA pass has separate ownership and no new test count or pass is asserted by this documentation update. Commands run from the repository root:
+The following are completed historical checkpoints, with their source/environment limits retained. The final source-bound QA checkpoint is recorded separately below. Commands run from the repository root:
 
 | Check | Observed result |
 | --- | --- |
@@ -68,9 +68,17 @@ The separately versioned operator-only **600-second SDK diagnostic is now frozen
 
 G-MATH remains Go within the bounded mathematical contracts. OpenAI has live execution evidence; G-PROVIDERS remains unresolved for the other two services under the OpenAI-only development restriction. G-SIGNAL remains No-go for a supported declared-frontier mathematical-failure finding. Original/interrupted experiment-wide G-QUALITY remains No-go; suite-only offline Go and scoped completed-run audits do not override missing execution or unresolved outcome reviews. Exploratory/screening studies remain unranked with no eligible confidence interval. The original absolute absence condition remains unproved; unknown remote outcomes are neither correct answers nor free budget.
 
+## Final source-bound local verification
+
+The [final QA report](../research/final-product-verification-v2.md) and [structured evidence](../../apps/api/data/quality/final-product-verification-v2.json) retain the tested `210b12a` archive plus its complete 39-file overlay manifest. Product source/config/dependency/native inputs match the tested assembly through `955efb6`; later research data and documentation were not represented as executed software.
+
+A fresh frozen install, native environment, **719 API tests / 30,549 assertions**, **66 web tests**, **29 native tests**, Ruff, lint, type checks and sequential API/web production builds passed. An isolated built API returned all six suites, including reserve 18. A separately rebuilt local production frontend passed anonymous desktop checks for the home, evaluator, methodology and leaderboard; reserve/max showed 18 tasks, depths 17/23, three trials, 54 requests and a 16,384-token cap, with no console entries or 1280px overflow. Isolated services were stopped, and existing services/private storage were untouched.
+
+This pass used no credentials, remote inference or publication. Production 390px resizing and screenshots could not be verified because of browser-host limitations; the coordinator's separate dev/HMR 390px observation is explicitly supplemental. Non-OpenAI live inference, hosted/TLS/proxy behavior and deployment remain unverified. These software checks neither complete the active diagnostic nor establish G-SIGNAL.
+
 ## Remaining evidence before final reconciliation
 
-1. Finish and record the separate current-worktree QA pass with its actual source identity, commands and outcomes; the historical counts above do not certify concurrent changes.
+1. Preserve the source-bound final QA evidence and its explicit browser, provider and hosting gaps; later source changes require applicable verification.
 2. Settle and independently audit the active 600-second SDK diagnostic as its own population, preserving all 108 planned trials and the earlier eight unknown sends. Do not resume, overwrite or pool the failed standard study.
 3. Reassess applicable scientific gates from that bounded evidence without weakening D-12 or turning format, truncation, infrastructure or label/conclusion inconsistencies into a proved mathematical-reasoning failure.
 4. Keep OpenRouter/Hugging Face live inference explicitly unverified until a separately authorized service check establishes it. Deployment and submission/material preparation remain excluded.
