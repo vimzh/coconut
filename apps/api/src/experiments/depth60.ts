@@ -25,6 +25,12 @@ const paths = (study: Depth60Study) => { const { stem } = configuration(study); 
 const sha = (text: string) => createHash("sha256").update(text).digest("hex");
 const json = async (path: URL) => JSON.parse(await readFile(path, "utf8"));
 export interface Depth60Row { readonly modelId: string; readonly caseId: string; readonly trialIndex: number; dispatched: boolean; result: InferenceResult | null }
+export function isDepth60ModelOutcome(result: InferenceResult | null): boolean {
+  return result !== null && result.inferenceRequests === 1 && result.failure === null && ["answer", "invalid", "refused", "truncated"].includes(result.evidence.outcome.kind);
+}
+export function countDepth60UnknownSends(rows: readonly Depth60Row[]): number {
+  return rows.filter(row => row.dispatched && (!row.result || row.result.failure?.remoteOutcome === "unknown" || row.result.failure === null && !isDepth60ModelOutcome(row.result))).length;
+}
 interface Depth60Report { readonly modelId: string; readonly report: Awaited<ReturnType<typeof scoreEvaluation>> }
 interface PilotResult { readonly methodId: string; readonly manifestSha256: string; readonly inferenceRequests: number; readonly cumulativeConservativeRequests: number; readonly rows: readonly Depth60Row[]; readonly reports: readonly Depth60Report[] }
 
@@ -179,7 +185,7 @@ export async function runDepth60Pilot(credentialInput: string, study: Depth60Stu
       });
       row.result = await infer({ selection: { provider: "openai", modelId: row.modelId, servingProvider: null, profileId: "one-shot-json-v1", verification: "metadata" },
         prompt: buildPrompt(entry.reference, "one-shot-json-v1"), acceptCharges: true }, credential, signal);
-      if (row.result.failure) controller.abort();
+      if (!isDepth60ModelOutcome(row.result)) controller.abort();
       await save(`${row.modelId}-${suite.cases.indexOf(entry)}-${row.trialIndex}.json`, row);
     } catch (error) { controller.abort(); throw error; }
   };
@@ -202,8 +208,8 @@ export async function runDepth60Pilot(credentialInput: string, study: Depth60Stu
     const result = { version: "1", methodId: manifest.methodId, finishedAt: new Date().toISOString(), manifestSha256: sha(JSON.stringify(manifest)), inferenceRequests: sends,
       cumulativeConservativeRequests: config.prior + sends, concurrency, rateLimitEvidence: headers, rows, reports, interpretation: manifest.interpretation };
     try { await save("result.json", result); } catch { failed = true; }
-    const incomplete = failed || signal.aborted || rows.some(row => !row.result || row.result.failure !== null) || reports.some(row => row.report.overall.classification.population.status !== "complete");
-    const summary = { ...result, state: incomplete ? "interrupted" : "settled", unknownRemoteInferenceRequests: rows.filter(row => row.dispatched && (!row.result || row.result.failure?.remoteOutcome === "unknown")).length,
+    const incomplete = failed || signal.aborted || rows.some(row => !isDepth60ModelOutcome(row.result)) || reports.some(row => row.report.overall.classification.population.status !== "complete");
+    const summary = { ...result, state: incomplete ? "interrupted" : "settled", unknownRemoteInferenceRequests: countDepth60UnknownSends(rows),
       rows: rows.map(({ modelId, caseId, trialIndex, dispatched, result }) => ({ modelId, caseId, trialIndex, dispatched,
       resultSha256: result ? sha(JSON.stringify(result)) : null, outcome: result?.evidence.outcome.kind ?? (dispatched ? "unavailable" : "unattempted"), failure: result?.failure ?? null })) };
     await exportDepth60Summary(targets.progress, summary, credential, incomplete);

@@ -5,9 +5,10 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
+import { createInferenceClient, type InferenceResult } from "../inference";
 import { buildPrompt } from "../protocol";
 import { qualityDataHash } from "../quality";
-import { assertDepth60Manifest, checkDepth100Gate, checkDepth60PriorPilot, checkDepth60Suite, createDepth60Manifest, DEPTH60_ADDITIONAL_MODELS, DEPTH60_MODELS, depth60Concurrency, depth60Dispatch, depth60Rows, exportDepth60Summary, runDepth60Pool } from "./depth60";
+import { assertDepth60Manifest, checkDepth100Gate, checkDepth60PriorPilot, checkDepth60Suite, countDepth60UnknownSends, createDepth60Manifest, DEPTH60_ADDITIONAL_MODELS, DEPTH60_MODELS, depth60Concurrency, depth60Dispatch, depth60Rows, exportDepth60Summary, isDepth60ModelOutcome, runDepth60Pool } from "./depth60";
 import { validateFrozenSuite } from "../suites";
 import type { FrozenSuite } from "../suites/types";
 
@@ -124,4 +125,27 @@ test("retains incomplete summaries before unsuccessful exit and refuses unsafe o
     expect(JSON.parse(await readFile(file, "utf8"))).toEqual(summary);
     const unsafe = pathToFileURL(join(directory, "unsafe.json")); await expect(exportDepth60Summary(unsafe, { secret: credential }, credential, true)).rejects.toThrow("Unsafe"); expect(await Bun.file(unsafe).exists()).toBe(false);
   } finally { await rm(directory, { recursive: true, force: true }); }
+});
+
+test("stops before persistence for excluded provider states even with no failure and counts their sends as unknown", async () => {
+  for (const status of ["queued", "in_progress", "incomplete", "cancelled"]) {
+    const controller = new AbortController(), rows = depth60Rows(suite); let posts = 0, persisted = 0;
+    await runDepth60Pool(rows, 1, controller.signal, async row => {
+      const infer = createInferenceClient(async (url, init) => {
+        if (init.method === "GET") return Response.json({ id: new URL(url).pathname.split("/").at(-1), object: "model" });
+        posts++; row.dispatched = true;
+        return Response.json({ model: row.modelId, status, output: [], max_output_tokens: 4096, truncation: "disabled" });
+      });
+      row.result = await infer({ selection: { provider: "openai", modelId: row.modelId, servingProvider: null, profileId: "one-shot-json-v1", verification: "metadata" }, prompt: buildPrompt(suite.cases.find(entry => entry.id === row.caseId)!.reference, "one-shot-json-v1"), acceptCharges: true }, "synthetic-depth60-stop-fixture-123456789", controller.signal);
+      expect(row.result.failure).toBe(null); expect(row.result.inferenceRequests).toBe(1);
+      if (!isDepth60ModelOutcome(row.result)) controller.abort();
+      expect(controller.signal.aborted).toBe(true); await Promise.resolve(); persisted++;
+    });
+    expect(posts).toBe(1); expect(persisted).toBe(1); expect(rows.filter(row => row.result === null)).toHaveLength(53);
+    expect(countDepth60UnknownSends(rows)).toBe(1);
+    const result = rows[0].result!;
+    const knownNotSent: InferenceResult = { ...result, inferenceRequests: 0, failure: { code: "permission-denied", remoteOutcome: "not-sent", message: "Controlled fixture." } };
+    expect(isDepth60ModelOutcome(knownNotSent)).toBe(false); expect(countDepth60UnknownSends([{ ...rows[0], result: knownNotSent }])).toBe(0);
+    for (const kind of ["answer", "invalid", "refused", "truncated"] as const) expect(isDepth60ModelOutcome({ ...result, evidence: { ...result.evidence, outcome: { ...result.evidence.outcome, kind } } } as InferenceResult)).toBe(true);
+  }
 });
