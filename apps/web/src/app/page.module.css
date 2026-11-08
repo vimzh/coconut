@@ -1,37 +1,69 @@
-/* Sage paper, worn ivory corners, and uneven grain are confined to the landing page. */
+/* Dense green grain lives behind white type across the landing surface and its panels. */
 .paper {
-  --background: #dfe7cf;
-  --foreground: #23352b;
-  --card: #eff2e1;
-  --card-foreground: #23352b;
-  --primary: #2d4936;
-  --primary-foreground: #f6f4e7;
-  --muted: #d4dec5;
-  --muted-foreground: #485b45;
-  --accent: #356343;
-  --border: #b8c7ac;
-  --ring: #356343;
+  color-scheme: dark;
+  --background: #3c704a;
+  --foreground: #fffdf7;
+  --card: #315d3e;
+  --card-foreground: #fffdf7;
+  --primary: #174c2d;
+  --primary-foreground: #fffdf7;
+  --secondary: #2e5b3b;
+  --secondary-foreground: #fffdf7;
+  --muted: #285636;
+  --muted-foreground: #fffdf7;
+  --accent: #fffdf7;
+  --accent-foreground: #174c2d;
+  --border: #e9f4df66;
+  --input: #e9f4df80;
+  --ring: #fffdf7;
+  --paper-texture: url("/noise.svg");
+  --policy-badge-background: #214e30;
+  --policy-badge-ink: #fffdf7;
+  --policy-restricted-background: #173f28;
+  --policy-restricted-ink: #fffdf7;
   background-image:
-    radial-gradient(ellipse 62% 68% at 0% 0%, #f6f1df, transparent),
-    radial-gradient(ellipse 52% 60% at 100% 0%, #f4f0de, transparent),
-    radial-gradient(ellipse 60% 62% at 100% 100%, #f6f1df, transparent),
-    radial-gradient(ellipse 48% 56% at 0% 100%, #f3efdc, transparent);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
+    var(--paper-texture),
+    radial-gradient(ellipse at 50% 35%, #41764b, #366440);
+  background-blend-mode: soft-light, normal;
+  background-attachment: scroll, fixed;
+  background-size: 192px 192px, 100vw 100vh;
 }
 
 .paper > header {
   background-color: transparent;
 }
 
-.landing::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 40;
-  pointer-events: none;
-  background-image: url("/noise.svg");
-  background-repeat: repeat;
-  opacity: 0.2;
-  mix-blend-mode: multiply;
+.landing {
+  color: var(--foreground);
+}
+
+.paper :global(.bg-card):not(header) {
+  background-image: var(--paper-texture);
+  background-size: 192px 192px;
+  background-blend-mode: soft-light;
+}
+
+.paper [data-slot="button"]:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.paper > header img {
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fffdf7;
+  padding: 2px;
+}
+
+.paper svg text {
+  fill: var(--foreground);
+}
+
+.paper svg :global(.font-mono) {
+  opacity: 1;
+}
+
+.paper ::selection {
+  background: #fffdf7;
+  color: #174c2d;
 }
