@@ -2,6 +2,7 @@
 
 // A standalone presentation shell with bounded keyboard and button navigation.
 import { Children, useEffect, useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -44,7 +45,7 @@ export function PitchDeck({ children, titles }: { children: ReactNode; titles: r
   return (
     <div className={styles.deck}>
       <header className={styles.header}>
-        <Link href="/" className={styles.wordmark}>CoconutEval<span className={styles.wordmarkDot}>.</span></Link>
+        <Link href="/" className={styles.wordmark}><Image src="/coconut.svg" width={36} height={36} alt="" className={styles.logo} /><span>CoconutEval<span className={styles.wordmarkDot}>.</span></span></Link>
         <span className={styles.headerNote}>A study in compositional reasoning</span>
         <Link href="/evaluate" className={styles.headerLink}>Open evaluation <ArrowRight size={14} aria-hidden="true" /></Link>
       </header>

@@ -9,6 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Coconut",
   description: "Measure how language models classify mathematical curvature. Inspect every task, answer, and score.",
+  icons: { icon: "/coconut.svg" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

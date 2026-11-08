@@ -1,39 +1,57 @@
 // A native curve and chord illustrate convexity without presenting a measured model result.
+function plotPoint(x: number) {
+  return { x: 280 + 224 * x, y: 324 - 180 * Math.log1p(Math.exp(x * x)) };
+}
+
+function curvePath(min: number, max: number) {
+  return Array.from({ length: 81 }, (_, index) => {
+    const point = plotPoint(min + (max - min) * index / 80);
+    return `${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
+  }).join(" ");
+}
+
+const left = plotPoint(-0.8);
+const right = plotPoint(0.8);
+const chord = `M${left.x} ${left.y}H${right.x}`;
+const gap = `${curvePath(-0.8, 0.8)}L${left.x} ${left.y}Z`;
+
 export function CurvatureIllustration() {
   return (
     <figure className="rounded-xl border border-border bg-card p-4 sm:p-6">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <span className="text-sm text-muted-foreground">Illustrative function</span>
-        <span className="font-mono text-lg">f(x) = x²</span>
+        <span className="font-mono text-sm sm:text-base">f(x) = log(1 + exp(x²))</span>
       </div>
 
       <svg viewBox="0 0 560 420" role="img" aria-labelledby="curvature-plot-title curvature-plot-description" className="mt-4 block w-full">
         <title id="curvature-plot-title">A convex curve on the closed interval from minus one to one</title>
-        <desc id="curvature-plot-description">The graph of x squared sits below a dashed chord joining two points on the curve. This diagram illustrates the chord condition; the second derivative, two, establishes convexity over the whole interval.</desc>
+        <desc id="curvature-plot-description">The natural logarithm of one plus the exponential of x squared sits below a dashed chord joining x equals minus 0.8 and 0.8. Its second derivative is positive throughout the interval. The drawing illustrates the chord condition; one pictured chord alone is not a global proof.</desc>
         <g fill="none" stroke="var(--border)" strokeWidth="1">
-          <path d="M56 84H504M56 204H504" />
+          <path d="M56 54H504M56 144H504M56 234H504" />
           <path d="M56 324H520M280 52V348" strokeWidth="1.5" />
         </g>
-        <path d="M100.8 170.4H459.2Q280 477.6 100.8 170.4Z" fill="var(--accent)" opacity="0.07" />
-        <path d="M100.8 170.4H459.2" fill="none" stroke="var(--muted-foreground)" strokeWidth="2" strokeDasharray="8 8" />
-        <path d="M56 84Q280 564 504 84" fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" />
+        <path d={gap} fill="var(--accent)" opacity="0.07" />
+        <path d={chord} fill="none" stroke="var(--muted-foreground)" strokeWidth="2" strokeDasharray="8 8" />
+        <path d={curvePath(-1, 1)} fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" />
         <g fill="var(--card)" stroke="var(--accent)" strokeWidth="2">
-          <circle cx="100.8" cy="170.4" r="5" />
-          <circle cx="459.2" cy="170.4" r="5" />
+          <circle cx={left.x} cy={left.y} r="5" />
+          <circle cx={right.x} cy={right.y} r="5" />
         </g>
         <g fill="var(--accent)">
-          <circle cx="56" cy="84" r="4" />
-          <circle cx="504" cy="84" r="4" />
+          <circle cx="56" cy={plotPoint(-1).y} r="4" />
+          <circle cx="504" cy={plotPoint(1).y} r="4" />
         </g>
         <g className="fill-muted-foreground font-mono text-xl">
           <text x="56" y="360" textAnchor="middle">−1</text>
           <text x="280" y="360" textAnchor="middle">0</text>
           <text x="504" y="360" textAnchor="middle">1</text>
-          <text x="256" y="92" textAnchor="end">1</text>
+          <text x="256" y="60" textAnchor="end">1.5</text>
+          <text x="256" y="150" textAnchor="end">1</text>
+          <text x="256" y="240" textAnchor="end">0.5</text>
           <text x="528" y="332">x</text>
         </g>
-        <text x="108" y="148" className="fill-muted-foreground text-xl">Chord</text>
-        <text x="400" y="300" className="fill-accent text-xl">Curve</text>
+        <text x="108" y={left.y - 18} className="fill-muted-foreground text-xl">Chord</text>
+        <text x="400" y="210" className="fill-accent text-xl">Curve</text>
       </svg>
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4 text-sm">
@@ -41,7 +59,7 @@ export function CurvatureIllustration() {
         <span className="font-mono text-muted-foreground">x ∈ [−1, 1]</span>
       </div>
       <figcaption className="mt-3 text-xs leading-5 text-muted-foreground">
-        Illustration only, separate from evaluated suites. For x², every chord lies on or above the curve.
+        Illustration only, separate from evaluated suites. Natural log; the second derivative is positive throughout the interval.
       </figcaption>
     </figure>
   );

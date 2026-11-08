@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Coconut</title>
+  <desc id="description">A tilted coconut with a bent straw, a raised eyebrow, and a crooked grin.</desc>
+  <g transform="rotate(-9 40 41)" stroke="#191816" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m50 27 5-14h11" stroke-width="7"/>
+    <path d="m50 27 5-14h11" stroke="#fff" stroke-width="3"/>
+    <path d="M11 27c1 23 11 41 29 41s28-18 29-41" fill="#A87349" stroke-width="3.5"/>
+    <ellipse cx="40" cy="27" rx="29" ry="11" fill="#fff" stroke-width="3.5"/>
+    <ellipse cx="40" cy="27" rx="21" ry="5" fill="#A87349" stroke-width="2.5"/>
+    <path d="M22 39q6-6 13-1" stroke-width="3"/>
+    <ellipse cx="28" cy="47" rx="5.5" ry="6.5" fill="#fff" stroke-width="2.5"/>
+    <path d="M43 46q6-6 12-1c-1 7-10 9-12 1Z" fill="#fff" stroke-width="2.5"/>
+    <circle cx="30" cy="48" r="2.5" fill="#191816" stroke="none"/>
+    <circle cx="50" cy="47" r="2.5" fill="#191816" stroke="none"/>
+    <path d="M33 57q10 6 20-3m-1-1 4 2" stroke-width="3"/>
+    <path d="m18 49 3 2m2 7 3 2" stroke-width="2.5"/>
+  </g>
+</svg>

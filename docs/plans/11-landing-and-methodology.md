@@ -42,3 +42,11 @@ The required Unslop review is applied in order: spacing, color, icons, copy, typ
 5. Record exact outcomes and remaining browser/integration/provider/performance limits in `docs/handoffs/11-landing-and-methodology.md`. Link destinations may be implemented concurrently; verify them against the final integrated app before claiming completion.
 
 No paid calls, provider/environment-key reads, deployment or commits belong to this workstream. No low-value snapshot test is added for static copy; the smoke check must instead verify headings, CTA destinations, illustration labeling, supported suite/settings facts, and absence of unsupported/prohibited claims.
+
+## Follow-up: richer illustration and coconut branding
+
+The user requests a more involved homepage function and a funny coconut logo. Replace only the hero illustration with `log(1 + exp(x²))` on `[-1,1]`; introductory teaching examples remain simple. For `s = exp(x²)/(1 + exp(x²))`, independently differentiating gives `f'' = 2s + 4x²s(1-s) > 0`. Check this reference through the existing native certifier and redraw the curve, chord endpoints, gap fill, and axis labels from the same displayed function. Floating-point drawing samples illustrate the certified property; they are not the proof.
+
+Add an original transparent SVG coconut mascot at `apps/web/public/coconut.svg`. Integrate it into `AppShell` and the pitch header using Next.js Image. Keep the existing wordmarks, interfaces, palette, layouts, and navigation. The asset is the playful accent; no animation, gradients, extra dependencies, or generated bitmap is needed. This explicit follow-up authorizes the small shared-header edits excluded from the original module scope.
+
+Verify mathematical certification, rendered curve/label agreement, logo loading and small-size legibility, homepage/pitch desktop and narrow layouts, and frontend lint/type checks/tests/build. Update the module handoff with actual outcomes and commit this cohesive checkpoint under the current repository instructions. This follow-up makes no inference request or measured capability claim.

@@ -1,5 +1,6 @@
 // Shared navigation and content landmarks for the evaluation workbench and public reports.
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -33,6 +34,7 @@ export function AppShell({ activePage, children, className }: AppShellProps) {
             aria-label="Coconut home"
             className="inline-flex items-center gap-3 rounded-md outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
+            <Image src="/coconut.svg" width={40} height={40} alt="" className="shrink-0" />
             <span className="text-lg font-medium">Coconut</span>
             <span className="hidden border-l border-border pl-3 text-sm text-muted-foreground sm:inline">
               Convexity evaluation

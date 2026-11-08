@@ -130,6 +130,7 @@ Our scorer counts unusable returned answers against the corresponding reference 
 - White `#ffffff` canvas; black `#111111` text; gray `#585858` secondary type, `#dedede` rules, and `#ededed` coordinate grid.
 - Existing IBM Plex Sans for the narrative and IBM Plex Mono for labels/counts. System Georgia/Times for mathematical expressions. No new font or presentation dependency.
 - The signature visual is a restrained function-and-chord study. Other slides use readable columns, equations, and rules rather than decorative graphics.
+- The shared coconut mascot is `apps/web/public/coconut.svg`. The pitch header renders it in grayscale to keep the deck monochrome; the main site uses its original brown shell.
 - Keep five slides, a centered opening, persistent bottom-right arrows, a slide counter, and keyboard navigation. Clamp navigation at the first and last slides. Keep the presentation separate from the workbench layout.
 - Preserve keyboard focus, readable narrow-screen layouts, and scrolling for dense slides. No animation is required.
 
