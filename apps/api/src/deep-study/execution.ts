@@ -11,8 +11,9 @@ import { acquireStudyLock, writeArtifact } from "../randomized/artifacts";
 import { scorePanelRows } from "../randomized/pilot";
 import { readBoundedFile, SOURCE_REVISION } from "../randomized/source";
 import type { ImportedCase, PanelResult } from "../randomized/types";
-import { loadPopulationCases, replayPopulation } from "./population";
+import { loadPopulationCases, type PopulationBundle } from "./population";
 import { CONTROL_EXPRESSION } from "./population-diagnostics";
+import { populationSnapshotSha256 } from "./snapshot";
 import { assertStudy, createRows, freezeStudy, hasModelOutcome, reconstructReport, validatePopulation, type CompatibilityControl, type DeepReceipt, type DeepRow, type DeepStudy, type ReferenceReview } from "./study";
 import { buildDeepRequestBody, DEEP_MODELS, DEEP_SETTINGS, executeDeepAttempt, type DeepModelId } from "./transport";
 
@@ -109,24 +110,30 @@ async function loadControls(): Promise<readonly CompatibilityControl[]> {
 export async function freezeFinalStudy(populationPath: string, reviewPath: string): Promise<DeepStudy> {
   await ensurePrivate(); const release = await acquireStudyLock(DEEP_ROOT);
   try {
-    const population = await replayPopulation(resolve(populationPath));
+    const snapshotBefore = await populationSnapshotSha256(resolve(populationPath));
+    const population = await read<PopulationBundle>(resolve(populationPath));
     if (population.state !== "ready") throw new Error("The 800-case population is incomplete; final evaluation cannot freeze.");
     const cases = await loadPopulationCases(resolve(populationPath)); validatePopulation(cases);
     const review = await read<ReferenceReview>(reviewPath);
     if (Date.parse(review.checkedAt) < Date.parse(population.createdAt)) throw new Error("The reference review predates the completed population.");
     const study = freezeStudy({ frozenAt: new Date().toISOString(), populationPath: resolve(populationPath), populationSha256: sha256(population),
+      populationSnapshotSha256: snapshotBefore,
       sourceId: SOURCE_REVISION, implementationSha256: await implementationSha256(), referenceReview: review,
       controls: await loadControls(), accounting: await priorAccounting() }, cases);
+    if (await populationSnapshotSha256(resolve(populationPath)) !== snapshotBefore) throw new Error("The reviewed population changed during final freeze.");
     await retain(join(DEEP_ROOT, "study.json"), study); return study;
   } finally { await release(); }
 }
 
 async function boundStudy() {
-  const study = await read<DeepStudy>(join(DEEP_ROOT, "study.json")), population = await replayPopulation(study.populationPath);
-  if (sha256(population) !== study.populationSha256 || !sameData(await priorAccounting(), study.accounting)) throw new Error("The frozen population or prior shared send accounting changed.");
+  const study = await read<DeepStudy>(join(DEEP_ROOT, "study.json")), snapshotBefore = await populationSnapshotSha256(study.populationPath);
+  const population = await read<PopulationBundle>(study.populationPath);
+  if (sha256(population) !== study.populationSha256 || snapshotBefore !== study.populationSnapshotSha256
+    || !sameData(await priorAccounting(), study.accounting)) throw new Error("The frozen population, retained source bytes or prior shared send accounting changed.");
   const cases = await loadPopulationCases(study.populationPath); assertStudy(study, cases, await implementationSha256());
   const controls = await loadControls();
   if (!sameData(controls, study.controls)) throw new Error("The frozen compatibility controls changed.");
+  if (await populationSnapshotSha256(study.populationPath) !== snapshotBefore) throw new Error("The reviewed population changed while loading the frozen study.");
   return { study, cases };
 }
 

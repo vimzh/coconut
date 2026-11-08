@@ -55,8 +55,10 @@ const controlTask: ImportedCase = { ...cases[0], id: "synthetic-control", expres
 const controls: CompatibilityControl[] = DEEP_MODELS.map(model => ({ modelId: model.modelId, metadata: metadata(model.modelId), task: controlTask,
   dispatchSha256: sha256({ fixtureControlDispatch: model.modelId }), result: { ...attempt(model.modelId, "convex"), startedAt: "2026-11-08T00:00:00.000Z", finishedAt: "2026-11-08T00:00:01.000Z" } }));
 const input: Parameters<typeof freezeStudy>[0] = { frozenAt, populationPath: "synthetic-fixtures/population.json", populationSha256: sha256({ fixturePopulation: cases }),
+  populationSnapshotSha256: sha256("synthetic-retained-population-files"),
   sourceId: "synthetic-source-fixture", implementationSha256: sha256("synthetic-implementation"),
   referenceReview: { verdict: "pass", reviewer: "Synthetic protocol fixture only", checkedAt: "2026-11-08T00:05:00.000Z",
+    populationSnapshotSha256: sha256("synthetic-retained-population-files"),
     populationSha256: sha256({ fixturePopulation: cases }), caseBindingsSha256: sha256(caseBindings(cases)) },
   controls, accounting: { priorDevelopmentSends: 2, priorUnknownRemote: 1, priorEvidenceSha256: sha256("synthetic-prior-evidence"), probeSends: 3 } };
 const study = freezeStudy(input, cases);
@@ -103,6 +105,7 @@ it("binds review, accounting, implementation, settings, population order and mod
     value => ({ ...value, id: "changed" }), value => ({ ...value, frozenAt: "2026-11-08T00:11:00.000Z" }),
     value => ({ ...value, caseBindingsSha256: sha256("changed") }), value => ({ ...value, requestBindingsSha256: sha256("changed") }),
     value => ({ ...value, populationSha256: sha256("changed") }), value => ({ ...value, implementationSha256: sha256("changed") }),
+    value => ({ ...value, populationSnapshotSha256: sha256("changed") }),
     value => ({ ...value, referenceReview: { ...value.referenceReview, reviewer: "changed" } }),
     value => ({ ...value, accounting: { ...value.accounting, priorEvidenceSha256: sha256("changed") } }),
     value => ({ ...value, budget: { ...value.budget, maxConcurrency: 11 } } as unknown as DeepStudy),

@@ -16,6 +16,7 @@ export const STUDY_BUDGET = { finalSends: 2400, developmentSends: 30, sharedSend
 
 export interface ReferenceReview {
   readonly populationSha256: string;
+  readonly populationSnapshotSha256: string;
   readonly caseBindingsSha256: string;
   readonly verdict: "pass";
   readonly reviewer: string;
@@ -35,6 +36,7 @@ export interface DeepStudy {
   readonly frozenAt: string;
   readonly populationPath: string;
   readonly populationSha256: string;
+  readonly populationSnapshotSha256: string;
   readonly sourceId: string;
   readonly implementationSha256: string;
   readonly referenceReview: ReferenceReview;
@@ -74,8 +76,9 @@ export function freezeStudy(input: Omit<DeepStudy, "id" | "version" | "methodId"
   cases: readonly ImportedCase[]): DeepStudy {
   validatePopulation(cases);
   const binding = sha256(caseBindings(cases)), review = input.referenceReview;
-  if (![input.populationSha256, input.implementationSha256, input.accounting.priorEvidenceSha256, review.populationSha256, review.caseBindingsSha256].every(value => HASH.test(value))
-    || review.verdict !== "pass" || review.populationSha256 !== input.populationSha256 || review.caseBindingsSha256 !== binding || !review.reviewer.trim()
+  if (![input.populationSha256, input.populationSnapshotSha256, input.implementationSha256, input.accounting.priorEvidenceSha256, review.populationSha256, review.populationSnapshotSha256, review.caseBindingsSha256].every(value => HASH.test(value))
+    || review.verdict !== "pass" || review.populationSha256 !== input.populationSha256 || review.populationSnapshotSha256 !== input.populationSnapshotSha256
+    || review.caseBindingsSha256 !== binding || !review.reviewer.trim()
     || !instant(review.checkedAt) || Date.parse(review.checkedAt) > Date.parse(input.frozenAt) || !instant(input.frozenAt) || Date.parse(input.frozenAt) > Date.now()
     || !input.sourceId.trim() || !input.populationPath.trim() || input.accounting.priorDevelopmentSends !== 2 || input.accounting.priorUnknownRemote !== 1 || input.accounting.probeSends !== 3)
     throw new Error("The population, reference review, implementation or shared accounting is not bound to this study.");
