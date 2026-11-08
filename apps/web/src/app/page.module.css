@@ -1,0 +1,12 @@
+/* A static grain layer covers the landing viewport, including its shared header and footer. */
+.landing::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background-image: url("/noise.svg");
+  background-repeat: repeat;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
