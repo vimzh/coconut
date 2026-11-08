@@ -60,6 +60,8 @@ Retain returned answer content and the information needed to apply D-02. Preserv
 
 Record requested and reported identities under D-07, generation settings, elapsed time, returned usage, and relevant completion information. Unreported usage and pricing remain unknown. Avoid inventing token totals, effective settings, cost estimates, or serving identities. Separate provider failure evidence from the mathematical verdict that module 04 will later score.
 
+For module 04 diagnostics and module 09 reporting, preserve provider-reported input/output/reasoning-token fields separately with their semantics, missing-field states, attempt identity, and elapsed time. Retain actual billed cost when supplied, or the nonsecret usage/pricing evidence needed for a labeled estimate. Reasoning tokens must never be inferred from explanation text. Supply this evidence to module 08 for the first integrated metric reports.
+
 ### Cancellation, timeouts, and retry
 
 Resolve D-08 using observed service behavior. Define when a request is considered started, finished, timed out, or cancellation requested. Cancellation may not prove the remote computation stopped; expose that uncertainty and any returned usage instead of declaring zero cost.

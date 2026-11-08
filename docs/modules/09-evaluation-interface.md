@@ -2,7 +2,7 @@
 
 ## Status
 
-Dependent
+Dependent — implemented and locally browser-verified; external-provider limits remain explicit. See the [handoff](../handoffs/09-evaluation-interface.md).
 
 ## Type
 
@@ -66,6 +66,24 @@ Present overall and by-depth results using D-05, alongside model/provider identi
 
 Keep invalid answers and provider failures visible. Avoid presenting partial results as eligible complete comparisons. Publication controls and confirmations must match D-09; leaderboard qualification remains 10's responsibility.
 
+### Reporting interface and charts
+
+Use **Next.js** in `apps/web` and **shadcn/ui** for reporting controls, tables, and chart components. Reuse existing components and styling conventions; add only the components needed by this module. Follow the current [shadcn/ui chart documentation](https://ui.shadcn.com/docs/components/chart) when implementing, and record any required dependency/setup changes in the technical plan.
+
+Apply **`/frontend-design`** to establish a deliberate evaluation-dashboard layout before implementation. Apply **`/unslop`** to refine the implemented interface and review its spacing, palette, typography, copy, chart hierarchy, and interaction details. These skills are required for this module's frontend work. Preserve the project's restrained visual language: clear hierarchy, limited colors, no gradients, glows, decorative blobs, or gratuitous animation.
+
+Make the charts a central part of result inspection:
+
+- A prominent macro-F1-versus-depth line chart, with selectable comparable model/profile series and exact values in tooltips.
+- Per-class recall curves and a confusion-matrix heatmap with labeled cells and counts/rates.
+- Token-usage and trial-agreement trends by depth, plus compact outcome-distribution bars and latency/cost summaries where evidence exists.
+
+Show units, legends, sample counts, comparison identity, and available trial spread. Plot measured depth positions accurately, preserve missing values as gaps, and avoid smoothing or axes that imply unmeasured performance. Keep class/series colors consistent and distinguish series through labels or line styles as well as color. Filters must preserve comparison boundaries and keep charts, tables, and exports synchronized.
+
+Provide readable tables alongside charts, keyboard-accessible controls, visible focus states, responsive layouts, and reduced-motion support. Empty, loading, failed, incomplete, unavailable, and not-applicable states must be distinguishable. Use real retained results; synthetic fixtures belong only in clearly identified development/test views and must never appear as measured leaderboard results.
+
+Build these charts and reporting views in this module, consuming module 04 calculations through module 08. Coordinate reusable chart components with module 10; module 13 audits the result without rebuilding it.
+
 ## User Experience
 
 A visitor can finish the journey without internal implementation knowledge. A restrained interface uses consistent terminology, clear hierarchy, readable feedback, and a documented supported browser/viewport reference.
@@ -76,6 +94,8 @@ A visitor can finish the journey without internal implementation knowledge. A re
 
 ## Technical Plan Required Before Coding
 
+Include shadcn/ui setup, shared chart/component ownership with module 10, the `/frontend-design` direction, the `/unslop` refinement pass, and screenshot/browser verification.
+
 Inspect the repository and create `docs/plans/09-evaluation-interface.md`. Identify architecture, affected files, interfaces, dependencies, failure handling, tests, and exact build, lint, type-check, test, and run commands. Preserve existing component conventions where compatible with the requested journey.
 
 ## Deliverables
@@ -84,12 +104,15 @@ The usable evaluation journey, resolved D-11, browser verification evidence, err
 
 ## Completion Criteria
 
+- Reporting views use Next.js and shadcn/ui, include the required charts, and complete `/frontend-design` and `/unslop` passes.
 - Users can complete the supported connection-to-results journey.
 - Workload, credential lifetime, completeness, and publication behavior are understandable before they matter.
 - Every visible progress or score claim agrees with retained evidence.
 - Required interactions work in the decided browser and viewport conditions.
 
 ## Validation
+
+Verify charts against scorer outputs and corresponding tables, including filters, tooltips, missing-value gaps, empty/error states, narrow viewports, keyboard interaction, and reduced motion. Capture and inspect rendered screenshots after the design and refinement passes.
 
 Exercise normal completion, missing/revoked credentials, empty and failed search, unsupported selections, invalid setup, duplicate launch, cancellation, interruption, provider failure, partial results, and unavailable saved records. Check keyboard access, narrow-view readability, and credential absence in visible errors and records. Paid runs need an authorized budget.
 

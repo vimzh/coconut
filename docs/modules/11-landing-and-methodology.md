@@ -2,7 +2,7 @@
 
 ## Status
 
-Dependent
+Dependent — implemented and production/browser-verified within documented scope. See the [handoff](../handoffs/11-landing-and-methodology.md).
 
 ## Type
 
@@ -57,6 +57,9 @@ Explain nesting through an approved example of one operation within another. Sho
 Describe reference validation and its limits. Uncertainty or failure of a sufficient mathematical check does not establish neither. Explain that models receive the task and domain without reference labels or validation evidence.
 
 ### Execution, scoring, and interpretation
+
+Explain the metric report already implemented in module 04 and presented by 09/10, including macro-F1, accuracy, class recall, diagnostic populations, and missing-data limits. No metric or chart integration is deferred to module 13.
+
 
 Explain D-02 and D-03's reasoning methods, answer behavior, trials, and generation limits. Describe classification of returned answers and treatment of invalid responses, refusals, truncation, and provider errors.
 

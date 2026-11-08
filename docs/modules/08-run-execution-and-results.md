@@ -2,7 +2,7 @@
 
 ## Status
 
-Dependent
+Dependent — local implementation and review verified; full live experiment evidence in progress. See the [handoff](../handoffs/08-run-execution-and-results.md).
 
 ## Type
 
@@ -53,6 +53,8 @@ Retain enough evidence to reconstruct the task, visible prompt, returned answer,
 Resolve saved-run access, visibility, retention, explicit publication behavior, and interrupted-record handling in D-09. Explain whether and how a visitor can return to a record and what happens when credentials must be entered again. If continuation is permitted, preserve completed work and identity; if it is not, report that limit clearly. Do not rerun paid work or publish results through an implicit recovery path.
 
 Provide underlying answers and depth/trial breakdowns using 04's policy. Incomplete runs retain visible incompleteness and cannot acquire a complete score or leaderboard eligibility by losing failed records. Public visibility follows D-09; ranking remains subject to D-10.
+
+Preserve the evidence required by module 04 diagnostics and module 09 reporting: per-instance/trial outcomes, exact model-visible expression and prompt, measured depth, attempt-level usage, timing/cost coverage, and run wall time/concurrency. Local expression-token counts require tokenizer identity/version and must remain distinct from provider prompt usage. If future approved methods produce checkable intermediate steps, retain their order and identities; the current one-shot protocol has no step trace. Missing evidence must remain unavailable rather than trigger paid reruns for reporting.
 
 ### Establish G-SIGNAL honestly
 

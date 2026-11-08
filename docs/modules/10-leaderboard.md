@@ -2,7 +2,7 @@
 
 ## Status
 
-Dependent
+Dependent — implemented and verified against actual public reports, fixtures and local production browsers. See the [handoff](../handoffs/10-leaderboard.md).
 
 ## Type
 
@@ -63,6 +63,9 @@ Resolve how multiple eligible runs of the same model and comparison profile are 
 Resolve ordering for equal scores and how the agreed spread or uncertainty information is shown. Do not imply a meaningful performance difference solely from incidental display order or tiny differences unsupported by the protocol. Preserve per-depth interpretation and identify which comparisons the evidence can support.
 
 ### Public states and evidence
+
+Use module 04's complete metric report, with macro-F1 as the headline classification measure and D-10 governing ranking. Build in the existing Next.js app with shadcn/ui, applying `/frontend-design` and `/unslop`. Reuse chart components and design tokens coordinated with module 09 rather than creating a second chart system.
+
 
 Give visitors enough explanation to identify a comparison group, understand its score, and inspect supporting results permitted by the publication policy. With no eligible entries, show the actual empty state and qualification rules. Failed loading must be distinguishable from no results. Examples, placeholders, and unverified manual values must never appear as measured entries.
 

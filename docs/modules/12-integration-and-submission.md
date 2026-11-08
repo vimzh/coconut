@@ -2,7 +2,7 @@
 
 ## Status
 
-Dependent
+Dependent — local product integration in progress. Deployment and hackathon submission/material preparation are excluded by the current user instruction; the historical entry requirements below remain contextual. See the [current plan](../plans/12-integration-and-submission.md).
 
 ## Type
 
@@ -24,6 +24,7 @@ Readiness depends on the evaluation interface, leaderboard, and landing page bei
 
 - Completed [09 Evaluation interface](09-evaluation-interface.md), [10 Leaderboard](10-leaderboard.md), and [11 Landing and methodology](11-landing-and-methodology.md) with all prerequisite handoffs.
 - Go verdicts for G-MATH, every promised service under G-PROVIDERS, and G-SIGNAL.
+- Completed [14 Benchmark quality and pitfall remediation](14-benchmark-quality-and-pitfall-remediation.md), resolved D-12, and G-QUALITY Go with critical defects repaired and affected artifacts revalidated. Numbering does not place this gate after packaging.
 - Resolved D-01 through D-11 where required by the implemented product.
 - Current [hackathon.md](../../hackathon.md) and access to the authenticated challenge instructions before packaging is finalized.
 
@@ -115,6 +116,8 @@ Cover the ordinary journey, empty and incompatible catalogs, invalid/revoked cre
 Record the plan path, implemented artifacts, gate/decision status, exact commands and outcomes, tested environments, reproduction evidence, package and video locations, verified event requirements, known limitations, and remaining user actions. Include no credential material.
 
 ## Dependencies and Handoff
+
+[Module 13](13-f1-metrics-and-final-reporting.md) audits the completed reporting and submission evidence after this module. Metrics and charts must already be implemented by modules 04 and 09; include them in this integration pass and the prepared artifacts. Module 13 introduces no second implementation or routine repackaging pass.
 
 The user receives a reviewable runnable project and prepared entry materials. Any remaining blocked check, missing recording, live-service limitation, or authenticated-instruction uncertainty must be stated precisely. Actual submission and any separately authorized publication are later actions.
 
