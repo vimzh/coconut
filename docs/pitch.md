@@ -8,7 +8,11 @@ Now take x cubed. From minus one to one, it's neither convex nor concave. From z
 
 CoconutEval tests whether a language model can keep those details straight as expressions get more complicated. Every sign, set of parentheses, and domain restriction can affect the answer.
 
-That decision matters in mathematical optimization. Engineers use convexity when choosing solvers and deciding which guarantees apply. If a model gets the curvature wrong, it can recommend an unsuitable approach or claim a guarantee the problem does not support.
+That decision matters when choosing optimization methods for allocating resources, controlling a system, or fitting a model to data. Curvature helps determine which solvers and guarantees apply. A wrong classification can lead to an unsuitable method or an unjustified guarantee.
+
+Now let's put that in nontechnical terms. Imagine a store policy: a refund is allowed within 30 days if the item is unopened or arrived damaged. A customer opens a damaged delivery and requests a refund on day 12. Rejecting it just because it was opened misses the damage exception.
+
+In programming terms, think of nested if/else logic. You have to keep the full rule intact: within 30 days, and either unopened or damaged. That's an analogy for tracking conditions. CoconutEval's actual test is mathematical function classification; we haven't measured whether its scores predict success in these other workflows.
 
 Our confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
 
