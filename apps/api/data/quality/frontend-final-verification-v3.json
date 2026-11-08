@@ -1,0 +1,75 @@
+{
+  "verification": "incremental isolated frontend verification for ModelScores landing replacement",
+  "verdict": "VERIFIED WITH GAPS",
+  "scope": {
+    "trackedHead": "28c50bcd07c9fb477b98c864cfb6188bccef28d6",
+    "baseAssembly": "git archive of tracked HEAD with the specified frontend WIP overlay and four specified deletions",
+    "excluded": ["AGENTS.md", ".env files", "private data", "root .next", "root node_modules", "root virtual environments"],
+    "overlayManifestSha256": "947970469b5831289d5e4c736b1946e93d17e16ba178e9164f5591d7527e2aad",
+    "overlayEntries": [
+      {"path":"apps/web/src/app/page.tsx","sha256":"9fb0b19b6521372bc21d32fc84cbdbd2dc8a7b6fb715c3143907c4fb6edb21e9"},
+      {"path":"apps/web/src/app/page.module.css","sha256":"2c9b7236be6dad60457db72e34b7ae485a232e41c1aac60ac4acc55818546fdd"},
+      {"path":"apps/web/src/components/marketing/model-scores.tsx","sha256":"5edf27f5439c713c83c9a2a1e8fadc85438d119726c42427be491005db7f6eef"},
+      {"path":"apps/web/src/components/marketing/model-scores.module.css","sha256":"d5c0157afb3ba319d33e66e767f54db9af31c4cbeacd97e60013dd483624ed1c"},
+      {"path":"apps/web/src/lib/landing-scores.ts","sha256":"f9cd7804851f3fccb9743ebb8646e54372a27d6a7975308ae00fe5259b1fc11e"},
+      {"path":"apps/web/src/lib/landing-scores.test.ts","sha256":"f98f0b72ac521848181b1c5b662fc006de2b0dc3e81a17488a6e0ceee53e981b"},
+      {"path":"apps/web/public/landing-scores.json","sha256":"09294835f07e512f863db4bd69e08a5cd98f77708f20dbbaf0264337dd2f5f7d"},
+      {"path":"scripts/export-landing-scores.ts","sha256":"a4df485449e66a36a331f8ecde2ad956b46e50f86c099ad259cafb8b904eec10"},
+      {"path":"apps/web/src/components/marketing/model-directory.module.css","status":"deleted"},
+      {"path":"apps/web/src/components/marketing/model-directory.tsx","status":"deleted"},
+      {"path":"apps/web/src/lib/model-directory.test.ts","status":"deleted"},
+      {"path":"apps/web/src/lib/model-directory.ts","status":"deleted"}
+    ],
+    "stability": "An initial WIP snapshot was superseded after model-scores source and CSS changed during QA. The final overlay remained stable for ten seconds before capture and exactly matched current root paths after all final checks."
+  },
+  "environment": {
+    "bun": "1.4.4 (38afee6c8)",
+    "commandEnvironment": "env -i with PATH=/Users/vanshgaur/.bun/bin:/usr/local/bin:/usr/bin:/bin, TMPDIR=/tmp, CI=1; no provider credential variables",
+    "dependencies": "Copied from prior fresh frozen isolated install only after package.json, apps/web/package.json, apps/api/package.json, and bun.lock compared identical; no install or lockfile change occurred.",
+    "externalCalls": false
+  },
+  "behaviorCoverage": [
+    {"behavior":"The home page imports the replacement score component while the old directory component and its test/library files are absent.","evidence":"Final overlay manifest; production build completed.","status":"verified automatically"},
+    {"behavior":"The score projection maintains a fixed 45-model lineup, five fixed settings, deterministic earliest complete selection, and exact archived score/source identity.","evidence":"landing-scores.test.ts ran as part of 67 passing web tests; its four assertions include reproduced projected scores, identities, and source hashes.","status":"verified automatically"},
+    {"behavior":"The modified web application lint/typechecks and produces all seven Next routes.","evidence":"Final isolated lint, Next typegen/typecheck, and production build exited 0.","status":"verified automatically"},
+    {"behavior":"Rendered score-table layout, keyboard horizontal-scroll usability, downloadable asset HTTP behavior, and responsive visual appearance.","evidence":"No browser/server run in this incremental verification.","status":"unverified"}
+  ],
+  "checks": [
+    {"command":"bun 1.4.4 run --filter @coconut/web test","exit":0,"result":"67 passed, 0 failed, six files, 1.239s"},
+    {"command":"bun 1.4.4 run --filter @coconut/web lint","exit":0,"result":"clean"},
+    {"command":"bun 1.4.4 run --filter @coconut/web typecheck","exit":0,"result":"Next route types generated and TypeScript check completed"},
+    {"command":"bun 1.4.4 run --filter @coconut/web build","exit":0,"result":"Next 16.4.5 production build compiled, typechecked, and generated seven routes"}
+  ],
+  "diagnostics": [
+    {"event":"First temporary snapshot reused root node_modules as a symlink.","outcome":"Lint exit 127 and Turbopack build exit 1 because workspace binaries and Next package resolved outside that snapshot. This is an isolated dependency-layout error, not a product failure."},
+    {"event":"First coherent WIP snapshot changed during checks.","outcome":"Its results were superseded; final checks used the later stable hash-bound snapshot."},
+    {"event":"An intermediate check resolved Bun 1.4.3.","outcome":"Superseded by the explicit Bun 1.4.4 final command set above."}
+  ],
+  "postVerificationObservation": {
+    "observedAtSameTrackedHead": "28c50bcd07c9fb477b98c864cfb6188bccef28d6",
+    "finalValidationHead": "34150fb5e45f8d4491e186412914237f4dc7fcf8",
+    "firstQualifierEdit": {
+      "modelScoresSourceSha256": "ef2e41208d9a12d9b2eb9a582144968939c988f2b01015b3723299ceab17147f",
+      "observedCopyPrefix": "Screening is exploratory and unranked.",
+      "status": "unexecuted and superseded"
+    },
+    "secondQualifierEdit": {
+      "modelScoresSourceSha256": "06dd72933e7384c073b6eb24784b470eef7f30850da657fb8291f3fc4bb6a555",
+      "observedCopy": "Screening is exploratory and unranked. Runs counts archived published evaluations across all settings. — means no completed run for that setting.",
+      "status": "unexecuted static observation; the later clause removal was reported to follow an external semantic audit"
+    },
+    "stability": "The affected ModelScores, score-library, score-test, and public-score paths were unchanged for a 10-second observation window.",
+    "scopeChange": "After the final tested overlay, concurrent owner changes also appeared in apps/web/package.json, bun.lock, page source/CSS, app-shell, and a new landing-background component; tracked HEAD later advanced to finalValidationHead. They are outside the tested manifest; no additional run was started against that moving scope."
+  },
+  "gaps": [
+    "No browser, production server, responsive visual, keyboard-scroll, or HTTP download observation for the changed landing page.",
+    "The latest ModelScores copy hash and broader concurrent frontend WIP are not covered by a fresh lint/type/build run; the final executed commands cover only the manifest above.",
+    "No API/native test rerun: those sources and dependency inputs were outside this frontend-only change and were not part of this execution.",
+    "No provider credential, inference, paid request, private data, or root service was accessed."
+  ],
+  "workspaceEffects": {
+    "rootProductEdits": "none",
+    "createdByQA": ["apps/api/data/quality/frontend-final-verification-v3.json", "docs/research/frontend-final-verification-v3.md"],
+    "retainedTemporaryEvidence": ["/tmp/coconut-frontend-v3-current.PzVjLg", "/tmp/coconut-frontend-v3-current-overlay.manifest", "/tmp/coconut-frontend-v3-bun144-test.log", "/tmp/coconut-frontend-v3-bun144-lint.log", "/tmp/coconut-frontend-v3-bun144-typecheck.log", "/tmp/coconut-frontend-v3-bun144-build.log"]
+  }
+}
