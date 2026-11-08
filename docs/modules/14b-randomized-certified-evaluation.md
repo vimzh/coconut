@@ -45,33 +45,44 @@ Reject candidates outside the recorded D/D+1 rule rather than pretending the req
 
 Choose the first admitted, nonduplicate candidates in a predeclared ordinal/quota policy, within finite proposal bounds. Retain failures/rejections and acceptance counts. Do not choose final cases by Astra correctness. Parameter/domain/sign variants and significant shared cores remain related groups. A different seed or hash does not establish independent mathematics. Track development exposure and check final/pilot overlap conservatively; do not claim structural generalization or contamination-free data.
 
-## Small Astra Development Pilot — D-16
+## Adaptive Astra Development Search — D-16
+
+This replaces the earlier fixed 24-question/eight-depth pilot; it does not add another pilot budget. A verified error below 512 is useful. The initial requested depth is **216**, followed by **512**, then **1000** only if each earlier completed panel contains three valid correct labels.
 
 | Item | Frozen rule |
 | --- | --- |
 | Model | Requested ID `gpt-6-astra`, with successful inference access and reported identity retained. |
-| Population | **24 admitted development questions: one convex, one concave and one neither at each of the eight requested depths.** These are separate from the final 800. |
-| Selection | Fix seeds, candidate order, admission/quota rules and every pilot case before reading any Astra pilot answer. Do not hand-pick known model failures. |
-| Responses | One fresh independent request per question, one attempt, zero automatic retries. Complete the frozen pilot rather than stopping at its first wrong answer. |
-| Budget | 24 pilot sends count inside the existing shared 30-send development allowance. At most six sends remain for inference compatibility probes or separately recorded development work; not six automatic replacements. Metadata-only reads are not inference. |
-| Settings | Freeze a verified supported reasoning profile, output ceiling and deadlines before dispatch. Use a strong supported Astra effort, preserve unsupported/unknown settings, and do not lower compute or time limits to induce failures. |
-| Concurrency | At most 12 aggregate active inference requests across the pilot and any coordinated development work. Reconcile all earlier/concurrent sends first. |
-| Evidence | Persist dispatch receipts before sends, retain every reply/outcome/settings/usage and record exact prompt/source/reference hashes. |
-| Scores | Accuracy, macro-F1, confusion counts and full planned/completed/model-outcome coverage. Report 24 questions as a development pilot, not an 800-case result. |
+| Panel | Three independently admitted fresh development questions at each queried depth: one convex, one concave and one neither. One response per question, zero retries. Complete each panel before its decision. |
+| Initial path | Query 216. If its panel is all correct, query 512. If that panel is also all correct, query 1000. An independently verified wrong valid label at 216 gives an initial signal without requiring a deeper error. |
+| Interval exploration | If a higher panel has a verified error and a previously queried lower panel was all correct, investigate that candidate interval using new panels. For the 512–1000 interval, query 750 first, matching the user's proposed coarse midpoint. Otherwise use `floor((L+H)/2)`. Update L on a complete all-correct panel or H on a panel with a verified wrong valid label. |
+| Maximum work | At most **nine depth panels × three questions = 27 search sends**, plus at most **three inference compatibility/probe sends**, all within the existing shared **30-send development allowance**. Prior development/probe sends consume this allowance; fewer panels may remain. |
+| Stop rules | Stop when a 216 panel supplies a verified error; when the initial path through 1000 is all correct; when a candidate interval is at most 16 requested-depth units wide; at nine panels; or when the remaining budget cannot fund an entire panel. Never exceed requested depth 1000 under this design. |
+| Inconclusive panel | Only panels with three valid labels can establish all-correct or error endpoints. Invalid/refused/truncated responses, infrastructure/missing work, unsupported input limits, or unresolved reference defects stop the search for diagnosis. Independently verified point errors in an otherwise inconclusive panel remain reportable, but do not justify interval updates. Do not silently retry or escalate because a score is below 100. |
+| Selection | Freeze source, seeds/ordinal schedule, class quotas, candidate limits, depth-selection algorithm, settings and stop rules before the first response. Before each adaptive panel, freeze all three references and prompts. Next depth may depend only on the recorded search rule, not hand-picked equations. |
+| Settings | Freeze a strong verified supported Astra reasoning profile, output ceiling and deadlines. Keep them consistent throughout the search; do not induce failure by lowering compute or time limits. A settings change creates a separately identified study and does not reset the budget. |
+| Concurrency | At most 12 aggregate active inference requests across coordinated development work; do not launch dependent depth panels before the preceding panel is settled and reviewed. |
+| Evidence | Persist dispatch receipts before sends. Retain every panel, reply, score, source/reference hash, settings/usage record, rejected candidate and next-depth/stop decision. |
+| Scores | Accuracy, macro-F1, class counts and planned/completed/model-outcome coverage for each three-question panel and the full adaptive development population. Denominators are the actual frozen panels, not the former 24 or the final 800. |
 
-All 24 actual references and the complete input/budget checks must pass before pilot inference. If a stratum cannot be admitted or cannot fit the supported input limits, report the pilot incomplete/unsupported; any smaller design is a named amendment frozen before its own calls, not a silent substitution.
+### How to interpret interval narrowing
 
-### Pilot decision
+This is **adaptive exploratory interval narrowing**, not a proven binary search for a threshold. Binary search would require a monotonic predicate; a model making an error on one three-question panel is not such a predicate. Different functions, small panels and one-response variability can produce an error at a shallower depth and all-correct answers deeper. Record any such inversion; stop narrowing and report the observed pattern rather than deleting the inconvenient panel or claiming a unique minimum failure depth.
+
+Here “all correct at L” means only that the three retained questions at L were answered correctly. It does not establish competence at L or below. An error at H establishes only the independently checked observed counterexample(s), not failure on every question at H or above. The 16-unit stopping width is a work-control choice, not statistical resolution or a confidence interval.
+
+Requested depth 1000 and its possible realized 1001 are **new feasibility targets**, not supported by the earlier smoke checks through 512. Check bounded generation, recursion/structure size, exact-domain references, parsing/rendering, context fit and request/read limits before querying any new depth. Report unavailable support without padding depth, truncating the expression or inventing a certificate.
+
+### Development decision
 
 | Observation | Decision and allowed claim |
 | --- | --- |
-| Complete pilot, score below 100, at least one wrong valid label whose reference/domain and visible response are independently rechecked, with no unresolved grading/configuration defect | **Pilot signal found.** Report the exact observed counterexample(s) and proceed toward Phase 15's fresh population. This is the MVP's small-pilot signal, not repeated-error or general-reliability evidence. |
-| Score below 100 solely because of truncation, refusal, malformed output or service/missing work | Diagnose budget, format or infrastructure. No mathematical-failure signal; incomplete work cannot be called a complete score. |
-| Any reference, rendering, domain, extraction or request-construction defect | Repair the defect, retain exposed outcomes and version any new pilot. Do not count an incorrect reference as a model failure. |
-| Complete pilot with all correct labels | Record 100 and no observed classification limitation. Do not discard successes, conceal the result or repeatedly regenerate until a favorable failure appears. |
-| Partial/unsupported pilot | Preserve every send and outcome, report missing coverage, and make no complete-pilot finding. |
+| A complete correctly configured panel has a wrong valid label whose exact expression/domain/reference and visible reply are independently rechecked | **Initial pilot signal found.** At 216 this is enough to stop the search; after deeper escalation the bounded interval exploration may characterize a candidate region. Report all panels and the actual counterexample(s), not a universal failure threshold. |
+| A score is below 100 solely because of output formatting, refusal, truncation or missing/service work | Diagnose it; no mathematical-failure endpoint or signal follows. |
+| A reference, domain, rendering, extraction or request defect appears | Stop, repair and retain the exposure history. Any new study is versioned; its sends still count against the shared allowance unless separately amended before dispatch. |
+| All initial panels through 1000 are correct | Record no observed mathematical-failure signal and stop. Do not extend to arbitrary higher depths or repeatedly regenerate until a mistake appears. |
+| An inversion, unsupported depth, exhausted budget or incomplete panel prevents further exploration | Retain the partial search and its reason. Any already independently verified point counterexample remains reportable; missing work is not a completed result. |
 
-Below 100 is a screening threshold, not proof that the entire evaluation is finished. Keep the technical integration verdict separate from pilot signal. A correct label with a bad explanation gets a separate explanation finding, not a repaired classification grade. Review all wrong/unusable replies; do not infer hidden reasoning or intent.
+A below-100 score is an inspection trigger. A verified wrong classification is the scoped “greenlight” to prepare a larger fresh evaluation, not a completed 800-case result or a waiver of reference, split and budget checks. Keep technical readiness separate from empirical signal. Correct-label explanations can have separate errors; do not change the official label grade.
 
 ## Handoff to Phase 15
 
@@ -79,7 +90,7 @@ The order remains **14a cleanup → 14b integration and Astra development pilot 
 
 Deliver a scoped G-RANDOM integration verdict covering only supported upstream imports and actual-domain reference replay, and a G-SPLIT verdict covering the declared exposure/group checks. A supported technical handoff can exist with a negative or unresolved pilot signal; it cannot claim Astra failed. Missing signal does not justify expanding calls, changing final membership or weakening references.
 
-Phase 15 uses the pinned generator/import policy and creates a fresh frozen 800-case population. Pilot cases and related exposed groups do not count as its unseen cases. It owns full-depth/population feasibility, final model matrix, complete execution and independent score replay. The adapted upstream depth convention is the explicit D-13 amendment above; case counts, trials and total call ceiling remain unchanged.
+Phase 15 uses the pinned generator/import policy and creates a fresh frozen 800-case population. The exploratory 216/1000/midpoint depths are not automatically added to its eight final buckets; any final depth change must be named and frozen before final generation/scoring, with explicit counts and budget. Pilot cases and related exposed groups do not count as its unseen cases. It owns full-depth/population feasibility, final model matrix, complete execution and independent score replay. The adapted upstream depth convention is the explicit D-13 amendment above; case counts, trials and total call ceiling remain unchanged.
 
 D-12's historical three-trial, repeated-error and uncertainty gates remain unchanged. A single wrong pilot answer can support a point counterexample; no inherited leaderboard ranking, repeated-failure frequency or eligible uncertainty interval follows. Do not initiate the final 800-case dispatch automatically because a pilot point counterexample exists; first satisfy its frozen reference, population and budget requirements.
 
@@ -92,10 +103,10 @@ Minimum implementation checks:
 - Pinned generation replay; correct requested/realized depth and class accounting; cancellation and finite-attempt exhaustion remain observable.
 - Exact rendering/domain/reference agreement, strict label exclusion/witnesses, invalid domains, affine overlap and unresolved/overflow boundaries.
 - Exact duplicates, shared-core exposure and first-admitted quota selection; pilot/final leakage and actual request-body privacy.
-- Hand-calculated perfect/wrong/majority/unusable/provisional scoring fixtures, correct 24/800 denominators, one-trial identity, unique dispatches and zero retries.
+- Hand-calculated perfect/wrong/majority/unusable/provisional scoring fixtures, correct actual-panel/800 denominators, one-trial identity, unique dispatches and zero retries.
 - A pilot containing only output failures cannot satisfy the mathematical-signal rule; an all-correct pilot remains visible.
 - Relevant affected tests, `bun run lint`, `bun run typecheck` and `bun run build`; numerical tests/lint if numerical code changes. Record actual results and limits.
 
-Deliver the pinned-source/import specification, admitted artifacts and reference evidence, candidate/exposure ledger, complete frozen pilot manifest and retained outcomes, independent arithmetic/reference/visible-text review, scoped gate verdicts and `docs/handoffs/14b-randomized-certified-evaluation.md`. Include reproduction commands, reported model/settings, actual sends, usage/runtime and unresolved licensing or admission gaps.
+Deliver the pinned-source/import specification, admitted artifacts and reference evidence, candidate/exposure ledger, initially frozen search-rule manifest, immutable per-panel manifests and the complete adaptive decision/outcome ledger, independent arithmetic/reference/visible-text review, scoped gate verdicts and `docs/handoffs/14b-randomized-certified-evaluation.md`. Include reproduction commands, reported model/settings, actual sends, usage/runtime and unresolved licensing or admission gaps.
 
 This document's current checkpoint is documentation-only: source/link/contract checks are applicable now; implementation and Astra results remain pending.
