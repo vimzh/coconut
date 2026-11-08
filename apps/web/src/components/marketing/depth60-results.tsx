@@ -46,9 +46,6 @@ export function Depth60Results() {
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-sm leading-6 text-muted-foreground">
-        {results.inferenceRequests} requests across {results.studies.length} {results.studies.length === 1 ? "batch" : "batches"} · Up to {results.maxConcurrency} in parallel · {results.trialsPerCase} fresh trials per task · {results.maxOutputTokens.toLocaleString("en-US")} output tokens maximum per request
-      </p>
       <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
         Exploratory, unranked results on the same nine functions; separate batches do not add independent tasks. Provider-default reasoning may differ by model. No matched shallower control was run, so these scores do not establish a depth threshold.
       </p>
