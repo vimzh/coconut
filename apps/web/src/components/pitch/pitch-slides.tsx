@@ -73,15 +73,15 @@ const technicalUseCases = [
 ];
 
 const everydayUseCases = [
-  { title: "A travel-planning agent", detail: "Leave enough time for connections when changing a flight plan." },
-  { title: "A customer-support agent", detail: "Check a refund policy’s conditions and exceptions before approving a refund." },
-  { title: "A coding agent", detail: "Keep a permission check in the right branch when editing code." },
+  { title: "A travel-planning agent", detail: "A traveller wants a cheaper flight to Delhi, arriving before 6 pm, with at least 90 minutes between flights. A route arrives at 5 pm but has a 45-minute layover. Booking it would break the connection rule." },
+  { title: "A customer-support agent", detail: "A store allows refund requests within 30 days for unopened items or items that arrived damaged. A customer reports a damaged delivery on day 12, after opening the box. Rejecting it solely because the box was opened would miss the exception." },
+  { title: "A coding agent", detail: "A developer asks an agent to let managers export invoices, alongside admins. Both roles must belong to the invoice’s workspace. Adding ‘or manager’ outside that check could admit a manager from another workspace." },
 ];
 
 export function RelevanceSlide() {
   return (
     <div>
-      <SlideHeading label="Why it matters">One missed condition<br />can change the answer.</SlideHeading>
+      <SlideHeading label="Why it matters">One missed condition can change the answer.</SlideHeading>
       <div className={styles.useCaseGrid}>
         <div className={styles.useCaseColumn}>
           <h3 className={styles.columnHeading}>In mathematical optimization</h3>
@@ -92,7 +92,7 @@ export function RelevanceSlide() {
           ))}
         </div>
         <div className={styles.useCaseColumn}>
-          <h3 className={styles.columnHeading}>Similar challenges for agents</h3>
+          <h3 className={styles.columnHeading}>Hypothetical agent scenarios</h3>
           {everydayUseCases.map(({ title, detail }, index) => (
             <article className={styles.useCase} key={title}>
               <span className={styles.itemIndex}>0{index + 1}</span><div><h4>{title}</h4><p>{detail}</p></div>

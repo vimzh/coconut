@@ -62,11 +62,11 @@ The platform includes separately versioned task populations. Preserve their suit
 2. **Inverse problems:** check whether adding a regularizer keeps a data-fitting objective convex.
 3. **Resource allocation:** check costs and capacity constraints before choosing a convex solver.
 
-### Three everyday agent analogies
+### Hypothetical agent scenarios
 
-1. **A travel-planning agent:** leave enough time for connections when changing a flight plan.
-2. **A customer-support agent:** check a refund policy’s conditions and exceptions before approving a refund.
-3. **A coding agent:** keep a permission check in the right branch when editing code.
+1. **A travel-planning agent:** a traveller wants a cheaper flight to Delhi, arriving before 6 pm, with at least 90 minutes between flights. A route arrives at 5 pm but has a 45-minute layover. Booking it would break the connection rule.
+2. **A customer-support agent:** a store allows refund requests within 30 days for unopened items or items that arrived damaged. A customer reports a damaged delivery on day 12, after opening the box. Rejecting it solely because the box was opened would miss the exception.
+3. **A coding agent:** a developer asks an agent to let managers export invoices, alongside admins. Both roles must belong to the invoice’s workspace. Adding ‘or manager’ outside that check could admit a manager from another workspace.
 
 **These examples explain why conditions matter. CoconutEval tests function classification. We have not tested whether its scores predict success in these workflows.**
 
@@ -75,6 +75,8 @@ The platform includes separately versioned task populations. Preserve their suit
 Convexity is relevant when deciding whether an optimization formulation has the structure required by a selected method. The entire formulation matters, including its feasible region; classifying a scalar objective does not validate a complete control, inverse-problem, or allocation system. These examples name why curvature knowledge is useful, not systems CoconutEval has tested.
 
 The nontechnical examples make the dependency pattern familiar: an early condition must still hold after later steps are combined. They are proposed illustrations for this pitch. There is no retained evidence that CoconutEval predicts performance in travel planning, customer support, or coding agents.
+
+These scenarios use hypothetical rules and numbers. In the travel example, meeting the price and arrival goals does not satisfy the connection requirement. In the refund example, the damage exception overrides the unopened-item condition within the 30-day window. In the coding example, workspace membership must cover both roles: `same workspace AND (admin OR manager)`.
 
 ## Slide 4 — How it works
 
@@ -162,5 +164,6 @@ Verified on 8 November 2026:
 - Updated pitch layouts fit at 1440×900 and 1280×720 without scrolling. Mobile slides scroll vertically without horizontal overflow, with navigation always visible. Updated homepage and methodology examples were checked on desktop and mobile.
 - Graph animation checks: tracer positions match the plotted path at sampled progress points on all seven teaching graphs. Curve/chord/endpoint sequences finish with no running animations and retain the full static graph. Viewport exit/re-entry and pitch-slide return restart the sequence; mobile navigation stays visible.
 - Reduced-motion styles were verified through browser CSS media-rule simulation: complete curves, chords and endpoints remain visible, with no animation or tracer. Changing the operating-system motion preference and testing other browser engines remain unverified.
+- The expanded agent scenarios preserve all six use cases. Technical applications and agent scenarios occupy separate rows on desktop and stack on narrow screens. The slide fits at 1440×900 and 1280×720; at 390×844, its content scrolls with navigation visible and no horizontal overflow. Frontend lint, type checks, build, and all 58 tests pass.
 
 The preview uses port 3210 because the existing server on 3200 serves an earlier production build. The default application port remains 3200; restarting that server with the new build makes `/pitch` available there. No backend changes or paid model requests were needed. Native PowerPoint export and verification in other browser engines are outside this implementation.

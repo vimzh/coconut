@@ -59,9 +59,12 @@
 .neitherDefinition { grid-column: 1 / -1; font-size: 15px; line-height: 2.1; }
 .classification > p:last-child { grid-column: 1 / -1; color: var(--secondary-ink); font-size: 15px; line-height: 1.6; margin-top: 8px; }
 .bottomNote { display: flex; gap: 12px; justify-content: space-between; margin-top: 36px; color: var(--secondary-ink); font: 11px/1.6 var(--font-mono); }
-.useCaseGrid, .interpretationGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+.interpretationGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+.useCaseGrid { display: grid; gap: 20px; }
+.useCaseColumn { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 28px; }
+.useCaseColumn > .columnHeading { grid-column: 1 / -1; padding-bottom: 12px; }
 .columnHeading { font-size: 14px; font-weight: 500; border-bottom: 1px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
-.useCase { display: flex; gap: 22px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+.useCase { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
 .itemIndex { color: var(--secondary-ink); font: 11px/1.8 var(--font-mono); }
 .useCase h4, .signal h4 { font-size: 18px; font-weight: 500; line-height: 1.4; }
 .useCase p, .signal p { color: var(--secondary-ink); font-size: 15px; line-height: 1.6; margin-top: 6px; }
@@ -140,6 +143,7 @@
   .heading h2 { letter-spacing: -1.5px; }
   .slide { padding: 32px 28px; }
   .useCaseGrid, .interpretationGrid { gap: 32px; }
+  .useCaseColumn { grid-template-columns: 1fr; }
   .methodGrid { gap: 28px; }
   .scopeStudy { padding: 20px; }
   .scopeExamples { grid-template-columns: 1fr; }
