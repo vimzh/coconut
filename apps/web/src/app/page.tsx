@@ -5,6 +5,7 @@ import { AppShell } from "@/components/app-shell";
 import { CurvatureExamples } from "@/components/marketing/curvature-examples";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { ModelDirectory } from "@/components/marketing/model-directory";
+import { NestedPolicyExample } from "@/components/marketing/nested-policy-example";
 import { Button } from "@/components/ui/button";
 import styles from "./page.module.css";
 
@@ -41,6 +42,25 @@ export default function Home() {
       </section>
 
       <ModelDirectory />
+
+      <section aria-labelledby="basic-idea-title" className="grid gap-8 border-t border-border py-12 sm:py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
+        <div>
+          <h2 id="basic-idea-title" className="text-2xl leading-tight font-medium sm:text-3xl">The basic idea</h2>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">
+            Each individual rule is easy. The correct final answer depends on applying those rules in the right order through many layers of nesting.
+          </p>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">
+            An agent may need to follow an exception to an exception in a policy. In mathematics, a sign or domain restriction can still matter several composition steps later.
+          </p>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">
+            The model sees the whole nested expression at once and has to get the final classification right. Each trial is one fresh request.
+          </p>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            The hypothetical laptop policy illustrates how conditions combine. CoconutEval measures mathematical function classification; transfer to agent workflows remains untested.
+          </p>
+        </div>
+        <NestedPolicyExample />
+      </section>
 
       <section aria-labelledby="task-title" className="grid gap-8 border-t border-border py-12 sm:py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
         <div>

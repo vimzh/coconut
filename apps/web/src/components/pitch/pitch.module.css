@@ -29,6 +29,8 @@
 .slide { width: 100%; max-width: 1320px; margin-inline: auto; padding: 36px clamp(28px, 5.6vw, 88px); }
 .heading { margin-bottom: clamp(24px, 4vh, 48px); }
 .heading h2 { font-size: clamp(36px, 4.25vw, 64px); line-height: 1.08; font-weight: 400; letter-spacing: -2.5px; }
+.agentSlide .heading { margin-bottom: 20px; }
+.agentSlide .caveat { margin-top: 16px; }
 .lead { max-width: 760px; font-size: 19px; line-height: 1.55; color: var(--secondary-ink); }
 .definitionSetup { margin-top: 16px; font-size: 15px; line-height: 1.6; color: var(--secondary-ink); }
 .scoreDefinition { max-width: 850px; margin: -12px 0 24px; font-size: 16px; line-height: 1.6; color: var(--secondary-ink); }
@@ -145,6 +147,8 @@
   .deck { grid-template-rows: 64px minmax(0, 1fr) 68px; }
   .slide { padding-block: 24px; }
   .heading { margin-bottom: 24px; }
+  .agentSlide .heading { margin-bottom: 16px; }
+  .agentSlide .caveat { margin-top: 12px; }
   .heading h2 { font-size: 46px; }
   .title { font-size: 100px; }
   .introCopy { font-size: 22px; margin-top: 12px; }

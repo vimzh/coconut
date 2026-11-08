@@ -1,63 +1,18 @@
-/* Each card follows the request, rule checks, and decision in reading order. */
-.scenarios { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; color: #182422; }
-.card { --card-delay: 0ms; min-width: 0; display: flex; flex-direction: column; padding: 20px; border: 1px solid #dce6df; border-radius: 16px; }
-.travel { background: #edf3fb; }
-.support { --card-delay: 100ms; background: #eaf5ef; }
-.coding { --card-delay: 200ms; background: #fff5df; }
-.card h3 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; line-height: 1.4; font-weight: 500; }
-.card svg { flex-shrink: 0; stroke-width: 1.5; }
-.request { min-height: 60px; margin: 12px 0 16px; font-size: 13px; line-height: 1.55; color: #53605b; }
-.diagram { display: flex; flex-direction: column; gap: 12px; min-height: 132px; padding: 12px; background: #ffffff; border: 1px solid #dce6df; border-radius: 8px; }
-.measure { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 0 0 4px; font-size: 12px; line-height: 1.4; color: #53605b; }
-.measure strong { color: #182422; font-family: var(--font-mono); font-weight: 500; white-space: nowrap; }
-.track { height: 6px; overflow: hidden; background: #edf1ee; border-radius: 2px; }
-.track > span { display: block; height: 100%; transform-origin: left; border-radius: inherit; }
-.requiredBar { width: 100%; background: #68829f; }
-.shortBar { width: 50%; background: #a57731; }
-.dayBar { width: 40%; background: #398362; }
-.passed, .notMet { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; line-height: 1.5; }
-.passed { margin: 0; color: #286448; }
-.notMet { color: #866319; }
-.condition { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 4px; }
-.operator { color: #53605b; font: 12px/1.5 var(--font-mono); }
-.diagramNote { margin: 0; font-size: 12px; line-height: 1.5; color: #53605b; }
-.permissionDiagram { justify-content: center; padding: 8px; }
-.workspace { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; border: 1px solid #b6c5bb; border-radius: 4px; }
-.workspace > p { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; line-height: 1.4; }
-.roles { align-self: stretch; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 8px; background: #fff5df; border-radius: 4px; font-size: 13px; line-height: 1.4; }
-.outcome { display: flex; align-items: flex-start; gap: 8px; margin-top: 16px; }
-.outcome > svg { margin-top: 2px; color: #286448; }
-.travel .outcome > svg { color: #866319; }
-.outcome h4 { margin: 0; font-size: 14px; line-height: 1.4; font-weight: 500; }
-.outcome p { margin: 4px 0 0; font-size: 13px; line-height: 1.5; color: #53605b; }
-
-@media (prefers-reduced-motion: no-preference) {
-  .firstCheck { animation: checkIn 450ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay) + 120ms) both; }
-  .secondCheck { animation: checkIn 450ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay) + 600ms) both; }
-  .thirdCheck { animation: checkIn 450ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay) + 960ms) both; }
-  .decision { animation: checkIn 450ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay) + 1320ms) both; }
-  .track > span { animation: fill 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay) + 300ms) both; }
-  .secondCheck .track > span { animation-delay: calc(var(--card-delay) + 780ms); }
-}
-
-@keyframes checkIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fill {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
+/* The worked policy stays beside the broader agent examples, then stacks on narrow screens. */
+.scenarios { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); align-items: start; gap: 24px; }
+.domains { min-width: 0; padding: 4px 0; }
+.domains > h3 { margin: 0 0 6px; font-size: 18px; font-weight: 500; line-height: 1.4; }
+.domains > p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--secondary-ink); }
+.domains > ul { list-style: none; margin: 12px 0 0; padding: 0; }
+.domains li { padding: 10px 0; border-top: 1px solid var(--rule); }
+.domains h4 { margin: 0 0 4px; font-size: 14px; font-weight: 500; line-height: 1.4; }
+.domains li p { margin: 0; font-size: 12px; line-height: 1.6; color: var(--secondary-ink); }
 
 @media (min-width: 901px) and (max-height: 800px) {
-  .card { padding: 16px; }
-  .request { min-height: 60px; margin-block: 8px 12px; }
-  .outcome { margin-top: 12px; }
+  .domains li { padding-block: 4px; }
+  .domains li p { line-height: 1.45; }
 }
 
 @media (max-width: 900px) {
   .scenarios { grid-template-columns: 1fr; }
-  .request { min-height: 0; }
-  .diagram { min-height: 0; }
 }

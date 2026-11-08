@@ -94,10 +94,10 @@ export function RelevanceSlide() {
 
 export function AgentSlide() {
   return (
-    <div>
-      <SlideHeading>Check the whole rule.</SlideHeading>
+    <div className={styles.agentSlide}>
+      <SlideHeading>Simple rules. Nested exceptions.</SlideHeading>
       <AgentScenarios />
-      <p className={styles.caveat}>These examples explain why conditions matter. We have not tested whether CoconutEval scores predict success in these agent workflows.</p>
+      <p className={styles.caveat}>Hypothetical policies illustrate condition tracking. CoconutEval tests mathematical function classification; transfer to agent workflows remains untested.</p>
     </div>
   );
 }
