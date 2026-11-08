@@ -1,0 +1,21 @@
+# Depth-216 research pilot
+
+The user requested the same two small models at depth 216. This requires an explicit research verification boundary: the application verifier continues to leave these tasks unverified under its unchanged 128-depth/512-node policy. No regular generator, verifier, prompt-builder admission gate or application suite will be widened.
+
+## Fixed mathematical object
+
+Use the absolute-sum construction from depth 100 with more active terms. Let C_n(x)=sum|x-c_i|, encoded as a left-associated sum on [-1,1]. Centers are ±j/d for j=1..107, with d in {128,136,144}; the 215-term sum additionally includes zero. The nine tasks are C_215 (convex), -C_214 (concave), x*C_214 (neither), at the three denominator choices. Measured depth 216 and node counts 1074/1070/1071 fit a separate research-only limit of depth 216 and 1200 nodes. All 215/214 distinct interior absolute-value kinks are active; none is identity padding.
+
+Admit only these deterministic generator-constructed canonical trees, not arbitrary deep expressions. Record a separate absolute-sum research certificate with measured shape, domain, center list, closure-rule proof, exact Jensen witnesses and rational-operation count. Reuse unchanged exact arithmetic with 96-character literals, 4096-bit retained rationals and 200,000 operations per check. Preserve the standard verifier's resource-limit outcome alongside this separate certificate. A second implementation using Python Fraction must independently parse/check each actual AST, mathematical rule, witness, center set, uniqueness and research structural bound before live inference.
+
+## Prompt, execution and retention
+
+1. Give the research prompt its own method/version and hash. Use the same neutral system text, answer schema, 4096-output-token cap and default settings as one-shot-json-v1; test exact equivalence against the existing public builder on a standard-admitted fixture. The independent research admission, not that fixture, validates depth 216. Only rendered expression and domain enter the user message; labels, certificates, family tags and IDs remain outside it. Existing inference transport/SDK credential and response bounds stay unchanged.
+2. Freeze all nine cases, independent review, prompt hashes, source hashes, models and prior terminal ledger before model outcomes are inspected. Models remain gpt-4.1-mini and gpt-4o-mini. Three fresh calls per task, 54 maximum sends, no retry. Two initial calls can raise concurrency to 12 with sufficient observed headroom. Standard 20-second metadata and 180-second inference deadlines, with a 15-minute study deadline. Abort active work and stop new dispatches on provider, persistence or worker failure; preserve incomplete evidence.
+3. Coordinate with the other agent: its 108-call batch starts after the depth-100 pilot's 7962 terminal count. Require its settled 108 actual sends, matching source/result hashes and cumulative 8070 before this study freezes or dispatches. If that evidence is incomplete, block this study and reconcile it instead of treating a reservation as completed work. Prior 8070 plus 54 yields 8124 below 8192. No overlapping 12-call pools.
+4. Persist model/case/trial-bound dispatch receipts before wire calls and all replies privately. Export normalized outcomes and result hashes with classification-only research reports. Recompute score arithmetic independently and review every wrong/unusable reply; never repair grades after inspection.
+5. Test the fixed-family proof and prompt boundary, altered references, standard refusal, arithmetic/structure counts and dispatch controls. Run API lint, types, build and relevant transport/classification checks. Retain exact outcomes and scoped limitations, then commit this study's files only.
+
+## Claim limits
+
+These are extremely repetitive scalar absolute-sum tasks. Associativity flattens the nested sums; length, kink count and depth co-vary. Outer forms and term counts reveal mathematical class cues. Three parameter variants are not independent families, and repeated trials are not new tasks. This is not the application's existing certified suite, a general deep-expression verifier, a controlled depth experiment, a frontier failure finding or a replication of prior benchmark results. All earlier inputs, certificates, budgets and gates remain unchanged.

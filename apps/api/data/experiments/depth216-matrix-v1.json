@@ -1,0 +1,37 @@
+{
+  "version": "1",
+  "methodId": "depth216-pilot-v1",
+  "frozenAt": "2026-11-08T13:00:19.316Z",
+  "populationFileSha256": "34828752c7ad240609c722a993c76df21517ddc2fcfa54df5281337140eebc22",
+  "reviewFileSha256": "ea987b74f44c8edc2eea2f469774d2040248831161c64b74f23f4d63313a4b8d",
+  "priorProgressFileSha256": "39dc202ff7849a9e7d220b8591c2a0eeea1ac6d83d282a4666fb212f06152fcb",
+  "priorManifestFileSha256": "b264ad7651cd966a44e399ec79a45ec11a9a9abf1dc6b359f62c33390885a609",
+  "priorResultFileSha256": "c3ca744474fb2e9273d23119ad03f4909a3af4f0dda70f6377f1be6c698c2fcf",
+  "promptsSha256": "f3e7550535a9eae21bab2d8b27fe1ebfbe6a1f39c9edebcce4a3bb81187bf733",
+  "referenceSourceFileSha256": "0a66f77db565864c80d7827c0aa4629ad6b51b24c394c2c00bc573477ff76ae0",
+  "runnerSourceFileSha256": "e80642375e231cbfcfd32da5a5f82d85a3f68b6bbdcc124bafbdc3a9dd5610a3",
+  "models": [
+    "gpt-4.1-mini",
+    "gpt-4o-mini"
+  ],
+  "researchPolicy": "absolute-sum-exact-216-v1",
+  "researchPromptVersion": "absolute-sum-216-prompt-v1",
+  "researchBounds": {
+    "depth": 216,
+    "nodes": 1200,
+    "literalCharacters": 96,
+    "rationalBits": 4096,
+    "arithmeticOperations": 200000
+  },
+  "profileId": "one-shot-json-v1",
+  "caseCount": 9,
+  "trialsPerCase": 3,
+  "maxInferenceRequests": 54,
+  "priorInferenceRequests": 8070,
+  "cumulativeInferenceCeiling": 8124,
+  "sharedCeiling": 8192,
+  "maxConcurrency": 12,
+  "retries": 0,
+  "maxOutputTokens": 4096,
+  "inferenceDeadlineMs": 180000
+}

@@ -1,0 +1,307 @@
+{
+  "suiteFileSha256": "34828752c7ad240609c722a993c76df21517ddc2fcfa54df5281337140eebc22",
+  "verdict": "pass",
+  "researchPolicy": "absolute-sum-exact-216-v1",
+  "newPolicyBoundExplicit": {
+    "maximumDepth": 216,
+    "maximumNodeCount": 1200,
+    "standardVerifier": "unverified/resource-limit retained"
+  },
+  "cases": [
+    {
+      "id": "case-depth216-v1-f748b768b0999554853e40fff65b5325dfc3548ddf2a0530db30b771354fefd4",
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1074,
+      "form": "sum-abs",
+      "centerCount": 215,
+      "canonicalCentersSha256": "bddb58e1a63817f83cb765a9a71b358992d1166b30a76c63b605be2292b8a773",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "215",
+          "fY": "215",
+          "fMidpoint": "2889/32",
+          "gap": "-3991/32"
+        }
+      ],
+      "arithmeticOperations": 2908,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-caf5c98816be039e5f89afd7442cfc152a7f12b5a66d6a2b71a0f47ff6871337",
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1074,
+      "form": "sum-abs",
+      "centerCount": 215,
+      "canonicalCentersSha256": "23e19998a1976b594e8773393981d82bae1cbe43cc14bdce7fb4b21159d27a94",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "215",
+          "fY": "215",
+          "fMidpoint": "2889/34",
+          "gap": "-4421/34"
+        }
+      ],
+      "arithmeticOperations": 2908,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-941d9ce4fed3b57ee8afac4ed0f3d7fbbbf7fa9330ed8ecb8ea37670b6bc79f9",
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1074,
+      "form": "sum-abs",
+      "centerCount": 215,
+      "canonicalCentersSha256": "bf3bea8f2c6dd6ce359a53e9b2002795bde9bfd2fe7c0f2ce7399dd0cd681862",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "215",
+          "fY": "215",
+          "fMidpoint": "321/4",
+          "gap": "-539/4"
+        }
+      ],
+      "arithmeticOperations": 2908,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-49aabfcac01a09362a8bb728a1d98a4077c2ea1becd5e75116c226176cb1fa18",
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1070,
+      "form": "negated-sum-abs",
+      "centerCount": 214,
+      "canonicalCentersSha256": "563328794ffc64bfcf96a3b99658e96c413c9c5bc099752647360282d7465aa0",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "-214",
+          "fY": "-214",
+          "fMidpoint": "-2889/32",
+          "gap": "3959/32"
+        }
+      ],
+      "arithmeticOperations": 2898,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-1e70a5e40e9ccc39369ac8b679f30a87f6b6916e16be9c32e963d4ccf8cfa8c9",
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1070,
+      "form": "negated-sum-abs",
+      "centerCount": 214,
+      "canonicalCentersSha256": "9e287f3c1c07393b015fb43e2e0a8cc1a9eb9e839ca687931b0b27883cbf2ea5",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "-214",
+          "fY": "-214",
+          "fMidpoint": "-2889/34",
+          "gap": "4387/34"
+        }
+      ],
+      "arithmeticOperations": 2898,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-15a266006af3af984a6af13be687a2b2671208dde4809455c3efc4aa4ac52667",
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1070,
+      "form": "negated-sum-abs",
+      "centerCount": 214,
+      "canonicalCentersSha256": "625b6192a55b7339e9bda633d55bfe2ca3e09f48d2476a7b1f71375ba9e3cde7",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "-214",
+          "fY": "-214",
+          "fMidpoint": "-321/4",
+          "gap": "535/4"
+        }
+      ],
+      "arithmeticOperations": 2898,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-5a9ff76b7619cc97b5decb5a06204935cd3d12c1a92168287e42907f865f0162",
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1071,
+      "form": "x-times-sum-abs",
+      "centerCount": 214,
+      "canonicalCentersSha256": "563328794ffc64bfcf96a3b99658e96c413c9c5bc099752647360282d7465aa0",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "fX": "-214",
+          "fY": "0",
+          "fMidpoint": "-3897/64",
+          "gap": "2951/64"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "fX": "0",
+          "fY": "214",
+          "fMidpoint": "3897/64",
+          "gap": "-2951/64"
+        }
+      ],
+      "arithmeticOperations": 5153,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-eafeb07bfda9294c5a5976570a7f437af568d0b89f7904395675b3098262a4f6",
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1071,
+      "form": "x-times-sum-abs",
+      "centerCount": 214,
+      "canonicalCentersSha256": "9e287f3c1c07393b015fb43e2e0a8cc1a9eb9e839ca687931b0b27883cbf2ea5",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "fX": "-214",
+          "fY": "0",
+          "fMidpoint": "-1007/17",
+          "gap": "812/17"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "fX": "0",
+          "fY": "214",
+          "fMidpoint": "1007/17",
+          "gap": "-812/17"
+        }
+      ],
+      "arithmeticOperations": 5153,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-depth216-v1-9e2b61f35798f57e39b924dd0c1a9324cdbc7f087236553909f26595919c39f0",
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "depth": 216,
+      "nodeCount": 1071,
+      "form": "x-times-sum-abs",
+      "centerCount": 214,
+      "canonicalCentersSha256": "625b6192a55b7339e9bda633d55bfe2ca3e09f48d2476a7b1f71375ba9e3cde7",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "fX": "-214",
+          "fY": "0",
+          "fMidpoint": "-463/8",
+          "gap": "393/8"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "fX": "0",
+          "fY": "214",
+          "fMidpoint": "463/8",
+          "gap": "-393/8"
+        }
+      ],
+      "arithmeticOperations": 5153,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    }
+  ],
+  "functionSignaturesUnique": true,
+  "reviewer": "AI-assisted independent mathematical check",
+  "limitations": [
+    "This checker proves the fixed absolute-sum construction with exact rational arithmetic; it is not a proof-assistant derivation or a general curvature verifier.",
+    "The standard verifier is intentionally not an admission path here and remains unverified/resource-limit for every retained reference.",
+    "This research-only population is highly templated; associative nesting, expression length, and kink count are confounded with depth, so it cannot support general deep-reasoning, causal-depth, ranking, or frontier claims."
+  ]
+}

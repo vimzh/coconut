@@ -1,0 +1,85 @@
+{
+  "sourceFileSha256": "a95f06ba3a6360c97362fa4c5ca89baa03f7ca53319fad771f0c152c3f16969b",
+  "verdict": "pass",
+  "inferenceRequests": 54,
+  "cumulativeConservativeRequests": 8124,
+  "concurrency": 12,
+  "trialSpanSeconds": 17.619,
+  "models": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "reportedModelIds": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "correct": 23,
+      "planned": 27,
+      "wrongValid": 4,
+      "invalid": 0,
+      "macroF1": 0.8441558441558441,
+      "macroF1Exact": "65/77",
+      "confusion": {
+        "convex": {
+          "convex": 9,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 9,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 4,
+          "concave": 0,
+          "neither": 5,
+          "unusable": 0
+        }
+      },
+      "usage": {
+        "input": 62244,
+        "output": 3708
+      },
+      "estimatedUsdIgnoringCacheDiscounts": 0.0308304
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "reportedModelIds": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "correct": 17,
+      "planned": 27,
+      "wrongValid": 10,
+      "invalid": 0,
+      "macroF1": 0.6151792524790236,
+      "macroF1Exact": "1613/2622",
+      "confusion": {
+        "convex": {
+          "convex": 3,
+          "concave": 5,
+          "neither": 1,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 7,
+          "neither": 2,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 2,
+          "neither": 7,
+          "unusable": 0
+        }
+      },
+      "usage": {
+        "input": 62244,
+        "output": 2425
+      },
+      "estimatedUsdIgnoringCacheDiscounts": 0.0107916
+    }
+  ],
+  "limits": "Fixed nine-task descriptive pilot; estimates are not provider bills. Private source exports are required for arithmetic replay."
+}
