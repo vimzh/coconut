@@ -1,0 +1,149 @@
+# Research record: randomized certified evaluation
+
+## Status and reading contract
+
+Prepared on 2026-11-08 for [Module 16](../modules/16-randomized-certified-evaluation.md). This is a research/planning artifact, not a new generator, completed benchmark or model result. No inference calls were made for this work.
+
+Source summaries below are explicitly **paraphrases**. Project requirements and proposed experiments are **design inferences**, not findings established by the cited authors. Primary publications and official documentation were checked for the specific stated claims; historical papers provide methods, not current model inventories or guaranteed failure rates. No external code, benchmark dataset, prompt or visual asset was copied.
+
+## What the repository already establishes
+
+The [composition repair](composition-design-v1.md) uses 27 verified tasks in nine related groups at 2/4/6 nonlinear stages, AST depths 7/13/19. Its atoms are two increasing convex rational maps; it retains contraction, coefficient and shared-prefix limitations. Its [completed comparison](composition-results-v1.md) reports Mini 30/81 correct and Luna 65/81 correct; Luna's eleven truncations are separate from its five wrong valid labels. These observations do not establish that arbitrary randomized expressions will be harder.
+
+The normal numerical admission path is bounded to operation depth 32 and 256 nodes. The [quality policy](quality-criteria-v1.md) also bounds its current offline report and fixed-three-trial uncertainty procedure. Inspection of [bootstrap.ts](../../apps/api/src/quality/bootstrap.ts) confirms that it expects three outcomes per task and at most 256 cases. It cannot analyze the planned single-trial 800-case study unchanged. The [structural analyzer](../../apps/api/src/quality/structure.ts) provides useful bounded identities and signatures, not complete mathematical equivalence or split independence.
+
+[Module 15](../modules/15-deep-composition-stress-evaluation.md) separately targets 100 tasks at each of 5/10/20/40/80/160/320/512 nonlinear stages. Its single-trial, Astra-inclusive study and 30 + 800 × M request ceiling remain intact. [Mini module 14a](../modules/14a-product-flow-cleanup.md) remains the next product task. Module 16 can supply offline generation/quality contracts without running that study or claiming deep feasibility.
+
+## Primary-source findings and bounded implications
+
+### 1. Random generation needs a declared distribution
+
+**Source paraphrase:** Duchon, Flajolet, Louchard and Schaeffer develop random samplers from recursive combinatorial specifications, with precise distributional statements and size-conditioned uniformity under their assumptions. Arbitrary random production choices do not acquire those guarantees. [Boltzmann Samplers for the Random Generation of Combinatorial Structures](https://algo.inria.fr/flajolet/Publications/DuFlLoSc04.pdf)
+
+**Design inference:** Specify grammar, size/termination rules and probabilities. Do not claim uniformity over mathematical functions, or assume structural randomness implies difficulty. Boltzmann sampling is a research reference, not a required dependency or an already selected algorithm.
+
+### 2. Sufficient curvature rules are incomplete
+
+**Source paraphrase:** CVXPY distinguishes convex/concave/affine/unknown and gives sufficient composition rules using curvature and monotonicity. It illustrates a truly convex expression that is not recognized in one representation. [Official DCP tutorial, curvature rules and Example 2](https://www.cvxpy.org/tutorial/dcp/)
+
+**Design inference:** Keep rule recognition separate from mathematical truth. A construction guided entirely by these rules can be useful and sound while supplying an easy or narrow accepted population. Never turn unknown into neither or exclude correct short proofs as illegitimate solutions.
+
+### 3. Global references require explicit mathematical assumptions
+
+**Source paraphrase:** The second-order condition relates convexity to nonnegative Hessian on the appropriate differentiable convex domain; in one dimension this is the second derivative. Strict convexity does not require that derivative to be strictly positive at every point. [Boyd and Vandenberghe, Convex Optimization, §3.1.4](https://www.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)
+
+**Design inference:** State regularity/domain assumptions and verify global signs plus exclusion of affine overlap. Distinguish a convenient positive-margin admission policy from the definition of convexity. Require opposing rigorous witnesses for neither and full domain validity.
+
+### 4. Rigorous numerics do not remove dependency or implementation risks
+
+**Source paraphrase:** Arb uses rigorous ball/interval error bounds, and its discussion identifies enclosure overestimation and tests using alternative algorithms, identities and varied precision. [Johansson, Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic](https://fredrikj.net/math/arbpaper.pdf)
+
+**Design inference:** Reuse the pinned project backend and bounded certificates; do not infer that floating-point agreement, overlapping intervals or more precision alone proves a reference. Independent identities and domain checks are needed. Unresolved work remains unresolved, with selection rates disclosed.
+
+### 5. Property-based testing exposes sampling and reduction obligations
+
+**Source paraphrase:** QuickCheck documents generated-value coverage, how restrictive preconditions can distort or discard samples, invariant-preserving shrinking, and limitations of seed replay across library versions. [QuickCheck 2.16 official documentation](https://hackage-content.haskell.org/package/QuickCheck-2.16.0.0/docs/Test-QuickCheck.html)
+
+**Design inference:** Retain rejection/coverage evidence and actual cases; use bounded reduction preserving reference validity and the diagnosed failure. This is a methodological reference to a versioned document, not a recommendation to add or pin a Haskell dependency.
+
+### 6. A seed alone is not a complete reproduction contract
+
+**Source paraphrase:** NEP 19 explains limits of numerical random-stream reproducibility across versions/builds and the need to control more of a software stack than its seed. [NumPy random-number generator policy](https://numpy.org/neps/nep-0019-rng-policy.html)
+
+**Design inference:** Retain algorithm/configuration/source/backend versions, candidate order and exact artifacts. Parallel scheduling must not choose which candidate enters a frozen suite. This does not require adding NumPy or using its random generator.
+
+### 7. Procedural mathematics benefits from controlled splits
+
+**Source paraphrase:** Saxton et al. describe procedural mathematics generation, note pitfalls of unconditional random sampling, and distinguish interpolation from extrapolation. They also discuss semantic repetition that superficial question hashing can miss. [Analysing Mathematical Reasoning Abilities of Neural Models, §§2.1–2.3](https://arxiv.org/html/1904.01557v1)
+
+**Design inference:** Use bounded meaningful parameter regions, record semantic/ancestry diagnostics and label each split's purpose. A new string/seed can be a new instantiation of an exposed core, not a structural-generalization test. None of that source's sampling or learning results automatically transfers to Coconut.
+
+### 8. Random instantiations can reveal variation without proving internal mechanisms
+
+**Source paraphrase:** GSM-Symbolic uses symbolic templates with variable/domain conditions and examines performance across instantiations. [GSM-Symbolic, arXiv v2, §§3.1–3.2](https://arxiv.org/html/2410.05229v2)
+
+**Design inference:** Sample and retain multiple mathematical groups, not just repeated replies. Do not adopt its model-answer-based validity filter or infer hidden reasoning from a score change. Coconut's reference labels must come from independent mathematics rather than model agreement.
+
+### 9. Adaptive inspection can spend the holdout
+
+**Source paraphrase:** Dwork et al. explain how repeated adaptive selection after inspecting holdout results can overfit the holdout, and develop specialized methods with formal reuse guarantees. [Generalization in Adaptive Data Analysis and Holdout Reuse, arXiv v2, introduction and §1.1.1](https://arxiv.org/html/1506.02629v2)
+
+**Design inference:** Separate development and fresh final groups, freeze the generator/analysis before scored outcomes, and retain exposure. Ordinary freezing and fresh seeds do not inherit differential-privacy or reusable-holdout guarantees from that paper. Changing a seed after model-informed design is not proof of structural independence.
+
+### 10. Split dependence and mismatched claims are leakage risks
+
+**Source paraphrase:** Kapoor and Narayanan's final article distinguishes duplication, nonindependence between partitions, illegitimate features and mismatch between the evaluation sample and the claimed population. [Leakage and the reproducibility crisis in machine-learning-based science, Patterns 4(9):100804, taxonomy section](https://pmc.ncbi.nlm.nih.gov/articles/PMC10499856/)
+
+**Design inference:** Preserve significant construction ancestors and paired variants as groups; define the accepted distribution and restrict claims to it. This identifies possible failure modes, not evidence that any particular retained Coconut result contains training contamination.
+
+### 11. Test a heuristic and the opposite of that heuristic
+
+**Source paraphrase:** HANS creates cases consistent with and contradictory to specific heuristic rules, with controls against alternative cues. [McCoy, Pavlick and Linzen, Right for the Wrong Reasons, ACL 2019, §§2–3](https://aclanthology.org/P19-1334/)
+
+**Design inference:** For root/sign/coefficient/domain shortcuts, retain supporting and contradicting mathematical controls. A panel containing only a baseline's failures changes the population and can reward the inverse rule. Language-inference experiments do not establish which convexity heuristics will succeed.
+
+### 12. Paired interventions test local decisions, not universal robustness
+
+**Source paraphrase:** Contrast sets use small meaningful changes to probe local decision boundaries and discuss both construction bias and limits of positive evidence. [Gardner et al., Evaluating Models' Local Decision Boundaries via Contrast Sets, §§2.4–2.5](https://aclanthology.org/2020.findings-emnlp.117/)
+
+**Design inference:** Independently certify same-form coefficient/domain changes; report both-members-correct rather than mere prediction flips. Keep pairs together in splits and analysis. Passing finite pairs does not prove that a model uses a particular reasoning process.
+
+### 13. Correctness, invariance and directional behavior are different tests
+
+**Source paraphrase:** CheckList distinguishes minimum-functionality, invariance and directional-expectation tests. [Ribeiro et al., Beyond Accuracy, ACL 2020, §2.2](https://aclanthology.org/2020.acl-main.442/)
+
+**Design inference:** Include simple valid controls, equivalent representations and certified label-changing interventions, with separate diagnostic metrics. Invariance alone is insufficient because two agreeing answers can both be wrong. The behavioral matrix is finite diagnostic coverage, not exhaustive correctness.
+
+### 14. Mathematical relations can test the testing machinery
+
+**Source paraphrase:** The original metamorphic-testing report uses known relationships between related inputs/outputs to find defects beyond individual examples. [Chen, Cheung and Yiu, Metamorphic Testing: A New Approach for Generating Next Test Cases](https://arxiv.org/abs/2002.12543)
+
+**Design inference:** Check independent implementations and known domain-preserving transformations without claiming that transformed tasks are independent. For example, output negation swaps convex/concave while preserving neither. An invalid transformation relation is itself a test-generator bug.
+
+### 15. Related requests do not multiply independent support
+
+**Source paraphrase:** Saravanan, Berman and Sober discuss pseudoreplication in nested observations and dependence-aware resampling. [Application of the Hierarchical Bootstrap to Multi-Level Data in Neuroscience, arXiv v2](https://arxiv.org/html/2007.07797v2)
+
+**Design inference:** Preserve base groups, pairs, depths and repeats during uncertainty analysis. Define task versus group weighting when group sizes differ. This motivates the dependence policy; it does not prove the coverage of Coconut's current or future bootstrap procedure.
+
+### 16. Prior convexity results are a reference design, not an expected outcome
+
+**Source paraphrase:** The original motivating study synthesizes compositions under curvature rules and filters neither cases using counterexamples, then compares raw and decomposed/recursive evaluation methods. [ConvexBench, arXiv v2, §§3–5](https://arxiv.org/html/2602.01075v2)
+
+**Design inference:** Preserve prior-work attribution and distinguish its construction, models and budgets from ours. Its results do not imply that every newly sampled function must cause a model failure. Project code, prompts, fixtures and public application assets continue to use original project terminology without paper references.
+
+## Proposed experimental contract
+
+These are original project proposals for implementation review, not validated outcomes:
+
+1. Define a bounded grammar and exact input distribution, with property-directed, proposal-then-certify and curvature-construction routes considered independently.
+2. Establish actual-domain labels and opposite-label exclusion before including any task; keep all failed/unknown proposals visible by stratum.
+3. Measure structural diversity and meaningful dependence, then group known transformations, shared cores and pairs. Do not claim full semantic equivalence checking.
+4. Freeze cheap shortcut baselines and sound-math coverage baselines. Short correct proofs remain allowed. Record baseline uncertainty/budgets and which decisions used exposed data.
+5. Keep an ordinary certified sample separate from challenge selection. The population after certification/quotas is already conditional, and further filtering conditions it again.
+6. Freeze group-separated final data only after development/validation decisions. Structural-generalization panels and adaptive searches need distinct identities and disclosures.
+7. Reuse existing execution/scoring infrastructure with the consuming study's declared trial contract. One-trial, three-trial, format, budget and model settings remain distinct comparisons.
+8. Publish observed correctness, unusable/budget outcomes, coverage and narrow failure findings. Neither a large expression nor baseline failure establishes intrinsic difficulty.
+
+## An exact diagnostic against predetermined sparse probes
+
+The following is an independently derived elementary control, not a copied benchmark task or a claim of model difficulty.
+
+For a finite predetermined curvature probe set P in [0,1], choose rational r strictly inside the interval and outside P. Choose a rational positive epsilon smaller than every distance from r to a probe and to either endpoint. Set
+
+    f(x) = (x-r)^4/12 - epsilon^2*(x-r)^2/2.
+    f''(x) = (x-r)^2 - epsilon^2.
+
+Every predetermined probe has strictly positive second derivative. At the interior point r it is strictly negative; an interior point outside (r-epsilon,r+epsilon) has positive curvature. Thus the polynomial is neither despite the positive probe results. All quantities can be checked exactly. Derivative computation verifies the identity directly.
+
+Use a finite margin/range policy and publish it. Do not make epsilon arbitrarily small to create an unresolvable numerical problem. Keep this alongside examples where the probe heuristic works; the purpose is to validate the diagnostic and reference boundary, not to assemble a final population consisting only of probe failures.
+
+## Feasibility questions that research does not settle
+
+- Can the accepted grammar cover the requested mechanism/label/level cells without overwhelming rejection or certifier bias?
+- Can independent, bounded proofs support useful randomness at 160–512 true nonlinear stages without collapsing into a closed form or a narrow recurrence?
+- Do the chosen baselines detect important superficial cues, and are there enough independent groups to assess them?
+- How much of the measured difficulty is arithmetic, range contraction, representation or token budget rather than the intended dependent reasoning?
+- Which significant-core rules are justified for splits and uncertainty, and what equivalence remains unknown?
+
+Record these as gate questions and measured limitations. A literature citation cannot close them. Module 16's current state remains planned, with no implementation or additional inference evidence.
