@@ -1,0 +1,220 @@
+{
+  "suiteFileSha256": "190b11a5c353bae37cf7d1a60d8661c80e5a367ea478c3066513d624249efc77",
+  "verdict": "pass",
+  "researchPolicy": "absolute-sum-deep-pair-v1",
+  "limits": {
+    "maximumDepth": 512,
+    "maximumNodeCount": 2600,
+    "rationalLiteralCharacters": 96,
+    "rationalBits": 4096,
+    "arithmeticOperations": 200000,
+    "standardVerifier": "unverified/resource-limit retained"
+  },
+  "cases": [
+    {
+      "id": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "nodeCount": 1274,
+      "form": "sum-abs",
+      "centerCount": 255,
+      "canonicalCentersSha256": "82d5fbce6efcf8bcffb5a9e56b9a101d51558e98f1f6510818b46a76c4adfddf",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "255",
+          "fY": "255",
+          "fMidpoint": "508/5",
+          "gap": "-767/5"
+        }
+      ],
+      "renderingSha256": "1020f27939d1cd4c032c8377804cd0355465de84af37508c8ff9616f1b95c403",
+      "arithmeticOperations": 3448,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "nodeCount": 1270,
+      "form": "negated-sum-abs",
+      "centerCount": 254,
+      "canonicalCentersSha256": "a933343b71d237089c18da474be682712912625696bd33a3f8f0edd673d8b997",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "-254",
+          "fY": "-254",
+          "fMidpoint": "-508/5",
+          "gap": "762/5"
+        }
+      ],
+      "renderingSha256": "36a0394782bb24de8346c7b214396801fe8051e64016f05040ea92ebed40806d",
+      "arithmeticOperations": 3438,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "nodeCount": 1271,
+      "form": "x-times-sum-abs",
+      "centerCount": 254,
+      "canonicalCentersSha256": "a933343b71d237089c18da474be682712912625696bd33a3f8f0edd673d8b997",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "fX": "-254",
+          "fY": "0",
+          "fMidpoint": "-1411/20",
+          "gap": "1129/20"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "fX": "0",
+          "fY": "254",
+          "fMidpoint": "1411/20",
+          "gap": "-1129/20"
+        }
+      ],
+      "renderingSha256": "418d94e411aa9721933dfba86ef07ba02b1a1d091cec74a47586574a44bf7465",
+      "arithmeticOperations": 6113,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "label": "convex",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "nodeCount": 2554,
+      "form": "sum-abs",
+      "centerCount": 511,
+      "canonicalCentersSha256": "2ddb184d975b2ab6a8b1e00457907c40b9e61a90005e307743325148f7ded4ed",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "511",
+          "fY": "511",
+          "fMidpoint": "204",
+          "gap": "-307"
+        }
+      ],
+      "renderingSha256": "5b1657e3d56f45b5415fbb69d691518cd656473ee83f12a0bd982523d3aa9350",
+      "arithmeticOperations": 6904,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "label": "concave",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "nodeCount": 2550,
+      "form": "negated-sum-abs",
+      "centerCount": 510,
+      "canonicalCentersSha256": "89700a1d880b826e17bf7b0af747cd809baa349246c125c3fb8f35af543b0f65",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "1",
+          "midpoint": "0",
+          "fX": "-510",
+          "fY": "-510",
+          "fMidpoint": "-204",
+          "gap": "306"
+        }
+      ],
+      "renderingSha256": "31aa54f9d50ac6395f10e36f4eaa8e5bdeef9255b8c3a13eabe4db675fc2bc6b",
+      "arithmeticOperations": 6894,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    },
+    {
+      "id": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "label": "neither",
+      "domain": {
+        "min": "-1",
+        "max": "1"
+      },
+      "nodeCount": 2551,
+      "form": "x-times-sum-abs",
+      "centerCount": 510,
+      "canonicalCentersSha256": "89700a1d880b826e17bf7b0af747cd809baa349246c125c3fb8f35af543b0f65",
+      "witnesses": [
+        {
+          "x": "-1",
+          "y": "0",
+          "midpoint": "-1/2",
+          "fX": "-510",
+          "fY": "0",
+          "fMidpoint": "-567/4",
+          "gap": "453/4"
+        },
+        {
+          "x": "0",
+          "y": "1",
+          "midpoint": "1/2",
+          "fX": "0",
+          "fY": "510",
+          "fMidpoint": "567/4",
+          "gap": "-453/4"
+        }
+      ],
+      "renderingSha256": "dba5fe8d2b5c9ad2cb4937380f080c49c0ef96ef0af57471d2cbcc230921326e",
+      "arithmeticOperations": 12257,
+      "standardVerifierOutcome": {
+        "status": "unverified",
+        "reason": "resource-limit"
+      }
+    }
+  ],
+  "functionSignaturesUnique": true,
+  "reviewer": "AI-assisted independent mathematical check",
+  "limitations": [
+    "This is an iterative stdlib exact-rational check of one fixed absolute-sum family, not a proof assistant or general verifier.",
+    "The standard verifier remains outside this admission path and is retained as unverified/resource-limit.",
+    "Associative nesting, string length, and kink count are confounded with depth; the six research tasks cannot support causal-depth, ranking, or general-model claims."
+  ]
+}

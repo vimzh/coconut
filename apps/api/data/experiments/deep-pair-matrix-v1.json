@@ -1,0 +1,42 @@
+{
+  "version": "1",
+  "methodId": "deep-pair-pilot-v1",
+  "frozenAt": "2026-11-08T13:24:16.822Z",
+  "populationFileSha256": "190b11a5c353bae37cf7d1a60d8661c80e5a367ea478c3066513d624249efc77",
+  "reviewFileSha256": "0e575fcf9aad7a9602263e11ca00a5caedb856a9ffdeb71f2fb015da2aa12caa",
+  "priorProgressFileSha256": "3ea37234a0863219c427265f1df09ad206bfba22a95f135fdd2545746e516016",
+  "priorManifestFileSha256": "592bd02787d081e650a8a416b2ac2a33a8cedc33a4a35c96369a14a88708d2e1",
+  "priorResultFileSha256": "a95f06ba3a6360c97362fa4c5ca89baa03f7ca53319fad771f0c152c3f16969b",
+  "promptsSha256": "fc1090796a8936c773a3677c63e1769f1ef16e08192d3d0a84a465841f839479",
+  "referenceSourceFileSha256": "9fdf2fff4a685c3610efa2972ad28128fda777d391be69d0ac59b103b459da4b",
+  "runnerSourceFileSha256": "7991185c88c3d608fa724f95fbe8ffb36cf2a52b689e62d3c59701513ea8871d",
+  "models": [
+    "gpt-4.1-mini",
+    "gpt-4o-mini"
+  ],
+  "researchPolicy": "absolute-sum-deep-pair-v1",
+  "researchPromptVersion": "absolute-sum-deep-pair-prompt-v1",
+  "researchBounds": {
+    "depth": 512,
+    "nodes": 2600,
+    "literalCharacters": 96,
+    "rationalBits": 4096,
+    "arithmeticOperations": 200000
+  },
+  "profileId": "one-shot-json-v1",
+  "caseCount": 6,
+  "depths": [
+    256,
+    512
+  ],
+  "casesPerDepth": 3,
+  "trialsPerCase": 3,
+  "maxInferenceRequests": 36,
+  "priorInferenceRequests": 8124,
+  "cumulativeInferenceCeiling": 8160,
+  "sharedCeiling": 8192,
+  "maxConcurrency": 12,
+  "retries": 0,
+  "maxOutputTokens": 4096,
+  "inferenceDeadlineMs": 180000
+}

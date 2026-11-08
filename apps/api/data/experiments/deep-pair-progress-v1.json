@@ -1,0 +1,3426 @@
+{
+  "version": "1",
+  "methodId": "deep-pair-pilot-v1",
+  "finishedAt": "2026-11-08T13:24:32.785Z",
+  "manifestSha256": "bfed7c1acf5ccb302746f551f534f05a50f5fdb6047f44c52eefe22953f0a727",
+  "inferenceRequests": 36,
+  "cumulativeConservativeRequests": 8160,
+  "concurrency": 12,
+  "rateLimitEvidence": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997282"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997282"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997290"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997282"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997282"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997282"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997280"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997290"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997290"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994787"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994785"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994787"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994785"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149997287"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994790"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994785"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994785"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994790"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994790"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994790"
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "status": 200,
+      "remainingRequests": "29999",
+      "remainingTokens": "149994792"
+    }
+  ],
+  "rows": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "ae974ce7444452d588ad487237781b1ac2b07c2a96d8cd89697a206e502255bd",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "a0b64ed39f03d6834ccb344204f0caa869b85f534af46c361a80cf1d1697352a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "6ed6acf25c4657a5e48ecf057b12b1187ce106df53e06995f55657085ccde456",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "aef976024feb0c930bb7494321ac530eb2902e41353302b202f5d143e349f942",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "175e007d5ae7dca826ece4af8d373ec6c26eccb51fa079a60e79e576a5713542",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-da948b5a3967bf23120ddf2bffd79dc3226b561d9cb93d7b46d04b6417ed331d",
+      "depth": 256,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "cfc7ac12c2ba8625d4acafd73a764d47637093cdd0fc8ac3d3a4d14cc1e72b8e",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "f8e6ec92a8e9a8483f0bd3b286a8b268cfebb7d51a6ca865fa963cb5072c3c17",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "41a1ec42dd562873ddb45ab9ec2f8c83d1462352182be684122e580be755ad6c",
+      "outcome": "invalid",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "61c1c6ffc15f4cedb901448aa211ddf64ffec811b65dd52afc5813491ad778c3",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "28ac38cf3d8785a34faee081d5b539eeac9791e7d1fd6faed892b597f85ef20f",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "c9aec6269d0e4404d4ed233b2bb7ed7f84adb24fc4030e256aeeb8c350f62ba8",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-2f11787be57cdae7585baacc9feb182395dc71b9783bc163c64da5ab30c847b6",
+      "depth": 256,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "31b2595f46e83a10bd71e820fabe56ff6152728cd2adc5139a45fdcc147657eb",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "92c9c07f950b0f1d01af95b24facc16bf613c0800750e205dc83701a83db90d2",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "e6fc749b326d46b6dd3ac1f521172958ec5ab50e562ab05cf5948b7860742cb5",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "c221cb710ee330d1f369b2f5b68c1eca548edf6d3700f4375c4f743b7888e679",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "374014a360d0f57d9eda519cebb96c484ccc0d5b410bd51aa50724647bbf044d",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "5354fe3242d5e96aa402c3091754e019325f7f1ffc715bf4fd34fe89aae81235",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-256-9aedcbfc269c47ae5d5ae6c3da6e7150379fc358ea42533ad997062109f6baa1",
+      "depth": 256,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "47d620d8ef4d54e6d072840cdeb774994b8aed914d7d07df561e0e9e6a8a5574",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "e030593b4928ef3c1f22b9813711db2dbb7b086299a6f45c8a0ec660eeb97e2a",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "c5b0faf61d324a240f9a3f3cdb62b10797667d88c158d3d5bfe5ed7240f317ff",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "9e7ff29df4dcb0988be12a12044a5ee491f6c8a6aa317db6f39f2137fd9a292e",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "3492ee4043c99b2fe899cc952c8094db1715f7805e1608b52be97f0033da4990",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "5ee64b8985919307685d0c5131d850fa316729e58b8e117e781af6d862d57d03",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-c29db80fd9e4bf267fca5409f78ab6bb4e2e4cba266b3a07488b89d54d7ee604",
+      "depth": 512,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "3d8af051387222c04ccb4946529d2b04c828e6c8505313e72ecb4ad879fdb236",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "d0d7a3db0675269393056a60c3f3d137f6a87c5f6bdea9ab7561bd2e8391f868",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "ec9f873d63e9990c794ac620b69de6ff1ebff7e25bc9e0cb52ddb15dd4ded559",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "a244a7324dd760b0ed3a773fcad8a28efc10018d929a39c5b6f0c0447385e557",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "c6d904d4cf4771883d9939d724d712768058c320f0c8143bf8fcd0816870f268",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "7bc962a9c88aeb34e4bd1f268069a73a0b61a3d95e1174d77b1ecd421b971c3f",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-f87c7c51eee31dc3f1cdd868ab5909f8cc9ebee313a0123c57f54ae8979d6515",
+      "depth": 512,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "977ba46e92f76eb1016f3abd4d7caf391602332679bb6fa953fc7fbf24c8c493",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "d4b3d925e4374c0444b4cdf51db57b3f8d6616b359c8b47657e434dbc0715722",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "trialIndex": 0,
+      "dispatched": true,
+      "resultSha256": "7c5e3cc5923b0b23d132e4060a01fd105deef18e0a8091239c43d4cfbc45c364",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "0c0922c075b14332f6753d3058221cbae03e331ef726e9fc8ad794b65d2dc78c",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "trialIndex": 1,
+      "dispatched": true,
+      "resultSha256": "870a387fbdf9e202a21ffcc47514ec4f87052b5f7c1ec0a5304778f82e6cc310",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "caseId": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "389f981de46b54e7c5db4281fc61fa1dad8cf645763cefd70a2162b19dbb0543",
+      "outcome": "answer",
+      "failure": null
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "caseId": "case-deep-pair-v1-512-27be9be5813cf6e8e492c1ceb356932edaf3e91420347d44ae89d32f7408df21",
+      "depth": 512,
+      "trialIndex": 2,
+      "dispatched": true,
+      "resultSha256": "ef0a691762c7f04ab9b0bc5abaef01a02153c038769d500b688cf78a5ab785b8",
+      "outcome": "answer",
+      "failure": null
+    }
+  ],
+  "reports": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "depth": 256,
+      "report": {
+        "kind": "research-classification-only",
+        "overall": {
+          "classification": {
+            "population": {
+              "plannedTrials": 9,
+              "includedTrials": 9,
+              "excludedTrials": 0,
+              "correctTrials": 6,
+              "status": "complete"
+            },
+            "macroF1": 0.5555555555555555,
+            "accuracy": {
+              "numerator": 6,
+              "denominator": 9,
+              "value": 0.6666666666666666
+            },
+            "classes": {
+              "convex": {
+                "tp": 3,
+                "fp": 3,
+                "fn": 0,
+                "support": 3,
+                "precision": 0.5,
+                "recall": 1,
+                "f1": 0.6666666666666666
+              },
+              "concave": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "support": 3,
+                "precision": 1,
+                "recall": 1,
+                "f1": 1
+              },
+              "neither": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 3,
+                "support": 3,
+                "precision": null,
+                "recall": 0,
+                "f1": 0
+              }
+            },
+            "absentReferenceClasses": [],
+            "confusion": {
+              "columns": [
+                "convex",
+                "concave",
+                "neither",
+                "unusable"
+              ],
+              "rows": {
+                "convex": {
+                  "counts": {
+                    "convex": 3,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 1,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "concave": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 3,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 1,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "neither": {
+                  "counts": {
+                    "convex": 3,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 1,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                }
+              }
+            },
+            "directionalErrors": {
+              "convexToNeither": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0
+              },
+              "concaveToNeither": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0
+              }
+            },
+            "outcomes": {
+              "answer": {
+                "numerator": 9,
+                "denominator": 9,
+                "value": 1
+              },
+              "invalid": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "empty": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "conflicting": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "refused": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "truncated": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "provider-error": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "interrupted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "cancelled": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "unattempted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              }
+            },
+            "trials": [
+              {
+                "trialIndex": 0,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 2,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.5555555555555555,
+                  "accuracy": {
+                    "numerator": 2,
+                    "denominator": 3,
+                    "value": 0.6666666666666666
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 1,
+                      "recall": 1,
+                      "f1": 1
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 1,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 2,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.5555555555555555,
+                  "accuracy": {
+                    "numerator": 2,
+                    "denominator": 3,
+                    "value": 0.6666666666666666
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 1,
+                      "recall": 1,
+                      "f1": 1
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 2,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 2,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.5555555555555555,
+                  "accuracy": {
+                    "numerator": 2,
+                    "denominator": 3,
+                    "value": 0.6666666666666666
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 1,
+                      "recall": 1,
+                      "f1": 1
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              }
+            ],
+            "spread": {
+              "plannedReplicates": 3,
+              "eligibleReplicates": 3,
+              "macroF1": {
+                "count": 3,
+                "mean": 0.5555555555555555,
+                "min": 0.5555555555555555,
+                "max": 0.5555555555555555,
+                "sampleStandardDeviation": 0
+              },
+              "recall": {
+                "convex": {
+                  "count": 3,
+                  "mean": 1,
+                  "min": 1,
+                  "max": 1,
+                  "sampleStandardDeviation": 0
+                },
+                "concave": {
+                  "count": 3,
+                  "mean": 1,
+                  "min": 1,
+                  "max": 1,
+                  "sampleStandardDeviation": 0
+                },
+                "neither": {
+                  "count": 3,
+                  "mean": 0,
+                  "min": 0,
+                  "max": 0,
+                  "sampleStandardDeviation": 0
+                }
+              }
+            },
+            "agreement": {
+              "eligibleInstances": 3,
+              "totalInstances": 3,
+              "agreeingPairs": 9,
+              "totalPairs": 9,
+              "value": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "depth": 256,
+      "report": {
+        "kind": "research-classification-only",
+        "overall": {
+          "classification": {
+            "population": {
+              "plannedTrials": 9,
+              "includedTrials": 9,
+              "excludedTrials": 0,
+              "correctTrials": 3,
+              "status": "complete"
+            },
+            "macroF1": 0.3,
+            "accuracy": {
+              "numerator": 3,
+              "denominator": 9,
+              "value": 0.3333333333333333
+            },
+            "classes": {
+              "convex": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 3,
+                "support": 3,
+                "precision": 0,
+                "recall": 0,
+                "f1": 0
+              },
+              "concave": {
+                "tp": 2,
+                "fp": 3,
+                "fn": 1,
+                "support": 3,
+                "precision": 0.4,
+                "recall": 0.6666666666666666,
+                "f1": 0.5
+              },
+              "neither": {
+                "tp": 1,
+                "fp": 1,
+                "fn": 2,
+                "support": 3,
+                "precision": 0.5,
+                "recall": 0.3333333333333333,
+                "f1": 0.4
+              }
+            },
+            "absentReferenceClasses": [],
+            "confusion": {
+              "columns": [
+                "convex",
+                "concave",
+                "neither",
+                "unusable"
+              ],
+              "rows": {
+                "convex": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 2,
+                    "neither": 1,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.6666666666666666,
+                    "neither": 0.3333333333333333,
+                    "unusable": 0
+                  }
+                },
+                "concave": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 2,
+                    "neither": 0,
+                    "unusable": 1
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.6666666666666666,
+                    "neither": 0,
+                    "unusable": 0.3333333333333333
+                  }
+                },
+                "neither": {
+                  "counts": {
+                    "convex": 1,
+                    "concave": 1,
+                    "neither": 1,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0.3333333333333333,
+                    "concave": 0.3333333333333333,
+                    "neither": 0.3333333333333333,
+                    "unusable": 0
+                  }
+                }
+              }
+            },
+            "directionalErrors": {
+              "convexToNeither": {
+                "numerator": 1,
+                "denominator": 3,
+                "value": 0.3333333333333333
+              },
+              "concaveToNeither": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0
+              }
+            },
+            "outcomes": {
+              "answer": {
+                "numerator": 8,
+                "denominator": 9,
+                "value": 0.8888888888888888
+              },
+              "invalid": {
+                "numerator": 1,
+                "denominator": 9,
+                "value": 0.1111111111111111
+              },
+              "empty": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "conflicting": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "refused": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "truncated": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "provider-error": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "interrupted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "cancelled": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "unattempted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              }
+            },
+            "trials": [
+              {
+                "trialIndex": 0,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 0,
+                    "status": "complete"
+                  },
+                  "macroF1": 0,
+                  "accuracy": {
+                    "numerator": 0,
+                    "denominator": 3,
+                    "value": 0
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 1,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": 0,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 0,
+                      "fp": 1,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": 0,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 1
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 1
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 2,
+                      "denominator": 3,
+                      "value": 0.6666666666666666
+                    },
+                    "invalid": {
+                      "numerator": 1,
+                      "denominator": 3,
+                      "value": 0.3333333333333333
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 1,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 2,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.5555555555555555,
+                  "accuracy": {
+                    "numerator": 2,
+                    "denominator": 3,
+                    "value": 0.6666666666666666
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "neither": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 1,
+                      "recall": 1,
+                      "f1": 1
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 2,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 1,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.2222222222222222,
+                  "accuracy": {
+                    "numerator": 1,
+                    "denominator": 3,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 1,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": 0,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 1,
+                      "denominator": 1,
+                      "value": 1
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              }
+            ],
+            "spread": {
+              "plannedReplicates": 3,
+              "eligibleReplicates": 3,
+              "macroF1": {
+                "count": 3,
+                "mean": 0.25925925925925924,
+                "min": 0,
+                "max": 0.5555555555555555,
+                "sampleStandardDeviation": 0.27962349760262034
+              },
+              "recall": {
+                "convex": {
+                  "count": 3,
+                  "mean": 0,
+                  "min": 0,
+                  "max": 0,
+                  "sampleStandardDeviation": 0
+                },
+                "concave": {
+                  "count": 3,
+                  "mean": 0.6666666666666666,
+                  "min": 0,
+                  "max": 1,
+                  "sampleStandardDeviation": 0.5773502691896258
+                },
+                "neither": {
+                  "count": 3,
+                  "mean": 0.3333333333333333,
+                  "min": 0,
+                  "max": 1,
+                  "sampleStandardDeviation": 0.5773502691896258
+                }
+              }
+            },
+            "agreement": {
+              "eligibleInstances": 2,
+              "totalInstances": 3,
+              "agreeingPairs": 1,
+              "totalPairs": 6,
+              "value": 0.16666666666666666
+            }
+          }
+        }
+      }
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "depth": 512,
+      "report": {
+        "kind": "research-classification-only",
+        "overall": {
+          "classification": {
+            "population": {
+              "plannedTrials": 9,
+              "includedTrials": 9,
+              "excludedTrials": 0,
+              "correctTrials": 3,
+              "status": "complete"
+            },
+            "macroF1": 0.16666666666666666,
+            "accuracy": {
+              "numerator": 3,
+              "denominator": 9,
+              "value": 0.3333333333333333
+            },
+            "classes": {
+              "convex": {
+                "tp": 3,
+                "fp": 6,
+                "fn": 0,
+                "support": 3,
+                "precision": 0.3333333333333333,
+                "recall": 1,
+                "f1": 0.5
+              },
+              "concave": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 3,
+                "support": 3,
+                "precision": null,
+                "recall": 0,
+                "f1": 0
+              },
+              "neither": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 3,
+                "support": 3,
+                "precision": null,
+                "recall": 0,
+                "f1": 0
+              }
+            },
+            "absentReferenceClasses": [],
+            "confusion": {
+              "columns": [
+                "convex",
+                "concave",
+                "neither",
+                "unusable"
+              ],
+              "rows": {
+                "convex": {
+                  "counts": {
+                    "convex": 3,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 1,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "concave": {
+                  "counts": {
+                    "convex": 3,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 1,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "neither": {
+                  "counts": {
+                    "convex": 3,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 1,
+                    "concave": 0,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                }
+              }
+            },
+            "directionalErrors": {
+              "convexToNeither": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0
+              },
+              "concaveToNeither": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0
+              }
+            },
+            "outcomes": {
+              "answer": {
+                "numerator": 9,
+                "denominator": 9,
+                "value": 1
+              },
+              "invalid": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "empty": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "conflicting": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "refused": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "truncated": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "provider-error": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "interrupted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "cancelled": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "unattempted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              }
+            },
+            "trials": [
+              {
+                "trialIndex": 0,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 1,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.16666666666666666,
+                  "accuracy": {
+                    "numerator": 1,
+                    "denominator": 3,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 2,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.3333333333333333,
+                      "recall": 1,
+                      "f1": 0.5
+                    },
+                    "concave": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 1,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 1,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.16666666666666666,
+                  "accuracy": {
+                    "numerator": 1,
+                    "denominator": 3,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 2,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.3333333333333333,
+                      "recall": 1,
+                      "f1": 0.5
+                    },
+                    "concave": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 2,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 1,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.16666666666666666,
+                  "accuracy": {
+                    "numerator": 1,
+                    "denominator": 3,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 2,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.3333333333333333,
+                      "recall": 1,
+                      "f1": 0.5
+                    },
+                    "concave": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              }
+            ],
+            "spread": {
+              "plannedReplicates": 3,
+              "eligibleReplicates": 3,
+              "macroF1": {
+                "count": 3,
+                "mean": 0.16666666666666666,
+                "min": 0.16666666666666666,
+                "max": 0.16666666666666666,
+                "sampleStandardDeviation": 0
+              },
+              "recall": {
+                "convex": {
+                  "count": 3,
+                  "mean": 1,
+                  "min": 1,
+                  "max": 1,
+                  "sampleStandardDeviation": 0
+                },
+                "concave": {
+                  "count": 3,
+                  "mean": 0,
+                  "min": 0,
+                  "max": 0,
+                  "sampleStandardDeviation": 0
+                },
+                "neither": {
+                  "count": 3,
+                  "mean": 0,
+                  "min": 0,
+                  "max": 0,
+                  "sampleStandardDeviation": 0
+                }
+              }
+            },
+            "agreement": {
+              "eligibleInstances": 3,
+              "totalInstances": 3,
+              "agreeingPairs": 9,
+              "totalPairs": 9,
+              "value": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "depth": 512,
+      "report": {
+        "kind": "research-classification-only",
+        "overall": {
+          "classification": {
+            "population": {
+              "plannedTrials": 9,
+              "includedTrials": 9,
+              "excludedTrials": 0,
+              "correctTrials": 5,
+              "status": "complete"
+            },
+            "macroF1": 0.5555555555555555,
+            "accuracy": {
+              "numerator": 5,
+              "denominator": 9,
+              "value": 0.5555555555555556
+            },
+            "classes": {
+              "convex": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 2,
+                "support": 3,
+                "precision": 1,
+                "recall": 0.3333333333333333,
+                "f1": 0.5
+              },
+              "concave": {
+                "tp": 2,
+                "fp": 3,
+                "fn": 1,
+                "support": 3,
+                "precision": 0.4,
+                "recall": 0.6666666666666666,
+                "f1": 0.5
+              },
+              "neither": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 1,
+                "support": 3,
+                "precision": 0.6666666666666666,
+                "recall": 0.6666666666666666,
+                "f1": 0.6666666666666666
+              }
+            },
+            "absentReferenceClasses": [],
+            "confusion": {
+              "columns": [
+                "convex",
+                "concave",
+                "neither",
+                "unusable"
+              ],
+              "rows": {
+                "convex": {
+                  "counts": {
+                    "convex": 1,
+                    "concave": 2,
+                    "neither": 0,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0.3333333333333333,
+                    "concave": 0.6666666666666666,
+                    "neither": 0,
+                    "unusable": 0
+                  }
+                },
+                "concave": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 2,
+                    "neither": 1,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.6666666666666666,
+                    "neither": 0.3333333333333333,
+                    "unusable": 0
+                  }
+                },
+                "neither": {
+                  "counts": {
+                    "convex": 0,
+                    "concave": 1,
+                    "neither": 2,
+                    "unusable": 0
+                  },
+                  "rowRates": {
+                    "convex": 0,
+                    "concave": 0.3333333333333333,
+                    "neither": 0.6666666666666666,
+                    "unusable": 0
+                  }
+                }
+              }
+            },
+            "directionalErrors": {
+              "convexToNeither": {
+                "numerator": 0,
+                "denominator": 3,
+                "value": 0
+              },
+              "concaveToNeither": {
+                "numerator": 1,
+                "denominator": 3,
+                "value": 0.3333333333333333
+              }
+            },
+            "outcomes": {
+              "answer": {
+                "numerator": 9,
+                "denominator": 9,
+                "value": 1
+              },
+              "invalid": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "empty": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "conflicting": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "refused": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "truncated": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "provider-error": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "interrupted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "cancelled": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              },
+              "unattempted": {
+                "numerator": 0,
+                "denominator": 9,
+                "value": 0
+              }
+            },
+            "trials": [
+              {
+                "trialIndex": 0,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 2,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.5555555555555555,
+                  "accuracy": {
+                    "numerator": 2,
+                    "denominator": 3,
+                    "value": 0.6666666666666666
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 1,
+                      "recall": 1,
+                      "f1": 1
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "neither": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 1,
+                          "concave": 0,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 1,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 2,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.5555555555555555,
+                  "accuracy": {
+                    "numerator": 2,
+                    "denominator": 3,
+                    "value": 0.6666666666666666
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    },
+                    "neither": {
+                      "tp": 1,
+                      "fp": 0,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 1,
+                      "recall": 1,
+                      "f1": 1
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              },
+              {
+                "trialIndex": 2,
+                "metrics": {
+                  "population": {
+                    "plannedTrials": 3,
+                    "includedTrials": 3,
+                    "excludedTrials": 0,
+                    "correctTrials": 1,
+                    "status": "complete"
+                  },
+                  "macroF1": 0.2222222222222222,
+                  "accuracy": {
+                    "numerator": 1,
+                    "denominator": 3,
+                    "value": 0.3333333333333333
+                  },
+                  "classes": {
+                    "convex": {
+                      "tp": 0,
+                      "fp": 0,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": null,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "concave": {
+                      "tp": 0,
+                      "fp": 1,
+                      "fn": 1,
+                      "support": 1,
+                      "precision": 0,
+                      "recall": 0,
+                      "f1": 0
+                    },
+                    "neither": {
+                      "tp": 1,
+                      "fp": 1,
+                      "fn": 0,
+                      "support": 1,
+                      "precision": 0.5,
+                      "recall": 1,
+                      "f1": 0.6666666666666666
+                    }
+                  },
+                  "absentReferenceClasses": [],
+                  "confusion": {
+                    "columns": [
+                      "convex",
+                      "concave",
+                      "neither",
+                      "unusable"
+                    ],
+                    "rows": {
+                      "convex": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 1,
+                          "neither": 0,
+                          "unusable": 0
+                        }
+                      },
+                      "concave": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      },
+                      "neither": {
+                        "counts": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        },
+                        "rowRates": {
+                          "convex": 0,
+                          "concave": 0,
+                          "neither": 1,
+                          "unusable": 0
+                        }
+                      }
+                    }
+                  },
+                  "directionalErrors": {
+                    "convexToNeither": {
+                      "numerator": 0,
+                      "denominator": 1,
+                      "value": 0
+                    },
+                    "concaveToNeither": {
+                      "numerator": 1,
+                      "denominator": 1,
+                      "value": 1
+                    }
+                  },
+                  "outcomes": {
+                    "answer": {
+                      "numerator": 3,
+                      "denominator": 3,
+                      "value": 1
+                    },
+                    "invalid": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "empty": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "conflicting": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "refused": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "truncated": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "provider-error": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "interrupted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "cancelled": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    },
+                    "unattempted": {
+                      "numerator": 0,
+                      "denominator": 3,
+                      "value": 0
+                    }
+                  }
+                },
+                "eligibleForSpread": true
+              }
+            ],
+            "spread": {
+              "plannedReplicates": 3,
+              "eligibleReplicates": 3,
+              "macroF1": {
+                "count": 3,
+                "mean": 0.44444444444444436,
+                "min": 0.2222222222222222,
+                "max": 0.5555555555555555,
+                "sampleStandardDeviation": 0.1924500897298752
+              },
+              "recall": {
+                "convex": {
+                  "count": 3,
+                  "mean": 0.3333333333333333,
+                  "min": 0,
+                  "max": 1,
+                  "sampleStandardDeviation": 0.5773502691896258
+                },
+                "concave": {
+                  "count": 3,
+                  "mean": 0.6666666666666666,
+                  "min": 0,
+                  "max": 1,
+                  "sampleStandardDeviation": 0.5773502691896258
+                },
+                "neither": {
+                  "count": 3,
+                  "mean": 0.6666666666666666,
+                  "min": 0,
+                  "max": 1,
+                  "sampleStandardDeviation": 0.5773502691896258
+                }
+              }
+            },
+            "agreement": {
+              "eligibleInstances": 3,
+              "totalInstances": 3,
+              "agreeingPairs": 3,
+              "totalPairs": 9,
+              "value": 0.3333333333333333
+            }
+          }
+        }
+      }
+    }
+  ],
+  "interpretation": "Separate fixed-family exact research proof; standard verifier admission remains unverified/resource-limit. Highly templated absolute sums, associative nesting, length and kink-count confounds; no general deep-expression, causal depth, ranking or frontier claim.",
+  "state": "settled",
+  "unknownRemoteInferenceRequests": 0
+}

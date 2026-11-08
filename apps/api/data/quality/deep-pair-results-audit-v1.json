@@ -1,0 +1,163 @@
+{
+  "sourceFileSha256": "4038619380c6a9797239aa3156c92d6e07ecfe61e457d909dc1f12a6bab24c08",
+  "verdict": "pass",
+  "inferenceRequests": 36,
+  "cumulativeConservativeRequests": 8160,
+  "concurrency": 12,
+  "trialSpanSeconds": 15.803,
+  "models": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "depth": 256,
+      "reportedModelIds": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "correct": 6,
+      "planned": 9,
+      "wrongValid": 3,
+      "invalid": 0,
+      "macroF1": 0.5555555555555556,
+      "macroF1Exact": "5/9",
+      "confusion": {
+        "convex": {
+          "convex": 3,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 3,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 3,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        }
+      },
+      "usage": {
+        "input": 24258,
+        "output": 1166
+      },
+      "estimatedUsdIgnoringCacheDiscounts": 0.0115688
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "depth": 256,
+      "reportedModelIds": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "correct": 3,
+      "planned": 9,
+      "wrongValid": 5,
+      "invalid": 1,
+      "macroF1": 0.3,
+      "macroF1Exact": "3/10",
+      "confusion": {
+        "convex": {
+          "convex": 0,
+          "concave": 2,
+          "neither": 1,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 2,
+          "neither": 0,
+          "unusable": 1
+        },
+        "neither": {
+          "convex": 1,
+          "concave": 1,
+          "neither": 1,
+          "unusable": 0
+        }
+      },
+      "usage": {
+        "input": 24258,
+        "output": 839
+      },
+      "estimatedUsdIgnoringCacheDiscounts": 0.0041421
+    },
+    {
+      "modelId": "gpt-4.1-mini",
+      "depth": 512,
+      "reportedModelIds": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "correct": 3,
+      "planned": 9,
+      "wrongValid": 6,
+      "invalid": 0,
+      "macroF1": 0.16666666666666666,
+      "macroF1Exact": "1/6",
+      "confusion": {
+        "convex": {
+          "convex": 3,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 3,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 3,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 0
+        }
+      },
+      "usage": {
+        "input": 46722,
+        "output": 1519
+      },
+      "estimatedUsdIgnoringCacheDiscounts": 0.0211192
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "depth": 512,
+      "reportedModelIds": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "correct": 5,
+      "planned": 9,
+      "wrongValid": 4,
+      "invalid": 0,
+      "macroF1": 0.5555555555555556,
+      "macroF1Exact": "5/9",
+      "confusion": {
+        "convex": {
+          "convex": 1,
+          "concave": 2,
+          "neither": 0,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 2,
+          "neither": 1,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 0,
+          "concave": 1,
+          "neither": 2,
+          "unusable": 0
+        }
+      },
+      "usage": {
+        "input": 46722,
+        "output": 793
+      },
+      "estimatedUsdIgnoringCacheDiscounts": 0.0074841
+    }
+  ],
+  "limits": "Fixed six-task descriptive pilot (three per depth); estimates are not provider bills. Private source exports are required for arithmetic replay."
+}
