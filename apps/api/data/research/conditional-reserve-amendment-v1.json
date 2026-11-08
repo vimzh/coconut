@@ -1,0 +1,83 @@
+{
+  "version": "1",
+  "kind": "conditional-reserve-operational-amendment",
+  "adoptedAt": "2026-11-08T08:55:34.754Z",
+  "original": {
+    "path": "docs/research/conditional-reserve-v1.md",
+    "fileSha256": "9f37d7cbff7596d0a8ffc12bf53c02cc2f2adc9b3e36a86e7af20969d8c1bebf",
+    "wording": "BOTH P5 exploration cells finish 216/216 valid correct labels, with no infrastructure failures or unusable outcomes, AND no actual frontier classification error has occurred. Only then may the root coordinator consider this fixed 18 tasks × 3 trials × 2 models = 108-call follow-up; it is never an automatic launch authorization. If P5 is incomplete or has errors, this branch remains dormant research and is not automatically authorized.",
+    "preserved": true
+  },
+  "proposal": {
+    "path": "apps/api/data/research/conditional-reserve-v1.json",
+    "fileSha256": "766261f379ea91fc748b0e612068b9717a33ccc612be14747f16e306e4457b85",
+    "membershipChanged": false
+  },
+  "condition": "Only after BOTH frozen P5 cells complete all 216 planned trials as valid, correct answers, with no infrastructure or unusable outcomes, may the coordinator consider the unchanged fixed 18-task follow-up, provided no valid wrong label has been observed in the defined retained frontier population through the assessment cutoff. The 11 baseline requests with unavailable outcomes remain unknown and included in conservative request accounting. This condition never authorizes an automatic launch.",
+  "exposureAtAdoption": [
+    {
+      "runId": "dfd70b94-ee70-4365-8b08-58ff09c07e6f",
+      "requestedModelId": "gpt-6-astra",
+      "state": "running",
+      "updatedAt": "2026-11-08T08:55:31.409Z",
+      "recordSha256": "19b1a3e86e74d7de37a16697474553a6240d0f9a60876989946563df2e1ca79a",
+      "progress": {
+        "plannedTrials": 216,
+        "startedTrials": 144,
+        "activeTrials": 4,
+        "finishedTrials": 140,
+        "modelOutcomes": 140,
+        "infrastructureFailures": 0,
+        "remainingTrials": 76,
+        "inferenceRequests": 140
+      },
+      "observed": {
+        "correct": 140,
+        "wrong": 0,
+        "kinds": {
+          "answer": 140
+        }
+      }
+    },
+    {
+      "runId": "793e500f-2bee-4af8-b56b-5256731f00c7",
+      "requestedModelId": "gpt-6.1-sol",
+      "state": "running",
+      "updatedAt": "2026-11-08T08:55:12.602Z",
+      "recordSha256": "932c5f90e784f01b7e200fecff9c3f5f69d48e7c7286f9c9608e3cb3bbe8379b",
+      "progress": {
+        "plannedTrials": 216,
+        "startedTrials": 152,
+        "activeTrials": 4,
+        "finishedTrials": 148,
+        "modelOutcomes": 148,
+        "infrastructureFailures": 0,
+        "remainingTrials": 68,
+        "inferenceRequests": 148
+      },
+      "observed": {
+        "correct": 148,
+        "wrong": 0,
+        "kinds": {
+          "answer": 148
+        }
+      }
+    }
+  ],
+  "assessmentPopulation": {
+    "requestedModels": [
+      "gpt-6-astra",
+      "gpt-6.1-sol"
+    ],
+    "baselineReturnedLabels": 1402,
+    "baselineObservedWrongLabels": 0,
+    "originalUnknownRemoteOutcomes": 11,
+    "scope": "All returned retained benchmark outcomes for the declared frontier IDs in original v1, replication v2 and both P5 cells, through the eventual terminal assessment cutoff. Setting controls are retained separately and are not evaluation scores."
+  },
+  "limits": [
+    "This explicitly amends the strongest literal reading; it does not establish that the original absolute condition was true.",
+    "The amendment follows partial P5 exposure and precedes terminal P5 outcomes and all reserve runtime work or inference.",
+    "Original wording, fixed membership, reference labels, original outcomes, score contracts and all D-12 requirements remain unchanged.",
+    "Adaptive, exploratory, unranked, no eligible confidence interval or stronger confirmation claim; shared 8192-send ceiling unchanged."
+  ]
+}

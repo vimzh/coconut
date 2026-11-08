@@ -1,0 +1,3833 @@
+{
+  "version": "1",
+  "manifestSha256": "62ae737f9ab8afad8edee917541d40fa46f16fdcce9216ea23189b375bb5029e",
+  "capabilityEvidenceSha256": "e1f680a94f881df6667ce6ca8e7ce268475ba424462a6bfa5850813a41e01000",
+  "startedAt": "2026-11-08T05:04:18.405Z",
+  "updatedAt": "2026-11-08T07:59:46.559Z",
+  "state": "interrupted",
+  "plannedInferenceCeiling": 7236,
+  "capabilitiesInferenceRequests": 183,
+  "capabilityCallsThisExecution": 0,
+  "replication": {
+    "kind": "complete-fresh-replication",
+    "sourceManifestSha256": "c69ae7489e3ef4e904bf5adeff59841cc4045ce912dcc28f8f31aec0a8e26881",
+    "sourceLedgerSha256": "7547446f7e5dbff147cd0978c5ae0724f95ff1e330ef6e7845d5d5693845a3e7",
+    "reconciliationSha256": "64aa79c95f178b3fa9ad78102c47d0fb0a0aefb5b94baf181a5e1960c39bfb65",
+    "retainedPriorInferenceRequests": 412,
+    "plannedNewMathInferenceRequests": 7236,
+    "maximumCumulativeInferenceRequests": 7648,
+    "retainedControlsSha256": "f2b920c061a45c3ad6a3d4027f567be28bfff48b8dfe7070bbdc7d2aabbb644e",
+    "capabilityPolicy": "reuse-retained-controls-without-new-calls",
+    "reason": "The first complete matrix attempt produced no complete evaluation cells after a shared connection failure. This fresh replication repeats all originally eligible cells with identical tasks/settings, keeps every original attempt, makes no score-based selection, and reuses setting controls without sending them again."
+  },
+  "cells": [
+    {
+      "id": "cell-03a22386ae6a92ce6e9e2c908e4f50621312e876d7b48c56f6816ec6f1722edd",
+      "phase": "confirmation",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "1d86e64a-2d86-490b-89b4-91c3b0ff55c1",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-fb3ab3a359c23d9db5db7ed37574975d9c7587d6675ee1a8a5096896f8fcf76e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f4a7311cf8e20bcaeba8fec316ed20e8c2426ab1a4c9ef19c87a61968f8984bd",
+      "phase": "confirmation",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-bab2619f14bd011167f89a53d194d5289286649ac07d69ec7680c9989669b29d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-d1fb0530784f02fbe6af24871487de4583bab8bf7934038c76dd4f77b3e4668f",
+      "phase": "confirmation",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "66002fcb-e65f-43d3-b8c7-8b83a191dc55",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-eda13da4a860f88c2c75d2f813c642ce7016f6cad20f09ad6f59b6982fdd584c",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-2dd2f83ffd84f869c3376a0219acf94b6b2e5085fad7e0f46dc49dc49daa0ea3",
+      "phase": "confirmation",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-8710fd75872f108ee8bea569051d98808543ec4fae432d7779816a39c1831152",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-5fc03cb35df68a78d1b4ce9ab8d6b338390cb421319cab79a3d848e5171ba8b6",
+      "phase": "confirmation",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "0cddf7ac-41a6-47bb-8384-6bc749d0462d",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 215
+      },
+      "reportId": "report-v1-c0618d18d9c96dc3e169337831e01369ae4cdea98893d0f302421fb959d7177f",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-59d97f51a618ce48cb881a83425420e0fdf2a7c1ee4ba107e9e449134ddee068",
+      "phase": "confirmation",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "79fe3b22-a497-4303-be5a-80836e3b3f23",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-992ed8d04d9675de3ec23af81b7bf12268a4f6126be818dac67e115bb5a7a6e6",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-2e0ebdce77176e16fc8ce32855bc7c425e4f739d07be91bbc1ede1ac76bed05c",
+      "phase": "confirmation",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "ca142293-bbab-4bb9-a149-95adad364447",
+      "progress": {
+        "finished": 216,
+        "planned": 216,
+        "inferenceRequests": 216
+      },
+      "reportId": "report-v1-9a78f8c6df5c1a81ed8e1d4c9f9a5e611fafeb58818e5f4378c78576753f4878",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-47252636e222a6b68fb115a57458d3782842fa7a2111dc53af85be4d1639af1c",
+      "phase": "confirmation",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-max",
+      "state": "failed",
+      "runId": "88a90e64-60c0-497c-98dd-d4c9e051707e",
+      "progress": {
+        "finished": 188,
+        "planned": 216,
+        "inferenceRequests": 188
+      },
+      "reportId": "report-v1-d864fb58e789032ed1259ceb6d33784a45ec419b148917663fdd54b40dbef6c7",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-29babb1716eae5ab3c5af1ecf19475971ea1cee277fce7985394aa83585969fe",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "32e0e6a0-411e-4903-91f1-8c51282873cb",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4a11209aacbc4ed47ead812f3943da3a23551ea39c079f1769599fd7ca5e46e5",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-5d4d46b67c0685423c0b96253daaf0b989ac677e890dc3b11a2e160b3b3e8437",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-none",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-d9a314a34342879b59acbd1f83f41c62f3cb0bc97188b52533a7838638677ca5",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-94d547bf2674f2783d62f13bb7c6d1975d7c9971beca9352f3bde6c8d493141b",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-low",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-357d212911393d729f3ce88453251556d7b7b07ecc4bd3e48b06cb3cfaa80a2b",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "1842313b-c74e-4b79-8b48-63be23e80d1e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-27c9959514f09b48a7e37ebae12a63b2835cded829ca0abded3481d3a48a1e1f",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4a536f466b5616e1a26be080aa5991beb09205041a9d0a3e011fdd5bfb296055",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-high",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-f5c883e02eb65369993765b4d96854c18beeeefa67aafc696791a971ef814ae9",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-ca5751d33502a0cfe80ffe607c0bea9117f9e59ee260990af6781af3f28ba544",
+      "phase": "screening",
+      "modelId": "chat-latest",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-e417882e62305093aea5d15baae2140540748c276f4c3147b0a29b63fe910154",
+      "phase": "screening",
+      "modelId": "gpt-4.1",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "eeb3579f-555a-4c8d-9522-0ceff5879a4a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-3f50cdaa98ea2da22ca8ca049eb1dc6b51a2d7e6815c3067c9657298e9ef0d30",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-03c31ddc44a49fa0ba1c0b314229fce31a801f6e6cc084e09a0547f25a634ae1",
+      "phase": "screening",
+      "modelId": "gpt-4.1-2025-04-14",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "7f1f6a1e-0821-4f1a-b9cb-ca8a172d7809",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b5accb70f3b41c54124489b4cad165ae9fa35278f3187863bc53c565fc25fdf7",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e10d6f0bf414ae20e73e13b7090885631ddc6c6b973cd85330c37a2165c009b4",
+      "phase": "screening",
+      "modelId": "gpt-4.1-mini",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "e0d8aa64-86cb-4129-afa0-3ef27e135c72",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-6df73bb63920e66da49eebd45f695a688f55313129cd17ff7083dfd13cd4cfd8",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-700bf5522b92f61a8b8dab40254efaf9a7f37b10a2fb0c56e93e373ead7a21eb",
+      "phase": "screening",
+      "modelId": "gpt-4.1-mini-2025-04-14",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "6e2aa15a-ad9e-47c6-b0d0-d0d71dabe003",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-98222fcb2c7a6b38995147974fa3d28bab8bfec6b58e58066740178ee233a9a4",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f906cb946146ffde34119703edf9c016be7bdb1ae27d03f69f4311e204de3185",
+      "phase": "screening",
+      "modelId": "gpt-4o",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "8e22bb5d-2b16-4c63-8a95-54747514362a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-c6890346990196535dc7b0149643e0953c924e8b251797a27150dff8cc45b8b4",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-828608c69a720974f74e61ab110ed67b02a0b1cbf5b89e47854a6a4c721e7c0f",
+      "phase": "screening",
+      "modelId": "gpt-4o-2024-08-06",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "ba69c4d2-2adb-418f-9bd2-fdbf7128b9b5",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-c714032c14821468ea23ba96e712b86e3ad3748fc3a56160286bff2d3c882fc1",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-64b9c934a93e407a09f86a498bb47d7d9f231d49c7aa836468925fe39da2aa99",
+      "phase": "screening",
+      "modelId": "gpt-4o-2024-11-20",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "97b44d39-e40b-49b9-a6dc-8aa369e74833",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a19b5b56b745726312b8022be89f554e1a02041d50b8d653841933bdf2a60f7b",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-278448026392d0bfc63b74ef9605b1b4a6c50784a86d42631d650b278aa1f0e4",
+      "phase": "screening",
+      "modelId": "gpt-4o-mini",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "7efde377-b32d-4084-925b-f4960694fc14",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ce3afbb8e61b8d3d7342a52bf963115c75f476a5b482aa1fc3066b544ba9ef6b",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b83a6a18b193248b50ea6a6bd687bdf8e3e46d728088603596474e0e194fad2e",
+      "phase": "screening",
+      "modelId": "gpt-4o-mini-2024-07-18",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "641901b8-60e1-4735-aad0-263087960df0",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-f0b03d1b9e92a99f5ff79d3f602780ad49bcffadbf500ecc2cf8aeab74dc5619",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-0cb8ae8a317b31a549d37ac8a5cdbe535c851f5272fdbcb85b58db4e8a6fbae7",
+      "phase": "screening",
+      "modelId": "gpt-5",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "053eca9e-0881-4a29-bd62-55e2a4cbee2f",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8ae03249fd72ba25b2bbb77acbe4607e9a668740f292db74c8eec22a22b9829e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f3d3f095c528ed2056f449d9b32ac6211b2cae6544647528b1668a54a257e9b2",
+      "phase": "screening",
+      "modelId": "gpt-5",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "completed",
+      "runId": "6fe80dcd-911c-4f1a-9836-74fc9122e094",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-0c9f770e8f5e94e45ee0c07ae9c9129ee4ec9b73596c5e6c5deafcd0b9638876",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f05944079015d1ce9d35b50edb3f74167da9446e8b2f9f2f33bd109a3ca5751f",
+      "phase": "screening",
+      "modelId": "gpt-5",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "aa5850ba-1506-415f-b108-d0faff7e12cb",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-30054a7701de28fd93ebc68426c4fd8bedeee1540027d6f1c8b6a8cffd4ceb22",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-3e5cfe57881d3844dfcf065f2ec3d038520f3068d1cef649085c42525c992c5e",
+      "phase": "screening",
+      "modelId": "gpt-5",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "4e8fdb2e-38c4-4ed1-9a83-2522793bb724",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4911e2fd2f29b56328ee12bd005c69834b5cbe1a054b0447d6c2e6902745c9f5",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-629f45996c0b91be43566f6149da77b0e29ab4345d754361566a28aa3666f222",
+      "phase": "screening",
+      "modelId": "gpt-5",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "dc8616ff-10c1-43ab-9d03-0b6acbabdad0",
+      "progress": {
+        "finished": 15,
+        "planned": 27,
+        "inferenceRequests": 15
+      },
+      "reportId": "report-v1-f704708ba6f88564fd805b61c6c1b79c9dc0a57c12d58e940e7b4f8278f49505",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-0cd3116c6c43cabab22d230f8fb7ac3329e55da418713094b667d431fb49f38c",
+      "phase": "screening",
+      "modelId": "gpt-5-2025-08-07",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "b5ee3b83-ea20-4d87-82af-f6c68905dbef",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-885e5a1bbb1aca8c31d321f3bdeb10a39a5da5bd2ec81576f5309bb3f26fa262",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-945eabad230cbf0451e1d2b7189b8e65ac11eb1264fc7ecb97b403c9c9ea64f0",
+      "phase": "screening",
+      "modelId": "gpt-5-2025-08-07",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "failed",
+      "runId": "9b1af5c0-67d5-43e5-88b0-e50b1e4c5d54",
+      "progress": {
+        "finished": 5,
+        "planned": 27,
+        "inferenceRequests": 4
+      },
+      "reportId": "report-v1-ce82352f16b4a9757c7f53470ea235f123d3649c913d77ad00da72ca02e27a33",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-024672d348714d4d2cd7e7f96c26593ad94942a04efde202faca7b918c700684",
+      "phase": "screening",
+      "modelId": "gpt-5-2025-08-07",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "4ae05b68-15eb-487e-834a-ba844efdfd55",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d9694b68616d9f32f7d68517d847d96f5b31cab6b3211e1983a77ac164ae4bf9",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-8fc2795c3209c8115f9a4c170db7f273d4d388134442dd1b7f451586d06febfa",
+      "phase": "screening",
+      "modelId": "gpt-5-2025-08-07",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "3440fef5-63c1-4527-adfe-df93d0df3d96",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5200be962d29dd1cb3b5c25e0f85676247f68450e40df36cfa1435f30ee61cd3",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-6b8e5d0d30d68c6533aa5a9a1336dc2538b9e961677ed014a836b7c6538fcb8b",
+      "phase": "screening",
+      "modelId": "gpt-5-2025-08-07",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "b966c5c2-ee37-4d5d-abb1-50006a670462",
+      "progress": {
+        "finished": 21,
+        "planned": 27,
+        "inferenceRequests": 21
+      },
+      "reportId": "report-v1-5fda0dd92909ca8e8ece4ec205880c05082ba6bfa7a25834d5fdff4390928e74",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-8b5b6ea43d35164687cfbd8099a89445b5a3cc10aeabfc55fe06e22b5e0032b8",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "8c981d31-0f9a-4722-93bd-52534dda3fda",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-2a8b663300ba208320a42785e60cde14fef2bb2a141cea07a787a251ec106a18",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-c8775d7bf3d51d4fc35a947794748e5cf9e2c1c30936931364c3a2178de66458",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-none",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-5cc77f3d52f98f757f29e6d06df9f7ea6902e4456ffedd24665039363d42fe73",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "failed",
+      "runId": "980141ac-e99e-4ddd-8847-7b40cf2e4749",
+      "progress": {
+        "finished": 12,
+        "planned": 27,
+        "inferenceRequests": 12
+      },
+      "reportId": "report-v1-b3174eaccfe134cea08237421464b99a0dfc65e5530b8473e8e6de8e6fdb3c2a",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-f81f7837831cf8e1b75c76b293c03f1d9a9694a0c416248c0bf6ef8915d901a3",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "00e8fc69-820a-48f3-9e96-f4c250c7c36e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-c116681c628ef2127ffe5b1f6cca8f1de3051fb63ae3024d30f1919902deab73",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-a06c229f92d27fa5554001ccf0faa33af7a6954243afb5399407a1c2cdb6071d",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "9eba050f-8e9c-4602-b8cc-e8cc7a297d1e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-2a869a060e98d890b15d48d549bc8e0a72b4d98a7e789f6ab9f565771c4d0c6a",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-be9873272fa2330931af3b2d7365e249615fec4c889aa49dfde592aeba85f346",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "f2bc19e8-64b9-4c60-9159-4e15cb3e7fce",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9862916d837dd134f3cb3ad9508f3dc0a752b6cd0a0d762e58b87ba654670efa",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-38e4d20420502a45e16f316a33351a4a6635f6d89aecbeab005d2e38f6423e1f",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-7837435728d284e6fb6974e304538577dda5da89b55391f2c9cff3be1a90fb58",
+      "phase": "screening",
+      "modelId": "gpt-5-mini",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-3b613dc0279a77d82aace27f2df9445c7a0213d4d1d41e3ff37ad5c486f368aa",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "4e4f2e0f-685a-4ef4-895e-10803c99a8a6",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-683279ff90a6069d238e51e167c83a127dc32908cd3fbd8e8c188cc06c4ac11b",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-2cca5b303bb0c7e05b6b02744a9ae38e2a7a2f749d9f478433f0957534f6505d",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-none",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-f82e0fb2053217030ef8764d4dcfd52481390ac837e7e3e8af1441b798503c68",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "failed",
+      "runId": "3171b74c-c5d7-4ad4-84e5-c4ad9c0772cd",
+      "progress": {
+        "finished": 12,
+        "planned": 27,
+        "inferenceRequests": 12
+      },
+      "reportId": "report-v1-67e23d799f86fd58c553c692fb7e49cd6c1b06922d1cf11df1f88f0c5335ff21",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-31e56d189bbe71a84d0cf9b91e9b3872ddb7bd4a2a0d18be85e2fa50bb99792c",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "cabc92ed-78e7-4972-97d7-8e6963ec792e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e1d38ff539aae5c242f297775e37d18f8019c6b29de8d29cc0748ae330c8aa71",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-3c9cf4f2aea3669b099bee43486f68d973a74d3580f2414357495e82e5dde69d",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "46e519bc-ae4b-4905-91b6-0a92651c1b43",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-0edd497c61b67fac474ff5af012a51b43cec5f2ec26385824379975dbbb58b58",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b9cbaaf4b9613e2a78b6318025ec79ac0f67db0530b6228e49d31f18ea9d27f9",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "ec9b2597-f7ff-459a-872b-5ecd728bb88b",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-c7a936fe48c7693c544c4e349656b3bfecd23fc74d49be5bed8315be8d27b63e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b56dfb926dd47e36bcfc53427b7560125c592c5c7dfd5eccf9c09262c00f705d",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-0e62ee47403872774a986d4b8c37a1d4519d4a7161a46c4368f537bd183908f9",
+      "phase": "screening",
+      "modelId": "gpt-5-mini-2025-08-07",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-49840cb1e3bbc7199a66d60e8ad07ef3d37b454ef93a06ec0154ea280b40fa77",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "dc9e4544-0488-4a13-9535-c65bda4115e7",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-30e37fd1fe5df8127a95aa7716c2ea12b3da37e6b8f7a094a768e97348e4b2db",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-6df0ccec6ac64b9cb7e08f41af3210279387299c53a708ece293b52e31a69d2a",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-none",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-db617135ab12aadb16a1946208c9379408e308dc25a97d3a4bbd3155bd964cca",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "completed",
+      "runId": "68cfabf6-9783-4f6e-b857-c2dda0ffa5bc",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-6b10554838fa185177940dd32b685562e8750ad445a1c57d3d22400b1d8a0472",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-854531beab26796192d351394ce8dfd58e8941f2cc0ffc5ff1204f11af16239c",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "b7278c49-41ad-4797-967e-9a699ce08ae8",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e1e51d5d8e545fc65b37e00531dc03370c57009f1357fbda3f461d2d8f6a736c",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e58707c5689aba29a67c14e3d00ea774ff0b4205d0e891e642eba89a8976c943",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "dc56eba5-f727-43ed-990d-5fad37316341",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-dd4a63cc6ed2728d6b8f4f2bf06848c1a8091e4cc87a1fcc0d03d38a982a5203",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4917273968afdb2f86de24a9625faed58d0bbdaa6edb5e9749284773df11665e",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "fab620c8-ef58-431f-b2c8-d2601bd48cbf",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-7f614e9eca7801200434b312cc8a956f742d09b6ad3b83e95f424473652c4903",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-262e276969c7bc23549f3ee18f47756cc8e5365e20cde26507d65ea2ba0bbce8",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-9914bf09026bd97da3e39d54ab54332db8fcdcfdfc9e91c2ba1160a035a271fe",
+      "phase": "screening",
+      "modelId": "gpt-5-nano",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-4ba6b9b5c9c0620080d97b4d7f34c2dfc18bff2f5ee4ee7e2d0fdff2ab26da4c",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "c8ca0c65-247d-4cc1-98d2-5efd86d349b9",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-925f68e34e39be8f91acf2a1cf7a3107ab811e496b5851ce3579c5a5d1a69760",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-5e4b4ee865f4a5db6a7846f52f8525bd423827ecfe2647ba0b97e157c071461c",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-none",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-09ba38efc93487a2a7406317a43b7d8fb83652924026c4e82e6139d62504a9b8",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "completed",
+      "runId": "804a5303-2704-4162-bddb-be103dccfe06",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4bc93f26cfa6bb845b555403d174781aa081aa16a8b9c1f8cddbcc1896f7d366",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b08abc6297d5002ce5b5e6eeb73faccbb2814a085be035df09a357b5bf382e08",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-low",
+      "state": "failed",
+      "runId": "c614d237-8eef-4ae2-b1a4-0415ec541243",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 26
+      },
+      "reportId": "report-v1-1caa3071655338c47a6a512152aa633c97ae5861b63d7953dbcf0f057920a9d2",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-ed5da4cf885a738b5bbb2b4158bf0c261f3715dc05b440f4a7d6cc2ca2854cde",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "cf3e4c09-7408-482b-9825-a3c540350ae9",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8b6afa9d610e5ef78c42c104b84032e85ce1bb21d1e2033cea4ec82573aebf2e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-45d9d4ab375b7d2d6c468df1fd6779c681e0cf4ae7c79abf1b925f2ca75c51df",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "4147de89-e1f1-41c3-ba2a-ae60d67f868a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-653de49cda71b49583b0bfea04e78a0d8bc2945689636c3c95dfde347a5d7382",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-958ce08749ec9e3108069d308a3b905841b5cd2e42e916bdf04c17c5f2171de7",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-35dd7fab7ec15fe1e7202b4f4a7ae8f7a1ca2cf28677c031d5bbed98785a4599",
+      "phase": "screening",
+      "modelId": "gpt-5-nano-2025-08-07",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-e2da80d5d9b116ae68fd345f0462be1135ed88ed4b72531d7a55ffb593653342",
+      "phase": "screening",
+      "modelId": "gpt-5-pro",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "1d2eef61-0b15-4c7e-9e98-bfa0a2557382",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-3ec1eb50caa53ed6ba4f47d9b32231580676acce0e5e96485dc4e67391b9c6b9",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-8e35864d02971d5d9208ac7c2a13847c05576ffee91c9f43f3a50bc9f2eb48c8",
+      "phase": "screening",
+      "modelId": "gpt-5-pro",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "019b0578-a9c0-42c4-860e-2c035e91fabc",
+      "progress": {
+        "finished": 13,
+        "planned": 27,
+        "inferenceRequests": 13
+      },
+      "reportId": "report-v1-42c740ae8a9d575170686be27a19784ba0def086ce688a0c0ae1ec6753382aa6",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-f57111f0d89937e51c60fe2ee4d5e8707e46bb7631e726b12701fafae743f286",
+      "phase": "screening",
+      "modelId": "gpt-5-pro-2025-10-06",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "027a0f98-8778-4c0b-b1b6-ce966b1d9a2f",
+      "progress": {
+        "finished": 11,
+        "planned": 27,
+        "inferenceRequests": 11
+      },
+      "reportId": "report-v1-39628d669242ab59b2d3f20210186a8f8a4f3c23514821a46b7dcb160795d5bd",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-6ef1aa3f469d0e334f507bbb9440b42f42a4a297b9d060cdf5a7403062fdab39",
+      "phase": "screening",
+      "modelId": "gpt-5-pro-2025-10-06",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "721d11cd-be2f-4c44-9ac8-de886c85e488",
+      "progress": {
+        "finished": 10,
+        "planned": 27,
+        "inferenceRequests": 10
+      },
+      "reportId": "report-v1-c1303383948734befdcf7f59174b6f3c9dc56df88684675ecbe696e87368efc4",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-af7345e4c84fa10fc51f116188f7c89f8c4dd1dca1d9730af0775b648d021318",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "bbbf0eba-6724-4928-a997-27a327f998e4",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a1c77eb67ca658290d38d97ed4fd605736f1c7baf1bffeb66060ce5cf91d4dd2",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-d7df83989d1eb883bd49d34d969571a4c211e0ee31dda59d919bd2f5a4a981cd",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "8e00a08c-33f8-42e6-a17e-ec6e85e8b2f5",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-7530ca5c28a0d7ecd77d702868bcc154604c814b7bda4b35ab2a265318cecc16",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-df28e811581d75b80561a0f5e39eba6ea5b90e2a25356059ead4cce2ef13ef7a",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-6a3682a301ff155ddd04bc34fd61cc07932ee7a374a32218fdedb580782e1591",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "965d5f9d-87a4-4e61-acbc-cd2bfb209326",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-65fb9f7a6e7abc861b9a769dd6fb4c04a4c6ee967257b595301b6e81d47ade14",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-264e1a6b76c753e882b1a8164b076eb5c18ac0b7db055e951b2b318195daccbc",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "f548f290-3e39-44ec-b4da-41434c4358bf",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-aa75fe9002b7bdca97c5c470e1323ff4bec102081989c6994b47f9655c0ac573",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-322ab71c8a7281f51c08926b897adce73be21e7127963dad9e5e47f122c6ad95",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "c9707801-941e-4435-98e4-c2381554f40e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d85769c8635b6d40c1fa758de37eed8c99eeb8a538ccbc82f1b08610adae09bc",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-0a9297e4917814e5f08700ea0a0d8ee35f12c8e66ff0eaf0348efaf052e87ce2",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-e1d37f982bbc10023a97100882d8dd69c8a30a01b303f32fc45566d521aaa8dd",
+      "phase": "screening",
+      "modelId": "gpt-5.1",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-93bffd2f15ba87a3c9dee7e9c9ff20d13b2fb94b276dfa8deb3c3ecd47b96d59",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "06bd1d72-9eea-4cc9-8f11-7f5aa8b498c2",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-098db4713cdee70246468514819bb2b436659259f955bb301d9a9e3f6a2e22a9",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-716ba76d270b8ad944d2caf1df4e793ed466a38c96c2b200b53fbace36e8437d",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "c9fae042-b12f-41bc-87b0-ec615433bdf3",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8ab5b54d5069f4b7bf0554143259b9a48d3728762fe6a60c2757eead44672910",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-9a1c8c937906277c5e5634cfec53439d9eb499a98777bfc707094895c696aec5",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-minimal",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-e2a3b5b3c0653373c54e60447e71d6c4c9ff7848453c53d7dff8c17cad49244c",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "8c494593-e536-44da-bfbe-7f05b1462d37",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-434d686e300059f95895cfea2d734306f7d610ded9ad9861c358b14217be24cc",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-9313a896acefa0f6ef53576ff6b761a0a3d802c89760a5282466cb3a2e7437a1",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "b6ecbf41-fefa-43f6-90b1-24b5241876a4",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9aecfac84a4c23573be92086ab894792d1a7e3ae901769958463c5d5b849e2ae",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-42b88a63632756237aafe8c0dbb4ba2243ec59c4dc0fce84fb8764cf3fc809dd",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "658c1954-f433-4b59-a5e1-ebfb159dc84f",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-547e56b77be79690ba0b4e96f7f8dc5057364e828ddfda5c8d477812ef498931",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-bbaac77acd945c35a483c854de97c2a28f1a1b5e8d4e1bc48924ef20af361c97",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-643a6693c21aa28a40026970b0b516c3a28d3f49e5fffad03158410e7cc49171",
+      "phase": "screening",
+      "modelId": "gpt-5.1-2025-11-13",
+      "profileId": "one-shot-json-v2-max",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-11cff2529f7662e6400db0ed65d89afe0dcc44b60017a438cc509b62c618ab00",
+      "phase": "screening",
+      "modelId": "gpt-5.2",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "e166915a-5e31-46fe-9a7a-f987ad8fbe2e",
+      "progress": {
+        "finished": 15,
+        "planned": 27,
+        "inferenceRequests": 15
+      },
+      "reportId": "report-v1-8343460011b7ad16639bf0e91a1e2661bbef893a0a232ff98d97c49a5eab0c55",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-6c503457dd7bbe7ad6df22c289b5ee8e5d97dbbb6f609535b498345c733e36dd",
+      "phase": "screening",
+      "modelId": "gpt-5.2",
+      "profileId": "one-shot-json-v2-none",
+      "state": "failed",
+      "runId": "34b96a6f-ca20-4022-a482-ade42f861ab9",
+      "progress": {
+        "finished": 14,
+        "planned": 27,
+        "inferenceRequests": 13
+      },
+      "reportId": "report-v1-8449bf12b0c874f46350da52c24fa90f70e2698824cbbd27a052d4c1dd106de8",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-95bbea5a29248c7a7e26710fc4b465d10beb8dcfc9d43eb56d341b84446ea5f4",
+      "phase": "screening",
+      "modelId": "gpt-5.2",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "b4a8ca7e-d7bf-482b-8e6d-6ac00c260da3",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-980c217faff8e2d685373e41f4c0f68868ae4e002e0e266ceb4ffd4340d0a453",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-cad0a33d6a010b1abcf85ba9ec7b81d1a7772dc6720a22bffa5d398b162b3fc4",
+      "phase": "screening",
+      "modelId": "gpt-5.2",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "95d41283-1a88-4c59-a912-b6128ede6e4c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-63434f02ecd76b9dbb72e2eb09282caefd5557bd2ab4fed80551b5d268c88584",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-3f016cfb83c74f680b5c6ca8534d37f9d08a4233f08d2726b4603003f83f9f47",
+      "phase": "screening",
+      "modelId": "gpt-5.2",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "1f24d2a1-4d4f-45ec-a1ad-3ff577c3fbb2",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d10767bc8393d72a994f2a7d7709ee9390d76fd80fdb00c32392bcbdc76c1f0e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-886ee4a400711895e11496234d00758f48a844c3444fa341404e44d00ef81fd2",
+      "phase": "screening",
+      "modelId": "gpt-5.2",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "9ae00ea6-0655-4eb2-a792-012e74c7eea7",
+      "progress": {
+        "finished": 20,
+        "planned": 27,
+        "inferenceRequests": 20
+      },
+      "reportId": "report-v1-7ac6ef915a8cecb0550d002f84c340c4c601e02aa4e07b681c7df38c20af5762",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-15afbcec17a8988f8790a6f1aab28e9536e540d7e9906477acb377c205dfda87",
+      "phase": "screening",
+      "modelId": "gpt-5.2-2025-12-11",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "083195a7-3d9d-42ab-b0a0-c5792836184f",
+      "progress": {
+        "finished": 13,
+        "planned": 27,
+        "inferenceRequests": 13
+      },
+      "reportId": "report-v1-87da0f163f5eb47686e0b9620b25804abfee40d95f602e8014f278db31984030",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-f1eafe90c27e9ce68bbfbfd33c600ae11e2ae78dd18e4a102c82bad7153e0846",
+      "phase": "screening",
+      "modelId": "gpt-5.2-2025-12-11",
+      "profileId": "one-shot-json-v2-none",
+      "state": "failed",
+      "runId": "ab20f159-4556-4789-a18b-5e86cb7fb719",
+      "progress": {
+        "finished": 11,
+        "planned": 27,
+        "inferenceRequests": 10
+      },
+      "reportId": "report-v1-8c1510a3d1da96e1c1e6cd89e830aa636cf673dbe1ac6a03b66f04948f08afda",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-12e3a9e3d4c98db7bf254da5dd9b006cee75f695e472b1c6dac1c48c4da52a4e",
+      "phase": "screening",
+      "modelId": "gpt-5.2-2025-12-11",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "12b33ed9-f265-44e9-b663-031d6133b146",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b673363ed92338aabe2e3acac78870d49594de6f6fd8d5ad7522695efc53c0a7",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1da4a710109ffd8dad89aa56aafb817f06ff5d1e68c87e357b954cbcdbda895c",
+      "phase": "screening",
+      "modelId": "gpt-5.2-2025-12-11",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "5dc43cd5-79cd-4510-9c8b-45a00f9a0a9b",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ddcecf9413024e94990fe7314311262f532fdb20c38fe840c5d66d3ec56342ff",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4da6fb51421e7738302701ffdb39c98b11f725a1b5d4f9e02279a8811fa0706e",
+      "phase": "screening",
+      "modelId": "gpt-5.2-2025-12-11",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "196b7c71-a7d4-4f36-bb1d-3fce4f94377c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e913d3f181d1f8380936fcbd6b8e35ce17ce5d7861a51ad0ec37da579ce9071e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-fab977cd3a8d515d7b21aeab126e136cd3382032092c823b928b16c9cf5ac46e",
+      "phase": "screening",
+      "modelId": "gpt-5.2-2025-12-11",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "ad97e803-86d9-487f-9f9c-fc73c2914d51",
+      "progress": {
+        "finished": 19,
+        "planned": 27,
+        "inferenceRequests": 19
+      },
+      "reportId": "report-v1-de5f36bb80f4b3a28911272c26cd67a6f1260515d6bea02bb8798995a31d3886",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-1e8f1f7e3e4fcfb5325bbac5ee50fef2450047ddbad065be4278d4e7fc8b1fda",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "fcf048c5-7fe4-479a-a7ce-5fa97258c862",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-f00dccbca59ea60008e076bc5e0371a189a561e1fd5fdf94bae5c70f4e2b4ade",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b105bf0e8059714f4a2b3417733b4313b91a0f6fe32b77491dbcfc1e22139f53",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "326fe954-1835-40a5-b89b-4781ad08384a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-2d009f2ddf918ecd96d550f23bd48cd91951646f48a46c118ba9e2ae76ca2879",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-d0f2de8b31252f1c87433be52530a59656f9ae3c09ba87acf686e84e963030bb",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "27ec138a-d6b6-4262-bd11-bbbd2fbf70d0",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e9c5046f7f13490b98ce1292dec0a829690667ef6a5ee5c4b66a78ad1db96149",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-d41ea84be425e1fa4b3765a7c05b1124dda9e142a5fc7fac038c238b86f0625f",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "31586882-1e66-4e79-91c3-acc7bd1a5086",
+      "progress": {
+        "finished": 13,
+        "planned": 27,
+        "inferenceRequests": 13
+      },
+      "reportId": "report-v1-01d5d861ed4ecba041a23eec23a1d696fac1f4faea0f603567e3d39fa8c33b62",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-72d5691d33aa4bd5f73774e045699f5beae3a8c5b930c1141089521b3331814c",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro-2025-12-11",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "e0ccd20c-2401-4ec6-91b4-700507a58970",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ae4a723ed07ed2154da304c77164452ee9e96357f59410dbcfa7f0ef8b64c9d6",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-9e925ecc6ce971474f42a4628efa4f87ba22096679bf122dc9dacd028cdbde11",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro-2025-12-11",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "f9969332-dd98-4410-9e01-f837a04dcb4c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-77ce800f03307ef709c5e977adac03066d2229407d083a4f09c1ea747124a0eb",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-0524f810b6ecfb3de106184954e4adb6217154b21e989798cb33891fbe43fcff",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro-2025-12-11",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "7ba0191d-95d4-4bfa-b047-3e9fa1f37f03",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e8156f8ff526f1b4fa65b218eaf41a2ccd88848944983f7950463aa8edb6597d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e35fc6bb3f1caa1c3438aca76f52b66b12712bfb99b40caecd608e6d1d540af0",
+      "phase": "screening",
+      "modelId": "gpt-5.2-pro-2025-12-11",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "19fb6cf2-f330-4fb6-bd6f-a8d90768c793",
+      "progress": {
+        "finished": 11,
+        "planned": 27,
+        "inferenceRequests": 11
+      },
+      "reportId": "report-v1-077bf6288a11a6681abf642a53f22c5fd053ff6d21eb2fc20173199314f88d11",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-8d2a448a4149b1b196402f8d610da066e9d4d4ac9bb7f0a1b450b40ead16f77b",
+      "phase": "screening",
+      "modelId": "gpt-5.3-codex",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "3babf40b-4517-4042-8275-e427090751d6",
+      "progress": {
+        "finished": 14,
+        "planned": 27,
+        "inferenceRequests": 14
+      },
+      "reportId": "report-v1-6e58c5b8c89974ae782f43fa0b822093f79aea8f53f525a17e4710391c371b18",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-40d3b3c57752fada7cfd7b9e6aaf595070ab10df1866fc19a32a738cd278cdeb",
+      "phase": "screening",
+      "modelId": "gpt-5.3-codex",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "b5d1cf4e-ae74-4d8f-b927-b6f8fb029672",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d6eefca205ce3f004472f82574746d424579a2b23b2caf87d745c8259e99fbbc",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-253691feab71c4c4092689be589cf75161b8e53da304baea76af72e2e77f917b",
+      "phase": "screening",
+      "modelId": "gpt-5.3-codex",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "be6b5100-8a84-4696-a001-c8a6b37318af",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-409bc5edfd19ee636bad28bccd51fd59aeaf17f5738273a9e1f66847d5c3ac21",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-36a4736ebf7a8647ce20bfa91f57ea312fd194943b9547b79c93eac0bc8fb528",
+      "phase": "screening",
+      "modelId": "gpt-5.3-codex",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "e5659d9a-36aa-4127-b4af-fdfd8d553e19",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4ea5138c25f8ccb6728aeaa46d3be098a66f08b8039c237a051d518fafee381f",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-ca5a5eb53b962b68c48a903f1d85479d654518786cd5918aaa1926e015ac6caa",
+      "phase": "screening",
+      "modelId": "gpt-5.3-codex",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "2f7ba1e7-c64a-4ea0-99e7-1f15fbb74264",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5ede4de089a82740ca979b896ef9a13146d5bbd2723048dd0cac0f4aa4ad2798",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-10e952ad19c0258bd74f047b5ff518762f2760fedd38af08ffffa87ee661247f",
+      "phase": "screening",
+      "modelId": "gpt-5.4",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "b0c23067-60bb-405d-9fcf-19db9120393b",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-52cad2e551e8f1dcc130b619576ac7133f802dc3ee3945b1e25605c65e1673bd",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-8abffd0cb762a16a8cd689318097e917bd3a4da298a21678893b5d9c1ce6ea11",
+      "phase": "screening",
+      "modelId": "gpt-5.4",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "69796bb8-a4e1-458e-9e7c-2749961616a8",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-dedc4d7d454b455e59b887d233a84b452ee6887d0bc5d5ae6287980d312d9269",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e447cbd20f71465da65313bb75894bb60bac64da37c647ae01d5c959a2c73ae9",
+      "phase": "screening",
+      "modelId": "gpt-5.4",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "6a9a9d36-d3ae-4af7-941b-5d537b9fae68",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5c3f2077133b66e8581d958b1986b21f5952767f81ee9444c64c68e65b35181f",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f50216837d834ab45e8802ad35ce79ca62b6e69d17c7acb1bb2e60ec68db1392",
+      "phase": "screening",
+      "modelId": "gpt-5.4",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "dcf5155e-00d2-44a9-b334-466cbeab90cd",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-f786c2c23004659ac4e57488d7281d78ef8e1da77f171dc59156d7dd88bc31f4",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-6283a236fb91b53ab5b9eb5b9026354b224c4212385a24311d7de6a92f776397",
+      "phase": "screening",
+      "modelId": "gpt-5.4",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "520224f0-35d2-499b-91a5-34be151b2d82",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-af99e1d5096240ef221cdf17a700b422c360350f3f3a6536c1297fe8c1546184",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-83a4a42380de9ff210e9ef72a83bee9625714593f1b4879833fb678acdeeb356",
+      "phase": "screening",
+      "modelId": "gpt-5.4",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "7ffcc38e-c3af-4af0-99c6-91796825b6be",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ef5d76f8c07fcdac8ee9f84647aabcc15559c3349b97bc391adab17bd7c256e6",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1e81a01444118fa1e13aca8b371399c02b311584fd15d02043c285b03d86f2a3",
+      "phase": "screening",
+      "modelId": "gpt-5.4-2026-03-05",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "83c992dc-0133-4710-b40b-002821dc281f",
+      "progress": {
+        "finished": 18,
+        "planned": 27,
+        "inferenceRequests": 18
+      },
+      "reportId": "report-v1-a96dd6cd0ea0b04ca2e91df09f21227bdf91927fdea4fb003b9e9ae1dd0f7010",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-c91ec2e7e97f3ba33d440fa3d7914e81124e15b0633288882d66bce97f8c4011",
+      "phase": "screening",
+      "modelId": "gpt-5.4-2026-03-05",
+      "profileId": "one-shot-json-v2-none",
+      "state": "failed",
+      "runId": "310da830-ed9e-4dac-913a-7885127ebd71",
+      "progress": {
+        "finished": 20,
+        "planned": 27,
+        "inferenceRequests": 20
+      },
+      "reportId": "report-v1-a15777c899900fc7eaec8d7e5ee1eb5930228afeb3b832f841fb3657eea5f74a",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-49ac4e570a21bf43108a2e1f5da44505697d7a6ac9502baca3f875b470492646",
+      "phase": "screening",
+      "modelId": "gpt-5.4-2026-03-05",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "fe5835a4-bd31-4cd7-b087-7aa666811a98",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4fcf90152c2696b5024bef61e7fec04061054346c6b4118478c1f52a78c3b738",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-669cb0913142cb400882e2de0017ddf2beeb726f23f633a683f2fddac15bb443",
+      "phase": "screening",
+      "modelId": "gpt-5.4-2026-03-05",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "d1660cb9-ac7b-43a7-8f32-45c117984570",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-173e85321ee6ed462f83bb4c9b3705afe91fc797657b112e0de28dc64751401c",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1d4c599e84cb1741a50af3553a1903101cdf5859ab8f1607c91c73d18c06ff2e",
+      "phase": "screening",
+      "modelId": "gpt-5.4-2026-03-05",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "5c272f50-822d-4e27-9783-d965b9954b0b",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8d83d0bfa59a36e6a294a368964e4c7465b7904aa44d43b3d7db1d8a08739529",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-92a63edf844c6b6fac61507c68e3fc513a24d3e382870b360130bd698c185f60",
+      "phase": "screening",
+      "modelId": "gpt-5.4-2026-03-05",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "c644b514-1cd1-4611-aaea-55cf40f34ec7",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-221701407db2424238596315e40924f3855b7582165270e04d9bd0a9449d8136",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4630e8d086a2eae070033eb7d7c2d1b7858a9d2ba6d0f630bbcb8d8995442cb7",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "6e5461ca-bd3b-4a9a-b4bb-9d157d799636",
+      "progress": {
+        "finished": 14,
+        "planned": 27,
+        "inferenceRequests": 14
+      },
+      "reportId": "report-v1-3cd135c83017a254dbf915566c7bf3ec34688f7bd0c4f3c490c53d0d81e62e5a",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-ef296ae43f5ec33e0b704955dd48f1419f4c859731bcd912671ea8b27d7eb14a",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "b2c67d46-f093-42b7-ab39-a1082e4507aa",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-0616cf9c7ff312995826552d2d7f559070ae62af382650925e414cb996ddf9d7",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f6d090b2516b01838941927db07381544972b63fbac17303ef9d5cc464b27397",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "3a8e0271-62b6-4e1f-b65b-ba0076c86c4a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e94ed691e2c4ea6e15f5489f8b5604d362655ffa98ca513986a55fea603c11eb",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-102067423b170bc824740ee83c8fbb566fcdaa77264643f71e59c80e977f756c",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "7a151c70-9f1f-490e-a75b-f6790ef23fad",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8aeec0272101229b18cad8b638e92118cf371c81e122a36f1a0eb64fcb94b4f1",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b90e833d6eefed4d18874649e248e760aca8704481e851dca675e5f37ecbf029",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "3496fc5f-cfa3-4e04-a3d0-5fffbb0d9491",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d1776d85163e4105b484e2e91161530dd39d82928d5d17336d847161e82baa7d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-82075f89bf4817148f9bba99b8033bd4d3521f0aa3f34eb2eab5918496460ffc",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "b7d53100-65a4-4a23-90f6-905781694cca",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-60f165d23e8dcfb735e72c811aaa1315ddb667fb568192061d962ebef72618c9",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-ab2ab423584229d664a5850cae0a715e9353fc4a390c7073688e26acd6bbe06f",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini-2026-03-17",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "a76b1269-43d8-4789-9b4c-d2f3bedac75e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-511cd97588a5fb248a929871dbb3735e2df8c32ba6dc9ad2cbd6c07e961d401e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e9eddc031d2cbb3796e716c9c18076f1b6cbc72ede6399e028ac3b516cfdc6fa",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini-2026-03-17",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "54df87b1-b05e-4908-ba56-78a161b5992d",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-0f2b1d49b203edd16c99fe12c33099a934b323843eea929ef4221b32742c4e21",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-8718d39f5ebb1ba99607a78e50f4d27c3967bda5ea9e34edb399db18b3289fd7",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini-2026-03-17",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "a33e8195-09e8-4e3e-83b3-ba921b31ffcb",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b656faa7ade5e1fc4d10fc672d05cf797942fccb25074ce0baef33e581ce0ff3",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-61e53d9b91827edfc0d50b69d04d6e0e2c41b87e43828792088e909d6a95e25f",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini-2026-03-17",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "da60f4c3-f54e-4b5b-a951-0212f26f7939",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-81c55b32de87d23cbbacf0fbd7c95b6249cc4412baa3bfe9917a84cd9ac82ad5",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-8d296964e8cdf92d25a6af1c572be99cc3a096db96f49bdc1e3c7fa7132ea5e2",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini-2026-03-17",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "a3c24626-d59d-4c27-98df-c431e55a0d41",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-698787ba7323d6ece6f53ec587eb02da463ff3f2051772685e2232e12012e3a8",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b63c77f31afc52bcd55b96641f65a51ee03550f0dbfb3cfa0708c84ce5525ddb",
+      "phase": "screening",
+      "modelId": "gpt-5.4-mini-2026-03-17",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "939b224e-69fe-4fd1-9d75-28207fc20e67",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4750647a0f960c922f9886ec98181f931dc90ea3e93fd2e03dd7ce7940d97fc8",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-bd92d5d16279625f1b065790a27af4e612b77499386777434bf6fbc3205b75b9",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "57e7d2ac-fa44-4595-a3dd-49fc23ef045a",
+      "progress": {
+        "finished": 14,
+        "planned": 27,
+        "inferenceRequests": 13
+      },
+      "reportId": "report-v1-a82b4cf03e12a3fccbbf3ca6b465d5cdd66f408d9fdd60b2295e491bba221a88",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-0ffe48f8c4a4198f5a6ae10edefe2af7900bfb9395dbb0c8df7f6a04e1c389e5",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "63b165ec-3ad1-4f5e-a5bf-3eacae013e70",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9dfadd4604c3a50792a03ff73160b9101f81ff01583a96da00504711df0d3359",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-eb371d36418ed3ede77af08f700aa910620053b0288f1bdf030dd1fdde5d5a2e",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "7b75b35f-83bd-4aae-9097-78bf78a64fb5",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-182ed9bdac2707443fc46bf9ab5cd38df8e5a5892fdc0379e7e4526818a8c396",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1bb6ac2af723bd7ebe79c1e05cbc4ebc2e2f0214ee0462670c719084e86d764f",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "f1d41964-1321-4e3e-9747-25060611ec81",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-0980974186055c36eff14fc22380df5d10932a3769d2b35f6140c8e3e43c7234",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b09b6cd55d79cd907dd7f7ecc9d4e18a7101fc5ad87822fddd5046ed205c3591",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "987a5552-9a63-4e52-aba7-29285819246c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-2de7ddfdbfe3560577986c45acb9a94ec016f629d903556234c4d10a5d653f34",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-0adced39e67d4fb63b1506373bf878058580237c7f3069a5ad3b514b05065527",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "7d628b25-ba4a-4940-9b26-5d903d019773",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-bc561673e7f1e88f0c7502c44a565de1d443f55bc4db508b9838c5efd9c27c22",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b2b8ef8fa40ca0ca9f6c4f804b65e30279d1289d8ef755460a0f674c5a91b681",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano-2026-03-17",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "6640de53-fc34-4d54-a308-6ffdb1be4c1f",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-1d7233ec8b53aa23b5d03a7cfd3bcca157b5d8c9bd537ff136be07c5dd3f85fb",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-79cf9379f55901ee1cfc53c181af89336206fd2fe1923715d333c53d614297bd",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano-2026-03-17",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "9e8c529a-444c-4c30-8615-1d13384292b8",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-880d5e5045368f1dd3099d2bc3ffefb4b9126e34ff6693faf75a8a29ad30f793",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-8a9946951e0b7add419884625d826c44e47d7e53593cc685da378e3a206c0cd9",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano-2026-03-17",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "62fe50c5-000b-4713-8acd-ca30b64ffad3",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-7f7ff8adc3bcf56bc2475d693dd7bde42a2561910ec7d4678ebb638bd42cdf7b",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-d99f423253b4d1b1b74fa217f1fe6ec9dc3d64c4a433e847d0052b063ab1c167",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano-2026-03-17",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "a7e6df13-bbcc-40e6-8ffd-69085df325ec",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d2e409996a59bdab6018bfc81369f899450586fbfd4f2192516242bb82c23fec",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-915af0f5a3a4160a2c0be3e52cb4146bf4862246eb7c18101cb66a178096384f",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano-2026-03-17",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "e3bbb38a-3052-40c5-8def-93660b37cd3d",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-27244cc8d510032683ca53a8e2c96fa7504b71f64932bdff867fc28f96079c87",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e29ad099d1748868bf0bcb8bff7bc376c74122c4150d3eed646f80364ff68f04",
+      "phase": "screening",
+      "modelId": "gpt-5.4-nano-2026-03-17",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "1356f8f4-891b-4819-aa53-8c932952d440",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ad025da233174a8ed93ac3b1dd0ca57bf859e96e6ccaead698b7bb7a6b67de0e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-a5ab872460343bad614317b7119c4e6b6ef24138124a4a7a81f3781e69341376",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "dfe8bfc6-067d-46b7-b935-95f97cc35a82",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e34b9c7277d3a2a56523163622ab080c041383c5aa35349808456e8aa26f4c67",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f61bc3fb699a1080450a604d450e5a0e922e09442c973687c9ec2ed099f955d6",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "9646729a-5934-485a-9570-90e54845a947",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-04156ec4bd263fc76e6f76028d18f69ee0d0ac0cb2c70eb61d6b912c707379bd",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-58d0b2a3dab13dbe1d0b80a01642e22e5004a5f150041260785e2721023923f7",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "7f6eebbd-955f-41cf-9e12-1ca82fd2150d",
+      "progress": {
+        "finished": 14,
+        "planned": 27,
+        "inferenceRequests": 14
+      },
+      "reportId": "report-v1-0cc3f43b44adc316072795e993ed414ad6efd0ce88841a86845d8c15ba32fc7a",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-400be6b12515b024f683f90ad777f5cdaba6fcea662269b2d63213a5ae6d6215",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-3fc3356f000497a7f99e2679d2056136bef341e4420fc609047cefacc5bd1588",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro-2026-03-05",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "8537ec20-bc6b-4e7d-bf70-75574a05818b",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-00e1f35db6d86d1fb31cc9e0d8c6e854f756f2d1d8376d0778f57717a664cd69",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f13196a13162de3185f46e9d4d642d9dc72f701767a56ab1441910340e5e6f16",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro-2026-03-05",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "92ed4954-10e4-4dd9-8c35-be3ebf946ba8",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a391378d4b470c782f61499f5ff25186dd3f68275b31a2804f09a3448704a1a4",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-380181d155c9b0a9bf6f51123cfb10db860ad53e41844d63758be91c0254caa9",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro-2026-03-05",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "a2fc8c12-793e-468a-add1-194c779e17cd",
+      "progress": {
+        "finished": 11,
+        "planned": 27,
+        "inferenceRequests": 11
+      },
+      "reportId": "report-v1-8f2219048e1e65b8c4d73ca00b3e610555f2ab83d506cec922e59001ec0f36cb",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-cb6ac49ad0ade4bbf25db100eeef4e49b9b9d400034b729c28414ef75c7ba22f",
+      "phase": "screening",
+      "modelId": "gpt-5.4-pro-2026-03-05",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "capability-unverified",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The retained control did not establish this effort/cap; no mathematical score was invented."
+    },
+    {
+      "id": "cell-7a460d1528b0204d93042ab165d5d2e4182e91f8547e1898be83fbe0d0c48bb9",
+      "phase": "screening",
+      "modelId": "gpt-5.5",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "cf58140e-9147-4a40-acd5-f2b0e5a84fdb",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-732656af9ea79a18a5432b8b4a2eb70b2c754058ea6954ff4016a0a8f0e39af5",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1995672e771aebe30c7643870ad5fbc1ec08b3fd941839152be80402fa305338",
+      "phase": "screening",
+      "modelId": "gpt-5.5",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "68b79c5c-f9ae-43ea-8d22-2b9ce0c0d478",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-04ec1b901f418bbeba5c6d3447e151b19496fc2d2ba0af0659fff56194b46c0f",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b37d4bcf35fec7a441bce565fd38bbe7f46ef34de0e8810b3079e6a078da4bc7",
+      "phase": "screening",
+      "modelId": "gpt-5.5",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "6ec20b80-2742-4aad-a73d-be6522f1fe48",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-2af9c81ad72a34e35ce52be8dd9962e704d2ac3e9e2c016ef0ca17b26b6599a0",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-946ced23d7742a1467f7e39548ac6840987e01fff3c0dcc7f8f8678358570b72",
+      "phase": "screening",
+      "modelId": "gpt-5.5",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "918e33e4-8b11-410d-9d1d-2991e6353de2",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e57b010cbee712b79c2a85ad224816049221564c2c871b6756abcc8e5dcbfbdb",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-728c631c3e5de2c44964c837f2d8a0589d2fdf29c12b50919f27d08f0b43a3bd",
+      "phase": "screening",
+      "modelId": "gpt-5.5",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "ebe47f91-f979-41ea-b499-0cdef9125028",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8c6b71f5cc9b362600dc497a218ff80c4c252d4b3cf34e0dc9b7286884f9ab38",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-73911eb757cb9769a47b42a695c9d7b82b860e22b2e30b6a00ee33bde52d331c",
+      "phase": "screening",
+      "modelId": "gpt-5.5",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "88d548b3-fa24-46f9-861a-40a4b483dd1c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5b1b62836c63979394fe0c82384302d409a06af0b3a4208b854fc4ebd1450895",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-91710926177fa990055e06334432d7f817cccb1c6325af2a0c267ddc02e859dc",
+      "phase": "screening",
+      "modelId": "gpt-5.5-2026-04-23",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "d796a193-fddc-4b9d-8a21-cb49d27fd8cb",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-3239b67b3ce48f38a2c2c9228df705bfc035a2e9327dbedd4dcceb82ee47635a",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-86f01d7104843434e5b918f4b365daeab751d219b2f8a1c7e4f47ea45305cddf",
+      "phase": "screening",
+      "modelId": "gpt-5.5-2026-04-23",
+      "profileId": "one-shot-json-v2-none",
+      "state": "failed",
+      "runId": "3c28d1ad-c9a6-4944-a5d8-fae1059c7831",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 26
+      },
+      "reportId": "report-v1-04c85371f0d691b52266e5d39eaf8d6bf32d19dd8af6d58258c160a04cef1774",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-9139d24004f01fa00cc6b91eba4f21f7abfc2f10c320ee6d066cc2b4ac8ccdd6",
+      "phase": "screening",
+      "modelId": "gpt-5.5-2026-04-23",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "9e65d55a-101c-4ee1-b578-23780c56010a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ac2e7a002b7dd78ddf5b9d778b887b5c1f48aa6d735654e06653d30133971179",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-9c24584c0140a590a859fd36938090932703344b777f0223249771985bfe5899",
+      "phase": "screening",
+      "modelId": "gpt-5.5-2026-04-23",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "10ae6934-79c4-4371-b200-9c5a2c39ef0c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-776a20de9b0f5ad0c8c580e6d5ec4993b03f38f5f646a81a0cf39f24b38c9117",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-8e517997d4035666ff6c706be40d17f45e9af745d3077644172aa9c8aee9fa75",
+      "phase": "screening",
+      "modelId": "gpt-5.5-2026-04-23",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "49e25509-62f5-4237-98df-87040b0a8394",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4c704b514c37ff69a8cef3eb6b6178f99f7ff4724e3291a3217d7576efeae383",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-c9df6c7e5c52898bd884c21ebaba6988a323d98cd6622d58e2eda88a656189a9",
+      "phase": "screening",
+      "modelId": "gpt-5.5-2026-04-23",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "3ed7187d-a0f0-41ff-8e2c-ff9f8df0f242",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-48083652ba9244c109654a642a453a2605c764f00590f874b1f554d824251018",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-2e3aa595f2b57daae90ea7d0cc0266205f251686f17c354f9b87c43662337206",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "987fe5d1-1479-48d5-a714-27cb321399f6",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-aa40597216c474f0f636ff644b7651a24db6d1e22e11dcc65d0afde98bd6b66d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e8e0b9a4d5214647256d3a3bdf726eb88b2d1a140e3102a6ebbde0b2540584f2",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "062ec8ef-506d-436d-9885-8c357107b0e5",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a8b8ca74587459fd1511eb5a9d29f5b9bdc08e391d4e6b7d17d9889a9173eea3",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-5e2b4d94f11201bf85a8e74db413ff0414e480b411d4632a2ae72b6dfe53e5e8",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro",
+      "profileId": "one-shot-json-v2-high",
+      "state": "failed",
+      "runId": "9ef3e127-bd7e-4ee5-b18b-57b309e13064",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 26
+      },
+      "reportId": "report-v1-0f5478c707b19580f7f4e6847520085e447b267e646ef9126fc76a1b16bc6a52",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-d4a2103fe3e5fffe816eff1ff7e2bbeee4a730cacbf75b9f271cccaa7e79f886",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "7ee1d733-ced2-478c-98c6-4007a3b549cd",
+      "progress": {
+        "finished": 26,
+        "planned": 27,
+        "inferenceRequests": 26
+      },
+      "reportId": "report-v1-bc6b722f9138a31a9eee273182dc867e909571180c68700149a41cf091dc9c31",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-e7fd1ac493df29fdcf92b546e2ec53d7f1ee7f952dcfc001501c694c9e64fea8",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro-2026-04-23",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "f12bee44-7d6b-47c5-9c6f-23f6ce7d6914",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e328ad7d471c1c70a894d8abe95b6590c6934b0b014f8f28223fb91ce3ba628d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-0ad7792eee972fb8744119bcfe9bbb5c3605eea856ef0a2bddd64ab47288a767",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro-2026-04-23",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "ffc3c6ab-ac2e-4900-9410-131b2a4197ed",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-02948ef67eb39b45e9b49d29c97bfbc8d312b45ed3236ec62b2ad4ad8754908d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-c14dc549f78f60b90c143929744548a9cf8755409daf8b520c2f4e0c0d0cad25",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro-2026-04-23",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "f3724ec4-2f38-4088-b142-3ed268a4dc5b",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-d626a37a5abae3433fcb0b646645fd6260cbc823b6e284ed14d9883cc64bb755",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4549f84c607c47f0798ce1c744833b6569342ebba44ab14b16e7e051d3faaceb",
+      "phase": "screening",
+      "modelId": "gpt-5.5-pro-2026-04-23",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "f8357135-faeb-465a-82ba-3942df10d3bd",
+      "progress": {
+        "finished": 22,
+        "planned": 27,
+        "inferenceRequests": 22
+      },
+      "reportId": "report-v1-ed90e157eaaa6bdebe023996bc8fbc71a4c560d6882efc37f2489a1e48640153",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-894bff9ee9f23c67fb2c9c697e0b7999ebc0bddafd048c583ffa70656222381c",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "57ace60a-7cdb-42c1-b467-5105d792840e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-bc02821ca595079dc28eac8656fecd9c4ec3107b372d5c629feb2522bc59b3f0",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-ed84b2a71fd1353cb2988a0db8f5d35f5676cebe7855ef03adbecc96ec9c1bc0",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "473db09f-c52f-4135-a094-31b7c30efe78",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-bc9b6ea610629030906a871f68dd43b072217269634bb7fcde59e426f874b707",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-341ff4e2e7372eddb5da5d083f8e3dcab1c70f5eb9735254110c6baab716a4a5",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "243894d9-2790-4485-bd37-f3d53c63c3b2",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-62b84ddc9726388fe807e5e75218a3ab68c45fc744729a1b124157077f045f18",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-6591d680759d2a682049e07c428c0b74775ee64bd3ba5161eb43f6143e91490e",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "d29d4828-86d2-4df3-a695-a47bd6bb6cc1",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-70282c806596de8626fcfd27558195b30736ffc5bc6d16b87ef2924aea419de2",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-44582735fbd8e1216aec87674b7a21d3b1a19ff7d87bc0df73e2eac9f5107d18",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "cb1d7d47-187d-4e9e-9166-2c6a4ef554ff",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4205ef98b94166015afbb768334d53b41ee2708cba56463715a14d17041723cd",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-a2cfa605b8b988eaa69ab934f3a153b283f17fcace168452b0699d7789539c2b",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "ad41bee7-448d-4dac-98dc-72fade23a257",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-189209da47a8d44e8d6af491092eb39a8b67b2fd6b01f88efcc2b36d4d2073ee",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1c240bfd2d1a320ff65ee077ce002228152fe21771f047efa3b2b459414f4086",
+      "phase": "screening",
+      "modelId": "gpt-5.6-luna",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "13a3c3bb-d6d5-429c-8758-d64db0b1ea7d",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-ed45b908820549c8d325fd60a5357b734cf29fa9701faae84b998f72102cde5d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-c3f6f147fb2c235c2acf0c98e3fef5e9784116116a35c4add66af707ca9bfde8",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "7faf5f0a-c148-40b5-83a3-20c5cfe2592c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-6b1c9a3c51d4b26a181766f65c70323cf62d1fbf44b5ec53ceb7dcaf233871be",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-9bf885c965c3156bb1b0f3125f3aaf03c1f4959906ca5d4c09c405b2c09498f9",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "683d5ec6-a55e-41fe-90f4-e34b8bfda8fd",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-fd3967e594960f1908894f29d6a6135a2372a56f7d432a8cd2dec11bfa5d180a",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-38f2545424a004bfac6fdc4a5fa072a0135006a4cb7b88a1cb43878ee15fa14e",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "1e145238-447e-46b3-a2f4-e6466007525e",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-497d3a0d90921d5e20ab0fee634eb077b6efc3f59664e2a9c23826f6cb52cdf7",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-273d351743108ebfa6a2c93f9e56cdfc9ecb2c547358e613a3abf3035e222eef",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "439da46e-dd97-4e1e-99de-df3b7bf17652",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-039a936c56a4e11d2d1d85abe06a5b2f07f3b4c97aada399266b131456b6bd87",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-10669b9d9eccd796e912295fa8a20b75e582e7880bf9bb002f18301abb86688e",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "8c69f917-a702-462d-bc14-c6275481fbe7",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-f7ee89135616ae8b99cbe6bf529a4cd10919623360ed69ee325de05aeb03895d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-b7d1e4d64e7cd0587e24bfa540fbd731b212f57d5a31332103b128fb2ba8087e",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "6ac43602-41d7-4f0b-b0cb-7c4bb37a3478",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e96b78c5a22c3c09ffc2c6b35aafbf26cc1398405676e9588027b68fe894dc0e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-2f9ed68ade6c5e1aa4578c2645c10c759bb8c547910e8b3cbc3171e572cf6d1a",
+      "phase": "screening",
+      "modelId": "gpt-5.6-sol",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "86c71f0f-6788-4b83-b544-e7997d07563f",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-f6d35432d8c7452be5d3375efc83425e8ce1051e2bf8cb610be7615bcd854f36",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-29f23666fd9ffb22f4f4e67337fadfecf0a96a62828cb72cfd4161782fbd8d2e",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "195e25ed-6ecf-487c-a05a-eee4000eabf5",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a6319ee542213304cbca3ed8471214885ec96ff4600cf43629f228fe5a9f9af5",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-488bacddec102eb044e907b4b10e1f4121c1a6ec30ec50f24c6b65a7eeae349f",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "3a3059f0-9e39-4012-8e4c-9307e6f1afe6",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5576831a2bd7d91fcf42f734d157fbf060099acbb50ec0557f9ef07a9142cbd6",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e37ed74ae0fa8aa8458ace1f72883444ccc1041594d88d0b21fa538a1c1a6b1f",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "701b77ad-db3a-4d08-9dad-6b49f7bedd78",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a6373fe87e2a73ee8b639b888205a369164f512cd8beaca9f165662b2a52b795",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e63ec2b533fe781de975872162b1ed97b1eab5d17ae9f56eacbb1ba8b038d8ae",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "bdd7dbf4-2d14-4109-b37f-870e05002289",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-6c6136e8b5a41c581c12a57989431e82e01c7c8106afb3dd096c41b73a989d0c",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-72c93b5db6f756094246fff2daae6c93f8be59c3315144f5d68f8cb385657c6f",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "8076ea5f-e119-49bc-a788-5215b0eb8f33",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-0182aa94d3114378810a8801fdb455341ce6f79f10428c62ecf6c99d5437d8b8",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4986c3f87caee2f77dd8a1220f9e32175e3b8aef2e22a8f613d17576d97f4feb",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "4fb9dba7-e89a-43fb-9fa8-2809b4f5e39c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9ec67255c0f97629f3f182215a47df6f9726b28f9bf5657b6bc71677936679fe",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-33c867e3809a5eb4ae5d7d34bbfadd9f31c9543b3bd9880cf68fd83c6cf5f730",
+      "phase": "screening",
+      "modelId": "gpt-5.6-terra",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "d710bd92-7e08-4536-b419-1f46311e3cbc",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-24ec74a1090b775d1a83ca95bc29da93f6910a28658e30d5cbfb74a5b63c381e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-66c2985d1ed3fbf306dfa4bc13a2ac018006506f84b2d11d34072862c826c20c",
+      "phase": "screening",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "f9a01e4b-fbed-4526-9539-e6e98b469503",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-15ea0d7c0b9929422efa1a2a118b7faa87c00b21d291d1ff1dfff3a846c869c1",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f99e2cafa322e7e97f58afad8c06a983a933cf2eb8b3aade74a339bc625a4bed",
+      "phase": "screening",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "ca567d2d-686e-4062-8cd7-61cbc8839b5f",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-9a931a351c4d9cd1ff258f13b54e1bf02e1573980605099f4a8aa3235e0f9888",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-31c188ce09163f534badd5a7fc707711960ec0786f676266a32b80ed28d4555f",
+      "phase": "screening",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "6d0617a3-54da-448c-b92e-feafb37d8aa7",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-144c7780ca3b68f429dae2c5b136a4f97d48d35f66a0eb9269fde7b65de490d5",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-7fc233e4884596871161e8c43a31e3a519355d5179e965a76516ce9c8b568dd9",
+      "phase": "screening",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "a257a472-2903-4dca-b3b2-928077532631",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a09001e0b524aae33b59605c5349c038ae862ddf2316a5415d08817a93609ff1",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-91befd83c60aa7e02b84ff369e8fdc26c852cb71a22dffcc4c21af40b260be56",
+      "phase": "screening",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "31ec00ae-3dde-4ebd-8fd8-129a9f963df6",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5f2ff7be6de0e593721df277abb70677b3b2fe403dc43bbbe77998b642866198",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-16ea326a53b2684219749790f7b3e927af64c0a8409cfc2a2b515bd3203ae5f9",
+      "phase": "screening",
+      "modelId": "gpt-6-astra",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "53d2300d-8aff-45b3-8388-db48fd784b74",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-1e6c76fa0caf0eed9ddc002b20c5896190fe6cc1aa1cdf88cb88c98cdb436540",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1737ba6a1408742684b106b34b3ee2db5a674600e26cb023311f27e05c98948c",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "6e0b6355-ccfd-4f29-a7c6-99f525cc3505",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-6d753895b35a7f5f1fa353ef0537567065ec48a5d92f2a19e40618295b9b10e3",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-19800917bf96169168e5bd5a7dafcf6a82cea85a8538ea2a7d45b40357572386",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "16680067-fc7a-48ec-9991-991d6512b716",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-a0949d2b97d381cdef1d9cf4260e311cee7db7a12de32aef09a6af108e32c4b8",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-544f4a7aa513b94f7be1f68c3f1227f7fab1e9cc670e7548b62904113153fa3f",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "4679e850-b29c-49f0-84b6-fe921093cd11",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-bce813af978650bd293ebf7f66303c8a1cf37d711a9e6dad9b1b4600a9d03193",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f193d5b7a2ba9f3a58bd87ec56efe29e0f8cfde4ca28960537c051e62c08ab5b",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "7b249819-b4ae-40c4-b9c1-544cf7b506fd",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8542f42b556171b05afccec8ddc8edbd1a3f8c670ab1078b772a219be14dfbd2",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-5744fb025bef3c906bc57dbb39907d1863939ea1798ec4ca0d3de5dc0ed1b5ee",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "d729e4c9-5335-4463-850b-9c1a317d50b8",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-fd9b2862cffbcd42998cfa4feda1b072d9867494fd38721b16072fb7d0059c3b",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-a08ad667d96e074755c3b0df12009036f735580a870381ea8732a1e599870650",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "dff049cb-213c-455a-9c7e-679b31fc8967",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-7686c75ee6da31ebaa00fd15794d36385b0472bf13ad9391d4ad870cd7ce26cd",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-7161b1e5a70c5854626f02bfd49723b29fee60abc837d705f14c2b39b241b601",
+      "phase": "screening",
+      "modelId": "gpt-6-luna",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "8d5c7b83-bdeb-4e14-9a45-ec748ce02fb9",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-26ed14d9b9ccdba70e8a4f373870fe84732473b096c6e8958e35003d0f6b14bc",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-3d4c5252296a59c5b937dfaa0c71751679bb8e7dd2b46fb8b1f014d5aa23da73",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "201fc903-df08-49be-9b51-4d207998a6ab",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b5f2e46e7965342aeb5ca5a937a24125fee97637e5778a4161a29d64b4e469a0",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-4121e926772f9c4eb4e264da365c55a25c43483ef1e6fc71a4a9576d66b694fa",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "fe04295b-fd3b-4301-8ceb-35db20fb5c66",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-4a6a8983e8289dee0ccbdf1ae05d1bf32b10e3fd1d159f73df333d72aac64e0e",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-146122fbfaffc2c178f5d29735f6cccd8935b7f4b0d5e7885492c171a81578dd",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "565f3fae-9f19-4b34-b1be-c3934493c835",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b98a101b613893f17f6316b74ec513d541a02dd233d969083a9a1a39ca5921b4",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-efb5a3b739e41dcfd59145f06ed4fb7cb8ec4a70c66b24f77d6cbd5a02e5dffe",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "ae4869a4-e40d-49f7-a614-f88d75f760f7",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-c17f100cd1097e73a7ac4b7e80f224d0a281a067064ba1384ca9cfcd02d3582c",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-825bcfae44d245081f8c3f7adee5d76857b4822f1c1211f2d96119a589f5a372",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "91c73ac3-1518-47f8-827b-60089aecd699",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-e5696012ce9b9dbbe5413e8d355ac376e60c5d4dda3340b485a2d56dcd8cf6bb",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-bc1d61d0cbfcd3c7d56991e7b637446fe653dd12a79e4eeb2ddbec4e51d9b4cc",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "013c6766-dd71-4aac-9204-c414327c713a",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-bd82e338b9433e04219193faa3f92e85f391c5883d3598221fe10ece662b8b8d",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-81dae3824dce03cd177d45b4cf58fcf238e48a658303fb1cf7a7ac0348e85780",
+      "phase": "screening",
+      "modelId": "gpt-6-sol",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "6d412c9c-446e-47df-aee6-a85812501750",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-18cf7b3f3c6f371b44ce65a61460286e1ec3b8cb7ccc06f33150a7bab4107179",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-f7e8a6831ea3074b5ebed1e5bfb223fbcbb3eb09b75144ab4f70f0a284ba3cca",
+      "phase": "screening",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "15b95d66-17d3-4777-9ab2-4637e27fccfd",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-5a3720e490dbb2fb15a75edabec0e171ed2fd332e4c418c442f1fc273a4faed0",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-12f508747d675ebc32834a1e84c2d9ffb203c07a8f8939878118eb1647c73a56",
+      "phase": "screening",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "655549ad-e626-45ff-9150-2649b845efa5",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-088b0962ddbd205d169e3eebe696afbda39bb960ec9456da8bfe063992cd4bdd",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-453b2a944effb974bd514fa95e61d5e9e5f4956a5aa6a950b6080fe81296ad83",
+      "phase": "screening",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "20f44b8b-dfa1-4375-bd9d-4f02deaa7f43",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-3a0b6f3bf03f8fcd8536392dc72dc633ae669c9d9e0703accbcb8d87cb1437fd",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-e1b9bcfd7e3e05634c451353b3a1cd43c8aa32748583442b811d14795f7b3c88",
+      "phase": "screening",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "2a8a08fe-af3a-4fc2-a8b2-a3cad0d844ad",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-477467aa06e101f90a12955b87f3b314d2228a9b0bc2bb2bb53bc790eb2f729a",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-0788f3ac4f0ef4ecb07883f3f6c8e5defa8d470929f103e9b3f31cd50134026c",
+      "phase": "screening",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "completed",
+      "runId": "c18be8da-81ba-48a6-9061-dfa2c22ea7f8",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-829e1a9d90121ad8b42774ed1e92a521061c0dcaf33b7f1f35305409bbf65563",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-594a343fcc11e5608a0de6304ddb73e176d2b61d5328cf28bd8033d9a1853e56",
+      "phase": "screening",
+      "modelId": "gpt-6.1-sol",
+      "profileId": "one-shot-json-v2-max",
+      "state": "completed",
+      "runId": "06bc754f-072e-43ad-9820-052f75e41d09",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b4c4629cc83c043704d4d1cc8c6357beb8359d089de96076c5a3a655594c862f",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-becc3b48d4f34434b07dfcc7509e47428a227f63c99d111be339cbbb08de9fcb",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v1",
+      "state": "completed",
+      "runId": "5a7a97b0-02d6-47f4-a8a0-d15bd58a6bcb",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-1b8fe05b4cf797b406095636e2cb88627d530925151c0f8d1ca879bae7b53042",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-1a578b1a88de183ef7f56da8320f42908aa5abc146a22f73f18818acba534fcd",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v2-none",
+      "state": "completed",
+      "runId": "b7f2313d-728f-462b-8923-34328bb0a6a2",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-dde42827b3e7e9dc59c6d85f5e50aec3a74eddc1b542e43f1ee91e404dc1dbee",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-5c374639cb154ed2412101919c9eaa82b17bc4ae6d5e42d009d06ff6b2114d43",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v2-low",
+      "state": "completed",
+      "runId": "ce8603e7-c5a3-4571-9c76-bc4c00559216",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-8f22acfcc9c397764d4408d651b339787523fe0bf7f0132e2f42c1f74ed0a432",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-2e26df0b9d4ccc58d3b795b2a01119c678fca74ec0405f930a295fe2853893a9",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "completed",
+      "runId": "4a9977bd-c381-4778-a50b-038dbcd50992",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-863dee61b4bac3a156092c5e004d699d58573adac1d5dbeab1ee4a222b6aadef",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-fe911ec7fe3cb0f0a43e1ef2649f9976597766ca5049b833523d2cb82b3b9e09",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v2-high",
+      "state": "completed",
+      "runId": "78513561-9ff3-41f0-9b98-30e43d629461",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-3d2799d90fa6bf4d2fc0dd286a0d3ac5d4787237e2805da75e2a46c8104d29b1",
+      "published": true,
+      "error": null
+    },
+    {
+      "id": "cell-3e9f988600e49f9ec036068514c3bb79bf6cf38614836f8a75b2351411db7859",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v2-xhigh",
+      "state": "failed",
+      "runId": "181c02da-4f15-4f99-bca6-7291f807c84c",
+      "progress": {
+        "finished": 27,
+        "planned": 27,
+        "inferenceRequests": 27
+      },
+      "reportId": "report-v1-b90727ded460c1dda187ee132a164ae931e5cea5ed4fae940df1ff0b46b62768",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-1a16d6505c0cc5f0a70303fe02aa0404afad5c91aaa61c3f5a961e454b26ecc4",
+      "phase": "screening",
+      "modelId": "gpt-6.1-terra",
+      "profileId": "one-shot-json-v2-max",
+      "state": "failed",
+      "runId": "eeb3556f-17ac-4a6c-b3db-32613d0c24a8",
+      "progress": {
+        "finished": 16,
+        "planned": 27,
+        "inferenceRequests": 16
+      },
+      "reportId": "report-v1-5b365e46d4a91903f741a6d217af7e6caa9975253ca990ed22cfd5fd56b71c71",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-12286b840df293a8cad106220bc56c26ff8219a5f940231617e3da0c8d4395fb",
+      "phase": "screening",
+      "modelId": "o3",
+      "profileId": "one-shot-json-v1",
+      "state": "failed",
+      "runId": "13d3fc92-b036-49bc-bbe5-4f7219532fc5",
+      "progress": {
+        "finished": 11,
+        "planned": 27,
+        "inferenceRequests": 11
+      },
+      "reportId": "report-v1-e820987fbe9fb6a9a5e3c086dc183b9a0bf7a78163584842dcec4d56b22fa629",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-db64c8841b7269467852ac22ae4e451788947f5543331bd5e2a94ea957e054a9",
+      "phase": "screening",
+      "modelId": "o3",
+      "profileId": "one-shot-json-v2-low",
+      "state": "failed",
+      "runId": "7faae599-5524-4e20-bb34-a6cda294d8f9",
+      "progress": {
+        "finished": 4,
+        "planned": 27,
+        "inferenceRequests": 1
+      },
+      "reportId": "report-v1-c5663962eea1efb279605bf982010e4efc01e39f668cfacd81c2b395289a1b20",
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-2bac7da93440348d14b745333eb6da1cc3793f9b40e18b46c60cd541527df55a",
+      "phase": "screening",
+      "modelId": "o3",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "interrupted",
+      "runId": "225f9c14-bb92-46eb-a07a-7c01ad303825",
+      "progress": {
+        "finished": 4,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": "The cell did not establish a complete verified outcome. No paid retry or replacement run was started."
+    },
+    {
+      "id": "cell-4399930f78ce72261659e937f6b13cc6e8ad9b22efc256c0e28ea7997476cf00",
+      "phase": "screening",
+      "modelId": "o3",
+      "profileId": "one-shot-json-v2-high",
+      "state": "pending",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-d1ed39b36cec93e9153c9032c3f610bf57638b916858de12064ca588becf89f4",
+      "phase": "screening",
+      "modelId": "o3-2025-04-16",
+      "profileId": "one-shot-json-v1",
+      "state": "pending",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-88396cb7a20eb8dc828a13f207c4189987b89177e41615166cc26884013da434",
+      "phase": "screening",
+      "modelId": "o3-2025-04-16",
+      "profileId": "one-shot-json-v2-low",
+      "state": "pending",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-35f6071948d68718e38b18c463fd01a7cde41300dd9a9c526334dde4c5608c69",
+      "phase": "screening",
+      "modelId": "o3-2025-04-16",
+      "profileId": "one-shot-json-v2-medium",
+      "state": "pending",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": null
+    },
+    {
+      "id": "cell-b4218a00e6245216414b5b2716562448aa9e991f892cbcfb0ae3eb8a5d1142ef",
+      "phase": "screening",
+      "modelId": "o3-2025-04-16",
+      "profileId": "one-shot-json-v2-high",
+      "state": "pending",
+      "runId": null,
+      "progress": {
+        "finished": 0,
+        "planned": 27,
+        "inferenceRequests": 0
+      },
+      "reportId": null,
+      "published": false,
+      "error": null
+    }
+  ]
+}
