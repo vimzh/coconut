@@ -1,0 +1,70 @@
+{
+  "title": "Coconut today: from tasks to evidence",
+  "subtitle": "The current three-trial product; Phase 15's 800-task single-trial study is a separate planned workload.",
+  "description": "An evaluator selects a fixed certified suite and provider/model using their own key, reviews three trials per task and approves charges. Independent provider requests receive expressions and domains without reference answers. Replies are scored and retained privately for seven days, then inspected, exported or explicitly published. Ranking requires separate eligibility checks. Interruptions preserve partial evidence without automatic resumption.",
+  "footer": "Cancellation stops new work; remote charges can remain uncertain. Partial evidence stays inspectable; no automatic resume.",
+  "zones": [
+    { "id": "setup", "label": "1 · CHOOSE AND APPROVE", "tone": "blue", "width": 0.9 },
+    { "id": "execution", "label": "2 · ASK AND GRADE", "tone": "teal", "width": 1.05 },
+    { "id": "evidence", "label": "3 · INSPECT AND SHARE", "tone": "green", "width": 1.45 }
+  ],
+  "nodes": [
+    {
+      "id": "choose", "zone": "setup", "title": "Choose the evaluation",
+      "body": ["Fixed certified suite", "Provider, model and settings"],
+      "note": "Your provider key stays in page memory.",
+      "status": "implemented", "size": "standard", "row": 1, "span": 2,
+      "evidence": ["apps/api/src/runs/registry.ts", "apps/web/src/components/evaluation/workspace-suite.tsx", "apps/web/src/components/evaluation/workspace-controller.ts"]
+    },
+    {
+      "id": "approve", "zone": "setup", "title": "Approve the workload",
+      "body": ["Task count × three fresh trials", "Review limits and provider charges"],
+      "note": "Keep this page open during execution.",
+      "status": "implemented", "size": "standard", "row": 3, "span": 2,
+      "evidence": ["apps/web/src/components/evaluation/workspace-configuration.tsx", "apps/api/src/runs/policy.ts"]
+    },
+    {
+      "id": "model", "zone": "execution", "title": "The provider answers",
+      "body": ["Fresh independent requests", "Expression and exact interval"],
+      "note": "Reference answers stay outside prompts.",
+      "status": "external", "size": "standard", "row": 1, "span": 2,
+      "evidence": ["apps/api/src/inference/client.ts", "apps/api/src/inference/adapters.ts", "apps/api/src/protocol/prompt.ts", "apps/api/src/numerics/prompt.ts"]
+    },
+    {
+      "id": "grade", "zone": "execution", "title": "Score retained replies",
+      "body": ["Labels compared with references", "Every outcome stays accounted for"],
+      "note": "Model errors and service failures stay distinct.",
+      "status": "implemented", "size": "standard", "row": 3, "span": 2,
+      "evidence": ["apps/api/src/runs/engine.ts", "apps/api/src/scoring/classification.ts", "apps/api/src/runs/store.ts"]
+    },
+    {
+      "id": "report", "zone": "evidence", "title": "Inspect your private report",
+      "body": ["Accuracy, macro-F1 and depth detail", "Read each answer beside its reference"],
+      "note": "Seven-day retention; save the separate access code.",
+      "status": "implemented", "size": "wide", "row": 1, "span": 2,
+      "evidence": ["apps/web/src/components/results/results-dashboard.tsx", "apps/web/src/components/results/evidence-inspector.tsx", "apps/api/src/runs/store.ts"]
+    },
+    {
+      "id": "export", "zone": "evidence", "title": "Export retained evidence",
+      "body": ["Download results, replies and settings"],
+      "note": "The export contains no provider key.",
+      "status": "implemented", "size": "wide", "row": 2, "span": 2,
+      "evidence": ["apps/api/src/runs/routes.ts", "apps/web/src/components/evaluation/workspace-controller.ts"]
+    },
+    {
+      "id": "publish", "zone": "evidence", "title": "Publish a complete run",
+      "body": ["Explicit public sharing; reversible", "Eligible comparisons enter the leaderboard"],
+      "note": "Exploratory results remain unranked.",
+      "status": "implemented", "size": "wide", "row": 4, "span": 2,
+      "evidence": ["apps/api/src/runs/store.ts", "apps/api/src/runs/public.ts", "apps/web/src/lib/leaderboard.ts"]
+    }
+  ],
+  "edges": [
+    { "from": "choose", "to": "approve", "route": "vertical", "tone": "blue" },
+    { "from": "approve", "to": "model", "route": "orthogonal", "tone": "teal" },
+    { "from": "model", "to": "grade", "route": "vertical", "tone": "teal" },
+    { "from": "grade", "to": "report", "route": "orthogonal", "tone": "green" },
+    { "from": "report", "to": "export", "route": "vertical", "tone": "green" },
+    { "from": "report", "to": "publish", "route": "orthogonal", "tone": "green" }
+  ]
+}
