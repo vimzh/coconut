@@ -6,13 +6,15 @@ import { useState } from "react";
 
 import { directoryModels, modelCompanies } from "@/lib/model-directory-data";
 import { getLandingScores, getLandingDepthScores, landingScoreColumns } from "@/lib/landing-scores";
+import { archivedPilotModelIds, getLandingPilotScore, landingPilotDepths } from "@/lib/landing-pilots";
 import styles from "./model-scores.module.css";
 
 export function ModelScores() {
   const [columnIndex, setColumnIndex] = useState(0);
+  const [showArchived, setShowArchived] = useState(false);
   const column = landingScoreColumns[columnIndex];
   const rows = directoryModels
-    .filter((model) => model.status !== "deprecated")
+    .filter((model) => model.status !== "deprecated" || (showArchived && archivedPilotModelIds.has(model.id)))
     .map((model) => ({ model, score: getLandingScores(model.id)[columnIndex], depths: getLandingDepthScores(model.id, columnIndex) }))
     .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.model.name.localeCompare(b.model.name));
   return (
@@ -26,6 +28,10 @@ export function ModelScores() {
           </select>
         </label>
       </div>
+      <label className={styles.archivedToggle}>
+        <input type="checkbox" checked={showArchived} onChange={(event) => setShowArchived(event.target.checked)} />
+        Show archived models
+      </label>
       <p className={styles.metric}>Macro-F1 · 0–100 · Sorted by overall score for this setting</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Model scores by depth; scroll horizontally for all depths">
         <table className={styles.table} aria-describedby="model-depth-note">
@@ -34,6 +40,7 @@ export function ModelScores() {
             <tr>
               <th scope="col" className={styles.model}>Model</th>
               {column.depths.map((depth) => <th key={depth} scope="col">Depth {depth}</th>)}
+              {landingPilotDepths.map((depth) => <th key={depth} scope="col" className={depth === 60 ? styles.pilotBoundary : undefined}>Depth {depth}<span className={styles.pilotLabel}>Separate pilot · default</span></th>)}
             </tr>
           </thead>
           <tbody>
@@ -44,7 +51,7 @@ export function ModelScores() {
                     <span className={styles.logo} title={modelCompanies[model.company].name}>
                       <Image src={modelCompanies[model.company].logo} alt="" width={14} height={14} unoptimized />
                     </span>
-                    <span>{model.name}</span>
+                    <span>{model.name}{model.status === "deprecated" && <span className={styles.pilotLabel}>Archived model</span>}</span>
                   </span>
                 </th>
                 {column.depths.map((depth) => {
@@ -54,13 +61,19 @@ export function ModelScores() {
                     {score === null || score === undefined ? <span aria-label="No completed score at this depth">—</span> : (score * 100).toFixed(1)}
                   </td>;
                 })}
+                {landingPilotDepths.map((depth) => {
+                  const score = getLandingPilotScore(model.id, depth);
+                  return <td key={depth} className={depth === 60 ? styles.pilotBoundary : undefined} title={`Separate depth-${depth} exploratory pilot; 9 tasks, 3 trials each; default reasoning, 4,096 output tokens`}>
+                    {score === null ? <span aria-label="No complete pilot score for this model">—</span> : (score * 100).toFixed(1)}
+                  </td>;
+                })}
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p id="model-depth-note" className={styles.notes}>
-        {column.group} · {column.label} · {column.requests} requests per complete evaluation. Depth slices contain different tasks; score differences do not isolate a depth effect. Screening is exploratory and unranked.
+        {column.group} · {column.label} · {column.requests} requests per complete evaluation. Depth slices contain different tasks; score differences do not isolate a depth effect. Screening is exploratory and unranked. Depths 60 and 100 are separate nine-task pilots with default reasoning; the setting selector applies to the other columns.
       </p>
     </section>
   );
