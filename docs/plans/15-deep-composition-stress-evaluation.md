@@ -1,8 +1,8 @@
 # Module 15 implementation plan
 
-Status: implementation and offline feasibility investigation. No final model requests have been dispatched.
+Status: the full 800-case source pool and independent review passed. Under A-15-02, a separately frozen 620-task/model continuation started at 19:46:44 UTC on 2026-11-08 with a 120-request cap. It preserves all 562 original attempts, including 12 interruptions; at most 1,298 new authorizations remain. Final outcome review/reporting remain pending.
 
-The user froze Astra (`gpt-6-astra`), Mini (`gpt-5.4-mini`) and Luna (`gpt-6-luna`): the same 800 fresh questions once per model, 2,400 final sends. This plan implements [Module 15](../modules/15-deep-composition-stress-evaluation.md); it does not amend the population downward or require declining scores.
+The user froze Astra (`gpt-6-astra`), Mini (`gpt-5.4-mini`) and Luna (`gpt-6-luna`), then explicitly reduced the two highest buckets to ten cases each. A-15-02 below supersedes the original execution counts and fixed twelve-worker scheduling. The 800-case construction and original evidence remain immutable. No descending score shape is required.
 
 ## Frozen construction policy
 
@@ -67,5 +67,34 @@ The historical `deepest-source-feasibility-v1` remains a complete 64-batch/768-r
 ### A-15-01/R1: retained-prefix correction
 
 Before final freeze or any model send, the first v2 construction attempt was stopped after detecting that cache reuse assumed all 128 scheduled batches existed in the historical 64-batch cache. Retain that partial attempt. The corrected builder reads the cache's declared completed-prefix length, verifies and copies every batch inside that prefix, and generates the original scheduled seeds beyond it. A missing/corrupt batch inside the declared prefix still fails; it is never silently regenerated. Restart construction in a new private directory with the same absolute 18:56 UTC deadline and unchanged A-15-01 mathematics, ordering, population and send budgets.
+
+## A-15-02: user-directed cost and throughput amendment
+
+During the original run, the user requested ten times the concurrency, with eight-times and six-times fallbacks, and reduced the two highest depth populations to ten cases each. They explicitly confirmed **320 and 512**, retaining the existing requested depths.
+
+The amended target is **620 tasks per model; 1,860 final attempts**: 100 at each of 5/10/20/40/80/160, ten at 320 and ten at 512. Keep every lower-depth case. At 320 choose the first four convex, three concave and three neither cases from the original frozen source order; at 512 choose the first three convex, four concave and three neither. The same subset goes to all three models. Its supports are 207/207/206. Selection does not inspect model answers; all higher-depth cases were still unattempted when the user chose this change. Preserve the complete original 800-case population, its review, the original manifest and every original attempt.
+
+The new operator is separately implemented under `scripts/deep-study-amendment.ts`, outside the frozen API source. Its manifest binds the original study, retained original rows and exact-byte snapshot, the selected case/reference identities and its own implementation. Original SDK transport, prompts, model identities, reasoning efforts, 32,768-token ceilings and 600-second deadlines remain unchanged. No already-authorized case is resent, including unknown/interrupted outcomes. With five prior development sends, the amended 30 + 1,860 ceiling is 1,890; all original sends remain counted.
+
+Use a 120-request cap. Only an observed rate-limit response may reduce future dispatch to 96, then 72; record each transition, wait for the prior generation to drain and respect a bounded cooldown. Rate-limited cases remain retained infrastructure outcomes with zero retries. A further rate limit at 72 or other infrastructure failure stops new dispatches and drains active calls. The new operator supports a graceful stop so later execution changes can drain without losing active results.
+
+The original process has a fixed twelve-worker pool and its signal handler aborts active calls. It has no live resize or drain control. Prepare and verify the continuation before transitioning; retain every completed answer and explicitly record any interrupted original attempts as unavailable, never as wrong mathematics. Do not delete old starts/receipts or silently reset budgets. The continuation begins only after the original process is terminal and unlocked, and its source bytes are unchanged.
+
+Frontend summary version 2 declares the per-depth populations and 620 overall rather than hardcoding 100/800. It preserves actual denominators, unavailable/incomplete states, all outcome categories and the original report/reference audit requirements. Root owns this presentation and handoff; the operator worker owns the new script, a separate worker owns its tests, and existing transcript reviews remain retained for the selected lower-depth cases.
+
+The user explicitly authorized the interrupting transition. The original terminal at `2026-11-08T19:38:38.704Z` seals 562 attempts: 550 model outcomes and 12 cancelled unknown remote outcomes (Astra 3, Mini 4, Luna 5). Every authorized cell belongs to the selected subset and remains unchanged. No interrupted cell is resent. The amendment froze at `2026-11-08T19:46:34.659Z` as `deep-study-amendment-v2-2f659b4df73d9ad6786e71c1508ef4ae852f361f5385d4c5392234cf0d32ca46`; its operator byte SHA-256 is `1e387051794209ef7df2159d8f3b05684e9a8198ad5818ca7931b96039da31be`. The API fingerprint remains `6d9d07b5f4147ffe321875da19e36bfb2c8491ca361eec0c914db6e2d3179fb2`.
+
+The baseline exceeds 64 MiB, so the continuation retains separately hashed case/row chunks below the existing artifact cap rather than widening it. Replay verifies missing/extra files, chunk order/counts, logical baseline hashes and the exact original-root snapshot. Wrong reported identities are retained known infrastructure; reporting/export remain possible after the stop. The initial runtime source-hash check failed before any continuation artifact or paid dispatch because Bun treated a file-URL string as a literal path; passing a URL object fixed it, with an actual-file regression test. Fifteen operator tests/152 assertions, strict TypeScript, ESLint and bundle build passed before/at launch.
+
+Continuation commands use the explicit pinned runtime from `apps/api`:
+
+```sh
+/Users/vanshgaur/.bun/bin/bun ../../scripts/deep-study-amendment.ts freeze
+/Users/vanshgaur/.bun/bin/bun ../../scripts/deep-study-amendment.ts run --accept-charges
+/Users/vanshgaur/.bun/bin/bun ../../scripts/deep-study-amendment.ts report
+/Users/vanshgaur/.bun/bin/bun ../../scripts/deep-study-amendment.ts export --audit data/private/final-outcome-audit-v2.json
+```
+
+Freeze/run are already used and must not be repeated. The private root is `data/private/deep-study-amendment-v2/`; its export is `public-summary-v2.json`. The original twelve-hour deadline remains anchored to the original start. First SIGUSR1/SIGINT/SIGTERM stops fresh dispatch and drains; a second SIGINT may force abortion. Every control transition is journaled. No automatic restart, retry or authorization reset is supported.
 
 Official compatibility references checked 2026-11-08: [Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [Mini](https://developers.openai.com/api/docs/models/gpt-5.4-mini), [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna). The pinned SDK and existing isolated transport were inspected before selecting the separate research profile.

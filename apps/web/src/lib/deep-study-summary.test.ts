@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import published from "../../public/deep-study-scores.json";
-import { parseDeepStudySummary, requestedGeneratorDepths, type DeepStudyScore, type DeepStudySummary } from "./deep-study-summary";
+import { deepStudyTaskCounts, deepStudyTaskTotal, parseDeepStudySummary, requestedGeneratorDepths, type DeepStudyScore, type DeepStudySummary } from "./deep-study-summary";
 
 function score(planned: number, observed = planned): DeepStudyScore {
   return {
@@ -34,11 +34,61 @@ function fixture(): DeepStudySummary {
 test("accepts the public projection and preserves the requested generator axis", () => {
   const result = parseDeepStudySummary(published);
   assert.deepEqual(result.requestedDepths, [5, 10, 20, 40, 80, 160, 320, 512]);
-  assert.equal(result.tasksPerDepth, 100);
+  assert.equal(deepStudyTaskTotal(result), result.version === "1" ? 800 : 620);
   assert.equal(result.trialsPerTask, 1);
   if (result.state === "planned") {
     assert.equal(result.models.every(model => model.overall.dispatched === 0), true);
     assert.equal(result.audit.verdict, "pending");
+  }
+});
+
+function amendedFixture(): DeepStudySummary {
+  const data = fixture();
+  data.version = "2"; delete data.tasksPerDepth;
+  data.plannedTasksPerModel = 620;
+  data.taskCounts = requestedGeneratorDepths.map((requestedDepth, index) => ({ requestedDepth, tasks: index < 6 ? 100 : 10 }));
+  data.models[0].overall = score(620);
+  data.models[0].byDepth.forEach((slice, index) => {
+    const tasks = data.taskCounts![index].tasks;
+    slice.score = score(tasks); slice.realizedDepths = [{ depth: slice.requestedDepth, count: tasks }];
+  });
+  return data;
+}
+
+test("accepts the amended 620-task study with explicit 10-task high-depth populations", () => {
+  const result = parseDeepStudySummary(amendedFixture());
+  assert.equal(deepStudyTaskTotal(result), 620);
+  assert.deepEqual(deepStudyTaskCounts(result).map(row => row.tasks), [100, 100, 100, 100, 100, 100, 10, 10]);
+  assert.equal(result.models[0].overall.planned, 620);
+  assert.equal(result.models[0].byDepth[6].score.planned, 10);
+  assert.equal(result.models[0].byDepth[7].score.planned, 10);
+});
+
+test("keeps retained interruptions outside accuracy in an amended study", () => {
+  const data = amendedFixture(); data.state = "incomplete";
+  data.models[0].byDepth[1].score = { ...score(100, 96), dispatched: 100, unattempted: 0, providerFailures: 4, unknownRemote: 4 };
+  data.models[0].overall = { ...score(620, 616), dispatched: 620, unattempted: 0, providerFailures: 4, unknownRemote: 4 };
+  const result = parseDeepStudySummary(data);
+  assert.equal(result.models[0].overall.accuracy, 1);
+  assert.equal(result.models[0].overall.status, "provisional");
+  assert.equal(result.models[0].overall.unknownRemote, 4);
+  assert.equal(result.models[0].byDepth[7].score.status, "complete");
+});
+
+test("rejects stale or conflicting populations in amended exports", () => {
+  for (const mutate of [
+    (data: DeepStudySummary) => { data.tasksPerDepth = 100; },
+    (data: DeepStudySummary) => { delete data.taskCounts; },
+    (data: DeepStudySummary) => { data.plannedTasksPerModel = 800; },
+    (data: DeepStudySummary) => { data.taskCounts![6].tasks = 100; },
+    (data: DeepStudySummary) => { data.taskCounts![0].tasks = 10; },
+    (data: DeepStudySummary) => { data.taskCounts![7].requestedDepth = 320; },
+    (data: DeepStudySummary) => { data.models[0].overall.planned = 800; },
+    (data: DeepStudySummary) => { data.models[0].byDepth[6].score = score(100); },
+    (data: DeepStudySummary) => { data.models[0].byDepth[7].realizedDepths[0].count = 100; },
+  ]) {
+    const data = amendedFixture(); mutate(data);
+    assert.throws(() => parseDeepStudySummary(data), /Invalid deep study summary/);
   }
 });
 

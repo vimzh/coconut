@@ -6,7 +6,7 @@ import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { CompositionResults } from "@/components/marketing/composition-results";
 import { Button } from "@/components/ui/button";
-import { hasPublishedDeepStudy } from "@/lib/deep-study-summary";
+import { deepStudySummary, deepStudyTaskTotal, hasPublishedDeepStudy } from "@/lib/deep-study-summary";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function Home() {
           </p>
           <p className="mt-5 text-sm leading-6 text-muted-foreground">
             {hasPublishedDeepStudy
-              ? "Latest research study: 800 planned tasks per model at eight requested generator depths, from 5 to 512. One response per task. The visitor workbench remains a separate 27-task study with three responses per task."
+              ? `Latest research study: ${deepStudyTaskTotal(deepStudySummary)} planned tasks per model at eight requested generator depths, from 5 to 512. One response per task. The visitor workbench remains a separate 27-task study with three responses per task.`
               : "Current benchmark: 27 tasks at 2, 4 and 6 nonlinear composition stages. Three fresh responses per task make 81 requests per model."}
           </p>
           <div className={styles.heroActions}>

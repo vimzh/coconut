@@ -37,12 +37,14 @@ export interface DeepStudyModel {
 }
 
 export interface DeepStudySummary {
-  version: "1";
+  version: "1" | "2";
   studyId: string;
   state: "planned" | "running" | "complete" | "incomplete" | "unavailable";
   depthMeasure: "requested-generator-depth";
   requestedDepths: number[];
-  tasksPerDepth: 100;
+  tasksPerDepth?: 100;
+  taskCounts?: { requestedDepth: number; tasks: number }[];
+  plannedTasksPerModel?: number;
   trialsPerTask: 1;
   cohortId: string | null;
   cohortSourceId: string | null;
@@ -55,6 +57,14 @@ export interface DeepStudySummary {
   };
   models: DeepStudyModel[];
 }
+
+export function deepStudyTaskCounts(study: DeepStudySummary) {
+  if (study.version === "1") return study.requestedDepths.map(requestedDepth => ({ requestedDepth, tasks: 100 }));
+  if (!study.taskCounts) throw new Error("The amended study is missing its per-depth populations.");
+  return study.taskCounts;
+}
+
+export const deepStudyTaskTotal = (study: DeepStudySummary) => deepStudyTaskCounts(study).reduce((sum, row) => sum + row.tasks, 0);
 
 function requireValue(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(`Invalid deep study summary: ${message}.`);
@@ -105,12 +115,24 @@ function validateScore(value: unknown, planned: number, path: string): DeepStudy
 
 export function parseDeepStudySummary(value: unknown): DeepStudySummary {
   const data = record(value, "summary");
-  requireValue(data.version === "1", "unsupported version");
+  requireValue(data.version === "1" || data.version === "2", "unsupported version");
   requireValue(nonempty(data.studyId), "studyId is required");
   requireValue(["planned", "running", "complete", "incomplete", "unavailable"].includes(String(data.state)), "state is invalid");
   requireValue(data.depthMeasure === "requested-generator-depth", "depth measure must remain explicit");
   requireValue(JSON.stringify(data.requestedDepths) === JSON.stringify(requestedGeneratorDepths), "requested depths do not match the frozen design");
-  requireValue(data.tasksPerDepth === 100 && data.trialsPerTask === 1, "the design must use 100 tasks per depth and one response per task");
+  requireValue(data.trialsPerTask === 1, "the design must use one response per task");
+  const tasksPerDepth = requestedGeneratorDepths.map((_, index) => data.version === "1" || index < 6 ? 100 : 10);
+  const plannedTasks = tasksPerDepth.reduce((sum, count) => sum + count, 0);
+  if (data.version === "1") {
+    requireValue(data.tasksPerDepth === 100 && data.taskCounts === undefined && data.plannedTasksPerModel === undefined, "the original design must retain 100 tasks per depth");
+  } else {
+    requireValue(data.tasksPerDepth === undefined && data.plannedTasksPerModel === plannedTasks, "the amended design must retain its 620-task population");
+    requireValue(Array.isArray(data.taskCounts) && data.taskCounts.length === requestedGeneratorDepths.length, "amended task counts are required for every depth");
+    for (const [index, entry] of data.taskCounts.entries()) {
+      const count = record(entry, "task count");
+      requireValue(count.requestedDepth === requestedGeneratorDepths[index] && count.tasks === tasksPerDepth[index], "amended depths must retain 100 tasks through 160 and 10 at 320 and 512");
+    }
+  }
   for (const field of ["cohortId", "cohortSourceId"] as const) requireValue(data[field] === null || nonempty(data[field]), `${field} must be an identity or null`);
   for (const field of ["cohortSha256", "reportSha256"] as const) requireValue(data[field] === null || hash(data[field]), `${field} must be a SHA-256 hash or null`);
   const audit = record(data.audit, "audit");
@@ -129,14 +151,14 @@ export function parseDeepStudySummary(value: unknown): DeepStudySummary {
     requireValue(nonempty(settings.profileId), "profile identity is required");
     requireValue(settings.reasoning === null || nonempty(settings.reasoning), "reasoning setting is invalid");
     requireValue(integer(settings.maxOutputTokens) && settings.maxOutputTokens > 0 && integer(settings.inferenceTimeoutMs) && settings.inferenceTimeoutMs > 0, "token and deadline limits must be positive integers");
-    const overall = validateScore(model.overall, 800, `${model.modelId}.overall`);
+    const overall = validateScore(model.overall, plannedTasks, `${model.modelId}.overall`);
     requireValue(Array.isArray(model.byDepth) && model.byDepth.length === requestedGeneratorDepths.length, "every model must retain all eight requested depths");
     const scores: DeepStudyScore[] = [];
     for (const [index, entry] of model.byDepth.entries()) {
       const slice = record(entry, `${model.modelId}.byDepth`);
       const requestedDepth = requestedGeneratorDepths[index];
       requireValue(slice.requestedDepth === requestedDepth, "depth slices must retain the frozen order");
-      const score = validateScore(slice.score, 100, `${model.modelId}.depth${requestedDepth}`);
+      const score = validateScore(slice.score, tasksPerDepth[index], `${model.modelId}.depth${requestedDepth}`);
       scores.push(score);
       requireValue(Array.isArray(slice.realizedDepths), "realized depths must be an array");
       const depths = new Set<number>();
@@ -148,7 +170,7 @@ export function parseDeepStudySummary(value: unknown): DeepStudySummary {
         depths.add(realized.depth);
         realizedCount += realized.count;
       }
-      requireValue(realizedCount === (data.cohortId === null ? 0 : 100), "realized depths must cover the frozen cohort");
+      requireValue(realizedCount === (data.cohortId === null ? 0 : tasksPerDepth[index]), "realized depths must cover the frozen cohort");
     }
     for (const field of countFields) requireValue(scores.reduce((sum, score) => sum + score[field], 0) === overall[field], `${model.modelId}.${field} does not match depth slices`);
   }
