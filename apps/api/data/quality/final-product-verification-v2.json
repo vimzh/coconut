@@ -1,0 +1,139 @@
+{
+  "verification": "final isolated local product verification",
+  "verdict": "VERIFIED WITH GAPS",
+  "verifiedSource": {
+    "trackedBaseSha": "210b12a7f36f5ba24c91dcfb5d766409d2778f7c",
+    "snapshot": "/tmp/coconut-final-product-v2.eVrSoB",
+    "assembly": "git archive tracked base plus the 39-file untracked public/source/docs overlay listed in /tmp/coconut-final-product-v2-overlay.list",
+    "overlayManifestDigestSha256": "f2044df2182d73e364508434cf3d3fa4a5d68e0225ac7ad85aeac319291327cc",
+    "excluded": ["root AGENTS.md", ".env files", "apps/api/data/private", "node_modules", ".venv", ".next"],
+    "postSnapshotRootHead": "f6c3fb83435f81ba708505986d6069c5d44f4ed9",
+    "postSnapshotNote": "The root advanced after snapshot creation and gained a new untracked long-reserve progress artifact. This report does not claim those later contents were executed.",
+    "currentProductCodeComparison": {
+      "comparedTrackedHead": "f6c3fb83435f81ba708505986d6069c5d44f4ed9",
+      "observedLaterTrackedHead": "955efb62cc190ce5fda11dac26209119cb2ae323",
+      "method": "diff -qr of snapshot and current apps/api/src, apps/web/src, and services/numerics with generated .venv, .ruff_cache, and __pycache__ excluded; cmp of package manifests and bun.lock",
+      "result": "identical",
+      "postBaseProductDelta": "Only the overlay long-reserve source and test became tracked; their snapshot/current SHA-256 values matched exactly.",
+      "longReserveSourceSha256": "efbfa683d6d27d2c886f9bd79d2e140c7c646c9bdae1aa0f1946622019c884b4",
+      "longReserveTestSha256": "df6ac124dc6a960444de0b511029b4959ba2112df1b30c4dc31cf199b51c8101",
+      "coverageBoundary": "The compared f6c3fb8 and later-observed 955efb6 product source/config/dependency/native inputs are covered by the executed snapshot checks: f6c3fb8..955efb6 had no diff in this scope. Later data and documentation contents were not executed."
+    }
+  },
+  "environment": {
+    "bun": "1.4.4 (38afee6c8)",
+    "uv": "0.13.1",
+    "nativePython": "CPython 3.13.17",
+    "commandEnvironment": "env -i with only PATH, TMPDIR=/tmp, and CI=1; no provider credential variables",
+    "externalInferenceOrPaidCalls": false
+  },
+  "overlay": {
+    "fileCount": 39,
+    "sha256Manifest": {
+      "digest": "f2044df2182d73e364508434cf3d3fa4a5d68e0225ac7ad85aeac319291327cc",
+      "digestVerification": "shasum -a 256 of the original 39-line manifest matched this value",
+      "entries": [
+        {"path":"apps/api/data/experiments/conditional-reserve-progress-v1-archive-source.json","sha256":"8bfe2da9405cc2ac46273b3bff45751a4f800c3afffa12acfa994b21002b5d7d"},
+        {"path":"apps/api/data/experiments/conditional-reserve-progress-v1-capabilities.json","sha256":"451187a8167c74901ffcfcc4e33d7587517e785e067f287b1b077e32de5c121e"},
+        {"path":"apps/api/data/experiments/conditional-reserve-progress-v1-published/index.json","sha256":"ff486faba51b9069d550e80b4dd3ec286346d4e026c05a700d4ee0cede3bb05c"},
+        {"path":"apps/api/data/experiments/conditional-reserve-progress-v1.json","sha256":"3997d8d74002eda411d202094a8aab4770555e6e142f349256c0d04708c8526d"},
+        {"path":"apps/api/data/experiments/conditional-reserve-reconciliation-v1.json","sha256":"1ffabb0c1eb8bbe8273a917307bc9efd94f53169a454404f7af401afaf89c1f3"},
+        {"path":"apps/api/data/experiments/conditional-reserve-send-evidence-v1.json","sha256":"e15d25c5ae689b7e3ebf0b5a24bdbe7c7a8316549cf6925c2b4051763a0a5176"},
+        {"path":"apps/api/data/experiments/interior-progress-v1-capabilities.json","sha256":"03d29c392d5ae928b0b95691fde565270e0fa573043d2de5da4764fa3b021b54"},
+        {"path":"apps/api/data/experiments/interior-progress-v1-published/793e500f-2bee-4af8-b56b-5256731f00c7.json","sha256":"5e6a76778bbc8c1f8c3ba8502a3bbf830d50478e617ae2f4b3ad921f64300c15"},
+        {"path":"apps/api/data/experiments/interior-progress-v1-published/dfd70b94-ee70-4365-8b08-58ff09c07e6f.json","sha256":"2767416d67a17faffcdb1b936532522995d0af092d6dc159046ae03169d17186"},
+        {"path":"apps/api/data/experiments/interior-progress-v1-published/index.json","sha256":"c92924f5347eba250d5ecfff573e7a2495406076e202d3952ffaf3f8e7295170"},
+        {"path":"apps/api/data/experiments/interior-progress-v1.json","sha256":"39c6452b4bb6bd1ed1193098f6bd58ffa950eb759468cd55dcfef1f2eac1ddc6"},
+        {"path":"apps/api/data/experiments/interior-reconciliation-v1.json","sha256":"b11313d7a2ca372f363412a5e261d93ba1bfc6a5a33d44911aef8ad21e2542ba"},
+        {"path":"apps/api/data/experiments/interior-send-evidence-v1.json","sha256":"d9630a1191eef6d92a32d8e579d0c1a24c969373a77aca62da657370349182bd"},
+        {"path":"apps/api/data/experiments/long-reserve-prior-accounting-v1.json","sha256":"c9f6f8263d659f1ecfe08e1bc92d2c8ce3d00289fde01e92d11b38d0144a4505"},
+        {"path":"apps/api/data/experiments/remaining-models-matrix-v1.json","sha256":"3278db315ef4370e153a6ea78f5e5b6ef6aa27fc80d5427019594fdd0763d0f8"},
+        {"path":"apps/api/data/experiments/remaining-models-prior-accounting-v1.json","sha256":"a34eb587df3db00a0d949702c7cee03e00eb2e0feecbb3997e18181298b4987e"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-capabilities.json","sha256":"145e8904cc683b5a44ad3d173cef8887465415e1e8c8d218b0b0afaef7eeb81e"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/0dd34878-1186-4435-959e-03db9c4af2c0.json","sha256":"20c680814b47ee9513ac87a44cba04f6b9f2a2e4af8403671c7caf664a287518"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/12aba25e-8690-4e97-8462-f0d5eeab9cac.json","sha256":"4f57a2e3d910ddb006d65cfbd35619303d949af2a3d5fed0375dd6cce5ca5107"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/43a63de1-2738-4c65-ac8e-463901fe5c7f.json","sha256":"7b0d9432f9860e0693825404a4b95e5d6fb445c5ab56731f1b45187d0eb1daea"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/774f5378-8a22-4f49-95d9-7ed9f8a31bc3.json","sha256":"908178617a1f0f7e2c4ca421df7ee079cb68a5f1fdbc18d706ed740b5ff3c103"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/a00aa6e1-7ee9-49cd-95ac-1b388475d2bd.json","sha256":"974c17a389262e5b66d882becb0c1af6a84d17b9b11ae429df86ab06c44aa68f"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/a3cdc053-99a2-4da2-898f-73ae3b532c33.json","sha256":"0a949af83646d2a626f57226497392b6d533d6574bcf5a18079435b0fe5c2d32"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/b00786cc-44e9-489b-8763-5c598feefcd1.json","sha256":"aeb52b1817369a37d04a0fe6fbdecd7cbaec84f72c0cd9868a2baf4a385584ab"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/f9b8f883-782a-413f-87a7-276dac8ea3f3.json","sha256":"e02760ef95dde7f1c7dca900b2825b89dccd90413e3030b8787da0a56dc263a1"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1-published/index.json","sha256":"99eeffcb36317f2aa987a200ccb105fda307314d020db2945f2f570631f08f28"},
+        {"path":"apps/api/data/experiments/remaining-models-progress-v1.json","sha256":"fcc949d4f9acb2a649a01873553e871e82daf235e56e5f7a56e53e3730b8fafe"},
+        {"path":"apps/api/data/experiments/remaining-models-reconciliation-v1.json","sha256":"5afbe2da82614fdbb23c416c69a683e1a731e6529b87ca17d5e90a4c5ac25a8e"},
+        {"path":"apps/api/data/experiments/remaining-models-send-evidence-v1.json","sha256":"4573350eb809041f321613aebd0e38b638ba62d571747d1a496417b89f471cd8"},
+        {"path":"apps/api/data/quality/interior-study-review-v1.json","sha256":"b3e38bfcef4cfb8b47aa186bd1a42d81372787ef93f857728a9b56fff94587b2"},
+        {"path":"apps/api/data/quality/remaining-models-review-v1.json","sha256":"4934773e062b6c49a9f15ec47e6ea748cb66ab9ea4f720b6ce8e56f397b5187b"},
+        {"path":"apps/api/data/quality/reserve-study-review-v1.json","sha256":"7f1b266c4193f2be76695491134dc7fc0ecda0bd242b685e5b5233e8a9911c8d"},
+        {"path":"apps/api/src/experiments/long-reserve.test.ts","sha256":"df6ac124dc6a960444de0b511029b4959ba2112df1b30c4dc31cf199b51c8101"},
+        {"path":"apps/api/src/experiments/long-reserve.ts","sha256":"efbfa683d6d27d2c886f9bd79d2e140c7c646c9bdae1aa0f1946622019c884b4"},
+        {"path":"docs/plans/long-reserve-v1.md","sha256":"8cdb45555f977fc3ced7da95ddd4d8563619761864cbc3a67cc8085d0321946b"},
+        {"path":"docs/research/interior-results-v1.md","sha256":"b36d900462852a17aac59c6c46be873a1eb6275d784ecbdb5f1204430a521f2b"},
+        {"path":"docs/research/long-reserve-v1.md","sha256":"b8003d63cf00685965594f6fb5c25bd3138440b6424e0a85760ac9b637c1c786"},
+        {"path":"docs/research/remaining-models-results-v1.md","sha256":"b271a3268b1eaf1af6ed5ab415f45239d1d39e05702377bb872511d7a38aacc3"},
+        {"path":"docs/research/reserve-results-v1.md","sha256":"f14ac139515ce09f0375474dc69d1ea086b9ae17f9f9d32c068c6b669afd064b"}
+      ]
+    },
+    "includedKinds": ["long-reserve source and test", "public experiment progress/reconciliation/send/archive/capability fixtures", "published public records", "quality fixtures", "research and plan documents"],
+    "notIncluded": ["private run storage", "credentials", "ignored local instructions"]
+  },
+  "checks": [
+    {"command": "bun install --frozen-lockfile", "status": "passed", "exit": 0, "timing": "2026-11-08T11:00:40Z; 18 seconds", "evidence": "468 packages installed in fresh archive-local node_modules"},
+    {"command": "bun run numerics:setup", "status": "passed", "exit": 0, "timing": "2026-11-08T11:01:09Z; under one second", "evidence": "fresh services/numerics/.venv; CPython 3.13.17; python-flint 0.9.0 and ruff 0.15.6"},
+    {"command": "bun run test", "status": "passed", "exit": 0, "timing": "2026-11-08T11:01:29.456Z; 119.675 seconds", "evidence": "API: 719 passed, 30,549 expect calls, 69 files. Web: 66 passed, six files. Retained log: /tmp/coconut-final-product-v2-test.log"},
+    {"command": "bun run numerics:test", "status": "passed", "exit": 0, "evidence": "29 native Python tests"},
+    {"command": "bun run numerics:lint", "status": "passed", "exit": 0, "evidence": "Ruff clean"},
+    {"command": "bun run lint", "status": "passed", "exit": 0, "evidence": "API and web lint both exited 0"},
+    {"command": "bun run --filter @coconut/api typecheck", "status": "passed", "exit": 0},
+    {"command": "bun run --filter @coconut/web typecheck", "status": "passed", "exit": 0, "evidence": "Next route type generation completed before TypeScript check"},
+    {"command": "bun run --filter @coconut/api build", "status": "passed", "exit": 0, "evidence": "330 modules bundled"},
+    {"command": "bun run --filter @coconut/web build", "status": "passed", "exit": 0, "evidence": "Next 16.4.5 compiled, type checked, and generated seven static pages"}
+  ],
+  "runtimeSmoke": {
+    "method": "Imported built apps/api/dist/index.js default configuration into an isolated Bun.serve wrapper at 127.0.0.1:3217; default API main and ports 3200/3201 were not started.",
+    "database": "/tmp/coconut-final-product-v2-private/runs.sqlite only",
+    "health": {"status": 200, "body": {"status": "ok"}},
+    "suiteRegistry": [["reference-v1",75],["smooth-v2",27],["challenge-v1",72],["screening-v1",9],["interior-v1",72],["reserve-v1",18]],
+    "reserveContract": "18 tasks across depths 17 and 23; registry and plan both identify it as exploratory/unranked.",
+    "nativeAvailability": "full suite included the built-API native runtime-path regression and passed"
+  },
+  "harnessCorrection": {
+    "event": "Initial smoke assertion expected reserve-v1 to have 72 tasks and failed after the successful HTTP responses.",
+    "resolution": "The saved response and registry contract establish the correct count is 18. This was a QA expectation error, not an observed product defect; no additional API request was made to correct it."
+  },
+  "supplementalBrowserObservation": {
+    "source": "coordinator-provided, not independently executed in this QA run",
+    "scope": "current dev/HMR localhost evaluator, anonymous reads only",
+    "reportedObservation": "Six suite options; reserve-v1 selection showed 18 tasks, depths 17/23, three trials, 54 requests, 16,384 cap under max effort, exploratory/unranked; no credential, probe, launch, publication, or database write. No document overflow at 1280x800 or 390x844.",
+    "limitation": "Not production-browser evidence and not a substitute for this snapshot's execution evidence."
+  },
+  "isolatedProductionBrowser": {
+    "source": "same immutable assembled snapshot",
+    "method": "Fresh Next production build with NEXT_PUBLIC_API_ORIGIN=http://localhost:3217; next start on localhost:3218; built API configuration served by a temporary Bun.serve wrapper on 127.0.0.1:3217 with COCONUT_WEB_ORIGIN=http://localhost:3218 and /tmp/coconut-final-product-v2-private-browser/runs.sqlite.",
+    "credentialAndSideEffectBoundary": "Browser started anonymous. No credential was entered; no provider access, compatibility probe, launch, publication, refresh, or seed operation was selected.",
+    "observations": [
+      "Production browser read the home page, evaluator, methodology, and public leaderboard; home and evaluator exposed semantic main/h1 and skip navigation.",
+      "Evaluator loaded six suite options. Browser-selected reserve-v1 displayed 18 tasks, depths 17/23, three trials, 54 maximum requests, exploratory/unranked status, and—after browser-selected one-shot-json-v2-max—the 16,384-token per-attempt cap.",
+      "At 1280x800, document and body scroll widths both equaled 1280; Helvetica Neue and Geist Mono reported loaded; browser console contained zero entries.",
+      "Methodology had one main and h1 How the evaluation works; its rendered text did not match paper or benchmark. Leaderboard rendered Public model comparisons and No published evaluations yet."
+    ],
+    "limitations": [
+      "The browser resize command acknowledged 390x844 but its subsequent DOM viewport remained 1280x800, so a 390px overflow observation was not obtained.",
+      "Two screenshot attempts reported that the tab had not painted; no visual screenshot conclusion is claimed.",
+      "This is local production-mode evidence, not a hosted deployment or paid-provider flow."
+    ]
+  },
+  "gaps": [
+    "No 390px viewport overflow conclusion: the browser host did not apply the requested resize.",
+    "No screenshot-based visual conclusion: the browser host reported the tab had not painted twice.",
+    "No provider credential, remote model inference, charge, cancellation, or hosted deployment behavior.",
+    "No claim about root commits or untracked files introduced after the snapshot overlay was fixed.",
+    "Next emitted its ordinary no-build-cache and anonymous telemetry notices; neither failed the build."
+  ],
+  "workspaceEffects": {
+    "rootProductEdits": "none",
+    "createdByQA": ["docs/research/final-product-verification-v2.md", "apps/api/data/quality/final-product-verification-v2.json"],
+    "temporaryArtifactsRetained": ["/tmp/coconut-final-product-v2.eVrSoB", "/tmp/coconut-final-product-v2-overlay.list", "/tmp/coconut-final-product-v2-overlay.sha256", "/tmp/coconut-final-product-v2-test.log", "/tmp/coconut-final-product-v2-test.result"],
+    "isolatedProcess": "port 3217 built API was stopped after smoke evidence"
+  }
+}
