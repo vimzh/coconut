@@ -1,0 +1,244 @@
+{
+  "version": "1",
+  "auditVerdict": "pass",
+  "auditFileSha256": "cac2f448b47caa06066625990e91b71ee5b510c000c3fea9e44443418ddbabfd",
+  "suiteId": "suite-composition-v1-7b132df2dd57a665aeb62327bf3126fba0d725ace9e413b56b2ced06ecf492a5",
+  "tasks": 27,
+  "clusters": 9,
+  "trialsPerTask": 3,
+  "models": [
+    {
+      "modelId": "gpt-5.4-mini",
+      "reportedModelIds": [
+        "gpt-5.4-mini-2026-03-17"
+      ],
+      "planned": 81,
+      "correct": 30,
+      "macroF1": 0.3418338449822708,
+      "confusion": {
+        "convex": {
+          "convex": 13,
+          "concave": 13,
+          "neither": 1,
+          "unusable": 0
+        },
+        "concave": {
+          "convex": 9,
+          "concave": 14,
+          "neither": 4,
+          "unusable": 0
+        },
+        "neither": {
+          "convex": 9,
+          "concave": 15,
+          "neither": 3,
+          "unusable": 0
+        }
+      },
+      "outcomes": {
+        "answer": 81
+      },
+      "byStage": [
+        {
+          "stages": 2,
+          "astDepth": 7,
+          "planned": 27,
+          "correct": 10,
+          "macroF1": 0.36665427969775793,
+          "confusion": {
+            "convex": {
+              "convex": 4,
+              "concave": 5,
+              "neither": 0,
+              "unusable": 0
+            },
+            "concave": {
+              "convex": 3,
+              "concave": 4,
+              "neither": 2,
+              "unusable": 0
+            },
+            "neither": {
+              "convex": 2,
+              "concave": 5,
+              "neither": 2,
+              "unusable": 0
+            }
+          }
+        },
+        {
+          "stages": 4,
+          "astDepth": 13,
+          "planned": 27,
+          "correct": 8,
+          "macroF1": 0.2481962481962482,
+          "confusion": {
+            "convex": {
+              "convex": 4,
+              "concave": 4,
+              "neither": 1,
+              "unusable": 0
+            },
+            "concave": {
+              "convex": 4,
+              "concave": 4,
+              "neither": 1,
+              "unusable": 0
+            },
+            "neither": {
+              "convex": 4,
+              "concave": 5,
+              "neither": 0,
+              "unusable": 0
+            }
+          }
+        },
+        {
+          "stages": 6,
+          "astDepth": 19,
+          "planned": 27,
+          "correct": 12,
+          "macroF1": 0.4027113237639553,
+          "confusion": {
+            "convex": {
+              "convex": 5,
+              "concave": 4,
+              "neither": 0,
+              "unusable": 0
+            },
+            "concave": {
+              "convex": 2,
+              "concave": 6,
+              "neither": 1,
+              "unusable": 0
+            },
+            "neither": {
+              "convex": 3,
+              "concave": 5,
+              "neither": 1,
+              "unusable": 0
+            }
+          }
+        }
+      ],
+      "recordSha256": "0fab3eb9cbf98b5357ad8cb7ca6bcf269e855804a6f7bca3c4e059380ffc9d40"
+    },
+    {
+      "modelId": "gpt-6-luna",
+      "reportedModelIds": [
+        "gpt-6-luna"
+      ],
+      "planned": 81,
+      "correct": 65,
+      "macroF1": 0.8600732600732601,
+      "confusion": {
+        "convex": {
+          "convex": 24,
+          "concave": 0,
+          "neither": 0,
+          "unusable": 3
+        },
+        "concave": {
+          "convex": 0,
+          "concave": 21,
+          "neither": 3,
+          "unusable": 3
+        },
+        "neither": {
+          "convex": 1,
+          "concave": 1,
+          "neither": 20,
+          "unusable": 5
+        }
+      },
+      "outcomes": {
+        "answer": 70,
+        "truncated": 11
+      },
+      "byStage": [
+        {
+          "stages": 2,
+          "astDepth": 7,
+          "planned": 27,
+          "correct": 26,
+          "macroF1": 0.9628482972136223,
+          "confusion": {
+            "convex": {
+              "convex": 9,
+              "concave": 0,
+              "neither": 0,
+              "unusable": 0
+            },
+            "concave": {
+              "convex": 0,
+              "concave": 8,
+              "neither": 1,
+              "unusable": 0
+            },
+            "neither": {
+              "convex": 0,
+              "concave": 0,
+              "neither": 9,
+              "unusable": 0
+            }
+          }
+        },
+        {
+          "stages": 4,
+          "astDepth": 13,
+          "planned": 27,
+          "correct": 23,
+          "macroF1": 0.8845315904139434,
+          "confusion": {
+            "convex": {
+              "convex": 8,
+              "concave": 0,
+              "neither": 0,
+              "unusable": 1
+            },
+            "concave": {
+              "convex": 0,
+              "concave": 8,
+              "neither": 1,
+              "unusable": 0
+            },
+            "neither": {
+              "convex": 0,
+              "concave": 1,
+              "neither": 7,
+              "unusable": 1
+            }
+          }
+        },
+        {
+          "stages": 6,
+          "astDepth": 19,
+          "planned": 27,
+          "correct": 16,
+          "macroF1": 0.7030812324929973,
+          "confusion": {
+            "convex": {
+              "convex": 7,
+              "concave": 0,
+              "neither": 0,
+              "unusable": 2
+            },
+            "concave": {
+              "convex": 0,
+              "concave": 5,
+              "neither": 1,
+              "unusable": 3
+            },
+            "neither": {
+              "convex": 1,
+              "concave": 0,
+              "neither": 4,
+              "unusable": 4
+            }
+          }
+        }
+      ],
+      "recordSha256": "1c6abffafd4f0de452e1691c28a0035ec5369fa0c5ce8a177c9d80270bbfdeeb"
+    }
+  ]
+}

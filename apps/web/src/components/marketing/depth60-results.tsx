@@ -6,9 +6,9 @@ const models = results.models;
 export function Depth60Results() {
   return (
     <section aria-labelledby="depth60-title" className="border-t border-border py-12 sm:py-16">
-      <h2 id="depth60-title" className="text-2xl leading-tight sm:text-3xl">At depth 60</h2>
+      <h2 id="depth60-title" className="text-2xl leading-tight sm:text-3xl">Historical structural-depth-60 pilot</h2>
       <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground">
-        {models.length} models tested on the same {results.caseCount} verified tasks. Each expression has {results.depth} nested operation levels.
+        {models.length} models tested on the same {results.caseCount} verified tasks. Each expression has {results.depth} operation-tree levels in repetitive absolute-value families. Associative sums can be flattened, so these levels do not measure successive nonlinear composition.
       </p>
       <div className="mt-8 overflow-x-auto rounded-lg border border-border bg-card" role="region" tabIndex={0} aria-label="Depth-60 exploratory scores; scroll horizontally for all columns">
         <table className="w-full min-w-[520px] text-sm">

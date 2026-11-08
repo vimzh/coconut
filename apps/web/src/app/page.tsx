@@ -5,6 +5,7 @@ import { AppShell } from "@/components/app-shell";
 import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureExamples } from "@/components/marketing/curvature-examples";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
+import { CompositionResults } from "@/components/marketing/composition-results";
 import { ModelScores } from "@/components/marketing/model-scores";
 import { Depth60Results } from "@/components/marketing/depth60-results";
 import { NestedPolicyExample } from "@/components/marketing/nested-policy-example";
@@ -44,6 +45,7 @@ export default function Home() {
         <div className={styles.heroGraph}><CurvatureIllustration /></div>
       </section>
 
+      <CompositionResults />
       <ModelScores />
       <Depth60Results />
 
@@ -83,7 +85,7 @@ export default function Home() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 id="workflow-title" className="text-2xl leading-tight font-medium sm:text-3xl">From a function to an inspectable result</h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
-            The curvature challenge contains 72 certified tasks across eight function families and 24 related parameter groups. Three trials per task make 216 planned requests.
+            The recommended nested-composition exploration contains 27 certified tasks at two, four and six nonlinear stages. Three trials per task make 81 planned requests. Other suites remain available as separate workloads.
           </p>
         </div>
         <ol className="mt-8 grid gap-4 md:grid-cols-3">

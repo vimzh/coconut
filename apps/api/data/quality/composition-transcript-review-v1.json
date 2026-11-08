@@ -1,0 +1,33 @@
+{
+  "version": "1",
+  "reviewer": "AI-assisted submitted-text review by the composition implementation agent; independent reference validation is recorded separately.",
+  "models": [
+    {
+      "modelId": "gpt-5.4-mini",
+      "runId": "d4b2cbdd-f8c7-44aa-9ef0-16115ecc20b4",
+      "suiteId": "suite-composition-v1-7b132df2dd57a665aeb62327bf3126fba0d725ace9e413b56b2ced06ecf492a5",
+      "privateReviewFileSha256": "1014f6ca9c0ea409cb10d855b46a97bc378201a1b69e530ff2d5bb0e4fc6e027",
+      "counts": {
+        "assertedMathematicalError": 50,
+        "labelExplanationInconsistencyOnly": 1,
+        "labelExplanationContradictionIncludingOverlap": 8,
+        "formatOnlyFailure": 0
+      }
+    },
+    {
+      "modelId": "gpt-6-luna",
+      "runId": "b553f64a-890a-43a7-a325-7752c74a0836",
+      "suiteId": "suite-composition-v1-7b132df2dd57a665aeb62327bf3126fba0d725ace9e413b56b2ced06ecf492a5",
+      "privateReviewFileSha256": "e20fb1e1ec7516c7fdce3e293d8ec8c1106ac286355940ccda5ef0449db24f8d",
+      "counts": {
+        "assertedMathematicalError": 5,
+        "labelExplanationInconsistency": 0,
+        "truncationOnly": 11,
+        "emptyTruncatedText": 8,
+        "nonemptyIncompleteTruncatedText": 3,
+        "formatOnlyFailure": 0
+      }
+    }
+  ],
+  "limits": "Correct-label explanations were not qualitatively audited. Truncations are not mathematical errors; observations do not establish a universal failure threshold or causal depth effect."
+}

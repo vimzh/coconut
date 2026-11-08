@@ -62,6 +62,7 @@ export default function MethodologyPage() {
               <TableCaption>Task counts and actual operation depths for the evaluation suites</TableCaption>
               <TableHeader><TableRow><TableHead>Suite</TableHead><TableHead>Tasks</TableHead><TableHead>Measured depths</TableHead></TableRow></TableHeader>
               <TableBody>
+                <TableRow><TableCell><span className="font-medium text-foreground">Nested composition exploration · unranked</span><br /><span className="font-mono text-xs">composition-v1</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 13, 19 (2, 4, 6 nonlinear stages)</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Curvature challenge</span><br /><span className="font-mono text-xs">challenge-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">3, 4, 5, 6, 14</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Smooth reference</span><br /><span className="font-mono text-xs">smooth-v2</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 9, 11</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Exact reference</span><br /><span className="font-mono text-xs">reference-v1</span></TableCell><TableCell>75</TableCell><TableCell className="font-mono">5, 10, 20, 40, 80</TableCell></TableRow>
@@ -69,6 +70,7 @@ export default function MethodologyPage() {
                 <TableRow><TableCell><span className="font-medium text-foreground">Fine-scale curvature exploration · unranked</span><br /><span className="font-mono text-xs">reserve-v1</span></TableCell><TableCell>18</TableCell><TableCell className="font-mono">17, 23</TableCell></TableRow>
               </TableBody>
             </Table>
+            <p>Nested composition exploration applies successive quadratic and reciprocal atoms in three sequence patterns, at two, four and six nonlinear stages. Every pattern and stage count includes all three labels with the same outer expression form. The 27 tasks share nine related base chains. Exact rational derivative checks and an independent implementation supplement whole-domain numerical certificates. Shared atoms, coefficient cues and contracting ranges limit generalization; this is exploratory evidence, without ranking or a causal depth claim.</p>
             <p>The challenge has eight families and three parameter groups per family. Each group contains all three labels: 24 related-task groups and 24 tasks per class. Its families cover logarithmic, reciprocal, exponential, rational, mixed-branch and polynomial curvature.</p>
             <p>The separate interior exploration applies three nonlinear functions to eight source quintics. Each source polynomial is shared across nine related tasks, giving eight groups and 24 tasks per class. Its interior curvature changes can be missed by checking endpoints and midpoint alone. This narrower population is descriptive and unranked; it does not meet the confirmation coverage or confidence-interval requirements.</p>
             <p>Fine-scale curvature exploration has logarithm, reciprocal and square-root families built from two related source polynomials of degrees nine and ten, with nonzero quadratic terms. The 18 tasks share the domain [−1, 1] and have six tasks per class. Each source group spans nine tasks across all families and labels, so there are two related groups. This adaptive exploration remains unranked, has no eligible confidence interval and inherits no confirmation status.</p>
@@ -93,6 +95,7 @@ export default function MethodologyPage() {
               <TableCaption>Different profiles remain separate comparison populations</TableCaption>
               <TableHeader><TableRow><TableHead>Profile family</TableHead><TableHead>Output ceiling</TableHead><TableHead>Reasoning</TableHead></TableRow></TableHeader>
               <TableBody>
+                <TableRow><TableCell><span className="font-medium text-foreground">Nested composition exploration · unranked</span><br /><span className="font-mono text-xs">composition-v1</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 13, 19 (2, 4, 6 nonlinear stages)</TableCell></TableRow>
                 <TableRow><TableCell>Original profiles</TableCell><TableCell className="font-mono">4,096 tokens</TableCell><TableCell className="whitespace-normal">Provider default</TableCell></TableRow>
                 <TableRow><TableCell>Explicit-effort profiles</TableCell><TableCell className="font-mono">16,384 tokens</TableCell><TableCell className="whitespace-normal">Named effort, verified for the model</TableCell></TableRow>
               </TableBody>
@@ -113,6 +116,7 @@ export default function MethodologyPage() {
               <TableCaption>Model outcomes and incomplete execution have different score treatment</TableCaption>
               <TableHeader><TableRow><TableHead>Outcome</TableHead><TableHead>Score treatment</TableHead></TableRow></TableHeader>
               <TableBody>
+                <TableRow><TableCell><span className="font-medium text-foreground">Nested composition exploration · unranked</span><br /><span className="font-mono text-xs">composition-v1</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 13, 19 (2, 4, 6 nonlinear stages)</TableCell></TableRow>
                 <TableRow><TableCell className="whitespace-normal">Valid returned label</TableCell><TableCell className="whitespace-normal">Included; graded against the reference</TableCell></TableRow>
                 <TableRow><TableCell className="whitespace-normal">Invalid or empty reply, refusal, truncation</TableCell><TableCell className="whitespace-normal">Included as unusable; contributes reference support and a false negative, with no predicted-class false positive</TableCell></TableRow>
                 <TableRow><TableCell className="whitespace-normal">Provider error, interruption, cancellation, unattempted work</TableCell><TableCell className="whitespace-normal">Excluded from mathematical counts; retained against the planned workload</TableCell></TableRow>

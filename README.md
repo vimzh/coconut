@@ -34,7 +34,9 @@ placement: after "What Coconut does"
 
 ## Certify the task before grading the model
 
-The recommended **curvature challenge** contains **72 tasks across eight families and 24 related parameter groups**. Every family includes all three labels. Three trials per task produce **216 planned inference requests**.
+The recommended **nested composition exploration** has **27 certified tasks in nine related groups**, with **2, 4 and 6 successive nonlinear stages** (AST depths 7, 13 and 19). Every sequence/stage contains all three labels with the same outer expression form. Three fresh trials mean **81 requests per model**. Exact rational references and an independent Python implementation supplement whole-domain native certificates. This two-atom exploration remains unranked; [design and limits](docs/research/composition-design-v1.md) distinguish genuine composition from the preserved associative structural-depth pilots.
+
+The preserved **curvature challenge** contains **72 tasks across eight families and 24 related parameter groups**. Every family includes all three labels. Three trials per task produce **216 planned inference requests**.
 
 Independent analytic calculations and native interval arithmetic agree on the admitted labels. Global derivative bounds establish convex or concave behavior across the interval; verified opposite second-derivative signs at interior points establish neither. Unresolved candidates stay unverified. The model receives the expression, exact interval, and instructions; reference labels and certificates stay outside its prompt.
 
