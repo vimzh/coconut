@@ -1,0 +1,28 @@
+/* A single-line score ledger keeps model identity quiet and test settings explicit. */
+.section { border-top: 1px solid var(--border); padding: 48px 0; }
+.section > h2 { margin: 0; font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); line-height: 1.15; font-weight: 400; text-align: left; }
+.metric { margin-top: 12px; text-align: center; font-family: var(--font-mono); font-size: 12px; }
+.scroll { max-width: 1080px; margin: 36px auto 0; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--card); scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.table { width: 100%; min-width: 840px; border-collapse: collapse; font-size: 14px; }
+.table th, .table td { padding: 6px 16px; white-space: nowrap; }
+.table thead { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.table thead th { font-size: 12px; line-height: 1.5; font-weight: 400; text-align: right; }
+.table thead tr:first-child th:not(.model) { padding-top: 8px; padding-bottom: 4px; text-align: left; }
+.table thead tr:last-child th { padding-top: 4px; padding-bottom: 8px; }
+.table tbody tr { border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent); }
+.table .model { position: sticky; left: 0; z-index: 1; min-width: 260px; background-color: var(--card); font-weight: 400; text-align: left; }
+.table td { min-width: 96px; font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; font-size: 13px; }
+.identity { display: inline-flex; align-items: center; gap: 10px; }
+.logo { display: grid; flex: none; width: 20px; height: 20px; place-items: center; border: 1px solid var(--border); border-radius: 7px; background: #f4f1e8; }
+.logo img { width: 14px; height: 14px; object-fit: contain; }
+.notes { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; max-width: 1080px; margin: 16px auto 0; font-size: 12px; line-height: 1.7; }
+.notes a, .sources a { text-decoration: underline; text-underline-offset: 3px; }
+.sources { max-width: 1080px; margin: 8px auto 0; font-size: 12px; line-height: 1.7; }
+
+@media (min-width: 640px) { .section { padding: 64px 0; } }
+@media (max-width: 600px) {
+  .table th, .table td { padding-inline: 10px; }
+  .table .model { min-width: 220px; font-size: 12px; }
+  .table td { font-size: 12px; }
+  .identity { gap: 8px; }
+}
