@@ -184,3 +184,19 @@ See [results and reproducibility](../research/fast-table-fill-results-v1.md). Ve
 New recommended `composition-v1` is available in the normal visitor evaluation path: 27 tasks in nine related groups, three fresh trials each, nonlinear stages 2/4/6 separated from AST depths 7/13/19. It remains exploratory/unranked. The landing page now leads with a separately audited matched composition table and explicitly labels the preserved 60/100/216 columns as historical structural pilots. Existing provider/model filters and recorded values remain intact. Methodology, README and suite previews describe the new workload.
 
 Exactly 162 new calls settled: Mini 30 correct/51 wrong valid (34.2 F1); Luna 65 correct/5 wrong valid/11 output-limit truncations (86.0 F1). Unusable replies are displayed separately; no truncation is claimed as a mathematical error. See [design](../research/composition-design-v1.md) and [results/verification](../research/composition-results-v1.md) for source-bound reference/result audits, limits and reproduction. API 747/web 76/native 29 tests, API/web lint/types/build and local production desktop/mobile checks pass. No live calls remain active or planned.
+
+
+## Historical tables removed from the landing page
+
+The latest user instruction replaces the proposed collapsed historical section: the landing page now renders only the current nested-composition results table. The older ModelScores and depth-60 table mounts/imports are removed. The current results section retains the model-score anchor so existing home, methodology and results links remain valid. No evaluation, scoring or saved-run behavior changes.
+
+Historical data already exists in tracked JSON and is preserved byte-for-byte:
+
+- `apps/web/public/landing-scores.json`: original archived measurements and exact-setting projections.
+- `apps/web/public/fast-model-scores.json`: audited follow-up cells.
+- `apps/api/data/quality/depth60-landing-v1.json`: combined depth-60 results.
+- `apps/api/data/quality/depth100-results-audit-v1.json` and `depth216-results-audit-v1.json`: independent pilot audits.
+
+This implements only the historical-table removal portion of mini module 14a; the other cleanup tasks remain planned.
+
+Verification for this removal: 76 web tests, lint, typecheck and production build passed. The refreshed production page has exactly one results table, no historical headings/columns, unchanged current score rows and a working model-score anchor. No alert elements or document overflow were found. SHA-256 checks confirm all five historical JSON files are unchanged; the two public snapshots return HTTP 200 with matching bytes. No model calls were made.

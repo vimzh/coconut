@@ -10,7 +10,7 @@ if (audit.verdict !== "pass" || results.auditVerdict !== "pass" || results.suite
 
 export function CompositionResults() {
   return (
-    <section aria-labelledby="composition-results-title" className={styles.section}>
+    <section id="model-scores-title" aria-labelledby="composition-results-title" className={styles.section}>
       <div className={styles.heading}><h2 id="composition-results-title">Nested composition</h2></div>
       <p className={styles.metric}>Macro-F1 · 0–100 · Same 27 tasks per model · Exploratory, unranked</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Matched nonlinear composition results">
