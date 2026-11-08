@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { PitchDeck } from "@/components/pitch/pitch-deck";
+import { ScoringSlide } from "@/components/pitch/scoring-slide";
 import {
   AgentSlide,
   CompositionSlide,
@@ -13,12 +14,12 @@ import {
 
 export const metadata: Metadata = {
   title: "CoconutEval | The pitch",
-  description: "A seven-slide visual introduction to function classification, explicit task conditions, and the rules agents must preserve.",
+  description: "An eight-slide introduction to function classification, explicit task conditions, evaluation, and model scoring.",
 };
 
 export default function PitchPage() {
   return (
-    <PitchDeck titles={["CoconutEval", "Curvature definitions", "Why convexity matters", "Agent scenarios", "Explicit rules and composition", "How it works", "Practical failure modes"]}>
+    <PitchDeck titles={["CoconutEval", "Curvature definitions", "Why convexity matters", "Agent scenarios", "Explicit rules and composition", "How it works", "Practical failure modes", "Evaluation and scoring"]}>
       <IntroductionSlide />
       <TaskSlide />
       <RelevanceSlide />
@@ -26,6 +27,7 @@ export default function PitchPage() {
       <CompositionSlide />
       <MethodSlide />
       <InterpretationSlide />
+      <ScoringSlide />
     </PitchDeck>
   );
 }
