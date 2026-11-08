@@ -1,6 +1,7 @@
 "use client";
 // Provider, model, and profile controls keep catalog reads separate from paid compatibility checks.
 import { useId } from "react";
+import { ChevronDown, KeyRound, ShieldCheck, Unplug } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -100,12 +101,13 @@ export function ProviderSetup({
     onDisconnect,
   });
   return (
-    <Card aria-labelledby={`${id}-title`}>
-      <CardHeader>
-        <CardTitle id={`${id}-title`} role="heading" aria-level={2}>Provider and model</CardTitle>
-        <p className="text-sm leading-5 text-muted-foreground">
-          Use your own provider credential. Provider usage is charged to your
-          account.
+    <Card aria-labelledby={`${id}-title`} className="gap-6 rounded-xl border shadow-none">
+      <CardHeader className="gap-2">
+        <CardTitle id={`${id}-title`} role="heading" aria-level={2} className="text-xl font-medium">
+          Which model are you testing?
+        </CardTitle>
+        <p className="text-sm leading-6 text-muted-foreground">
+          Connect your provider account and choose the exact model to evaluate.
         </p>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -129,8 +131,8 @@ export function ProviderSetup({
           </div>
         )}
 
-        <fieldset disabled={controlsDisabled} className="space-y-4">
-          <legend className="mb-3 text-sm font-medium">Connection</legend>
+        <fieldset disabled={controlsDisabled} className="grid min-w-0 gap-5 sm:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+          <legend className="sr-only">Connection</legend>
           <div className="space-y-2">
             <Label htmlFor={`${id}-provider`}>Provider</Label>
             <NativeSelect
@@ -159,6 +161,7 @@ export function ProviderSetup({
               id={`${id}-credential`}
               type="password"
               value={state.credential}
+              placeholder="Paste your API key"
               autoComplete="off"
               autoCapitalize="none"
               spellCheck={false}
@@ -171,53 +174,29 @@ export function ProviderSetup({
               id={`${id}-credential-help`}
               className="text-xs leading-5 text-muted-foreground"
             >
-              Kept only in this page’s memory. Disconnect clears it; refresh
-              requires re-entry. Changing provider also clears the credential.
+              Kept in this page’s memory. Refresh, disconnect, or changing provider clears it.
             </p>
           </div>
-          {billing && (
-            <p className="text-xs leading-5 text-muted-foreground">{billing}</p>
-          )}
-          <Button
-            type="button"
-            variant="outline"
-            disabled={state.credential === ""}
-            onClick={checkAccess}
-          >
-            {active === "access" ? "Checking access…" : "Check access"}
-          </Button>
-          <p className="text-xs leading-5 text-muted-foreground">
-            Access checks make no inference request and do not prove that a
-            model can run.
-          </p>
         </fieldset>
-
-        {access && (
-          <div aria-live="polite" className="text-sm leading-5">
-            {access?.status === "authenticated" && <p>Access checked</p>}
-            {access?.failure && (
-              <p className="text-destructive">
-                {providerFailureMessage(access.failure.code)}
-              </p>
-            )}
-          </div>
-        )}
+        <p className="flex items-start gap-2 rounded-lg bg-muted/50 px-4 py-3 text-xs leading-5 text-muted-foreground">
+          <KeyRound className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} aria-hidden="true" />
+          Your provider bills your account for usage. You approve evaluation charges in the review step.
+        </p>
 
         <fieldset
           disabled={controlsDisabled}
-          className="space-y-4 border-t pt-6"
+          className="grid min-w-0 gap-5 sm:grid-cols-2"
         >
-          <legend className="mb-3 pr-2 text-sm font-medium">
-            Model and answer format
-          </legend>
+          <legend className="sr-only">Model and answer format</legend>
           {state.provider === "hugging-face" && (
-            <div className="space-y-3">
+            <div className="space-y-3 sm:col-span-2">
               <div className="space-y-2">
                 <Label htmlFor={`${id}-search`}>
                   Search Hugging Face models
                 </Label>
                 <Input
                   id={`${id}-search`}
+                  placeholder="Search by model or organization"
                   value={query}
                   maxLength={160}
                   onChange={(event) => setQuery(event.target.value)}
@@ -296,6 +275,7 @@ export function ProviderSetup({
             <Label htmlFor={`${id}-model`}>Model identifier</Label>
             <Input
               id={`${id}-model`}
+              placeholder="Exact provider model identifier"
               value={state.modelId}
               maxLength={256}
               autoCapitalize="none"
@@ -310,8 +290,7 @@ export function ProviderSetup({
               id={`${id}-model-help`}
               className="text-xs leading-5 text-muted-foreground"
             >
-              Enter the exact provider model identifier. Models are checked
-              individually; no substitute is selected.
+              Use the exact identifier from your provider’s model catalog.
             </p>
           </div>
           {state.provider !== "openai" && (
@@ -319,6 +298,7 @@ export function ProviderSetup({
               <Label htmlFor={`${id}-route`}>Serving provider</Label>
               <Input
                 id={`${id}-route`}
+                placeholder="Advertised serving-provider slug"
                 list={`${id}-routes`}
                 value={state.servingProvider ?? ""}
                 maxLength={128}
@@ -395,7 +375,7 @@ export function ProviderSetup({
               className="text-xs leading-5 text-muted-foreground"
             >
               {selectedProfile
-                ? `${selectedProfile.maxOutputTokens.toLocaleString()} requested output tokens per attempt. Explicit reasoning settings currently require OpenAI; model support is checked separately.`
+                ? `${selectedProfile.maxOutputTokens.toLocaleString()} output-token cap per attempt. Explicit reasoning settings require OpenAI and model support.`
                 : "Load the provider settings and choose an available profile."}
             </p>
             {unsupportedEffort && (
@@ -405,58 +385,84 @@ export function ProviderSetup({
               </p>
             )}
           </div>
-          <Button
-            type="button"
-            variant="outline"
-            disabled={!canSelect}
-            onClick={() => select("metadata")}
-          >
-            {active === "metadata" ? "Inspecting model…" : "Inspect model"}
-          </Button>
-          <p className="text-xs leading-5 text-muted-foreground">
-            Metadata inspection makes no inference request. Missing capabilities
-            stay unknown.
-          </p>
-
-          <div className="space-y-3 rounded-lg border bg-muted/40 p-4">
-            <div className="flex items-start gap-3">
-              <input
-                id={`${id}-charges`}
-                type="checkbox"
-                checked={acceptCharges}
-                disabled={!canSelect}
-                onChange={(event) => setAcceptCharges(event.target.checked)}
-                className="mt-1 size-4 shrink-0 accent-accent"
-              />
-              <Label
-                htmlFor={`${id}-charges`}
-                className="block text-sm leading-5 font-normal"
-              >
-                I accept provider charges for one compatibility request with a{" "}
-                {selectedProfile?.maxOutputTokens.toLocaleString() ??
-                  "policy-defined"}
-                -token output ceiling. This is not a currency limit.
-              </Label>
-            </div>
-            <Button
-              type="button"
-              disabled={
-                !canSelect ||
-                !acceptCharges ||
-                policies?.models.maxProbeInferenceRequests !== 1
-              }
-              onClick={() => select("probe")}
-            >
-              {active === "probe"
-                ? "Checking compatibility…"
-                : "Check compatibility"}
-            </Button>
-            <p className="text-xs leading-5 text-muted-foreground">
-              A compatibility check is separate from an evaluation and does not
-              measure mathematical performance. No automatic retry is made.
-            </p>
-          </div>
         </fieldset>
+
+        <details className="group rounded-lg border">
+          <summary className="flex cursor-pointer items-center gap-2 rounded-lg px-4 py-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-ring">
+            <ShieldCheck className="size-4 shrink-0 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+            Optional connection checks
+            <ChevronDown className="ml-auto size-4 text-muted-foreground transition-transform group-open:rotate-180 motion-reduce:transition-none" strokeWidth={1.5} aria-hidden="true" />
+          </summary>
+          <fieldset disabled={controlsDisabled} className="space-y-5 border-t p-4">
+            <p className="text-xs leading-5 text-muted-foreground">
+              You can start an evaluation without these checks. Access and metadata checks make no inference request; compatibility checks incur provider usage.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Button type="button" variant="outline" disabled={state.credential === ""} onClick={checkAccess}>
+                  {active === "access" ? "Checking access…" : "Check access"}
+                </Button>
+                <p className="text-xs leading-5 text-muted-foreground">
+                  Checks authentication. Model execution permission remains unverified.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <Button type="button" variant="outline" disabled={!canSelect} onClick={() => select("metadata")}>
+                  {active === "metadata" ? "Inspecting model…" : "Inspect model"}
+                </Button>
+                <p className="text-xs leading-5 text-muted-foreground">
+                  Reads model capabilities. Missing metadata stays unknown.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-3 rounded-lg border bg-muted/40 p-4">
+              <div className="flex items-start gap-3">
+                <input
+                  id={`${id}-charges`}
+                  type="checkbox"
+                  checked={acceptCharges}
+                  disabled={!canSelect}
+                  onChange={(event) => setAcceptCharges(event.target.checked)}
+                  className="mt-1 size-4 shrink-0 accent-accent"
+                />
+                <Label
+                  htmlFor={`${id}-charges`}
+                  className="block text-sm leading-5 font-normal"
+                >
+                  I accept provider charges for one compatibility request with a{" "}
+                  {selectedProfile?.maxOutputTokens.toLocaleString() ??
+                    "policy-defined"}
+                  -token output ceiling. This is not a currency limit.
+                </Label>
+              </div>
+              <Button
+                type="button"
+                disabled={
+                  !canSelect ||
+                  !acceptCharges ||
+                  policies?.models.maxProbeInferenceRequests !== 1
+                }
+                onClick={() => select("probe")}
+              >
+                {active === "probe"
+                  ? "Checking compatibility…"
+                  : "Check compatibility"}
+              </Button>
+              <p className="text-xs leading-5 text-muted-foreground">
+                A compatibility check is separate from an evaluation and does not
+                measure mathematical performance. No automatic retry is made.
+              </p>
+            </div>
+          </fieldset>
+          {billing && <p className="px-4 pb-4 text-xs leading-5 text-muted-foreground">{billing}</p>}
+        </details>
+
+        {access && (
+          <div role="status" className="rounded-lg border px-4 py-3 text-sm leading-5">
+            {access.status === "authenticated" && <p>Access checked. Model execution permission remains unverified.</p>}
+            {access.failure && <p className="text-destructive">{providerFailureMessage(access.failure.code)}</p>}
+          </div>
+        )}
 
         {selection && (
           <div
@@ -524,7 +530,7 @@ export function ProviderSetup({
           </p>
         )}
 
-        <div className="space-y-3 border-t pt-4">
+        <div className="flex flex-col items-start gap-2 border-t pt-4 sm:flex-row sm:items-center sm:gap-4">
           <Button
             type="button"
             variant="ghost"
@@ -532,11 +538,11 @@ export function ProviderSetup({
             disabled={state.credential === "" && !busy}
             onClick={disconnect}
           >
+            <Unplug className="size-4" strokeWidth={1.5} aria-hidden="true" />
             Disconnect
           </Button>
           <p className="text-xs leading-5 text-muted-foreground">
-            Disconnect clears this page’s credential and requests cancellation.
-            Provider work or charges already started may remain uncertain.
+            Clears your credential and requests cancellation. Already-started provider work or charges may remain uncertain.
           </p>
         </div>
       </CardContent>

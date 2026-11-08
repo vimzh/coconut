@@ -1,12 +1,27 @@
 "use client";
+
+// Browse retained tests by model outcome without folding service failures into model errors.
 import { useId, useState } from "react";
+import { Search, ArrowUpRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
   NativeSelect,
   NativeSelectOption,
 } from "@/components/ui/native-select";
-import type { ReportRun } from "@/lib/report-types";
+import type { ReportCase, ReportRun, ReportTrial } from "@/lib/report-types";
 import { exact } from "./report-format";
+import styles from "./results-workspace.module.css";
+
+function caseOutcomes(task: ReportCase, trials: readonly ReportTrial[]) {
+  return {
+    correct: trials.filter((trial) => trial.outcome === "answer" && trial.label === task.label).length,
+    wrong: trials.filter((trial) => trial.outcome === "answer" && trial.label !== task.label).length,
+    unusable: trials.filter((trial) => ["invalid", "refused", "truncated"].includes(trial.outcome)).length,
+    incomplete: trials.filter((trial) => ["provider-error", "interrupted", "cancelled", "unattempted"].includes(trial.outcome)).length,
+  };
+}
 
 export function EvidenceInspector({
   run,
@@ -16,50 +31,95 @@ export function EvidenceInspector({
   depth: number | null;
 }) {
   const id = useId(),
-    [chosenCase, setCase] = useState("");
-  const cases = run.cases.filter(
-    (entry) => depth === null || entry.depth === depth,
+    [chosenCase, setCase] = useState(""),
+    [query, setQuery] = useState(""),
+    [outcome, setOutcome] = useState("all");
+  const cases = run.cases.filter((entry) => depth === null || entry.depth === depth);
+  const rows = cases.map((task) => {
+    const trials = run.trials.filter((trial) => trial.caseId === task.id);
+    return { task, trials, counts: caseOutcomes(task, trials) };
+  });
+  const search = query.trim().toLowerCase();
+  const visible = rows.filter(({ task, trials, counts }) =>
+    (!search || `${task.id} ${task.family} ${task.family.replaceAll("-", " ")} ${task.expression} ${task.label}`.toLowerCase().includes(search)) &&
+    (outcome === "all" ||
+      (outcome === "wrong" && counts.wrong > 0) ||
+      (outcome === "unusable" && counts.unusable > 0) ||
+      (outcome === "incomplete" && counts.incomplete > 0) ||
+      (outcome === "correct" && trials.length > 0 && counts.correct === trials.length)),
   );
-  const selected = cases.find((entry) => entry.id === chosenCase) ?? cases[0];
-  if (!selected)
-    return (
-      <p className="rounded-lg border p-4 text-sm text-muted-foreground">
-        No retained tasks match this depth filter.
-      </p>
-    );
-  const trials = run.trials
-    .filter((trial) => trial.caseId === selected.id)
-    .sort((a, b) => a.trialIndex - b.trialIndex);
+  const selected = visible.find(({ task }) => task.id === chosenCase) ?? visible[0];
   return (
-    <section
-      className="space-y-6 border-t pt-8"
-      aria-labelledby={`${id}-title`}
-    >
-      <div>
-        <h2 id={`${id}-title`} className="text-xl font-medium">
-          Task and answer evidence
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Inspect the domain, reference certificate, and every retained trial.
-          Provider diagnostics are not model answers.
-        </p>
+    <section className={styles.caseBrowser} aria-labelledby={`${id}-title`}>
+      <div className={styles.caseBrowserHeading}>
+        <div>
+          <h2 id={`${id}-title`}>Test cases & answers</h2>
+          <p>Find a failure, inspect the expression, and read each model answer.</p>
+        </div>
+        <span className={styles.caseCount} aria-live="polite">{visible.length} / {cases.length} tests</span>
       </div>
-      <div className="max-w-2xl space-y-2">
-        <Label htmlFor={`${id}-task`}>Task</Label>
-        <NativeSelect
-          id={`${id}-task`}
-          value={selected.id}
-          onChange={(e) => setCase(e.target.value)}
-        >
-          {cases.map((entry, index) => (
-            <NativeSelectOption key={entry.id} value={entry.id}>
-              {index + 1} · depth {entry.depth} · {entry.label} · {entry.family}{" "}
-              · {entry.id.slice(-8)}
-            </NativeSelectOption>
-          ))}
-        </NativeSelect>
+      <div className={styles.caseFilters}>
+        <div className="space-y-2">
+          <Label htmlFor={`${id}-search`}>Search tests</Label>
+          <div className={styles.searchField}>
+            <Search size={16} aria-hidden="true" />
+            <Input id={`${id}-search`} type="search" placeholder="Expression, family, or reference label" value={query} onChange={(event) => setQuery(event.target.value)} />
+          </div>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor={`${id}-outcome`}>Trial outcome</Label>
+          <NativeSelect id={`${id}-outcome`} value={outcome} onChange={(event) => setOutcome(event.target.value)}>
+            <NativeSelectOption value="all">All outcomes</NativeSelectOption>
+            <NativeSelectOption value="wrong">Has incorrect answers</NativeSelectOption>
+            <NativeSelectOption value="unusable">Has unusable replies</NativeSelectOption>
+            <NativeSelectOption value="incomplete">Has service failures or unfinished work</NativeSelectOption>
+            <NativeSelectOption value="correct">All trials correct</NativeSelectOption>
+          </NativeSelect>
+        </div>
       </div>
-      <div className="space-y-4 rounded-xl border bg-card p-5">
+      <p className={styles.caseNote}>Correct counts use all planned trials for each test. Unusable model replies count as failures; service failures and unfinished work remain separate.</p>
+      {selected ? (
+        <div className={styles.caseColumns}>
+          <div className={styles.caseList} role="group" aria-label="Matching test cases">
+            <div className={styles.caseListHeading}><span>Test / reference</span><span>Correct / planned</span></div>
+            <div className={styles.caseListScroll}>
+              {visible.map(({ task, trials, counts }) => (
+                <button key={task.id} type="button" className={styles.caseRow} aria-pressed={selected.task.id === task.id} aria-controls={`${id}-detail`} onClick={() => setCase(task.id)}>
+                  <span className={styles.caseRowMain}>
+                    <span className={styles.caseRowTitle}>{task.family.replaceAll("-", " ")}</span>
+                    <span className={styles.caseRowMeta}>#{cases.indexOf(task) + 1} · depth {task.depth} · {task.label}</span>
+                    {(counts.wrong > 0 || counts.unusable > 0 || counts.incomplete > 0) && <span className={styles.caseRowFailures}>
+                      {[counts.wrong > 0 && `${counts.wrong} incorrect`, counts.unusable > 0 && `${counts.unusable} unusable`, counts.incomplete > 0 && `${counts.incomplete} service / unfinished`].filter(Boolean).join(" · ")}
+                    </span>}
+                  </span>
+                  <span className={styles.caseRowScore}>{counts.correct} / {trials.length}<ArrowUpRight size={14} aria-hidden="true" /></span>
+                </button>
+              ))}
+            </div>
+          </div>
+          <div id={`${id}-detail`} className={styles.caseDetail}>
+            <div className={styles.caseDetailHeading}>
+              <h3>Test {cases.indexOf(selected.task) + 1}</h3>
+              <span>{selected.task.family.replaceAll("-", " ")}</span>
+            </div>
+            <SelectedCaseEvidence key={selected.task.id} selected={selected.task} trials={[...selected.trials].sort((a, b) => a.trialIndex - b.trialIndex)} />
+          </div>
+        </div>
+      ) : (
+        <div className={styles.noCases}>
+          <h3>No tests match these filters</h3>
+          <p>Try another expression or choose a different outcome or measured depth.</p>
+          {(query !== "" || outcome !== "all") && <Button type="button" variant="outline" onClick={() => { setQuery(""); setOutcome("all"); }}>Clear test filters</Button>}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function SelectedCaseEvidence({ selected, trials }: { selected: ReportCase; trials: readonly ReportTrial[] }) {
+  return (
+    <div className="min-w-0 space-y-5">
+      <div className={styles.caseReference}>
         <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
           <span className="font-mono">depth = {selected.depth}</span>
           <span>
@@ -142,13 +202,17 @@ export function EvidenceInspector({
         </details>
       )}
       <div className="space-y-3">
+        <h3 className="text-base font-medium">Model answers</h3>
+        <p className="text-xs leading-5 text-muted-foreground">Each trial is a fresh request for the same test. Expand an answer to inspect its returned text and execution evidence.</p>
         {trials.map((trial) => (
           <details
             key={trial.trialIndex}
             className="rounded-lg border bg-card p-4"
           >
             <summary className="cursor-pointer rounded-md text-sm focus-visible:outline-2 focus-visible:outline-ring">
-              Trial {trial.trialIndex + 1} · {trial.outcome}
+              <span className={trial.outcome === "answer" && trial.label === selected.label ? styles.correctTrial : trial.outcome === "answer" ? styles.wrongTrial : undefined}>
+                Trial {trial.trialIndex + 1} · {trial.outcome === "answer" ? trial.label === selected.label ? "Correct" : "Incorrect" : trial.outcome}
+              </span>
               {trial.label && ` → ${trial.label}`} · {trial.attempts}{" "}
               {trial.attempts === 1 ? "attempt" : "attempts"}
             </summary>
@@ -210,6 +274,6 @@ export function EvidenceInspector({
           </details>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

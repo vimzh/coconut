@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function EvaluatePage() {
   return (
-    <AppShell activePage="evaluate">
+    <AppShell activePage="evaluate" showBrand>
       <EvaluationWorkspace />
     </AppShell>
   );

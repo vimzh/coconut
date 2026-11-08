@@ -2,8 +2,10 @@
 
 // All reporting panels and the export share one comparison population and depth filter.
 import { useId, useState } from "react";
+import { ArrowDownToLine, ChartNoAxesCombined, ListFilter, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   NativeSelect,
   NativeSelectOption,
@@ -20,6 +22,7 @@ import { DiagnosticCharts } from "./diagnostic-charts";
 import { EvidenceInspector } from "./evidence-inspector";
 import { OutcomeSummary } from "./outcome-summary";
 import { exact, shortScore } from "./report-format";
+import styles from "./results-workspace.module.css";
 
 export interface ResultsDashboardProps {
   runs: readonly ReportRun[];
@@ -87,8 +90,8 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
     }
   }
   return (
-    <div className="min-w-0 space-y-8">
-      <div className="flex flex-wrap items-end justify-between gap-4">
+    <div className={styles.workbench}>
+      <div className={styles.toolbar}>
         <div className="grid flex-1 gap-4 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor={`${id}-run`}>Inspect run</Label>
@@ -123,7 +126,7 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
           </div>
         </div>
         <Button type="button" variant="outline" onClick={download}>
-          Export filtered evidence
+          <ArrowDownToLine aria-hidden="true" /> Export evidence
         </Button>
       </div>
       {exportError && (
@@ -131,7 +134,9 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
           {exportError}
         </p>
       )}
-      <fieldset className="space-y-3">
+      {runs.length > 1 && <details className={styles.comparisons}>
+        <summary>Compare runs at the same settings</summary>
+      <fieldset className="space-y-3 pt-4">
         <legend className="mb-3 text-sm font-medium">Depth curves</legend>
         <div className="flex flex-wrap gap-x-6 gap-y-3">
           {runs.map((entry) => (
@@ -171,54 +176,56 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
           ))}
         </div>
       </fieldset>
+      </details>}
       {partialView && (
-        <p className="text-sm leading-6 text-muted-foreground">
+        <p className={styles.partialNotice}>
           This run has incomplete or unavailable scores and is shown on its own.
           Select a run with complete observations to compare model curves.
         </p>
       )}
-      <div className="space-y-4 rounded-xl border bg-card p-5">
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
-          <div>
-            <p className="text-xs text-muted-foreground">Pooled macro-F1</p>
-            <p className="mt-1 font-mono text-3xl">
+      <div className={styles.metrics}>
+          <div className={styles.metric}>
+            <p>Pooled macro-F1</p>
+            <strong className={styles.primaryScore} data-unavailable={slice?.macroF1 == null}>
               {shortScore(slice?.macroF1)}
-            </p>
+            </strong>
+            <span>Balanced across all three classes</span>
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">Accuracy</p>
-            <p className="mt-1 font-mono text-xl">
+          <div className={styles.metric}>
+            <p>Accuracy</p>
+            <strong data-unavailable={slice?.accuracy.value == null}>
               {shortScore(slice?.accuracy.value)}
-            </p>
-            <p className="mt-1 text-xs text-muted-foreground">
+            </strong>
+            <span>
               {slice
                 ? `${slice.accuracy.numerator} / ${slice.accuracy.denominator} included trials`
                 : "No retained population"}
-            </p>
+            </span>
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">
+          <div className={styles.metric}>
+            <p>
               Included / planned trials
             </p>
-            <p className="mt-1 font-mono text-xl">
+            <strong>
               {slice
                 ? `${slice.population.includedTrials} / ${slice.population.plannedTrials}`
                 : "No retained report"}
-            </p>
+            </strong>
+            <span>Model outcomes in the score</span>
           </div>
-          <div>
-            <p className="text-xs text-muted-foreground">Evidence state</p>
-            <p className="mt-1 text-sm">
+          <div className={styles.metric}>
+            <p>Evidence state</p>
+            <strong className={styles.evidenceState}>
               {slice?.population.status === "provisional"
                 ? "Partial results"
                 : slice?.population.status === "complete"
-                  ? "Complete observations"
+                  ? "Complete"
                   : "Score unavailable"}{" "}
-              · {run.state}
-            </p>
+            </strong>
+            <span>Run {run.state}</span>
           </div>
-        </div>
-        <p className="text-xs leading-5 text-muted-foreground">
+      </div>
+        <p className={styles.scoreNote}>
           {slice?.population.status === "provisional"
             ? "Infrastructure failures or missing work are excluded from this provisional score. Partial results are not complete comparisons."
             : slice?.population.status === "unavailable" || !slice
@@ -226,27 +233,25 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
               : "All planned trials returned model outcomes, including unusable replies. Completion alone does not establish leaderboard eligibility."}{" "}
           Headline figures are rounded; tables and tooltips retain exact values.
         </p>
-      </div>
-      <DepthChart runs={curveRuns} depth={depth} />
-      <div className="space-y-8 rounded-xl border bg-card p-4 sm:p-6">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-xl font-medium">Selected run detail</h2>
-          <p className="font-mono text-sm">
-            {depth === null ? "All planned depths" : `depth = ${depth}`}
-          </p>
-        </div>
-        <p className="break-all text-sm text-muted-foreground">
-          {run.provider} / {run.modelId} / {run.servingProvider ?? "direct"} ·{" "}
-          {run.profileId}
-        </p>
-        <p className="text-xs leading-5 text-muted-foreground">
-          Requested settings: {run.settings.maxOutputTokens.toLocaleString()}{" "}
-          output tokens per attempt · {run.settings.reasoning} reasoning ·{" "}
-          {run.settings.sampling} sampling · concurrency{" "}
-          {run.settings.concurrency} · tools {run.settings.tools}
-        </p>
+      <Tabs defaultValue="overview" className={styles.tabs}>
+        <TabsList variant="line" className={styles.tabList} aria-label="Result views">
+          <TabsTrigger value="overview"><ChartNoAxesCombined aria-hidden="true" /> Overview</TabsTrigger>
+          <TabsTrigger value="cases"><ListFilter aria-hidden="true" /> Test cases <span className={styles.tabCount}>{run.cases.filter((entry) => depth === null || entry.depth === depth).length}</span></TabsTrigger>
+          <TabsTrigger value="diagnostics"><Activity aria-hidden="true" /> Diagnostics</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview" className={styles.tabContent}>
+          <div className={styles.panel}>
+            <DepthChart runs={curveRuns} depth={depth} />
+          </div>
+          <div className={styles.panel}>
         <ClassDetail run={run} slice={slice} depth={depth} />
-        <div className="border-t pt-8">
+          </div>
+        </TabsContent>
+        <TabsContent value="cases" className={styles.tabContent}>
+          <EvidenceInspector key={run.id} run={run} depth={depth} />
+        </TabsContent>
+        <TabsContent value="diagnostics" className={styles.tabContent}>
+          <div className={styles.panel}>
           <DiagnosticCharts
             run={run}
             depth={depth}
@@ -256,12 +261,16 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
             setSemantics={setUsageSemantics}
           />
         </div>
-        <div className="border-t pt-8">
+        <div className={styles.panel}>
           <OutcomeSummary slice={slice} />
         </div>
-      </div>
-      <EvidenceInspector key={run.id} run={run} depth={depth} />
-      <details className="rounded-lg border p-4 text-xs text-muted-foreground">
+        <div className={styles.settings}>
+          <h2>Run settings</h2>
+          <p>{run.provider} / <span className="font-mono">{run.modelId}</span> / {run.servingProvider ?? "direct"}</p>
+          <p>{run.settings.maxOutputTokens.toLocaleString()} output tokens per attempt · {run.settings.reasoning} reasoning · {run.settings.sampling} sampling · concurrency {run.settings.concurrency} · tools {run.settings.tools}</p>
+          <p className="font-mono">{run.profileId}</p>
+        </div>
+      <details className={styles.identity}>
         <summary className="cursor-pointer py-2 font-medium text-foreground">
           Comparison identity and exact overview
         </summary>
@@ -289,6 +298,8 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
           ))}
         </dl>
       </details>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
