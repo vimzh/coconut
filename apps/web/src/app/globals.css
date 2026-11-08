@@ -1,0 +1,74 @@
+/* A quiet instrument surface keeps mathematical evidence and measured charts prominent. */
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8f8;
+  --foreground: #18242a;
+  --card: #ffffff;
+  --card-foreground: #18242a;
+  --popover: #ffffff;
+  --popover-foreground: #18242a;
+  --primary: #18242a;
+  --primary-foreground: #ffffff;
+  --secondary: #edf0f1;
+  --secondary-foreground: #18242a;
+  --muted: #edf0f1;
+  --muted-foreground: #526269;
+  --accent: #146b73;
+  --accent-foreground: #ffffff;
+  --destructive: #a43e3a;
+  --border: #dce2e4;
+  --input: #dce2e4;
+  --ring: #146b73;
+  --radius: 0.5rem;
+  --chart-1: #146b73;
+  --chart-2: #557389;
+  --chart-3: #a46a2a;
+  --chart-4: #66717b;
+  --chart-5: #805779;
+}
+
+@theme inline {
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background font-sans text-foreground antialiased; }
+  button, input, select, textarea { font: inherit; }
+  code, pre { @apply font-mono; }
+  ::selection { background: #d2e8e9; color: #18242a; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

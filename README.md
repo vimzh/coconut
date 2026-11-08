@@ -1,9 +1,11 @@
 # Coconut
 
-Bun monorepo with a Next.js frontend and Hono backend. Requires Bun 1.4.4 and Node.js 24 LTS for Next.js and ESLint. The numerical engine also requires [uv](https://docs.astral.sh/uv/getting-started/installation/); setup installs its pinned Python 3.13 environment and native arithmetic dependency.
+Coconut evaluates whether language models can classify scalar functions as convex, concave or neither on an exact closed interval. It generates certified tasks, makes three fresh model requests per task, retains every planned outcome and reports macro-F1, accuracy, class/depth detail and execution evidence. Visitors supply their own provider keys.
+
+The local product includes an evaluation workbench, inspectable private results, explicit publication, a leaderboard with separate comparison groups, and methodology pages. This repository requires Bun 1.4.4, Node.js 24 LTS and [uv](https://docs.astral.sh/uv/getting-started/installation/). Numerical setup installs pinned Python 3.13 and native interval arithmetic.
 
 ```sh
-bun install
+bun install --frozen-lockfile
 bun run numerics:setup
 bun run dev
 ```
@@ -25,7 +27,22 @@ bun run start
 
 `start` runs both production servers after `build`. To run one app, use `bun run --filter @coconut/web dev` or `bun run --filter @coconut/api dev`.
 
-The apps run independently. Browser requests across the two origins require explicit CORS configuration or a frontend proxy when adding API integration.
+The documented development and production commands run from this checkout. The API binds to loopback and permits the exact frontend origin. `COCONUT_WEB_ORIGIN` configures that API origin allowance; `NEXT_PUBLIC_API_ORIGIN` configures the frontend's fixed API destination and must be set before a web build. HTTP destinations are limited to loopback development; other origins require HTTPS. The native worker and suite files remain alongside the checkout when using the built API.
+
+Open `/evaluate`, choose a provider and exact model identifier, inspect settings, select a suite/profile and explicitly approve charges. Anonymous Hugging Face search also exposes catalog-only models; an advertised host or successful authentication does not establish inference permission. Compatibility probes are optional, charged separately and do not produce evaluation scores. No development environment key funds visitor traffic.
+
+Each launch is foreground work: keep the page open. Cancellation stops new trials and aborts active calls; dispatched work can still incur charges. Runs are private for seven days and require a separate access code returned once. Save it explicitly to return after refresh. Private exports omit provider keys and access codes. Publication is intentional and reversible; interrupted runs cannot resume automatically. The API stores records in ignored `apps/api/data/private/runs.sqlite` with restrictive local permissions. Run one API process for this local product.
+
+The leaderboard reads actual publications and retains partial/unsupported evidence as exclusions. Ranking requires a complete comparable population, stable reported identity and verified execution settings. Screening is exploratory and unranked. Repeats use the earliest-created eligible currently published execution rather than the highest score; private, withdrawn and expired history remains unknown. Exact score ties share a rank, and small differences do not prove model superiority.
+
+The recommended **curvature challenge** contains 72 tasks across eight families and 24 parameter clusters, with all three labels represented in every family. It plans 216 inference requests. Independent analytic references and native interval certificates are retained. Its measured depths are 3, 4, 5, 6 and 14; family, expression size and depth are confounded, so depth curves are descriptive. A disjoint nine-task screening population is available separately.
+
+```sh
+bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
+bun run challenge:generate --population screening --output /tmp/coconut-screening-new.json
+```
+
+The original prompted-JSON and strict-schema profiles request at most 4,096 output tokens. Separate explicit reasoning profiles request 16,384 tokens and require OpenAI setting support; unsupported settings fail visibly. Three fresh trials, one attempt per trial, no SDK retries, 20-second metadata checks and 180-second inference deadlines apply. Concurrency is explicit and bounded by 12; token caps do not impose a currency budget.
 
 The offline suite generator retains exact expressions and verifier certificates. Verify the frozen 75-case reference suite, or reproduce it into a new file:
 
@@ -54,7 +71,7 @@ Generate a scoring report from the controlled offline fixture:
 bun run score:report --input apps/api/data/scoring/mixed-v1.input.json --output /tmp/coconut-scoring-report.json
 ```
 
-Use a new output path. This fixture contains synthetic answers, usage, and costs for verification; it is not measured model performance. The shared scorer reports pooled macro-F1, class/depth detail, trial spread and agreement, completion, and evidence-backed usage/timing/cost diagnostics. The [module 04 plan](docs/plans/04-scoring-and-depth-analysis.md) defines the evidence contract and unavailable/provisional values.
+Use a new output path. This fixture contains synthetic answers, usage, and costs for verification; it is not measured model performance. The shared scorer reports pooled macro-F1, class/depth detail, trial spread and agreement, completion, and evidence-backed usage/timing/cost diagnostics. Invalid formatting, refusals and truncated model replies stay in the model denominator; infrastructure or absent work keeps the score provisional/unavailable. Costs and token counts remain unknown when the provider supplies no evidence. The [module 04 plan](docs/plans/04-scoring-and-depth-analysis.md) defines the evidence contract.
 
 Provider access uses a separate visitor credential on every operation.
 
@@ -83,8 +100,12 @@ bun --env-file=apps/api/.env run model:select --provider openai --model gpt-6-lu
 bun --env-file=apps/api/.env run model:select --provider openai --model gpt-6-luna --profile one-shot-schema-v1 --credential-env OPENAI_API_KEY --verify --accept-charges
 ```
 
-Search reads the anonymous Hugging Face catalog, including models without advertised hosting. Selection defaults to metadata lookup and requires a fresh visitor credential; it makes no inference request. Both probe flags authorize one profile-specific compatibility check with a 4,096-output-token ceiling and no retry. A successful check measures request acceptance and answer formatting, and produces no evaluation score. Missing capabilities, context limits, and prices remain unknown. Native schema request acceptance does not guarantee every future response conforms.
+Search reads the anonymous Hugging Face catalog, including models without advertised hosting. Selection defaults to metadata lookup and requires a fresh visitor credential; it makes no inference request. Both probe flags authorize one profile-specific compatibility check with the selected profile's output ceiling and no retry (4,096 for the two version-1 examples above). A successful check measures request acceptance and answer formatting, and produces no evaluation score. Missing capabilities, context limits, and prices remain unknown. Native schema request acceptance does not guarantee every future response conforms.
 
 `GET /providers/models/policy` documents the limits. `POST /providers/models/search` accepts `{"query":"gpt-oss","limit":5}` and rejects Authorization headers. `POST /providers/models/select` requires a bearer credential and `provider`, `modelId`, `servingProvider`, `profileId`, and `verification` (`metadata` or `probe`). Probe mode also requires `acceptCharges:true`. OpenRouter and Hugging Face require an explicit advertised serving-provider slug; automatic routing and model substitution are rejected. Failed lookups differ from successful empty searches.
 
 Selection records preserve requested, catalog, native, and reported identities separately. Evidence expires after five minutes and must be re-resolved with the current credential before evaluation; it is not an authorization token. The actual evaluation prompt still needs a context-fit check. See the [module 06 handoff](docs/handoffs/06-model-discovery-and-compatibility.md) for contracts and service verification limits.
+
+Offline quality checks and experiment reconciliation are documented in [the frozen criteria](docs/research/quality-criteria-v1.md), [challenge design](docs/research/challenge-design-v1.md), [independent AI-assisted review](docs/research/independent-challenge-review-v1.md), and [experiment record](docs/research/experiment-reconciliation-v1.md). The first mathematical matrix encountered a shared connection failure and produced no complete evaluation population; its correct answer prefixes are not complete perfect scores. A separately frozen replication preserves the original records and cumulative request ceiling. Use its retained ledger to determine actual progress; a scheduled cell or successful access probe is not a result.
+
+OpenAI has live execution evidence. OpenRouter and Hugging Face integration are implemented and fixture-tested; live inference remains unverified under the OpenAI-only development restriction. Synthetic scalar classification establishes no general mathematical or production capability. Prior-work and adapted-prompt provenance remain in the linked research documentation. Hosted deployment and hackathon submission are outside the current work scope.
