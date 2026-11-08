@@ -1,12 +1,14 @@
-CoconutEval tests one specific question: can a language model correctly identify whether a function is convex, concave, or neither on a given interval?
+Hi guys, my name is Vansh, and this is CoconutEval, my submission to the micro1 Eval Hackathon.
+
+Let's start with a dead simple question: is x squared convex?
+
+It is. Put a minus sign in front, and negative x squared is concave.
+
+Now take x cubed. From minus one to one, it's neither convex nor concave. From zero to one, it's convex. Same function, different interval, different answer.
+
+CoconutEval tests whether a language model can keep those details straight as expressions get more complicated. Every sign, set of parentheses, and domain restriction can affect the answer.
 
 That decision matters in mathematical optimization. Engineers use convexity when choosing solvers and deciding which guarantees apply. If a model gets the curvature wrong, it can recommend an unsuitable approach or claim a guarantee the problem does not support.
-
-The task looks simple. Give the model a function and an interval, then ask for a classification.
-
-For example, x squared is convex. Negative x squared is concave. X cubed is neither on the interval from minus one to one, but convex from zero to one. The interval is part of the problem.
-
-With nested expressions, the model has to track parentheses, signs, and the domains of intermediate operations. Recognizing a familiar function is only the beginning.
 
 Our confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
 
