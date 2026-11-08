@@ -1,6 +1,7 @@
 // Fixed suite choices verify historical artifacts and preserve profile-bound scorer identities.
 import { createReadStream } from "node:fs";
 import { generateChallengeSuite, getChallengeRequest } from "../challenge";
+import { generateInteriorSuite, getInteriorRequest } from "../interior";
 import { generateNumericalSuite } from "../numerics/suite";
 import { getProfile, type ProfileId } from "../protocol";
 import { apiDataFile } from "../runtime-paths";
@@ -14,6 +15,7 @@ const choices = Object.freeze({
   "smooth-v2": { file: "smooth-v2.json", name: "Smooth reference", description: "27 certified smooth expressions with domain-aware instructions.", recommended: false },
   "challenge-v1": { file: "challenge-v1.json", name: "Curvature challenge", description: "72 tasks across eight families, balanced by class and parameter group.", recommended: true },
   "screening-v1": { file: "challenge-v1.json", name: "Exploratory screening", description: "Nine tasks using parameter groups held out from the confirmation challenge.", recommended: false },
+  "interior-v1": { file: "interior-v1.json", name: "Interior curvature exploration", description: "72 quintic-composition tasks across three families and eight shared source-polynomial groups. Exploratory and unranked.", recommended: false },
 });
 const cache = new Map<string, Promise<RunSuite>>();
 const MAX_CACHE = 64;
@@ -23,6 +25,7 @@ const baseIds = {
   "smooth-v2": "suite-smooth-v1-8806b2856918ad1add284101d685e16252e8d03f6f4bf0ba8e55937e2ff1e5f4",
   "challenge-v1": "suite-challenge-v1-6a1bf3255f8104661db7ce0ae4f3be4182e8ac3b8b9240774aacfc339e433dd9",
   "screening-v1": "suite-challenge-v1-6a1bf3255f8104661db7ce0ae4f3be4182e8ac3b8b9240774aacfc339e433dd9",
+  "interior-v1": "suite-interior-v1-99c5b377b79244e5c5e7e267548964a14fb1ae64eb92998d44166024dcf5d10c",
 };
 
 async function readArtifact(key: RunSuiteKey): Promise<RunSuite> {
@@ -46,6 +49,7 @@ async function build(key: RunSuiteKey, profileId: ProfileId): Promise<RunSuite> 
   if (profileId === "one-shot-json-v1" && key !== "screening-v1") return base;
   const generated = key === "screening-v1" || key === "challenge-v1"
     ? await generateChallengeSuite(getChallengeRequest(key === "screening-v1" ? "screening" : "confirmation", profileId))
+    : key === "interior-v1" ? await generateInteriorSuite(getInteriorRequest(profileId))
     : base.formatVersion === "1" ? await generateSuite({ ...base.request, profileId })
       : await generateNumericalSuite({ ...base.request, profileId });
   if (generated.status !== "complete") throw new SuiteInputError("Run suite coverage could not be completed.");

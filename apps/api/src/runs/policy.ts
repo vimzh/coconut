@@ -3,7 +3,7 @@ import { parseSelectionRequest } from "../discovery";
 import { getProfile } from "../protocol";
 import { readDataRecord, requireFields } from "../protocol/validation";
 import { freezeData } from "../suites/generator";
-import type { RunRequest } from "./types";
+import type { RunRequest, RunSuite, RunSuiteKey } from "./types";
 
 export const RUN_TIMEOUT_MS = 3_600_000;
 export const RUN_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
@@ -23,12 +23,23 @@ export class RunInputError extends Error {
   }
 }
 
+export function runPopulation(key: RunSuiteKey, suite: RunSuite): "reference" | "confirmation" | "screening" | "exploratory" {
+  if (key === "reference-v1" && suite.formatVersion === "1" && suite.generatorVersion === "1" && !Object.hasOwn(suite.request, "population")) return "reference";
+  if (key === "smooth-v2" && suite.formatVersion === "2" && suite.generatorVersion === "smooth-v1" && !Object.hasOwn(suite.request, "population")) return "reference";
+  if (suite.formatVersion === "2" && suite.generatorVersion === "challenge-v1") {
+    if (key === "challenge-v1" && suite.request.population === "confirmation") return "confirmation";
+    if (key === "screening-v1" && suite.request.population === "screening") return "screening";
+  }
+  if (key === "interior-v1" && suite.formatVersion === "2" && suite.generatorVersion === "interior-v1" && suite.request.population === "exploratory") return "exploratory";
+  throw new RunInputError("invalid-suite", "The suite identity and population do not match the selected workload.");
+}
+
 export function parseRunRequest(input: unknown): RunRequest {
   try {
     const data = readDataRecord(input, "Run request");
     requireFields(data, ["suiteKey", "provider", "modelId", "servingProvider", "profileId", "concurrency", "acceptCharges"]);
     if (data.acceptCharges !== true) throw new RunInputError("charge-authorization-required", "Starting an evaluation requires explicit acknowledgement of its provider charges.");
-    if (data.suiteKey !== "reference-v1" && data.suiteKey !== "smooth-v2" && data.suiteKey !== "challenge-v1" && data.suiteKey !== "screening-v1") throw new RunInputError();
+    if (data.suiteKey !== "reference-v1" && data.suiteKey !== "smooth-v2" && data.suiteKey !== "challenge-v1" && data.suiteKey !== "screening-v1" && data.suiteKey !== "interior-v1") throw new RunInputError();
     if (!Number.isInteger(data.concurrency) || (data.concurrency as number) < 1 || (data.concurrency as number) > 12) throw new RunInputError();
     const selection = parseSelectionRequest({ provider: data.provider, modelId: data.modelId, servingProvider: data.servingProvider, profileId: data.profileId, verification: "metadata" });
     if (selection.provider !== "openai" && getProfile(selection.profileId).reasoning !== "provider-default") throw new RunInputError("unsupported-profile", "Explicit reasoning profiles currently require OpenAI. Select a permitted profile or service explicitly.");

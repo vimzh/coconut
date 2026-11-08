@@ -13,6 +13,7 @@ import { apiDataFile } from "../runtime-paths";
 import { bindEvidence, parseEvidence } from "../scoring/evidence";
 import { scoreRetainedEvidence } from "../scoring/scorer";
 import { freezeData } from "../suites/generator";
+import { runPopulation } from "./policy";
 import type { RunRecord, RunStore, RunView } from "./types";
 
 export const RUN_STORE_LIMITS = Object.freeze({ maxRecords: 500, maxRecordBytes: 256 * 1024 * 1024, maxPublicListBytes: 256 * 1024 * 1024, retentionMs: 7 * 24 * 60 * 60 * 1000 });
@@ -77,7 +78,7 @@ function validate(input: unknown): RunRecord {
       !states.includes(data.state as string) || ![data.createdAt, data.updatedAt, data.expiresAt].every(timestamp)) throw new RunStoreError("invalid-record");
     const request = readDataRecord(data.request, "Run request");
     requireFields(request, ["suiteKey", "provider", "modelId", "servingProvider", "profileId", "concurrency", "acceptCharges"]);
-    if (!["reference-v1", "smooth-v2", "challenge-v1", "screening-v1"].includes(request.suiteKey as string) ||
+    if (!["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1"].includes(request.suiteKey as string) ||
       !["openai", "openrouter", "hugging-face"].includes(request.provider as string) || typeof request.modelId !== "string" || !request.modelId.trim() || request.modelId.length > 256 ||
       (request.servingProvider !== null && (typeof request.servingProvider !== "string" || !request.servingProvider.trim() || request.servingProvider.length > 256)) ||
       !integer(request.concurrency) || request.concurrency < 1 || request.concurrency > 12 || request.acceptCharges !== true) throw new RunStoreError("invalid-record");
@@ -87,6 +88,7 @@ function validate(input: unknown): RunRecord {
     if (!isDeepStrictEqual(data.workload, calculateWorkload(profile.id, suite.cases.length)) || !Array.isArray(data.prompts) || data.prompts.length !== suite.cases.length) throw new RunStoreError("invalid-record");
     for (const prompt of data.prompts) parseInferenceRequest({ selection: { provider: request.provider, modelId: request.modelId, servingProvider: request.servingProvider, profileId: profile.id, verification: "metadata" }, prompt, acceptCharges: true });
     const retainedSuite = record.suite;
+    runPopulation(record.request.suiteKey, retainedSuite);
     const canonicalPrompts = retainedSuite.formatVersion === "2"
       ? retainedSuite.cases.map(entry => promptFromNumericalCertificate(entry.certificate, profile.id, retainedSuite.promptVersion))
       : retainedSuite.cases.map(entry => buildPrompt(entry.reference, profile.id));

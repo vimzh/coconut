@@ -44,6 +44,13 @@ bun run challenge:generate --population screening --output /tmp/coconut-screenin
 
 The original prompted-JSON and strict-schema profiles request at most 4,096 output tokens. Separate explicit reasoning profiles request 16,384 tokens and require OpenAI setting support; unsupported settings fail visibly. Three fresh trials, one attempt per trial, no SDK retries, 20-second metadata checks and 180-second inference deadlines apply. Concurrency is explicit and bounded by 12; token caps do not impose a currency budget.
 
+The separate **interior exploration** adds 72 depth-13 tasks using nonlinear functions of dense quintics. Exact Bernstein bounds, bounded exponential series and native certificates agree on all labels. Its neither cases have interior sign changes that endpoints and midpoint alone miss. Three families share eight source-polynomial groups; the track remains descriptive and unranked with no confidence interval or inherited confirmation claim. Its [design and limitations](docs/research/interior-curvature-design-v1.md) and [AI-assisted independent review](docs/research/independent-interior-review-v1.md) are retained separately from the original challenge.
+
+```sh
+bun run interior:verify --input apps/api/data/suites/interior-v1.json
+bun run interior:generate --output /tmp/coconut-interior-new.json
+```
+
 The offline suite generator retains exact expressions and verifier certificates. Verify the frozen 75-case reference suite, or reproduce it into a new file:
 
 ```sh

@@ -20,6 +20,8 @@
     "model:select": "bun apps/api/src/discovery/cli.ts select",
     "challenge:generate": "bun apps/api/src/challenge/cli.ts generate",
     "challenge:verify": "bun apps/api/src/challenge/cli.ts verify",
+    "interior:generate": "bun apps/api/src/interior/cli.ts generate",
+    "interior:verify": "bun apps/api/src/interior/cli.ts verify",
     "numerics:setup": "uv sync --project services/numerics --python 3.13 --frozen",
     "numerics:test": "uv run --project services/numerics --frozen --no-sync python -m unittest discover -s services/numerics",
     "numerics:lint": "uv run --project services/numerics --frozen --no-sync ruff check services/numerics",

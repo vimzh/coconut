@@ -123,6 +123,19 @@ describe("public comparison policy", () => {
     d.report.identity.workload.profileId = "one-shot-schema-v1";
     assert.equal(board(a, b, c, d).length, 4);
   });
+  it("keeps the separate interior population unranked even with complete execution evidence", () => {
+    const run = fixture();
+    run.suite.population = "exploratory";
+    run.suite.generatorVersion = "interior-v1";
+    run.report.identity.generatorVersion = "interior-v1";
+    const entry = board(run)[0].entries[0];
+    assert.equal(entry.rank, null);
+    assert.equal(entry.eligible, false);
+    assert.equal(entry.macroF1, run.report.overall.classification.macroF1);
+    run.suite.population = "reference";
+    assert.equal(board(run)[0].entries[0].eligible, false);
+  });
+
   it("leaves screening scores visible without assigning ranks", () => {
     const run = fixture();
     run.suite.population = "screening";

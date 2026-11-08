@@ -5,7 +5,7 @@ import type { ProviderId } from "../providers";
 import type { RunEvidence, ScoringReport } from "../scoring";
 import type { validateSuiteArtifact } from "../suites/artifact";
 
-export type RunSuiteKey = "reference-v1" | "smooth-v2" | "challenge-v1" | "screening-v1";
+export type RunSuiteKey = "reference-v1" | "smooth-v2" | "challenge-v1" | "screening-v1" | "interior-v1";
 export type RunSuite = Awaited<ReturnType<typeof validateSuiteArtifact>>;
 export interface RunRequest {
   readonly suiteKey: RunSuiteKey;

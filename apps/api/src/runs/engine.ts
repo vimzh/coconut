@@ -5,7 +5,7 @@ import { parseCredential, safeAccessInputError } from "../providers/policy";
 import { reflectsCredential } from "../providers/responses";
 import { MAX_PROVIDER_ERROR_CODE_UNITS, MAX_RETAINED_REPLY_CODE_UNITS, MAX_RETAINED_TEXT_CODE_UNITS, scoreEvaluation } from "../scoring";
 import { prepareRunRecord } from "./evidence";
-import { RUN_POLICY, RUN_TIMEOUT_MS, RunInputError, parseRunRequest } from "./policy";
+import { RUN_POLICY, RUN_TIMEOUT_MS, RunInputError, parseRunRequest, runPopulation } from "./policy";
 import { loadRunSuite } from "./registry";
 import type { RunEvent, RunProgress, RunRecord, RunState, RunStore, RunSuite, RunSuiteKey, RunView } from "./types";
 import type { ProfileId } from "../protocol";
@@ -39,6 +39,7 @@ export function createRunService(options: {
     try {
       const suite = await suiteLoader(request.suiteKey, request.profileId);
       if (suite.cases.length < 1 || suite.cases.length > RUN_POLICY.maxCases || suite.request.profileId !== request.profileId) throw new RunInputError("invalid-suite", "The selected suite does not match the requested workload/profile.");
+      runPopulation(request.suiteKey, suite);
       record = await prepareRunRecord(request, suite);
       if (signal?.aborted) throw new RunInputError("cancelled", "The run was cancelled before inference started.");
     } finally { preparing--; }

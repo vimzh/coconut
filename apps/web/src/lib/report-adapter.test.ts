@@ -6,6 +6,7 @@ import source from "../../../api/data/scoring/mixed-v1.input.json";
 import report from "../../../api/data/scoring/mixed-v1.report.json";
 import numericalSuite from "../../../api/data/suites/smooth-v2.json";
 import challengeSuite from "../../../api/data/suites/challenge-v1.json";
+import interiorSuite from "../../../api/data/suites/interior-v1.json";
 import {
   adaptRunView,
   adaptRunViews,
@@ -127,33 +128,35 @@ describe("retained report browser projection", () => {
   });
 
   it("retains the independent analytic reference alongside interval evidence", () => {
-    const input = fixture();
-    set(input, ["record", "report"], null);
-    set(input, ["record", "suite"], challengeSuite);
-    set(input, ["record", "evidence", "suiteId"], challengeSuite.id);
-    set(
-      input,
-      ["record", "evidence", "trials"],
-      challengeSuite.cases.flatMap((entry) =>
-        Array.from({ length: 3 }, (_, trialIndex) => ({
-          caseId: entry.id,
-          trialIndex,
-          finalAttempt: null,
-          elapsedMs: null,
-          attempts: [],
-        })),
-      ),
-    );
-    const result = adaptRunView(input);
-    assert.equal(
-      result.cases[0].proof.independent?.policy,
-      "analytic-curvature-v1",
-    );
-    assert.deepEqual(
-      result.cases[0].proof.independent?.globalSecond,
-      challengeSuite.cases[0].analyticCertificate.globalSecond,
-    );
-    assert.equal(result.generatorVersion, "challenge-v1");
+    for (const artifact of [challengeSuite, interiorSuite]) {
+      const input = fixture();
+      set(input, ["record", "report"], null);
+      set(input, ["record", "suite"], artifact);
+      set(input, ["record", "evidence", "suiteId"], artifact.id);
+      set(
+        input,
+        ["record", "evidence", "trials"],
+        artifact.cases.flatMap((entry) =>
+          Array.from({ length: 3 }, (_, trialIndex) => ({
+            caseId: entry.id,
+            trialIndex,
+            finalAttempt: null,
+            elapsedMs: null,
+            attempts: [],
+          })),
+        ),
+      );
+      const result = adaptRunView(input);
+      assert.equal(
+        result.cases[0].proof.independent?.policy,
+        artifact.independentReferencePolicy,
+      );
+      assert.deepEqual(
+        result.cases[0].proof.independent?.globalSecond,
+        artifact.cases[0].analyticCertificate.globalSecond,
+      );
+      assert.equal(result.generatorVersion, artifact.generatorVersion);
+    }
   });
 
   it("projects retained interval certificates without inventing scores for unattempted work", () => {

@@ -12,6 +12,7 @@ const reviewedMembers = new Set([
   "9dc60691331d85c892666edc957a5325820d8cb8e7b8519f85f9772e7cc9eb8e",
   "0fbb8432f942d9678233726f74e6deb3d003cd96e7d90eb98f76051a6d91033b",
 ]);
+const reviewedInteriorMembers = "a503a736a8f19c18598f4758993fb40c136f2e4a31b80d2c9857ba86d13919b9";
 
 export function requireBoundedSuite(suite: RunSuite): void {
   if (!Array.isArray(suite?.cases) || suite.cases.length === 0 || suite.cases.length > MAX_QUALITY_CASES) {
@@ -77,6 +78,17 @@ export function analyzeValidatedSuite(suite: RunSuite): SuiteQualityReport {
   });
   const labelCounts = counts(); suite.cases.forEach((entry) => labelCounts[entry.label]++);
   const isChallenge = suite.generatorVersion === "challenge-v1";
+  const isInterior = suite.generatorVersion === "interior-v1";
+  const interiorReviewMatched = isInterior && reviewedInteriorMembers === sha256(suite.cases.map(entry => ({ family: entry.family,
+    reference: entry.reference, analyticCertificate: "analyticCertificate" in entry ? entry.analyticCertificate : null })));
+  if (isInterior) findings.push(finding("independent-interior-review", "reference", interiorReviewMatched ? "warning" : "missing-evidence",
+    interiorReviewMatched ? "passed" : "unresolved", interiorReviewMatched
+      ? "Exact reference/analytic-certificate membership matches the AI-assisted independent Bernstein/Taylor review of all 72 exploratory tasks."
+      : "This exploratory membership does not match its independently reviewed references.", [],
+    "This mathematical review is not human approval, independent task support, confirmation coverage or model-performance evidence."));
+  if (suite.generatorVersion === "interior-v1") findings.push(finding("exploratory-interior-coverage", "coverage", "missing-evidence", "unresolved",
+    "This separately designed exploratory population has three families and eight shared source-polynomial clusters; it does not meet the frozen confirmation coverage or uncertainty criteria.", [],
+    "Report exact descriptive outcomes only. No confirmation Go, ranked comparison, broad model-failure claim or confidence interval is established."));
   const reviewMatched = isChallenge && reviewedMembers.has(sha256(suite.cases.map((entry) => ({
     family: entry.family, reference: entry.reference, analyticCertificate: "analyticCertificate" in entry ? entry.analyticCertificate : null,
   }))));
@@ -142,6 +154,9 @@ export function analyzeValidatedSuite(suite: RunSuite): SuiteQualityReport {
       ...(isChallenge ? [{ role: "AI-assisted independent mathematical review" as const,
         reference: "docs/research/independent-challenge-review-v1.md", status: reviewMatched ? "matched" as const : "missing" as const,
         limitation: "No human expert approval or model failure is asserted." }] : []),
+      ...(isInterior ? [{ role: "AI-assisted independent mathematical review" as const,
+        reference: "docs/research/independent-interior-review-v1.md", status: interiorReviewMatched ? "matched" as const : "missing" as const,
+        limitation: "Three families and eight shared source-polynomial clusters remain exploratory; no human approval or model-failure claim." }] : []),
     ], findings, gate: qualityGate(findings),
   };
   return finish(content, "suite-quality-v1");

@@ -254,6 +254,8 @@ export function LeaderboardWorkspace() {
               <span>
                 {first.population === "screening"
                   ? "Exploratory screening · unranked"
+                  : first.population === "exploratory"
+                    ? "Exploratory population · unranked"
                   : first.population}
               </span>
             </div>

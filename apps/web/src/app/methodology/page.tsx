@@ -55,15 +55,17 @@ export default function MethodologyPage() {
           <MethodSection id="suites" title="Separate suites, measured depth">
             <p>Each suite is frozen with its exact tasks and reference evidence. Scores from different suites or prompt versions belong to separate comparison populations.</p>
             <Table>
-              <TableCaption>Task counts and actual operation depths for the three full evaluation suites</TableCaption>
+              <TableCaption>Task counts and actual operation depths for the evaluation suites</TableCaption>
               <TableHeader><TableRow><TableHead>Suite</TableHead><TableHead>Tasks</TableHead><TableHead>Measured depths</TableHead></TableRow></TableHeader>
               <TableBody>
                 <TableRow><TableCell><span className="font-medium text-foreground">Curvature challenge</span><br /><span className="font-mono text-xs">challenge-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">3, 4, 5, 6, 14</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Smooth reference</span><br /><span className="font-mono text-xs">smooth-v2</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 9, 11</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Exact reference</span><br /><span className="font-mono text-xs">reference-v1</span></TableCell><TableCell>75</TableCell><TableCell className="font-mono">5, 10, 20, 40, 80</TableCell></TableRow>
+                <TableRow><TableCell><span className="font-medium text-foreground">Interior exploration · unranked</span><br /><span className="font-mono text-xs">interior-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">13</TableCell></TableRow>
               </TableBody>
             </Table>
             <p>The challenge has eight families and three parameter groups per family. Each group contains all three labels: 24 related-task groups and 24 tasks per class. Its families cover logarithmic, reciprocal, exponential, rational, mixed-branch and polynomial curvature.</p>
+            <p>The separate interior exploration applies three nonlinear functions to eight source quintics. Each source polynomial is shared across nine related tasks, giving eight groups and 24 tasks per class. Its interior curvature changes can be missed by checking endpoints and midpoint alone. This narrower population is descriptive and unranked; it does not meet the confirmation coverage or confidence-interval requirements.</p>
             <p>A leaf has depth zero; each operation adds one to its deepest child. For example, x has depth 0, x² has depth 1 and exp(x²) has depth 2. Simplifying or rebalancing an expression can change depth while preserving its function.</p>
             <p><span className="font-medium text-foreground">Depth is descriptive.</span> Each challenge family occurs at one depth, so family and depth cannot be separated. Expression size and mathematical structure also vary. The exact and smooth reference suites have their own confounds; these plots do not establish a causal effect of nesting.</p>
             <p>The nine-task screening set uses separate parameter groups for exploratory checks. It is distinct from the full 72-task confirmation set. Public teaching examples are separate from both.</p>
@@ -72,6 +74,7 @@ export default function MethodologyPage() {
           <MethodSection id="references" title="Reference labels need global evidence">
             <p>For smooth functions, outward-rounded interval arithmetic encloses the second derivative over a complete cover of the domain. A consistent nonnegative or nonpositive sign establishes convexity or concavity. Strict evidence excludes the opposite label. Neither requires strict second-derivative signs in both directions at interior points, together with domain validity.</p>
             <p>The challenge also retains independently derived curvature formulas and exact polynomial identities. These provide a separate mathematical check. The exact reference suite uses exact rational arithmetic, sufficient composition rules and strict midpoint witnesses for its supported piecewise expressions.</p>
+            <p>Interior references additionally use exact rational Bernstein bounds and rigorously bounded exponential series to check the derived curvature formulas. Neither cases retain strict opposite-sign witnesses inside the supplied interval.</p>
             <p>A failed sufficient rule is inconclusive. Invalid domains, unresolved bounds and exhausted certification budgets never become a neither label. Native arithmetic and the implemented differentiation/domain rules remain trusted dependencies; this is bounded computational certification.</p>
             <p>Models receive the function and interval. They do not receive the reference label, family tag, task ID, proof or witness coordinates. Reference evidence is available when inspecting the retained result.</p>
           </MethodSection>

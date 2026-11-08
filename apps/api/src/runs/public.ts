@@ -1,5 +1,6 @@
 // Public listings keep scores and comparison evidence compact; full transcripts require an explicit run link.
 import type { RunView } from "./types";
+import { runPopulation } from "./policy";
 
 export function summarizePublishedRun(view: RunView) {
   const { record } = view;
@@ -11,7 +12,7 @@ export function summarizePublishedRun(view: RunView) {
       verifierVersion: record.suite.verifierVersion, protocolVersion: record.suite.protocolVersion,
       promptVersion: record.suite.formatVersion === "2" ? record.suite.promptVersion : "exact-v1",
       caseCount: record.suite.cases.length, depths: record.suite.request.depths,
-      population: record.request.suiteKey === "challenge-v1" ? "confirmation" : record.request.suiteKey === "screening-v1" ? "screening" : "reference" },
+      population: runPopulation(record.request.suiteKey, record.suite) },
     observation: {
       reportedModelIds: [...new Set(returned.flatMap(entry => entry.result.reportedModelId === null ? [] : [entry.result.reportedModelId]))].sort(),
       reportedServingProviders: [...new Set(returned.flatMap(entry => entry.result.reportedServingProvider === null ? [] : [entry.result.reportedServingProvider]))].sort(),
