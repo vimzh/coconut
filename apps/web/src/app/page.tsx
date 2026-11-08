@@ -6,6 +6,7 @@ import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureExamples } from "@/components/marketing/curvature-examples";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { ModelScores } from "@/components/marketing/model-scores";
+import { Depth60Results } from "@/components/marketing/depth60-results";
 import { NestedPolicyExample } from "@/components/marketing/nested-policy-example";
 import { Button } from "@/components/ui/button";
 import styles from "./page.module.css";
@@ -44,6 +45,7 @@ export default function Home() {
       </section>
 
       <ModelScores />
+      <Depth60Results />
 
       <section aria-labelledby="basic-idea-title" className="grid gap-8 border-t border-border py-12 sm:py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-x-16">
         <h2 id="basic-idea-title" className="text-2xl leading-tight font-medium sm:text-3xl lg:col-span-2">The basic idea</h2>
