@@ -8,6 +8,7 @@ interface LandingScoreColumn {
   readonly group: "Screening" | "Confirmation";
   readonly profileId: string;
   readonly requests: number;
+  readonly depths: readonly number[];
 }
 
 if (snapshot.version !== "1" || snapshot.metric !== "pooled-macro-f1-v1" || snapshot.columns.length !== 5)
@@ -19,7 +20,7 @@ if (new Set(directoryModels.map((model) => model.id)).size !== directoryModels.l
 export const landingScoreColumns: readonly LandingScoreColumn[] = Object.freeze(snapshot.columns.map((column): LandingScoreColumn => {
   if (column.group !== "Screening" && column.group !== "Confirmation")
     throw new Error("The landing score snapshot contains an unknown comparison group.");
-  return Object.freeze({ key: column.key, label: column.label, group: column.group, profileId: column.profileId, requests: column.comparison.workload.logicalCalls });
+  return Object.freeze({ key: column.key, label: column.label, group: column.group, profileId: column.profileId, requests: column.comparison.workload.logicalCalls, depths: Object.freeze([...column.comparison.depths]) });
 }));
 
 export const landingScoresAsOf = snapshot.evidenceThrough;

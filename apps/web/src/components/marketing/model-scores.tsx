@@ -49,7 +49,7 @@ export function ModelScores() {
               <th colSpan={2} scope="colgroup">Confirmation</th>
             </tr>
             <tr>
-              {landingScoreColumns.map((column) => <th key={column.key} scope="col" title={column.profileId}>{column.requests} requests · {column.label}</th>)}
+              {landingScoreColumns.map((column) => <th key={column.key} scope="col" title={column.profileId}>{column.requests} requests · {column.label}<span className={styles.depths}>Depths {column.depths.join(", ")}</span></th>)}
             </tr>
           </thead>
           <tbody>{rows.map((row) => <ScoreRow key={row.model.id} row={row} />)}</tbody>

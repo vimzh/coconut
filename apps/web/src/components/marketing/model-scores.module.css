@@ -9,6 +9,7 @@
 .table thead th { font-size: 12px; line-height: 1.5; font-weight: 400; text-align: right; }
 .table thead tr:first-child th:not(.model) { padding-top: 8px; padding-bottom: 4px; text-align: left; }
 .table thead tr:last-child th { padding-top: 4px; padding-bottom: 8px; }
+.depths { display: block; margin-top: 4px; color: var(--muted-foreground); font-family: var(--font-mono); font-size: 11px; }
 .table tbody tr { border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent); }
 .table .model { position: sticky; left: 0; z-index: 1; min-width: 260px; background-color: var(--card); font-weight: 400; text-align: left; }
 .table td { min-width: 96px; font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; font-size: 13px; }
