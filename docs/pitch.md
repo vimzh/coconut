@@ -6,13 +6,13 @@ It is. Put a minus sign in front, and negative x squared is concave.
 
 Now take x cubed. From minus one to one, it's neither convex nor concave. From zero to one, it's convex. Same function, different interval, different answer.
 
-CoconutEval tests whether a language model can keep those details straight as expressions get more complicated. Every sign, set of parentheses, and domain restriction can affect the answer.
+Each individual piece is small: a sign, a range, a restriction. The challenge is keeping all of them intact as the expression grows. A rule established at the start still has to hold several operations later. CoconutEval tests the final mathematical classification when those details are combined.
 
 That decision matters when choosing optimization methods for allocating resources, controlling a system, or fitting a model to data. Curvature helps determine which solvers and guarantees apply. A wrong classification can lead to an unsuitable method or an unjustified guarantee.
 
-Now let's put that in nontechnical terms. Imagine a store policy: a refund is allowed within 30 days if the item is unopened or arrived damaged. A customer opens a damaged delivery and requests a refund on day 12. Rejecting it just because it was opened misses the damage exception.
+Now let's put that in nontechnical terms. Imagine a customer-support agent handling this refund policy: within 30 days, the item must be unopened or have arrived damaged. The customer opened a damaged delivery and requested a refund on day 12. If the agent fixates on the word opened, it can reject a valid request by overlooking the damage exception.
 
-In programming terms, think of nested if/else logic. You have to keep the full rule intact: within 30 days, and either unopened or damaged. That's an analogy for tracking conditions. CoconutEval's actual test is mathematical function classification; we haven't measured whether its scores predict success in these other workflows.
+In programming terms, think of nested if/else logic. Each check is simple; the full combination is what matters. That's the agent-reliability question behind this project: as steps stack up, does the model keep earlier rules and restrictions in force? CoconutEval measures function classification; whether those scores predict agent behavior still needs testing.
 
 Our confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
 
