@@ -2,7 +2,7 @@
 
 ## Status and Order
 
-Planned — **do this first, before Phase 15 implementation and new Phase 15 model runs**. This is a small presentation and navigation cleanup of the existing product. It does not depend on certifying the future deep benchmark.
+Planned — **do this first, before [14b randomized generation](14b-randomized-certified-evaluation.md), followed by Phase 15 implementation and new Phase 15 model runs**. This is a small presentation and navigation cleanup of the existing product. It does not depend on certifying the future deep benchmark.
 
 ## Goal
 
@@ -37,7 +37,7 @@ No paid model calls, new benchmark generation, background execution, resumption,
 2. **Simplify the main path.** Update home/results navigation and the default-versus-advanced suite presentation, reusing existing components. Review methodology and README wording only where needed to match the new navigation and current workload. Apply the frontend-design and unslop skills for the actual UI work. Verification: default and advanced selections retain their exact configuration and no result table becomes unreachable.
 3. **Verify and hand off.** Run affected existing frontend tests plus `bun run --filter @coconut/web lint`, `bun run --filter @coconut/web typecheck` and `bun run --filter @coconut/web build`. Check desktop and narrow mobile layouts in a browser, keyboard/focus behavior, disclosure controls, anchors and result filters. Use fixtures/retained evidence; do not dispatch inference for a navigation check. Record screenshots and actual outcomes in `docs/handoffs/14a-product-flow-cleanup.md`.
 
-Likely ownership is the home page, existing marketing result components, evaluation suite/configuration components, results dashboard, related styles/tests and directly affected wording. Inspect callers before editing; change only files needed for this journey. Backend policy, mathematical generation and the Phase 15 runner remain outside this mini module.
+Likely ownership is the home page, existing marketing result components, evaluation suite/configuration components, results dashboard, related styles/tests and directly affected wording. Inspect callers before editing; change only files needed for this journey. Backend policy, the 14b generator, mathematical generation and the Phase 15 runner remain outside this mini module.
 
 ## Done When
 
@@ -45,6 +45,6 @@ Likely ownership is the home page, existing marketing result components, evaluat
 - The default evaluation shows 27 tasks × 3 responses = 81 requests; selecting an advanced workload shows its own actual count and version.
 - A visitor can explain what is measured, find the reference behind an answer, distinguish failed answers from service failures, and understand provider charges before launch.
 - Composition stages, AST depth, task counts, trials, versions and metric names agree across the touched surfaces; score values and publication boundaries are preserved.
-- Mobile/desktop/browser checks and relevant tests, lint, types and build pass or have explicit, explained limitations. The handoff records completion before Phase 15 begins.
+- Mobile/desktop/browser checks and relevant tests, lint, types and build pass or have explicit, explained limitations. The handoff records completion before Module 14b implementation begins; the sequence is 14a → 14b → 15.
 
 The handoff should identify one place for Phase 15 to introduce its new benchmark once implemented; it must not build or promise that future workload as part of the cleanup.

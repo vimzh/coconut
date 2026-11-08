@@ -1,4 +1,4 @@
-# Module 16: Randomized Certified Evaluation
+# Module 14b: Randomized Certified Evaluation
 
 ## Status
 
@@ -26,13 +26,13 @@ A bounded supported implementation may receive a scoped Go while deeper targets 
 
 The repaired `composition-v1` contains real nonlinear stages but only two increasing convex atoms, three sequence patterns and nine base-chain groups. It still permits coefficient, contraction and familiar-structure cues. Earlier associative sums demonstrate that large tree depth can overstate dependent composition. These are documented boundaries, not invalid historical grades.
 
-Module 15 owns the fixed deep study and its execution. Module 16 owns the reusable randomized construction, accepted-population definition, structural split checks and shortcut diagnostics. Module 16 can proceed offline alongside Module 15's deep-reference feasibility; neither depends on completion of the other's model experiment. Mini module 14a remains the immediate product task before Module 15 implementation or new study calls. Their outputs meet before Module 15 freezes a population described as randomized and checked for shortcuts.
+The implementation order is **14a product cleanup → 14b randomized generation and checks → 15 deep stress evaluation**. Module 14b owns the reusable generator, accepted-population definition, structural split checks and shortcut diagnostics. Complete 14a's handoff before implementing 14b. Module 15 starts deep-reference feasibility and implementation only after 14b delivers a supported generator with scoped G-RANDOM/G-SPLIT Go verdicts and a completed handoff. Module 14b may read the already defined D-13 target, but does not depend on Module 15's future deep proofs, final population or model results.
 
 ## Prerequisites
 
 Read [idea.md](../idea.md), [ROADMAP.md](../ROADMAP.md), modules 01–04 and 14, [Module 15](15-deep-composition-stress-evaluation.md), [D-12 criteria](../research/quality-criteria-v1.md), and the [composition design](../research/composition-design-v1.md) and [results](../research/composition-results-v1.md).
 
-Reuse the existing expression, mathematical-reference, prompt, scoring, retained-evidence and versioning contracts where applicable. Recheck current source before choosing interfaces. Historical tasks, prompts, profiles, grades, reference limits and published identities remain immutable.
+Require the completed [14a cleanup](14a-product-flow-cleanup.md) handoff before implementation. Module 15 is a target-definition reference, not an implementation prerequisite. Reuse the existing expression, mathematical-reference, prompt, scoring, retained-evidence and versioning contracts where applicable. Recheck current source before choosing interfaces. Historical tasks, prompts, profiles, grades, reference limits and published identities remain immutable.
 
 ## Build Readiness Gate
 
@@ -41,10 +41,10 @@ Before implementing a production generator, the owner must:
 1. Resolve D-14's grammar, regularity/domain assumptions, reference methods and finite resource limits. Produce checked examples and explicit rejection cases for every initially supported construction route.
 2. Resolve D-15's target distribution, split unit, exposure rules, quota schedule and finite proposal policy. Fix these without evaluation-model outcomes.
 3. Resolve D-16's diagnostic baseline suite, decision thresholds, paired-control allocations and reporting rules. Record which requirements are project policy rather than established scientific constants.
-4. Write `docs/plans/16-randomized-certified-evaluation.md` with file ownership, interfaces, artifact sizes, proposal/certification budgets, failure handling and exact verification commands.
+4. Write `docs/plans/14b-randomized-certified-evaluation.md` with file ownership, interfaces, artifact sizes, proposal/certification budgets, failure handling and exact verification commands.
 5. Confirm Module 15's unchanged D-13 contract if supplying its final population. Numerical targets are construction requirements until proved feasible, not evidence that the current verifier can admit them.
 
-Small offline feasibility prototypes are permitted to resolve these decisions. They must record failed candidates and design changes; prototype examples become exposed development data. No paid evaluation is required to pass this readiness gate.
+After the 14a handoff, small offline feasibility prototypes are permitted to resolve these decisions. They must record failed candidates and design changes; prototype examples become exposed development data. No paid evaluation is required to pass this readiness gate.
 
 ## Scope
 
@@ -203,27 +203,27 @@ Reuse the current interface and reporting owners; this module does not authorize
 
 | Decision | Owner and deadline | Required recorded resolution |
 | --- | --- | --- |
-| D-14 | Module 16 mathematical owner, before production generation. | Supported grammar/atoms, route set/weights, domain/regularity assumptions, proof policies, independent reference method, margins and finite resource/attempt limits. Coordinate deep policies with Module 15. |
-| D-15 | Module 16 generation owner, before validation/final freeze. | Exact proposal/acceptance distributions, quota allocation, reproducible streams, significant-core grouping, split/exposure/release policy and handling of known/unknown equivalence. |
-| D-16 | Module 16 quality owner, before testing final diagnostics or dispatch. | Baseline roster/budgets, frozen acceptance thresholds and uncertainty rules, paired-control coverage, ordinary versus selected reporting, and claims allowed by scoped Go/No-go results. |
+| D-14 | Module 14b mathematical owner, before production generation. | Supported grammar/atoms, route set/weights, domain/regularity assumptions, proof policies, independent reference method, margins and finite resource/attempt limits. Coordinate deep policies with Module 15. |
+| D-15 | Module 14b generation owner, before validation/final freeze. | Exact proposal/acceptance distributions, quota allocation, reproducible streams, significant-core grouping, split/exposure/release policy and handling of known/unknown equivalence. |
+| D-16 | Module 14b quality owner, before testing final diagnostics or dispatch. | Baseline roster/budgets, frozen acceptance thresholds and uncertainty rules, paired-control coverage, ordinary versus selected reporting, and claims allowed by scoped Go/No-go results. |
 
 Implementation owners can resolve these technical/research choices within the agreed scope and record evidence without repeatedly seeking permission. Changes to D-13 targets or other explicit user constraints require a named amendment; do not infer one from limited feasibility.
 
 ## Technical Plan Required Before Coding
 
-Inspect the current repository and write `docs/plans/16-randomized-certified-evaluation.md`. Identify existing reusable contracts, new version identities, non-overlapping file ownership, interface propagation, test fixtures, artifact/replay commands, bounds, cancellation/persistence behavior and migration-free preservation of old suites. Resolve the three decisions above before dependent work uses their values. Product requirements here do not select new libraries or a software architecture.
+Inspect the current repository and write `docs/plans/14b-randomized-certified-evaluation.md`. Identify existing reusable contracts, new version identities, non-overlapping file ownership, interface propagation, test fixtures, artifact/replay commands, bounds, cancellation/persistence behavior and migration-free preservation of old suites. Resolve the three decisions above before dependent work uses their values. Product requirements here do not select new libraries or a software architecture.
 
 ## Delivery Checkpoints
 
 | Step | Completion check | Work that can proceed afterward |
 | --- | --- | --- |
-| A. Research and feasibility | Approved initial grammar/routes, coverage of the declared feasible mechanism/label regimes, all three labels represented overall for a three-way evaluation claim, independent domain/reference checks, explicit impossible/unsupported cells and bounded work. | Implement the supported generator; Module 15 may independently test deep-family proofs. |
+| A. Research and feasibility | Approved initial grammar/routes, coverage of the declared feasible mechanism/label regimes, all three labels represented overall for a three-way evaluation claim, independent domain/reference checks, explicit impossible/unsupported cells and bounded work. | Implement the supported generator; Module 15 implementation remains blocked until the 14b handoff. |
 | B. Deterministic offline generation | Proposal/acceptance ledger replays, serial/parallel proposal and deterministic-admission equality, finite-attempt exhaustion/cancellation behavior and immutable identities pass. | Generate larger validation samples under the approved bounds. |
 | C. Quality and split checks | Normalization/cluster ledger, cue diagnostics, pair relations, exposure rules and frozen D-15/D-16 policies pass or have scoped limitations. | Freeze the accepted generator version; no general shortcut-immunity claim. |
-| D. Consumer-specific freeze | Exact achieved coverage and references, incoming deep policies, final split/manifest, budgets and claim identity satisfy the consuming study. | Module 15 can perform its separately governed execution. |
-| E. Evidence handoff | Reproduction bundle, independent-review record, decision/gate verdicts and downstream instructions are complete. | Module 14 audits new pitfalls; Modules 13/11 consume supported results/wording after execution. |
+| D. Evidence handoff | Reproduction bundle, independent-review record, scoped G-RANDOM/G-SPLIT Go verdicts, supported bounds and downstream instructions are complete. | Module 15 may begin its deep-proof feasibility and implementation using the verified foundation. |
+| E. Subsequent consumer freeze, owned by Module 15 | After the 14b handoff, deep policies, achieved target coverage, final split/manifest, budgets and claims satisfy Module 15. | Module 15 can perform its separately governed execution; this later checkpoint is not a 14b completion requirement. |
 
-A–C are offline. Module 16's implementation completion does not wait for Module 15 model errors or study completion. D is a consumer admission gate: deeper use remains blocked when Module 15's deep proof or coverage requirements fail.
+A–D are offline and complete before Module 15 implementation begins. Checkpoint E belongs to the subsequent deep study, so Module 14b does not wait for its proofs, freeze, model errors or completion. A scoped 14b Go establishes only the supported foundation; Module 15 must separately prove feasibility of deeper targets. A No-go stops dependent implementation until a supported scope or explicit amendment is recorded.
 
 ## Deliverables
 
@@ -234,7 +234,7 @@ A–C are offline. Module 16's implementation completion does not wait for Modul
 - Structural measurements, duplicate/equivalence diagnostics, related-task groups and split/exposure ledger.
 - Baseline definitions/results, certified pair/control relations, reduction policy and scoped quality verdicts.
 - Consumer-specific admission instructions, supported bounds and explicit unavailable coverage.
-- `docs/handoffs/16-randomized-certified-evaluation.md` with actual verification results and limitations after implementation.
+- `docs/handoffs/14b-randomized-certified-evaluation.md` with actual verification results and limitations after implementation.
 
 These are expected implementation outputs; this planning document is not evidence that they already exist.
 
@@ -249,7 +249,7 @@ These are expected implementation outputs; this planning document is not evidenc
 - Historical suites/profiles/scores and explicit D-13/D-12 contracts remain unchanged.
 - G-RANDOM and G-SPLIT have recorded scoped Go/No-go decisions. Consumer-specific target admission remains separate.
 - Relevant tests, type checks, lint and builds pass after implementation, with supported environments and any limitations recorded.
-- The handoff supports a consuming study without undocumented extra calls, manual grade repairs or fictitious completion.
+- The completed handoff precedes Module 15 implementation and supplies a supported scope without undocumented extra calls, manual grade repairs or fictitious completion.
 
 A No-go feasibility report can close the feasibility work, but cannot be marked as an implemented generator or a completed final evaluation.
 

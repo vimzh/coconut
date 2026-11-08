@@ -2,7 +2,7 @@
 
 ## Status and reading contract
 
-Prepared on 2026-11-08 for [Module 16](../modules/16-randomized-certified-evaluation.md). This is a research/planning artifact, not a new generator, completed benchmark or model result. No inference calls were made for this work.
+Prepared on 2026-11-08 for [Module 14b](../modules/14b-randomized-certified-evaluation.md). This is a research/planning artifact, not a new generator, completed benchmark or model result. No inference calls were made for this work.
 
 Source summaries below are explicitly **paraphrases**. Project requirements and proposed experiments are **design inferences**, not findings established by the cited authors. Primary publications and official documentation were checked for the specific stated claims; historical papers provide methods, not current model inventories or guaranteed failure rates. No external code, benchmark dataset, prompt or visual asset was copied.
 
@@ -12,7 +12,7 @@ The [composition repair](composition-design-v1.md) uses 27 verified tasks in nin
 
 The normal numerical admission path is bounded to operation depth 32 and 256 nodes. The [quality policy](quality-criteria-v1.md) also bounds its current offline report and fixed-three-trial uncertainty procedure. Inspection of [bootstrap.ts](../../apps/api/src/quality/bootstrap.ts) confirms that it expects three outcomes per task and at most 256 cases. It cannot analyze the planned single-trial 800-case study unchanged. The [structural analyzer](../../apps/api/src/quality/structure.ts) provides useful bounded identities and signatures, not complete mathematical equivalence or split independence.
 
-[Module 15](../modules/15-deep-composition-stress-evaluation.md) separately targets 100 tasks at each of 5/10/20/40/80/160/320/512 nonlinear stages. Its single-trial, Astra-inclusive study and 30 + 800 × M request ceiling remain intact. [Mini module 14a](../modules/14a-product-flow-cleanup.md) remains the next product task. Module 16 can supply offline generation/quality contracts without running that study or claiming deep feasibility.
+[Module 15](../modules/15-deep-composition-stress-evaluation.md) separately targets 100 tasks at each of 5/10/20/40/80/160/320/512 nonlinear stages. Its single-trial, Astra-inclusive study and 30 + 800 × M request ceiling remain intact. [Mini module 14a](../modules/14a-product-flow-cleanup.md) remains the next product task. The sequence is 14a cleanup → 14b randomized generation and checks → 15 deep study. Module 14b must deliver its supported offline generator/quality handoff before Module 15 begins implementation; the later study remains responsible for deep feasibility. This renumbering changes order, not the study targets or budget.
 
 ## Primary-source findings and bounded implications
 
@@ -146,4 +146,4 @@ Use a finite margin/range policy and publish it. Do not make epsilon arbitrarily
 - How much of the measured difficulty is arithmetic, range contraction, representation or token budget rather than the intended dependent reasoning?
 - Which significant-core rules are justified for splits and uncertainty, and what equivalence remains unknown?
 
-Record these as gate questions and measured limitations. A literature citation cannot close them. Module 16's current state remains planned, with no implementation or additional inference evidence.
+Record these as gate questions and measured limitations. A literature citation cannot close them. Module 14b's current state remains planned, with no implementation or additional inference evidence.
