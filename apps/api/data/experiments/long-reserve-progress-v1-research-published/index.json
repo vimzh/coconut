@@ -1,0 +1,19 @@
+{
+  "version": "1",
+  "kind": "research-long-reserve-publication-index",
+  "methodId": "long-reserve-v1",
+  "manifestSha256": "ba30c68369f40a118c96bca133c6ec1d4ab6445b15d37840edec0b6c6e6d2c63",
+  "selected": [
+    {
+      "modelId": "gpt-6-astra",
+      "file": "gpt-6-astra.json",
+      "sha256": "923710a96278206315ee1ab16104ae0a7e4d98eb50cccf0955bccfd1961d3de0"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "file": "gpt-6.1-sol.json",
+      "sha256": "591fb24b1f2d7dbd82f872ce3b4fb65ed637d2b49f1d5dc6c0fcdbc60691eb5f"
+    }
+  ],
+  "omitted": []
+}

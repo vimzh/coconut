@@ -2,7 +2,7 @@
 
 ## Status
 
-**Reporting audits passed within the recorded original, replication, P5, remaining-model and failed standard-reserve populations.** Module 12 retains historical checks and [final source-bound clean-install/production-browser evidence](../research/final-product-verification-v2.md). A newly frozen 600-second operator-only SDK diagnostic is active and has no terminal review yet. This checkpoint does not declare all scientific gates passed. OpenRouter/Hugging Face live inference remains unverified; deployment and hackathon submission/material preparation remain excluded.
+**Reporting audits passed within the recorded original, replication, P5, remaining-model and failed standard-reserve populations.** Module 12 retains historical checks and [final source-bound clean-install/production-browser evidence](../research/final-product-verification-v2.md). The separate 600-second SDK diagnostic is complete and independently audited as a research method. This checkpoint does not declare all scientific gates passed. OpenRouter/Hugging Face live inference remains unverified; deployment and hackathon submission/material preparation remain excluded.
 
 The [independent audit record](../research/reporting-audit-v1.md) describes its AI-assisted reviewer role, exact population, separately written arithmetic, source hashes, commands and limits. No human review is claimed. Module 04 remains the only production scorer; this module checks its retained output without changing any grade, reference or protocol.
 
@@ -36,7 +36,7 @@ The source review found a browser adapter reply-length mismatch: 65,536 accepted
 
 ## Remaining requirements
 
-The [module 12 handoff](12-integration-and-submission.md) records module 09/10/11 browser, production, export and comparison evidence, plus historical isolated clean-checkout checks. Final source-bound QA is recorded separately; the active longer-deadline diagnostic still requires its own terminal outcomes. The completed later-study audits below retain separate populations and exposure histories. External provider gates require authorized live evidence; deployment and submission remain excluded.
+The [module 12 handoff](12-integration-and-submission.md) records module 09/10/11 browser, production, export and comparison evidence, plus historical isolated clean-checkout checks. Final source-bound QA and the completed longer-deadline diagnostic are recorded separately; later concurrent frontend edits are outside that software verification. The completed later-study audits below retain separate populations and exposure histories. External provider gates require authorized live evidence; deployment and submission remain excluded.
 
 ## Terminal replication and prefix addendum
 
@@ -68,4 +68,4 @@ The preserved-study union contains **47 requested IDs with execution records, 45
 
 Unknown sends remain included once: **11 original + 101 replication + eight standard-reserve = 120**. Cumulative 7,746 also includes the 183 retained controls and four-request calibration allowance once; these are conservative request counters, not bills. No timeout/cancellation supplies a mathematical transcript, inference-permission proof or provider-outage diagnosis. No supported declared-frontier mathematical-failure finding or universal absence-of-error claim follows.
 
-The separately frozen [600-second SDK diagnostic](../../apps/api/data/experiments/long-reserve-matrix-v1.json) is **active, not terminal**, with at most 108 fresh requests and a maximum cumulative ceiling of **7,854 / 8,192**. It neither resumes the 100 unattempted standard trials nor changes the platform/profile's 180-second policy. Its outcomes, bookkeeping and final review remain separate pending evidence.
+The separately frozen [600-second SDK diagnostic](../research/long-reserve-results-v1.md) completed all 108 fresh trials: **69 valid correct labels and 39 truncations**, with no wrong valid, invalid, refused or infrastructure outcome and no missing work. Astra has 36 correct/18 truncated; Sol 33 correct/21 truncated, each with 54 planned model outcomes. Independent raw reconstruction, dispatch/result hashing, extraction, denominators, usage and qualified research-publication checks pass. All 69 valid explanations and the one nonempty truncated prefix were independently checked without a substantiated false mathematical claim. The other 38 truncations are empty; no label was repaired or salvaged. Actual cumulative accounting is **7,854 / 8,192**, retaining 120 earlier unknown sends. These research-specific proofs and descriptive counts do not create normal RunViews, official score reports, ranking or intervals, and the ordinary platform remains at 180 seconds. All earlier terminal studies remain unchanged.
