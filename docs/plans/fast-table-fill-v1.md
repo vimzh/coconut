@@ -1,0 +1,19 @@
+# Fast-model table-fill follow-up
+
+The user explicitly requested testing all fast models with many parallel calls to fill the landing table. This prospectively authorizes a new exploratory batch, after earlier outcomes were inspected; it is not confirmation or an amendment to earlier frozen experiment results.
+
+## Fixed scope and accounting
+
+Current fast general-text model entries are GPT-5.4 Mini, GPT-5.6 Luna, GPT-6 Luna, GPT-5.6 Terra and GPT-6.1 Terra. Retired Nano/Mini models, specialized models, and other providers are excluded. Model selection follows the official model catalog and reasoning guidance, not observed accuracy: https://developers.openai.com/api/docs/models, https://developers.openai.com/api/docs/models/gpt-5.4-mini, https://developers.openai.com/api/docs/guides/reasoning. Live execution permission is checked by the existing inference client for each actual trial.
+
+Existing completed cells are retained without rerunning or replacement. The new fixed cells are Standard screening for GPT-5.4 Mini (27 calls); depth 60 for both Terra models (54); depth 100 for all five models (135); depth 216 for all five (135). Maximum: 351 fresh trials, each with one attempt, no retries. Earlier terminal evidence is 8,124 conservative requests. A previously reserved 36-call depth-256/512 pilot runs first under the original cap, giving a coordinated terminal baseline of 8,160. This separate new authorization then reserves 351 additional requests, cumulative maximum 8,511. No pools overlap; the terminal prior progress hash is frozen before dispatch. Earlier D-12's 8,192 ceiling/history and all original manifests remain unchanged. Unknown previous remote outcomes remain counted in the lineage.
+
+## Controls and execution
+
+Freeze exact source files, case identities, reference-review hashes, prompt hashes, model/case/trial rows and runner hash before dispatch. Reuse the certified depth-60 suite, deterministically replayed depth-100 population, separately proved/replayed depth-216 research population and exact archived Standard screening prompts. Do not widen application admission or pool these distinct populations. Record the separate depth-216 research policy explicitly.
+
+Use the official SDK through createInferenceClient, explicit environment credential, fixed destinations, 4,096 output tokens, provider-default sampling/reasoning, fresh conversations, no tools, bounded response reads and 180-second inference deadlines. Start one actual trial per model concurrently. Keep the screening cell at its original four-worker concurrency and retain its native suite/scoring report; the screening cell runs separately after the research workers. Increase the research pool to at most 24 only if all five responses show at least 351 remaining requests and 1,000,000 remaining tokens. Otherwise stay at five. Rate-limit/quota/auth failures stop the batch; model-specific incompatibility blocks that model without replacement. Persist every dispatch receipt before sending, settle active workers on stop, retain missing/failed/unknown outcomes, and refuse rerunning an existing private study directory.
+
+## Verification and publication
+
+Before live calls: test unique trial identities, strict call/concurrency caps, initial-model coverage, frozen-source changes, stop/error handling, and independent score calculations. Run API lint/typecheck/build. After execution, independently recompute confusion/macro-F1 and dispatch/outcome accounting from private evidence. Publish safe metric summaries including incomplete coverage without raw text or credentials. Populate only complete matching cells; never replace existing completed evidence with better-scoring reruns. Verify web tests/types/lint/build and desktop/mobile table display before committing the cohesive checkpoint.

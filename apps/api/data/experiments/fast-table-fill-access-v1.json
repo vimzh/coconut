@@ -1,0 +1,402 @@
+{
+  "version": "1",
+  "kind": "metadata-only-not-inference-evidence",
+  "checkedAt": "2026-11-08T13:17:07.316Z",
+  "results": [
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "9601df9b-593a-414e-8c57-7ab4e8c9b0b4",
+      "checkedAt": "2026-11-08T13:17:06.393Z",
+      "expiresAt": "2026-11-08T13:22:06.393Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-5.4-mini",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "metadata": {
+        "modelId": "gpt-5.4-mini",
+        "canonicalId": null,
+        "displayName": "gpt-5.4-mini",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "needs-verification",
+      "capabilities": {
+        "textInput": "unknown",
+        "textOutput": "unknown",
+        "outputTokenLimit": "unknown",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": false,
+        "unsupported": [],
+        "unverified": [
+          "textInput",
+          "textOutput",
+          "outputTokenLimit"
+        ]
+      },
+      "probe": {
+        "status": "not-requested",
+        "reportedModelId": null,
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": null,
+          "outputTokens": null
+        },
+        "outputLimitRequestAccepted": false,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": null
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-5.4-mini"
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 0,
+        "maxOutputTokens": 0,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    },
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "40f7bdb5-4021-40ff-a255-f2fb826d4d69",
+      "checkedAt": "2026-11-08T13:17:06.395Z",
+      "expiresAt": "2026-11-08T13:22:06.395Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-5.6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "metadata": {
+        "modelId": "gpt-5.6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-5.6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "needs-verification",
+      "capabilities": {
+        "textInput": "unknown",
+        "textOutput": "unknown",
+        "outputTokenLimit": "unknown",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": false,
+        "unsupported": [],
+        "unverified": [
+          "textInput",
+          "textOutput",
+          "outputTokenLimit"
+        ]
+      },
+      "probe": {
+        "status": "not-requested",
+        "reportedModelId": null,
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": null,
+          "outputTokens": null
+        },
+        "outputLimitRequestAccepted": false,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": null
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-5.6-luna"
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 0,
+        "maxOutputTokens": 0,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    },
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "00cde754-5fad-4a44-8a43-509f32034866",
+      "checkedAt": "2026-11-08T13:17:06.395Z",
+      "expiresAt": "2026-11-08T13:22:06.395Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-6-luna",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "metadata": {
+        "modelId": "gpt-6-luna",
+        "canonicalId": null,
+        "displayName": "gpt-6-luna",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "needs-verification",
+      "capabilities": {
+        "textInput": "unknown",
+        "textOutput": "unknown",
+        "outputTokenLimit": "unknown",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": false,
+        "unsupported": [],
+        "unverified": [
+          "textInput",
+          "textOutput",
+          "outputTokenLimit"
+        ]
+      },
+      "probe": {
+        "status": "not-requested",
+        "reportedModelId": null,
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": null,
+          "outputTokens": null
+        },
+        "outputLimitRequestAccepted": false,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": null
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-6-luna"
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 0,
+        "maxOutputTokens": 0,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    },
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "30ca94fb-e7ba-4b87-b2c2-b982727d4a62",
+      "checkedAt": "2026-11-08T13:17:06.395Z",
+      "expiresAt": "2026-11-08T13:22:06.395Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-5.6-terra",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "metadata": {
+        "modelId": "gpt-5.6-terra",
+        "canonicalId": null,
+        "displayName": "gpt-5.6-terra",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "needs-verification",
+      "capabilities": {
+        "textInput": "unknown",
+        "textOutput": "unknown",
+        "outputTokenLimit": "unknown",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": false,
+        "unsupported": [],
+        "unverified": [
+          "textInput",
+          "textOutput",
+          "outputTokenLimit"
+        ]
+      },
+      "probe": {
+        "status": "not-requested",
+        "reportedModelId": null,
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": null,
+          "outputTokens": null
+        },
+        "outputLimitRequestAccepted": false,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": null
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-5.6-terra"
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 0,
+        "maxOutputTokens": 0,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    },
+    {
+      "version": "1",
+      "policyId": "model-selection-v1",
+      "requestId": "52de417f-0195-40b1-9abf-0404d9505826",
+      "checkedAt": "2026-11-08T13:17:06.395Z",
+      "expiresAt": "2026-11-08T13:22:06.395Z",
+      "request": {
+        "provider": "openai",
+        "modelId": "gpt-6.1-terra",
+        "servingProvider": null,
+        "profileId": "one-shot-json-v1",
+        "verification": "metadata"
+      },
+      "metadata": {
+        "modelId": "gpt-6.1-terra",
+        "canonicalId": null,
+        "displayName": "gpt-6.1-terra",
+        "providerModelId": null,
+        "servingProvider": null,
+        "providerDisplayName": null,
+        "routeStatus": null,
+        "hosted": "unknown",
+        "exactRoute": true,
+        "capabilities": {
+          "textInput": "unknown",
+          "textOutput": "unknown",
+          "outputTokenLimit": "unknown",
+          "jsonSchema": "unknown"
+        },
+        "structuredOutput": "unknown",
+        "contextWindow": null,
+        "maxOutputTokens": null,
+        "tokenParameter": "max_output_tokens",
+        "supportedParameters": null,
+        "pricing": null
+      },
+      "status": "needs-verification",
+      "capabilities": {
+        "textInput": "unknown",
+        "textOutput": "unknown",
+        "outputTokenLimit": "unknown",
+        "jsonSchema": "unknown"
+      },
+      "compatibility": {
+        "compatible": false,
+        "unsupported": [],
+        "unverified": [
+          "textInput",
+          "textOutput",
+          "outputTokenLimit"
+        ]
+      },
+      "probe": {
+        "status": "not-requested",
+        "reportedModelId": null,
+        "reportedServingProvider": null,
+        "usage": {
+          "inputTokens": null,
+          "outputTokens": null
+        },
+        "outputLimitRequestAccepted": false,
+        "nativeSchemaRequestAccepted": false,
+        "outcome": null
+      },
+      "contextFit": "not-checked",
+      "sources": [
+        "https://api.openai.com/v1/models/gpt-6.1-terra"
+      ],
+      "httpAttempts": 1,
+      "httpStatus": 200,
+      "budget": {
+        "maxHttpAttempts": 3,
+        "maxInferenceRequests": 0,
+        "maxOutputTokens": 0,
+        "timeoutMs": 20000
+      },
+      "blockers": [],
+      "failure": null
+    }
+  ]
+}
