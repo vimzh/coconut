@@ -6,15 +6,14 @@ import { useState } from "react";
 
 import { directoryModels, modelCompanies } from "@/lib/model-directory-data";
 import { getLandingScores, getLandingDepthScores, landingScoreColumns } from "@/lib/landing-scores";
-import { archivedPilotModelIds, getLandingPilotScore, landingPilotDepths } from "@/lib/landing-pilots";
+import { getLandingPilotScore, landingPilotDepths } from "@/lib/landing-pilots";
 import styles from "./model-scores.module.css";
 
 export function ModelScores() {
   const [columnIndex, setColumnIndex] = useState(0);
-  const [showArchived, setShowArchived] = useState(false);
   const column = landingScoreColumns[columnIndex];
   const rows = directoryModels
-    .filter((model) => model.status !== "deprecated" || (showArchived && archivedPilotModelIds.has(model.id)))
+    .filter((model) => model.status !== "deprecated")
     .map((model) => ({ model, score: getLandingScores(model.id)[columnIndex], depths: getLandingDepthScores(model.id, columnIndex) }))
     .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || a.model.name.localeCompare(b.model.name));
   return (
@@ -28,10 +27,6 @@ export function ModelScores() {
           </select>
         </label>
       </div>
-      <label className={styles.archivedToggle}>
-        <input type="checkbox" checked={showArchived} onChange={(event) => setShowArchived(event.target.checked)} />
-        Show archived models
-      </label>
       <p className={styles.metric}>Macro-F1 · 0–100 · Sorted by overall score for this setting</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Model scores by depth; scroll horizontally for all depths">
         <table className={styles.table} aria-describedby="model-depth-note">
