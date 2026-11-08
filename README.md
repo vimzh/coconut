@@ -98,7 +98,3 @@ See the [development guide](docs/development.md) for tests, production build/sta
 - Verify OpenRouter and Hugging Face inference with authorized service access.
 - Validate hosted operation, including TLS and proxy logging, before offering a public deployment.
 - Investigate broader independently reviewed task populations and difficulty controls. The current results do not support a frontier mathematical-failure claim.
-
-## Prior work and contribution
-
-The task and prompt design draw on **ConvexBench** by Yepeng Liu, Yu Huang, Yu-Xiang Wang, Yingbin Liang, and Yuheng Bu. The [provenance and prompt-adaptation record](docs/research/prompt-adaptation.md) links the original work, records licensing observations, and explains the changes. Coconut contributes this scalar interval-certified implementation, visitor-owned evaluation workflow, and retained outcome accounting. It does not claim the original task or prior experimental findings as its own.
