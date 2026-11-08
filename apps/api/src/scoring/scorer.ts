@@ -1,6 +1,6 @@
 // Reconciles frozen references and execution evidence into one versioned report.
 import { createHash } from "node:crypto";
-import { buildPrompt, calculateWorkload, getProfile } from "../protocol";
+import { buildPrompt, calculateWorkload, getProfile, type PromptBlueprint } from "../protocol";
 import { validateSuiteArtifact } from "../suites/artifact";
 import { buildNumericalPrompts } from "../numerics/prompt";
 import type { NumericalBackend, NumericalPromptVersion } from "../numerics/types";
@@ -53,6 +53,14 @@ export async function scoreEvaluation(input: unknown): Promise<ScoringReport> {
   const suite = await validateSuiteArtifact(envelope.suite);
   if (suite.request.purpose !== "evaluation") throw new ScoringInputError("Illustrative suites are not evaluation input.");
   const evidence = bindEvidence(snapshot, suite);
+  const prompts = suite.formatVersion === "2"
+    ? await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), evidence.profileId, suite.promptVersion)
+    : suite.cases.map((entry) => buildPrompt(entry.reference, evidence.profileId));
+  return scoreRetainedEvidence(suite, evidence, prompts);
+}
+
+// Internal persistence reconciliation reuses the scorer after suite/prompt verification at admission.
+export function scoreRetainedEvidence(suite: Awaited<ReturnType<typeof validateSuiteArtifact>>, evidence: RunEvidence, prompts: readonly PromptBlueprint[]): ScoringReport {
   const cases = new Map(suite.cases.map((entry) => [entry.id, entry]));
   const observations: Observation[] = evidence.trials.map((trial) => {
     const reference = cases.get(trial.caseId)!;
@@ -61,9 +69,6 @@ export async function scoreEvaluation(input: unknown): Promise<ScoringReport> {
       outcome: trial.finalAttempt === null ? null : trial.attempts[trial.finalAttempt - 1].outcome,
     };
   });
-  const prompts = suite.formatVersion === "2"
-    ? await buildNumericalPrompts(suite.cases.map((entry) => entry.reference), evidence.profileId, suite.promptVersion)
-    : suite.cases.map((entry) => buildPrompt(entry.reference, evidence.profileId));
   const lengths: ExpressionLength[] = suite.cases.map((entry, index) => {
     const prompt = prompts[index];
     return {

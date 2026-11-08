@@ -1,6 +1,7 @@
 // Runs the pinned native certifier with bounded data, time, and process isolation.
 import { access, constants } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { numericalServiceRoot } from "../runtime-paths";
 import { freezeData } from "../suites/generator";
 import type { NumericalBackend, NumericalCertificate, NumericalResult } from "./types";
 
@@ -9,7 +10,7 @@ const MAX_INPUT_BYTES = 2 * 1024 * 1024;
 const MAX_OUTPUT_BYTES = 32 * 1024 * 1024;
 const MAX_STDERR_BYTES = 16 * 1024;
 const DEADLINE_MS = 60_000;
-const service = new URL("../../../../services/numerics/", import.meta.url);
+const service = numericalServiceRoot;
 const interpreter = fileURLToPath(new URL(".venv/bin/python", service));
 const worker = fileURLToPath(new URL("worker.py", service));
 

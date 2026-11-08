@@ -34,6 +34,7 @@ export function createInferenceClient(
     const startedAt = new Date().toISOString(), start = performance.now();
     let selection: SelectionResult | null = null;
     let httpAttempts = 0;
+    let httpStatus: number | null = null;
     let inferenceRequests: 0 | 1 = 0;
     let failure: DiscoveryFailure | null = null;
     let normalized: NormalizedInference | null = null;
@@ -69,6 +70,7 @@ export function createInferenceClient(
               return parsed;
             });
             httpAttempts += outcome.attempts;
+            httpStatus = outcome.httpStatus;
             inferenceRequests = outcome.attempts === 0 ? 0 : 1;
             if (!outcome.ok) fail(outcome.code, outcome.remoteOutcome);
             else {
@@ -105,7 +107,7 @@ export function createInferenceClient(
       effective: normalized?.effective ?? { maxOutputTokens: null, reasoningEffort: null, truncation: null, nativeSchemaAccepted: null },
       finishReason: normalized?.finishReason ?? null,
       contextFit: request.selection.provider === "openai" && normalized?.effective.truncation === "disabled" && normalized.reply.status !== "provider-error" ? "provider-enforced" : "unverified",
-      evidence, failure: safeFailure, httpAttempts, inferenceRequests,
+      evidence, failure: safeFailure, httpAttempts, httpStatus, inferenceRequests,
       budget: { maxInferenceRequests: 1, maxOutputTokens: request.prompt.generation.maxOutputTokens, metadataTimeoutMs: 20000, inferenceTimeoutMs: 180000, retries: 0 },
     };
     if (reflectsCredential(JSON.stringify(result), credential)) throw new InferenceInputError();

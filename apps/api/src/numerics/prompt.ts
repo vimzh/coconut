@@ -2,7 +2,7 @@
 import { getProfile, MAX_EXPLANATION_CODE_POINTS, MAX_RESPONSE_CODE_UNITS, type PromptBlueprint } from "../protocol";
 import { ProtocolInputError } from "../protocol/validation";
 import { certifyReferences } from "./backend";
-import type { NumericalPromptVersion } from "./types";
+import type { NumericalCertificate, NumericalPromptVersion } from "./types";
 
 export interface NumericalPromptBlueprint extends PromptBlueprint { readonly promptVersion: NumericalPromptVersion }
 
@@ -34,15 +34,23 @@ const currentInstructions = [
 
 // Saved suites must supply their retained version; omission creates new tasks.
 export async function buildNumericalPrompts(inputs: readonly unknown[], profileId: unknown, promptVersion: NumericalPromptVersion = "smooth-v2"): Promise<readonly NumericalPromptBlueprint[]> {
-  const profile = getProfile(profileId);
+  getProfile(profileId);
   if (promptVersion !== "smooth-v1" && promptVersion !== "smooth-v2") throw new ProtocolInputError("invalid-input", "Unknown numerical prompt version.");
-  const instructions = promptVersion === "smooth-v1" ? legacyInstructions : currentInstructions;
   const results = [];
   for (let start = 0; start < inputs.length; start += 64) results.push(...await certifyReferences(inputs.slice(start, start + 64)));
   return results.map((result) => {
     if (result.status !== "verified") throw new ProtocolInputError("unverified-reference", `Smooth task requires a verified reference: ${result.status} (${result.reason}).`);
-    const { renderedExpression, input } = result.certificate;
-    return Object.freeze({
+    return promptFromNumericalCertificate(result.certificate, profileId, promptVersion);
+  });
+}
+
+// Persistence checks wording from a certificate already admitted by the native verifier.
+export function promptFromNumericalCertificate(certificate: NumericalCertificate, profileId: unknown, promptVersion: NumericalPromptVersion): NumericalPromptBlueprint {
+  const profile = getProfile(profileId);
+  if (promptVersion !== "smooth-v1" && promptVersion !== "smooth-v2") throw new ProtocolInputError("invalid-input", "Unknown numerical prompt version.");
+  const instructions = promptVersion === "smooth-v1" ? legacyInstructions : currentInstructions;
+  const { renderedExpression, input } = certificate;
+  return Object.freeze({
       protocolVersion: "1", promptVersion, profileId: profile.id,
       messages: Object.freeze([
         Object.freeze({ role: "system", content: instructions }),
@@ -52,7 +60,6 @@ export async function buildNumericalPrompts(inputs: readonly unknown[], profileI
       generation: Object.freeze({
         maxOutputTokens: profile.maxOutputTokens, sampling: profile.sampling, reasoning: profile.reasoning, tools: profile.tools,
       }),
-    });
   });
 }
 

@@ -49,6 +49,7 @@ export interface InferenceResult {
   readonly evidence: AttemptEvidence;
   readonly failure: DiscoveryFailure | null;
   readonly httpAttempts: number;
+  readonly httpStatus?: number | null;
   readonly inferenceRequests: 0 | 1;
   readonly budget: {
     readonly maxInferenceRequests: 1;
