@@ -45,22 +45,22 @@ export function TaskSlide() {
           <h3>Convex</h3>
           <p className={styles.sampleEquation}>f(x) = x<sup>2</sup></p>
           <FunctionGraph kind="convex" className={styles.functionGraph} />
+          <p className={styles.shapeExplanation}>Curves upward like a cup (∪).</p>
           <p className={styles.definitionEquation}>f(z) ≤ tf(x) + (1 − t)f(y)</p>
-          <p>The graph lies on or below every chord.</p>
         </article>
         <article className={styles.classification}>
           <h3>Concave</h3>
           <p className={styles.sampleEquation}>f(x) = −x<sup>2</sup></p>
           <FunctionGraph kind="concave" className={styles.functionGraph} />
+          <p className={styles.shapeExplanation}>Curves downward like an upside-down cup (∩).</p>
           <p className={styles.definitionEquation}>f(z) ≥ tf(x) + (1 − t)f(y)</p>
-          <p>The graph lies on or above every chord.</p>
         </article>
         <article className={styles.classification}>
           <h3>Neither</h3>
           <p className={styles.sampleEquation}>f(x) = x<sup>3</sup></p>
           <FunctionGraph kind="neither" className={styles.functionGraph} />
           <p className={styles.neitherDefinition}>Neither convex nor concave on D.</p>
-          <p>Some chords lie above the graph; others lie below it.</p>
+          <p className={styles.shapeExplanation}>Some chords lie above the graph; others lie below it.</p>
         </article>
       </div>
       <div className={styles.bottomNote}><span>Each inequality must hold for every x, y and t above.</span><span>Affine functions satisfy both; this evaluation excludes them.</span></div>

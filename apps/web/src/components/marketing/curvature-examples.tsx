@@ -4,13 +4,13 @@ import { FunctionGraph } from "@/components/marketing/function-graph";
 const examples = [
   {
     kind: "convex", expression: "x²", label: "Convex",
-    definition: "The graph lies at or below every chord joining two graph points.",
+    definition: "A convex function is a real-valued function whose graph curves upward like a cup (∪).",
     condition: "f(z) ≤ t f(x) + (1 − t)f(y)",
     reason: "For x², f″(x) = 2 > 0 throughout D, so it is convex.",
   },
   {
     kind: "concave", expression: "−x²", label: "Concave",
-    definition: "The graph lies at or above every chord joining two graph points.",
+    definition: "A concave function is a real-valued function whose graph curves downward like an upside-down cup (∩).",
     condition: "f(z) ≥ t f(x) + (1 − t)f(y)",
     reason: "For −x², f″(x) = −2 < 0 throughout D, so it is concave.",
   },
@@ -48,7 +48,7 @@ export function CurvatureExamples() {
         ))}
       </div>
       <p className="border-t border-border px-5 py-4 text-xs leading-5 text-muted-foreground sm:px-6">
-        Solid lines show functions; dashed lines show selected chords. The derivative checks establish the labels on the whole interval. These examples are separate from the tasks used to score models.
+        Cup shapes describe the bend. A convex function can keep increasing or decreasing throughout the interval; it does not need a turning point. Solid lines show functions; dashed lines show selected chords. The derivative checks establish the labels on the whole interval. These examples are separate from the tasks used to score models.
       </p>
     </div>
   );

@@ -66,7 +66,7 @@
 .functionGraph text { font-size: 21px; fill: var(--secondary-ink); }
 .definitionEquation { grid-column: 1 / -1; font: italic 21px/1.5 Georgia, "Times New Roman", serif; }
 .neitherDefinition { grid-column: 1 / -1; font-size: 15px; line-height: 2.1; }
-.classification > p:last-child { grid-column: 1 / -1; color: var(--secondary-ink); font-size: 15px; line-height: 1.6; margin-top: 8px; }
+.shapeExplanation { grid-column: 1 / -1; color: var(--secondary-ink); font-size: 15px; line-height: 1.6; margin-top: 8px; }
 .bottomNote { display: flex; gap: 12px; justify-content: space-between; margin-top: 36px; color: var(--secondary-ink); font: 11px/1.6 var(--font-mono); }
 .interpretationGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .strongPanel, .failurePanel { border: 1px solid var(--rule); border-radius: 16px; padding: 20px 24px; background: var(--mint); }
@@ -218,7 +218,7 @@
   .classification .sampleEquation { margin: 0; font-size: 26px; }
   .functionGraph { height: 150px; margin-block: 12px; }
   .definitionEquation { font-size: 21px; }
-  .classification > p:last-child { font-size: 14px; }
+  .shapeExplanation { font-size: 14px; }
   .useCaseGrid, .interpretationGrid, .methodGrid { grid-template-columns: 1fr; gap: 32px; }
   .useCase { padding: 20px; }
   .strongPanel, .failurePanel { padding: 16px 20px; }
