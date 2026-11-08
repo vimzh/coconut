@@ -6,7 +6,7 @@
 
 <p align="center">A convexity evaluation workbench for people comparing language models, with certified mathematical tasks and inspectable answers behind every score.</p>
 
-<p align="center"><a href="docs/research/composition-results-v1.md">Explore the current results</a> · <a href="#run-locally">Run locally</a></p>
+<p align="center"><a href="docs/research/deep-study-results-v2.md">Explore the current results</a> · <a href="#run-locally">Run locally</a></p>
 
 <!-- README-HACK:NEEDS-OWNER key="demo-video" instruction="Add the final public demo video link beside the results link above." -->
 <!-- README-HACK:NEEDS-OWNER key="live-demo" instruction="Add a verified public deployment URL beside the results link above; the repository currently documents local operation only." -->
@@ -19,7 +19,7 @@ A useful model comparison needs a trustworthy reference answer and enough eviden
 
 ## What Coconut does
 
-The home page opens with the current benchmark and its audited score summary. Choose **View results** to read it or **Run this benchmark** to evaluate the same workload with your own key. Answer inspection is available in authorized run reports.
+The home page shows the latest audited research study: the same 620 functions attempted once on Astra, Mini and Luna. Choose **View results** to inspect scores or **Open 27-task workbench** to run the separate visitor workload with your own key. The private research study and visitor workload have different tasks and trial counts. Answer inspection is available in authorized run reports.
 
 1. **Choose the experiment.** The current 27-task suite is selected by default; six other suites sit under **Advanced workloads**. Connect with your own provider key, select an exact model, answer format, and supported reasoning settings. Review the request count and explicitly approve provider charges.
 2. **Follow the run.** Each task gets three fresh requests. Watch progress, cancel further work, and retain the outcomes already recorded.
@@ -36,7 +36,7 @@ placement: after "What Coconut does"
 
 ## Certify the task before grading the model
 
-The recommended **nested composition exploration** has **27 certified tasks in nine related groups**, with **2, 4 and 6 successive nonlinear stages** (expression-tree depths 7, 13 and 19). Every sequence/stage contains all three labels with the same outer expression form. Three fresh trials mean **81 requests per model**. Exact rational references and an independent Python implementation supplement whole-domain native certificates. This two-atom exploration remains unranked; [design and limits](docs/research/composition-design-v1.md) distinguish genuine composition from the preserved associative structural-depth pilots.
+The visitor workbench's recommended **nested composition exploration** has **27 certified tasks in nine related groups**, with **2, 4 and 6 successive nonlinear stages** (expression-tree depths 7, 13 and 19). Every sequence/stage contains all three labels with the same outer expression form. Three fresh trials mean **81 requests per model**. Exact rational references and an independent Python implementation supplement whole-domain native certificates. This two-atom exploration remains unranked; [design and limits](docs/research/composition-design-v1.md) distinguish genuine composition from the preserved associative structural-depth pilots.
 
 The preserved **curvature challenge** contains **72 tasks across eight families and 24 related parameter groups**. Every family includes all three labels. Three trials per task produce **216 planned inference requests**.
 
@@ -47,6 +47,8 @@ The [challenge design](docs/research/challenge-design-v1.md) records formulas, c
 ## A score you can investigate
 
 The grader scores the returned label and retains the explanation for inspection. Malformed responses, refusals, and truncations count as unsuccessful model outcomes. Provider failures and unattempted work remain separate, leaving incomplete scores provisional or unavailable. An access probe produces no evaluation score.
+
+The latest [single-response deep study](docs/research/deep-study-results-v2.md) retained all **1,860 attempts**: Astra **611/613** correct model outcomes, Mini **214/616**, Luna **255/615**. Their macro-F1 scores are **99.76, 50.27 and 56.09 on a 0–100 scale**. Sixteen unknown infrastructure outcomes are excluded from these denominators and remain visible in coverage. Astra made one independently checked mathematical classification error at requested generator depth 40; its depth-512 loss was a token truncation. These exploratory results are unranked and do not establish repeat consistency or a universal failure depth.
 
 The retained OpenAI replication includes these four completed confirmation runs:
 
@@ -97,10 +99,10 @@ bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
 
 See the [development guide](docs/development.md) for tests, production build/start commands, origin configuration, and additional suite tools.
 
-A separate private deep-import workflow now integrates a pinned external generator with exact-display reference checks and a bounded single-response Astra pilot. The [14b handoff](docs/handoffs/14b-randomized-certified-evaluation.md) records reproduction commands and its inconclusive result: one correct answer, one timeout and one unattempted question, using two development sends. This supplies no frontier mathematical-failure finding; upstream public redistribution clearance and the final 800-task study remain pending.
+A separate private deep-import workflow integrates a pinned external generator with exact-display reference checks. The [14b handoff](docs/handoffs/14b-randomized-certified-evaluation.md) records its inconclusive two-send Astra pilot. The [Module 15 handoff](docs/handoffs/15-deep-composition-stress-evaluation.md) records the independently reviewed 800-case source pool, the user-amended 620-task/model evaluation, immutable attempt ledgers, all-result audits and safe aggregate export. Raw-source/output redistribution clearance remains unresolved, so expressions and provider transcripts stay private.
 
 ## What's next
 
 - Verify OpenRouter and Hugging Face inference with authorized service access.
 - Validate hosted operation, including TLS and proxy logging, before offering a public deployment.
-- Investigate broader independently reviewed task populations and difficulty controls. The current results do not support a frontier mathematical-failure claim.
+- Investigate broader task populations and repeated-error evidence. The observed single-response counterexample does not meet the stronger repeated-error criterion.

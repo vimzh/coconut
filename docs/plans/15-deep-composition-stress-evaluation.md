@@ -1,6 +1,6 @@
 # Module 15 implementation plan
 
-Status: the full 800-case source pool and independent review passed. Under A-15-02, a separately frozen 620-task/model continuation started at 19:46:44 UTC on 2026-11-08 with a 120-request cap. It preserves all 562 original attempts, including 12 interruptions; at most 1,298 new authorizations remain. Final outcome review/reporting remain pending.
+Status: A-15-02 implementation, execution, independent audit and actual-result browser verification are complete. All 1,860 selected cells were attempted once; the continuation finished at 2026-11-08T20:31:35.615Z after 44 minutes 51 seconds at a 120-request cap. All records, 764 wrong/unusable diagnoses and 1,080 correct-label explanation inspections are reconciled. Sixteen unknown infrastructure outcomes make scores provisional. The safe v2 export is installed. See the [terminal results](../research/deep-study-results-v2.md).
 
 The user froze Astra (`gpt-6-astra`), Mini (`gpt-5.4-mini`) and Luna (`gpt-6-luna`), then explicitly reduced the two highest buckets to ten cases each. A-15-02 below supersedes the original execution counts and fixed twelve-worker scheduling. The 800-case construction and original evidence remain immutable. No descending score shape is required.
 

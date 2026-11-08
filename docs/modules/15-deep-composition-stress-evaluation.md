@@ -2,7 +2,7 @@
 
 ## Status
 
-In progress — the full 800-case source pool is admitted and independently reviewed; all three live research-profile controls passed. User amendment A-15-02 selects the same 620 tasks for each model, with 100 through depth 160 and ten each at 320/512. The original run stopped with 562 retained attempts, including 12 interrupted unknown outcomes. The separately frozen continuation started at 19:46:44 UTC on 2026-11-08 with a 120-request cap and 1,298 remaining authorizations. Outcome review, final score export and actual-result landing verification remain pending. See the [implementation plan](../plans/15-deep-composition-stress-evaluation.md#a-15-02-user-directed-cost-and-throughput-amendment) and [handoff](../handoffs/15-deep-composition-stress-evaluation.md). No completed curve follows from an in-progress run.
+Complete within the declared single-response scope: terminal execution, independent audit and actual-result desktop/mobile verification passed. A-15-02 attempted the same 620 tasks on each of Astra, Mini and Luna: 1,860 retained attempts, with no retry or replacement. Sixteen infrastructure outcomes remain unknown (12 approved transition cancellations and four later Astra timeouts), so scores are provisional. Astra has one verified wrong valid label at requested depth 40 and one truncation at 512. The [results](../research/deep-study-results-v2.md) and [handoff](../handoffs/15-deep-composition-stress-evaluation.md) bind the final evidence; the safe aggregate is installed. The stronger repeated-error G-SIGNAL criterion remains unchanged.
 
 ## Purpose
 

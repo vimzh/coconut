@@ -1,17 +1,17 @@
-# Module 15 implementation checkpoint
+# Module 15 implementation handoff
 
-Status: **amended continuation running**. The full 800-case source pool and independent review passed; three live profile controls passed. User amendment A-15-02 selects 620 tasks/model (1,860 final authorizations). The original run is terminal with 562 retained attempts, including 12 interrupted unknown outcomes. The continuation started at `2026-11-08T19:46:44.711Z` with a 120-request cap and a 1,298-new-send budget. Terminal outcome review, public export and actual-result browser verification remain pending. This checkpoint is not a completed evaluation.
+Status: **complete within the declared single-response scope; results remain provisional where infrastructure is unknown**. The same 620 tasks/model produced 1,860 retained attempts with zero retries or replacements. The continuation finished at `2026-11-08T20:31:35.615Z`, retaining all 562 original attempts. Twelve transition cancellations plus four later Astra timeouts remain unknown, so scores are provisional. The real audited aggregate is installed. See [terminal results](../research/deep-study-results-v2.md); this single-trial finding does not satisfy the unchanged repeated-error G-SIGNAL criterion.
 
 ## Implemented scope
 
 - `apps/api/src/deep-study/`: separate seeded population policy, exact displayed-function admission, immutable source/reference/rejection records, known-development and control exposure exclusions, bounded simplification, related groups and coverage; eight bounded stratum manifests feed one shared population.
 - Research-only official-SDK transport: requested Astra/max, Mini/xhigh and Luna/max; 32,768 output tokens, 600,000 ms, one response, zero retries, fixed destination, credential/header isolation, bounded reads and original outcome retention. Ordinary profiles/caps/trials are unchanged; the shared parser change only broadens its type context for an explicitly supplied response cap.
-- Unique model/case/trial receipts before dispatch, exclusive start/lock artifacts, conservative unknown-send accounting, aggregate concurrency at most 12, terminal validation and all-result replay. The finite roster permits 2,400 final sends within the 2,430 shared ceiling. Before final dispatch, shared development was 5/30: two earlier 14b sends (one unknown) plus three accepted controls. Final sends are accumulating in the immutable ledger.
+- Unique model/case/trial receipts before dispatch, exclusive start/lock artifacts, conservative unknown-send accounting, terminal validation and all-result replay. The original twelve-worker run is immutable. A-15-02 continued only unattempted selected cells at 120 concurrency: 1,860 final authorizations plus five shared development sends, within the amended 1,890 ceiling. No original interruption or later timeout was resent.
 - Full independent proof/order replay is bound to a complete exact-byte population snapshot. Review, freeze and later paid-start/report reads compare snapshots before and after loading; unchanged bytes, case bindings and implementation preserve the reviewed proof without repeating thousands of Python checks per read. Streaming uses one 1 MiB buffer, existing file bounds and explicit mutation/symlink rejection.
 - Public exporter requires independently reconstructed arithmetic, a reference-bound audit, a diagnosis bound to every wrong/unusable transcript and request, correct-label explanation inspection, and audit chronology after the evidence cutoff. Only aggregate counts/settings/hashes enter the landing JSON.
-- Landing supports the eight requested depth columns and three model rows with actual denominators, coverage and separate unusable/provider/unknown/missing states. It retains the current composition table while the new projection is pending. The visitor workbench remains 27 tasks × three responses.
+- Landing shows the latest audited 620-task study at eight requested depths and three model rows, with actual denominators, coverage and separate unusable/provider/unknown states. Historical result JSON remains unchanged. The visitor workbench remains 27 tasks × three responses.
 
-## Construction evidence so far
+## Construction evidence
 
 The original 64-batch depth-512 feasibility sweep completed all 768 proposals: 48 convex, 33 concave and 77 neither independently certified; 610 were unverified (569 strict-witness unresolved, 41 proof-work limit). Its 33/34/33 quota is therefore impossible under that initial proposal bound. This is proof feasibility, not model performance.
 
@@ -32,7 +32,7 @@ The source generator, Python environment and frozen checker did not change durin
 
 All received outcomes remain retained: 800 admitted, 471 quota-filled and 2,173 unverified-disposition (including two rejected affine cases). There were no exact/simplified-duplicate or known-prior-exposure hits under the declared signatures. Final references comprise 410 strict-composition and 390 strict-Jensen certificates, with 656 signed witnesses. The population has 791 related groups; fixed-point enclosures prove 108,336 of 319,600 pairs unequal, leaving 211,264 unknown. The 14,714 retained files occupy 2,604,365,041 bytes. These are construction facts, not model-performance measurements.
 
-## Final freeze and calibration
+## Original freeze and calibration
 
 Independent review completed at 2026-11-08T18:42:26.801Z: all 3,444 proposal/order records, 800 certificates and 656 Jensen gaps replayed; 4,800 offline grader comparisons and all 2,400 neutral request bodies passed. Opening and closing exact-byte snapshots matched. Bounded polynomial/control-alias checks found no demonstrated overlap across the 800 cases, 24 development proposals and 12 earlier smokes. The pass record and detailed query evidence remain outside the frozen population root.
 
@@ -53,7 +53,7 @@ Observed control rate limits were 15,000 requests/40,000,000 tokens for Astra an
 - API lint, TypeScript and build passed. Web tests: 83 passed under Bun 1.4.4; web lint, route/type generation, TypeScript and production build passed.
 - Frozen numerical regression suite: 40 passed; Ruff passed for numerical code and the new diagnostic worker.
 - Independent code review found control exposure, failure-replay, terminal-corruption and audit-binding/chronology issues; these were corrected and covered by targeted tests.
-- Isolated production browser QA used complete and partial synthetic summaries, never the main public JSON. All eight columns/three rows, scores/counts/states, disclosures, workbench distinction and focus passed. An initial document-overflow defect was repaired by making the table scroll region the containing block. Recheck passed at desktop 1440/1440 and mobile 390/390 document widths; keyboard, wheel and far-right depth-512 scrolling passed. No non-GET browser requests or console errors were observed. Actual published-result browser verification remains pending.
+- Isolated production browser QA used complete and partial synthetic summaries, never the main public JSON. All eight columns/three rows, scores/counts/states, disclosures, workbench distinction and focus passed. An initial document-overflow defect was repaired by making the table scroll region the containing block. Recheck passed at desktop 1440/1440 and mobile 390/390 document widths; keyboard, wheel and far-right depth-512 scrolling passed. No non-GET browser requests or console errors were observed. Subsequent actual-result desktop/mobile verification passed with the real audited aggregate, as recorded below.
 
 ## Diagnostic and claim limits
 
@@ -65,11 +65,11 @@ Live compatibility is established for the retained requested/reported identities
 
 Raw source/output redistribution clearance remains unresolved. Source CSVs, expressions, references and provider transcripts stay private. No deployment or external hackathon submission has been made.
 
-## Remaining work
+## Delivery status
 
-Finish the frozen one-response execution; inspect and audit all original outcomes, including correct-label explanations; replace the landing projection with the real safe export; verify the actual page and record terminal usage, costs/unknowns and verdicts. Exact operator commands are in the [implementation plan](../plans/15-deep-composition-stress-evaluation.md#operator-commands).
+Terminal execution, independent reference/metric/transcript audits and safe aggregate installation are complete. Production desktop/mobile browser verification passed. Raw-data redistribution, stronger repeated-error evidence, external deployment and submission remain unresolved or outside scope. Exact historical and continuation commands are in the [implementation plan](../plans/15-deep-composition-stress-evaluation.md#operator-commands); paid commands are already used and must not be repeated.
 
-## A-15-02 continuation checkpoint
+## A-15-02 amendment record
 
 The user confirmed 100 tasks at each requested depth 5/10/20/40/80/160 and ten at 320/512, identical across models. The deterministic source-order class selection has supports 207 convex / 207 concave / 206 neither. All high-depth tasks were unattempted when this change was requested. The original 800-case pool, reference review, source policy and 562 authorized cells remain intact. The ceiling is now 30 + 1,860 = 1,890; five development sends are already charged.
 
@@ -94,6 +94,20 @@ The source-only selected-cohort profile is retained outside the frozen roots at 
 
 The selected raw AST depths span 6–1,617; depth-512 simplified nonlinear paths span 3–344. Requested depth therefore cannot establish the mathematical depth of every individual case. The source pool's admission rate and certifiability filter also limit comparison with unrestricted source proposals; this is an adapted certified population, not a replication of an external experiment.
 
-The first confirmed Astra wrong label occurs at requested depth 40, case `final-358977cdd4e11bee28ab04f40b800a746c6e13825383d871e292df43d62f417e`: complete valid JSON says neither; the actual displayed function has a strict convexity certificate. The explanation misses the negation immediately surrounding a negative absolute-value term, reversing its kink sign. Independent fresh proof replay matches retained trace `eac693835ed431e5bc98e1aa1cd0ed753396d354d93a25135950333ea18ce43c`; root separately traced the outward signs. Its reference/request/result bindings and diagnosis are retained in the private audit and root cross-check. This is one observed mathematical counterexample, not a repeated-error result, completed score or monotonic failure threshold. All remaining selected cases continue without adaptation or replacement.
+The confirmed Astra wrong label occurs at requested depth 40, case `final-358977cdd4e11bee28ab04f40b800a746c6e13825383d871e292df43d62f417e`: complete valid JSON says neither; the actual displayed function has a strict convexity certificate. The explanation misses the negation immediately surrounding a negative absolute-value term, reversing its kink sign. Independent fresh proof replay matches retained trace `eac693835ed431e5bc98e1aa1cd0ed753396d354d93a25135950333ea18ce43c`; root separately traced the outward signs. Its reference/request/result bindings and diagnosis are retained in the private audit and root cross-check. This establishes one observed mathematical counterexample; repeat consistency and a monotonic failure threshold remain unestablished. All remaining selected cases were attempted without adaptation or replacement.
 
-Fifteen operator tests/152 assertions, strict TypeScript, ESLint, bundle build and whitespace checks pass. Tests cover large baseline chunk replay, exact-runtime source hashing, duplicate/budget rejection, rate-limit generation drains, persistence failure, partial/unknown populations, identity drift and audited v2 export. The v2 landing reader's nine targeted tests pass; isolated desktop/mobile fixtures also passed with long opaque IDs and 620/100/10 populations. Main public JSON still contains the pending projection until real audit/export. The observed 120 authorizations verify launch, not later throughput or a complete study.
+Fifteen operator tests/152 assertions, strict TypeScript, ESLint, bundle build and whitespace checks pass. Tests cover large baseline chunk replay, exact-runtime source hashing, duplicate/budget rejection, rate-limit generation drains, persistence failure, partial/unknown populations, identity drift and audited v2 export. With the actual final public JSON installed, all 86 web tests, lint, route/type generation, TypeScript and production build pass. Earlier isolated desktop/mobile fixtures also passed with long IDs and 620/100/10 populations. Final actual-result browser checks passed independently at desktop 1440 and mobile 390; all 27 displayed cells and 27 outcome disclosures match the served aggregate. The scroll region reaches depth 512 with the model column visible, and the document has no overflow. Console errors: zero; a repeated nonblocking CSS-preload timing warning remains. The 27-task workbench link is present, but that provider flow was not launched in this final read-only check.
+
+## Terminal evidence and resources
+
+| Model | Correct/model outcomes | Wrong valid | Unusable | Unknown infrastructure | Macro-F1 | Accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Astra | 611/613 | 1 | 1 | 7 | 0.997551 | 99.6737% |
+| Mini | 214/616 | 20 | 382 | 4 | 0.502697 | 34.7403% |
+| Luna | 255/615 | 28 | 332 | 5 | 0.560871 | 41.4634% |
+
+All 620 cells/model are authorized, retained and inspected, with zero active or unattempted work. Infrastructure is excluded from model scores; returned unusable outcomes are included as failures. The continuation used 1,298 new sends after 562 original sends, with no rate-limit fallback. Maximum retained local authorized-active count was 120; exact remote concurrency after unknown interruptions is unobservable. Continuation wall time was 2,690,904 ms; total from the original start, including the transition gap, was 6,264,441 ms. The terminal stop reason is timeout, after all cells had already been authorized; remaining active calls drained.
+
+Three post-terminal model audits bind all 1,860 original result/dispatch/reference/request inventories. Root separately reconstructs every confusion count, class metric, accuracy and macro-F1 in Python. The combined outcome audit covers 764 wrong/unusable diagnoses, 1,080 correct-label explanation inspections and 42 separate explanation findings. Inspection is AI-assisted and not formal certification of model explanations. Public summary/report SHA: `0d2364a9562aadbd25992a314d50602143e4ab1bf3d06afd16cb6efcf614f2a1`; merged rows SHA: `50719c47c2c3db8d1f1c1dbbc6dc8727bb27536624325d70381d24ad48ec0f07`.
+
+Private evidence outside the immutable roots includes `final-outcome-audit-v2.json`, `deep-study-audit-<model-id>-v1.json`, `deep-study-independent-metrics-v2.json`, `deep-study-resource-audit-v2.json` and the source-only selected-cohort profile. The immutable export is `deep-study-amendment-v2/public-summary-v2.json`; its bytes are copied to `apps/web/public/deep-study-scores.json` only after validation. The [research record](../research/deep-study-results-v2.md) contains all eight depth scores and reported token usage. Final-attempt usage covers 1,844/1,860 cells: 2,262,473 input and 36,985,320 output tokens, including 36,720,540 reasoning tokens already within output. Missing remote usage and billed dollar costs remain unknown.
