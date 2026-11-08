@@ -2,7 +2,7 @@
 
 ## Status
 
-Planned — the evaluation design is agreed; deep reference certification, task construction, protocol implementation and model evidence are pending. This document creates a phase, not a completed evaluation or an instruction to dispatch calls now.
+Planned — complete [mini module 14a's product flow cleanup](14a-product-flow-cleanup.md) first. The evaluation design is agreed; deep reference certification, task construction, protocol implementation and model evidence are pending. This document creates a phase, not a completed evaluation or an instruction to dispatch calls now.
 
 ## Purpose
 
@@ -30,6 +30,8 @@ D-13 is a new research design for this phase. It replaces the proposed three-tri
 The user's eight-level amendment replaces this phase's original 10/30/100-stage, 300-case design before any phase-15 model dispatch. Lower performance at higher stages is a hypothesis to test, not an admission rule or required score shape. Retain flat, improving and nonmonotonic curves as observed.
 
 ## Dependencies and Current Feasibility Boundary
+
+The user-directed order is **14a cleanup → 15 evaluation**. Require the cleanup handoff before implementation or new Phase 15 model runs. The cleanup clarifies the current 27-task/three-trial product; it does not implement this phase's 800-task/single-trial workload.
 
 Reuse modules 01–04 for references, prompts, generation and scoring; 07–08 for bounded inference and evidence; and 14 for quality checks. Read the [idea](../idea.md), [roadmap](../ROADMAP.md), [quality criteria](../research/quality-criteria-v1.md), [composition repair plan](../plans/composition-repair-v1.md) and [current composition implementation](../../apps/api/src/composition/candidates.ts) before implementation. Coordinate with active repair work and retain all existing artifacts.
 
