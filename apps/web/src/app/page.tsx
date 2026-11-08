@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { CurvatureExamples } from "@/components/marketing/curvature-examples";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
+import { ModelDirectory } from "@/components/marketing/model-directory";
 import { Button } from "@/components/ui/button";
 import styles from "./page.module.css";
 
@@ -38,6 +39,8 @@ export default function Home() {
         </div>
         <CurvatureIllustration />
       </section>
+
+      <ModelDirectory />
 
       <section aria-labelledby="task-title" className="grid gap-8 border-t border-border py-12 sm:py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
         <div>
