@@ -29,7 +29,7 @@
 }
 
 @theme inline {
-  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-sans: var(--font-helvetica-neue), sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
