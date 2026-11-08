@@ -50,6 +50,7 @@
 .classification { border-top: 1px solid var(--ink); padding-top: 18px; }
 .mathIndex { font-family: Georgia, "Times New Roman", serif; font-size: 14px; color: var(--secondary-ink); }
 .classification h3 { font-size: 21px; margin-top: 16px; font-weight: 500; }
+.curvatureSketch { display: block; width: 100%; height: 100px; margin-top: 16px; }
 .classification .sampleEquation { font: italic 54px/1.2 Georgia, "Times New Roman", serif; margin: 24px 0; color: var(--ink); }
 .sampleEquation sup { font-size: 30px; }
 .classification > p:last-child { color: var(--secondary-ink); font-size: 16px; line-height: 1.6; max-width: 280px; }
@@ -110,7 +111,11 @@
   .useCase, .signal { padding-block: 14px; }
   .useCase { padding-block: 12px; }
   .classificationGrid { margin-top: 28px; }
-  .classification .sampleEquation { margin-block: 16px; }
+  .classification { padding-top: 14px; }
+  .classification h3 { margin-top: 8px; }
+  .classification .sampleEquation { margin-block: 12px; font-size: 44px; }
+  .curvatureSketch { height: 60px; margin-top: 12px; }
+  .bottomNote { margin-top: 24px; }
   .steps li { padding-block: 14px; }
   .scopeStudy { padding: 20px; }
   .scopeExample { margin-bottom: 20px; }
@@ -151,7 +156,8 @@
   .classificationGrid { grid-template-columns: 1fr; gap: 24px; }
   .classification { display: grid; grid-template-columns: 24px 1fr auto; column-gap: 12px; align-items: baseline; padding-top: 12px; }
   .classification h3 { margin-top: 0; }
-  .classification .sampleEquation { margin: 0; font-size: 32px; }
+  .curvatureSketch { grid-column: 2 / 4; grid-row: 2; height: 80px; margin-top: 8px; }
+  .classification .sampleEquation { grid-column: 3; grid-row: 1; margin: 0; font-size: 32px; }
   .sampleEquation sup { font-size: 18px; }
   .classification > p:last-child { grid-column: 2 / 4; max-width: none; font-size: 14px; margin-top: 8px; }
   .useCaseGrid, .interpretationGrid, .methodGrid { grid-template-columns: 1fr; gap: 32px; }

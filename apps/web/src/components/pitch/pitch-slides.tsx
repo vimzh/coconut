@@ -1,6 +1,7 @@
 // Static pitch content; examples illustrate the task and are separate from measured results.
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { CurvatureSketch } from "./curvature-sketch";
 import styles from "./pitch.module.css";
 
 function SlideHeading({ label, children }: { label: string; children: ReactNode }) {
@@ -33,23 +34,26 @@ export function IntroductionSlide() {
 export function TaskSlide() {
   return (
     <div>
-      <SlideHeading label="The evaluation">Classify the function.<br />Keep the whole domain in view.</SlideHeading>
-      <p className={styles.lead}>CoconutEval asks a model to identify curvature, then checks its answer against a mathematically certified reference.</p>
+      <SlideHeading label="First, the shapes">Convex, concave, or neither.</SlideHeading>
+      <p className={styles.lead}>A chord is a straight line segment between two points on a curve. CoconutEval asks which relationship holds on the whole interval.</p>
       <div className={styles.classificationGrid}>
         <article className={styles.classification}>
           <span className={styles.mathIndex}>I</span><h3>Convex</h3>
+          <CurvatureSketch kind="convex" />
           <p className={styles.sampleEquation}>x<sup>2</sup></p>
-          <p>The curve sits below every chord connecting two of its points.</p>
+          <p>Bowl-shaped: every chord lies on or above the curve.</p>
         </article>
         <article className={styles.classification}>
           <span className={styles.mathIndex}>II</span><h3>Concave</h3>
+          <CurvatureSketch kind="concave" />
           <p className={styles.sampleEquation}>−x<sup>2</sup></p>
-          <p>The curve sits above every chord connecting two of its points.</p>
+          <p>Dome-shaped: every chord lies on or below the curve.</p>
         </article>
         <article className={styles.classification}>
           <span className={styles.mathIndex}>III</span><h3>Neither</h3>
+          <CurvatureSketch kind="neither" />
           <p className={styles.sampleEquation}>x<sup>3</sup></p>
-          <p>Both curvature conditions fail somewhere in the domain.</p>
+          <p>Here, the bend changes direction. Both conditions fail somewhere in the interval.</p>
         </article>
       </div>
       <div className={styles.bottomNote}><span>All three examples use x ∈ [−1, 1]</span><span>Illustrations, separate from scored tasks</span></div>

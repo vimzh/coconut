@@ -22,19 +22,23 @@ We give a model a mathematical expression and ask it to classify the function ov
 
 The audience is hackathon judges and people evaluating language models. The goal is to explain what CoconutEval measures and lead into a live evaluation or retained report. Present this as a narrow, inspectable measurement rather than a test of general intelligence.
 
-## Slide 2 — The evaluation
+## Slide 2 — First, the shapes
 
-**Classify the function. Keep the whole domain in view.**
+**Convex, concave, or neither.**
 
-CoconutEval asks a model to identify curvature, then checks its answer against a mathematically certified reference.
+A chord is a straight line segment between two points on a curve. CoconutEval asks which relationship holds on the whole interval.
 
 | Answer | Illustrative function on `[-1, 1]` | Meaning |
 | --- | --- | --- |
-| Convex | `x²` | The curve sits below every chord connecting two of its points. |
-| Concave | `−x²` | The curve sits above every chord connecting two of its points. |
-| Neither | `x³` | Both curvature conditions fail somewhere in the domain. |
+| Convex | `x²` | Bowl-shaped: every chord lies on or above the curve. |
+| Concave | `−x²` | Dome-shaped: every chord lies on or below the curve. |
+| Neither | `x³` | Here, the bend changes direction. Both conditions fail somewhere in the interval. |
+
+Show a small graph beside each example. Dashed chords sit above the convex curve and below the concave curve; the cubic shows both relationships on different parts of the interval.
 
 ### Speaker notes
+
+Begin with the drawings before introducing nested expressions. A chord joins any two points of a graph with a straight segment. A convex function stays on or below every such segment; a concave function stays on or above it. The condition must hold for every pair in the stated interval, not just the chord in the illustration. “Bowl” and “dome” are visual intuition, not a requirement to have a turning point or a global minimum/maximum.
 
 Nested expressions combine operations whose signs, ranges, and domains affect the final answer. Our task requires a label for the whole supplied interval. For example, `x³` is neither on `[-1, 1]`, but convex on `[0, 1]`.
 
@@ -142,5 +146,6 @@ Verified on 8 November 2026:
 - `bun run --filter @coconut/web test`: 58 tests passed.
 - `bun run --filter @coconut/web build`: passed; `/pitch` is statically generated.
 - Browser checks: all five slides at 1440×900, 1280×720, and 390×844; previous/next buttons, Left/Right boundaries, Home/End, Page Up/Page Down, and scroll reset. Dense slides scroll within the mobile viewport while controls remain available. Screenshots were inspected and the console had no application errors.
+- The introductory-shapes update adds three labeled curve/chord diagrams before the use cases. Its desktop/mobile screenshots were inspected, the full slide fits at 1280×720, and frontend lint/type checks/build and all 58 existing tests pass again.
 
 The preview uses port 3210 because the existing server on 3200 serves an earlier production build. The default application port remains 3200; restarting that server with the new build makes `/pitch` available there. No backend changes or paid model requests were needed. Native PowerPoint export and verification in other browser engines are outside this implementation.

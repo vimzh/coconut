@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function PitchPage() {
   return (
-    <PitchDeck titles={["CoconutEval", "The evaluation", "Why it matters", "How it works", "Reading the score"]}>
+    <PitchDeck titles={["CoconutEval", "First, the shapes", "Why it matters", "How it works", "Reading the score"]}>
       <IntroductionSlide />
       <TaskSlide />
       <RelevanceSlide />
