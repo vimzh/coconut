@@ -31,6 +31,8 @@
 .heading h2 { font-size: clamp(36px, 4.25vw, 64px); line-height: 1.08; font-weight: 400; letter-spacing: -2.5px; }
 .agentSlide .heading { margin-bottom: 20px; }
 .agentSlide .caveat { margin-top: 16px; }
+.interpretationSlide .heading { margin-bottom: 20px; }
+.interpretationSlide .closing { margin-top: 16px; }
 .lead { max-width: 760px; font-size: 19px; line-height: 1.55; color: var(--secondary-ink); }
 .definitionSetup { margin-top: 16px; font-size: 15px; line-height: 1.6; color: var(--secondary-ink); }
 .scoreDefinition { max-width: 850px; margin: -12px 0 24px; font-size: 16px; line-height: 1.6; color: var(--secondary-ink); }

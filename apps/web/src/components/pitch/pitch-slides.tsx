@@ -140,34 +140,34 @@ export function MethodSlide() {
 }
 
 const strongSignals = [
-  { title: "All three classes are handled well", detail: "Check that recall is high for convex, concave, and neither." },
-  { title: "The interval is used correctly", detail: "Check answers to tasks that depend on the interval’s endpoints." },
-  { title: "The expression is read correctly", detail: "Check explanations for correct use of parentheses and minus signs." },
+  { title: "Apply the final override", detail: "Alex gets a standard laptop because the training from 3 months ago overrides the customer-data restriction." },
+  { title: "Change the answer when a condition changes", detail: "Make the training 7 months old: Alex now needs a restricted laptop with extra monitoring." },
+  { title: "Keep exceptions inside their branch", detail: "Recent training alone does not qualify a contractor whose special project was never approved by Security." },
 ];
 
 const failureSignals = [
-  { title: "One class is often missed", detail: "Check whether the model keeps choosing the same label." },
-  { title: "The expression or interval is misread", detail: "Look for a missed restriction or a misplaced minus sign." },
-  { title: "The reply cannot be scored as a label", detail: "Check for invalid JSON or a reply cut short by its output limit." },
+  { title: "Stop one exception too early", detail: "Reject Alex because the project uses customer data, without checking the recent-training exception." },
+  { title: "Apply an override too broadly", detail: "Give every trained contractor a standard laptop, even without a Security-approved special project." },
+  { title: "Contradict its own conclusion", detail: "Return “standard laptop” while the explanation concludes that Alex must get a restricted one." },
 ];
 
 export function InterpretationSlide() {
   return (
-    <div>
-      <SlideHeading>What does the score tell us?</SlideHeading>
-      <p className={styles.scoreDefinition}>Macro-F1 averages the F1 scores for convex, concave, and neither. A higher value means better classification on the tested tasks.</p>
+    <div className={styles.interpretationSlide}>
+      <SlideHeading>What would fail in practice?</SlideHeading>
+      <p className={styles.scoreDefinition}>A strong score is evidence of correct final decisions on this test. Alex’s policy illustrates the practical checks an agent would need to pass.</p>
       <div className={styles.interpretationGrid}>
         <div className={styles.strongPanel}>
-          <h3 className={styles.columnHeading}>High score: verify these three things</h3>
+          <h3 className={styles.columnHeading}>What getting it right looks like</h3>
           {strongSignals.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
         <div className={styles.failurePanel}>
-          <h3 className={styles.columnHeading}>Low score: check these three causes</h3>
+          <h3 className={styles.columnHeading}>Where an LLM or agent could fail</h3>
           {failureSignals.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
       </div>
       <div className={styles.closing}>
-        <p>Read the answers, per-class recall, and variation across trials.<br />A high score alone does not prove correct reasoning or reliable agent behavior.</p>
+        <p>Hypothetical policy pitfalls. Transfer from CoconutEval scores to agent workflows remains untested.</p>
         <Link href="/evaluate">Explore CoconutEval <span aria-hidden="true">↗</span></Link>
       </div>
     </div>
