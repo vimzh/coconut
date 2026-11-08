@@ -1,7 +1,7 @@
 # Independent review of the exploratory interior population
 
 **AI-assisted review; no human mathematical approval.** Performed on 2026-11-08
-against the local worktree at revision `3b2eb91`. This is an offline reference
+against the exact worktree artifacts and source hashes recorded below. This is an offline reference
 review, not an inference run, model-performance result, or approval to rank the
 new population.
 

@@ -1,0 +1,3440 @@
+{
+  "version": "1",
+  "purpose": "exploratory-visible-explanation-review",
+  "selection": "first canonical suite case per family and label; trialIndex=0; two named published max-effort challenge runs",
+  "selectionStatus": "declared before sampled explanation inspection; no outcome replacement",
+  "gradingChanges": false,
+  "gSignalEvidence": false,
+  "reviewerRoles": [
+    "AI-assisted mathematical review of 24 gpt-6-astra explanations",
+    "Separate AI-assisted mathematical review of 24 gpt-6.1-sol explanations"
+  ],
+  "humanExpertApproval": false,
+  "sourceAccess": "Anonymous GET of published local API run views only; no credentials, access codes, paid calls or database mutations",
+  "hashPolicy": "SHA-256 of UTF-8 raw strings; structured records recursively key-sorted compact JSON with Unicode preserved",
+  "sources": [
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "publishedAt": "2026-11-08T05:16:41.065Z",
+      "profileId": "one-shot-json-v2-max",
+      "responseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "caseCount": 72,
+      "logicalTrials": 216,
+      "selected": 24
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "publishedAt": "2026-11-08T05:17:24.379Z",
+      "profileId": "one-shot-json-v2-max",
+      "responseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "caseCount": 72,
+      "logicalTrials": 216,
+      "selected": 24
+    }
+  ],
+  "denominators": {
+    "publishedRuns": 2,
+    "availableRunOutcomes": 432,
+    "selectedExplanations": 48,
+    "reviewedExplanations": 48,
+    "unreviewedRunOutcomes": 384,
+    "distinctMathematicalTasks": 24,
+    "selectedParameterClusters": 8,
+    "selectedTrialsPerTaskPerModel": 1,
+    "selectedLabelsCorrect": 48,
+    "substantiatedFalseExplicitClaims": 0,
+    "noFalseExplicitClaimFound": 48,
+    "ambiguousInsufficientToVerify": 0
+  },
+  "methods": [
+    "Independent direct chain/product/quotient differentiation and domain/sign analysis",
+    "Standard-library exact rational AST-to-polynomial traversal and two coefficient differentiations",
+    "Exact rational witness and inequality arithmetic",
+    "Separately implemented Taylor exponential enclosures to check displayed decimal approximations and transcendental signs",
+    "Endpoint-to-interior continuity arguments checked on smooth functions; endpoints alone never treated as interior witnesses"
+  ],
+  "sampleAndReviewerArtifactHashes": {
+    "selectionSha256": "365b054ed7c46dd4e498b83701613b1a5a21689c96d155fde48fb4f5b9bb5ab4",
+    "astraReviewSha256": "6f2cc12b7177dfbc0c5b18234c98027edbbaac8070f0379154600c8c1eae6bb4",
+    "solReviewSha256": "ee957a0831bb5fcb7a386317a7bc236d0c9d1487dc5b2eae3e7e9c9bcb830f13"
+  },
+  "reviews": [
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-47a8324f03541d32884d93b0e81d33289db88b89d59e83632b2eb99121dd1510",
+      "family": "local-logarithm",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "817e8a98-60d5-4b89-a99a-c9c96c66fca7",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "a2c3ca7bcb1494c22c5a19423ebfe2143ffb1440b44300df3449131d2d73acca",
+      "caseSha256": "a3a8d3b4d9bf64b2f2f2364cde849b9176b5396f722415ed312ba52fd9103962",
+      "inferenceResultSha256": "1ee9daff45872bf821e6402d4f91dfb73a9e906021993317a67a25dec386b2c9",
+      "rawTextSha256": "b77d4fe89792929f4b6ed6529db53682add279d781360c6046532d0092402586",
+      "explanationSha256": "475685cb35f74e7331b6cc6c83e5556affb11362e27a9665fa1f9ea5bc18a64a",
+      "reference": {
+        "expression": {
+          "op": "log",
+          "arg": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1/2",
+          "max": "1/2"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "log(((1)+(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The logarithm is defined since 1+x^2>0. Also, f''(x)=2(1-x^2)/(1+x^2)^2>0 throughout [-1/2,1/2], where x^2≤1/4. Thus f is strictly convex on the interval.\"}",
+      "explanation": "The logarithm is defined since 1+x^2>0. Also, f''(x)=2(1-x^2)/(1+x^2)^2>0 throughout [-1/2,1/2], where x^2≤1/4. Thus f is strictly convex on the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct quotient differentiation gives 2(1-x²)/(1+x²)²; positive denominator and the stated x² intervals establish every sign claim.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-4e8b55a1c2612f459613d0e476efbee8e8a4baf45ca0b03f7bb5c6196c5b40f6"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-b3c726b01c97eb0b86c9d1694fdb7c6eaaf1249d54cc386bc35d015c103174b9",
+      "family": "local-logarithm",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "188cc25a-fa65-4b9f-b307-a59cb691ad8b",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "ba8b85b3396098a8a8ba10aeb97d65157d3e4fee4b60a49b7aa1d071e39c78a2",
+      "caseSha256": "ef64546c0db3d51c0252184b6be46285e8780a106d09765fe3f56c82de612e34",
+      "inferenceResultSha256": "88269cc014771d7edb254ca3b8300c002651694f5917fb46863d89931557f049",
+      "rawTextSha256": "e2dbc6a3e584a774fb83235623024015a9fe9c8cff5acedd24d89b3cfb76bc23",
+      "explanationSha256": "1a6235df87ba71e2e88aee796bedbc0aa4a5dba33fee8285b53eed64ac257c6b",
+      "reference": {
+        "expression": {
+          "op": "log",
+          "arg": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "2",
+          "max": "3"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "log(((1)+(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The logarithm is well-defined since 1+x^2>0. Moreover, f''(x)=2(1-x^2)/(1+x^2)^2<0 throughout [2,3], so f is strictly concave on this interval.\"}",
+      "explanation": "The logarithm is well-defined since 1+x^2>0. Moreover, f''(x)=2(1-x^2)/(1+x^2)^2<0 throughout [2,3], so f is strictly concave on this interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct quotient differentiation gives 2(1-x²)/(1+x²)²; positive denominator and the stated x² intervals establish every sign claim.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-4e8b55a1c2612f459613d0e476efbee8e8a4baf45ca0b03f7bb5c6196c5b40f6"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-f94470b89af4fa241030ac5772aeb8e7fa4102fa7aff38ac94e1a836780f191e",
+      "family": "local-logarithm",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "c5781e00-57c0-4b9b-b676-a7aba70b422d",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "8e1cb9e31f7678fda983be7c926c21adb1bb9372ec42ccd9d84c5d4c01a1dbfc",
+      "caseSha256": "e62f73bfa6b7133eb1a2cabefbfda493a59815ca768759f433d266fe9df0165a",
+      "inferenceResultSha256": "883e51f6958f68b827dd0059c79a453bfbcb9fd8e6edf5defe8fe6f477e66325",
+      "rawTextSha256": "fc20115f8de8a18b539d636325f4c60bbdabba8f260a0520789b6feaf2f36c75",
+      "explanationSha256": "5556361aba5ee63a33ea2b9471ef0c3a6c35971f4a0effc7d67e83421f921c74",
+      "reference": {
+        "expression": {
+          "op": "log",
+          "arg": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "0",
+          "max": "3"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "log(((1)+(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"For f(x)=log(1+x^2), f''(x)=2(1-x^2)/(1+x^2)^2. This is positive on (0,1) and negative on (1,3), so f is neither convex nor concave throughout [0,3].\"}",
+      "explanation": "For f(x)=log(1+x^2), f''(x)=2(1-x^2)/(1+x^2)^2. This is positive on (0,1) and negative on (1,3), so f is neither convex nor concave throughout [0,3].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct quotient differentiation gives 2(1-x²)/(1+x²)²; positive denominator and the stated x² intervals establish every sign claim.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-4e8b55a1c2612f459613d0e476efbee8e8a4baf45ca0b03f7bb5c6196c5b40f6"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-b2f82562897b9b62e49138623f4f589aa68df9340bd92ce38fd20cc6988052b8",
+      "family": "reciprocal-exponential",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "66e241ef-23bd-4660-ac15-08de2543f0d6",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "7be2629f55038a408aeea6d01fb9badf35cca0229f07e88927f8c714200aad69",
+      "caseSha256": "bf43c8be7005def71154714f363efc403cfa76100b54765de65aecf568d319c3",
+      "inferenceResultSha256": "00d02d052d333192e7f72a552f9a1f9ec07025c4c447328bc527aecada16ca36",
+      "rawTextSha256": "8ae07cda3e8be778c7521c377a7577058d5358cdfe77059ff466d848a3d3f1fd",
+      "explanationSha256": "ba3f2428c16ec1a824912e665d554925a265f931c0958dbc151d4c8cf202e146",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "constant",
+            "value": "1"
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "exp",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "1",
+          "max": "2"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "((1)/((1)+exp(x)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The denominator is positive, and f''(x)=exp(x)(exp(x)-1)/(1+exp(x))^3. Since exp(x)>1 for x in [1,2], f''(x)>0 throughout the interval, so f is strictly convex.\"}",
+      "explanation": "The denominator is positive, and f''(x)=exp(x)(exp(x)-1)/(1+exp(x))^3. Since exp(x)>1 for x in [1,2], f''(x)>0 throughout the interval, so f is strictly convex.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Writing t=exp(x)>0 and differentiating -t/(1+t)² gives t(t-1)/(1+t)³; monotonicity relative to t=1 establishes all stated signs.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-bee4c2a04288594246f36a9135fc0ba76570b7577b1e4196e23ca0339cb01675"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-a898e7f62ebf4e0f9cb2620ae23ba319c037a3985791e51ffd3e4d5c5d3cf5a7",
+      "family": "reciprocal-exponential",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "3c6cb398-542a-4a3c-95bc-8962a72cbcf2",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "de257932f2825e5f2459398d7a90f4fd38fab69a972c7bcc09d775e17dafacac",
+      "caseSha256": "0d80f32fc8b3683121a5a725107e89c88d8f0aeccf3c7fdbc1ca5ed948d58c86",
+      "inferenceResultSha256": "1f2aa0a5b5d5dacca19d3fd3509284ff1ae4af2db4672702735fb231d33d6d5f",
+      "rawTextSha256": "498c8722c5edb4a73ed5994a3a8fbf16a6bb371de70fb9c85c84e9337bededde",
+      "explanationSha256": "ff2c355b29717e55d497f823721aa8e3cc5b12202e13046faca9247e48216cf4",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "constant",
+            "value": "1"
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "exp",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-2",
+          "max": "-1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "((1)/((1)+exp(x)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"f''(x) = exp(x)(exp(x)-1)/(1+exp(x))^3. On [-2,-1], 0 < exp(x) < 1, so f''(x) < 0. Thus f is strictly concave on the supplied interval.\"}",
+      "explanation": "f''(x) = exp(x)(exp(x)-1)/(1+exp(x))^3. On [-2,-1], 0 < exp(x) < 1, so f''(x) < 0. Thus f is strictly concave on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Writing t=exp(x)>0 and differentiating -t/(1+t)² gives t(t-1)/(1+t)³; monotonicity relative to t=1 establishes all stated signs.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-bee4c2a04288594246f36a9135fc0ba76570b7577b1e4196e23ca0339cb01675"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-7c12b606d0c9b167791d1dbc747e48823ba517c790b470c98d016b4c4180498a",
+      "family": "reciprocal-exponential",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "cbc458d4-e87f-4bf1-acc0-2f122475a73e",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "9d48191b6623349dc47ff8f5731aed6c62f5feb37f28b1278ce68425cbf48b3e",
+      "caseSha256": "a18f5df6302f82026fae8da6bbdd52afaf932707b26d95093767c6c9c3721672",
+      "inferenceResultSha256": "645a265f669a803ddfe2980e0fa66ece8b3f1fe69958afd8532d371925a23e26",
+      "rawTextSha256": "7da912d616a653109070f5659241082348120de0f28067fce96fe8e306e0c802",
+      "explanationSha256": "a035a1e1cb38070b2625ea1f431404c3eced08e4e2d63c641116e0d3b079b287",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "constant",
+            "value": "1"
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "exp",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "((1)/((1)+exp(x)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x) = exp(x)(exp(x) - 1)/(1 + exp(x))^3. It is negative on (-1, 0) and positive on (0, 1), so f is neither convex nor concave on [-1, 1].\"}",
+      "explanation": "The second derivative is f''(x) = exp(x)(exp(x) - 1)/(1 + exp(x))^3. It is negative on (-1, 0) and positive on (0, 1), so f is neither convex nor concave on [-1, 1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Writing t=exp(x)>0 and differentiating -t/(1+t)² gives t(t-1)/(1+t)³; monotonicity relative to t=1 establishes all stated signs.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-bee4c2a04288594246f36a9135fc0ba76570b7577b1e4196e23ca0339cb01675"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-1d06528347e135dbbde143c042aca12b77b5314fa96e2381ff73e1f4089eca79",
+      "family": "exponential-quadratic",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "4136417b-d2ba-4992-a4f9-d72ae2791d50",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "a1538a845913baca9eec9910098828aa38866e3e7291aa77623f45d29b2a6939",
+      "caseSha256": "4d0da02c0119a4b46a801e1b23dafbe9a81b25a436c15c5ebfe4eaa64118576e",
+      "inferenceResultSha256": "f60246ce16e98645f3729373d16587a863c8f08907e32c8e75a4aaec8b7bdb8c",
+      "rawTextSha256": "01d301291969069ccdba77710a2606d2c3dc5a9588a758d08e40b20f83b61587",
+      "explanationSha256": "ee914cf89ea47d777805777bfcdaf19655ac14a682174425ec753b717750d03a",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/2"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "1",
+          "max": "2"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(exp(x)+((-1/2)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"f''(x) = exp(x) - 1 ≥ e - 1 > 0 for every x in [1, 2], so f is strictly convex on the interval.\"}",
+      "explanation": "f''(x) = exp(x) - 1 ≥ e - 1 > 0 for every x in [1, 2], so f is strictly convex on the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Twice differentiating exp(x)-x²/2 gives exp(x)-1; monotonicity establishes the displayed bounds and interior sign change.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-06c146be97651dcc52e2a76ea4d9b1504e903e51a7017a965a0841d6675cbbd1"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-05309535a6ba129c69d234f7ff427fa1f3230696732929d329c8cf149c22ac72",
+      "family": "exponential-quadratic",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "170167f1-8e2d-4e6c-9a90-f84ab198f10f",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "9a096fdd10d5b6c342ad4c7f2b6333b2f65fb4b56924632b852c0727e41dbb34",
+      "caseSha256": "b19ac92c17024ac7a37ba1c6334c61f9194f111fc277da1d25df3e56434a784e",
+      "inferenceResultSha256": "6a3c0e765bc69e6dff6589c2ff4806af05c5380413b0e5933d852dbaa60324cb",
+      "rawTextSha256": "c3275497648b61c8ee3219032e76366d8ca27e35f6fb434abf1dd405946763e0",
+      "explanationSha256": "cf0e7dc69f4d17572c7215acac50baa6405dadc5ee4f378545c7357660578fab",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/2"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-2",
+          "max": "-1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(exp(x)+((-1/2)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"f''(x)=exp(x)-1≤exp(-1)-1<0 on [-2,-1], so f is strictly concave throughout the interval.\"}",
+      "explanation": "f''(x)=exp(x)-1≤exp(-1)-1<0 on [-2,-1], so f is strictly concave throughout the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Twice differentiating exp(x)-x²/2 gives exp(x)-1; monotonicity establishes the displayed bounds and interior sign change.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-06c146be97651dcc52e2a76ea4d9b1504e903e51a7017a965a0841d6675cbbd1"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-e7144876944611eb3aa4bc2cefad503898c8424f16ccda0f947528a74354bc4c",
+      "family": "exponential-quadratic",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "9c0cb5ee-0dee-4d2d-b43f-0a2f004f28ee",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "d026af07ebc65887abdb80ff278d235bd39aaaceed57ceea3524660316a3032e",
+      "caseSha256": "acff12ee1af33b1f217d6eab887c7a5b6cb0c830ebcf7995a284f17e8f63ca22",
+      "inferenceResultSha256": "53bf6efb7712f96e806424249ce478c73da41935d25550abde55eb018ba4487b",
+      "rawTextSha256": "b3d4f79bf4c4b64f7aa14e0b57d16fab7a18af99e35e7895aabababc3b5f294e",
+      "explanationSha256": "cd0504ddbf475f2b5e1a395f2ac629624e8a595b1014e136fdf483daac93f2ed",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/2"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(exp(x)+((-1/2)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"f''(x) = exp(x) - 1 is negative on (-1, 0) and positive on (0, 1). Therefore, f is neither convex nor concave throughout [-1, 1].\"}",
+      "explanation": "f''(x) = exp(x) - 1 is negative on (-1, 0) and positive on (0, 1). Therefore, f is neither convex nor concave throughout [-1, 1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Twice differentiating exp(x)-x²/2 gives exp(x)-1; monotonicity establishes the displayed bounds and interior sign change.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-06c146be97651dcc52e2a76ea4d9b1504e903e51a7017a965a0841d6675cbbd1"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-700538acc8c77635160db69d68b78e4d52a51d21ba1bebb8ed5c3efc488ebade",
+      "family": "rational-bend",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "343b5823-f02b-429d-a25b-11ca0d32de49",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "89a51a1b8350d41f7831537e30154c9c736d6e74286eff5808c3b27369ee8534",
+      "caseSha256": "46166a4c6a13acd43c0b171946e40ba2f51af7aaf9585c428d6d83ad9f9412d5",
+      "inferenceResultSha256": "37f7058ad73dd02d6723a2d89ebbcb1bc192d22af6a53fe5226a7380eec5c1a4",
+      "rawTextSha256": "cf3f48d04a8536e708803cbe8db3e1f689ed070ff458964a7efc07af711e1b2a",
+      "explanationSha256": "40ec92bbaa10d2ddd751c528a2e00aa9af5b5af49fbcf9fe3806116f0f165b95",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "square",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1/4",
+          "max": "1/4"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "((x^2)/((1)+(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"f''(x) = 2(1-3x^2)/(1+x^2)^3. On [-1/4, 1/4], x^2 ≤ 1/16, so f''(x) > 0. Thus f is strictly convex throughout the interval.\"}",
+      "explanation": "f''(x) = 2(1-3x^2)/(1+x^2)^3. On [-1/4, 1/4], x^2 ≤ 1/16, so f''(x) > 0. Thus f is strictly convex throughout the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiate x²/(1+x²)=1-1/(1+x²) twice to get 2(1-3x²)/(1+x²)³; the claimed zero threshold and signs follow.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-12fe43b8c7e2f27b191af403e736998a1e597837ea79ec70f93300077f4496c6"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-5317a20ef474ec603519275447dd70e1c8818f61a6c3470aa2ccf9a4bed2d8b8",
+      "family": "rational-bend",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "3358e04a-96c4-445a-a55e-27436cdbf000",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "36df8aa0681ad77ef2af7cbc43765787a7b4f5f1097e90ecf489f3222262cacd",
+      "caseSha256": "1aa0d647fa7ad1b740ffd483621c7ba8d54242051dd1fdff7cba1809a11b11bd",
+      "inferenceResultSha256": "8dab86ac57d1ee66d21dd58a964a47e2cbf2929b6d54d7a97285107a34066a2e",
+      "rawTextSha256": "1301c73ab0ee958cb06a63c3a200d6da5c9154922883ac5bd8f62a04ca7cc9f6",
+      "explanationSha256": "e9c49809e86d89d83034cf08095d8aad78c4c42d7c04502b0d3829996fa3a81c",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "square",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "1",
+          "max": "2"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "((x^2)/((1)+(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"f''(x) = 2(1 - 3x^2)/(1 + x^2)^3 is negative for every x in [1, 2]. Thus f is strictly concave, and not convex, on the supplied interval.\"}",
+      "explanation": "f''(x) = 2(1 - 3x^2)/(1 + x^2)^3 is negative for every x in [1, 2]. Thus f is strictly concave, and not convex, on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiate x²/(1+x²)=1-1/(1+x²) twice to get 2(1-3x²)/(1+x²)³; the claimed zero threshold and signs follow.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-12fe43b8c7e2f27b191af403e736998a1e597837ea79ec70f93300077f4496c6"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-eb3debb96c572f901df78d47bae8c29779e4c9c2a0ce240a78b0de2c6303daa1",
+      "family": "rational-bend",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "fe86dcef-d40e-4c39-8199-61f959308171",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "b1e8c29fff93e7915dc56def351c539717203edfd676791a5495a99f90df6623",
+      "caseSha256": "cde363a051d37a16d13dc71582753fda4fd982113ee79cf762a8e2d0280ae538",
+      "inferenceResultSha256": "f65a4d26171f37981de728c2ef4fb9c268a02eafe4732122d1c9fff68f711f01",
+      "rawTextSha256": "36b02907493acaf947cb6e507f0ccd9e54a16625430c06f3e693f48a3cf73097",
+      "explanationSha256": "06c6677a488ae901a1120748d1da923859197a16f1d59dd6f32b987335369f4d",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "square",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "0",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "((x^2)/((1)+(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x)=2(1-3x^2)/(1+x^2)^3. It is positive on (0,1/sqrt(3)) and negative on (1/sqrt(3),1), so f is neither convex nor concave throughout [0,1].\"}",
+      "explanation": "The second derivative is f''(x)=2(1-3x^2)/(1+x^2)^3. It is positive on (0,1/sqrt(3)) and negative on (1/sqrt(3),1), so f is neither convex nor concave throughout [0,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiate x²/(1+x²)=1-1/(1+x²) twice to get 2(1-3x²)/(1+x²)³; the claimed zero threshold and signs follow.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-12fe43b8c7e2f27b191af403e736998a1e597837ea79ec70f93300077f4496c6"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-baf6ea167c4b979127e9406bfaa76720c1e50b485b2250d6d7dfc62298718a0e",
+      "family": "softplus-quadratic",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "ee205a62-bb7d-4851-a6b7-88e4c24cd856",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "f04b28e9b38d0747174373da91c18b9cf798061b35613012d31e5298f464b193",
+      "caseSha256": "fd56b6e528b8ddc787eb107d4e4a4f69aba807a3bb720f647182581081552e9f",
+      "inferenceResultSha256": "6b133e91cba4666788610a801544118660c254d8bd10c71dfdabb01a1d4a9e62",
+      "rawTextSha256": "32bb53dfd612cd207d89996c66146977f33d7840a6cf46184aa1d3e900cbec19",
+      "explanationSha256": "30df24ce3255eb9b8bcfe0c5f79051e56248773a193064056e5ff74fff694b27",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "log",
+            "arg": {
+              "op": "add",
+              "left": {
+                "op": "constant",
+                "value": "1"
+              },
+              "right": {
+                "op": "exp",
+                "arg": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "constant",
+                    "value": "1"
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/16"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(log(((1)+exp(((1)*x))))+((-1/16)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is f''(x)=e^x/(1+e^x)^2−1/8. On [-1,1], the first term is minimized at the endpoints, where it equals e/(1+e)^2≈0.1966>1/8. Thus f''(x)>0 throughout the interval, so f is strictly convex.\"}",
+      "explanation": "The second derivative is f''(x)=e^x/(1+e^x)^2−1/8. On [-1,1], the first term is minimized at the endpoints, where it equals e/(1+e)^2≈0.1966>1/8. Thus f''(x)>0 throughout the interval, so f is strictly convex.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "The softplus curvature is exp(x)/(1+exp(x))² minus the displayed quadratic constant. Its evenness/monotonicity, AM-GM bound, reciprocal cosh identity and all numeric/rational comparisons were checked independently.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-0e70cd550f3c01192ee80118062a333c4cfc9a890faed1c1a210e92a37cdc938"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-c5593a2d0e31c5bfdc7682d1fc47ca2a8c0a3aa29bdc60679647e32e20847acb",
+      "family": "softplus-quadratic",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "fa387758-d368-4c96-aa63-b691c88aead1",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "5439373d6f71a9103980d608e59d7e0f84f0d336c5ebb4790c2626134a8077ac",
+      "caseSha256": "8706ecc092568c32bcfb0cba9d0faa42ff0f5351723899f588d5815e7be001da",
+      "inferenceResultSha256": "f42756fecce47035b3324404e269bf4900d6beae4768aa307c20f90fb1a39979",
+      "rawTextSha256": "33177f82147d1a357457b8c1a285f8e7d3df3aec58c9660fe5f46586b19940b2",
+      "explanationSha256": "6503757d84b5d9e5e5843b3106f8cfa3e3b08572b78b061c0136c53f90b098ac",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "log",
+            "arg": {
+              "op": "add",
+              "left": {
+                "op": "constant",
+                "value": "1"
+              },
+              "right": {
+                "op": "exp",
+                "arg": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "constant",
+                    "value": "1"
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-5/32"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(log(((1)+exp(((1)*x))))+((-5/32)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"Since (1+e^x)^2 ≥ 4e^x, f''(x) = e^x/(1+e^x)^2 - 5/16 ≤ 1/4 - 5/16 = -1/16 < 0. Thus f is strictly concave throughout [-1,1].\"}",
+      "explanation": "Since (1+e^x)^2 ≥ 4e^x, f''(x) = e^x/(1+e^x)^2 - 5/16 ≤ 1/4 - 5/16 = -1/16 < 0. Thus f is strictly concave throughout [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "The softplus curvature is exp(x)/(1+exp(x))² minus the displayed quadratic constant. Its evenness/monotonicity, AM-GM bound, reciprocal cosh identity and all numeric/rational comparisons were checked independently.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-0e70cd550f3c01192ee80118062a333c4cfc9a890faed1c1a210e92a37cdc938"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-8604494345a9b6fd57443a275146314ded973836dfad206a1410df1e256ef3f4",
+      "family": "softplus-quadratic",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "1f1d3392-4513-4d60-99cd-a89508381eae",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "3934010069cd7dd1055716d2bb978511e1811d499b0fdad2df7edeb6720ad248",
+      "caseSha256": "a366789b01d85ad9841657a359b875fb74c0254d957111aa2111027b0e0e048d",
+      "inferenceResultSha256": "ef988c0cd0b9c9b7a3b7275af5b42477c46e9527ab95ecf6057b9dd26ab2bae9",
+      "rawTextSha256": "d10c46a551548f138f22a6ee82a204f531ac702e0ba31cd0d15ced630e1289ea",
+      "explanationSha256": "76f0f2f0c0996d8583af671c8befaf4f2d9cd175e9492383382ae465591b4ddb",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "log",
+            "arg": {
+              "op": "add",
+              "left": {
+                "op": "constant",
+                "value": "1"
+              },
+              "right": {
+                "op": "exp",
+                "arg": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "constant",
+                    "value": "1"
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-7/64"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(log(((1)+exp(((1)*x))))+((-7/64)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x)=1/(2+2cosh(x))-7/32. At x=0, it equals 1/32>0. Since cosh(1)>3/2, f''(1)<1/5-7/32=-3/160<0; by continuity, it is also negative at interior points near 1. Thus f is neither convex nor concave on [-1,1].\"}",
+      "explanation": "The second derivative is f''(x)=1/(2+2cosh(x))-7/32. At x=0, it equals 1/32>0. Since cosh(1)>3/2, f''(1)<1/5-7/32=-3/160<0; by continuity, it is also negative at interior points near 1. Thus f is neither convex nor concave on [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "The softplus curvature is exp(x)/(1+exp(x))² minus the displayed quadratic constant. Its evenness/monotonicity, AM-GM bound, reciprocal cosh identity and all numeric/rational comparisons were checked independently.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-0e70cd550f3c01192ee80118062a333c4cfc9a890faed1c1a210e92a37cdc938"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-a594dedccfc1cb755fe7dbf2c456583493de6cb7b2dbefe752da96fa2900cacc",
+      "family": "exponential-bowl",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "531d1921-6813-40f6-a8f5-81297e544e04",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "c492945ea403aa6ec22ad1bd3739650e856215d403f81f2fdcc6411ef39fc752",
+      "caseSha256": "85001f584cc50699ca9736b532e37f02226c2ad3c05c01e53c4d3fb3a5ba2b27",
+      "inferenceResultSha256": "6f448621a307a5c6aea78de3845ef29136ab0e33f2adc91ab745860e5a254b64",
+      "rawTextSha256": "305ac7dc6ce455cefbfdce20f680d582bf9eb8080615738dc320d84c1fe58c9c",
+      "explanationSha256": "4fc6779539d57018909b7ee10cf6da679f40f42e9de2dd5ee8fda8f2b25fd37e",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "multiply",
+              "left": {
+                "op": "constant",
+                "value": "1/4"
+              },
+              "right": {
+                "op": "square",
+                "arg": {
+                  "op": "variable"
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/8"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(exp(((1/4)*(x^2)))+((-1/8)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"Here f''(x)=(1/2+x^2/4)exp(x^2/4)-1/4. Since exp(x^2/4)≥1 and x^2≥0, f''(x)≥1/4>0 throughout [-1,1]. Thus f is strictly convex, not concave, on the interval.\"}",
+      "explanation": "Here f''(x)=(1/2+x^2/4)exp(x^2/4)-1/4. Since exp(x^2/4)≥1 and x^2≥0, f''(x)≥1/4>0 throughout [-1,1]. Thus f is strictly convex, not concave, on the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation of exp(x²/4)-a x² gives (1/2+x²/4)exp(x²/4)-2a. Rational series bounds verify the concave upper bound and exact interior witness values.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-fac67e21e4d80234d41cc77d1a3c0e7ac4db350ddb0ae63d908539fa64a79171"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-7f7e8d24139c8cf330d024778426c56cdf12d1e0db2aa002deda8670b529e6de",
+      "family": "exponential-bowl",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "0927783d-b588-43fd-8169-045225f4765a",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "ec7e8d981becbecb818ff0d8095ea021d4bf49201d761b247eb9281e130ac148",
+      "caseSha256": "95b2ac233b2a566758a8b45b80578fab7f311f040d9ec38fb8a4bc7928b5762f",
+      "inferenceResultSha256": "5691126c5b953d8a5c94bed9aa705af35ed80bda19826218115a863233e2d054",
+      "rawTextSha256": "d258c9452239a1d2d20708ae121b448bc0ee823fafb78ca30a550b49b7789355",
+      "explanationSha256": "48d8085a87abf1861cffa8a4ed21b7576be0ede6115cabf298a03bb172c94f81",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "multiply",
+              "left": {
+                "op": "constant",
+                "value": "1/4"
+              },
+              "right": {
+                "op": "square",
+                "arg": {
+                  "op": "variable"
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-3/4"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(exp(((1/4)*(x^2)))+((-3/4)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"For |x| ≤ 1, f''(x) = (1/2 + x^2/4)exp(x^2/4) − 3/2 ≤ (3/4)exp(1/4) − 3/2 < 0. Hence f is strictly concave, and not convex, on [-1,1].\"}",
+      "explanation": "For |x| ≤ 1, f''(x) = (1/2 + x^2/4)exp(x^2/4) − 3/2 ≤ (3/4)exp(1/4) − 3/2 < 0. Hence f is strictly concave, and not convex, on [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation of exp(x²/4)-a x² gives (1/2+x²/4)exp(x²/4)-2a. Rational series bounds verify the concave upper bound and exact interior witness values.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-fac67e21e4d80234d41cc77d1a3c0e7ac4db350ddb0ae63d908539fa64a79171"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-5e1616c9498cac218e9ef6abb249499c3b92085fb56f5f5ec3cbdab54b793d67",
+      "family": "exponential-bowl",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "c3f44178-c974-4488-b2bb-bc722b99fa48",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "af4a18df0ebc5e0e2b44f4cf8fe18752a1413e195af2472263c499a4958594a7",
+      "caseSha256": "bd65b02fc08bdd39ebe18ab157792b474b4a8f389e8032e5dbb123ad4c434278",
+      "inferenceResultSha256": "6f752ed79e7eea976219b71e36b88d1ec97e72bf259abc2a3b47845b962dfadd",
+      "rawTextSha256": "ef46075d0f6e660447587e3a0142d616787d99f45221e4a05f90796000b5180c",
+      "explanationSha256": "1af66462b17565babcce48f29caf001957ff0e250ce591244e92cf003d160693",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "multiply",
+              "left": {
+                "op": "constant",
+                "value": "1/4"
+              },
+              "right": {
+                "op": "square",
+                "arg": {
+                  "op": "variable"
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-5/16"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(exp(((1/4)*(x^2)))+((-5/16)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x)=exp(x^2/4)(1/2+x^2/4)-5/8. Thus f''(0)=-1/8<0, while f''(3/4)=(41exp(9/64)-40)/64>0. Since both points are inside [-1,1], the function is neither convex nor concave on this interval.\"}",
+      "explanation": "The second derivative is f''(x)=exp(x^2/4)(1/2+x^2/4)-5/8. Thus f''(0)=-1/8<0, while f''(3/4)=(41exp(9/64)-40)/64>0. Since both points are inside [-1,1], the function is neither convex nor concave on this interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation of exp(x²/4)-a x² gives (1/2+x²/4)exp(x²/4)-2a. Rational series bounds verify the concave upper bound and exact interior witness values.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-fac67e21e4d80234d41cc77d1a3c0e7ac4db350ddb0ae63d908539fa64a79171"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-7637f970331fb8d832bfde57e193b061db974daff7e08d4a89302e546451c8ad",
+      "family": "mixed-branches",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "521fceaf-ace2-486c-969b-9c8795fc094d",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "ea378fdb2e6de29212073d3079090116c56eda02989f772b37bc89a2d77ec5bd",
+      "caseSha256": "abeb8a7b0b8863261feb5f45c4c5ad113016fa63f4b5de061eb64b3803c00450",
+      "inferenceResultSha256": "77a857d40ae161218e67819101a48158ca30bde8feca47b760bec6d74bf986c0",
+      "rawTextSha256": "a84fa4db878f83e481251dcd198a8d43438191a05527759e79227bbf09d6c082",
+      "explanationSha256": "3300dc4de221dcfdb67e588d90991abfe5096b9d9e904c0881272253083518e9",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "add",
+            "left": {
+              "op": "log",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "exp",
+                  "arg": {
+                    "op": "multiply",
+                    "left": {
+                      "op": "constant",
+                      "value": "2"
+                    },
+                    "right": {
+                      "op": "variable"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "op": "sqrt",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "square",
+                  "arg": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/8"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "((log(((1)+exp(((2)*x))))+sqrt(((1)+(x^2))))+((-1/8)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is f''(x)=4e^{2x}/(1+e^{2x})^2+(1+x^2)^(-3/2)-1/4. For x in [-1,1], (1+x^2)^(-3/2)≥1/(2√2)>1/4, and the exponential term is positive. Thus f''(x)>0 throughout the interval, so f is strictly convex.\"}",
+      "explanation": "The second derivative is f''(x)=4e^{2x}/(1+e^{2x})^2+(1+x^2)^(-3/2)-1/4. For x in [-1,1], (1+x^2)^(-3/2)≥1/(2√2)>1/4, and the exponential term is positive. Thus f''(x)>0 throughout the interval, so f is strictly convex.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiate both smooth positive-argument terms separately; logistic curvature is at most one and square-root curvature is (1+x²)^(-3/2). The sqrt(2) inequalities and all displayed constants check exactly. Strict negative endpoint plus continuity supplies a strict interior neighborhood.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-4bc1efb81b0ca6e7eaa2d3d8991b104b01e5753422c77aa18baac24de1b8f800"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-20446e62f572e8b7191f0898c3657e518d7b8126ac7b6af3d15a9c7b082dd504",
+      "family": "mixed-branches",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "493d239d-2995-4597-8295-44030742d7f7",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "7b5d1d4821c7a7d12f38fb2e733a275c68a568a9563cd08414242ef0a6463214",
+      "caseSha256": "a4a30d85c853142aa20ea8e89c1cdceeaf6e0c3c2a381423f882247b33e8de2d",
+      "inferenceResultSha256": "c2fd50b27ec036ec48ee9c3f5c0ce462ba99bfb07cf2199c9ce0ccb6307367c8",
+      "rawTextSha256": "dae2cd0cc542c49b552945748080736b1e745a509f3d810099c38a3fd00f4b8b",
+      "explanationSha256": "607b476ab7ad5102326ac7dd0549580e201be42adc3f571e1aef61bdb0d6dbc8",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "add",
+            "left": {
+              "op": "log",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "exp",
+                  "arg": {
+                    "op": "multiply",
+                    "left": {
+                      "op": "constant",
+                      "value": "2"
+                    },
+                    "right": {
+                      "op": "variable"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "op": "sqrt",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "square",
+                  "arg": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-9/8"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "((log(((1)+exp(((2)*x))))+sqrt(((1)+(x^2))))+((-9/8)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The function is smooth on [-1,1], and f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-9/4. Each positive term is at most 1, so f''(x)≤1+1-9/4=-1/4<0 throughout the interval. Thus f is strictly concave.\"}",
+      "explanation": "The function is smooth on [-1,1], and f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-9/4. Each positive term is at most 1, so f''(x)≤1+1-9/4=-1/4<0 throughout the interval. Thus f is strictly concave.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiate both smooth positive-argument terms separately; logistic curvature is at most one and square-root curvature is (1+x²)^(-3/2). The sqrt(2) inequalities and all displayed constants check exactly. Strict negative endpoint plus continuity supplies a strict interior neighborhood.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-4bc1efb81b0ca6e7eaa2d3d8991b104b01e5753422c77aa18baac24de1b8f800"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-8294e52e2c1bbe689cedda9aa29003322b0372d701238727e2fef29a307ff9d6",
+      "family": "mixed-branches",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "624d735e-570e-417f-869d-5ebd8602870f",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "bd5f2d32cbccf06bbfe6d9bf08bbfe077068044d1f0736ab89c7b2f90e765c02",
+      "caseSha256": "8991f5cc7cfaeb58d6550f3b1981f6ec2df0c4cca8ed8eadd155097f670e49bc",
+      "inferenceResultSha256": "4a3ad3344cb4ee2ec3852c007a0afb3a1e8d732e41de8c282a661bdee02b819e",
+      "rawTextSha256": "8228c3041069bd3368e7929b7a3d70e7c3e0c50a82e2265cb8d2dad7e9aebce2",
+      "explanationSha256": "b9d1b51c754f3b657ee6c1772fb8143e57140c7af02123997862502fe4dba427",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "add",
+            "left": {
+              "op": "log",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "exp",
+                  "arg": {
+                    "op": "multiply",
+                    "left": {
+                      "op": "constant",
+                      "value": "2"
+                    },
+                    "right": {
+                      "op": "variable"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "op": "sqrt",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "square",
+                  "arg": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-3/4"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "((log(((1)+exp(((2)*x))))+sqrt(((1)+(x^2))))+((-3/4)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The function is smooth, with f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-3/2. Thus f''(0)=1/2>0. Since 4t/(1+t)^2≤1 for t>0, f''(1)≤1/(2√2)-1/2<0. By continuity, f'' is negative also at interior points near 1. Therefore f is neither convex nor concave on [-1,1].\"}",
+      "explanation": "The function is smooth, with f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-3/2. Thus f''(0)=1/2>0. Since 4t/(1+t)^2≤1 for t>0, f''(1)≤1/(2√2)-1/2<0. By continuity, f'' is negative also at interior points near 1. Therefore f is neither convex nor concave on [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiate both smooth positive-argument terms separately; logistic curvature is at most one and square-root curvature is (1+x²)^(-3/2). The sqrt(2) inequalities and all displayed constants check exactly. Strict negative endpoint plus continuity supplies a strict interior neighborhood.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-4bc1efb81b0ca6e7eaa2d3d8991b104b01e5753422c77aa18baac24de1b8f800"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-4c341849da57470a6b3f07eccb25dfff9bb84627977a8db96b0dda6351f12341",
+      "family": "integrated-curvature",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "4cb99bab-d6d2-44fb-b92a-ebaccc8a7b19",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "640d805bd57e7706dfe92f6e54df49c234f180d88d3c24780adfebb1127fba62",
+      "caseSha256": "a0ebf0ca1f446bc25a61d9f8ed94cdb1694c1c3f1486b77d1f68a1bb1a5a2e2c",
+      "inferenceResultSha256": "711beef6b2047bd73d07162ac074ef3efa8bf432e49e01ab00e152dcdb112f92",
+      "rawTextSha256": "a63f9d65e4b4e0a6e9e73c694b3646837dfbfad31bdfc46d7062a2a729eeeae5",
+      "explanationSha256": "6eb1b688dde1536b8e74e0c8c1295b1d6abb49ff564b68fce07b44fd0dbc5e03",
+      "reference": {
+        "expression": {
+          "op": "multiply",
+          "left": {
+            "op": "multiply",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "multiply",
+                "left": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "add",
+                    "left": {
+                      "op": "multiply",
+                      "left": {
+                        "op": "multiply",
+                        "left": {
+                          "op": "add",
+                          "left": {
+                            "op": "multiply",
+                            "left": {
+                              "op": "multiply",
+                              "left": {
+                                "op": "add",
+                                "left": {
+                                  "op": "multiply",
+                                  "left": {
+                                    "op": "multiply",
+                                    "left": {
+                                      "op": "constant",
+                                      "value": "1/90"
+                                    },
+                                    "right": {
+                                      "op": "variable"
+                                    }
+                                  },
+                                  "right": {
+                                    "op": "variable"
+                                  }
+                                },
+                                "right": {
+                                  "op": "constant",
+                                  "value": "-5/224"
+                                }
+                              },
+                              "right": {
+                                "op": "variable"
+                              }
+                            },
+                            "right": {
+                              "op": "variable"
+                            }
+                          },
+                          "right": {
+                            "op": "constant",
+                            "value": "59/3840"
+                          }
+                        },
+                        "right": {
+                          "op": "variable"
+                        }
+                      },
+                      "right": {
+                        "op": "variable"
+                      }
+                    },
+                    "right": {
+                      "op": "constant",
+                      "value": "-15/4096"
+                    }
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                },
+                "right": {
+                  "op": "variable"
+                }
+              },
+              "right": {
+                "op": "constant",
+                "value": "1105/131072"
+              }
+            },
+            "right": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "variable"
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(((((((((((((((1/90)*x)*x)+(-5/224))*x)*x)+(59/3840))*x)*x)+(-15/4096))*x)*x)+(1105/131072))*x)*x)",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is f''(x) = (x^4 - (5/8)x^2 + 9/256)^2 + 1/64 ≥ 1/64 > 0 throughout [-1,1]. Therefore f is strictly convex and not concave on the supplied interval.\"}",
+      "explanation": "The second derivative is f''(x) = (x^4 - (5/8)x^2 + 9/256)^2 + 1/64 ≥ 1/64 > 0 throughout [-1,1]. Therefore f is strictly convex and not concave on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "The exact supplied Horner AST was expanded into rational coefficients and differentiated twice independently. Every claimed identity, rational witness and concave upper-bound arithmetic matches exactly.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-ccdf9c0d83b43fdb04e66237cc5dc015690ce102563bf440b6de549ee34a3729"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-95ec19ec7ebe8736133429590916004d03b9cacc932305f11e0e4339aee65c93",
+      "family": "integrated-curvature",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "0ec625db-3c19-4ff7-8aaa-c6fa44f59d48",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "9d4cb74a4ccf5af57d86b0ab4107a59e8af623e979ced3c1a8cd9c875bc294bc",
+      "caseSha256": "18b66d73501d7f74e3a319d694f396f7d2ac5640ccac742a2e5b1e1476f42872",
+      "inferenceResultSha256": "b630d124abf25cb5c02094ad8620582f31be93f807a92f2605a1d44ea1b29e07",
+      "rawTextSha256": "79e109eff1e4524637eeda02afee388f14d74f25b9ac0b7a3f74045d729b6e53",
+      "explanationSha256": "8e25e6511edffea58715aabf28d2cb120c4e2a6c2de271b4e0705a4300e7668b",
+      "reference": {
+        "expression": {
+          "op": "multiply",
+          "left": {
+            "op": "multiply",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "multiply",
+                "left": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "add",
+                    "left": {
+                      "op": "multiply",
+                      "left": {
+                        "op": "multiply",
+                        "left": {
+                          "op": "add",
+                          "left": {
+                            "op": "multiply",
+                            "left": {
+                              "op": "multiply",
+                              "left": {
+                                "op": "add",
+                                "left": {
+                                  "op": "multiply",
+                                  "left": {
+                                    "op": "multiply",
+                                    "left": {
+                                      "op": "constant",
+                                      "value": "1/90"
+                                    },
+                                    "right": {
+                                      "op": "variable"
+                                    }
+                                  },
+                                  "right": {
+                                    "op": "variable"
+                                  }
+                                },
+                                "right": {
+                                  "op": "constant",
+                                  "value": "-5/224"
+                                }
+                              },
+                              "right": {
+                                "op": "variable"
+                              }
+                            },
+                            "right": {
+                              "op": "variable"
+                            }
+                          },
+                          "right": {
+                            "op": "constant",
+                            "value": "59/3840"
+                          }
+                        },
+                        "right": {
+                          "op": "variable"
+                        }
+                      },
+                      "right": {
+                        "op": "variable"
+                      }
+                    },
+                    "right": {
+                      "op": "constant",
+                      "value": "-15/4096"
+                    }
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                },
+                "right": {
+                  "op": "variable"
+                }
+              },
+              "right": {
+                "op": "constant",
+                "value": "-2885/2048"
+              }
+            },
+            "right": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "variable"
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(((((((((((((((1/90)*x)*x)+(-5/224))*x)*x)+(59/3840))*x)*x)+(-15/4096))*x)*x)+(-2885/2048))*x)*x)",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The second derivative is f''(x)=x^8-(5/4)x^6+(59/128)x^4-(45/1024)x^2-2885/1024. On [-1,1], the negative-power terms are nonpositive and x^8,x^4≤1, so f''(x)≤1+59/128-2885/1024=-1389/1024<0. Thus f is strictly concave throughout the interval.\"}",
+      "explanation": "The second derivative is f''(x)=x^8-(5/4)x^6+(59/128)x^4-(45/1024)x^2-2885/1024. On [-1,1], the negative-power terms are nonpositive and x^8,x^4≤1, so f''(x)≤1+59/128-2885/1024=-1389/1024<0. Thus f is strictly concave throughout the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "The exact supplied Horner AST was expanded into rational coefficients and differentiated twice independently. Every claimed identity, rational witness and concave upper-bound arithmetic matches exactly. The phrase negative-power terms is imprecise; the displayed negative-coefficient power terms are nonpositive, and the actual inequality is correct.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-ccdf9c0d83b43fdb04e66237cc5dc015690ce102563bf440b6de549ee34a3729"
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "runId": "2211c494-40a8-4964-9e26-4b1587ee9ce3",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-f11490e2c8c24a122931844341b3a9f525751269fb86736368d461a93c98ac98",
+      "family": "integrated-curvature",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "3814b5ca-efd3-4aac-8f42-86834e01db08",
+      "attemptSequence": 1,
+      "publicResponseSha256": "19ee113cc02f723e5354d643c0998ff5ae9a4927fd5e4570e62ec35eff7c4d1a",
+      "referenceSha256": "99505ac3602a3b8470b1cf01512434433cebb2b519d3b4f80733f6f95623fab9",
+      "caseSha256": "3a840db0b5610492f43d1f632016d5e0f153fe15745b8833608b01b18eb6a071",
+      "inferenceResultSha256": "c70a4ae4ec1e232ea8c8f707707a5a4599619665a06561ff33735d51bc28fff4",
+      "rawTextSha256": "a2124b3c597bab665205bee967d999fc7fe65a1bb56b0b1140b10bba2542112d",
+      "explanationSha256": "e3708ca63c10b4d22096bc89a766837b68bbc221621df9777d709505d596380e",
+      "reference": {
+        "expression": {
+          "op": "multiply",
+          "left": {
+            "op": "multiply",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "multiply",
+                "left": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "add",
+                    "left": {
+                      "op": "multiply",
+                      "left": {
+                        "op": "multiply",
+                        "left": {
+                          "op": "add",
+                          "left": {
+                            "op": "multiply",
+                            "left": {
+                              "op": "multiply",
+                              "left": {
+                                "op": "add",
+                                "left": {
+                                  "op": "multiply",
+                                  "left": {
+                                    "op": "multiply",
+                                    "left": {
+                                      "op": "constant",
+                                      "value": "1/90"
+                                    },
+                                    "right": {
+                                      "op": "variable"
+                                    }
+                                  },
+                                  "right": {
+                                    "op": "variable"
+                                  }
+                                },
+                                "right": {
+                                  "op": "constant",
+                                  "value": "-5/224"
+                                }
+                              },
+                              "right": {
+                                "op": "variable"
+                              }
+                            },
+                            "right": {
+                              "op": "variable"
+                            }
+                          },
+                          "right": {
+                            "op": "constant",
+                            "value": "59/3840"
+                          }
+                        },
+                        "right": {
+                          "op": "variable"
+                        }
+                      },
+                      "right": {
+                        "op": "variable"
+                      }
+                    },
+                    "right": {
+                      "op": "constant",
+                      "value": "-15/4096"
+                    }
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                },
+                "right": {
+                  "op": "variable"
+                }
+              },
+              "right": {
+                "op": "constant",
+                "value": "65/131072"
+              }
+            },
+            "right": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "variable"
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(((((((((((((((1/90)*x)*x)+(-5/224))*x)*x)+(59/3840))*x)*x)+(-15/4096))*x)*x)+(65/131072))*x)*x)",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"Differentiating twice gives f''(x)=((x^2-1/16)(x^2-9/16))^2-1/4096. Thus f''(0)=65/65536>0, while f''(1/4)=-1/4096<0. Since both points lie inside [-1,1], these signs rule out concavity and convexity, respectively.\"}",
+      "explanation": "Differentiating twice gives f''(x)=((x^2-1/16)(x^2-9/16))^2-1/4096. Thus f''(0)=65/65536>0, while f''(1/4)=-1/4096<0. Since both points lie inside [-1,1], these signs rule out concavity and convexity, respectively.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "The exact supplied Horner AST was expanded into rational coefficients and differentiated twice independently. Every claimed identity, rational witness and concave upper-bound arithmetic matches exactly.",
+      "substantiatedErrors": [],
+      "clusterId": "cluster-challenge-v1-ccdf9c0d83b43fdb04e66237cc5dc015690ce102563bf440b6de549ee34a3729"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-47a8324f03541d32884d93b0e81d33289db88b89d59e83632b2eb99121dd1510",
+      "family": "local-logarithm",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "489ecca6-09a2-428c-8ee5-2ec6e4c05b38",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "a2c3ca7bcb1494c22c5a19423ebfe2143ffb1440b44300df3449131d2d73acca",
+      "caseSha256": "a3a8d3b4d9bf64b2f2f2364cde849b9176b5396f722415ed312ba52fd9103962",
+      "inferenceResultSha256": "30b16e5da0391b27ee78371032bde06c8103f07c0f2ba9feff267c7623e192c9",
+      "rawTextSha256": "1e736afe518c0dced17e4ac599362a34810b70c139566c1157673424e9b4fa0a",
+      "explanationSha256": "5a10a446ab5cc009934b7606a984d4237fdb70afc92d3f9f9997820791051877",
+      "reference": {
+        "expression": {
+          "op": "log",
+          "arg": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1/2",
+          "max": "1/2"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "log(((1)+(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The logarithm is defined since 1+x^2>0. Moreover, f''(x)=2(1-x^2)/(1+x^2)^2>0 throughout [-1/2,1/2], because x^2≤1/4. Thus f is strictly convex on the interval.\"}",
+      "explanation": "The logarithm is defined since 1+x^2>0. Moreover, f''(x)=2(1-x^2)/(1+x^2)^2>0 throughout [-1/2,1/2], because x^2≤1/4. Thus f is strictly convex on the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation of log(1+x^2); argument is positive. On [-1/2,1/2], x^2<=1/4, so numerator and denominator are strictly positive.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "2(1-x^2)/(1+x^2)^2",
+      "clusterId": "cluster-challenge-v1-4e8b55a1c2612f459613d0e476efbee8e8a4baf45ca0b03f7bb5c6196c5b40f6"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-b3c726b01c97eb0b86c9d1694fdb7c6eaaf1249d54cc386bc35d015c103174b9",
+      "family": "local-logarithm",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "b9bbe291-500a-4754-a9e2-c84088cf118f",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "ba8b85b3396098a8a8ba10aeb97d65157d3e4fee4b60a49b7aa1d071e39c78a2",
+      "caseSha256": "ef64546c0db3d51c0252184b6be46285e8780a106d09765fe3f56c82de612e34",
+      "inferenceResultSha256": "9b7dc88b1b7e24b4ee1b74ddab1c4150117f5bac1b37c8c17fca10c4348ad284",
+      "rawTextSha256": "3ec9b07403697f12a20c1af11404c1b6567a4b2ed7698a0bd2add339b489367d",
+      "explanationSha256": "39075e52c539a3eaf613089b0f9f0a7ad3d6386e2ed10b1136bee48733de9a90",
+      "reference": {
+        "expression": {
+          "op": "log",
+          "arg": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "2",
+          "max": "3"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "log(((1)+(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"For f(x)=log(1+x^2), f''(x)=2(1-x^2)/(1+x^2)^2, which is strictly negative on [2,3]. Therefore f is strictly concave on the supplied interval.\"}",
+      "explanation": "For f(x)=log(1+x^2), f''(x)=2(1-x^2)/(1+x^2)^2, which is strictly negative on [2,3]. Therefore f is strictly concave on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation. On [2,3], x^2>=4, so numerator is strictly negative and denominator strictly positive.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "2(1-x^2)/(1+x^2)^2",
+      "clusterId": "cluster-challenge-v1-4e8b55a1c2612f459613d0e476efbee8e8a4baf45ca0b03f7bb5c6196c5b40f6"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-f94470b89af4fa241030ac5772aeb8e7fa4102fa7aff38ac94e1a836780f191e",
+      "family": "local-logarithm",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "b34def85-bf85-4c1e-83e0-e029f911f919",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "8e1cb9e31f7678fda983be7c926c21adb1bb9372ec42ccd9d84c5d4c01a1dbfc",
+      "caseSha256": "e62f73bfa6b7133eb1a2cabefbfda493a59815ca768759f433d266fe9df0165a",
+      "inferenceResultSha256": "70618f663650385b082227dce30469e8f6dd4e4f9b37552ea36ea9c3adca269e",
+      "rawTextSha256": "39055ee380e09659d9445d833645aa33e0f2f0c634672d5674ea0729295ee770",
+      "explanationSha256": "3c909c4fd0e09f041914bcfd1b3432b80e23a24cf354a4ce6ac4a813c93085b0",
+      "reference": {
+        "expression": {
+          "op": "log",
+          "arg": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "0",
+          "max": "3"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "log(((1)+(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The logarithm's argument 1+x^2 is positive throughout [0,3]. Since f''(x)=2(1-x^2)/(1+x^2)^2 is positive on (0,1) and negative on (1,3), f is neither convex nor concave on the full interval.\"}",
+      "explanation": "The logarithm's argument 1+x^2 is positive throughout [0,3]. Since f''(x)=2(1-x^2)/(1+x^2)^2 is positive on (0,1) and negative on (1,3), f is neither convex nor concave on the full interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; logarithm argument positive. The numerator is positive for 0<x<1 and negative for 1<x<3, giving both signs inside the interval.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "2(1-x^2)/(1+x^2)^2",
+      "clusterId": "cluster-challenge-v1-4e8b55a1c2612f459613d0e476efbee8e8a4baf45ca0b03f7bb5c6196c5b40f6"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-b2f82562897b9b62e49138623f4f589aa68df9340bd92ce38fd20cc6988052b8",
+      "family": "reciprocal-exponential",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "ff78585c-ce3c-4d1e-bb6e-e6dcf9d724a8",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "7be2629f55038a408aeea6d01fb9badf35cca0229f07e88927f8c714200aad69",
+      "caseSha256": "bf43c8be7005def71154714f363efc403cfa76100b54765de65aecf568d319c3",
+      "inferenceResultSha256": "9aefe47f501aaeccb6167ca4c6da0812091e54193783eeaf43e78c6cb4df08f7",
+      "rawTextSha256": "495bf1e0d74b6a1c2e453d624610f6fd3b624a2bfe3f541176a4ed979e9f6de3",
+      "explanationSha256": "729789ff56637953b4fdca8b873636aa29e75fbdf09853048355956171922929",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "constant",
+            "value": "1"
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "exp",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "1",
+          "max": "2"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "((1)/((1)+exp(x)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"f''(x) = exp(x)(exp(x) - 1)/(1 + exp(x))^3 > 0 for every x in [1, 2], since exp(x) > 1 there. Thus f is strictly convex on the supplied interval.\"}",
+      "explanation": "f''(x) = exp(x)(exp(x) - 1)/(1 + exp(x))^3 > 0 for every x in [1, 2], since exp(x) > 1 there. Thus f is strictly convex on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation of -(exp(x))/(1+exp(x))^2. Exponential positivity and x>=1 imply strict positive second derivative.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)(exp(x)-1)/(1+exp(x))^3",
+      "clusterId": "cluster-challenge-v1-bee4c2a04288594246f36a9135fc0ba76570b7577b1e4196e23ca0339cb01675"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-a898e7f62ebf4e0f9cb2620ae23ba319c037a3985791e51ffd3e4d5c5d3cf5a7",
+      "family": "reciprocal-exponential",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "2dcb2a93-3b0e-4f7c-9572-f96a1735431b",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "de257932f2825e5f2459398d7a90f4fd38fab69a972c7bcc09d775e17dafacac",
+      "caseSha256": "0d80f32fc8b3683121a5a725107e89c88d8f0aeccf3c7fdbc1ca5ed948d58c86",
+      "inferenceResultSha256": "b3d769e88f9862d755e5fc29c2244bee0038f070fd1266fe84d6666c568d6aea",
+      "rawTextSha256": "cd37ee5c49970237a3aa5325b723ee365592a374c70b231ab5e31a1881ab5555",
+      "explanationSha256": "550c2eb8e8d73d1863ecbb90767887ade27ca2aef86308cb4ebc2c54eaf2689b",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "constant",
+            "value": "1"
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "exp",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-2",
+          "max": "-1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "((1)/((1)+exp(x)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"f''(x) = exp(x)(exp(x)-1)/(1+exp(x))^3. On [-2,-1], 0 < exp(x) < 1, so f''(x) < 0 throughout. Hence f is strictly concave on the interval.\"}",
+      "explanation": "f''(x) = exp(x)(exp(x)-1)/(1+exp(x))^3. On [-2,-1], 0 < exp(x) < 1, so f''(x) < 0 throughout. Hence f is strictly concave on the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; -2<=x<=-1 implies 0<exp(x)<1 and hence a strict negative second derivative.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)(exp(x)-1)/(1+exp(x))^3",
+      "clusterId": "cluster-challenge-v1-bee4c2a04288594246f36a9135fc0ba76570b7577b1e4196e23ca0339cb01675"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-7c12b606d0c9b167791d1dbc747e48823ba517c790b470c98d016b4c4180498a",
+      "family": "reciprocal-exponential",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "ba4fd41b-c11b-45ae-a6ec-86053e005293",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "9d48191b6623349dc47ff8f5731aed6c62f5feb37f28b1278ce68425cbf48b3e",
+      "caseSha256": "a18f5df6302f82026fae8da6bbdd52afaf932707b26d95093767c6c9c3721672",
+      "inferenceResultSha256": "335b6bdef26af03ba572bd6f23e14636087449e5b0415f070b870f84e36557be",
+      "rawTextSha256": "3b41e66d591b5713c4d07b3ce568b792fd80530554542f1b6dbe7e1ae1a6cac9",
+      "explanationSha256": "d203180c7afa89c16becd899d3bccf1176dd39616ab6fddb1b79d0b5dc55d356",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "constant",
+            "value": "1"
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "exp",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "((1)/((1)+exp(x)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"f''(x) = exp(x)(exp(x) - 1)/(1 + exp(x))^3 is negative on (-1, 0) and positive on (0, 1). Thus f is neither convex nor concave throughout [-1, 1].\"}",
+      "explanation": "f''(x) = exp(x)(exp(x) - 1)/(1 + exp(x))^3 is negative on (-1, 0) and positive on (0, 1). Thus f is neither convex nor concave throughout [-1, 1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; exp(x)-1 has the sign of x, giving strict negative and positive curvature on the stated open subintervals.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)(exp(x)-1)/(1+exp(x))^3",
+      "clusterId": "cluster-challenge-v1-bee4c2a04288594246f36a9135fc0ba76570b7577b1e4196e23ca0339cb01675"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-1d06528347e135dbbde143c042aca12b77b5314fa96e2381ff73e1f4089eca79",
+      "family": "exponential-quadratic",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "7ec38dda-75fa-4585-8a7f-b55579cb5b80",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "a1538a845913baca9eec9910098828aa38866e3e7291aa77623f45d29b2a6939",
+      "caseSha256": "4d0da02c0119a4b46a801e1b23dafbe9a81b25a436c15c5ebfe4eaa64118576e",
+      "inferenceResultSha256": "ebc7d619c5ea06827fbc990fd9018c3c6c353b937e4b4dfbab58c9404d83fd7a",
+      "rawTextSha256": "f7e1628cf5e5f0478f1cdeeafb727b090d8b5883919c0bb1a576ba58d23550ad",
+      "explanationSha256": "b06003bfe91a93ec1ff254c62850b20e600e683a36d3f233e46a1805d2d1f42c",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/2"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "1",
+          "max": "2"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(exp(x)+((-1/2)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"f''(x) = exp(x) - 1 > 0 for all x in [1, 2], so f is strictly convex on this interval.\"}",
+      "explanation": "f''(x) = exp(x) - 1 > 0 for all x in [1, 2], so f is strictly convex on this interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Differentiating exp(x)-x^2/2 twice gives this formula; exp(x)>1 for x in [1,2].",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)-1",
+      "clusterId": "cluster-challenge-v1-06c146be97651dcc52e2a76ea4d9b1504e903e51a7017a965a0841d6675cbbd1"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-05309535a6ba129c69d234f7ff427fa1f3230696732929d329c8cf149c22ac72",
+      "family": "exponential-quadratic",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "e88933b3-f31d-40bc-8d5f-f95f41081f63",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "9a096fdd10d5b6c342ad4c7f2b6333b2f65fb4b56924632b852c0727e41dbb34",
+      "caseSha256": "b19ac92c17024ac7a37ba1c6334c61f9194f111fc277da1d25df3e56434a784e",
+      "inferenceResultSha256": "4beb0cb035ab4b84ef664d06de9d1106de098c79588d0fb5ab5ed850183914ae",
+      "rawTextSha256": "68dc4ff5b0bb1473b5bcaa933703778b6e6ee8f2539c71955617adf63e7688ab",
+      "explanationSha256": "ab4a86151a68975feb76c5fa076f01bf1e6af85b1d49b0efa45e67d2b0452d9b",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/2"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-2",
+          "max": "-1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(exp(x)+((-1/2)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"f''(x)=exp(x)-1≤exp(-1)-1<0 for every x in [-2,-1]. Thus f is strictly concave throughout the interval.\"}",
+      "explanation": "f''(x)=exp(x)-1≤exp(-1)-1<0 for every x in [-2,-1]. Thus f is strictly concave throughout the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation and monotonicity give exp(x)-1<=exp(-1)-1<0 on [-2,-1].",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)-1",
+      "clusterId": "cluster-challenge-v1-06c146be97651dcc52e2a76ea4d9b1504e903e51a7017a965a0841d6675cbbd1"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-e7144876944611eb3aa4bc2cefad503898c8424f16ccda0f947528a74354bc4c",
+      "family": "exponential-quadratic",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "348c27d1-d938-464c-9871-9f9d53fc3689",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "d026af07ebc65887abdb80ff278d235bd39aaaceed57ceea3524660316a3032e",
+      "caseSha256": "acff12ee1af33b1f217d6eab887c7a5b6cb0c830ebcf7995a284f17e8f63ca22",
+      "inferenceResultSha256": "3d2dae6adc77679e74b111a2f2b3de5469ea4d61ecd84a4305d1fbaf93de9237",
+      "rawTextSha256": "71affd371419f2ed9d6f415b71b8aa9344b0811c5d7b21e69ea347845a7adbfb",
+      "explanationSha256": "5cfc2ad82feeb14f7c45568130492ae4f010afad061412dc81146c61b4747db3",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/2"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(exp(x)+((-1/2)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"f''(x)=exp(x)-1 is negative on (-1,0) and positive on (0,1). Thus f is neither convex nor concave throughout [-1,1].\"}",
+      "explanation": "f''(x)=exp(x)-1 is negative on (-1,0) and positive on (0,1). Thus f is neither convex nor concave throughout [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; the second derivative is negative on (-1,0) and positive on (0,1).",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)-1",
+      "clusterId": "cluster-challenge-v1-06c146be97651dcc52e2a76ea4d9b1504e903e51a7017a965a0841d6675cbbd1"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-700538acc8c77635160db69d68b78e4d52a51d21ba1bebb8ed5c3efc488ebade",
+      "family": "rational-bend",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "9f33b922-1281-4e4b-9154-571b08713208",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "89a51a1b8350d41f7831537e30154c9c736d6e74286eff5808c3b27369ee8534",
+      "caseSha256": "46166a4c6a13acd43c0b171946e40ba2f51af7aaf9585c428d6d83ad9f9412d5",
+      "inferenceResultSha256": "6f9513522b0fb2289fd1d699f56528e7c20174bfa51b1f7244ed926414849351",
+      "rawTextSha256": "53fb098be8cb589c1892d0db073c3775557d00fc39b8eb4466c2fc25bfcbf87b",
+      "explanationSha256": "72e1a92c38f1d6c5d8c4ea56362711bb5b0f01b754ca2a0bd1f78a4a479bbcc6",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "square",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1/4",
+          "max": "1/4"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "((x^2)/((1)+(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"f''(x)=2(1-3x^2)/(1+x^2)^3. On [-1/4,1/4], x^2≤1/16, so 1-3x^2≥13/16>0 and the denominator is positive. Thus f is strictly convex on the interval.\"}",
+      "explanation": "f''(x)=2(1-3x^2)/(1+x^2)^3. On [-1/4,1/4], x^2≤1/16, so 1-3x^2≥13/16>0 and the denominator is positive. Thus f is strictly convex on the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation of 2x/(1+x^2)^2. On [-1/4,1/4], x^2<=1/16, so 1-3x^2>=13/16>0. Denominator positive.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "2(1-3x^2)/(1+x^2)^3",
+      "clusterId": "cluster-challenge-v1-12fe43b8c7e2f27b191af403e736998a1e597837ea79ec70f93300077f4496c6"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-5317a20ef474ec603519275447dd70e1c8818f61a6c3470aa2ccf9a4bed2d8b8",
+      "family": "rational-bend",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "85814173-3f14-425d-9be4-763772730718",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "36df8aa0681ad77ef2af7cbc43765787a7b4f5f1097e90ecf489f3222262cacd",
+      "caseSha256": "1aa0d647fa7ad1b740ffd483621c7ba8d54242051dd1fdff7cba1809a11b11bd",
+      "inferenceResultSha256": "56b7c822be763293854dcfafb1b6eca5908100a552dd67b93e4dbc3caf7932ca",
+      "rawTextSha256": "f51cbd2e0d96513a2b84869a229ce1098583aed31c42cf392af4d8f6ddee8baa",
+      "explanationSha256": "fb19fdbbcfae1d63c4247b00f2cbe6a7b9a2f7cd6158b186bdb19f1fa6612a0a",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "square",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "1",
+          "max": "2"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "((x^2)/((1)+(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The denominator is positive, and f''(x) = 2(1 - 3x^2)/(1 + x^2)^3 < 0 for all x in [1, 2]. Thus f is strictly concave on the supplied interval.\"}",
+      "explanation": "The denominator is positive, and f''(x) = 2(1 - 3x^2)/(1 + x^2)^3 < 0 for all x in [1, 2]. Thus f is strictly concave on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; on [1,2], 1-3x^2<=-2<0 and denominator positive.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "2(1-3x^2)/(1+x^2)^3",
+      "clusterId": "cluster-challenge-v1-12fe43b8c7e2f27b191af403e736998a1e597837ea79ec70f93300077f4496c6"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-eb3debb96c572f901df78d47bae8c29779e4c9c2a0ce240a78b0de2c6303daa1",
+      "family": "rational-bend",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "766d6232-1eef-4e6c-bb39-891baf44cf60",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "b1e8c29fff93e7915dc56def351c539717203edfd676791a5495a99f90df6623",
+      "caseSha256": "cde363a051d37a16d13dc71582753fda4fd982113ee79cf762a8e2d0280ae538",
+      "inferenceResultSha256": "6853ba570c9ec71af0cd5f4cea3343c8d8ecffd64530eb9ab6276fd4829a7a73",
+      "rawTextSha256": "f0642ea960c97eb212a0167447c1f810c6e9e55633060a64ef5572ef3276a562",
+      "explanationSha256": "6da44199ced8352a09a5193e16098a635e0443ef7fa3274bdb289058643d6880",
+      "reference": {
+        "expression": {
+          "op": "divide",
+          "left": {
+            "op": "square",
+            "arg": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "add",
+            "left": {
+              "op": "constant",
+              "value": "1"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "0",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "((x^2)/((1)+(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"f''(x)=2(1-3x^2)/(1+x^2)^3 is positive for 0<x<1/sqrt(3) and negative for 1/sqrt(3)<x<1. Since its curvature changes sign within [0,1], f is neither convex nor concave on the entire interval.\"}",
+      "explanation": "f''(x)=2(1-3x^2)/(1+x^2)^3 is positive for 0<x<1/sqrt(3) and negative for 1/sqrt(3)<x<1. Since its curvature changes sign within [0,1], f is neither convex nor concave on the entire interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; 1/sqrt(3) is strictly between zero and one, and the numerator has exactly the stated strict signs on either side.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "2(1-3x^2)/(1+x^2)^3",
+      "clusterId": "cluster-challenge-v1-12fe43b8c7e2f27b191af403e736998a1e597837ea79ec70f93300077f4496c6"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-baf6ea167c4b979127e9406bfaa76720c1e50b485b2250d6d7dfc62298718a0e",
+      "family": "softplus-quadratic",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "09e28c98-02a4-4f66-b0bc-f999d3e075e1",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "f04b28e9b38d0747174373da91c18b9cf798061b35613012d31e5298f464b193",
+      "caseSha256": "fd56b6e528b8ddc787eb107d4e4a4f69aba807a3bb720f647182581081552e9f",
+      "inferenceResultSha256": "454425956bdaeeaae122ef60765a9412c747f19e1dc479ac18706e0098552b2c",
+      "rawTextSha256": "1227e73cfab7626cc7b01eebb9846422e913ffaa23f2165801feb812d8b07bbe",
+      "explanationSha256": "c1b55ac8d9ad7d804e2c406506e308520a39ef1c8e83a1fe383bfd08f43ff587",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "log",
+            "arg": {
+              "op": "add",
+              "left": {
+                "op": "constant",
+                "value": "1"
+              },
+              "right": {
+                "op": "exp",
+                "arg": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "constant",
+                    "value": "1"
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/16"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(log(((1)+exp(((1)*x))))+((-1/16)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"f''(x)=e^x/(1+e^x)^2−1/8. On [-1,1], the first term is minimized at x=±1 and equals e/(1+e)^2≈0.1966>1/8. Hence f''(x)>0 throughout the interval, so f is strictly convex.\"}",
+      "explanation": "f''(x)=e^x/(1+e^x)^2−1/8. On [-1,1], the first term is minimized at x=±1 and equals e/(1+e)^2≈0.1966>1/8. Hence f''(x)>0 throughout the interval, so f is strictly convex.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation. h(x)=exp(x)/(1+exp(x))^2 is even with h'(x)=exp(x)(1-exp(x))/(1+exp(x))^3, so its minimum on [-1,1] is at the endpoints. A rational Taylor enclosure of exp(1) certifies the stated 0.1966 rounding and h(1)>1/8.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)/(1+exp(x))^2-1/8",
+      "clusterId": "cluster-challenge-v1-0e70cd550f3c01192ee80118062a333c4cfc9a890faed1c1a210e92a37cdc938"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-c5593a2d0e31c5bfdc7682d1fc47ca2a8c0a3aa29bdc60679647e32e20847acb",
+      "family": "softplus-quadratic",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "c24e8b2a-0e5e-4755-a051-ee9879adf83b",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "5439373d6f71a9103980d608e59d7e0f84f0d336c5ebb4790c2626134a8077ac",
+      "caseSha256": "8706ecc092568c32bcfb0cba9d0faa42ff0f5351723899f588d5815e7be001da",
+      "inferenceResultSha256": "b669e429aedc3149ec630de773e23cb2816761cd1d11535347b2635065a700dc",
+      "rawTextSha256": "f7879f05af4bb8efa949d20ea1dd53e5a19865f0be1752754d4294c8310cfc1b",
+      "explanationSha256": "726e24c3965441597012a4fcbd02421ecf0589ad885d2fc2a57447ba4a8ba6f6",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "log",
+            "arg": {
+              "op": "add",
+              "left": {
+                "op": "constant",
+                "value": "1"
+              },
+              "right": {
+                "op": "exp",
+                "arg": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "constant",
+                    "value": "1"
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-5/32"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(log(((1)+exp(((1)*x))))+((-5/32)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The logarithm is defined throughout [-1,1] since 1+exp(x)>0. Differentiating twice gives f''(x)=exp(x)/(1+exp(x))^2−5/16. Because (1+exp(x))^2≥4exp(x), we have f''(x)≤1/4−5/16=−1/16<0. Thus f is strictly concave on [-1,1].\"}",
+      "explanation": "The logarithm is defined throughout [-1,1] since 1+exp(x)>0. Differentiating twice gives f''(x)=exp(x)/(1+exp(x))^2−5/16. Because (1+exp(x))^2≥4exp(x), we have f''(x)≤1/4−5/16=−1/16<0. Thus f is strictly concave on [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; log argument positive. With t=exp(x)>0, (1+t)^2-4t=(t-1)^2>=0; hence second derivative<=1/4-5/16=-1/16.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)/(1+exp(x))^2-5/16",
+      "clusterId": "cluster-challenge-v1-0e70cd550f3c01192ee80118062a333c4cfc9a890faed1c1a210e92a37cdc938"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-8604494345a9b6fd57443a275146314ded973836dfad206a1410df1e256ef3f4",
+      "family": "softplus-quadratic",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "a54ffd8e-0d00-445d-80d9-dc1826a0627f",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "3934010069cd7dd1055716d2bb978511e1811d499b0fdad2df7edeb6720ad248",
+      "caseSha256": "a366789b01d85ad9841657a359b875fb74c0254d957111aa2111027b0e0e048d",
+      "inferenceResultSha256": "4b0dc286ee78cf432e29895b34a0d247ce80fefb86b05dd841447d23c440a136",
+      "rawTextSha256": "d286b579c22aacd53f579485f433d6c2215e9c2fcb6c0b07beb724e8348153e0",
+      "explanationSha256": "4cfb173e62fad3f967f1778d7b78fa347e0ee7d9c6299b033f9d37eea1512e5f",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "log",
+            "arg": {
+              "op": "add",
+              "left": {
+                "op": "constant",
+                "value": "1"
+              },
+              "right": {
+                "op": "exp",
+                "arg": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "constant",
+                    "value": "1"
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-7/64"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(log(((1)+exp(((1)*x))))+((-7/64)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x)=e^x/(1+e^x)^2-7/32. Here f''(0)=1/32>0, while f''(1)≈-0.02214<0. By continuity, f'' is also negative at interior points near 1. Thus f is neither convex nor concave on [-1,1].\"}",
+      "explanation": "The second derivative is f''(x)=e^x/(1+e^x)^2-7/32. Here f''(0)=1/32>0, while f''(1)≈-0.02214<0. By continuity, f'' is also negative at interior points near 1. Thus f is neither convex nor concave on [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation gives f''(0)=1/32. A rational Taylor enclosure gives -4429/200000<f''(1)<-4427/200000, verifying the stated -0.02214 rounding and negativity. Continuity supplies strict interior negative points near one.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x)/(1+exp(x))^2-7/32",
+      "clusterId": "cluster-challenge-v1-0e70cd550f3c01192ee80118062a333c4cfc9a890faed1c1a210e92a37cdc938"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-a594dedccfc1cb755fe7dbf2c456583493de6cb7b2dbefe752da96fa2900cacc",
+      "family": "exponential-bowl",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "e6f2a8f4-0138-4424-9ef4-6ea20b6cb4eb",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "c492945ea403aa6ec22ad1bd3739650e856215d403f81f2fdcc6411ef39fc752",
+      "caseSha256": "85001f584cc50699ca9736b532e37f02226c2ad3c05c01e53c4d3fb3a5ba2b27",
+      "inferenceResultSha256": "3758995d81ad0e966f2f81acc7c1cfe7e6d258e219d16e34daaae747f7c5d4a3",
+      "rawTextSha256": "5515da9c7e06143944f483c74ab31c07f8f57b4cda9c6240bc5e235a31d81852",
+      "explanationSha256": "269d23b682b25a03af56adf6f4f50378da3d9fb1f62b2f45f3d0a7010d4dedfa",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "multiply",
+              "left": {
+                "op": "constant",
+                "value": "1/4"
+              },
+              "right": {
+                "op": "square",
+                "arg": {
+                  "op": "variable"
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/8"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(exp(((1/4)*(x^2)))+((-1/8)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"For x in [-1,1], f''(x) = exp(x^2/4)(1/2 + x^2/4) - 1/4 ≥ 1/4 > 0, since exp(x^2/4) ≥ 1. Thus f is strictly convex throughout the interval.\"}",
+      "explanation": "For x in [-1,1], f''(x) = exp(x^2/4)(1/2 + x^2/4) - 1/4 ≥ 1/4 > 0, since exp(x^2/4) ≥ 1. Thus f is strictly convex throughout the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct product and chain differentiation. Both exp(x^2/4)>=1 and 1/2+x^2/4>=1/2, yielding f''>=1/4>0.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x^2/4)(1/2+x^2/4)-1/4",
+      "clusterId": "cluster-challenge-v1-fac67e21e4d80234d41cc77d1a3c0e7ac4db350ddb0ae63d908539fa64a79171"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-7f7e8d24139c8cf330d024778426c56cdf12d1e0db2aa002deda8670b529e6de",
+      "family": "exponential-bowl",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "6859d432-7c08-4e63-9824-4aa1542e865b",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "ec7e8d981becbecb818ff0d8095ea021d4bf49201d761b247eb9281e130ac148",
+      "caseSha256": "95b2ac233b2a566758a8b45b80578fab7f311f040d9ec38fb8a4bc7928b5762f",
+      "inferenceResultSha256": "3367a39f2bde74de4231ed809a6f0b649e6e106b8098e37dd4dc7607a0f692bb",
+      "rawTextSha256": "1ed11a5c59ca3e5ce2c58043ab6fda15854d061d885af1806bdab78ef4c0fdf8",
+      "explanationSha256": "c75ee67b30566152030b9d7dcdcf49ee12b1b3c761ac70c34a1b2ce44a84bb0e",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "multiply",
+              "left": {
+                "op": "constant",
+                "value": "1/4"
+              },
+              "right": {
+                "op": "square",
+                "arg": {
+                  "op": "variable"
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-3/4"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(exp(((1/4)*(x^2)))+((-3/4)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The second derivative is f''(x) = (1/2 + x^2/4)exp(x^2/4) - 3/2. On [-1,1], f''(x) ≤ (3/4)exp(1/4) - 3/2 < 0. Thus f is strictly concave throughout the interval.\"}",
+      "explanation": "The second derivative is f''(x) = (1/2 + x^2/4)exp(x^2/4) - 3/2. On [-1,1], f''(x) ≤ (3/4)exp(1/4) - 3/2 < 0. Thus f is strictly concave throughout the interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation. On [-1,1], f''<=(3/4)exp(1/4)-3/2. The exponential series gives exp(1/4)<1/(1-1/4)=4/3, so this bound is strictly below -1/2.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x^2/4)(1/2+x^2/4)-3/2",
+      "clusterId": "cluster-challenge-v1-fac67e21e4d80234d41cc77d1a3c0e7ac4db350ddb0ae63d908539fa64a79171"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-5e1616c9498cac218e9ef6abb249499c3b92085fb56f5f5ec3cbdab54b793d67",
+      "family": "exponential-bowl",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "c75e63b9-70df-4298-bcc1-2085234f8795",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "af4a18df0ebc5e0e2b44f4cf8fe18752a1413e195af2472263c499a4958594a7",
+      "caseSha256": "bd65b02fc08bdd39ebe18ab157792b474b4a8f389e8032e5dbb123ad4c434278",
+      "inferenceResultSha256": "09b151a1920e80611806972f611bec5590264c9327ccbad71a56f51f1a2f9db9",
+      "rawTextSha256": "7b788d83dbbcae3c3934247d387a2627797a03ee1664dbb38d91844ee05e2b1a",
+      "explanationSha256": "c6ec5cb27a4e95065143ca00823c400c3bd9cfecbdbbc9d4ca72b8622cd7e9f1",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "exp",
+            "arg": {
+              "op": "multiply",
+              "left": {
+                "op": "constant",
+                "value": "1/4"
+              },
+              "right": {
+                "op": "square",
+                "arg": {
+                  "op": "variable"
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-5/16"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(exp(((1/4)*(x^2)))+((-5/16)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x) = exp(x^2/4)(1/2 + x^2/4) - 5/8. At interior points, f''(0) = -1/8 < 0, while f''(3/4) = (41/64)exp(9/64) - 5/8 > 0. Thus f is neither convex nor concave on [-1, 1].\"}",
+      "explanation": "The second derivative is f''(x) = exp(x^2/4)(1/2 + x^2/4) - 5/8. At interior points, f''(0) = -1/8 < 0, while f''(3/4) = (41/64)exp(9/64) - 5/8 > 0. Thus f is neither convex nor concave on [-1, 1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation gives f''(0)=-1/8 and f''(3/4)=(41/64)exp(9/64)-5/8. Since exp(9/64)>1, the latter exceeds 1/64>0. Both witnesses are interior.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "exp(x^2/4)(1/2+x^2/4)-5/8",
+      "clusterId": "cluster-challenge-v1-fac67e21e4d80234d41cc77d1a3c0e7ac4db350ddb0ae63d908539fa64a79171"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-7637f970331fb8d832bfde57e193b061db974daff7e08d4a89302e546451c8ad",
+      "family": "mixed-branches",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "d5ff0956-c09a-4435-a7a7-6c5d68895a8c",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "ea378fdb2e6de29212073d3079090116c56eda02989f772b37bc89a2d77ec5bd",
+      "caseSha256": "abeb8a7b0b8863261feb5f45c4c5ad113016fa63f4b5de061eb64b3803c00450",
+      "inferenceResultSha256": "29836a1dd04789b79f92e3a07dd8c05607b043e275917e773fdad2157b890b17",
+      "rawTextSha256": "929fdfe180586b1450b633357ef46108bad922ba5742bb0bd61c316ea3aed266",
+      "explanationSha256": "962b7a366c68716c69701f1c7009c0ba3d9dba78271da19801ab20ffb16f40f1",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "add",
+            "left": {
+              "op": "log",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "exp",
+                  "arg": {
+                    "op": "multiply",
+                    "left": {
+                      "op": "constant",
+                      "value": "2"
+                    },
+                    "right": {
+                      "op": "variable"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "op": "sqrt",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "square",
+                  "arg": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-1/8"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "((log(((1)+exp(((2)*x))))+sqrt(((1)+(x^2))))+((-1/8)*(x^2)))",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is f''(x)=4e^(2x)/(1+e^(2x))^2+(1+x^2)^(-3/2)-1/4. For |x|≤1, this is at least 1/(2√2)-1/4>0. Thus f is strictly convex throughout [-1,1].\"}",
+      "explanation": "The second derivative is f''(x)=4e^(2x)/(1+e^(2x))^2+(1+x^2)^(-3/2)-1/4. For |x|≤1, this is at least 1/(2√2)-1/4>0. Thus f is strictly convex throughout [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct chain differentiation. The first term is positive and the second is >=1/(2sqrt(2)) on [-1,1]. Since 1/(2sqrt(2))>1/4, the supplied lower bound is positive.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-1/4",
+      "clusterId": "cluster-challenge-v1-4bc1efb81b0ca6e7eaa2d3d8991b104b01e5753422c77aa18baac24de1b8f800"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-20446e62f572e8b7191f0898c3657e518d7b8126ac7b6af3d15a9c7b082dd504",
+      "family": "mixed-branches",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "0dcb5c8c-0405-4fa5-9d70-f316281e7f58",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "7b5d1d4821c7a7d12f38fb2e733a275c68a568a9563cd08414242ef0a6463214",
+      "caseSha256": "a4a30d85c853142aa20ea8e89c1cdceeaf6e0c3c2a381423f882247b33e8de2d",
+      "inferenceResultSha256": "e6b52a2ea228a919fa7ed8b29a72e17e8a30c73d77356e242d476b0d5940217f",
+      "rawTextSha256": "5732dc684b2df6259f09ba1784fb7f7a44e0ccc5ab658997dcbb2b5771f0167b",
+      "explanationSha256": "5ddc4fde11bcf388d4ead0b64cf32aa739ef8df452786c4dc1de0c2bcd8131ea",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "add",
+            "left": {
+              "op": "log",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "exp",
+                  "arg": {
+                    "op": "multiply",
+                    "left": {
+                      "op": "constant",
+                      "value": "2"
+                    },
+                    "right": {
+                      "op": "variable"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "op": "sqrt",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "square",
+                  "arg": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-9/8"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "((log(((1)+exp(((2)*x))))+sqrt(((1)+(x^2))))+((-9/8)*(x^2)))",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The function is twice differentiable on [-1,1], with f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-9/4. Each of the first two terms is at most 1, so f''(x)≤2-9/4=-1/4<0 throughout the interval. Thus f is strictly concave.\"}",
+      "explanation": "The function is twice differentiable on [-1,1], with f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-9/4. Each of the first two terms is at most 1, so f''(x)≤2-9/4=-1/4<0 throughout the interval. Thus f is strictly concave.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation; function is smooth on a neighborhood of the interval. For t>0, 4t/(1+t)^2<=1, and (1+x^2)^(-3/2)<=1, so f''<=-1/4.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-9/4",
+      "clusterId": "cluster-challenge-v1-4bc1efb81b0ca6e7eaa2d3d8991b104b01e5753422c77aa18baac24de1b8f800"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-8294e52e2c1bbe689cedda9aa29003322b0372d701238727e2fef29a307ff9d6",
+      "family": "mixed-branches",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "88e9ad5e-8817-43ff-8486-05492252c77a",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "bd5f2d32cbccf06bbfe6d9bf08bbfe077068044d1f0736ab89c7b2f90e765c02",
+      "caseSha256": "8991f5cc7cfaeb58d6550f3b1981f6ec2df0c4cca8ed8eadd155097f670e49bc",
+      "inferenceResultSha256": "75f0882e112627db7d73309f4f914b739b3d4cb7cedcbdbd30acd2973081f41b",
+      "rawTextSha256": "af7421fb13743f6b15e46b2a1a0c21c16e16554b618a8bb20c5dd6eec3cf34db",
+      "explanationSha256": "00c3c533ea2624e41350807e0cdd8bf7fcf55526460c0ac94d52990eef73e913",
+      "reference": {
+        "expression": {
+          "op": "add",
+          "left": {
+            "op": "add",
+            "left": {
+              "op": "log",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "exp",
+                  "arg": {
+                    "op": "multiply",
+                    "left": {
+                      "op": "constant",
+                      "value": "2"
+                    },
+                    "right": {
+                      "op": "variable"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "op": "sqrt",
+              "arg": {
+                "op": "add",
+                "left": {
+                  "op": "constant",
+                  "value": "1"
+                },
+                "right": {
+                  "op": "square",
+                  "arg": {
+                    "op": "variable"
+                  }
+                }
+              }
+            }
+          },
+          "right": {
+            "op": "multiply",
+            "left": {
+              "op": "constant",
+              "value": "-3/4"
+            },
+            "right": {
+              "op": "square",
+              "arg": {
+                "op": "variable"
+              }
+            }
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "((log(((1)+exp(((2)*x))))+sqrt(((1)+(x^2))))+((-3/4)*(x^2)))",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-3/2. Thus f''(0)=1/2>0, while f''(1)≤1+1/(2sqrt(2))-3/2<0. By continuity, f'' has both signs in (-1,1), so f is neither convex nor concave on [-1,1].\"}",
+      "explanation": "The second derivative is f''(x)=4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-3/2. Thus f''(0)=1/2>0, while f''(1)≤1+1/(2sqrt(2))-3/2<0. By continuity, f'' has both signs in (-1,1), so f is neither convex nor concave on [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Direct differentiation gives f''(0)=1/2. At one, softplus curvature is <=1 and the square-root curvature is 1/(2sqrt(2))<1/2, giving the stated strictly negative upper bound. Continuity supplies an interior negative point.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "4exp(2x)/(1+exp(2x))^2+(1+x^2)^(-3/2)-3/2",
+      "clusterId": "cluster-challenge-v1-4bc1efb81b0ca6e7eaa2d3d8991b104b01e5753422c77aa18baac24de1b8f800"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-4c341849da57470a6b3f07eccb25dfff9bb84627977a8db96b0dda6351f12341",
+      "family": "integrated-curvature",
+      "label": "convex",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "8fd1c010-6131-4081-b434-45b7fb637510",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "640d805bd57e7706dfe92f6e54df49c234f180d88d3c24780adfebb1127fba62",
+      "caseSha256": "a0ebf0ca1f446bc25a61d9f8ed94cdb1694c1c3f1486b77d1f68a1bb1a5a2e2c",
+      "inferenceResultSha256": "5b80949c6570c35df9299d5b16616060625c23fec4717966dd70d62de4c28dd4",
+      "rawTextSha256": "4159a2939e16005d1fbae85d76cb724854c6fa3a00342ea45dfc7a288248c7c9",
+      "explanationSha256": "58fdb457162935721e0b12a35c0ac1626066fe88a4fe69a624581a8595b41ad3",
+      "reference": {
+        "expression": {
+          "op": "multiply",
+          "left": {
+            "op": "multiply",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "multiply",
+                "left": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "add",
+                    "left": {
+                      "op": "multiply",
+                      "left": {
+                        "op": "multiply",
+                        "left": {
+                          "op": "add",
+                          "left": {
+                            "op": "multiply",
+                            "left": {
+                              "op": "multiply",
+                              "left": {
+                                "op": "add",
+                                "left": {
+                                  "op": "multiply",
+                                  "left": {
+                                    "op": "multiply",
+                                    "left": {
+                                      "op": "constant",
+                                      "value": "1/90"
+                                    },
+                                    "right": {
+                                      "op": "variable"
+                                    }
+                                  },
+                                  "right": {
+                                    "op": "variable"
+                                  }
+                                },
+                                "right": {
+                                  "op": "constant",
+                                  "value": "-5/224"
+                                }
+                              },
+                              "right": {
+                                "op": "variable"
+                              }
+                            },
+                            "right": {
+                              "op": "variable"
+                            }
+                          },
+                          "right": {
+                            "op": "constant",
+                            "value": "59/3840"
+                          }
+                        },
+                        "right": {
+                          "op": "variable"
+                        }
+                      },
+                      "right": {
+                        "op": "variable"
+                      }
+                    },
+                    "right": {
+                      "op": "constant",
+                      "value": "-15/4096"
+                    }
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                },
+                "right": {
+                  "op": "variable"
+                }
+              },
+              "right": {
+                "op": "constant",
+                "value": "1105/131072"
+              }
+            },
+            "right": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "variable"
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "convex"
+      },
+      "renderedExpression": "(((((((((((((((1/90)*x)*x)+(-5/224))*x)*x)+(59/3840))*x)*x)+(-15/4096))*x)*x)+(1105/131072))*x)*x)",
+      "rawText": "{\"label\":\"convex\",\"explanation\":\"The second derivative is f''(x) = (x^4 - (5/8)x^2 + 9/256)^2 + 1/64 > 0 for every real x. Therefore f is strictly convex, and not concave, on [-1, 1].\"}",
+      "explanation": "The second derivative is f''(x) = (x^4 - (5/8)x^2 + 9/256)^2 + 1/64 > 0 for every real x. Therefore f is strictly convex, and not concave, on [-1, 1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Independent exact rational parsing of the supplied polynomial AST followed by two coefficient differentiations matches the expanded square plus 1/64. This is strictly positive for every real x.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "(x^4-(5/8)x^2+9/256)^2+1/64",
+      "clusterId": "cluster-challenge-v1-ccdf9c0d83b43fdb04e66237cc5dc015690ce102563bf440b6de549ee34a3729"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-95ec19ec7ebe8736133429590916004d03b9cacc932305f11e0e4339aee65c93",
+      "family": "integrated-curvature",
+      "label": "concave",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "08560447-8890-484f-a5a0-e810461ebf9b",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "9d4cb74a4ccf5af57d86b0ab4107a59e8af623e979ced3c1a8cd9c875bc294bc",
+      "caseSha256": "18b66d73501d7f74e3a319d694f396f7d2ac5640ccac742a2e5b1e1476f42872",
+      "inferenceResultSha256": "c510b914bc52319562daaacdaf84ca149d8e8d8d76347b79f829d93b685ad28c",
+      "rawTextSha256": "37809693a5a3c4e21faba02b7f457f6fe3a0825ceeeb86bdf6643b3f967a98fe",
+      "explanationSha256": "7b3e5dc9dbe593da15a37e2ca17c344539b1c119405be61cac8069a0137c05b0",
+      "reference": {
+        "expression": {
+          "op": "multiply",
+          "left": {
+            "op": "multiply",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "multiply",
+                "left": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "add",
+                    "left": {
+                      "op": "multiply",
+                      "left": {
+                        "op": "multiply",
+                        "left": {
+                          "op": "add",
+                          "left": {
+                            "op": "multiply",
+                            "left": {
+                              "op": "multiply",
+                              "left": {
+                                "op": "add",
+                                "left": {
+                                  "op": "multiply",
+                                  "left": {
+                                    "op": "multiply",
+                                    "left": {
+                                      "op": "constant",
+                                      "value": "1/90"
+                                    },
+                                    "right": {
+                                      "op": "variable"
+                                    }
+                                  },
+                                  "right": {
+                                    "op": "variable"
+                                  }
+                                },
+                                "right": {
+                                  "op": "constant",
+                                  "value": "-5/224"
+                                }
+                              },
+                              "right": {
+                                "op": "variable"
+                              }
+                            },
+                            "right": {
+                              "op": "variable"
+                            }
+                          },
+                          "right": {
+                            "op": "constant",
+                            "value": "59/3840"
+                          }
+                        },
+                        "right": {
+                          "op": "variable"
+                        }
+                      },
+                      "right": {
+                        "op": "variable"
+                      }
+                    },
+                    "right": {
+                      "op": "constant",
+                      "value": "-15/4096"
+                    }
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                },
+                "right": {
+                  "op": "variable"
+                }
+              },
+              "right": {
+                "op": "constant",
+                "value": "-2885/2048"
+              }
+            },
+            "right": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "variable"
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "concave"
+      },
+      "renderedExpression": "(((((((((((((((1/90)*x)*x)+(-5/224))*x)*x)+(59/3840))*x)*x)+(-15/4096))*x)*x)+(-2885/2048))*x)*x)",
+      "rawText": "{\"label\":\"concave\",\"explanation\":\"The polynomial has second derivative f''(x)=x^8−(5/4)x^6+(59/128)x^4−(45/1024)x^2−2885/1024. For |x|≤1, dropping the nonpositive terms gives f''(x)≤1+59/128−2885/1024=−1389/1024<0. Thus f is strictly concave throughout [-1,1].\"}",
+      "explanation": "The polynomial has second derivative f''(x)=x^8−(5/4)x^6+(59/128)x^4−(45/1024)x^2−2885/1024. For |x|≤1, dropping the nonpositive terms gives f''(x)≤1+59/128−2885/1024=−1389/1024<0. Thus f is strictly concave throughout [-1,1].",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Independent exact rational AST parsing and two coefficient differentiations match. Dropping the two nonpositive terms and bounding x^8,x^4<=1 gives 1+59/128-2885/1024=-1389/1024<0; arithmetic independently checked.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "x^8-(5/4)x^6+(59/128)x^4-(45/1024)x^2-2885/1024",
+      "clusterId": "cluster-challenge-v1-ccdf9c0d83b43fdb04e66237cc5dc015690ce102563bf440b6de549ee34a3729"
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "runId": "2923df82-0d17-47d9-9941-569a9f9f1932",
+      "suiteId": "suite-challenge-v1-ad8d54145c9cce0b20a25ce00b10ed6c9ec5cf32b54f868b967ca8ebe595b1bf",
+      "caseId": "case-challenge-v1-f11490e2c8c24a122931844341b3a9f525751269fb86736368d461a93c98ac98",
+      "family": "integrated-curvature",
+      "label": "neither",
+      "ordinal": 0,
+      "trialIndex": 0,
+      "attemptId": "bc77a0ee-f923-41b7-9ad6-f5c3348ac108",
+      "attemptSequence": 1,
+      "publicResponseSha256": "3887e7999fbaac2abcf69e1e94c5342a63432026596015d2d41a6bca9917173a",
+      "referenceSha256": "99505ac3602a3b8470b1cf01512434433cebb2b519d3b4f80733f6f95623fab9",
+      "caseSha256": "3a840db0b5610492f43d1f632016d5e0f153fe15745b8833608b01b18eb6a071",
+      "inferenceResultSha256": "f645b0f44fe1b6785d1583986f7fc862b3da9e921180ce1edbd3d12b0008129d",
+      "rawTextSha256": "bc9a5b7a689fd4694b6ae022a1ea20751eb79475638899c8c98516366cb359b4",
+      "explanationSha256": "0f88435af524e4551b5caff08f3946efca0bac3a58fb3008ce9c3a20d671b518",
+      "reference": {
+        "expression": {
+          "op": "multiply",
+          "left": {
+            "op": "multiply",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "multiply",
+                "left": {
+                  "op": "multiply",
+                  "left": {
+                    "op": "add",
+                    "left": {
+                      "op": "multiply",
+                      "left": {
+                        "op": "multiply",
+                        "left": {
+                          "op": "add",
+                          "left": {
+                            "op": "multiply",
+                            "left": {
+                              "op": "multiply",
+                              "left": {
+                                "op": "add",
+                                "left": {
+                                  "op": "multiply",
+                                  "left": {
+                                    "op": "multiply",
+                                    "left": {
+                                      "op": "constant",
+                                      "value": "1/90"
+                                    },
+                                    "right": {
+                                      "op": "variable"
+                                    }
+                                  },
+                                  "right": {
+                                    "op": "variable"
+                                  }
+                                },
+                                "right": {
+                                  "op": "constant",
+                                  "value": "-5/224"
+                                }
+                              },
+                              "right": {
+                                "op": "variable"
+                              }
+                            },
+                            "right": {
+                              "op": "variable"
+                            }
+                          },
+                          "right": {
+                            "op": "constant",
+                            "value": "59/3840"
+                          }
+                        },
+                        "right": {
+                          "op": "variable"
+                        }
+                      },
+                      "right": {
+                        "op": "variable"
+                      }
+                    },
+                    "right": {
+                      "op": "constant",
+                      "value": "-15/4096"
+                    }
+                  },
+                  "right": {
+                    "op": "variable"
+                  }
+                },
+                "right": {
+                  "op": "variable"
+                }
+              },
+              "right": {
+                "op": "constant",
+                "value": "65/131072"
+              }
+            },
+            "right": {
+              "op": "variable"
+            }
+          },
+          "right": {
+            "op": "variable"
+          }
+        },
+        "domain": {
+          "min": "-1",
+          "max": "1"
+        },
+        "claimedLabel": "neither"
+      },
+      "renderedExpression": "(((((((((((((((1/90)*x)*x)+(-5/224))*x)*x)+(59/3840))*x)*x)+(-15/4096))*x)*x)+(65/131072))*x)*x)",
+      "rawText": "{\"label\":\"neither\",\"explanation\":\"The second derivative is f''(x) = x^8 - (5/4)x^6 + (59/128)x^4 - (45/1024)x^2 + 65/65536. At interior points of [-1,1], f''(0) = 65/65536 > 0 and f''(1/4) = -1/4096 < 0. Thus the function is neither convex nor concave on the supplied interval.\"}",
+      "explanation": "The second derivative is f''(x) = x^8 - (5/4)x^6 + (59/128)x^4 - (45/1024)x^2 + 65/65536. At interior points of [-1,1], f''(0) = 65/65536 > 0 and f''(1/4) = -1/4096 < 0. Thus the function is neither convex nor concave on the supplied interval.",
+      "verdict": "no-false-explicit-claim-found",
+      "verification": "Independent exact rational AST parsing and two coefficient differentiations match. Independent exact evaluation gives f''(0)=65/65536 and f''(1/4)=-1/4096. Both are strict interior witnesses.",
+      "substantiatedErrors": [],
+      "independentlyDerivedSecondDerivative": "x^8-(5/4)x^6+(59/128)x^4-(45/1024)x^2+65/65536",
+      "clusterId": "cluster-challenge-v1-ccdf9c0d83b43fdb04e66237cc5dc015690ce102563bf440b6de549ee34a3729"
+    }
+  ],
+  "limitations": [
+    "The 48 selected explanations are a deterministic subset, not a random sample of responses or mathematics.",
+    "Both models were reviewed on the same 24 tasks; only parameter index zero and logical trial zero were selected.",
+    "Related labels/domains share eight source-parameter clusters; repeated models do not create independent mathematical tasks.",
+    "No inference about hidden reasoning, general explanation reliability or other settings follows.",
+    "No scoring, production-code, grade, eligibility or signal-gate change follows."
+  ]
+}
