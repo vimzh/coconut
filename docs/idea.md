@@ -8,7 +8,7 @@ A web platform where people use their own model-provider credentials to test how
 
 The project combines a mathematical evaluation engine, a model discovery and inference layer, and a user interface. The evaluation asks whether a function is convex, concave, or neither over a stated domain. Composition depth and function family provide different task configurations; their effect on model difficulty must be measured.
 
-This is the product source of truth for the project currently named Coconut in the repository. The descriptive title above is a working title, not a finalized public brand. Detailed measurement, privacy, and publication choices remain open below.
+This is the product source of truth for the project currently named Coconut in the repository. The descriptive title above is a working title, not a finalized public brand. The [roadmap decision registry](ROADMAP.md#decision-registry) records the implemented measurement, privacy, and publication policies; the remaining evidence requirements appear below.
 
 ## The Problem
 
@@ -22,7 +22,7 @@ People who want to evaluate and compare language models on this convexity task. 
 
 A visitor reads how the evaluation works, connects a supported provider with their own credentials, searches for an available model, selects an evaluation configuration, and launches a run. The interface lets them follow execution and inspect model answers and scores. The leaderboard lets visitors compare eligible results under a defined comparison protocol.
 
-The exact rules for publishing a visitor's run, accessing saved results, and retaining those records must be decided before those experiences are implemented.
+Runs are private for seven days and require a separate access code returned once. Visitors explicitly publish, withdraw, export, or delete retained results. Refresh or interruption requires re-entering credentials for new work; interrupted runs cannot resume. Complete comparable publications may enter the leaderboard under the [resolved eligibility policy](handoffs/10-leaderboard.md).
 
 ## Features
 
@@ -84,9 +84,13 @@ The benchmark's labels and scoring can be independently checked, and the submiss
 
 The project is intended for the micro1 Eval Hackathon. [hackathon.md](../hackathon.md) records the researched requirements and their verification limits. Submission materials must disclose adapted prior work and distinguish the project's contribution. The landing-page content restriction does not remove that submission requirement.
 
-The existing application scaffolding is the starting point. The mathematical verifier, offline evaluation protocol, reproducible suite generator, and shared scorer are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), [module 03 handoff](handoffs/03-instance-generator-and-suites.md), and [module 04 handoff](handoffs/04-scoring-and-depth-analysis.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. The scorer verifies retained evidence and reports metrics plus usage/timing/cost coverage; current scoring fixtures are synthetic. The [module 05 provider-access layer](handoffs/05-provider-access-and-credentials.md) implements stateless credentials, authentication checks, and bounded explicit probes for all three services. OpenAI has live access evidence; OpenRouter and Hugging Face gates remain unresolved under OpenAI-only development testing. Model discovery, complete inference/run execution, user flow, and measured leaderboard are not implemented yet.
+The mathematical verifier, evaluation protocol, reproducible suite generator, and shared scorer are implemented within the boundaries recorded in the [module 01 handoff](handoffs/01-mathematical-verifier.md), [module 02 handoff](handoffs/02-evaluation-protocol-and-answers.md), [module 03 handoff](handoffs/03-instance-generator-and-suites.md), and [module 04 handoff](handoffs/04-scoring-and-depth-analysis.md). The frozen reference suite contains 75 certified cases across three classes and depths 5, 10, 20, 40, and 80 on `[-1,1]`. These depths also increase length and active pieces, so they do not isolate nesting alone. The scorer verifies retained evidence and reports metrics plus usage/timing/cost coverage. Synthetic scoring fixtures remain separate from measured model responses.
+
+Provider access, model discovery, bounded inference, foreground run execution, private retention, the evaluation interface, public comparisons, and methodology pages are implemented and locally verified; [module handoffs 05–11](ROADMAP.md#implementation-progress) record their boundaries. OpenAI has live execution evidence. OpenRouter and Hugging Face integration is fixture-tested, with anonymous catalog evidence; their live inference gates remain unresolved under OpenAI-only development testing. Final experiment, integration, and reporting evidence is tracked separately under modules 12–14. Deployment and hackathon submission materials are excluded from the current user scope.
 
 The [numerical engine extension](handoffs/numerical-certification-and-generation.md) now adds a separate 27-case smooth suite at measured depths 7, 9, and 11. It uses native arbitrary-precision interval arithmetic, adaptive domain covers, strict curvature witnesses, and replayable evidence. The original 75-case suite remains available. The tracks have different identities and must not share a leaderboard comparison population. Current evidence establishes mathematical certification and software behavior; model performance on the new track remains unmeasured.
+
+The independently checked [curvature challenge](research/challenge-design-v1.md) adds 72 tasks across eight families and 24 parameter clusters, plus a disjoint nine-task screening population. A separately versioned [interior exploration](research/interior-curvature-design-v1.md) adds 72 depth-13 tasks across three families and eight shared source groups. Screening and interior exploration remain unranked; the latter does not meet the frozen family/cluster requirements for confirmation or a confidence interval. Retained experiments must distinguish task certification, completed model outcomes, infrastructure failures, and independently reviewed mathematical-error claims.
 
 ## Critical Assumptions to Prove
 
@@ -94,8 +98,8 @@ The [numerical engine extension](handoffs/numerical-certification-and-generation
 - Visitors can execute the evaluation through each promised hosted service without exposing credentials or misrepresenting provider capability.
 - The resulting benchmark can expose a meaningful limitation in available frontier models, rather than only ambiguous tasks, parsing artifacts introduced by our own system, or errors in our grader. This requires new evidence; the paper's results do not establish our results.
 
-## Open Questions
+## Remaining Evidence Requirements
 
-- How are saved runs accessed, retained, and published? Is leaderboard publication automatic or an explicit visitor action?
-- Which complete runs are eligible for ranking, and how are repeat runs of the same model and configuration represented?
-- What model/provider information can each service actually supply, and how will unavailable identity, pricing, usage, or compatibility information be presented?
+- Actual authorized live inference evidence for OpenRouter and Hugging Face, rather than catalog discovery or authentication alone.
+- Completed, separately retained experiments and independent outcome review under the frozen quality criteria. A correct prefix or an infrastructure failure cannot establish a model limitation.
+- Final integration and reporting handoffs with explicit gate verdicts and tested-environment limits. Unsupported identity, pricing, token, and compatibility metadata must remain unknown.
