@@ -79,4 +79,21 @@ The separately frozen operator lives at `scripts/deep-study-amendment.ts`; ignor
 
 The tested scheduler begins at 120 and only observed rate limits trigger 96 then 72, draining old generations and retaining each failed cell without retry. Other infrastructure failures stop fresh work; reported-identity drift is retained known infrastructure excluded from label/explanation denominators. First operator stop signals drain active requests. The original twelve-hour deadline is unchanged.
 
+The source-only selected-cohort profile is retained outside the frozen roots at `data/private/deep-study-amendment-subset-profile-v1.json`, bound to selected case SHA `445d5ab064e3b1c69a99d253f8e519dc0f6e901b5583fe05ab3dc4146cf8feb8`. The following are medians, not exact stage counts or difficulty guarantees; each bucket contains a range, including some substantial simplifications.
+
+| Requested depth | Selected tasks | Expression characters | Raw nonlinear path | Simplified nonlinear path |
+| --- | --- | --- | --- | --- |
+| 5 | 100 | 97 | 5 | 3 |
+| 10 | 100 | 221.5 | 10 | 7 |
+| 20 | 100 | 478.5 | 19 | 12 |
+| 40 | 100 | 1,079.5 | 38 | 24 |
+| 80 | 100 | 2,122.5 | 76 | 48.5 |
+| 160 | 100 | 4,363 | 155 | 98 |
+| 320 | 10 | 9,616.5 | 301 | 198.5 |
+| 512 | 10 | 14,172 | 503.5 | 337.5 |
+
+The selected raw AST depths span 6–1,617; depth-512 simplified nonlinear paths span 3–344. Requested depth therefore cannot establish the mathematical depth of every individual case. The source pool's admission rate and certifiability filter also limit comparison with unrestricted source proposals; this is an adapted certified population, not a replication of an external experiment.
+
+The first confirmed Astra wrong label occurs at requested depth 40, case `final-358977cdd4e11bee28ab04f40b800a746c6e13825383d871e292df43d62f417e`: complete valid JSON says neither; the actual displayed function has a strict convexity certificate. The explanation misses the negation immediately surrounding a negative absolute-value term, reversing its kink sign. Independent fresh proof replay matches retained trace `eac693835ed431e5bc98e1aa1cd0ed753396d354d93a25135950333ea18ce43c`; root separately traced the outward signs. Its reference/request/result bindings and diagnosis are retained in the private audit and root cross-check. This is one observed mathematical counterexample, not a repeated-error result, completed score or monotonic failure threshold. All remaining selected cases continue without adaptation or replacement.
+
 Fifteen operator tests/152 assertions, strict TypeScript, ESLint, bundle build and whitespace checks pass. Tests cover large baseline chunk replay, exact-runtime source hashing, duplicate/budget rejection, rate-limit generation drains, persistence failure, partial/unknown populations, identity drift and audited v2 export. The v2 landing reader's nine targeted tests pass; isolated desktop/mobile fixtures also passed with long opaque IDs and 620/100/10 populations. Main public JSON still contains the pending projection until real audit/export. The observed 120 authorizations verify launch, not later throughput or a complete study.
