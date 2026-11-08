@@ -2,9 +2,9 @@
 
 ## Status and reading contract
 
-Prepared on 2026-11-08 for [Module 14b](../modules/14b-randomized-certified-evaluation.md). This is a research/planning artifact, not a new generator, completed benchmark or model result. No inference calls were made for this work.
+Prepared on 2026-11-08 for [Module 14b](../modules/14b-randomized-certified-evaluation.md), then amended the same day to prefer upstream integration and a small Astra pilot over a bespoke generator. This is a research/planning artifact with bounded offline generation observations, not a completed benchmark or model result. No inference calls were made for this work.
 
-Source summaries below are explicitly **paraphrases**. Project requirements and proposed experiments are **design inferences**, not findings established by the cited authors. Primary publications and official documentation were checked for the specific stated claims; historical papers provide methods, not current model inventories or guaranteed failure rates. No external code, benchmark dataset, prompt or visual asset was copied.
+Source summaries below are explicitly **paraphrases**. Project requirements and proposed experiments are **design inferences**, not findings established by the cited authors. Primary publications and official documentation were checked for the specific stated claims; historical papers provide methods, not current model inventories or guaranteed failure rates. No external source was vendored into Coconut; the upstream reuse investigation used a separate local clone and temporary generated samples.
 
 ## What the repository already establishes
 
@@ -12,7 +12,23 @@ The [composition repair](composition-design-v1.md) uses 27 verified tasks in nin
 
 The normal numerical admission path is bounded to operation depth 32 and 256 nodes. The [quality policy](quality-criteria-v1.md) also bounds its current offline report and fixed-three-trial uncertainty procedure. Inspection of [bootstrap.ts](../../apps/api/src/quality/bootstrap.ts) confirms that it expects three outcomes per task and at most 256 cases. It cannot analyze the planned single-trial 800-case study unchanged. The [structural analyzer](../../apps/api/src/quality/structure.ts) provides useful bounded identities and signatures, not complete mathematical equivalence or split independence.
 
-[Module 15](../modules/15-deep-composition-stress-evaluation.md) separately targets 100 tasks at each of 5/10/20/40/80/160/320/512 nonlinear stages. Its single-trial, Astra-inclusive study and 30 + 800 × M request ceiling remain intact. [Mini module 14a](../modules/14a-product-flow-cleanup.md) remains the next product task. The sequence is 14a cleanup → 14b randomized generation and checks → 15 deep study. Module 14b must deliver its supported offline generator/quality handoff before Module 15 begins implementation; the later study remains responsible for deep feasibility. This renumbering changes order, not the study targets or budget.
+[Module 15](../modules/15-deep-composition-stress-evaluation.md) now targets 100 admitted tasks at each requested upstream generator depth 5/10/20/40/80/160/320/512, explicitly recording actual upstream depth and nonlinear paths separately. This replaces exact nonlinear-stage equality, not the eight requested numbers. Its single-trial, Astra-inclusive study and 30 + 800 × M ceiling remain intact. The sequence is 14a cleanup → 14b upstream integration and Astra pilot → 15 fresh deep study. The 24-question pilot belongs to the shared 30-send development allowance; it is not part of the final 800 or a second model-call budget.
+
+## Upstream-first MVP amendment and offline observations
+
+**User-directed design amendment:** Reuse the official generator pinned to `6f156c8c9b6b0b85f6a191bd4eb912e12e670082`; implement a thin importer, independent reference/domain admission and a small Astra pilot before considering bespoke mathematical construction routes. The older research below remains background, not a requirement to implement three sampling engines or every diagnostic before an MVP.
+
+**Source paraphrase:** The upstream CLI generates expressions, tree presentation, actual depth, node count, label and a Jensen-test status. Requested depth can become D+1 after final negation. Its depth convention includes some affine steps and omits affine aggregation steps. A shared random stream depends on the batch call/order as well as its seed. [Pinned generation script](https://github.com/yepengliu/ConvexBench/blob/6f156c8c9b6b0b85f6a191bd4eb912e12e670082/scripts/generate_dataset.py).
+
+**Source paraphrase:** Convex/concave labels rely on symbolic DCP construction, with finite-sample Jensen checks as a rejecting sanity check; unavailable floating-point evaluation is explicitly recorded. Neither requires finding numerical violations in both directions. The CSV does not retain a Coconut finite interval or strict witness coordinates. [Pinned reference entry points](https://github.com/yepengliu/ConvexBench/blob/6f156c8c9b6b0b85f6a191bd4eb912e12e670082/convexbench/synth/api.py), [Jensen implementation](https://github.com/yepengliu/ConvexBench/blob/6f156c8c9b6b0b85f6a191bd4eb912e12e670082/convexbench/synth/jensen.py).
+
+**Observed local feasibility:** An unmodified checkout at `/Users/vanshgaur/projects/convexbench-reference` ran generation-only calls separately for requested depths 5, 20, 100 and 512, one candidate per class, seed 0, Python 3.13.17, NumPy 2.1.2, pandas 2.3.1 and tqdm 4.67.1. All twelve candidates were generated. At requested 100, realized depths were 101/101/100; at requested 512 all three were 512. The 512-node counts were 1339/1362/891, expression lengths 14289/14794/9511 characters, and numerical statuses not_evaluable/not_evaluable/verified. The three-case CSV was 5,293,284 bytes, mostly expanded tree presentation. Its first inspection exceeded Python's default 131,072-character CSV-field limit; a replay with an explicit 16 MiB field bound succeeded. These are exposed development samples, not independently admitted pilot cases, throughput estimates, exact historical paper questions or model-hardness findings.
+
+The generation command for each separate smoke run was `python scripts/generate_dataset.py --depths D --n-per-class 1 --seed 0 --out <new-directory>`. Module 14b's production plan must additionally freeze source/environment, actual artifacts and bounded admission, rather than treating these smoke results as proof of domain/label validity.
+
+**Observed provenance limit:** No code license file/declaration was found in the inspected tracked source or package metadata. The external clone and generation check do not establish incorporation or redistribution rights. Record permission before shipping reused source; do not assume the manuscript license applies to code. [GitHub licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+
+**Pilot design:** Freeze 24 independently admitted questions, one per label at each of the eight requested depths, and one Astra response each. A complete score below 100 plus at least one independently verified wrong valid classification gives a scoped pilot signal to proceed toward fresh evaluation. Below 100 caused only by truncation, malformed output, refusal, service failure or an incorrect reference is not mathematical-failure evidence. A perfect pilot remains reported. No pilot inference has occurred; it will consume 24 of the existing shared 30 development sends after cleanup and admission checks.
 
 ## Primary-source findings and bounded implications
 
@@ -112,9 +128,9 @@ The normal numerical admission path is bounded to operation depth 32 and 256 nod
 
 **Design inference:** Preserve prior-work attribution and distinguish its construction, models and budgets from ours. Its results do not imply that every newly sampled function must cause a model failure. Project code, prompts, fixtures and public application assets continue to use original project terminology without paper references.
 
-## Proposed experimental contract
+## Initial proposed experimental contract — background, superseded for MVP scope
 
-These are original project proposals for implementation review, not validated outcomes:
+These are original project proposals, not validated outcomes. The upstream-first amendment above and current Module 14b determine the MVP implementation scope; broader routes, trained baselines and paired challenge panels below are deferred unless later justified:
 
 1. Define a bounded grammar and exact input distribution, with property-directed, proposal-then-certify and curvature-construction routes considered independently.
 2. Establish actual-domain labels and opposite-label exclusion before including any task; keep all failed/unknown proposals visible by stratum.
@@ -140,10 +156,12 @@ Use a finite margin/range policy and publish it. Do not make epsilon arbitrarily
 
 ## Feasibility questions that research does not settle
 
+These include broader questions from the original generator proposal. The upstream MVP must establish its actual admitted support and requested/realized depth policy, not prove every speculative construction route or exact nonlinear-stage target below.
+
 - Can the accepted grammar cover the requested mechanism/label/level cells without overwhelming rejection or certifier bias?
 - Can independent, bounded proofs support useful randomness at 160–512 true nonlinear stages without collapsing into a closed form or a narrow recurrence?
 - Do the chosen baselines detect important superficial cues, and are there enough independent groups to assess them?
 - How much of the measured difficulty is arithmetic, range contraction, representation or token budget rather than the intended dependent reasoning?
 - Which significant-core rules are justified for splits and uncertainty, and what equivalence remains unknown?
 
-Record these as gate questions and measured limitations. A literature citation cannot close them. Module 14b's current state remains planned, with no implementation or additional inference evidence.
+Record these as gate questions and measured limitations. A literature citation cannot close them. Module 14b's current state remains planned upstream integration and a future pilot; the offline source-generation smoke check above supplies no independent reference or Astra inference evidence.
