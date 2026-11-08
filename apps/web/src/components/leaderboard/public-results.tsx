@@ -60,10 +60,10 @@ export function PublicResults({ id }: { id: string }) {
     <div className="space-y-8">
       <div className="space-y-3">
         <Link
-          href="/leaderboard"
+          href="/#model-scores-title"
           className="text-sm text-primary underline underline-offset-4"
         >
-          Public comparisons
+          Model scores
         </Link>
         <h1 className="text-3xl font-medium sm:text-4xl">
           Published evaluation

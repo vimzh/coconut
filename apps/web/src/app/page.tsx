@@ -37,7 +37,7 @@ export default function Home() {
           <p className="mt-5 text-sm leading-6 text-muted-foreground">Use your own provider key. Provider charges apply.</p>
           <div className={styles.heroActions}>
             <Button asChild size="lg" className="h-12 px-5"><Link href="/evaluate">Evaluate a model</Link></Button>
-            <Button asChild size="lg" variant="outline" className="h-12 px-5"><Link href="/leaderboard">View leaderboard</Link></Button>
+            <Button asChild size="lg" variant="outline" className="h-12 px-5"><Link href="/#model-scores-title">View model scores</Link></Button>
           </div>
         </div>
         <div className={styles.heroGraph}><CurvatureIllustration /></div>

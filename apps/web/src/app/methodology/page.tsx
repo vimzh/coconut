@@ -138,7 +138,7 @@ export default function MethodologyPage() {
             <p>Keep the evaluation page open while the run executes. Disconnect, cancellation or server restart preserves recorded work but does not resume paid requests. Starting again requires a fresh intentional launch and provider credential. Requests already sent may still incur charges.</p>
             <div className="flex flex-wrap items-center gap-5 pt-2">
               <Button asChild size="lg"><Link href="/evaluate">Evaluate a model</Link></Button>
-              <Link href="/leaderboard" className="rounded-sm text-sm font-medium text-foreground underline underline-offset-4">View public comparisons</Link>
+              <Link href="/#model-scores-title" className="rounded-sm text-sm font-medium text-foreground underline underline-offset-4">View model scores</Link>
             </div>
           </MethodSection>
         </article>

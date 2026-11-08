@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 const navigation = [
   { id: "evaluate", href: "/evaluate", label: "Evaluate" },
-  { id: "leaderboard", href: "/leaderboard", label: "Leaderboard" },
   { id: "methodology", href: "/methodology", label: "Methodology" },
   { id: "pitch", href: "/pitch", label: "Pitch" },
 ] as const;

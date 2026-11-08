@@ -14,7 +14,7 @@ export default async function PublicResultPage({
 }) {
   const { id } = await params;
   return (
-    <AppShell activePage="leaderboard">
+    <AppShell>
       <PublicResults key={id} id={id} />
     </AppShell>
   );
