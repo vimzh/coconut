@@ -78,7 +78,7 @@ function validate(input: unknown): RunRecord {
       !states.includes(data.state as string) || ![data.createdAt, data.updatedAt, data.expiresAt].every(timestamp)) throw new RunStoreError("invalid-record");
     const request = readDataRecord(data.request, "Run request");
     requireFields(request, ["suiteKey", "provider", "modelId", "servingProvider", "profileId", "concurrency", "acceptCharges"]);
-    if (!["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "reserve-v1"].includes(request.suiteKey as string) ||
+    if (!["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "reserve-v1", "composition-v1"].includes(request.suiteKey as string) ||
       !["openai", "openrouter", "hugging-face"].includes(request.provider as string) || typeof request.modelId !== "string" || !request.modelId.trim() || request.modelId.length > 256 ||
       (request.servingProvider !== null && (typeof request.servingProvider !== "string" || !request.servingProvider.trim() || request.servingProvider.length > 256)) ||
       !integer(request.concurrency) || request.concurrency < 1 || request.concurrency > 12 || request.acceptCharges !== true) throw new RunStoreError("invalid-record");

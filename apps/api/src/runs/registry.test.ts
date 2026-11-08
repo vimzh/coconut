@@ -5,8 +5,8 @@ import type { RunSuiteKey } from "./types";
 
 it("loads only fixed verified suites and returns immutable bounded public descriptions", async () => {
   const descriptions = await listRunSuites();
-  expect(descriptions.map((entry) => [entry.key, entry.caseCount])).toEqual([["reference-v1", 75], ["smooth-v2", 27], ["challenge-v1", 72], ["screening-v1", 9], ["interior-v1", 72], ["reserve-v1", 18]]);
-  expect(descriptions.filter((entry) => entry.recommended).map((entry) => entry.key)).toEqual(["challenge-v1"]);
+  expect(descriptions.map((entry) => [entry.key, entry.caseCount])).toEqual([["composition-v1", 27], ["reference-v1", 75], ["smooth-v2", 27], ["challenge-v1", 72], ["screening-v1", 9], ["interior-v1", 72], ["reserve-v1", 18]]);
+  expect(descriptions.filter((entry) => entry.recommended).map((entry) => entry.key)).toEqual(["composition-v1"]);
   expect(Object.isFrozen(descriptions)).toBe(true);
   for (const entry of descriptions) {
     const suite = await loadRunSuite(entry.key, "one-shot-json-v1");
@@ -22,7 +22,7 @@ it("loads only fixed verified suites and returns immutable bounded public descri
 }, 30000);
 
 it("regenerates each profile-bound artifact while retaining identical case and cluster identities", async () => {
-  for (const key of ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "reserve-v1"] as const) {
+  for (const key of ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "reserve-v1", "composition-v1"] as const) {
     const base = await loadRunSuite(key, "one-shot-json-v1"), explicit = await loadRunSuite(key, "one-shot-json-v2-high");
     expect(explicit.id).not.toBe(base.id);
     expect(explicit.request.profileId).toBe("one-shot-json-v2-high");

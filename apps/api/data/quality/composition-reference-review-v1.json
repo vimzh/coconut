@@ -1,0 +1,1875 @@
+{
+  "version": "1",
+  "review": "independent-exact-fraction",
+  "suiteId": "suite-composition-v1-7b132df2dd57a665aeb62327bf3126fba0d725ace9e413b56b2ced06ecf492a5",
+  "suiteFileSha256": "e20cce4bcccb2d14ab1c2b312ae806a668a92dcd84a020cc0040cbbc99839803",
+  "verdict": "pass",
+  "theorem": "Each atom preserves [-1,1]; Q' and Q'' are positive with Q'''=0, while R', R'', and R''' are positive. Chain-rule induction gives H'>0 and H''>0 after one stage, and H'''>0 after the second; therefore H'' is strictly increasing globally. Endpoint bounds and the retained interior values classify H-a*x^2.",
+  "caseCount": 27,
+  "clusterCount": 9,
+  "cases": [
+    {
+      "caseId": "case-composition-v1-1ccf37fcbea352e1a8e8debfc2e6eca9f3e429eb2afb1acd94d7e975b1e1722a",
+      "clusterId": "cluster-composition-v1-0-2",
+      "family": "quadratic-chain",
+      "stageCount": 2,
+      "atoms": [
+        "Q",
+        "Q"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "convex",
+      "coefficient": "35/4096",
+      "globalSecond": {
+        "min": "35/2048",
+        "max": "83/2048"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "307/16384"
+        },
+        {
+          "x": "3/4",
+          "second": "595/16384"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-b4cfd26549385a13fd9d1d1bd63cde866f12a15e7b41f8b7ec037b7610dc0f4f",
+      "clusterId": "cluster-composition-v1-0-2",
+      "family": "quadratic-chain",
+      "stageCount": 2,
+      "atoms": [
+        "Q",
+        "Q"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "concave",
+      "coefficient": "16217796509697/281474976710656",
+      "globalSecond": {
+        "min": "-11407433138177/140737488355328",
+        "max": "-8108898254849/140737488355328"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-11175504904193/140737488355328"
+        },
+        {
+          "x": "3/4",
+          "second": "-8701603741697/140737488355328"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-608d5242ec2b7c1872ad7ef5d4ea904cc0f04b354b6bc4490af06416be1c72bb",
+      "clusterId": "cluster-composition-v1-0-2",
+      "family": "quadratic-chain",
+      "stageCount": 2,
+      "atoms": [
+        "Q",
+        "Q"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "neither",
+      "coefficient": "731/32768",
+      "globalSecond": {
+        "min": "-171/16384",
+        "max": "213/16384"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-9/1024"
+        },
+        {
+          "x": "3/4",
+          "second": "9/1024"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-b0bbcf25e8b7abfa60ed31ff71e604f282c2d2884e859635e5fa571dc65c9ff1",
+      "clusterId": "cluster-composition-v1-0-4",
+      "family": "quadratic-chain",
+      "stageCount": 4,
+      "atoms": [
+        "Q",
+        "Q",
+        "Q",
+        "Q"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "convex",
+      "coefficient": "201014658129/281474976710656",
+      "globalSecond": {
+        "min": "102919504962927/72057594037927936",
+        "max": "316777963228023/72057594037927936"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "31117083188327726281383/19342813113834066795298816"
+        },
+        {
+          "x": "3/4",
+          "second": "73361988940096479073287/19342813113834066795298816"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "86136961/268435456",
+          "imageMax": "97476129/268435456",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "388138809819984129/1152921504606846976",
+          "imageMax": "402396168425455681/1152921504606846976",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-13b8de382dc907dc345602a93572e4ec7f85ebe2f9addd7e9e58e0446b93a077",
+      "clusterId": "cluster-composition-v1-0-4",
+      "family": "quadratic-chain",
+      "stageCount": 4,
+      "atoms": [
+        "Q",
+        "Q",
+        "Q",
+        "Q"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "concave",
+      "coefficient": "819721617559/140737488355328",
+      "globalSecond": {
+        "min": "-633555926455441/72057594037927936",
+        "max": "-419697468190345/72057594037927936"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-166579035077258614574425/19342813113834066795298816"
+        },
+        {
+          "x": "3/4",
+          "second": "-124334129325489861782521/19342813113834066795298816"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "86136961/268435456",
+          "imageMax": "97476129/268435456",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "388138809819984129/1152921504606846976",
+          "imageMax": "402396168425455681/1152921504606846976",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-6c5582ddb63e51e406d6e100e5367e4c73991d9cd340a0b3a791aedb1bf7bbf5",
+      "clusterId": "cluster-composition-v1-0-4",
+      "family": "quadratic-chain",
+      "stageCount": 4,
+      "atoms": [
+        "Q",
+        "Q",
+        "Q",
+        "Q"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "neither",
+      "coefficient": "145276827079/70368744177664",
+      "globalSecond": {
+        "min": "-91687931932817/72057594037927936",
+        "max": "122170526332279/72057594037927936"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-21122452875772538817881/19342813113834066795298816"
+        },
+        {
+          "x": "3/4",
+          "second": "21122452875996213974023/19342813113834066795298816"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "86136961/268435456",
+          "imageMax": "97476129/268435456",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "388138809819984129/1152921504606846976",
+          "imageMax": "402396168425455681/1152921504606846976",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-fd6fa15ac923dd692be37ee6968f67f671afa85326171571f6d90b3cf1d75504",
+      "clusterId": "cluster-composition-v1-0-6",
+      "family": "quadratic-chain",
+      "stageCount": 6,
+      "atoms": [
+        "Q",
+        "Q",
+        "Q",
+        "Q",
+        "Q",
+        "Q"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "convex",
+      "coefficient": "4301489771/70368744177664",
+      "globalSecond": {
+        "min": "13824455120026428093224039904177726248880850266921736083271873517041823/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "max": "43472453083573480330178949477905544958476598086365915403893911250543975/113078212145816597093331040047546785012958969400039613319782796882727665664"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "331867197807263239820296819679570035790511418763751656164757968396571465230668985596986094096972630355254551/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+        },
+        {
+          "x": "3/4",
+          "second": "795017255930710428166156382822975090221539793631769134395819643242724251407779933557571617684514053797514103/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "86136961/268435456",
+          "imageMax": "97476129/268435456",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "388138809819984129/1152921504606846976",
+          "imageMax": "402396168425455681/1152921504606846976",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "Q",
+          "imageMin": "7257538041284005036826752891139842561/21267647932558653966460912964485513216",
+          "imageMax": "7334559443299577481520056335364034689/21267647932558653966460912964485513216",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "Q",
+          "imageMin": "2479326308430468236930190227638348328286767743055420321193921348453608834049/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "imageMax": "2487002468482435805460638357643896193808820979251820659017563981842805776641/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-a0d768adb52c57fdc006808e801c9e8fbdf96ab5d9db53a6905376dfe7cdbd7a",
+      "clusterId": "cluster-composition-v1-0-6",
+      "family": "quadratic-chain",
+      "stageCount": 6,
+      "atoms": [
+        "Q",
+        "Q",
+        "Q",
+        "Q",
+        "Q",
+        "Q"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "concave",
+      "coefficient": "142623814051/281474976710656",
+      "globalSecond": {
+        "min": "-86944906167887906588668544605750170134766111468870021175745472934725473/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "max": "-57296908204340854351713635032022351425170363649425841855123435201223321/113078212145816597093331040047546785012958969400039613319782796882727665664"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-1811260100452904120151437999097948173974209850123301833025617076727921705073034113276125646216236442409329385/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+        },
+        {
+          "x": "3/4",
+          "second": "-1348110042329456931805578435954543119543181475255284354794555401881768918895923165315540122628695018967069833/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "86136961/268435456",
+          "imageMax": "97476129/268435456",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "388138809819984129/1152921504606846976",
+          "imageMax": "402396168425455681/1152921504606846976",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "Q",
+          "imageMin": "7257538041284005036826752891139842561/21267647932558653966460912964485513216",
+          "imageMax": "7334559443299577481520056335364034689/21267647932558653966460912964485513216",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "Q",
+          "imageMin": "2479326308430468236930190227638348328286767743055420321193921348453608834049/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "imageMax": "2487002468482435805460638357643896193808820979251820659017563981842805776641/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-8d0b9f2391f24c778bce87630cb9b887d5883a7039fb6ba99cde6ea1c5097e26",
+      "clusterId": "cluster-composition-v1-0-6",
+      "family": "quadratic-chain",
+      "stageCount": 6,
+      "atoms": [
+        "Q",
+        "Q",
+        "Q",
+        "Q",
+        "Q",
+        "Q"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "neither",
+      "coefficient": "1568097999/8796093022208",
+      "globalSecond": {
+        "min": "-12668471067463925438116467613416221834704341658755454133688201631254369/113078212145816597093331040047546785012958969400039613319782796882727665664",
+        "max": "16979526896083126798838441960311596874891406160688725186933836102247783/113078212145816597093331040047546785012958969400039613319782796882727665664"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-231575029051545000028263700948814891968298306039869498376300929581267007118763301112855339136511418743218921/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+        },
+        {
+          "x": "3/4",
+          "second": "231575029071902188317595862194590162462730068828147979854760745264885779058347646847730184451030004699040631/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "1089/4096",
+          "imageMax": "1681/4096",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "86136961/268435456",
+          "imageMax": "97476129/268435456",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "388138809819984129/1152921504606846976",
+          "imageMax": "402396168425455681/1152921504606846976",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "Q",
+          "imageMin": "7257538041284005036826752891139842561/21267647932558653966460912964485513216",
+          "imageMax": "7334559443299577481520056335364034689/21267647932558653966460912964485513216",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "Q",
+          "imageMin": "2479326308430468236930190227638348328286767743055420321193921348453608834049/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "imageMax": "2487002468482435805460638357643896193808820979251820659017563981842805776641/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-190883043a908e3980309c709a4279617c00cee88830b7a724fa39738567f4ff",
+      "clusterId": "cluster-composition-v1-1-2",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 2,
+      "atoms": [
+        "Q",
+        "R"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "convex",
+      "coefficient": "603368916711/281474976710656",
+      "globalSecond": {
+        "min": "150870587516987815/35190986750784700416",
+        "max": "309442062572922511/23415199625117696000"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "665500114098676610335/140315697961989593628672"
+        },
+        {
+          "x": "3/4",
+          "second": "1154832949048917737215/103627029022023673184256"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-ed93972ce91c6f3792ad2f28db39b768db97bbfe437f16986e7b080c78a8b462",
+      "clusterId": "cluster-composition-v1-1-2",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 2,
+      "atoms": [
+        "Q",
+        "R"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "concave",
+      "coefficient": "4926552259543/281474976710656",
+      "globalSecond": {
+        "min": "-930128437808125289/35190986750784700416",
+        "max": "-409827566090751489/23415199625117696000"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-3644726643931672542833/140315697961989593628672"
+        },
+        {
+          "x": "3/4",
+          "second": "-2028388884526036616849/103627029022023673184256"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-27f6f1e0f0b7aaaedd183e9b56efd5c8793c8276ab0efe22cfc4cde03b281bbf",
+      "clusterId": "cluster-composition-v1-1-2",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 2,
+      "atoms": [
+        "Q",
+        "R"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "neither",
+      "coefficient": "430329391475/70368744177664",
+      "globalSecond": {
+        "min": "-32167279591693517/8797746687696175104",
+        "max": "30860839016025659/5853799906279424000"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-112274510467688826869/35078924490497398407168"
+        },
+        {
+          "x": "3/4",
+          "second": "82917835450190026603/25906757255505918296064"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-faefc4fec81514aba7ae228afb38fd2b718bad0487ad3cefe3e8f2035ca1afe9",
+      "clusterId": "cluster-composition-v1-1-4",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 4,
+      "atoms": [
+        "Q",
+        "R",
+        "Q",
+        "R"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "convex",
+      "coefficient": "1574094691/35184372088832",
+      "globalSecond": {
+        "min": "314538742244498378471427/3515305719878485519842148352",
+        "max": "455073373423922145690707/1543043157375354923967840256"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "5569102889132850328082625438915/55857889374174508227304243853262848"
+        },
+        {
+          "x": "3/4",
+          "second": "7459532490520583554405534326147/30274701780927791419486442086203392"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "5041/15876",
+          "imageMax": "3969/12100",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "R",
+          "imageMin": "15876/58463",
+          "imageMax": "12100/44431",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-ff3922b8e9fce23fa039cc6c0052beb71d128fbd3abfa265dd83d5d817d853b4",
+      "clusterId": "cluster-composition-v1-1-4",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 4,
+      "atoms": [
+        "Q",
+        "R",
+        "Q",
+        "R"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "concave",
+      "coefficient": "13524743545/35184372088832",
+      "globalSecond": {
+        "min": "-2073463758789764726239911/3515305719878485519842148352",
+        "max": "-593140128513976650279607/1543043157375354923967840256"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-32376040480256597694343087315047/55857889374174508227304243853262848"
+        },
+        {
+          "x": "3/4",
+          "second": "-13106548906639121228603878758951/30274701780927791419486442086203392"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "5041/15876",
+          "imageMax": "3969/12100",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "R",
+          "imageMin": "15876/58463",
+          "imageMax": "12100/44431",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-c92504b3a4569e7e093960ae280ef76a70ce9c05d603440566a484c4c2e11b38",
+      "clusterId": "cluster-composition-v1-1-4",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 4,
+      "atoms": [
+        "Q",
+        "R",
+        "Q",
+        "R"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "neither",
+      "coefficient": "36947111719/281474976710656",
+      "globalSecond": {
+        "min": "-2350225714601166374706361/28122445759027884158737186816",
+        "max": "1504421561909948978348375/12344345259002839391742722048"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-32775987459182445989363775983353/446863114993396065818433950826102784"
+        },
+        {
+          "x": "3/4",
+          "second": "17764424275197687945097907100359/242197614247422331355891536689627136"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "5041/15876",
+          "imageMax": "3969/12100",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "R",
+          "imageMin": "15876/58463",
+          "imageMax": "12100/44431",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-63ed6e3fb007ec45abf775828920ca117c07c707b489f3316ebe769667fdae42",
+      "clusterId": "cluster-composition-v1-1-6",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 6,
+      "atoms": [
+        "Q",
+        "R",
+        "Q",
+        "R",
+        "Q",
+        "R"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "convex",
+      "coefficient": "264416793/281474976710656",
+      "globalSecond": {
+        "min": "11201935931588281011615377600876941933795/5962300270386701656489771294096401193764913152",
+        "max": "4273605424687936832472159694833487158453/689155074607007737726296422565678479205990400"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "137043197519091681996191237005491224954012736410441429/65452172158689990971065863585462127175521971199434024812544"
+        },
+        {
+          "x": "3/4",
+          "second": "2290367696097418926747601699688072289717949696904535715/442165762363419820699290733175376658439821514994646769467392"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "5041/15876",
+          "imageMax": "3969/12100",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "R",
+          "imageMin": "15876/58463",
+          "imageMax": "12100/44431",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "Q",
+          "imageMin": "4409092801/13671689476",
+          "imageMax": "2548331361/7896455044",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "R",
+          "imageMin": "13671689476/50277665103",
+          "imageMax": "7896455044/29037488815",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-561a4d32105431131b626ea181bebf8df8e620ae41e9aeaf44024b323038acd9",
+      "clusterId": "cluster-composition-v1-1-6",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 6,
+      "atoms": [
+        "Q",
+        "R",
+        "Q",
+        "R",
+        "Q",
+        "R"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "concave",
+      "coefficient": "1137161573/140737488355328",
+      "globalSecond": {
+        "min": "-36973563283790203881488051331797464118041/2981150135193350828244885647048200596882456576",
+        "max": "-2784193032434703057475350187678311236911/344577537303503868863148211282839239602995200"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-398847608182892999040644102698193658732668971758366095/32726086079344995485532931792731063587760985599717012406272"
+        },
+        {
+          "x": "3/4",
+          "second": "-2012154630983772124880488979532401268819912274069210201/221082881181709910349645366587688329219910757497323384733696"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "5041/15876",
+          "imageMax": "3969/12100",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "R",
+          "imageMin": "15876/58463",
+          "imageMax": "12100/44431",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "Q",
+          "imageMin": "4409092801/13671689476",
+          "imageMax": "2548331361/7896455044",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "R",
+          "imageMin": "13671689476/50277665103",
+          "imageMax": "7896455044/29037488815",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-737f166fe9f7dfa04dc39f15cf0b64a8a07b2cdb6fb40401e59bdf49768765c7",
+      "clusterId": "cluster-composition-v1-1-6",
+      "family": "quadratic-reciprocal-chain",
+      "stageCount": 6,
+      "atoms": [
+        "Q",
+        "R",
+        "Q",
+        "R",
+        "Q",
+        "R"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "neither",
+      "coefficient": "194064063/70368744177664",
+      "globalSecond": {
+        "min": "-2620496205916195517708687740547680504859/1490575067596675414122442823524100298441228288",
+        "max": "441814999054076913796653430912056947907/172288768651751934431574105641419619801497600"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-25248938891768564604665397913483492633003119746712157/16363043039672497742766465896365531793880492799858506203136"
+        },
+        {
+          "x": "3/4",
+          "second": "170570601842915709298891569094186865717350427335547941/110541440590854955174822683293844164609955378748661692366848"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "Q",
+          "imageMin": "1/16",
+          "imageMax": "9/16",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "R",
+          "imageMin": "16/63",
+          "imageMax": "16/55",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "Q",
+          "imageMin": "5041/15876",
+          "imageMax": "3969/12100",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "R",
+          "imageMin": "15876/58463",
+          "imageMax": "12100/44431",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "Q",
+          "imageMin": "4409092801/13671689476",
+          "imageMax": "2548331361/7896455044",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "R",
+          "imageMin": "13671689476/50277665103",
+          "imageMax": "7896455044/29037488815",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-ac47ef263f89de4915ab6b29a2f06e6dfce89f29b1c2c8e853d801fbe84a31dc",
+      "clusterId": "cluster-composition-v1-2-2",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 2,
+      "atoms": [
+        "R",
+        "Q"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "convex",
+      "coefficient": "323696223217/281474976710656",
+      "globalSecond": {
+        "min": "202310139510943/87960930222080000",
+        "max": "79221132195221/3799912185593856"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "56894776296288255/18341050219954700288"
+        },
+        {
+          "x": "3/4",
+          "second": "62812506206627199/4019603404916523008"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-2582f035d5b7ceaf55bb35434d7fd4db20f26b3b8bfe29f51ea92c44ac7f5f43",
+      "clusterId": "cluster-composition-v1-2-2",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 2,
+      "atoms": [
+        "R",
+        "Q"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "concave",
+      "coefficient": "6515624460895/281474976710656",
+      "globalSecond": {
+        "min": "-3667645009037807/87960930222080000",
+        "max": "-87960930222085/3799912185593856"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-750043503566146383/18341050219954700288"
+        },
+        {
+          "x": "3/4",
+          "second": "-114035156189694159/4019603404916523008"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-cfb4c8a32024f22a276577919d0b3a372ade427fceae23ded9bd723da0d2ff34",
+      "clusterId": "cluster-composition-v1-2-2",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 2,
+      "atoms": [
+        "R",
+        "Q"
+      ],
+      "depth": 7,
+      "nodeCount": 16,
+      "label": "neither",
+      "coefficient": "820801752381/140737488355328",
+      "globalSecond": {
+        "min": "-310690955727341/43980465111040000",
+        "max": "21818817796753/1899956092796928"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-57428109270968845/9170525109977350144"
+        },
+        {
+          "x": "3/4",
+          "second": "12585878169210227/2009801702458261504"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-c86e00e73e67a20826dcb16c6dc0f6763164e460216b461e737ed173246168dc",
+      "clusterId": "cluster-composition-v1-2-4",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 4,
+      "atoms": [
+        "R",
+        "Q",
+        "R",
+        "Q"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "convex",
+      "coefficient": "3410453955/140737488355328",
+      "globalSecond": {
+        "min": "1813186083452607727477/37411919146584748773605376",
+        "max": "2472626360533058507005/5427780312079812026957824"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "3742479718829316492698589/57005596650286327099555840000"
+        },
+        {
+          "x": "3/4",
+          "second": "901811015115743979068541/2657577312649639561353232384"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "R",
+          "imageMin": "400/1479",
+          "imageMax": "144/527",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "2819041/8749764",
+          "imageMax": "358801/1110916",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-470f4c3aa16fea49b637c2af507af8343c7f8e6b19a73eff174e68ed6337983e",
+      "clusterId": "cluster-composition-v1-2-4",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 4,
+      "atoms": [
+        "R",
+        "Q",
+        "R",
+        "Q"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "concave",
+      "coefficient": "141867795361/281474976710656",
+      "globalSecond": {
+        "min": "-68172027724369689499705/74823838293169497547210752",
+        "max": "-5471372521861861398881/10855560624159624053915648"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-101916288017769262598709697/114011193300572654199111680000"
+        },
+        {
+          "x": "3/4",
+          "second": "-3296618828516789835610849/5315154625299279122706464768"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "R",
+          "imageMin": "400/1479",
+          "imageMax": "144/527",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "2819041/8749764",
+          "imageMax": "358801/1110916",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-d32b0d62bd29acf823d7f68d5ba70bb0cabce82b47089c8afcee917566a7ccf3",
+      "clusterId": "cluster-composition-v1-2-4",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 4,
+      "atoms": [
+        "R",
+        "Q",
+        "R",
+        "Q"
+      ],
+      "depth": 13,
+      "nodeCount": 26,
+      "label": "neither",
+      "coefficient": "35319324099/281474976710656",
+      "globalSecond": {
+        "min": "-11524963198363532587147/74823838293169497547210752",
+        "max": "2747073058720951441661/10855560624159624053915648"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-15601557700411659343270947/114011193300572654199111680000"
+        },
+        {
+          "x": "3/4",
+          "second": "727338160234935155074173/5315154625299279122706464768"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "R",
+          "imageMin": "400/1479",
+          "imageMax": "144/527",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "2819041/8749764",
+          "imageMax": "358801/1110916",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-5f0ac6d80849c40c1bbe2bfbfb387869e7d30226bda52b6d92b3cb0e1d06a6bc",
+      "clusterId": "cluster-composition-v1-2-6",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 6,
+      "atoms": [
+        "R",
+        "Q",
+        "R",
+        "Q",
+        "R",
+        "Q"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "convex",
+      "coefficient": "143250563/281474976710656",
+      "globalSecond": {
+        "min": "30723543535837881176915985478394160729/30184553824044592267058154693420642205696000",
+        "max": "125060238990810283137657889039900799/13061664479796674140360417618249578971136"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "5964744144312857761310622811490186090018173/4325698914417360859700136969012417035619981590528"
+        },
+        {
+          "x": "3/4",
+          "second": "67000589049154700257576498256378791733821/9395533756115226115600410631636351081080946688"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "R",
+          "imageMin": "400/1479",
+          "imageMax": "144/527",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "2819041/8749764",
+          "imageMax": "358801/1110916",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "R",
+          "imageMin": "8749764/32180015",
+          "imageMax": "1110916/4084863",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "Q",
+          "imageMin": "1336260494680609/4142213461600900",
+          "imageMax": "21532578983041/66744422915076",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-a58c5f3c3d1b9ccdcd16b3d4761cc1cd3c413648c02645a91138d1bf642a2136",
+      "clusterId": "cluster-composition-v1-2-6",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 6,
+      "atoms": [
+        "R",
+        "Q",
+        "R",
+        "Q",
+        "R",
+        "Q"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "concave",
+      "coefficient": "745378001/70368744177664",
+      "globalSecond": {
+        "min": "-144502544831165146360117455772432232349/7546138456011148066764538673355160551424000",
+        "max": "-34588784671290051163228137509511067/3265416119949168535090104404562394742784"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-20317971882046515145125464515187281856414417/1081424728604340214925034242253104258904995397632"
+        },
+        {
+          "x": "3/4",
+          "second": "-30619927138691270396013776522850656842385/2348883439028806528900102657909087770270236672"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "R",
+          "imageMin": "400/1479",
+          "imageMax": "144/527",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "2819041/8749764",
+          "imageMax": "358801/1110916",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "R",
+          "imageMin": "8749764/32180015",
+          "imageMax": "1110916/4084863",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "Q",
+          "imageMin": "1336260494680609/4142213461600900",
+          "imageMax": "21532578983041/66744422915076",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    },
+    {
+      "caseId": "case-composition-v1-6686ba5bf3598eea86368dc26a75b1140ef5ba4049f84447875b3255c528ea19",
+      "clusterId": "cluster-composition-v1-2-6",
+      "family": "reciprocal-quadratic-chain",
+      "stageCount": 6,
+      "atoms": [
+        "R",
+        "Q",
+        "R",
+        "Q",
+        "R",
+        "Q"
+      ],
+      "depth": 19,
+      "nodeCount": 36,
+      "label": "neither",
+      "coefficient": "92761241/35184372088832",
+      "globalSecond": {
+        "min": "-12214002870605068476188724834030551237/3773069228005574033382269336677580275712000",
+        "max": "8685341393429982359254648503775693/1632708059974584267545052202281197371392"
+      },
+      "witnesses": [
+        {
+          "x": "-3/4",
+          "second": "-1555143286625106948637519675423147078954649/540712364302170107462517121126552129452497698816"
+        },
+        {
+          "x": "3/4",
+          "second": "3377812831890575990283260105306794423207/1174441719514403264450051328954543885135118336"
+        }
+      ],
+      "theorem": [
+        {
+          "stage": 1,
+          "atom": "R",
+          "imageMin": "1/5",
+          "imageMax": "1/3",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "nonnegative"
+        },
+        {
+          "stage": 2,
+          "atom": "Q",
+          "imageMin": "121/400",
+          "imageMax": "49/144",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 3,
+          "atom": "R",
+          "imageMin": "400/1479",
+          "imageMax": "144/527",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 4,
+          "atom": "Q",
+          "imageMin": "2819041/8749764",
+          "imageMax": "358801/1110916",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 5,
+          "atom": "R",
+          "imageMin": "8749764/32180015",
+          "imageMax": "1110916/4084863",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        },
+        {
+          "stage": 6,
+          "atom": "Q",
+          "imageMin": "1336260494680609/4142213461600900",
+          "imageMax": "21532578983041/66744422915076",
+          "firstPositive": "true",
+          "secondPositive": "true",
+          "thirdPositive": "true"
+        }
+      ]
+    }
+  ],
+  "structuralChecks": {
+    "canonicalAtomChains": true,
+    "noAdjacentCancellationOrPadding": true,
+    "exactExpressionDuplicates": false
+  },
+  "coefficientCueAudit": {
+    "ranges": {
+      "convex": {
+        "min": "143250563/281474976710656",
+        "max": "35/4096"
+      },
+      "concave": {
+        "min": "1137161573/140737488355328",
+        "max": "16217796509697/281474976710656"
+      },
+      "neither": {
+        "min": "92761241/35184372088832",
+        "max": "731/32768"
+      }
+    },
+    "pairwiseRangeOverlap": {
+      "convex/concave": true,
+      "convex/neither": true,
+      "concave/neither": true
+    },
+    "interpretation": "Range overlap is a limited lexical-cue audit, not proof that no label shortcut exists."
+  }
+}

@@ -136,13 +136,13 @@ describe("public comparison policy", () => {
     assert.equal(board(run)[0].entries[0].eligible, false);
   });
 
-  it("keeps reserve generator evidence unranked even when its population is forged as confirmation", () => {
-    for (const population of ["exploratory", "confirmation", "reference"]) {
+  it("keeps exploratory generators unranked even when their population is forged as confirmation", () => {
+    for (const generator of ["reserve-v1", "composition-v1"]) for (const population of ["exploratory", "confirmation", "reference"]) {
       const run = fixture();
-      run.request.suiteKey = "reserve-v1";
+      run.request.suiteKey = generator;
       run.suite.population = population;
-      run.suite.generatorVersion = "reserve-v1";
-      run.report.identity.generatorVersion = "reserve-v1";
+      run.suite.generatorVersion = generator;
+      run.report.identity.generatorVersion = generator;
       const entry = board(run)[0].entries[0];
       assert.equal(entry.eligible, false);
       assert.equal(entry.rank, null);

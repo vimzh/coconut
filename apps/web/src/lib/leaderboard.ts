@@ -284,7 +284,7 @@ function parseEntry(value: unknown, now: number): LeaderboardEntry {
     );
   if (population === "screening")
     reasons.push("Screening runs are exploratory and unranked");
-  if (population === "exploratory" || suite.generatorVersion === "interior-v1" || suite.generatorVersion === "reserve-v1")
+  if (population === "exploratory" || suite.generatorVersion === "interior-v1" || suite.generatorVersion === "reserve-v1" || suite.generatorVersion === "composition-v1")
     reasons.push("This exploratory population is outside the confirmation criteria and remains unranked");
   const groupKey = stable({
     suiteId,

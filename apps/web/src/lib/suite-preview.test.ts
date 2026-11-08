@@ -21,6 +21,7 @@ type SourceSuite = {
 };
 
 const sources = {
+  "composition-v1": "../../../api/data/suites/composition-v1.json",
   "reference-v1": "../../../api/data/suites/reference-v1.json",
   "smooth-v2": "../../../api/data/suites/smooth-v2.json",
   "challenge-v1": "../../../api/data/suites/challenge-v1.json",
@@ -79,8 +80,8 @@ describe("frozen suite previews", () => {
   it("projects every frozen source task exactly, including the archived screening population", async () => {
     assert.equal(snapshot.version, "1");
     assert.equal(snapshot.profileId, "one-shot-json-v1");
-    assert.equal(snapshot.suites.length, 6);
-    assert.equal(snapshot.suites.reduce((total, suite) => total + suite.cases.length, 0), 273);
+    assert.equal(snapshot.suites.length, 7);
+    assert.equal(snapshot.suites.reduce((total, suite) => total + suite.cases.length, 0), 300);
 
     for (const [key, path] of Object.entries(sources)) {
       const source = await readJson(new URL(path, import.meta.url)) as SourceSuite;

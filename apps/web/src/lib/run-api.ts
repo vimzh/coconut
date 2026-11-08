@@ -1,7 +1,7 @@
 // Fixed run operations keep provider keys, private access, and retained evidence separate.
 import type { ProviderId } from "./provider-types";
 
-export type RunSuiteKey = "reference-v1" | "smooth-v2" | "challenge-v1" | "screening-v1" | "interior-v1" | "reserve-v1";
+export type RunSuiteKey = "reference-v1" | "smooth-v2" | "challenge-v1" | "screening-v1" | "interior-v1" | "reserve-v1" | "composition-v1";
 export type RunState = "running" | "cancelling" | "completed" | "cancelled" | "timed-out" | "failed" | "interrupted";
 export interface RunRequest {
   readonly suiteKey: RunSuiteKey;
@@ -80,7 +80,7 @@ type Data = Record<string, unknown>;
 const JSON_LIMIT = 64 * 1024 * 1024;
 const EXPORT_LIMIT = 256 * 1024 * 1024;
 const LINE_LIMIT = 4 * 1024 * 1024;
-const suiteKeys = ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "reserve-v1"] as const;
+const suiteKeys = ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "reserve-v1", "composition-v1"] as const;
 const states = ["running", "cancelling", "completed", "cancelled", "timed-out", "failed", "interrupted"] as const;
 function invalid(): never { throw new RunApiError("unexpected-response"); }
 function data(value: unknown): Data {

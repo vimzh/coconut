@@ -43,7 +43,7 @@ export function ModelScores() {
             <tr>
               <th scope="col" className={styles.model}>Model</th>
               {column.depths.map((depth) => <th key={depth} scope="col">Depth {depth}</th>)}
-              {landingPilotDepths.map((depth) => <th key={depth} scope="col" className={depth === 60 ? styles.pilotBoundary : undefined}>Depth {depth}<span className={styles.pilotLabel}>Separate pilot · default</span></th>)}
+              {landingPilotDepths.map((depth) => <th key={depth} scope="col" className={depth === 60 ? styles.pilotBoundary : undefined}>AST depth {depth}<span className={styles.pilotLabel}>Historical structural pilot</span></th>)}
             </tr>
           </thead>
           <tbody>
@@ -66,7 +66,7 @@ export function ModelScores() {
                 })}
                 {landingPilotDepths.map((depth) => {
                   const score = getLandingPilotScore(model.id, depth);
-                  return <td key={depth} className={depth === 60 ? styles.pilotBoundary : undefined} title={`Separate depth-${depth} exploratory pilot; 9 tasks, 3 trials each; default reasoning, 4,096 output tokens`}>
+                  return <td key={depth} className={depth === 60 ? styles.pilotBoundary : undefined} title={`Historical structural-depth-${depth} pilot; repetitive absolute-value families, 9 tasks, 3 trials each; not a measure of successive nonlinear composition`}>
                     {score === null ? <span aria-label="No complete pilot score for this model">—</span> : (score * 100).toFixed(1)}
                   </td>;
                 })}
@@ -76,7 +76,7 @@ export function ModelScores() {
         </table>
       </div>
       <p id="model-depth-note" className={styles.notes}>
-        {column.group} · {column.label} · {column.requests} requests per complete evaluation. Depth slices contain different tasks; score differences do not isolate a depth effect. Screening is exploratory and unranked; Standard includes the new same-task follow-up. Depths 60, 100 and 216 are separate nine-task pilots with default reasoning; the setting selector applies to the other columns.
+        {column.group} · {column.label} · {column.requests} requests per complete evaluation. Depth slices contain different tasks; score differences do not isolate a depth effect. Screening is exploratory and unranked; Standard includes the new same-task follow-up. AST depths 60, 100 and 216 are historical nine-task structural pilots using repetitive absolute-value families. Associative sums can be flattened; these columns do not measure successive nonlinear composition. Their default-reasoning results are preserved; the setting selector applies to the other columns.
       </p>
     </section>
   );

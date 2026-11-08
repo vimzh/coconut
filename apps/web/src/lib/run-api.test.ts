@@ -79,11 +79,22 @@ describe("run browser API", () => {
     }
   });
 
-  it("loads all six suite keys and preserves the separate reserve workload", async () => {
-    const catalog = ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1"].map((suiteKey) => ({ ...suite, key: suiteKey }));
+  it("loads all registered suite keys and preserves separate exploratory workloads", async () => {
+    const catalog = ["reference-v1", "smooth-v2", "challenge-v1", "screening-v1", "interior-v1", "composition-v1"].map((suiteKey) => ({ ...suite, key: suiteKey }));
     const reserve = { ...suite, key: "reserve-v1", name: "Fine-scale curvature exploration", suiteId: "suite-reserve-fixture", caseCount: 18, depths: [17, 23], generatorVersion: "reserve-v1", promptVersion: "smooth-v2" };
     responses.push(Response.json({ version: "1", suites: [...catalog, reserve] }));
     assert.deepEqual(await loadRunSuites(), [...catalog, reserve]);
+    assert.equal(calls.length, 1);
+  });
+
+  it("sends the explicit composition key and rejects altered composition keys before fetch", async () => {
+    const compositionInput: RunRequest = { ...input, suiteKey: "composition-v1" };
+    responses.push(ndjson([started, ended]));
+    await startRun(compositionInput, key, () => {});
+    assert.deepEqual(JSON.parse(calls[0].init.body as string), compositionInput);
+    for (const suiteKey of ["composition-v2", "composition-v1/../challenge-v1", " composition-v1"]) {
+      await assert.rejects(startRun({ ...compositionInput, suiteKey } as RunRequest, key, () => {}), failure("invalid-input"));
+    }
     assert.equal(calls.length, 1);
   });
 

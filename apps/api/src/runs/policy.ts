@@ -32,6 +32,7 @@ export function runPopulation(key: RunSuiteKey, suite: RunSuite): "reference" | 
   }
   if (key === "interior-v1" && suite.formatVersion === "2" && suite.generatorVersion === "interior-v1" && suite.request.population === "exploratory") return "exploratory";
   if (key === "reserve-v1" && suite.formatVersion === "2" && suite.generatorVersion === "reserve-v1" && suite.request.population === "exploratory") return "exploratory";
+  if (key === "composition-v1" && suite.formatVersion === "2" && suite.generatorVersion === "composition-v1" && suite.request.population === "exploratory") return "exploratory";
   throw new RunInputError("invalid-suite", "The suite identity and population do not match the selected workload.");
 }
 
@@ -40,7 +41,7 @@ export function parseRunRequest(input: unknown): RunRequest {
     const data = readDataRecord(input, "Run request");
     requireFields(data, ["suiteKey", "provider", "modelId", "servingProvider", "profileId", "concurrency", "acceptCharges"]);
     if (data.acceptCharges !== true) throw new RunInputError("charge-authorization-required", "Starting an evaluation requires explicit acknowledgement of its provider charges.");
-    if (data.suiteKey !== "reference-v1" && data.suiteKey !== "smooth-v2" && data.suiteKey !== "challenge-v1" && data.suiteKey !== "screening-v1" && data.suiteKey !== "interior-v1" && data.suiteKey !== "reserve-v1") throw new RunInputError();
+    if (data.suiteKey !== "reference-v1" && data.suiteKey !== "smooth-v2" && data.suiteKey !== "challenge-v1" && data.suiteKey !== "screening-v1" && data.suiteKey !== "interior-v1" && data.suiteKey !== "reserve-v1" && data.suiteKey !== "composition-v1") throw new RunInputError();
     if (!Number.isInteger(data.concurrency) || (data.concurrency as number) < 1 || (data.concurrency as number) > 12) throw new RunInputError();
     const selection = parseSelectionRequest({ provider: data.provider, modelId: data.modelId, servingProvider: data.servingProvider, profileId: data.profileId, verification: "metadata" });
     if (selection.provider !== "openai" && getProfile(selection.profileId).reasoning !== "provider-default") throw new RunInputError("unsupported-profile", "Explicit reasoning profiles currently require OpenAI. Select a permitted profile or service explicitly.");

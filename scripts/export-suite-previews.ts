@@ -2,7 +2,7 @@
 import { writeFile } from "node:fs/promises";
 import { loadRunSuite } from "../apps/api/src/runs/registry";
 
-const keys = ["challenge-v1", "screening-v1", "smooth-v2", "reference-v1", "interior-v1", "reserve-v1"] as const;
+const keys = ["composition-v1", "challenge-v1", "screening-v1", "smooth-v2", "reference-v1", "interior-v1", "reserve-v1"] as const;
 const suites = [];
 for (const key of keys) {
   const suite = await loadRunSuite(key, "one-shot-json-v1");

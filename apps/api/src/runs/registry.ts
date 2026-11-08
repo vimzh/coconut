@@ -3,6 +3,7 @@ import { createReadStream } from "node:fs";
 import { generateChallengeSuite, getChallengeRequest } from "../challenge";
 import { generateInteriorSuite, getInteriorRequest } from "../interior";
 import { generateReserveSuite, getReserveRequest } from "../reserve";
+import { generateCompositionSuite, getCompositionRequest } from "../composition";
 import { generateNumericalSuite } from "../numerics/suite";
 import { getProfile, type ProfileId } from "../protocol";
 import { apiDataFile } from "../runtime-paths";
@@ -12,9 +13,10 @@ import { freezeData } from "../suites/generator";
 import type { RunSuite, RunSuiteDescription, RunSuiteKey } from "./types";
 
 const choices = Object.freeze({
+  "composition-v1": { file: "composition-v1.json", name: "Nested composition exploration", description: "Certified nonlinear chains with separate composition-stage and expression-depth measurements. Exploratory and unranked.", recommended: true },
   "reference-v1": { file: "reference-v1.json", name: "Exact reference", description: "75 certified piecewise expressions at five measured depths.", recommended: false },
   "smooth-v2": { file: "smooth-v2.json", name: "Smooth reference", description: "27 certified smooth expressions with domain-aware instructions.", recommended: false },
-  "challenge-v1": { file: "challenge-v1.json", name: "Curvature challenge", description: "72 tasks across eight families, balanced by class and parameter group.", recommended: true },
+  "challenge-v1": { file: "challenge-v1.json", name: "Curvature challenge", description: "72 tasks across eight families, balanced by class and parameter group.", recommended: false },
   "screening-v1": { file: "challenge-v1.json", name: "Exploratory screening", description: "Nine tasks using parameter groups held out from the confirmation challenge.", recommended: false },
   "interior-v1": { file: "interior-v1.json", name: "Interior curvature exploration", description: "72 quintic-composition tasks across three families and eight shared source-polynomial groups. Exploratory and unranked.", recommended: false },
   "reserve-v1": { file: "reserve-v1.json", name: "Fine-scale curvature exploration", description: "18 nonlinear polynomial-composition tasks across three families and two related source groups. Exploratory and unranked.", recommended: false },
@@ -23,6 +25,7 @@ const cache = new Map<string, Promise<RunSuite>>();
 const MAX_CACHE = 64;
 const MAX_ARTIFACT_BYTES = 16 * 1024 * 1024;
 const baseIds = {
+  "composition-v1": "suite-composition-v1-7b132df2dd57a665aeb62327bf3126fba0d725ace9e413b56b2ced06ecf492a5",
   "reference-v1": "suite-v1-0149a94ef54c099effeaeca05959e310c7fddb8f56d6897e0cb37a759d055b41",
   "smooth-v2": "suite-smooth-v1-8806b2856918ad1add284101d685e16252e8d03f6f4bf0ba8e55937e2ff1e5f4",
   "challenge-v1": "suite-challenge-v1-6a1bf3255f8104661db7ce0ae4f3be4182e8ac3b8b9240774aacfc339e433dd9",
@@ -54,6 +57,7 @@ async function build(key: RunSuiteKey, profileId: ProfileId): Promise<RunSuite> 
     ? await generateChallengeSuite(getChallengeRequest(key === "screening-v1" ? "screening" : "confirmation", profileId))
     : key === "interior-v1" ? await generateInteriorSuite(getInteriorRequest(profileId))
     : key === "reserve-v1" ? await generateReserveSuite(getReserveRequest(profileId))
+    : key === "composition-v1" ? await generateCompositionSuite(getCompositionRequest(profileId))
     : base.formatVersion === "1" ? await generateSuite({ ...base.request, profileId })
       : await generateNumericalSuite({ ...base.request, profileId });
   if (generated.status !== "complete") throw new SuiteInputError("Run suite coverage could not be completed.");
