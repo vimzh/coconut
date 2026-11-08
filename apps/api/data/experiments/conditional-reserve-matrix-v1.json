@@ -1,0 +1,143 @@
+{
+  "version": "1",
+  "kind": "conditional-reserve-exploration",
+  "frozenAt": "2026-11-08T10:24:24.182Z",
+  "criteriaSha256": "956573cb02d264d770219061ff805aa03f942a823138a87fa0266e5bf91d0f95",
+  "gates": {
+    "decisionSha256": "29aea846d30bce67bc2e57fc7429824a5ea825362d5e4e9a44dd04e365158fa7",
+    "amendmentSha256": "5ab07c79467049062a5c01a538a9d88cb5c33e0bf041cdb462b6c6249b2d9e5a",
+    "proposalFileSha256": "766261f379ea91fc748b0e612068b9717a33ccc612be14747f16e306e4457b85",
+    "independentReviewSha256": "2c69ff774dce5b6b90f0b1d3c709d7bd102b4e4cca1aefed2dcb6564ccd851e3",
+    "referenceFingerprint": "195d6616cc365b2d69b704d8be7ea74c8b9dc7f2d8dd2c2867aa137b0fe5f615"
+  },
+  "accounting": {
+    "version": "1",
+    "kind": "reconciled-inference-accounting",
+    "checkedAt": "2026-11-08T10:24:20.558Z",
+    "inferenceCeiling": 8192,
+    "controls": {
+      "path": "apps/api/data/experiments/capabilities-v1.json",
+      "sha256": "f2b920c061a45c3ad6a3d4027f567be28bfff48b8dfe7070bbdc7d2aabbb644e",
+      "inferenceRequests": 183
+    },
+    "earlierCalibrationAllowance": 4,
+    "studies": [
+      {
+        "key": "original",
+        "manifestPath": "apps/api/data/experiments/openai-matrix-v1.json",
+        "manifestSha256": "c69ae7489e3ef4e904bf5adeff59841cc4045ce912dcc28f8f31aec0a8e26881",
+        "ledgerPath": "apps/api/data/experiments/openai-progress-v1.json",
+        "ledgerSha256": "7547446f7e5dbff147cd0978c5ae0724f95ff1e330ef6e7845d5d5693845a3e7",
+        "reconciliationPath": "apps/api/data/experiments/openai-reconciliation-v1.json",
+        "reconciliationSha256": "64aa79c95f178b3fa9ad78102c47d0fb0a0aefb5b94baf181a5e1960c39bfb65",
+        "sendEvidencePath": "apps/api/data/experiments/openai-send-evidence-v1.json",
+        "sendEvidenceSha256": "dad83d7cfcb55152a3965a94af5ddf03604abdef74cf5d13aac39e9e1735b5da",
+        "inferenceRequests": 225,
+        "unknownRemoteInferenceRequests": 11
+      },
+      {
+        "key": "replication",
+        "manifestPath": "apps/api/data/experiments/openai-matrix-v2.json",
+        "manifestSha256": "62ae737f9ab8afad8edee917541d40fa46f16fdcce9216ea23189b375bb5029e",
+        "ledgerPath": "apps/api/data/experiments/openai-progress-v2.json",
+        "ledgerSha256": "965ec97993701ad8712df8155e09b6f992a0e7a531e82848f0d42e08dd9c9787",
+        "reconciliationPath": "apps/api/data/experiments/openai-reconciliation-v2.json",
+        "reconciliationSha256": "a965514255d224896a7fc517ef5348f4c7b8fc253bd76cc428e7b88b5e60bba0",
+        "sendEvidencePath": "apps/api/data/experiments/openai-send-evidence-v2.json",
+        "sendEvidenceSha256": "18b1ef5a1ab397b887aee9a1512d69d694186c607d96a7577300707c3f62ed34",
+        "inferenceRequests": 6678,
+        "unknownRemoteInferenceRequests": 101
+      },
+      {
+        "key": "interior",
+        "manifestPath": "apps/api/data/experiments/interior-matrix-v1.json",
+        "manifestSha256": "a4f109d0ddd550442d10978bfd1854c07ba04bb4f6268dc7cdaead701106d536",
+        "ledgerPath": "apps/api/data/experiments/interior-progress-v1.json",
+        "ledgerSha256": "d92527579936e750e144255d316aa332553ef09956a2171c509527d58e654f4a",
+        "reconciliationPath": "apps/api/data/experiments/interior-reconciliation-v1.json",
+        "reconciliationSha256": "2673394dccf68d3e709cd63849c9f00c7c712d54460fdbed73641790ba75758e",
+        "sendEvidencePath": "apps/api/data/experiments/interior-send-evidence-v1.json",
+        "sendEvidenceSha256": "942ea036f52d8812030862236a949a67af637e3839b28f937352a2298f2cae3a",
+        "inferenceRequests": 432,
+        "unknownRemoteInferenceRequests": 0
+      },
+      {
+        "key": "remaining-models",
+        "manifestPath": "apps/api/data/experiments/remaining-models-matrix-v1.json",
+        "manifestSha256": "583601ed027c0227ca0063734ca65f92bd590cc048688b46e984d530f7b900c5",
+        "ledgerPath": "apps/api/data/experiments/remaining-models-progress-v1.json",
+        "ledgerSha256": "46d28bd521978c77b559001e6482e02d8565af200ad0d903e9d628984c79c710",
+        "reconciliationPath": "apps/api/data/experiments/remaining-models-reconciliation-v1.json",
+        "reconciliationSha256": "62fd2e46804b369a5c9b9ee0f649abbd06624e97688cac35330d91f0202b01b5",
+        "sendEvidencePath": "apps/api/data/experiments/remaining-models-send-evidence-v1.json",
+        "sendEvidenceSha256": "cb0ea0e1ee096dddbb6f3c50a0507195b011500e46ce7061643a621caae25362",
+        "inferenceRequests": 216,
+        "unknownRemoteInferenceRequests": 0
+      }
+    ],
+    "totalPriorInferenceRequests": 7738
+  },
+  "accountingSha256": "ddb87a46d05cea8bbb2f1293bb1d33343d28dc0a0615be6a36fb37df18e6371e",
+  "population": {
+    "suiteKey": "reserve-v1",
+    "baseSuiteId": "suite-reserve-v1-54c719576846a0437a431372204593bd8ea47f4af99def6a654db4a93502e7c7",
+    "caseCount": 18,
+    "families": 3,
+    "relatedSourceGroups": 2
+  },
+  "cells": [
+    {
+      "id": "reserve-cell-4b474d1ad1f02c35ef98bb0110f25e48db6467e1e6bd4aaeafee22008c56eabc",
+      "phase": "exploratory",
+      "provider": "openai",
+      "modelId": "gpt-6-astra",
+      "servingProvider": null,
+      "profileId": "one-shot-json-v2-max",
+      "suiteId": "suite-reserve-v1-c4efdfed64c8ff0696db7c6f2bb2a85b8bf563bf253d84cd0547e62c7803b224",
+      "suiteSha256": "b2fd0b0c50d35ed3309eca8f80cfaee61529caa6579e3c64b530755b5beb8811",
+      "promptsSha256": "e50da50ec96c12639e71e1adf40d4725a1c3b593e47c300dc4dc0307016cd0c6",
+      "settingsId": "settings-v1-6785e4f1a5b910b91e34560f8d59b874fb696ea3f5657797cfd6db6a1304749f",
+      "concurrency": 4,
+      "reasoningEffort": "max",
+      "maxOutputTokens": 16384,
+      "plannedTrials": 54
+    },
+    {
+      "id": "reserve-cell-eb1a076663c7ed5e8d35ee58b0c2094f63b4e637ac731a89a7dd78e4d72ecb2c",
+      "phase": "exploratory",
+      "provider": "openai",
+      "modelId": "gpt-6.1-sol",
+      "servingProvider": null,
+      "profileId": "one-shot-json-v2-max",
+      "suiteId": "suite-reserve-v1-c4efdfed64c8ff0696db7c6f2bb2a85b8bf563bf253d84cd0547e62c7803b224",
+      "suiteSha256": "b2fd0b0c50d35ed3309eca8f80cfaee61529caa6579e3c64b530755b5beb8811",
+      "promptsSha256": "e50da50ec96c12639e71e1adf40d4725a1c3b593e47c300dc4dc0307016cd0c6",
+      "settingsId": "settings-v1-6785e4f1a5b910b91e34560f8d59b874fb696ea3f5657797cfd6db6a1304749f",
+      "concurrency": 4,
+      "reasoningEffort": "max",
+      "maxOutputTokens": 16384,
+      "plannedTrials": 54
+    }
+  ],
+  "budget": {
+    "priorActualInferenceRequests": 7738,
+    "maxNewInferenceRequests": 108,
+    "cumulativeInferenceCeiling": 7846,
+    "sharedInferenceCeiling": 8192,
+    "parallelRuns": 2,
+    "runConcurrency": 4,
+    "maxConcurrency": 8,
+    "retries": 0,
+    "trialsPerCase": 3,
+    "attemptsPerTrial": 1,
+    "metadataTimeoutMs": 20000,
+    "inferenceTimeoutMs": 180000
+  },
+  "interpretation": {
+    "population": "exploratory",
+    "ranked": false,
+    "confidenceInterval": "unavailable",
+    "strongSignalEligible": false,
+    "scope": "Adaptive follow-up after the disclosed amendment and completed P5 outcomes. Eighteen fixed tasks share two related groups; 54 fresh trials per model are descriptive. Eleven baseline remote outcomes remain unknown. No interval, ranking, inherited confirmation or stronger signal follows."
+  }
+}

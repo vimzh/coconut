@@ -92,7 +92,8 @@ function exactKeys(value: unknown, keys: string): boolean {
   return value !== null && typeof value === "object" && !Array.isArray(value) && Object.keys(value).sort().join(",") === keys.split(",").sort().join(",");
 }
 
-function assertStudySendEvidence(study: PriorStudy, source: RemainingModelsInputs["priorStudies"][number], accountingAt: string): void {
+export function assertStudySendEvidence(study: Pick<PriorStudy, "manifestSha256" | "ledgerSha256" | "reconciliationSha256" | "sendEvidenceSha256" | "inferenceRequests" | "unknownRemoteInferenceRequests">,
+  source: Pick<RemainingModelsInputs["priorStudies"][number], "ledger" | "reconciliation" | "sendEvidence">, accountingAt: string): void {
   const primary = source.reconciliation, evidence = source.sendEvidence, ledgerAt = (source.ledger as ExperimentLedger & { updatedAt?: string }).updatedAt;
   if (!primary || primary.version !== "1" || !["offline-experiment-reconciliation", "offline-study-reconciliation"].includes(primary.kind)
     || !validTime(ledgerAt) || !validTime(primary.checkedAt) || Date.parse(primary.checkedAt) < Date.parse(ledgerAt)

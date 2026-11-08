@@ -1,0 +1,67 @@
+{
+  "version": "1",
+  "kind": "reconciled-inference-accounting",
+  "checkedAt": "2026-11-08T10:24:20.558Z",
+  "inferenceCeiling": 8192,
+  "controls": {
+    "path": "apps/api/data/experiments/capabilities-v1.json",
+    "sha256": "f2b920c061a45c3ad6a3d4027f567be28bfff48b8dfe7070bbdc7d2aabbb644e",
+    "inferenceRequests": 183
+  },
+  "earlierCalibrationAllowance": 4,
+  "studies": [
+    {
+      "key": "original",
+      "manifestPath": "apps/api/data/experiments/openai-matrix-v1.json",
+      "manifestSha256": "c69ae7489e3ef4e904bf5adeff59841cc4045ce912dcc28f8f31aec0a8e26881",
+      "ledgerPath": "apps/api/data/experiments/openai-progress-v1.json",
+      "ledgerSha256": "7547446f7e5dbff147cd0978c5ae0724f95ff1e330ef6e7845d5d5693845a3e7",
+      "reconciliationPath": "apps/api/data/experiments/openai-reconciliation-v1.json",
+      "reconciliationSha256": "64aa79c95f178b3fa9ad78102c47d0fb0a0aefb5b94baf181a5e1960c39bfb65",
+      "sendEvidencePath": "apps/api/data/experiments/openai-send-evidence-v1.json",
+      "sendEvidenceSha256": "dad83d7cfcb55152a3965a94af5ddf03604abdef74cf5d13aac39e9e1735b5da",
+      "inferenceRequests": 225,
+      "unknownRemoteInferenceRequests": 11
+    },
+    {
+      "key": "replication",
+      "manifestPath": "apps/api/data/experiments/openai-matrix-v2.json",
+      "manifestSha256": "62ae737f9ab8afad8edee917541d40fa46f16fdcce9216ea23189b375bb5029e",
+      "ledgerPath": "apps/api/data/experiments/openai-progress-v2.json",
+      "ledgerSha256": "965ec97993701ad8712df8155e09b6f992a0e7a531e82848f0d42e08dd9c9787",
+      "reconciliationPath": "apps/api/data/experiments/openai-reconciliation-v2.json",
+      "reconciliationSha256": "a965514255d224896a7fc517ef5348f4c7b8fc253bd76cc428e7b88b5e60bba0",
+      "sendEvidencePath": "apps/api/data/experiments/openai-send-evidence-v2.json",
+      "sendEvidenceSha256": "18b1ef5a1ab397b887aee9a1512d69d694186c607d96a7577300707c3f62ed34",
+      "inferenceRequests": 6678,
+      "unknownRemoteInferenceRequests": 101
+    },
+    {
+      "key": "interior",
+      "manifestPath": "apps/api/data/experiments/interior-matrix-v1.json",
+      "manifestSha256": "a4f109d0ddd550442d10978bfd1854c07ba04bb4f6268dc7cdaead701106d536",
+      "ledgerPath": "apps/api/data/experiments/interior-progress-v1.json",
+      "ledgerSha256": "d92527579936e750e144255d316aa332553ef09956a2171c509527d58e654f4a",
+      "reconciliationPath": "apps/api/data/experiments/interior-reconciliation-v1.json",
+      "reconciliationSha256": "2673394dccf68d3e709cd63849c9f00c7c712d54460fdbed73641790ba75758e",
+      "sendEvidencePath": "apps/api/data/experiments/interior-send-evidence-v1.json",
+      "sendEvidenceSha256": "942ea036f52d8812030862236a949a67af637e3839b28f937352a2298f2cae3a",
+      "inferenceRequests": 432,
+      "unknownRemoteInferenceRequests": 0
+    },
+    {
+      "key": "remaining-models",
+      "manifestPath": "apps/api/data/experiments/remaining-models-matrix-v1.json",
+      "manifestSha256": "583601ed027c0227ca0063734ca65f92bd590cc048688b46e984d530f7b900c5",
+      "ledgerPath": "apps/api/data/experiments/remaining-models-progress-v1.json",
+      "ledgerSha256": "46d28bd521978c77b559001e6482e02d8565af200ad0d903e9d628984c79c710",
+      "reconciliationPath": "apps/api/data/experiments/remaining-models-reconciliation-v1.json",
+      "reconciliationSha256": "62fd2e46804b369a5c9b9ee0f649abbd06624e97688cac35330d91f0202b01b5",
+      "sendEvidencePath": "apps/api/data/experiments/remaining-models-send-evidence-v1.json",
+      "sendEvidenceSha256": "cb0ea0e1ee096dddbb6f3c50a0507195b011500e46ce7061643a621caae25362",
+      "inferenceRequests": 216,
+      "unknownRemoteInferenceRequests": 0
+    }
+  ],
+  "totalPriorInferenceRequests": 7738
+}

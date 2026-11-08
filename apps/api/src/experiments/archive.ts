@@ -8,9 +8,10 @@ import type { FrozenExperiment } from "./manifest";
 import type { ExperimentLedger } from "./reconcile";
 import { LOCAL_API, readApplicationJson } from "./http";
 
-type ArchiveLedger = Omit<ExperimentLedger, "cells"> & { readonly cells: readonly (ExperimentLedger["cells"][number] & { readonly published: boolean })[] };
+export interface ArchivableManifest { readonly cells: readonly Pick<FrozenExperiment["cells"][number], "id" | "modelId" | "provider" | "servingProvider" | "profileId" | "concurrency" | "suiteId" | "suiteSha256" | "promptsSha256" | "settingsId">[] }
+export type ArchivableLedger = Pick<ExperimentLedger, "manifestSha256" | "state"> & { readonly cells: readonly (ExperimentLedger["cells"][number] & { readonly published: boolean })[] };
 
-export async function archivePublishedExperiment(manifest: FrozenExperiment, ledger: ArchiveLedger, directory: string, fetcher: (url: string, options: RequestInit) => Promise<Response> = fetch) {
+export async function archivePublishedExperiment(manifest: ArchivableManifest, ledger: ArchivableLedger, directory: string, fetcher: (url: string, options: RequestInit) => Promise<Response> = fetch) {
   if (ledger.manifestSha256 !== qualityDataHash(manifest) || !["settled", "interrupted"].includes(ledger.state) || ledger.cells.length > 500 || ledger.cells.some(cell => cell.state === "active")) throw new Error("Archive requires settled scheduling and its matching frozen manifest.");
   const members = new Map(manifest.cells.map(cell => [cell.id, cell]));
   const selected = ledger.cells.filter(cell => cell.published);
