@@ -6,11 +6,12 @@ import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { CompositionResults } from "@/components/marketing/composition-results";
 import { Button } from "@/components/ui/button";
+import { hasPublishedDeepStudy } from "@/lib/deep-study-summary";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Coconut | Convexity evaluation",
-  description: "Evaluate how a language model classifies scalar functions on exact intervals. Inspect reference evidence, three fresh trials, and every reported score.",
+  description: "Evaluate how a language model classifies scalar functions on exact intervals. Inspect verified references, study coverage, and every reported score.",
 };
 
 export default function Home() {
@@ -27,11 +28,13 @@ export default function Home() {
             Give a language model a function and an exact interval. Compare its answer with a verified reference, then inspect the evidence behind the score.
           </p>
           <p className="mt-5 text-sm leading-6 text-muted-foreground">
-            Current benchmark: 27 tasks at 2, 4 and 6 nonlinear composition stages. Three fresh responses per task make 81 requests per model.
+            {hasPublishedDeepStudy
+              ? "Latest research study: 800 planned tasks per model at eight requested generator depths, from 5 to 512. One response per task. The visitor workbench remains a separate 27-task study with three responses per task."
+              : "Current benchmark: 27 tasks at 2, 4 and 6 nonlinear composition stages. Three fresh responses per task make 81 requests per model."}
           </p>
           <div className={styles.heroActions}>
             <Button asChild size="lg" className="h-12 px-5"><Link href="/#model-scores-title">View results</Link></Button>
-            <Button asChild size="lg" variant="outline" className="h-12 px-5"><Link href="/evaluate">Run this benchmark</Link></Button>
+            <Button asChild size="lg" variant="outline" className="h-12 px-5"><Link href="/evaluate">{hasPublishedDeepStudy ? "Open 27-task workbench" : "Run this benchmark"}</Link></Button>
           </div>
           <p className="mt-4 text-xs leading-5 text-muted-foreground">Runs use your own provider key. Provider charges apply.</p>
         </div>

@@ -11,6 +11,13 @@ import { MAX_RETAINED_REPLY_CODE_UNITS } from "../scoring/validation";
 import type { InferenceRequest, NormalizedInference } from "./types";
 
 type Data = Record<string, unknown>;
+export interface InferenceResponseContext {
+  readonly selection: Pick<InferenceRequest["selection"], "provider">;
+  readonly prompt: {
+    readonly responseFormat: InferenceRequest["prompt"]["responseFormat"];
+    readonly generation: { readonly maxOutputTokens: number };
+  };
+}
 function object(input: unknown): Data | null {
   try { return readDataRecord(input, "Inference response"); } catch { return null; }
 }
@@ -56,7 +63,7 @@ export function buildInferencePlan(request: InferenceRequest, metadata: ModelMet
     }) };
 }
 
-function parseUsage(body: Data, request: InferenceRequest): { usage: AttemptUsage; invalid: boolean } {
+function parseUsage(body: Data, request: InferenceResponseContext): { usage: AttemptUsage; invalid: boolean } {
   const provider = request.selection.provider;
   const source = object(body.usage);
   const openai = provider === "openai";
@@ -100,7 +107,7 @@ function billedCost(value: unknown): CostEvidence | null {
     ? { kind: "billed", currency: "USD", amount } : null;
 }
 
-function effectiveSettings(body: Data, request: InferenceRequest, metadata: ModelMetadata): NormalizedInference["effective"] {
+function effectiveSettings(body: Data, request: InferenceResponseContext, metadata: ModelMetadata): NormalizedInference["effective"] {
   const openai = request.selection.provider === "openai";
   const cap = count(body[openai ? "max_output_tokens" : metadata.tokenParameter ?? "max_tokens"]);
   const reasoning = object(body.reasoning)?.effort;
@@ -122,7 +129,7 @@ function providerFailure(error: unknown): AccessFailureCode {
   return classifyHttpFailure(status, { error }, true);
 }
 
-export function parseInferenceResponse(input: unknown, request: InferenceRequest, metadata: ModelMetadata): NormalizedInference {
+export function parseInferenceResponse(input: unknown, request: InferenceResponseContext, metadata: ModelMetadata): NormalizedInference {
   const body = object(input);
   const parsedUsage = parseUsage(body ?? {}, request);
   const effective = effectiveSettings(body ?? {}, request, metadata);

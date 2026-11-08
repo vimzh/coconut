@@ -2,7 +2,7 @@
 .section { border-top: 1px solid var(--border); padding: 48px 0; }
 .heading > h2 { margin: 0; font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); line-height: 1.15; font-weight: 400; text-align: left; }
 .metric { margin-top: 12px; text-align: left; font-family: var(--font-mono); font-size: 12px; }
-.scroll { max-width: 1080px; margin: 36px auto 0; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--card); scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.scroll { position: relative; width: 100%; max-width: 1080px; min-width: 0; margin: 36px auto 0; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--card); scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
 .table { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 14px; }
 .table th, .table td { padding: 6px 16px; white-space: nowrap; }
 .table thead { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -22,6 +22,15 @@
 .details summary:hover { text-decoration: underline; }
 .details summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 .details p { max-width: 100ch; margin-top: 12px; color: var(--muted-foreground); }
+.details code { overflow-wrap: anywhere; }
+.cellDetails { text-align: right; }
+.cellDetails summary { cursor: pointer; }
+.cellDetails summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+.scoreValue { font-size: 16px; }
+.scoreLine { display: block; margin-top: 3px; font-size: 10px; line-height: 1.5; color: var(--muted-foreground); }
+.outcomes { min-width: 200px; margin-top: 12px; font-size: 11px; line-height: 1.7; }
+.outcomes > div { display: flex; justify-content: space-between; gap: 16px; }
+.outcomes dt { text-align: left; color: var(--muted-foreground); }
 
 @media (min-width: 640px) { .section { padding: 64px 0; } }
 @media (max-width: 600px) {

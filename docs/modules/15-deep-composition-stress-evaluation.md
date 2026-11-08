@@ -2,7 +2,7 @@
 
 ## Status
 
-Planned — complete [mini module 14a's product flow cleanup](14a-product-flow-cleanup.md) first. The evaluation design is agreed; deep reference certification, task construction, protocol implementation and model evidence are pending. This document creates a phase, not a completed evaluation or an instruction to dispatch calls now.
+In progress — 14a and 14b are complete within their handoff boundaries. The separate population builder, structural/exposure diagnostics, one-response research transport, immutable execution ledger, score reconstruction and landing projection are implemented. Full 800-case admission, independent reference review, live compatibility and final model evidence remain pending. See the [implementation plan](../plans/15-deep-composition-stress-evaluation.md). No new scores follow from implemented infrastructure.
 
 ## Purpose
 
@@ -20,10 +20,10 @@ The user requests substantial mathematical complexity and wants to expose errors
 | Population | **100 distinct function/domain pairs per level; 800 total.** Every evaluated model receives the same frozen population. These counts are construction targets until certification and distinctness checks pass. |
 | Labels | Each level has 33 cases per label plus one extra, rotating convex/concave/neither in the listed level order. Total: 267 convex / 267 concave / 266 neither. |
 | Construction | Reuse the pinned upstream sampling policy consistently across settings and models. Report actual atom/structure/mechanism coverage and related cores; no invented five-family or 20-per-family quota. |
-| Models | Required primary requested ID `gpt-6-astra` through OpenAI. Freeze a finite roster of M model/settings cells before dispatch; every cell covers all eight levels with the same cases. Verify inference access and retain reported identities. Do not assume the historical leaderboard is the new roster. |
+| Models | User-confirmed roster: Astra `gpt-6-astra`, Mini `gpt-5.4-mini`, Luna `gpt-6-luna` through OpenAI; **M = 3**, **2,400 final sends**. Every cell covers all eight levels with the same cases. Verify inference access and retain reported identities. This roster is separate from the historical leaderboard. |
 | Trials | **One fresh response per task**, one attempt, zero automatic retries; **800 scored inference requests per model/settings cell**. |
 | Development population | Separate cases and core clusters; at most 30 development inference sends shared with Module 14b's adaptive search: at most nine three-question panels (27 sends) plus at most three inference probes. Start at 216, escalate to 512/1000 only on complete all-correct panels, and use bounded exploratory interval probes after a verified deeper error. Prior sends reduce the remaining allowance. |
-| Phase ceiling | At most **30 + 800 × M new inference sends**, with the development allowance shared across the roster; Astra alone permits at most 830. Freeze M and the resulting numeric ceiling, then reconcile earlier and concurrent sends before dispatch. Roster/settings additions require an explicit manifest amendment and separate accounting. |
+| Phase ceiling | **2,430 sends** across the confirmed three-model roster, including the 30-send development allowance shared with 14b. The earlier two sends remain charged, including the unknown remote outcome. Roster/settings additions require an explicit manifest amendment and separate accounting. |
 | Scores | Accuracy, fixed-three-class macro-F1, per-class support/recall and confusion matrices, overall and per composition level. |
 | Interpretation | Single-trial descriptive results on a fixed synthetic suite; no repeated-trial stability, universal failure depth, causal depth effect or general model ranking. |
 

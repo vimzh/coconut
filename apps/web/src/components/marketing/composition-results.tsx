@@ -1,6 +1,7 @@
-// The matched composition study stays separate from historical structural-depth pilots.
+// Publish the latest audited study while retaining the earlier result artifact separately.
 import results from "../../../public/composition-scores.json";
 import audit from "../../../../api/data/quality/composition-results-audit-v1.json";
+import { deepStudySummary, hasPublishedDeepStudy, type DeepStudyScore } from "@/lib/deep-study-summary";
 import { directoryModels } from "@/lib/model-directory-data";
 import styles from "./model-scores.module.css";
 
@@ -9,6 +10,78 @@ if (audit.verdict !== "pass" || results.auditVerdict !== "pass" || results.suite
   throw new Error("Composition results require matching complete audited evidence.");
 
 export function CompositionResults() {
+  return hasPublishedDeepStudy ? <DeepStudyResults /> : <CompositionStudyResults />;
+}
+
+function ScoreCell({ score }: { score: DeepStudyScore }) {
+  const settled = score.modelOutcomes + score.providerFailures;
+  const state = score.status === "complete" ? "Complete" : score.status === "provisional" ? "Provisional" : score.status === "planned" ? "Pending" : "Score unavailable";
+  return (
+    <td>
+      <details className={styles.cellDetails}>
+        <summary>
+          <span className={styles.scoreValue}><span className="sr-only">Macro-F1: </span>{score.macroF1 === null ? "Unavailable" : (score.macroF1 * 100).toFixed(1)}</span>
+          <span className={styles.scoreLine}>Accuracy {score.accuracy === null ? "unavailable" : `${(score.accuracy * 100).toFixed(1)}%`}</span>
+          <span className={styles.scoreLine}>{score.modelOutcomes === 0 ? "No model outcomes" : `${score.correct}/${score.modelOutcomes} correct`}</span>
+          <span className={styles.scoreLine}>{settled}/{score.planned} settled</span>
+          <span className={styles.scoreLine}>{state}</span>
+        </summary>
+        <dl className={styles.outcomes}>
+          <div><dt>Model outcomes</dt><dd>{score.modelOutcomes}/{score.planned}</dd></div>
+          <div><dt>Correct labels</dt><dd>{score.correct}</dd></div>
+          <div><dt>Wrong valid labels</dt><dd>{score.wrongValid}</dd></div>
+          <div><dt>Unusable replies</dt><dd>{score.unusable}</dd></div>
+          <div><dt>Provider failures</dt><dd>{score.providerFailures}</dd></div>
+          <div><dt>Unknown remote outcomes</dt><dd>{score.unknownRemote}</dd></div>
+          <div><dt>In flight</dt><dd>{score.inFlight}</dd></div>
+          <div><dt>Unattempted</dt><dd>{score.unattempted}</dd></div>
+          <div><dt>Dispatched</dt><dd>{score.dispatched}/{score.planned}</dd></div>
+        </dl>
+      </details>
+    </td>
+  );
+}
+
+function DeepStudyResults() {
+  const study = deepStudySummary;
+  const state = study.state === "complete" ? "Audited study" : study.state === "running" ? "Audited partial snapshot" : study.state === "unavailable" ? "Scores unavailable" : "Audited incomplete study";
+  return (
+    <section id="model-scores-title" aria-labelledby="deep-study-title" className={styles.section}>
+      <div className={styles.heading}><h2 id="deep-study-title">Deep function results</h2></div>
+      <p className={styles.metric}>{state} · 800 planned tasks per model · One response per task · Exploratory, unranked</p>
+      <div className={styles.scroll} role="region" tabIndex={0} aria-label="Deep study scores by requested generator depth">
+        <table className={styles.table} aria-describedby="deep-study-note">
+          <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy, correct model outcomes and settled coverage. Depth columns use requested generator settings.</caption>
+          <thead><tr>
+            <th scope="col" className={styles.model}>Model</th>
+            <th scope="col">Overall · 800 tasks</th>
+            {study.requestedDepths.map(depth => <th scope="col" key={depth}>Requested depth {depth}<span className={styles.pilotLabel}>100 tasks</span></th>)}
+          </tr></thead>
+          <tbody>{study.models.map(model => <tr key={model.modelId}>
+            <th scope="row" className={styles.model}>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
+            <ScoreCell score={model.overall} />
+            {model.byDepth.map(slice => <ScoreCell key={slice.requestedDepth} score={slice.score} />)}
+          </tr>)}</tbody>
+        </table>
+      </div>
+      <p id="deep-study-note" className={styles.notes}>
+        Macro-F1 is the primary score, on a 0–100 scale over three fixed classes. Accuracy and correct counts use retained model outcomes, including unusable replies as failures. Settled coverage includes provider failures; expand a cell for model-outcome coverage and all outcome counts. Missing replies and provider failures make scores provisional or unavailable.
+      </p>
+      <details className={`${styles.sources} ${styles.details}`}>
+        <summary>Study identity, depth definitions and model settings</summary>
+        <p>Study: {study.studyId}. Frozen cohort: {study.cohortId}. Source: {study.cohortSourceId}. Every requested depth has 100 admitted tasks after exact and bounded simplification checks, with one attempt per task per model. Remaining semantic equivalence is unknown. Individual answers and reference evidence remain in authorized research reports.</p>
+        <p>Depth is the requested generator setting. Realized source depth may be that setting or its successor; neither measure is expression-tree depth or a count of nonlinear composition stages. One response per question does not measure repeat consistency. Input size and mathematical structure can change with depth, so these scores do not isolate a causal depth effect or establish a failure threshold.</p>
+        {study.models.map(model => <div key={model.modelId}>
+          <p>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}: profile {model.settings.profileId}; reasoning {model.settings.reasoning ?? "unspecified"}; {model.settings.maxOutputTokens.toLocaleString("en-US")} maximum output tokens; {model.settings.inferenceTimeoutMs / 1000}-second deadline. Reported identities: {model.reportedModelIds.length ? model.reportedModelIds.join(", ") : "none retained"}.</p>
+          <p>Realized source depth by requested setting: {model.byDepth.map(slice => `${slice.requestedDepth}: ${slice.realizedDepths.map(item => `${item.count} at ${item.depth}`).join(", ")}`).join("; ")}.</p>
+        </div>)}
+        <p>Audited report SHA-256: <code>{study.reportSha256}</code>. Cohort SHA-256: <code>{study.cohortSha256}</code>. Independent reference review SHA-256: <code>{study.audit.referenceReviewSha256}</code>.</p>
+      </details>
+    </section>
+  );
+}
+
+function CompositionStudyResults() {
   return (
     <section id="model-scores-title" aria-labelledby="composition-results-title" className={styles.section}>
       <div className={styles.heading}><h2 id="composition-results-title">Nested composition results</h2></div>

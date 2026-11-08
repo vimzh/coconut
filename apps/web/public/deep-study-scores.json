@@ -1,0 +1,19 @@
+{
+  "version": "1",
+  "studyId": "deep-study-v1",
+  "state": "planned",
+  "depthMeasure": "requested-generator-depth",
+  "requestedDepths": [5, 10, 20, 40, 80, 160, 320, 512],
+  "tasksPerDepth": 100,
+  "trialsPerTask": 1,
+  "cohortId": null,
+  "cohortSourceId": null,
+  "cohortSha256": null,
+  "reportSha256": null,
+  "audit": {
+    "verdict": "pending",
+    "reportSha256": null,
+    "referenceReviewSha256": null
+  },
+  "models": []
+}
