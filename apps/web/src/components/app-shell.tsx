@@ -15,11 +15,12 @@ type AppShellProps = {
   activePage?: (typeof navigation)[number]["id"];
   children: ReactNode;
   className?: string;
+  surfaceClassName?: string;
 };
 
-export function AppShell({ activePage, children, className }: AppShellProps) {
+export function AppShell({ activePage, children, className, surfaceClassName }: AppShellProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className={cn("flex min-h-screen flex-col bg-background text-foreground", surfaceClassName)}>
       <a
         href="#main-content"
         className="sr-only z-50 rounded-lg bg-primary px-4 py-3 text-sm text-primary-foreground focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:outline-2 focus:outline-offset-2 focus:outline-ring"

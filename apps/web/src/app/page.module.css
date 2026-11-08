@@ -1,4 +1,29 @@
-/* A static grain layer covers the landing viewport, including its shared header and footer. */
+/* Sage paper, worn ivory corners, and uneven grain are confined to the landing page. */
+.paper {
+  --background: #dfe7cf;
+  --foreground: #23352b;
+  --card: #eff2e1;
+  --card-foreground: #23352b;
+  --primary: #2d4936;
+  --primary-foreground: #f6f4e7;
+  --muted: #d4dec5;
+  --muted-foreground: #485b45;
+  --accent: #356343;
+  --border: #b8c7ac;
+  --ring: #356343;
+  background-image:
+    radial-gradient(ellipse 62% 68% at 0% 0%, #f6f1df, transparent),
+    radial-gradient(ellipse 52% 60% at 100% 0%, #f4f0de, transparent),
+    radial-gradient(ellipse 60% 62% at 100% 100%, #f6f1df, transparent),
+    radial-gradient(ellipse 48% 56% at 0% 100%, #f3efdc, transparent);
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+}
+
+.paper > header {
+  background-color: transparent;
+}
+
 .landing::after {
   content: "";
   position: fixed;
@@ -7,6 +32,6 @@
   pointer-events: none;
   background-image: url("/noise.svg");
   background-repeat: repeat;
-  opacity: 0.08;
+  opacity: 0.2;
   mix-blend-mode: multiply;
 }

@@ -20,7 +20,7 @@ const steps = [
 
 export default function Home() {
   return (
-    <AppShell className={`${styles.landing} py-0`}>
+    <AppShell className={`${styles.landing} py-0`} surfaceClassName={styles.paper}>
       <section aria-labelledby="home-title" className="grid items-center gap-10 py-12 sm:gap-12 sm:py-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:py-20">
         <div>
           <p className="mb-5 text-sm text-muted-foreground">A workbench for mathematical evaluation</p>
