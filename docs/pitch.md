@@ -30,7 +30,7 @@ We also found why reading transcripts matters. One comparator produced a correct
 
 CoconutEval makes those distinctions inspectable. A judge can examine the exact task, reference evidence, model response, settings, and score.
 
-The project builds on the curvature-classification task explored in ConvexBench. Our contribution is the certified task coverage and the implementation connecting reference checks, repeated model requests, retained outcomes, and reproducible reporting.
+CoconutEval connects certified task coverage, reference checks, repeated model requests, retained outcomes, and reproducible reporting.
 
 Judges can verify the frozen tasks and run the grader checks without model charges. Live evaluations use the visitor’s own credentials.
 
