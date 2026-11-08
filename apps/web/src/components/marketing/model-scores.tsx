@@ -7,14 +7,16 @@ import { useState } from "react";
 import { directoryModels, modelCompanies } from "@/lib/model-directory-data";
 import { getLandingScores, getLandingDepthScores, landingScoreColumns } from "@/lib/landing-scores";
 import { getFastScreeningCell } from "@/lib/landing-fast-scores";
-import { getLandingPilotScore, landingPilotDepths } from "@/lib/landing-pilots";
+import { archivedPilotModelIds, getLandingPilotScore, landingPilotDepths } from "@/lib/landing-pilots";
 import styles from "./model-scores.module.css";
+
+const hiddenModelIds = new Set(["gpt-5.6-cyber", "gpt-6-cyber", "gpt-oss-120b", "gpt-oss-20b", "gpt-rosalind-research"]);
 
 export function ModelScores() {
   const [columnIndex, setColumnIndex] = useState(0);
   const column = landingScoreColumns[columnIndex];
   const rows = directoryModels
-    .filter((model) => model.openai && (model.status !== "deprecated" || model.id === "gpt-5.4-nano"))
+    .filter((model) => model.openai && !hiddenModelIds.has(model.id) && (model.status !== "deprecated" || archivedPilotModelIds.has(model.id)))
     .map((model) => {
       const archivedDepths = getLandingDepthScores(model.id, columnIndex);
       const followUp = getFastScreeningCell(model.id, columnIndex);
@@ -52,7 +54,7 @@ export function ModelScores() {
                     <span className={styles.logo} title={modelCompanies[model.company].name}>
                       <Image src={modelCompanies[model.company].logo} alt="" width={14} height={14} unoptimized />
                     </span>
-                    <span>{model.name}{model.status === "deprecated" && <span className={styles.pilotLabel}>Archived model</span>}</span>
+                    <span>{model.name}</span>
                   </span>
                 </th>
                 {column.depths.map((depth) => {
