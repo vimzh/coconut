@@ -1,0 +1,41 @@
+/* Reuse the landing palette; document-specific rhythm keeps long evidence sections readable. */
+.surface { composes: paper from "../page.module.css"; }
+.page { max-width: 1200px; padding-block: 64px 96px; }
+.intro { max-width: 800px; margin-bottom: 56px; }
+.title { max-width: 18ch; font-size: clamp(40px, 5vw, 64px); line-height: 1.06; letter-spacing: -0.025em; }
+.description { max-width: 60ch; margin-top: 24px; font-size: 18px; line-height: 1.7; color: var(--muted-foreground); }
+.layout { display: grid; grid-template-columns: 208px minmax(0, 1fr); align-items: start; gap: 48px; }
+.index { position: sticky; top: 32px; }
+.indexLabel { display: block; margin-bottom: 16px; font-size: 12px; color: var(--accent); }
+.contents { display: grid; gap: 4px; border-left: 1px solid var(--border); }
+.contentsLink { padding: 8px 12px; color: var(--muted-foreground); font-size: 13px; line-height: 1.5; text-decoration: none; }
+.contentsLink:hover, .contentsLink:focus-visible { background: var(--card); color: var(--foreground); }
+.article { min-width: 0; padding: 32px; border: 1px solid var(--border); border-radius: 8px; background: var(--background); }
+.section { scroll-margin-top: 32px; }
+.section + .section { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border); }
+.sectionTitle { margin-bottom: 24px; font-size: clamp(26px, 3vw, 34px); line-height: 1.2; }
+.prose { color: var(--muted-foreground); font-size: 16px; line-height: 1.8; }
+.prose > * + * { margin-top: 20px; }
+.prose > p { max-width: 68ch; }
+.prose [data-slot="table-container"] { border: 1px solid var(--border); border-radius: 4px; background: var(--card); }
+.prose [data-slot="table-head"] { padding: 12px 16px; font-size: 12px; font-weight: 500; }
+.prose [data-slot="table-cell"] { padding: 12px 16px; white-space: normal; line-height: 1.6; }
+.prose [data-slot="table-row"]:hover { background: transparent; }
+.prose [data-slot="table-caption"] { margin: 0; padding: 12px 16px; border-top: 1px solid var(--border); font-size: 12px; line-height: 1.5; text-align: left; }
+
+@media (max-width: 1023px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .index { position: static; }
+  .contents { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 639px) {
+  .page { padding-block: 32px 48px; }
+  .intro { margin-bottom: 32px; }
+  .description { font-size: 16px; }
+  .article { padding: 24px 16px; }
+  .prose { font-size: 15px; line-height: 1.8; }
+  .section + .section { margin-top: 32px; padding-top: 32px; }
+  .prose [data-slot="table-head"], .prose [data-slot="table-cell"] { padding: 8px; font-size: 12px; }
+  .prose :global(.font-mono) { overflow-wrap: anywhere; }
+}

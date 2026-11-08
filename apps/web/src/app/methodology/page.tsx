@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 import { AppShell } from "@/components/app-shell";
+import { LandingBackground } from "@/components/marketing/landing-background";
+import styles from "./page.module.css";
 import { CurvatureExamples } from "@/components/marketing/curvature-examples";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -20,31 +22,33 @@ const contents = [
 
 function MethodSection({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-8 border-t border-border pt-8">
-      <h2 id={`${id}-title`} className="mb-5 text-2xl font-medium">{title}</h2>
-      <div className="space-y-5 text-base leading-7 text-muted-foreground [&>p]:max-w-[72ch]">{children}</div>
+    <section id={id} aria-labelledby={`${id}-title`} className={styles.section}>
+      <h2 id={`${id}-title`} className={styles.sectionTitle}>{title}</h2>
+      <div className={styles.prose}>{children}</div>
     </section>
   );
 }
 
 export default function MethodologyPage() {
   return (
-    <AppShell activePage="methodology">
-      <header className="max-w-3xl pb-10 sm:pb-12">
-        <h1 className="text-3xl font-medium sm:text-4xl">How the evaluation works</h1>
-        <p className="mt-5 text-lg leading-8 text-muted-foreground">
+    <AppShell activePage="methodology" surfaceClassName={styles.surface} className={styles.page}>
+      <LandingBackground />
+      <header className={styles.intro}>
+        <h1 className={styles.title}>How the evaluation works</h1>
+        <p className={styles.description}>
           Coconut measures three-way curvature classification on explicit scalar domains. The reference, model reply and evaluation settings stay inspectable together.
         </p>
       </header>
 
-      <div className="grid gap-10 lg:grid-cols-[208px_minmax(0,1fr)] lg:gap-16">
-        <aside>
-          <nav aria-label="Methodology sections" className="flex flex-wrap gap-x-5 gap-y-3 text-sm lg:sticky lg:top-8 lg:flex-col lg:gap-1">
-            {contents.map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-md py-2 text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">{label}</a>)}
+      <div className={styles.layout}>
+        <aside className={styles.index}>
+          <span className={styles.indexLabel}>On this page</span>
+          <nav aria-label="Methodology sections" className={styles.contents}>
+            {contents.map(([id, label]) => <a key={id} href={`#${id}`} className={styles.contentsLink}>{label}</a>)}
           </nav>
         </aside>
 
-        <article className="min-w-0 max-w-4xl space-y-10 sm:space-y-12">
+        <article className={styles.article}>
           <MethodSection id="task" title="The function and its domain define the task">
             <p>A model receives one exact expression and a finite closed interval. It chooses <span className="font-mono text-sm text-foreground">convex</span>, <span className="font-mono text-sm text-foreground">concave</span> or <span className="font-mono text-sm text-foreground">neither</span> and gives a brief mathematical justification.</p>
             <p>A convex function lies at or below every chord connecting points on its graph. A concave function lies at or above every chord. A neither label needs evidence that both properties fail on the supplied interval.</p>
