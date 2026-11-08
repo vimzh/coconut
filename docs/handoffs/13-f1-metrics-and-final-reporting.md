@@ -2,7 +2,7 @@
 
 ## Status
 
-**Original and terminal replication reporting audits passed within their recorded populations; later experiments remain pending.** Module 12 has local production/browser and clean-checkout evidence. The separately frozen interior study is still running, and the remaining-model supplement is implemented but not yet frozen or launched. This checkpoint does not declare all scientific gates passed. Deployment and hackathon submission/material preparation remain excluded.
+**Reporting audits passed within the recorded original, replication, P5, remaining-model and failed standard-reserve populations.** Module 12 retains historical production/browser and clean-checkout evidence; current-worktree QA is separate and in progress. A newly frozen 600-second operator-only SDK diagnostic is active and has no terminal review yet. This checkpoint does not declare all scientific gates passed. OpenRouter/Hugging Face live inference remains unverified; deployment and hackathon submission/material preparation remain excluded.
 
 The [independent audit record](../research/reporting-audit-v1.md) describes its AI-assisted reviewer role, exact population, separately written arithmetic, source hashes, commands and limits. No human review is claimed. Module 04 remains the only production scorer; this module checks its retained output without changing any grade, reference or protocol.
 
@@ -22,7 +22,7 @@ The original experiment contains **7,236 planned trials**, **214 included correc
 
 All 212 original report arithmetic checks passed. Reported reasoning tokens are consumed only when explicitly supplied with their semantic identifiers; hidden reasoning is never inferred. Direct OpenAI attempts provide no billed cost evidence, so observed cost totals remain null. Local expression-token counts remain unavailable where no matching tokenizer measurement exists. Intermediate-step, first-error and decomposition diagnostics remain **not applicable** to the current one-shot contract.
 
-The 212 existing quality reports all remain No-go for the incomplete original runs. G-SIGNAL is **No-go for a mathematical-failure finding**: there is neither a point counterexample nor repeated wrong labels in the required independent clusters. G-QUALITY for the full experiment is **No-go pending complete execution and applicable outcome review**. The suite's offline Go is limited to its accepted reference/coverage population and does not override either gate.
+The 212 existing quality reports all remain No-go for the incomplete original runs. For that original population, G-SIGNAL is **No-go for a mathematical-failure finding**: there is neither a point counterexample nor repeated wrong labels in the required independent clusters. G-QUALITY for the full original experiment is **No-go pending complete execution and applicable outcome review**. The suite's offline Go is limited to its accepted reference/coverage population and does not override either gate.
 
 ## Verification and repair handoff
 
@@ -36,7 +36,7 @@ The source review found a browser adapter reply-length mismatch: 65,536 accepted
 
 ## Remaining requirements
 
-The [module 12 handoff](12-integration-and-submission.md) now records module 09/10/11 browser, production, export and comparison evidence, plus isolated clean-checkout checks. Audit each later study separately and retain its exact population and exposure history. External provider gates require authorized live evidence; deployment and submission are not implied.
+The [module 12 handoff](12-integration-and-submission.md) records module 09/10/11 browser, production, export and comparison evidence, plus historical isolated clean-checkout checks. Final current-worktree QA and the active longer-deadline diagnostic require their own recorded outcomes. The completed later-study audits below retain separate populations and exposure histories. External provider gates require authorized live evidence; deployment and submission remain excluded.
 
 ## Terminal replication and prefix addendum
 
@@ -48,4 +48,24 @@ The [anonymous public archive](../../apps/api/data/experiments/openai-progress-v
 
 The [replication reconciliation](../../apps/api/data/experiments/openai-reconciliation-v2.json) counts **6,678 new mathematical sends**, giving **7,090 cumulative** with the retained 412 prior allowance. The separately derived [original](../../apps/api/data/experiments/openai-send-evidence-v1.json) and [replication](../../apps/api/data/experiments/openai-send-evidence-v2.json) attempt projections independently reproduce 225/11 and 6,678/101 mathematical/unknown-remote sends respectively. Unknown sends are already included in send totals and never treated as free.
 
-The declared-frontier baseline has **1,402 retained valid labels, all correct**, across original prefixes, full high/max confirmation and all scheduled screening settings. All 432 visible explanations in the two max confirmation runs were independently reviewed in the [full explanation audit](../research/frontier-explanation-review-v2.md), with no substantiated false mathematical claim found. Eleven earlier remote outcomes remain unknown. These are bounded observations, and G-SIGNAL remains No-go for a supported frontier failure finding. Later interior/reserve/supplement results must receive their own reconciliation and claim review before final readiness is assessed.
+The declared-frontier baseline has **1,402 retained valid labels, all correct**, across original prefixes, full high/max confirmation and all scheduled screening settings. All 432 visible explanations in the two max confirmation runs were independently reviewed in the [full explanation audit](../research/frontier-explanation-review-v2.md), with no substantiated false mathematical claim found. Eleven earlier remote outcomes remain unknown. These are bounded observations, and G-SIGNAL remains No-go for a supported frontier failure finding. Later studies are reconciled separately below; their results do not replace these earlier populations.
+
+## Terminal P5, remaining-model and standard-reserve audits
+
+| Study | Audited terminal outcome | Conservative cumulative requests |
+| --- | --- | ---: |
+| [P5 interior](../research/interior-results-v1.md) | Two complete published/archived cells; 216 valid correct labels each, no wrong/unusable outcome. | 7,522 |
+| [Fresh o3 supplement](../research/remaining-models-results-v1.md) | Eight complete published/archived screening cells; 192 correct, one wrong valid, 11 invalid and 12 truncated outcomes. All 24 wrong/unusable replies inspected. | 7,738 |
+| [Standard reserve](../research/reserve-results-v1.md) | Two failed private cells; two timeouts and six cancellations, all eight sends remote-unknown, zero model outcomes and 100 unattempted trials. Both scores unavailable, not zero. | 7,746 |
+
+The corresponding machine-readable reviews are [interior](../../apps/api/data/quality/interior-study-review-v1.json), [remaining-models](../../apps/api/data/quality/remaining-models-review-v1.json) and [standard reserve](../../apps/api/data/quality/reserve-study-review-v1.json). Each binds actual manifest/ledger, original private views, shared-scoring replay, independent arithmetic and the production frontend projections. Exact primary/send proofs retain all unique started cells and per-attempt result hashes. P5 and supplement public/private record bodies are identical, while their wrappers retain different actual publication metadata. The failed reserve's empty archive instead binds its unchanged pre-archive source snapshot; only its update time differs from final progress.
+
+P5 checks include both private/public report pairs, two overall/two depth projections, twelve full/filtered exports and twelve token-series selections. The supplement checks include 16 private/public report replays, eight overall/24 depth projections, 96 exports and 96 usage selections. Failed-reserve checks include both report/scorer replays, actual private unavailable-score projections, 36 exports and 18 usage queries. These are real retained-data checks of production code, not browser-rendering claims. The earlier software test counts remain historical; the current QA pass is not assigned a fabricated count here.
+
+The supplement's single wrong valid label is a substantiated polynomial-derivative error in **o3/low screening**, not a declared-frontier/highest-effort confirmation finding. Its other failures comprise nine format-only replies, two unresolved mixed format/mathematical-argument replies and twelve output-budget truncations. The two mixed causes retain No-go outcome-inspection blockers despite having been read in full; six other scoped reporting gates are Go. All eight cells remain unranked with unavailable intervals and No-go G-SIGNAL. No grade was repaired. Together with the replication audits, **782 retained wrong/invalid/truncated model replies** have been reviewed in their separate populations. P5's 432 and the supplement's 192 correct-label explanations were not qualitatively certified by those study audits.
+
+The preserved-study union contains **47 requested IDs with execution records, 45 with at least one complete published cell**. `gpt-5-pro` and `gpt-5-pro-2025-10-06` have no complete published cell. Alias/snapshot counts do not establish independent architectures, and failed metadata/infrastructure records do not prove a returned mathematical answer. The original/interrupted matrices retain all failed and unstarted work.
+
+Unknown sends remain included once: **11 original + 101 replication + eight standard-reserve = 120**. Cumulative 7,746 also includes the 183 retained controls and four-request calibration allowance once; these are conservative request counters, not bills. No timeout/cancellation supplies a mathematical transcript, inference-permission proof or provider-outage diagnosis. No supported declared-frontier mathematical-failure finding or universal absence-of-error claim follows.
+
+The separately frozen [600-second SDK diagnostic](../../apps/api/data/experiments/long-reserve-matrix-v1.json) is **active, not terminal**, with at most 108 fresh requests and a maximum cumulative ceiling of **7,854 / 8,192**. It neither resumes the 100 unattempted standard trials nor changes the platform/profile's 180-second policy. Its outcomes, bookkeeping and final review remain separate pending evidence.
