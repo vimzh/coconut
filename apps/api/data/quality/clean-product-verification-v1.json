@@ -1,0 +1,126 @@
+{
+  "verification": "clean local product reproduction",
+  "verdict": "VERIFIED WITH GAPS",
+  "source": {
+    "requestedCommit": "e7ff1efbe71112c4fdab788525f431b7efbc6ce4",
+    "snapshot": "/tmp/coconut-clean-product-qa.r1GN37",
+    "method": "git archive e7ff1ef | tar -xf -",
+    "snapshotHasGitMetadata": false,
+    "excluded": ["all current working-tree edits", ".env files", "AGENTS.md files", "private API data"]
+  },
+  "environment": {
+    "platform": "macOS arm64",
+    "bun": "1.4.4 (38afee6c8)",
+    "node": "24.22.1",
+    "uv": "0.13.1",
+    "nativePython": "CPython 3.13.16",
+    "providerCredentials": "not supplied to verification commands",
+    "externalInferenceOrPaidCalls": false
+  },
+  "checks": [
+    {
+      "command": "bun install --frozen-lockfile",
+      "status": "passed",
+      "timing": "2026-11-08T07:11:42Z; tool-reported 12ms (wall-second rounding 0)",
+      "evidence": "473 installs across 576 packages; no changes"
+    },
+    {
+      "command": "bun run numerics:setup",
+      "status": "passed",
+      "timing": "2026-11-08T07:11:50Z; 25 seconds",
+      "evidence": "created services/numerics/.venv; installed python-flint 0.9.0 and ruff 0.15.6"
+    },
+    {
+      "command": "bun run numerics:test",
+      "status": "passed",
+      "timing": "2026-11-08T07:12:29Z; 15 wall seconds",
+      "evidence": "29 Python tests passed"
+    },
+    {
+      "command": "bun run numerics:lint",
+      "status": "passed",
+      "timing": "2026-11-08T07:12:44Z; under one second",
+      "evidence": "Ruff: All checks passed"
+    },
+    {
+      "command": "bun run test",
+      "status": "passed",
+      "timing": "2026-11-08T07:19:16.654Z; 59.61 seconds",
+      "evidence": "API: 669 tests, 29,090 expect calls, 62 files; web: 58 tests, 5 files; zero failures. Complete log: /tmp/coconut-clean-root-test.log"
+    },
+    {
+      "command": "bun run lint",
+      "status": "passed",
+      "timing": "2026-11-08T07:14:30Z; 2 seconds",
+      "evidence": "API and web exited 0"
+    },
+    {
+      "command": "bun run --filter @coconut/api typecheck",
+      "status": "passed",
+      "timing": "2026-11-08T07:14:32Z; 2 seconds",
+      "evidence": "exited 0"
+    },
+    {
+      "command": "bun run --filter @coconut/web typecheck",
+      "status": "passed",
+      "timing": "2026-11-08T07:14:34Z; 3 seconds",
+      "evidence": "Next route types generated successfully; exited 0"
+    },
+    {
+      "command": "bun run --filter @coconut/api build",
+      "status": "passed",
+      "timing": "2026-11-08T07:14:57Z; under one second",
+      "evidence": "Bun bundled 325 modules into apps/api/dist/index.js"
+    },
+    {
+      "command": "NEXT_PUBLIC_API_ORIGIN=http://127.0.0.1:3215 bun run --filter @coconut/web build",
+      "status": "passed",
+      "timing": "2026-11-08T07:14:57Z; 5 seconds",
+      "evidence": "Next 16.4.5 compiled, type checked, generated seven static pages"
+    }
+  ],
+  "runtime": {
+    "api": {
+      "startup": "Imported default configuration from built apps/api/dist/index.js into qa-api-wrapper.ts and bound it with Bun.serve at 127.0.0.1:3215; default API index main was not executed.",
+      "privateDatabase": "/tmp/coconut-clean-private-db.qpzMac/runs.sqlite",
+      "health": {"status": 200, "body": {"status": "ok"}},
+      "suiteRegistry": [
+        ["reference-v1", 75],
+        ["smooth-v2", 27],
+        ["challenge-v1", 72],
+        ["screening-v1", 9],
+        ["interior-v1", 72]
+      ],
+      "nativeAvailability": "directly exercised by numerics:test and by the passing built-API runtime-paths test: loads certified suite artifacts and the native worker from the built API",
+      "publicAbsence": {"request": "GET /runs/nonexistent/public", "status": 404, "bodyCode": "not-found"}
+    },
+    "web": {
+      "startup": "Next production server at 127.0.0.1:3216, built with NEXT_PUBLIC_API_ORIGIN=http://127.0.0.1:3215",
+      "http": {
+        "/": 200,
+        "/evaluate": 200,
+        "/methodology": 200,
+        "/leaderboard": 200,
+        "/results/nonexistent": 200,
+        "/api/leaderboard": {"status": 200, "body": {"version": "1", "runs": []}}
+      },
+      "note": "The unknown result route returns the client application shell (HTTP 200); actual anonymous API absence was verified at the API boundary as 404. No browser rendering claim is made."
+    }
+  },
+  "warnings": [
+    "Next build reported no build cache and its standard anonymous telemetry notice; neither caused failure.",
+    "An initial combined install/setup invocation outlived the tool output window, so its final status was not used. The captured frozen install and one captured full-test rerun above are the authoritative evidence."
+  ],
+  "gaps": [
+    "No browser interaction or rendering check was performed.",
+    "No visitor credential flow, external inference, paid provider call, remote service, hosted TLS/proxy, or non-OpenAI provider behavior was exercised.",
+    "This verifies only the archived e7ff1ef source, not the concurrently changing root worktree or mutable experiment ledger."
+  ],
+  "artifacts": [
+    "/tmp/coconut-clean-product-qa.r1GN37",
+    "/tmp/coconut-clean-root-test.log",
+    "/tmp/coconut-clean-root-test.result",
+    "/tmp/coconut-clean-api-suites.json",
+    "/tmp/coconut-clean-private-db.qpzMac/runs.sqlite"
+  ]
+}
