@@ -6,7 +6,7 @@
 
 <p align="center">A convexity evaluation workbench for people comparing language models, with certified mathematical tasks and inspectable answers behind every score.</p>
 
-<p align="center"><a href="docs/research/openai-replication-review-v2.md">Explore the retained results</a> · <a href="#run-locally">Run locally</a></p>
+<p align="center"><a href="docs/research/composition-results-v1.md">Explore the current results</a> · <a href="#run-locally">Run locally</a></p>
 
 <!-- README-HACK:NEEDS-OWNER key="demo-video" instruction="Add the final public demo video link beside the results link above." -->
 <!-- README-HACK:NEEDS-OWNER key="live-demo" instruction="Add a verified public deployment URL beside the results link above; the repository currently documents local operation only." -->
@@ -19,9 +19,11 @@ A useful model comparison needs a trustworthy reference answer and enough eviden
 
 ## What Coconut does
 
-1. **Choose the experiment.** Connect with your own provider key, select an exact model, suite, answer format, and supported reasoning settings. Review the request count and explicitly approve provider charges.
+The home page opens with the current benchmark and its audited score summary. Choose **View results** to read it or **Run this benchmark** to evaluate the same workload with your own key. Answer inspection is available in authorized run reports.
+
+1. **Choose the experiment.** The current 27-task suite is selected by default; six other suites sit under **Advanced workloads**. Connect with your own provider key, select an exact model, answer format, and supported reasoning settings. Review the request count and explicitly approve provider charges.
 2. **Follow the run.** Each task gets three fresh requests. Watch progress, cancel further work, and retain the outcomes already recorded.
-3. **Inspect the evidence.** Explore macro-F1, accuracy, class and depth breakdowns, returned explanations, reference evidence, and execution diagnostics.
+3. **Inspect the evidence.** Explore macro-F1, accuracy, correct/total counts, completion, expression-tree depth breakdowns, returned explanations, reference evidence, and execution diagnostics.
 4. **Decide what to share.** Export private results or explicitly publish a completed run. The leaderboard groups comparable settings and ranks only eligible evidence.
 
 Runs are private by default, expire after seven days, and use a separate access code. Save that code to return after a refresh. Provider keys stay out of saved runs. Keep the page open during execution; interrupted work cannot resume, and dispatched requests can still incur charges.
@@ -34,7 +36,7 @@ placement: after "What Coconut does"
 
 ## Certify the task before grading the model
 
-The recommended **nested composition exploration** has **27 certified tasks in nine related groups**, with **2, 4 and 6 successive nonlinear stages** (AST depths 7, 13 and 19). Every sequence/stage contains all three labels with the same outer expression form. Three fresh trials mean **81 requests per model**. Exact rational references and an independent Python implementation supplement whole-domain native certificates. This two-atom exploration remains unranked; [design and limits](docs/research/composition-design-v1.md) distinguish genuine composition from the preserved associative structural-depth pilots.
+The recommended **nested composition exploration** has **27 certified tasks in nine related groups**, with **2, 4 and 6 successive nonlinear stages** (expression-tree depths 7, 13 and 19). Every sequence/stage contains all three labels with the same outer expression form. Three fresh trials mean **81 requests per model**. Exact rational references and an independent Python implementation supplement whole-domain native certificates. This two-atom exploration remains unranked; [design and limits](docs/research/composition-design-v1.md) distinguish genuine composition from the preserved associative structural-depth pilots.
 
 The preserved **curvature challenge** contains **72 tasks across eight families and 24 related parameter groups**. Every family includes all three labels. Three trials per task produce **216 planned inference requests**.
 

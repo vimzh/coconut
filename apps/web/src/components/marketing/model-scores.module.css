@@ -18,6 +18,10 @@
 .notes { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; max-width: 1080px; margin: 16px auto 0; font-size: 12px; line-height: 1.7; }
 .notes a, .sources a { text-decoration: underline; text-underline-offset: 3px; }
 .sources { max-width: 1080px; margin: 8px auto 0; font-size: 12px; line-height: 1.7; }
+.details summary { width: fit-content; cursor: pointer; text-underline-offset: 3px; }
+.details summary:hover { text-decoration: underline; }
+.details summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+.details p { max-width: 100ch; margin-top: 12px; color: var(--muted-foreground); }
 
 @media (min-width: 640px) { .section { padding: 64px 0; } }
 @media (max-width: 600px) {

@@ -11,6 +11,7 @@ import {
   NativeSelectOption,
 } from "@/components/ui/native-select";
 import type { ReportCase, ReportRun, ReportTrial } from "@/lib/report-types";
+import { getNonlinearStages } from "@/lib/benchmark-depth";
 import { exact } from "./report-format";
 import styles from "./results-workspace.module.css";
 
@@ -53,41 +54,41 @@ export function EvidenceInspector({
     <section className={styles.caseBrowser} aria-labelledby={`${id}-title`}>
       <div className={styles.caseBrowserHeading}>
         <div>
-          <h2 id={`${id}-title`}>Test cases & answers</h2>
+          <h2 id={`${id}-title`}>Tasks & answers</h2>
           <p>Find a failure, inspect the expression, and read each model answer.</p>
         </div>
-        <span className={styles.caseCount} aria-live="polite">{visible.length} / {cases.length} tests</span>
+        <span className={styles.caseCount} aria-live="polite">{visible.length} / {cases.length} tasks</span>
       </div>
       <div className={styles.caseFilters}>
         <div className="space-y-2">
-          <Label htmlFor={`${id}-search`}>Search tests</Label>
+          <Label htmlFor={`${id}-search`}>Search tasks</Label>
           <div className={styles.searchField}>
             <Search size={16} aria-hidden="true" />
             <Input id={`${id}-search`} type="search" placeholder="Expression, family, or reference label" value={query} onChange={(event) => setQuery(event.target.value)} />
           </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor={`${id}-outcome`}>Trial outcome</Label>
+          <Label htmlFor={`${id}-outcome`}>Response outcome</Label>
           <NativeSelect id={`${id}-outcome`} value={outcome} onChange={(event) => setOutcome(event.target.value)}>
             <NativeSelectOption value="all">All outcomes</NativeSelectOption>
             <NativeSelectOption value="wrong">Has incorrect answers</NativeSelectOption>
             <NativeSelectOption value="unusable">Has unusable replies</NativeSelectOption>
             <NativeSelectOption value="incomplete">Has service failures or unfinished work</NativeSelectOption>
-            <NativeSelectOption value="correct">All trials correct</NativeSelectOption>
+            <NativeSelectOption value="correct">All responses correct</NativeSelectOption>
           </NativeSelect>
         </div>
       </div>
-      <p className={styles.caseNote}>Correct counts use all planned trials for each test. Unusable model replies count as failures; service failures and unfinished work remain separate.</p>
+      <p className={styles.caseNote}>Correct counts use all planned responses for each task. Unusable model replies count as failures; service failures and unfinished work remain separate.</p>
       {selected ? (
         <div className={styles.caseColumns}>
-          <div className={styles.caseList} role="group" aria-label="Matching test cases">
-            <div className={styles.caseListHeading}><span>Test / reference</span><span>Correct / planned</span></div>
+          <div className={styles.caseList} role="group" aria-label="Matching tasks">
+            <div className={styles.caseListHeading}><span>Task / reference</span><span>Correct / planned</span></div>
             <div className={styles.caseListScroll}>
               {visible.map(({ task, trials, counts }) => (
                 <button key={task.id} type="button" className={styles.caseRow} aria-pressed={selected.task.id === task.id} aria-controls={`${id}-detail`} onClick={() => setCase(task.id)}>
                   <span className={styles.caseRowMain}>
                     <span className={styles.caseRowTitle}>{task.family.replaceAll("-", " ")}</span>
-                    <span className={styles.caseRowMeta}>#{cases.indexOf(task) + 1} · depth {task.depth} · {task.label}</span>
+                    <span className={styles.caseRowMeta}>#{cases.indexOf(task) + 1} · {getNonlinearStages(run.suiteId, task.depth) !== null && `${getNonlinearStages(run.suiteId, task.depth)} nonlinear stages · `}tree depth {task.depth} · {task.label}</span>
                     {(counts.wrong > 0 || counts.unusable > 0 || counts.incomplete > 0) && <span className={styles.caseRowFailures}>
                       {[counts.wrong > 0 && `${counts.wrong} incorrect`, counts.unusable > 0 && `${counts.unusable} unusable`, counts.incomplete > 0 && `${counts.incomplete} service / unfinished`].filter(Boolean).join(" · ")}
                     </span>}
@@ -99,29 +100,30 @@ export function EvidenceInspector({
           </div>
           <div id={`${id}-detail`} className={styles.caseDetail}>
             <div className={styles.caseDetailHeading}>
-              <h3>Test {cases.indexOf(selected.task) + 1}</h3>
+              <h3>Task {cases.indexOf(selected.task) + 1}</h3>
               <span>{selected.task.family.replaceAll("-", " ")}</span>
             </div>
-            <SelectedCaseEvidence key={selected.task.id} selected={selected.task} trials={[...selected.trials].sort((a, b) => a.trialIndex - b.trialIndex)} />
+            <SelectedCaseEvidence key={selected.task.id} selected={selected.task} stages={getNonlinearStages(run.suiteId, selected.task.depth)} trials={[...selected.trials].sort((a, b) => a.trialIndex - b.trialIndex)} />
           </div>
         </div>
       ) : (
         <div className={styles.noCases}>
-          <h3>No tests match these filters</h3>
-          <p>Try another expression or choose a different outcome or measured depth.</p>
-          {(query !== "" || outcome !== "all") && <Button type="button" variant="outline" onClick={() => { setQuery(""); setOutcome("all"); }}>Clear test filters</Button>}
+          <h3>No tasks match these filters</h3>
+          <p>Try another expression or choose a different outcome or expression-tree depth.</p>
+          {(query !== "" || outcome !== "all") && <Button type="button" variant="outline" onClick={() => { setQuery(""); setOutcome("all"); }}>Clear task filters</Button>}
         </div>
       )}
     </section>
   );
 }
 
-function SelectedCaseEvidence({ selected, trials }: { selected: ReportCase; trials: readonly ReportTrial[] }) {
+function SelectedCaseEvidence({ selected, trials, stages }: { selected: ReportCase; trials: readonly ReportTrial[]; stages: number | null }) {
   return (
     <div className="min-w-0 space-y-5">
       <div className={styles.caseReference}>
         <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
-          <span className="font-mono">depth = {selected.depth}</span>
+          {stages !== null && <span>{stages} nonlinear composition stages</span>}
+          <span>Expression-tree depth: <span className="font-mono">{selected.depth}</span></span>
           <span>
             Reference: <strong className="font-medium">{selected.label}</strong>
           </span>
@@ -203,7 +205,7 @@ function SelectedCaseEvidence({ selected, trials }: { selected: ReportCase; tria
       )}
       <div className="space-y-3">
         <h3 className="text-base font-medium">Model answers</h3>
-        <p className="text-xs leading-5 text-muted-foreground">Each trial is a fresh request for the same test. Expand an answer to inspect its returned text and execution evidence.</p>
+        <p className="text-xs leading-5 text-muted-foreground">Each response is a fresh request for the same task. Expand an answer to inspect its returned text and execution evidence.</p>
         {trials.map((trial) => (
           <details
             key={trial.trialIndex}

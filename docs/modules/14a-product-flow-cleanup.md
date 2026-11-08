@@ -2,7 +2,7 @@
 
 ## Status and Order
 
-Planned — **do this first, before [14b randomized generation](14b-randomized-certified-evaluation.md), followed by Phase 15 implementation and new Phase 15 model runs**. This is a small presentation and navigation cleanup of the existing product. It does not depend on certifying the future deep benchmark.
+Complete — implemented and locally verified; see the [handoff](../handoffs/14a-product-flow-cleanup.md). The sequence remains **14a → [14b upstream integration](14b-randomized-certified-evaluation.md) → Phase 15 implementation and new Phase 15 model runs**. This presentation and navigation cleanup does not depend on certifying the future deep benchmark.
 
 ## Goal
 

@@ -1,6 +1,6 @@
 "use client";
 
-// Numeric measured depths and null gaps preserve the report's observed population.
+// Numeric expression-tree depths and null gaps preserve the report's observed population.
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
 import {
@@ -50,7 +50,7 @@ export function ReportTooltip({
   if (!active || !payload?.length) return null;
   return (
     <div className="max-w-80 space-y-2 rounded-lg border bg-popover p-3 text-xs shadow-sm">
-      <p className="font-mono">depth = {String(label)}</p>
+      <p className="font-mono">Expression-tree depth = {String(label)}</p>
       {payload.map((item) => (
         <div key={String(item.dataKey)} className="space-y-1">
           <p>
@@ -117,17 +117,17 @@ export function DepthChart({
     <section aria-labelledby="depth-chart-title" className="min-w-0 space-y-4">
       <div>
         <h2 id="depth-chart-title" className="text-xl font-medium">
-          Macro-F1 versus depth
+          Macro-F1 versus expression-tree depth
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Pooled three-class macro-F1, from 0 to 1. Points mark measured depths;
+          Pooled three-class macro-F1, from 0 to 1. Points mark measured expression-tree depths;
           missing scores remain gaps.
         </p>
       </div>
       <ChartContainer
         config={config}
         className="h-80 w-full aspect-auto sm:h-96"
-        aria-label="Macro-F1 at measured composition depths"
+        aria-label="Macro-F1 at measured expression-tree depths"
       >
         <LineChart
           accessibilityLayer
@@ -141,7 +141,7 @@ export function DepthChart({
             domain={["dataMin", "dataMax"]}
             ticks={depths}
             allowDecimals={false}
-            label={{ value: "Measured depth", position: "bottom", offset: 8 }}
+            label={{ value: "Expression-tree depth", position: "bottom", offset: 8 }}
           />
           <YAxis domain={[0, 1]} ticks={[0, 0.25, 0.5, 0.75, 1]} width={44} />
           <ChartTooltip content={<ReportTooltip />} />
@@ -181,10 +181,10 @@ export function DepthChart({
         <TableHeader>
           <TableRow>
             <TableHead>Run / model</TableHead>
-            <TableHead>Depth</TableHead>
+            <TableHead>Expression-tree depth</TableHead>
             <TableHead>Macro-F1 (exact)</TableHead>
             <TableHead>Included / planned</TableHead>
-            <TableHead>Δ from shallowest planned depth</TableHead>
+            <TableHead>Δ from shallowest planned tree</TableHead>
             <TableHead>Trial min / max / sample SD</TableHead>
             <TableHead>Eligible trials</TableHead>
           </TableRow>
@@ -225,7 +225,7 @@ export function DepthChart({
       </Table>
       <p className="text-xs leading-5 text-muted-foreground">
         Trial spread describes the eligible repeated trials; it is not a
-        confidence interval. Measured depth also varies with expression
+        confidence interval. Expression-tree depth also varies with expression
         structure and length.
       </p>
     </section>

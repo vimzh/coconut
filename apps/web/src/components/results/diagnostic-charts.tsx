@@ -1,4 +1,5 @@
 "use client";
+// Resource and agreement diagnostics preserve their reported populations and missing values.
 import { useId } from "react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
@@ -117,7 +118,7 @@ export function DiagnosticCharts({
         </p>
         {!usage.length ? (
           <p className="rounded-lg border p-4 text-sm text-muted-foreground">
-            No compatible reported usage for this field and depth filter.
+            No compatible reported usage for this field and expression-tree depth filter.
           </p>
         ) : (
           <ChartContainer
@@ -126,13 +127,14 @@ export function DiagnosticCharts({
             }}
             className="h-56 w-full aspect-auto"
           >
-            <LineChart accessibilityLayer data={usage}>
+            <LineChart accessibilityLayer data={usage} margin={{ bottom: 16 }}>
               <CartesianGrid vertical={false} stroke="var(--border)" />
               <XAxis
                 type="number"
                 dataKey="depth"
                 domain={["dataMin", "dataMax"]}
                 ticks={usage.map((p) => p.depth)}
+                label={{ value: "Expression-tree depth", position: "insideBottom", offset: -4 }}
               />
               <YAxis width={56} domain={[0, "auto"]} />
               <ChartTooltip content={<ReportTooltip />} />
@@ -151,7 +153,7 @@ export function DiagnosticCharts({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Depth</TableHead>
+              <TableHead>Expression-tree depth</TableHead>
               <TableHead>Mean tokens (exact)</TableHead>
               <TableHead>Reporting / planned trials</TableHead>
             </TableRow>
@@ -182,13 +184,14 @@ export function DiagnosticCharts({
           config={{ value: { label: "Agreement", color: "var(--chart-2)" } }}
           className="h-56 w-full aspect-auto"
         >
-          <LineChart accessibilityLayer data={agreement}>
+          <LineChart accessibilityLayer data={agreement} margin={{ bottom: 16 }}>
             <CartesianGrid vertical={false} stroke="var(--border)" />
             <XAxis
               type="number"
               dataKey="depth"
               domain={["dataMin", "dataMax"]}
               ticks={agreement.map((p) => p.depth)}
+              label={{ value: "Expression-tree depth", position: "insideBottom", offset: -4 }}
             />
             <YAxis domain={[0, 1]} width={40} />
             <ChartTooltip content={<ReportTooltip />} />
@@ -207,7 +210,7 @@ export function DiagnosticCharts({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Depth</TableHead>
+              <TableHead>Expression-tree depth</TableHead>
               <TableHead>Agreement (exact)</TableHead>
               <TableHead>Eligible / total instances</TableHead>
               <TableHead>Agreeing / total pairs</TableHead>

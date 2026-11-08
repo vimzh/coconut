@@ -22,6 +22,10 @@
 .prose [data-slot="table-cell"] { padding: 12px 16px; white-space: normal; line-height: 1.6; }
 .prose [data-slot="table-row"]:hover { background: transparent; }
 .prose [data-slot="table-caption"] { margin: 0; padding: 12px 16px; border-top: 1px solid var(--border); font-size: 12px; line-height: 1.5; text-align: left; }
+.details { border-top: 1px solid var(--border); padding-top: 20px; }
+.details summary { width: fit-content; cursor: pointer; color: var(--foreground); }
+.details summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+.details > * + * { margin-top: 20px; }
 
 @media (max-width: 1023px) {
   .layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }

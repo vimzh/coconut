@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const contents = [
-  ["task", "The task"], ["suites", "Suites and depth"], ["references", "Reference validation"],
+  ["task", "The task"], ["suites", "Current and advanced workloads"], ["references", "Reference validation"],
   ["execution", "Trials and settings"], ["scoring", "Scores and missing work"], ["comparisons", "Comparisons and uncertainty"],
   ["access", "Keys, charges and records"],
 ] as const;
@@ -36,8 +36,9 @@ export default function MethodologyPage() {
       <header className={styles.intro}>
         <h1 className={styles.title}>How the evaluation works</h1>
         <p className={styles.description}>
-          Coconut measures three-way curvature classification on explicit scalar domains. The reference, model reply and evaluation settings stay inspectable together.
+          The current nested composition benchmark contains 27 tasks at 2, 4 and 6 nonlinear stages. Three fresh responses per task make 81 requests per model. Each response classifies a function on its exact domain.
         </p>
+        <Link href="/#model-scores-title" className="mt-5 inline-block text-sm underline underline-offset-4">View current results</Link>
       </header>
 
       <div className={styles.layout}>
@@ -56,28 +57,39 @@ export default function MethodologyPage() {
             <p>For x³, restricting the domain to [0, 1] makes it convex; on [−1, 0] it is concave. On [−1, 1] it is neither. Affine and constant functions satisfy both definitions, so they are excluded from the three-label population.</p>
           </MethodSection>
 
-          <MethodSection id="suites" title="Separate suites, measured depth">
-            <p>Each suite is frozen with its exact tasks and reference evidence. Scores from different suites or prompt versions belong to separate comparison populations.</p>
+          <MethodSection id="suites" title="One current benchmark, separate workloads">
+            <p>The recommended nested composition exploration applies successive quadratic and reciprocal atoms in three sequence patterns, at two, four and six nonlinear composition stages. Every pattern and stage count includes all three labels with the same outer expression form.</p>
             <Table>
-              <TableCaption>Task counts and actual operation depths for the evaluation suites</TableCaption>
-              <TableHeader><TableRow><TableHead>Suite</TableHead><TableHead>Tasks</TableHead><TableHead>Measured depths</TableHead></TableRow></TableHeader>
+              <TableCaption>The current benchmark is exploratory and unranked</TableCaption>
+              <TableHeader><TableRow><TableHead>Benchmark version</TableHead><TableHead>Tasks</TableHead><TableHead>Nonlinear stages</TableHead><TableHead>Expression-tree depths</TableHead></TableRow></TableHeader>
               <TableBody>
-                <TableRow><TableCell><span className="font-medium text-foreground">Nested composition exploration · unranked</span><br /><span className="font-mono text-xs">composition-v1</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 13, 19 (2, 4, 6 nonlinear stages)</TableCell></TableRow>
+                <TableRow><TableCell className="font-mono">composition-v1</TableCell><TableCell>27</TableCell><TableCell className="font-mono">2, 4, 6</TableCell><TableCell className="font-mono">7, 13, 19</TableCell></TableRow>
+              </TableBody>
+            </Table>
+            <p>The 27 tasks share nine related base chains. Exact rational derivative checks and an independent implementation supplement whole-domain numerical certificates. Shared atoms, coefficient cues and contracting ranges limit generalization; this is exploratory evidence, without ranking or a causal depth claim.</p>
+            <p>Expression-tree depth counts operations: a leaf has depth zero, and each operation adds one to its deepest child. For example, x has depth 0, x² has depth 1 and exp(x²) has depth 2. It is a different measure from nonlinear composition stages. Simplifying or rebalancing an expression can change tree depth while preserving its function.</p>
+            <details className={styles.details}>
+              <summary>Advanced workloads</summary>
+              <p>Six other suites remain available under Advanced workloads in evaluation setup. Each is frozen with its own tasks and reference evidence. Different suites or prompt versions belong to separate comparison populations.</p>
+              <Table>
+                <TableCaption>Separate workloads; the depths below are expression-tree depths</TableCaption>
+                <TableHeader><TableRow><TableHead>Suite</TableHead><TableHead>Tasks</TableHead><TableHead>Expression-tree depths</TableHead></TableRow></TableHeader>
+                <TableBody>
                 <TableRow><TableCell><span className="font-medium text-foreground">Curvature challenge</span><br /><span className="font-mono text-xs">challenge-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">3, 4, 5, 6, 14</TableCell></TableRow>
+                <TableRow><TableCell><span className="font-medium text-foreground">Exploratory screening</span><br /><span className="font-mono text-xs">screening-v1</span></TableCell><TableCell>9</TableCell><TableCell className="font-mono">3, 5, 14</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Smooth reference</span><br /><span className="font-mono text-xs">smooth-v2</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 9, 11</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Exact reference</span><br /><span className="font-mono text-xs">reference-v1</span></TableCell><TableCell>75</TableCell><TableCell className="font-mono">5, 10, 20, 40, 80</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Interior exploration · unranked</span><br /><span className="font-mono text-xs">interior-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">13</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Fine-scale curvature exploration · unranked</span><br /><span className="font-mono text-xs">reserve-v1</span></TableCell><TableCell>18</TableCell><TableCell className="font-mono">17, 23</TableCell></TableRow>
-              </TableBody>
-            </Table>
-            <p>Nested composition exploration applies successive quadratic and reciprocal atoms in three sequence patterns, at two, four and six nonlinear stages. Every pattern and stage count includes all three labels with the same outer expression form. The 27 tasks share nine related base chains. Exact rational derivative checks and an independent implementation supplement whole-domain numerical certificates. Shared atoms, coefficient cues and contracting ranges limit generalization; this is exploratory evidence, without ranking or a causal depth claim.</p>
+                </TableBody>
+              </Table>
             <p>The challenge has eight families and three parameter groups per family. Each group contains all three labels: 24 related-task groups and 24 tasks per class. Its families cover logarithmic, reciprocal, exponential, rational, mixed-branch and polynomial curvature.</p>
             <p>The separate interior exploration applies three nonlinear functions to eight source quintics. Each source polynomial is shared across nine related tasks, giving eight groups and 24 tasks per class. Its interior curvature changes can be missed by checking endpoints and midpoint alone. This narrower population is descriptive and unranked; it does not meet the confirmation coverage or confidence-interval requirements.</p>
             <p>Fine-scale curvature exploration has logarithm, reciprocal and square-root families built from two related source polynomials of degrees nine and ten, with nonzero quadratic terms. The 18 tasks share the domain [−1, 1] and have six tasks per class. Each source group spans nine tasks across all families and labels, so there are two related groups. This adaptive exploration remains unranked, has no eligible confidence interval and inherits no confirmation status.</p>
             <p>All six fine-scale neither cases have strict opposite second-derivative signs at 0 and −15/16, while their nine fixed coarse curvature probes each see only one sign. This is a proved structural property; it does not establish model difficulty or a model failure.</p>
-            <p>A leaf has depth zero; each operation adds one to its deepest child. For example, x has depth 0, x² has depth 1 and exp(x²) has depth 2. Simplifying or rebalancing an expression can change depth while preserving its function.</p>
-            <p><span className="font-medium text-foreground">Depth is descriptive.</span> Each challenge family occurs at one depth, so family and depth cannot be separated. Expression size and mathematical structure also vary. The exact and smooth reference suites have their own confounds; these plots do not establish a causal effect of nesting.</p>
+            <p><span className="font-medium text-foreground">Expression-tree depth is descriptive.</span> Each challenge family occurs at one depth, so family and depth cannot be separated. Expression size and mathematical structure also vary. The exact and smooth reference suites have their own confounds; these plots do not establish a causal effect of nesting.</p>
             <p>The nine-task screening set uses separate parameter groups for exploratory checks. It is distinct from the full 72-task confirmation set. Public teaching examples are separate from both.</p>
+            </details>
           </MethodSection>
 
           <MethodSection id="references" title="Reference labels need global evidence">
@@ -95,7 +107,6 @@ export default function MethodologyPage() {
               <TableCaption>Different profiles remain separate comparison populations</TableCaption>
               <TableHeader><TableRow><TableHead>Profile family</TableHead><TableHead>Output ceiling</TableHead><TableHead>Reasoning</TableHead></TableRow></TableHeader>
               <TableBody>
-                <TableRow><TableCell><span className="font-medium text-foreground">Nested composition exploration · unranked</span><br /><span className="font-mono text-xs">composition-v1</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 13, 19 (2, 4, 6 nonlinear stages)</TableCell></TableRow>
                 <TableRow><TableCell>Original profiles</TableCell><TableCell className="font-mono">4,096 tokens</TableCell><TableCell className="whitespace-normal">Provider default</TableCell></TableRow>
                 <TableRow><TableCell>Explicit-effort profiles</TableCell><TableCell className="font-mono">16,384 tokens</TableCell><TableCell className="whitespace-normal">Named effort, verified for the model</TableCell></TableRow>
               </TableBody>
@@ -116,7 +127,6 @@ export default function MethodologyPage() {
               <TableCaption>Model outcomes and incomplete execution have different score treatment</TableCaption>
               <TableHeader><TableRow><TableHead>Outcome</TableHead><TableHead>Score treatment</TableHead></TableRow></TableHeader>
               <TableBody>
-                <TableRow><TableCell><span className="font-medium text-foreground">Nested composition exploration · unranked</span><br /><span className="font-mono text-xs">composition-v1</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 13, 19 (2, 4, 6 nonlinear stages)</TableCell></TableRow>
                 <TableRow><TableCell className="whitespace-normal">Valid returned label</TableCell><TableCell className="whitespace-normal">Included; graded against the reference</TableCell></TableRow>
                 <TableRow><TableCell className="whitespace-normal">Invalid or empty reply, refusal, truncation</TableCell><TableCell className="whitespace-normal">Included as unusable; contributes reference support and a false negative, with no predicted-class false positive</TableCell></TableRow>
                 <TableRow><TableCell className="whitespace-normal">Provider error, interruption, cancellation, unattempted work</TableCell><TableCell className="whitespace-normal">Excluded from mathematical counts; retained against the planned workload</TableCell></TableRow>
@@ -141,8 +151,8 @@ export default function MethodologyPage() {
             <p>Runs are private by default and retained for seven days. The separate private access code is returned once; save it to return after a refresh. Publishing is an explicit, reversible action, and public ranking additionally requires the leaderboard’s eligibility checks. Expiry or deletion removes public visibility with the retained record.</p>
             <p>Keep the evaluation page open while the run executes. Disconnect, cancellation or server restart preserves recorded work but does not resume paid requests. Starting again requires a fresh intentional launch and provider credential. Requests already sent may still incur charges.</p>
             <div className="flex flex-wrap items-center gap-5 pt-2">
-              <Button asChild size="lg"><Link href="/evaluate">Evaluate a model</Link></Button>
-              <Link href="/#model-scores-title" className="rounded-sm text-sm font-medium text-foreground underline underline-offset-4">View model scores</Link>
+              <Button asChild size="lg"><Link href="/evaluate">Run this benchmark</Link></Button>
+              <Link href="/#model-scores-title" className="rounded-sm text-sm font-medium text-foreground underline underline-offset-4">View results</Link>
             </div>
           </MethodSection>
         </article>

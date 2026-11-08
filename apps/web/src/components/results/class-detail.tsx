@@ -1,4 +1,5 @@
 "use client";
+// Class metrics retain the report population and use expression-tree depth on every curve.
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
 import {
@@ -52,15 +53,16 @@ export function ClassDetail({
         <ChartContainer
           config={config}
           className="h-64 w-full aspect-auto"
-          aria-label="Per-class recall by measured depth"
+          aria-label="Per-class recall by expression-tree depth"
         >
-          <LineChart accessibilityLayer data={points} margin={{ right: 16 }}>
+          <LineChart accessibilityLayer data={points} margin={{ right: 16, bottom: 16 }}>
             <CartesianGrid vertical={false} stroke="var(--border)" />
             <XAxis
               dataKey="depth"
               type="number"
               domain={["dataMin", "dataMax"]}
               ticks={points.map((p) => p.depth)}
+              label={{ value: "Expression-tree depth", position: "insideBottom", offset: -4 }}
             />
             <YAxis domain={[0, 1]} width={40} />
             <ChartTooltip content={<ReportTooltip />} />
@@ -97,7 +99,7 @@ export function ClassDetail({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Depth</TableHead>
+              <TableHead>Expression-tree depth</TableHead>
               {REPORT_LABELS.map((label) => (
                 <TableHead key={label}>{label}</TableHead>
               ))}

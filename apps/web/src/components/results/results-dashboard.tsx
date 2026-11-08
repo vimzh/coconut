@@ -16,6 +16,7 @@ import {
   reportSlice,
 } from "@/lib/report-adapter";
 import type { ReportRun, UsageField } from "@/lib/report-types";
+import { getNonlinearStages, getStageLevels } from "@/lib/benchmark-depth";
 import { ClassDetail } from "./class-detail";
 import { DepthChart } from "./depth-chart";
 import { DiagnosticCharts } from "./diagnostic-charts";
@@ -47,6 +48,7 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
       (selectedIds === null || selectedIds.includes(entry.id)),
   );
   const partialView = run.overall?.population.status !== "complete";
+  const stageLevels = getStageLevels(run.suiteId);
   const curveRuns = partialView ? [run] : selectedRuns;
   const semantics = [
     ...new Set(
@@ -108,18 +110,20 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
             </NativeSelect>
           </div>
           <div className="space-y-2">
-            <Label htmlFor={`${id}-depth`}>Measured depth</Label>
+            <Label htmlFor={`${id}-depth`}>Expression-tree depth</Label>
             <NativeSelect
               id={`${id}-depth`}
               value={depthValue}
               onChange={(e) => setDepth(e.target.value)}
             >
               <NativeSelectOption value="all">
-                All planned depths
+                All expression-tree depths
               </NativeSelectOption>
               {run.depths.map((entry) => (
                 <NativeSelectOption key={entry.depth} value={entry.depth}>
-                  depth = {entry.depth}
+                  {getNonlinearStages(run.suiteId, entry.depth) !== null
+                    ? `${getNonlinearStages(run.suiteId, entry.depth)} nonlinear stages · tree depth ${entry.depth}`
+                    : `Expression-tree depth ${entry.depth}`}
                 </NativeSelectOption>
               ))}
             </NativeSelect>
@@ -129,6 +133,10 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
           <ArrowDownToLine aria-hidden="true" /> Export evidence
         </Button>
       </div>
+      {stageLevels && <p className={styles.depthNote}>
+        This benchmark has {stageLevels.map((level) => level.stages).join(" / ")} nonlinear composition stages,
+        at expression-tree depths {stageLevels.map((level) => level.astDepth).join(" / ")}. Charts use expression-tree depth.
+      </p>}
       {exportError && (
         <p role="alert" className="text-sm text-destructive">
           {exportError}
@@ -137,7 +145,7 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
       {runs.length > 1 && <details className={styles.comparisons}>
         <summary>Compare runs at the same settings</summary>
       <fieldset className="space-y-3 pt-4">
-        <legend className="mb-3 text-sm font-medium">Depth curves</legend>
+        <legend className="mb-3 text-sm font-medium">Expression-tree depth curves</legend>
         <div className="flex flex-wrap gap-x-6 gap-y-3">
           {runs.map((entry) => (
             <label
@@ -189,22 +197,22 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
             <strong className={styles.primaryScore} data-unavailable={slice?.macroF1 == null}>
               {shortScore(slice?.macroF1)}
             </strong>
-            <span>Balanced across all three classes</span>
+            <span>Primary score · 0–1 · three classes</span>
           </div>
           <div className={styles.metric}>
             <p>Accuracy</p>
             <strong data-unavailable={slice?.accuracy.value == null}>
-              {shortScore(slice?.accuracy.value)}
+              {slice?.accuracy.value == null ? "Unavailable" : `${(100 * slice.accuracy.value).toFixed(1)}%`}
             </strong>
             <span>
               {slice
-                ? `${slice.accuracy.numerator} / ${slice.accuracy.denominator} included trials`
+                ? `${slice.accuracy.numerator} correct / ${slice.accuracy.denominator} included responses`
                 : "No retained population"}
             </span>
           </div>
           <div className={styles.metric}>
             <p>
-              Included / planned trials
+              Included / planned responses
             </p>
             <strong>
               {slice
@@ -225,6 +233,12 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
             <span>Run {run.state}</span>
           </div>
       </div>
+      {slice && <dl className={styles.outcomeCounts} aria-label="Response outcomes">
+        <div><dt>Wrong valid labels</dt><dd>{slice.outcomes.answer.numerator - slice.population.correctTrials}</dd></div>
+        <div><dt>Unusable responses</dt><dd>{["invalid", "empty", "conflicting", "refused", "truncated"].reduce((sum, outcome) => sum + slice.outcomes[outcome as keyof typeof slice.outcomes].numerator, 0)}</dd></div>
+        <div><dt>Service failures</dt><dd>{slice.outcomes["provider-error"].numerator}</dd></div>
+        <div><dt>Unfinished work</dt><dd>{slice.outcomes.interrupted.numerator + slice.outcomes.cancelled.numerator + slice.outcomes.unattempted.numerator}</dd></div>
+      </dl>}
         <p className={styles.scoreNote}>
           {slice?.population.status === "provisional"
             ? "Infrastructure failures or missing work are excluded from this provisional score. Partial results are not complete comparisons."
@@ -236,7 +250,7 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
       <Tabs defaultValue="overview" className={styles.tabs}>
         <TabsList variant="line" className={styles.tabList} aria-label="Result views">
           <TabsTrigger value="overview"><ChartNoAxesCombined aria-hidden="true" /> Overview</TabsTrigger>
-          <TabsTrigger value="cases"><ListFilter aria-hidden="true" /> Test cases <span className={styles.tabCount}>{run.cases.filter((entry) => depth === null || entry.depth === depth).length}</span></TabsTrigger>
+          <TabsTrigger value="cases"><ListFilter aria-hidden="true" /> Tasks & answers <span className={styles.tabCount}>{run.cases.filter((entry) => depth === null || entry.depth === depth).length}</span></TabsTrigger>
           <TabsTrigger value="diagnostics"><Activity aria-hidden="true" /> Diagnostics</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className={styles.tabContent}>

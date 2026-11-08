@@ -12,23 +12,26 @@ import { WorkspaceConfiguration } from "./workspace-configuration";
 import { WorkspacePrivateAccess, WorkspaceSavedRun } from "./workspace-private-access";
 import { WorkspaceProgress } from "./workspace-progress";
 import { WorkspaceSuite } from "./workspace-suite";
+import { getStageLevels } from "@/lib/benchmark-depth";
 import styles from "./evaluation-workspace.module.css";
 
 type Step = "suite" | "model" | "review";
-const steps = [{ id: "suite", label: "Test suite", description: "Choose what to measure" }, { id: "model", label: "Model", description: "Connect your provider" }, { id: "review", label: "Review & run", description: "Confirm the workload" }] as const;
+const steps = [{ id: "suite", label: "Benchmark", description: "Choose what to measure" }, { id: "model", label: "Model", description: "Connect your provider" }, { id: "review", label: "Review & run", description: "Confirm the workload" }] as const;
 
 function EvaluationSummary({ workspace: w, step, onContinue }: { workspace: EvaluationWorkspaceController; step: Step; onContinue: () => void }) {
   const trials = w.suite && w.configuration ? w.suite.caseCount * w.configuration.policy.trialsPerInstance : null;
+  const stages = w.suite ? getStageLevels(w.suite.suiteId) : null;
   return <aside className={styles.summary} aria-label="Evaluation summary">
     <div className={styles.summaryTitle}><FlaskConical size={18} strokeWidth={1.5} aria-hidden="true" /><h2>Your evaluation</h2></div>
     <dl>
-      <div><dt>Test suite</dt><dd>{w.suite?.name ?? "Choose a suite"}</dd></div>
+      <div><dt>Benchmark</dt><dd>{w.suite?.name ?? "Choose a suite"}</dd></div>
       <div><dt>Model</dt><dd className={w.provider.modelId ? styles.mono : styles.unset}>{w.provider.modelId || "Not selected"}</dd></div>
-      <div><dt>Test population</dt><dd>{w.suite ? `${w.suite.caseCount} tests × ${w.configuration?.policy.trialsPerInstance} trials` : "Awaiting suite selection"}</dd></div>
+      <div><dt>Workload</dt><dd>{w.suite ? `${w.suite.caseCount} tasks × ${w.configuration?.policy.trialsPerInstance} responses` : "Awaiting suite selection"}</dd></div>
+      {stages && <div><dt>Nonlinear stages</dt><dd>{stages.map((entry) => entry.stages).join(", ")}</dd></div>}
     </dl>
     <div className={styles.summaryTotal}><span>Maximum inference requests</span><strong>{trials !== null && w.configuration ? trials * w.configuration.policy.attemptsPerTrial : "—"}</strong><p>Your provider bills usage. The final review includes output limits and charge approval.</p></div>
     <div className={styles.summaryPrivacy}><LockKeyhole size={16} strokeWidth={1.5} aria-hidden="true" /><p>Results start private. Save your access code after launch to reopen them later.</p></div>
-    <div className={styles.summaryOutcome}><h3>What you’ll learn</h3><p>Accuracy and macro-F1 across depths, class-level mistakes, and the model’s answer to every test.</p></div>
+    <div className={styles.summaryOutcome}><h3>What you’ll learn</h3><p>Macro-F1, accuracy, class-level mistakes, and the model’s response to every task.</p></div>
     <span className={styles.summaryStep}>Step {steps.findIndex((entry) => entry.id === step) + 1} of 3</span>
     {step !== "review" && <Button className={styles.summaryContinue} disabled={w.busy || (step === "suite" ? !w.suite || w.configurationLoading : !w.runnable)} onClick={onContinue}>{step === "suite" ? "Choose model" : "Review evaluation"}<ArrowRight size={16} aria-hidden="true" /></Button>}
   </aside>;
@@ -47,7 +50,7 @@ export function EvaluationWorkspace() {
   }
   return <div className={styles.workspace}>
     <div className={styles.pageHeading}>
-      <div><p className={styles.breadcrumb}>Workspace <span>/</span> Evaluate</p><h1>Put your model to the test.</h1><p>Explore certified mathematical tests. Run your model. Understand every answer.</p></div>
+      <div><p className={styles.breadcrumb}>Workspace <span>/</span> Evaluate</p><h1>Run a benchmark</h1><p>Choose verified tasks, connect your model, and review each response.</p></div>
       <a href="/methodology" className={styles.methodologyLink}>How scoring works <ArrowRight size={16} aria-hidden="true" /></a>
     </div>
     <Tabs value={section} onValueChange={(value) => w.setShowSetup(value === "new")} className={styles.workspaceTabs}>
@@ -81,7 +84,7 @@ export function EvaluationWorkspace() {
         {w.streaming || w.busy || w.streamError || !hasResults ? <WorkspaceProgress workspace={w} /> : w.handle && <details className={styles.progressDetails}><summary>Execution: {w.runState} · {w.progress?.finishedTrials} / {w.progress?.plannedTrials} trials finished</summary><WorkspaceProgress workspace={w} /></details>}
         {w.handle && <div className={styles.accessReminder}><LockKeyhole size={18} strokeWidth={1.5} aria-hidden="true" /><div><strong>Keep access to this run</strong><p>Save its private access file before refreshing or starting another evaluation.</p></div><Button variant="outline" onClick={w.saveAccess}>Save access file</Button></div>}
         {hasResults ? <ResultsDashboard key={w.currentRun?.id ?? "session-results"} runs={w.views} /> : !w.streaming && !w.handle && <div className={styles.resultsEmpty}>
-          <ChartNoAxesCombined size={36} strokeWidth={1} aria-hidden="true" /><h3>Every result starts with a test.</h3><p>Run an evaluation to see performance across depths, inspect mistakes, and read the reasoning behind each answer.</p><Button onClick={() => w.setShowSetup(true)}>Create an evaluation<ArrowRight size={16} aria-hidden="true" /></Button>
+          <ChartNoAxesCombined size={36} strokeWidth={1} aria-hidden="true" /><h3>No results in this session</h3><p>Run an evaluation to inspect scores, mistakes, and the response to each task. You can also reopen a saved private run below.</p><Button onClick={() => w.setShowSetup(true)}>Create an evaluation<ArrowRight size={16} aria-hidden="true" /></Button>
         </div>}
         <div className={styles.runAccess} id="run-access">
           {w.handle && <details className={styles.accessDetails}><summary>Private access, exports & publication</summary><WorkspacePrivateAccess key={w.handle.id} workspace={w} /></details>}
