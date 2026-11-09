@@ -4,6 +4,8 @@
     "typeRoots": ["./apps/api/node_modules/@types"]
   },
   "include": [
+    "scripts/tasks.ts",
+    "scripts/tasks/**/*.ts",
     "scripts/composition-suite.ts",
     "scripts/composition-suite.test.ts",
     "scripts/evaluate.ts",

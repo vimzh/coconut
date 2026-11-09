@@ -1,6 +1,7 @@
-// Run the registered composition workload with private local evidence and explicit charge consent.
+// Run exact-file or registered composition evaluations with private evidence and explicit charge consent.
 import { chmodSync, closeSync, fchmodSync, fsyncSync, mkdirSync, openSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { runTaskEvaluation, taskEvaluationHelp } from "./tasks/evaluation";
 import type { InferenceClient } from "../apps/api/src/inference";
 import { calculateWorkload } from "../apps/api/src/protocol";
 import { parseCredential } from "../apps/api/src/providers/policy";
@@ -57,7 +58,8 @@ function syncDirectory(path: string) {
 
 export async function runCli(args: readonly string[], options: CliOptions = {}): Promise<number> {
   const out = options.out ?? console.log, error = options.error ?? console.error;
-  if (args.length === 1 && ["--help", "-h"].includes(args[0])) { out(help); return 0; }
+  if (args.length === 1 && ["--help", "-h"].includes(args[0])) { out(`${help}\n\n${taskEvaluationHelp}`); return 0; }
+  if (args.includes("--input")) return runTaskEvaluation(args, options);
   let store: RunStore | undefined, receipt: Extract<RunEvent, { type: "started" }> | undefined;
   let directory = "", credential = "", status = 1, startedReceiptSaved = false;
   let failure = `${usage}\nExplicit --accept-charges and an environment credential are required.`;

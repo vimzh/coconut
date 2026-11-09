@@ -15,7 +15,7 @@ bun run dev
 
 Run all commands from the repository root:
 
-The [terminal command guide](terminal.md) covers offline task generation/reference checks, consented OpenAI evaluations, private reports, metadata/probe distinctions and the complete ordinary command catalog. A terminal evaluation does not require either local server.
+The [terminal command guide](terminal.md) covers configurable `tasks:generate` (depths, cases per depth, seed), `tasks:verify`, and consented `eval:run --input` (exact saved tasks, selected trials/model/profile), alongside bundled-suite commands, private reports and metadata/probe distinctions. A terminal evaluation does not require either local server.
 
 ```sh
 bun run lint

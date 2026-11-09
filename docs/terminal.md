@@ -2,7 +2,7 @@
 
 Use Coconut from a local checkout to reproduce certified suites, verify their references, evaluate an OpenAI model and inspect a private report. Run every command below from the repository root. Commands that run models require your own credential and explicit charge consent.
 
-The terminal evaluation command currently runs **composition-v1: 27 distinct tasks, three fresh responses per task, up to 81 inference requests per model**. It uses the workbench's existing execution engine and scorer. This is separate from the larger imported research population shown on the landing page. Reproducing a fixed suite does not generate fresh random questions or independent task groups.
+The terminal supports **configurable generated task files** and the preserved **composition-v1** bundled suite. Exact-file evaluations use the selected questions and trial count, with the existing SDK inference adapter and classification scorer. Historical web workloads and the research populations shown on the landing page remain separate.
 
 ## Setup
 
@@ -16,6 +16,71 @@ bun run numerics:setup
 Offline generation and verification need no provider key. To run a model, set `OPENAI_API_KEY` in your ignored `apps/api/.env` file, or supply that variable through your shell environment. Never put the credential itself in a command argument or tracked artifact. The examples explicitly load the ignored file with `bun --env-file=apps/api/.env`; omit that option when the variable is already in the environment.
 
 No web or API server needs to be running for these CLI commands. Do not share an evaluation output database with a running API process.
+
+## Generate your own task population
+
+Configure the pinned external generator described in the [import integration record](research/upstream-import-integration-v1.md). Its checkout must be clean at revision `6f156c8c9b6b0b85f6a191bd4eb912e12e670082`. Set `COCONUT_GENERATOR_SOURCE` to its local checkout path and `COCONUT_GENERATOR_PYTHON` to its isolated Python executable. Alternatively pass `--source <checkout>` and `--python <interpreter>` explicitly to generation. No external code is copied into Coconut.
+
+The required generation environment is Python **3.13.17**, numpy **2.1.2**, pandas **2.3.1** and tqdm **4.67.1**. This environment is separate from Coconut's native reference environment installed by `numerics:setup`. To create it at a path of your choosing:
+
+```sh
+uv venv --python 3.13.17 /tmp/coconut-generator-env
+uv pip install --python /tmp/coconut-generator-env/bin/python numpy==2.1.2 pandas==2.3.1 tqdm==4.67.1
+export COCONUT_GENERATOR_PYTHON=/tmp/coconut-generator-env/bin/python
+```
+
+Set `COCONUT_GENERATOR_SOURCE` to your actual pinned checkout before running:
+
+```sh
+mkdir -p apps/api/data/private
+bun run tasks:generate \
+  --depths 5,10,20,40,80,160,320,512 \
+  --cases-per-depth 100 \
+  --seed 42 \
+  --output apps/api/data/private/tasks.json
+
+bun run tasks:verify --input apps/api/data/private/tasks.json
+```
+
+This requests **eight depths × 100 questions = 800 distinct displayed tasks**. Each depth has near-balanced convex/concave/neither quotas; when the count is not divisible by three, remainder allocation rotates deterministically. Requested depth is the external generator's setting; realized source depth can be that value or one greater. AST depth and nonlinear path length are retained separately. The closed domain is fixed at **[−1, 1]**.
+
+| Generation option | Meaning |
+| --- | --- |
+| `--depths <comma-separated integers>` | Unique requested depths from 1 through 1000. |
+| `--cases-per-depth <integer>` | Requested admitted questions at each depth; total population cannot exceed 1000 tasks. |
+| `--seed <uint32>` | Deterministic source seed schedule. Identical settings/source/runtime reproduce the task population; a different seed does not prove semantic independence. |
+| `--output <new-json>` | Private artifact; refuses replacement. Keep generated questions and sidecar evidence outside version control. |
+| `--source <checkout>` / `--python <executable>` | Explicit generator/runtime locations; environment variables may supply them. |
+| `--max-batches <integer>` | Finite proposal limit per depth. Exhaustion retains an incomplete artifact and fails; there is no silent reduction in task count. |
+
+Candidates are checked against the **exact displayed expression** using the independent reference verifier. Rejected, duplicate and surplus proposals remain in the admission evidence. Large source CSV/tree data live in a private sibling `<output-file>.evidence` directory, bound by hashes; keep that directory beside the JSON when moving or copying it. Only complete, replayable artifacts with exactly the requested quotas can be evaluated. Source/Jensen status alone is not certification. Verification replays references and checks task identity, structure, class counts and artifact integrity; it does not need to send model requests.
+
+There is no guarantee that every requested depth/seed/count can fill its quotas within the finite proposal budget. Task JSON is bounded to 256 MiB and each raw CSV to 64 MiB; oversized artifacts fail visibly. Exact duplicate checks do not eliminate all equivalent functions or reasoning shortcuts. These generated tasks are a separate exploratory population, not a claim of training nonexposure or a replacement for previously audited results. Raw-source/output redistribution rights remain unresolved; keep the files private.
+
+## Evaluate the exact saved tasks
+
+```sh
+bun --env-file=apps/api/.env run eval:run \
+  --input apps/api/data/private/tasks.json \
+  --model gpt-6-luna \
+  --trials 1 \
+  --profile one-shot-json-v1 \
+  --concurrency 4 \
+  --credential-env OPENAI_API_KEY \
+  --output apps/api/data/private/luna-generated-run \
+  --accept-charges
+```
+
+This uses the exact admitted file, with **800 tasks × one trial = at most 800 inference requests**. `--trials 3` would plan 2,400. Trials range from 1 to 10; total inference requests are bounded by 10,000. `--input` and `--suite` are separate modes and cannot be combined. Task verification completes before any model metadata or inference operation. The selected model is an exact OpenAI ID; unsupported models/settings fail visibly without substitution.
+
+Use any registered `--profile`: `one-shot-json-v1` and `one-shot-schema-v1` use 4,096 output tokens and provider-default reasoning. Explicit profiles such as `one-shot-json-v2-high` or `one-shot-json-v2-max` use 16,384 output tokens and the named reasoning effort. The model must support the selected settings. Concurrency is 1–12, default 4; trials default to 1 in exact-file mode. No automatic retries, resume or publication. Per-request deadline is the ordinary 180 seconds. Request/token limits do not impose a currency budget.
+
+The new run directory must have an existing parent. A private manifest binds the input hash, task population, model/settings and maximum calls before dispatch. Per-attempt authorization and result files preserve unknown/incomplete work. `run.json` retains the planned rows and evidence; `report.json` contains overall and requested-depth classification metrics with actual denominators. Invalid/refused/truncated replies remain model failures; infrastructure and unattempted work keep scores provisional or unavailable. Ctrl+C stops further work and aborts active calls; dispatched calls can still incur charges. Local files remain until manually removed. This mode does not create a web run, access code, SQLite publication or landing-table entry.
+
+```sh
+bun scripts/tasks.ts --help
+bun run eval:run --help
+```
 
 ## Generate and verify the current visitor suite
 
@@ -32,7 +97,7 @@ Use a new output filename: generation refuses to overwrite an existing artifact.
 bun scripts/composition-suite.ts --help
 ```
 
-## Run an evaluation
+## Run the preserved bundled composition evaluation
 
 The following command makes paid OpenAI requests. Replace the example model with an exact identifier available to your account. An advertised model or successful authentication does not establish inference permission.
 
@@ -46,7 +111,7 @@ bun --env-file=apps/api/.env run eval:run \
   --accept-charges
 ```
 
-The output directory must not exist, and its parent must already exist. No directory is reused and no artifact is overwritten. Argument, credential, workload and output checks happen before provider work. The CLI supports OpenAI only; the broader provider interfaces retain their separate verification limits.
+The output directory must not exist, and its parent must already exist. No directory is reused and no artifact is overwritten. Argument, credential, workload and output checks happen before provider work. This `--suite` mode preserves the original fixed web engine and three-trial policy. The CLI supports OpenAI only; the broader provider interfaces retain their separate verification limits.
 
 | Argument | Behavior |
 | --- | --- |
@@ -123,7 +188,7 @@ bun run reserve:verify --input /tmp/coconut-reserve.json
 
 `suite:generate` and `numerics:generate` accept `--request <json-path>` for a request supported by their own versioned format. See the [instance generator plan](plans/03-instance-generator-and-suites.md) and [numerical engine plan](plans/numerical-certification-and-generation.md). This does not enable arbitrary operations, unlimited depths or automatic admission. Incomplete/unresolved generation fails rather than inventing a reference label.
 
-Challenge, interior, reserve and composition generation accept `--profile <profile-id>` for an existing protocol profile. Use the matching verifier for each artifact family. The other registered suites remain available through **Advanced workloads** in the web workbench; `eval:run` currently accepts only `composition-v1`.
+Challenge, interior, reserve and composition generation accept `--profile <profile-id>` for an existing protocol profile. Use the matching verifier for each artifact family. The other registered suites remain available through **Advanced workloads** in the web workbench. The CLI's `--suite` mode accepts `composition-v1`; use `--input` for the new configurable task artifact format.
 
 ## Score retained evidence offline
 
