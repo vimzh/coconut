@@ -1,6 +1,12 @@
 Hi guys, my name is Vansh, and this is CoconutEval, my submission to the micro1 Eval Hackathon.
 
-Let's start with a dead simple question: is x squared convex?
+When we build agentic apps, an exclusion rule given at the start still matters at the end. Imagine telling an agent, “Process these refunds, except for accounts under investigation.” After working through more instructions and exceptions, it still has to respect that original restriction. Overlooking it can change the final decision.
+
+Think of a minus sign in front of a very long mathematical expression. It takes up almost no space, but everything inside still depends on it. Working through a hundred more operations does not make that sign less important.
+
+That concern motivates CoconutEval: can a model keep track of small but decisive mathematical details as expressions grow? We test that with questions whose answers we can verify. Whether these scores predict an agent’s ability to preserve exclusion rules is a separate question that still needs testing.
+
+Let's start with a dead simple example: is x squared convex?
 
 It is. Put a minus sign in front, and negative x squared is concave.
 
