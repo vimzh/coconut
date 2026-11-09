@@ -5,6 +5,7 @@ import { AppShell } from "@/components/app-shell";
 import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { CompositionResults } from "@/components/marketing/composition-results";
+import { ProjectFaq } from "@/components/marketing/project-faq";
 import { Button } from "@/components/ui/button";
 import { deepStudySummary, deepStudyTaskTotal, hasPublishedDeepStudy } from "@/lib/deep-study-summary";
 import styles from "./page.module.css";
@@ -61,6 +62,7 @@ export default function Home() {
         </div>
       </section>
 
+      <ProjectFaq />
     </AppShell>
   );
 }
