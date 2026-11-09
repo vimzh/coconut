@@ -6,7 +6,7 @@
 
 <p align="center">A convexity evaluation workbench for people comparing language models, with certified mathematical tasks and inspectable answers behind every score.</p>
 
-<p align="center"><a href="docs/research/deep-study-results-v2.md">Explore the current results</a> · <a href="#run-locally">Run locally</a></p>
+<p align="center"><a href="docs/research/deep-study-results-v2.md">Reasoning study</a> · <a href="docs/research/cheap-depth-expand-v1.md">Fast-model results</a> · <a href="#run-locally">Run locally</a></p>
 
 <!-- README-HACK:NEEDS-OWNER key="demo-video" instruction="Add the final public demo video link beside the results link above." -->
 <!-- README-HACK:NEEDS-OWNER key="live-demo" instruction="Add a verified public deployment URL beside the results link above; the repository currently documents local operation only." -->
@@ -19,18 +19,22 @@ A useful model comparison needs a trustworthy reference answer and enough eviden
 
 ## What Coconut does
 
-The home page shows the latest audited research study: the same 620 functions attempted once on Astra, Mini and Luna. Choose **View results** to inspect scores or **Open 27-task workbench** to run the separate visitor workload with your own key. The private research study and visitor workload have different tasks and trial counts. Answer inspection is available in authorized run reports.
+The home page separates two audited research groups: **620 tasks per model** for the Astra, GPT-5.4 Mini and GPT-6 Luna reasoning study, and **800 tasks per model** for the GPT-4.1 Mini, GPT-4o Mini and GPT-5.6 Luna fast screen. Each uses one response per task. Their populations and settings differ; compare scores within each group. Choose **View results** to inspect scores or **Open 27-task workbench** to run the separate visitor workload with your own key.
+
+In the browser workbench:
 
 1. **Choose the experiment.** The current 27-task suite is selected by default; six other suites sit under **Advanced workloads**. Connect with your own provider key, select an exact model, answer format, and supported reasoning settings. Review the request count and explicitly approve provider charges.
 2. **Follow the run.** Each task gets three fresh requests. Watch progress, cancel further work, and retain the outcomes already recorded.
 3. **Inspect the evidence.** Explore macro-F1, accuracy, correct/total counts, completion, expression-tree depth breakdowns, returned explanations, reference evidence, and execution diagnostics.
 4. **Decide what to share.** Export private results or explicitly publish a completed run. The leaderboard groups comparable settings and ranks only eligible evidence.
 
-Runs are private by default, expire after seven days, and use a separate access code. Save that code to return after a refresh. Provider keys stay out of saved runs. Keep the page open during execution; interrupted work cannot resume, and dispatched requests can still incur charges.
+Web runs are private by default, expire after seven days, and use a separate access code. Save that code to return after a refresh. Provider keys stay out of saved runs. Keep the page open during execution; interrupted work cannot resume, and dispatched requests can still incur charges.
+
+The **terminal workflow** lets you choose generator depths, questions per depth and a seed, then verify and evaluate that exact saved task file. Select the OpenAI model, trial count, answer/reasoning profile and concurrency. Private manifests, per-attempt evidence and JSON reports retain incomplete work; these local files require manual cleanup and are not automatically published.
 
 <!-- README-HACK:GRAPH
 type: product-flow
-brief: Show an evaluator selecting their provider/model and suite, reviewing the planned requests and approving charges, following three fresh trials per task, and inspecting private scores/answers/reference evidence. Branch from the private report to export or explicit publication and an eligibility-checked leaderboard. Mark the visitor-owned key and seven-day private-result boundary; keep service internals out of this diagram.
+brief: Show a browser evaluator selecting their provider/model and suite, reviewing the planned requests and approving charges, following three fresh trials per task, and inspecting private scores/answers/reference evidence. Branch from the private report to export or explicit publication and an eligibility-checked leaderboard. Mark the visitor-owned key and seven-day private-result boundary; keep service internals out of this diagram.
 placement: after "What Coconut does"
 -->
 
@@ -48,7 +52,21 @@ The [challenge design](docs/research/challenge-design-v1.md) records formulas, c
 
 The grader scores the returned label and retains the explanation for inspection. Malformed responses, refusals, and truncations count as unsuccessful model outcomes. Provider failures and unattempted work remain separate, leaving incomplete scores provisional or unavailable. An access probe produces no evaluation score.
 
-The latest [single-response deep study](docs/research/deep-study-results-v2.md) retained all **1,860 attempts**: Astra **611/613** correct model outcomes, Mini **214/616**, Luna **255/615**. Their macro-F1 scores are **99.76, 50.27 and 56.09 on a 0–100 scale**. Sixteen unknown infrastructure outcomes are excluded from these denominators and remain visible in coverage. Astra made one independently checked mathematical classification error at requested generator depth 40; its depth-512 loss was a token truncation. These exploratory results are unranked and do not establish repeat consistency or a universal failure depth.
+The completed [fast-model screen](docs/research/cheap-depth-expand-v1.md) evaluates the same **800 certified functions per model**, with **100 at each requested depth 5, 10, 20, 40, 80, 160, 320 and 512** and one response per task:
+
+| Requested model | Correct / outcomes | Accuracy | Macro-F1 / 100 | Wrong valid labels | Unusable replies |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `gpt-4.1-mini` | 320 / 800 | 40.00% | 39.59 | 464 | 16 |
+| `gpt-4o-mini` | 282 / 800 | 35.25% | 30.27 | 468 | 50 |
+| `gpt-5.6-luna` | 296 / 800 | 37.00% | 30.11 | 504 | 0 |
+
+All **2,400 outcomes** were retained: 898 correct labels, 1,436 wrong valid labels and 66 invalid replies, with no infrastructure failures, unknown outcomes or retries. The continuation reused the original 240 answers and added 2,160 requests in **64.940 seconds**, reaching **120 concurrent calls**. It used an 8,192-output-token cap and 180-second deadline; GPT-5.6 Luna requested reasoning `none`, while the legacy models omitted that parameter. This research concurrency does not change the visitor CLI's 1–12 limit.
+
+All outcomes mechanically replayed against the retained evidence. AI-assisted inspection covered 312 visible replies, including 119 correct-label explanations with 32 separate explanation findings. The other 2,088 explanations were not manually checked. Only final labels determine the reported scores.
+
+The separate [reasoning study](docs/research/deep-study-results-v2.md) retained all **1,860 attempts** across **620 planned tasks per model**: Astra **611/613** correct model outcomes, GPT-5.4 Mini **214/616**, GPT-6 Luna **255/615**. Their macro-F1 scores are **99.76, 50.27 and 56.09 on a 0–100 scale**. Sixteen unknown infrastructure outcomes are excluded from these denominators and remain visible in coverage. Astra made one independently checked mathematical classification error at requested generator depth 40; its depth-512 loss was a token truncation. This study has 100 tasks per depth through 160, then ten each at 320 and 512, with different reasoning/output/deadline settings from the fast screen.
+
+Both studies draw from the same certified 800-task source pool; the fast screen is not a fresh independent holdout. These exploratory results do not establish repeat consistency, a universal failure depth or a causal effect of depth. Their overall scores are not directly comparable across groups.
 
 The retained OpenAI replication includes these four completed confirmation runs:
 
@@ -71,9 +89,11 @@ The mathematical path combines exact rational checks in TypeScript with a **Pyth
 
 OpenAI requests use the official SDK with explicit visitor credentials and automatic retries disabled. OpenAI has live execution evidence. OpenRouter and Hugging Face Inference Providers are implemented and fixture-tested; their live inference remains unverified.
 
+The configurable CLI runs without either server. It imports candidates from a pinned external generator and independently verifies the exact displayed functions on [−1, 1]. Models receive the function, domain and instructions; reference labels and proofs are excluded. Its scorer uses the selected trial count and reports overall and requested-depth outcomes. Source depth, expression-tree depth and nonlinear-path length remain separate measurements.
+
 <!-- README-HACK:GRAPH
 type: architecture
-brief: Show the Next.js browser workbench sending foreground requests to the Bun/Hono API; API model discovery/provider adapters call OpenAI, OpenRouter, or Hugging Face with explicit visitor credentials and stream progress back. Show offline TypeScript suite generation/reference checks communicating with the Python python-flint/Arb worker and writing frozen certified suites. Feed those suites to run execution, then the shared scorer and SQLite run/publication store, which serve private reports and eligible public comparisons. Mark reference certificates as excluded from provider prompts and provider keys as excluded from stored records. Label non-OpenAI live inference unverified; do not repeat the user journey.
+brief: Show the Next.js browser workbench sending foreground requests to the Bun/Hono API; API model discovery/provider adapters call OpenAI, OpenRouter, or Hugging Face with explicit visitor credentials and stream progress back. Show offline TypeScript suite generation/reference checks communicating with the Python python-flint/Arb worker and writing frozen certified suites. Feed those suites to run execution, then the shared scorer and SQLite run/publication store, which serve private reports and eligible public comparisons. Add the separate configurable CLI path from private task JSON/reference replay to the same inference adapter and classifier, with selected trial counts and private manifest/attempt/report files instead of the web SQLite/publication store. Mark reference certificates as excluded from provider prompts and provider keys as excluded from stored records. Label non-OpenAI live inference unverified; do not repeat the user journey.
 placement: after "How it works"
 -->
 
@@ -98,6 +118,29 @@ bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
 ```
 
 The [terminal guide](docs/terminal.md) covers configurable generation by depth, case count and seed, verification, and OpenAI evaluation of the exact saved tasks with selected trial/profile settings. It also retains the bundled composition commands. The landing page includes a terminal quickstart. See the [development guide](docs/development.md) for production operation and origin configuration.
+
+After configuring the pinned generator checkout and its isolated interpreter as described in that guide, request **800 tasks** and evaluate each once:
+
+```sh
+mkdir -p apps/api/data/private
+bun run tasks:generate \
+  --depths 5,10,20,40,80,160,320,512 \
+  --cases-per-depth 100 --seed 42 \
+  --output apps/api/data/private/tasks.json
+bun run tasks:verify --input apps/api/data/private/tasks.json
+
+bun --env-file=apps/api/.env run eval:run \
+  --input apps/api/data/private/tasks.json \
+  --model gpt-6-luna --trials 1 \
+  --profile one-shot-json-v1 --concurrency 4 \
+  --credential-env OPENAI_API_KEY \
+  --output apps/api/data/private/luna-generated-run \
+  --accept-charges
+```
+
+Set your key in the ignored `apps/api/.env` file; evaluation incurs provider charges. Generation supports requested depths 1–1000 and at most 1000 tasks, with near-balanced class quotas and a finite proposal budget. Uncertified or underfilled populations fail visibly. Keep the generated JSON and its sibling `.evidence` directory together. Exact-file evaluations support 1–10 trials and at most 10,000 inference requests: 800 tasks × three trials would plan 2,400 calls. This example creates a new population, not a replay of the published research cohorts.
+
+The CLI checkpoint passed **32 tests / 1,142 assertions**, lint and type checking, plus real nine-task generation/replay at requested depths 5, 40 and 512. An 800-task fixture verifies configurable counts; a full new external 800-task generation was not run for that checkpoint. Its [handoff](docs/handoffs/configurable-terminal-workflow.md) records the independent review, web verification and limits.
 
 A separate private deep-import workflow integrates a pinned external generator with exact-display reference checks. The [14b handoff](docs/handoffs/14b-randomized-certified-evaluation.md) records its inconclusive two-send Astra pilot. The [Module 15 handoff](docs/handoffs/15-deep-composition-stress-evaluation.md) records the independently reviewed 800-case source pool, the user-amended 620-task/model evaluation, immutable attempt ledgers, all-result audits and safe aggregate export. Raw-source/output redistribution clearance remains unresolved, so expressions and provider transcripts stay private.
 
