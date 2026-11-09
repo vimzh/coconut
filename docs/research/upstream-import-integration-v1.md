@@ -8,7 +8,7 @@ The reused generator is from [ConvexBench's official repository](https://github.
 
 No upstream implementation is copied into tracked Coconut source, application assets or dependency packages. The original adapter invokes a separately supplied checkout and retains provenance hashes. Upstream implementation and generated development artifacts remain outside public/submission bundles pending applicable clearance. This boundary is not a legal finding that every local use or generated output is unrestricted.
 
-Credit the upstream generation method and its authors in project/submission documentation. Coconut's contribution here is the exact-display importer, independent actual-domain admission, exposure accounting, isolated execution and evidence analysis. Reuse is not an original generator invention.
+The upstream generation method is prior work by Yepeng Liu, Yu Huang, Yu-Xiang Wang, Yingbin Liang and Yuheng Bu. Credit that method and its authors in project/submission documentation. Coconut's contribution here is the exact-display importer, independent actual-domain admission, exposure accounting, isolated execution and evidence analysis. Reuse is not an original generator invention.
 
 ## Reproduction environment and semantics
 
