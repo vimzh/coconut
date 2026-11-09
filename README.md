@@ -15,7 +15,11 @@
 
 Coconut asks an LLM to put a mathematical function into one of three categories: **convex, concave or neither** on a given interval. It checks the response against a mathematically verified answer and calculates a score.
 
-This tests whether a model tracks signs, intervals and nested operations well enough to reach the correct classification. For example, `x³` is convex on `[0, 1]` but neither convex nor concave on `[-1, 1]`. The same formula gets a different answer when the interval changes.
+This matters because an agent has to consider earlier rules when making its final decision. A condition introduced at the start can still determine what it is allowed to do after many more instructions.
+
+Imagine telling a support agent: **“Process these refunds, except for accounts under investigation.”** It then works through purchase dates, payment details and refund policies. If it overlooks the original exclusion, it can approve a refund it should have blocked. That earlier rule has lost none of its importance just because more information arrived later.
+
+Coconut tests condition tracking in mathematics, where we can check the answer. A minus sign outside a long expression still affects everything inside it. An interval still matters after many nested operations: `x³` is convex on `[0, 1]` but neither convex nor concave on `[-1, 1]`. In our [reasoning study](docs/research/deep-study-results-v2.md#verified-mathematical-error-and-explanation-review), Astra made a verified classification error after missing a negation. The connection to agent workflows motivates the test; whether its scores predict performance in a full agent workflow still needs testing.
 
 ## How it works
 
@@ -48,11 +52,21 @@ Coconut checks the formula itself rather than trusting the generator's proposed 
 
 For a convex or concave answer, Coconut requires a whole-interval proof and a check that rules out the opposite classification. Affine and constant functions are excluded because they satisfy both definitions. If the checks cannot establish an answer, the candidate stays out of the test. Verification can be replayed before any LLM requests.
 
+## Why use mathematics?
+
+The test engine generates formulas and checks their answers automatically, so a person does not have to write and label every question. The labels follow mathematical checks rather than subjective judgments. Reference-checking code is tested, and the saved evidence can be replayed.
+
+Generation and verification run locally without paid LLM calls. You can build new tests with different depths, question counts and seeds, then reuse the same saved questions across models. This reduces the manual work of preparing an evaluation; model calls are needed only when you run the evaluation itself. The CLI supports up to 1000 questions per test.
+
 ## What is depth?
 
 Depth describes nesting: the result of one operation becomes the input to another. For example, `log(1 + x²)` puts a square inside an addition inside a logarithm. More nesting does **not** automatically mean a harder question; an expression may simplify.
 
 In the generation command, depth is the requested generator setting. The final expression's measured structure can differ, so it is not an exact count of reasoning steps a model must take.
+
+**Depth 512 does not mean 512 difficult reasoning steps.** Some operations are small, and several layers can collapse into one after simplification. For example, 500 nested additions of 1 can be rewritten as a single addition of 500. That is an illustration of simplification, not one of our scored questions. A model may resolve many expression layers with one mathematical argument.
+
+The useful question is whether the final answer still respects every sign and interval restriction after that simplification. Coconut measures the returned classification, so a large depth number alone is never treated as proof of difficulty or model failure.
 
 ## Scoring
 
