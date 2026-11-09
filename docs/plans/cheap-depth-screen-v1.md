@@ -34,9 +34,9 @@ The two legacy models are deprecated, not labeled shut down in these pages. Each
 
 ## Implementation and terminal checkpoint
 
-The operator and16 tests/238 assertions pass under Bun1.4.4, including the pre-wire persistence guard and gated active-peer drain regression. Strict TypeScript, ESLint and Bun bundle build pass. Independent code review found and verified the repair of one persistence-stop/drain defect before any inference call. The operator byte SHA is `561af2cba34bdbdd167eb4c9ab3c39f35a0f5204615ccc44979ca85a82a801f5`; frozen API source remains unchanged.
+The operator and 16 tests/238 assertions pass under Bun1.4.4, including the pre-wire persistence guard and gated active-peer drain regression. Strict TypeScript, ESLint and Bun bundle build pass. Independent code review found and verified the repair of one persistence-stop/drain defect before any inference call. The operator byte SHA is `561af2cba34bdbdd167eb4c9ab3c39f35a0f5204615ccc44979ca85a82a801f5`; frozen API source remains unchanged.
 
-Study `cheap-depth-screen-v1-83f98a8e95ba29389eb8bdd7306c00aa796dff0261fc7abc0a95e322aa6f75fc` froze at `2026-11-09T00:55:31.341Z`. Execution ran from `00:55:56.994Z` through `00:56:38.879Z`, taking41,885ms. All240 planned attempts completed:80/model, zero provider/identity failures, unknown outcomes, retries or unattempted cells. Scored first calls accepted the requested caps/settings and pinned the actual reported identities. Post-terminal transcript and independent metric review is in progress.
+Study `cheap-depth-screen-v1-83f98a8e95ba29389eb8bdd7306c00aa796dff0261fc7abc0a95e322aa6f75fc` froze at `2026-11-09T00:55:31.341Z`. Execution ran from `00:55:56.994Z` through `00:56:38.879Z`, taking 41,885 ms. All 240 planned attempts completed:80/model, zero provider/identity failures, unknown outcomes, retries or unattempted cells. Scored first calls accepted the requested caps/settings and pinned the actual reported identities. Post-terminal replay and independent metric review passed for all 240 outcomes and 27 overall/depth slices. All 240 visible replies were inspected, including 96 correct-label explanations; 27 separate explanation findings (5/12/10 by model) leave grades unchanged. See [results](../research/cheap-depth-screen-v1.md).
 
 From `apps/api`, the commands already used are:
 
@@ -46,4 +46,6 @@ From `apps/api`, the commands already used are:
 /Users/vanshgaur/.bun/bin/bun ../../scripts/cheap-depth-screen.ts report
 ```
 
-Freeze/run are immutable and must not be repeated. Evidence lives in ignored `apps/api/data/private/cheap-depth-screen-v1/`; metadata GET evidence is in the adjacent `cheap-depth-access-v1/`. Replay/report is read-only and needs no paid requests. The earlier public620-task table is unchanged.
+Freeze/run are immutable and must not be repeated. Evidence lives in ignored `apps/api/data/private/cheap-depth-screen-v1/`; metadata GET evidence is in the adjacent `cheap-depth-access-v1/`. Replay/report is read-only and needs no paid requests. The earlier public 620-task table is unchanged.
+
+The user subsequently requested expansion to 100 questions per depth and confirmed 120 concurrent calls. The [expansion amendment](cheap-depth-expand-v1.md) preserves this complete 240-call batch rather than resending it.
