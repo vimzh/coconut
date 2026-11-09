@@ -14,7 +14,23 @@ Now let's put that in nontechnical terms. Imagine a customer-support agent handl
 
 It’s like checking whether a deeply nested set of policy rules (eligibility, access control, insurance exceptions) still holds after many layers of “unless” and overrides. Each individual rule is simple. The question is whether a model that handles a couple of layers can keep track as those rules become deeply nested. CoconutEval measures function classification; whether those scores predict agent behavior still needs testing.
 
-Our confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
+Let me walk through the pipeline in plain language: generate questions, verify the answers, send the questions to models, compare their responses, and calculate a score.
+
+The generator builds mathematical expressions at different requested depths and pairs each expression with an interval. Think of nesting as feeding the result of one operation into another. The depth shown in our latest table is the generator’s requested setting, not a count of the model’s reasoning steps or a guarantee that a question is harder.
+
+How do we know the correct answer? We check the exact expression before sending it to a model. For the latest deep study, retained mathematical proof checks establish the curvature classification, and a separate reference review checks those answers again. We do not simply trust the generator’s proposed label or ask another language model to vote on it. The proof has to apply to the stated interval, rather than a handful of sampled points. In plain language, the checks establish that the expression bends upward throughout, bends downward throughout, or has verified evidence ruling out both classifications. Only admitted, verified questions enter the study.
+
+We then freeze the question set so every model receives the same questions. In the latest deep study, we send 100 questions at each requested depth of 5, 10, 20, 40, 80 and 160, plus 10 each at 320 and 512. That makes 620 questions per model, with one response per question. The model sees the expression, interval and instructions, but never the reference answer.
+
+Here is an illustrative scoring example, not a measured result. Imagine a 100-question group with 33 convex questions, 33 concave questions and 34 neither questions. We compare every returned label with its verified answer. If the model gets 90 right and all 100 requests produce retained model outcomes, its accuracy is 90 percent.
+
+Our main score goes one step further. For each of the three labels, we check two things: did the model find the cases that belong to that label, and were its predictions of that label correct? Missing a convex case hurts its convex score. Calling a concave case convex also hurts its convex score. We combine those two checks into an F1 score for each label, average the three equally, and put the result on a scale from zero to 100. That final number is macro-F1. Getting 90 answers right is enough to calculate accuracy, but we also need to know which labels were confused to calculate macro-F1.
+
+A malformed, refused or cut-off reply counts as an unsuccessful model outcome. A provider failure or missing request stays separate and makes the score incomplete; it is not silently counted as a mathematical mistake. The table shows a score for each depth, with accuracy and outcome counts alongside it. We score the final label and retain the explanation for inspection; a correct label does not prove that every step of the explanation is correct.
+
+The latest study’s construction, outcomes and limitations are documented in [the deep-study results](research/deep-study-results-v2.md). It is exploratory and unranked, and it is separate from the earlier confirmation challenge described next.
+
+Our earlier confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
 
 Before testing a model, we establish the reference answer. Independent analytic checks and rigorous interval arithmetic agree on the admitted tasks. Global derivative bounds support convex and concave classifications. Opposite curvature signs at verified interior points establish neither.
 
