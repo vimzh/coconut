@@ -22,6 +22,10 @@ It’s like checking whether a deeply nested set of policy rules (eligibility, a
 
 Let me walk through the pipeline in plain language: generate questions, verify the answers, send the questions to models, compare their responses, and calculate a score.
 
+The judges described a strong eval as realistic tasks a professional would face, with everything graded stated in the task. It grades the result produced, has a reference solution that passes every grader, and supports a verdict two experts would independently agree on. It also needs multiple trials with variance reported, a clear spread across models with failures explained, public, synthetic or properly licensed data, reproduction instructions in the README, and every task and answer written or checked by the author. Those are the standards we are working against.
+
+For CoconutEval, the professional connection is checking objectives and constraints before choosing an optimization method. Our generated scalar functions are a controlled slice of that work; they do not reproduce a complete professional workflow. Everything graded is stated in the task: the expression, interval, operator meanings and required answer format. We grade the final classification produced.
+
 The generator builds mathematical expressions at different requested depths and pairs each expression with an interval. Think of nesting as feeding the result of one operation into another. The depth shown in our latest table is the generator’s requested setting, not a count of the model’s reasoning steps or a guarantee that a question is harder.
 
 How do we know the correct answer? We check the exact expression before sending it to a model. For the latest deep study, retained mathematical proof checks establish the curvature classification, and a separate reference review checks those answers again. We do not simply trust the generator’s proposed label or ask another language model to vote on it. The proof has to apply to the stated interval, rather than a handful of sampled points. In plain language, the checks establish that the expression bends upward throughout, bends downward throughout, or has verified evidence ruling out both classifications. Only admitted, verified questions enter the study.
@@ -36,7 +40,11 @@ A malformed, refused or cut-off reply counts as an unsuccessful model outcome. A
 
 The latest study’s construction, outcomes and limitations are documented in [the deep-study results](research/deep-study-results-v2.md). It is exploratory and unranked, and it is separate from the earlier confirmation challenge described next.
 
+There is a clear spread across models in that study: provisional macro-F1 is 99.76 for Astra, 56.09 for Luna and 50.27 for Mini. We explain failures rather than treating every low score as a reasoning mistake. For one inspected Astra error, we can say: “The model fails because it doesn’t account for the outer negation when determining the curvature of a negative absolute-value term.” Its final label was wrong, and fresh mathematical checks corroborated the reference. Truncated replies and provider failures remain separate diagnoses.
+
 Our earlier confirmation challenge contains 72 tasks across eight function families. Every family includes convex, concave, and neither cases. Each task gets three fresh model requests, producing 216 answers per run.
+
+That earlier protocol supports multiple trials and reports trial spread. The latest deep study uses one response per question, so it cannot establish repeat consistency or trial-to-trial variance.
 
 Before testing a model, we establish the reference answer. Independent analytic checks and rigorous interval arithmetic agree on the admitted tasks. Global derivative bounds support convex and concave classifications. Opposite curvature signs at verified interior points establish neither.
 
@@ -60,6 +68,8 @@ CoconutEval makes those distinctions inspectable. A judge can examine the exact 
 
 CoconutEval connects certified task coverage, reference checks, repeated model requests, retained outcomes, and reproducible reporting.
 
-Judges can verify the frozen tasks and run the grader checks without model charges. Live evaluations use the visitor’s own credentials.
+Judges can follow the README to verify the public frozen tasks and run grader checks without model charges. Live evaluations use the visitor’s own credentials. The private deep-study expressions and transcripts are not yet available for full public reproduction because redistribution clearance remains unresolved.
+
+Every admitted deep-study task has retained reference checks and a separate reference review. These reviews were AI-assisted; we do not claim two independent human experts reviewed every answer, or that I personally hand-checked every generated expression. To establish the judges’ expert-agreement and author-review criteria fully, we would need documented independent expert verdicts and an author review record covering every task and answer. Likewise, “the reference solution passes every grader” requires an end-to-end pass record across all claimed grading paths; our current claim is verified labels and independently reconstructed scores.
 
 The main finding so far is precise: we have verified older-model screening errors and perfect frontier confirmation results. Any stronger claim must come from further evidence.
