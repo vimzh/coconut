@@ -1,52 +1,7 @@
-// Present current audited populations and the configurable workflow without pooling different study settings.
+// Present runnable commands for configurable generation and exact-file evaluation.
 import Link from "next/link";
-import { cheapDepthSummary } from "@/lib/cheap-depth-summary";
-import { deepStudySummary, deepStudyTaskTotal, type DeepStudySummary } from "@/lib/deep-study-summary";
 import deck from "./pitch.module.css";
 import styles from "./current-evaluation-slides.module.css";
-
-function StudyTable({ study, title, description }: { study: DeepStudySummary; title: string; description: string }) {
-  return (
-    <section className={styles.panel} aria-label={title}>
-      <h3>{title} · {deepStudyTaskTotal(study)} tasks/model</h3>
-      <p>{description}</p>
-      <div className={styles.scroll} role="region" tabIndex={0} aria-label={`${title} overall results`}>
-        <table className={styles.table}>
-          <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy and correct model outcomes</caption>
-          <thead><tr><th scope="col">Model</th><th scope="col">F1 / 100</th><th scope="col">Accuracy</th><th scope="col">Correct / outcomes</th></tr></thead>
-          <tbody>{study.models.map(model => <tr key={model.modelId}>
-            <th scope="row">{model.modelId}</th>
-            <td>{model.overall.macroF1 === null ? "—" : (model.overall.macroF1 * 100).toFixed(2)}</td>
-            <td>{model.overall.accuracy === null ? "—" : `${(model.overall.accuracy * 100).toFixed(2)}%`}</td>
-            <td>{model.overall.correct}/{model.overall.modelOutcomes}</td>
-          </tr>)}</tbody>
-        </table>
-      </div>
-    </section>
-  );
-}
-
-export function CurrentResultsSlide() {
-  const wrong = cheapDepthSummary.models.reduce((sum, model) => sum + model.overall.wrongValid, 0);
-  const unusable = cheapDepthSummary.models.reduce((sum, model) => sum + model.overall.unusable, 0);
-  const unknown = deepStudySummary.models.reduce((sum, model) => sum + model.overall.unknownRemote, 0);
-  return (
-    <div className={styles.current}>
-      <div className={deck.heading}><h2>What the measured results show.</h2></div>
-      <p className={styles.lead}>One response per task at requested generator depths 5, 10, 20, 40, 80, 160, 320 and 512.</p>
-      <div className={styles.groups}>
-        <StudyTable study={deepStudySummary} title="Reasoning study" description="100 tasks per depth through 160; ten each at 320 and 512. 32,768 output tokens, 600-second deadline. Astra/Luna max reasoning; Mini xhigh." />
-        <StudyTable study={cheapDepthSummary} title="Fast screen" description="100 tasks at every depth. 8,192 output tokens, 180-second deadline. GPT-5.6 Luna reasoning none; legacy models omit the parameter." />
-      </div>
-      <div className={styles.findings}>
-        <p><strong>A completed mathematical error.</strong> Astra misclassified one strictly convex function at requested depth 40. Its depth-512 truncation is a separate outcome.</p>
-        <p><strong>Retain the denominator.</strong> Reasoning scores are provisional: {unknown} unknown infrastructure outcomes are excluded. The complete fast screen retains {wrong.toLocaleString("en-US")} wrong valid labels and {unusable} unusable replies.</p>
-      </div>
-      <p className={styles.note}>Both groups reuse one certified source pool with different selected populations/settings. Compare within each group. These exploratory results do not prove a causal depth effect, a universal failure threshold or repeat consistency. Only final labels are scored; explanations are not certified.</p>
-      <Link href="/#model-scores-title" className={styles.link}>Inspect depth scores, settings and outcome counts ↗</Link>
-    </div>
-  );
-}
 
 const generation = `bun run tasks:generate \\
   --depths 5,10,20,40,80,160,320,512 \\

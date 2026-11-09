@@ -1,5 +1,11 @@
 # Pitch update handoff
 
+## User amendment: remove results slide
+
+The user requested removal of slide 11, “Current measured results.” The deck now has 11 slides; the terminal workflow becomes the final slide 11. Its route metadata and navigation titles match. The removed results component, imports and unused table styles are deleted; homepage results remain available. Lint, types and production build passed; production-browser navigation verified all 11 slides, the terminal ending and disabled final Next button. Original verification below describes the earlier 12-slide checkpoint.
+
+## Original checkpoint
+
 `/pitch` now contains 12 slides. Existing mathematical and policy teaching examples remain; current results and configurable terminal evaluation have dedicated slides. The route metadata, navigation labels and slide count agree.
 
 The results slide consumes the same validated aggregate helpers as the homepage. Separate 620-task reasoning and 800-task fast-screen tables show macro-F1/100, accuracy and correct/model-outcome counts for all six models. Settings, different high-depth populations, the single observed Astra misclassification, truncation distinction, 16 unknown infrastructure exclusions and limits on interpretation remain explicit. No private question, proof trace, case identity or provider transcript was added.
