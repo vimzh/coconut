@@ -55,12 +55,10 @@ function DeepStudyResults() {
           <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy, correct model outcomes and settled coverage. Depth columns use requested generator settings.</caption>
           <thead><tr>
             <th scope="col" className={styles.model}>Model</th>
-            <th scope="col">Overall · {total} tasks</th>
             {taskCounts.map(({ requestedDepth, tasks }) => <th scope="col" key={requestedDepth}>Requested depth {requestedDepth}<span className={styles.pilotLabel}>{tasks} tasks</span></th>)}
           </tr></thead>
           <tbody>{study.models.map(model => <tr key={model.modelId}>
             <th scope="row" className={styles.model}>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
-            <ScoreCell score={model.overall} />
             {model.byDepth.map(slice => <ScoreCell key={slice.requestedDepth} score={slice.score} />)}
           </tr>)}</tbody>
         </table>
