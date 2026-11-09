@@ -6,9 +6,7 @@
 
 <p align="center">Evaluate language models on mathematical functions with verified answers. Generate tests, run a model, and see what it gets right.</p>
 
-<p align="center"><a href="https://youtu.be/43nhPerzpHc">Watch the demo</a> · <a href="#how-it-works">How it works</a> · <a href="#generate-and-evaluate-tests">Generate tests</a> · <a href="#run-locally">Run locally</a> · <a href="docs/research/deep-study-results-v2.md">Reasoning results</a> · <a href="docs/research/cheap-depth-expand-v1.md">Fast-model results</a></p>
-
-<!-- README-HACK:NEEDS-OWNER key="live-demo" instruction="Add a verified public deployment URL beside the results links above." -->
+<p align="center"><a href="https://youtu.be/43nhPerzpHc">Watch the demo</a> · <a href="#how-it-works">How it works</a> · <a href="#generate-and-evaluate-tests">Generate tests</a> · <a href="#run-locally">Run locally</a></p>
 
 ## What is Coconut?
 
@@ -18,7 +16,7 @@ This matters because an agent has to consider earlier rules when making its fina
 
 Imagine telling a support agent: **“Process these refunds, except for accounts under investigation.”** It then works through purchase dates, payment details and refund policies. If it overlooks the original exclusion, it can approve a refund it should have blocked. That earlier rule has lost none of its importance just because more information arrived later.
 
-Coconut tests condition tracking in mathematics, where we can check the answer. A minus sign outside a long expression still affects everything inside it. An interval still matters after many nested operations: `x³` is convex on `[0, 1]` but neither convex nor concave on `[-1, 1]`. In our [reasoning study](docs/research/deep-study-results-v2.md#verified-mathematical-error-and-explanation-review), Astra made a verified classification error after missing a negation. The connection to agent workflows motivates the test; whether its scores predict performance in a full agent workflow still needs testing.
+Coconut tests condition tracking in mathematics, where we can check the answer. A minus sign outside a long expression still affects everything inside it. An interval still matters after many nested operations: `x³` is convex on `[0, 1]` but neither convex nor concave on `[-1, 1]`. In our reasoning study, Astra made a verified classification error after missing a negation. The connection to agent workflows motivates the test; whether its scores predict performance in a full agent workflow still needs testing.
 
 ## How it works
 
@@ -99,7 +97,7 @@ Open [localhost:3200](http://localhost:3200). The API runs on port 3201.
 
 ## Generate and evaluate tests
 
-First complete the [generator setup](docs/terminal.md#generate-your-own-task-population), which configures the external generator checkout and its Python environment. Set your OpenAI key in the ignored `apps/api/.env` file as `OPENAI_API_KEY`. Generation and reference verification run locally; model evaluation uses your key and incurs provider charges.
+Configurable generation requires a separately supplied generator checkout and Python environment. Set `COCONUT_GENERATOR_SOURCE` to that checkout and `COCONUT_GENERATOR_PYTHON` to its configured Python interpreter. Set your OpenAI key in the ignored `apps/api/.env` file as `OPENAI_API_KEY`. Generation and reference verification run locally; model evaluation uses your key and incurs provider charges.
 
 **Generate and verify questions:**
 
@@ -129,7 +127,7 @@ bun --env-file=apps/api/.env run eval:run \
 
 Choose an exact OpenAI model ID available to your account. `--trials` controls responses per question: one trial here plans 800 requests. Scoring runs automatically; open `apps/api/data/private/luna-generated-run/report.json` for the result. Use a new output directory for each evaluation and a new filename for each generated test. Keep the question file and its sibling `.evidence` directory together.
 
-These terminal commands run without the web server. The [terminal guide](docs/terminal.md) covers generator setup, profiles, repeated trials and report files.
+These terminal commands run without the web server.
 
 <a id="judge-smoke-test-no-api-key-or-external-generator"></a>
 
@@ -145,6 +143,6 @@ bun run score:report \
   --output "$COCONUT_REVIEW_OUTPUT/scoring-report.json"
 ```
 
-The scoring example uses synthetic replies to demonstrate the calculation. See [testing](docs/testing.md) for application checks and [development](docs/development.md) for configuration.
+The scoring example uses synthetic replies to demonstrate the calculation.
 
 **Built with:** TypeScript, Bun, Hono, Next.js, React, SQLite, the official OpenAI SDK, Python and python-flint/Arb.

@@ -33,7 +33,7 @@ async function inputs() {
   for await (const path of glob.scan({ cwd: new URL("../../../../", import.meta.url).pathname })) {
     if (!path.endsWith(".test.ts")) sources[path] = hash(await readFile(new URL(`../../../../${path}`, import.meta.url), "utf8"));
   }
-  for (const path of ["docs/research/composition-reference-review-v1.py", "docs/research/composition-results-audit-v1.py", "bun.lock", "patches/openai@7.53.0.patch", "services/numerics/worker.py", "services/numerics/uv.lock", "services/numerics/certification.py", "services/numerics/expressions.py", "services/numerics/jets.py", "services/numerics/intervals.py"])
+  for (const path of ["scripts/verification/composition-reference-review-v1.py", "scripts/verification/composition-results-audit-v1.py", "bun.lock", "patches/openai@7.53.0.patch", "services/numerics/worker.py", "services/numerics/uv.lock", "services/numerics/certification.py", "services/numerics/expressions.py", "services/numerics/jets.py", "services/numerics/intervals.py"])
     sources[path] = hash(await readFile(new URL(`../../../../${path}`, import.meta.url), "utf8"));
   return { suite, prompts, binding: { suiteId: suite.id, suiteSha256: hash(JSON.stringify(suite)), promptsSha256: hash(JSON.stringify(prompts)), priorSha256: hash(priorText), referenceReviewSha256: hash(reviewText), sources: Object.fromEntries(Object.entries(sources).sort()) } };
 }

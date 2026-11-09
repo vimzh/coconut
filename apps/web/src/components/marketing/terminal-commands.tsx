@@ -76,7 +76,7 @@ export function TerminalCommands() {
       <div className="max-w-3xl">
         <h2 id="terminal-commands-title" className="text-2xl font-medium sm:text-3xl">Run it from your terminal</h2>
         <p className="mt-4 text-base leading-7 text-muted-foreground">Generate tasks, verify their references and evaluate an OpenAI model from your local checkout. The terminal uses the same run engine and scorer as the workbench.</p>
-        <p className="mt-3 text-sm leading-6 text-muted-foreground">Requires repository access, Bun 1.4.4, Node.js 24 LTS and uv. Run from the repository root. Configure COCONUT_GENERATOR_SOURCE and COCONUT_GENERATOR_PYTHON for the pinned external generator checkout and its isolated interpreter; docs/terminal.md lists setup. Generated questions remain private.</p>
+        <p className="mt-3 text-sm leading-6 text-muted-foreground">Requires repository access, Bun 1.4.4, Node.js 24 LTS and uv. Run from the repository root. Configure COCONUT_GENERATOR_SOURCE and COCONUT_GENERATOR_PYTHON for the pinned external generator checkout and its isolated interpreter. Generated questions remain private.</p>
       </div>
       <div className="mt-8 grid min-w-0 gap-8 lg:grid-cols-2">
         <div className="min-w-0">
@@ -101,7 +101,7 @@ export function TerminalCommands() {
               <pre className="mt-4 overflow-x-auto rounded-lg border border-border bg-card p-4 text-xs leading-6 sm:text-sm" tabIndex={0} aria-label={`${title} commands`}><code>{commands}</code></pre>
             </div>
           ))}
-          <p className="max-w-3xl text-sm leading-6 text-muted-foreground">The full guide in docs/terminal.md covers options and charged compatibility probes. Private research operators require their frozen study inputs and review; they are separate from this quickstart.</p>
+          <p className="max-w-3xl text-sm leading-6 text-muted-foreground">Run <code>bun scripts/tasks.ts --help</code> or <code>bun run eval:run --help</code> for all generation and evaluation options.</p>
         </div>
       </details>
     </section>
