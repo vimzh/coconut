@@ -130,14 +130,14 @@ export function CompositionSlide() {
           {compositionChecks.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
       </div>
-      <div className={styles.closing}><p>Every condition and output rule is stated. The task is designed to avoid trick wording; difficulty is measured.</p></div>
+      <div className={styles.closing}><p>Every condition and output rule is stated. Requested depth records a generator setting; it does not establish difficulty on its own.</p></div>
     </div>
   );
 }
 
 const methodSteps = [
   { title: "Verify the reference answer", detail: "Generate a function and interval. Verify its label before adding it to the evaluation." },
-  { title: "Ask the model", detail: "Send the expression and interval in three fresh requests. Keep the reference answer and proof out of the prompt." },
+  { title: "Ask the model", detail: "Send the expression and interval in fresh requests. Published depth studies use one response per task; the visitor workbench uses three. Keep the reference answer and proof out of the prompt." },
   { title: "Score and inspect the answers", detail: "Report macro-F1 and each class’s recall. Track unusable replies and provider failures separately. Read the wrong answers." },
 ];
 
@@ -167,7 +167,7 @@ export function MethodSlide() {
           <p className={styles.studyCaption}>Examples on [−1, 1]. These are not measured model errors.</p>
         </aside>
       </div>
-      <p className={styles.evidenceNote}><strong>The evidence so far</strong> All labels were correct in four reviewed frontier-model confirmation runs. Some exploratory runs with older or non-frontier models had errors. We have not established a frontier-model limitation.</p>
+      <p className={styles.evidenceNote}><strong>The evidence so far</strong> The newer reasoning study includes one independently checked Astra misclassification at requested depth 40. The fast screen retains 1,436 wrong valid labels across three models. These are observed errors on specific tasks, not a universal failure threshold or proof of repeat consistency.</p>
     </div>
   );
 }

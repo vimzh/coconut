@@ -19,7 +19,8 @@ export function PitchDeck({ children, titles }: { children: ReactNode; titles: r
     function onKeyDown(event: KeyboardEvent) {
       const target = event.target;
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
-        (target instanceof HTMLElement && (target.isContentEditable || target.closest("input, textarea, select, [role='textbox']")))) return;
+        // Focused code blocks and table regions keep native arrow-key scrolling.
+        (target instanceof HTMLElement && (target.isContentEditable || target.closest("input, textarea, select, pre, [role='textbox'], [role='region']")))) return;
 
       let direction: number;
       switch (event.key) {
