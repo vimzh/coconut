@@ -25,7 +25,7 @@ export default function Home() {
         <div className={styles.heroCopy}>
           <p className="mb-5 text-sm text-muted-foreground">A workbench for mathematical evaluation</p>
           <h1 id="home-title" className={styles.heroTitle}>
-            Test a model’s convexity judgment
+            Find where models get the math wrong.
           </h1>
           <p className={styles.heroDescription}>
             Give a language model a function and an exact interval. Compare its answer with a verified reference, then inspect the evidence behind the score.
