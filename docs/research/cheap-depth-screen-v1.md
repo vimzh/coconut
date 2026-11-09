@@ -62,4 +62,4 @@ Private immutable evidence is retained in `apps/api/data/private/cheap-depth-scr
 
 ## User-directed expansion
 
-After this completed screen, the user requested 100 questions per depth and clarified 120 concurrent requests. The [expansion plan](../plans/cheap-depth-expand-v1.md) carries all 240 original results forward into an 800-question/model study and authorizes only the 2,160 remaining cells. This record remains the immutable 80-case measurement and is not relabeled as the expanded study.
+After this completed screen, the user requested 100 questions per depth and clarified 120 concurrent requests. The [expansion plan](../plans/cheap-depth-expand-v1.md) carries all 240 original results forward into an 800-question/model study and authorizes only the 2,160 remaining cells. The [completed expansion results](cheap-depth-expand-v1.md) retain all original answers and independently audit all 2,400 outcomes. This record remains the immutable 80-case measurement and is not relabeled as the expanded study.
