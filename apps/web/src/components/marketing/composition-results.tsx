@@ -47,8 +47,14 @@ function DeepStudyResults() {
   const taskCounts = deepStudyTaskCounts(study), total = deepStudyTaskTotal(study);
   const state = study.state === "complete" ? "Audited study" : study.state === "running" ? "Audited partial snapshot" : study.state === "unavailable" ? "Scores unavailable" : "Audited incomplete study";
   return (
-    <section id="model-scores-title" aria-labelledby="deep-study-title" className={styles.section}>
-      <div className={styles.heading}><h2 id="deep-study-title">Deep function results</h2></div>
+    <section id="model-scores-title" aria-labelledby="deep-study-title" className={`${styles.section} ${styles.deepStudy}`}>
+      <div className={styles.heading}>
+        <h2 id="deep-study-title">Deep function results</h2>
+        <label className={styles.detailsToggle}>
+          <input type="checkbox" className={styles.hideDetails} />
+          Hide details
+        </label>
+      </div>
       <p className={styles.metric}>{state} · {total} planned tasks per model · One response per task · Exploratory, unranked</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Deep study scores by requested generator depth">
         <table className={styles.table} aria-describedby="deep-study-note">

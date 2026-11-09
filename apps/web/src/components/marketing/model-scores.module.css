@@ -27,6 +27,12 @@
 .cellDetails summary { cursor: pointer; }
 .cellDetails summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 .scoreValue { font-size: 16px; }
+.detailsToggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; }
+.hideDetails { accent-color: var(--foreground); }
+.deepStudy:has(.hideDetails:checked) .scoreLine,
+.deepStudy:has(.hideDetails:checked) .outcomes { display: none; }
+.deepStudy:has(.hideDetails:checked) .cellDetails summary { list-style: none; }
+.deepStudy:has(.hideDetails:checked) .cellDetails summary::-webkit-details-marker { display: none; }
 .scoreLine { display: block; margin-top: 3px; font-size: 10px; line-height: 1.5; color: var(--muted-foreground); }
 .outcomes { min-width: 200px; margin-top: 12px; font-size: 11px; line-height: 1.7; }
 .outcomes > div { display: flex; justify-content: space-between; gap: 16px; }
