@@ -26,7 +26,7 @@ In the browser workbench:
 1. **Choose the experiment.** The current 27-task suite is selected by default; six other suites sit under **Advanced workloads**. Connect with your own provider key, select an exact model, answer format, and supported reasoning settings. Review the request count and explicitly approve provider charges.
 2. **Follow the run.** Each task gets three fresh requests. Watch progress, cancel further work, and retain the outcomes already recorded.
 3. **Inspect the evidence.** Explore macro-F1, accuracy, correct/total counts, completion, expression-tree depth breakdowns, returned explanations, reference evidence, and execution diagnostics.
-4. **Decide what to share.** Export private results or explicitly publish a completed run. The leaderboard groups comparable settings and ranks only eligible evidence.
+4. **Decide what to share.** Export private results or explicitly publish a completed run. The public comparison API groups comparable settings and ranks only eligible evidence.
 
 Web runs are private by default, expire after seven days, and use a separate access code. Save that code to return after a refresh. Provider keys stay out of saved runs. Keep the page open during execution; interrupted work cannot resume, and dispatched requests can still incur charges.
 
@@ -118,6 +118,8 @@ bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
 ```
 
 The [terminal guide](docs/terminal.md) covers configurable generation by depth, case count and seed, verification, and OpenAI evaluation of the exact saved tasks with selected trial/profile settings. It also retains the bundled composition commands. The landing page includes a terminal quickstart. See the [development guide](docs/development.md) for production operation and origin configuration.
+
+The [testing guide](docs/testing.md) maps the remaining checks to supported features. Obsolete landing-table and completed structural-pilot tests have been removed; current mathematical, scoring, credential, execution and CLI coverage remains.
 
 After configuring the pinned generator checkout and its isolated interpreter as described in that guide, request **800 tasks** and evaluate each once:
 

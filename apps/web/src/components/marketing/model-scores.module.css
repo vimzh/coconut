@@ -12,9 +12,6 @@
 .table tbody tr { border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent); }
 .table .model { position: sticky; left: 0; z-index: 1; min-width: 260px; background-color: var(--card); font-weight: 400; text-align: left; }
 .table td { min-width: 96px; font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; font-size: 13px; }
-.identity { display: inline-flex; align-items: center; gap: 10px; }
-.logo { display: grid; flex: none; width: 20px; height: 20px; place-items: center; border: 1px solid var(--border); border-radius: 7px; background: #f4f1e8; }
-.logo img { width: 14px; height: 14px; object-fit: contain; }
 .notes { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; max-width: 1080px; margin: 16px auto 0; font-size: 12px; line-height: 1.7; }
 .notes a, .sources a { text-decoration: underline; text-underline-offset: 3px; }
 .sources { max-width: 1080px; margin: 8px auto 0; font-size: 12px; line-height: 1.7; }
@@ -27,8 +24,6 @@
 .cellDetails summary { cursor: pointer; }
 .cellDetails summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 .scoreValue { font-size: 16px; }
-.table .studyGroup { padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 400; }
-.studyGroup > span { position: sticky; left: 16px; }
 .detailsToggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; }
 .hideDetails { accent-color: var(--foreground); }
 .deepStudy:has(.hideDetails:checked) .scoreLine,
@@ -45,12 +40,7 @@
   .table th, .table td { padding-inline: 10px; }
   .table .model { min-width: 220px; font-size: 12px; }
   .table td { font-size: 12px; }
-  .identity { gap: 8px; }
 }
 
 .heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; }
-.setting { display: grid; gap: 8px; font-size: 12px; color: var(--muted-foreground); }
-.setting select { border: 1px solid var(--border); border-radius: 0; padding: 8px 12px; background: var(--card); color: var(--foreground); font-size: 14px; }
-
-.pilotBoundary { border-left: 1px solid var(--border); }
 .pilotLabel { display: block; margin-top: 2px; font-size: 11px; line-height: 1.5; color: var(--muted-foreground); }

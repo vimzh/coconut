@@ -2,7 +2,7 @@
 
 Coconut evaluates whether language models can classify scalar functions as convex, concave or neither on an exact closed interval. It generates certified tasks, makes three fresh model requests per task, retains every planned outcome and reports macro-F1, accuracy, class/depth detail and execution evidence. Visitors supply their own provider keys.
 
-The local product includes an evaluation workbench, inspectable private results, explicit publication, a leaderboard with separate comparison groups, and methodology pages. This repository requires Bun 1.4.4, Node.js 24 LTS and [uv](https://docs.astral.sh/uv/getting-started/installation/). Numerical setup installs pinned Python 3.13 and native interval arithmetic.
+The local product includes an evaluation workbench, inspectable private results, explicit publication, a public comparison API with separate groups, and methodology pages. This repository requires Bun 1.4.4, Node.js 24 LTS and [uv](https://docs.astral.sh/uv/getting-started/installation/). Numerical setup installs pinned Python 3.13 and native interval arithmetic.
 
 ```sh
 bun install --frozen-lockfile
@@ -16,6 +16,8 @@ bun run dev
 Run all commands from the repository root:
 
 The [terminal command guide](terminal.md) covers configurable `tasks:generate` (depths, cases per depth, seed), `tasks:verify`, and consented `eval:run --input` (exact saved tasks, selected trials/model/profile), alongside bundled-suite commands, private reports and metadata/probe distinctions. A terminal evaluation does not require either local server.
+
+The [testing guide](testing.md) identifies the supported verification areas and records retired coverage. Tests for active workloads and credential/scoring boundaries remain required.
 
 ```sh
 bun run lint
