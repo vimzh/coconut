@@ -17,9 +17,13 @@
 
 A useful model comparison needs a trustworthy reference answer and enough evidence to explain a failure. Coconut gives evaluators a controlled task: classify a scalar function as **convex, concave, or neither on exactly the supplied interval**, then inspect the response against its certified reference. Affine and constant functions are excluded because they satisfy both curvature definitions.
 
+## Why it matters
+
+A model can return the right label with a flawed explanation, or fail because its output was truncated rather than because it reached a wrong mathematical conclusion. Coconut keeps these outcomes separate. Certified references, explicit domains, retained answers and visible denominators let evaluators investigate what a score actually measures.
+
 ## What Coconut does
 
-The home page separates two audited research groups: **620 tasks per model** for the Astra, GPT-5.4 Mini and GPT-6 Luna reasoning study, and **800 tasks per model** for the GPT-4.1 Mini, GPT-4o Mini and GPT-5.6 Luna fast screen. Each uses one response per task. Their populations and settings differ; compare scores within each group. Choose **View results** to inspect scores or **Open 27-task workbench** to run the separate visitor workload with your own key.
+The home page shows six models, ordered together by overall macro-F1, with each row identifying its study and question count: **620 tasks per model** for the Astra, GPT-5.4 Mini and GPT-6 Luna reasoning study, and **800 tasks per model** for the GPT-4.1 Mini, GPT-4o Mini and GPT-5.6 Luna fast screen. Each uses one response per task. Their populations and settings differ, so this ordering is descriptive rather than a controlled model ranking. Choose **View results** to inspect scores or **Open 27-task workbench** to run the separate visitor workload with your own key.
 
 In the browser workbench:
 
@@ -50,7 +54,7 @@ The [challenge design](docs/research/challenge-design-v1.md) records formulas, c
 
 ## A score you can investigate
 
-The grader scores the returned label and retains the explanation for inspection. Malformed responses, refusals, and truncations count as unsuccessful model outcomes. Provider failures and unattempted work remain separate, leaving incomplete scores provisional or unavailable. An access probe produces no evaluation score.
+The primary score is **macro-F1 on a 0–100 scale**: calculate F1 separately for convex, concave and neither, then average the three equally. Accuracy is correct labels divided by retained model outcomes. The grader scores the returned label and retains the explanation for inspection. Malformed responses, refusals, and truncations count as unsuccessful model outcomes. Provider failures and unattempted work remain separate, leaving incomplete scores provisional or unavailable. An access probe produces no evaluation score.
 
 The completed [fast-model screen](docs/research/cheap-depth-expand-v1.md) evaluates the same **800 certified functions per model**, with **100 at each requested depth 5, 10, 20, 40, 80, 160, 320 and 512** and one response per task:
 
@@ -67,6 +71,25 @@ All outcomes mechanically replayed against the retained evidence. AI-assisted in
 The separate [reasoning study](docs/research/deep-study-results-v2.md) retained all **1,860 attempts** across **620 planned tasks per model**: Astra **611/613** correct model outcomes, GPT-5.4 Mini **214/616**, GPT-6 Luna **255/615**. Their macro-F1 scores are **99.76, 50.27 and 56.09 on a 0–100 scale**. Sixteen unknown infrastructure outcomes are excluded from these denominators and remain visible in coverage. Astra made one independently checked mathematical classification error at requested generator depth 40; its depth-512 loss was a token truncation. This study has 100 tasks per depth through 160, then ten each at 320 and 512, with different reasoning/output/deadline settings from the fast screen.
 
 Both studies draw from the same certified 800-task source pool; the fast screen is not a fresh independent holdout. These exploratory results do not establish repeat consistency, a universal failure depth or a causal effect of depth. Their overall scores are not directly comparable across groups.
+
+### What “depth 512” means
+
+The eight research settings are **requested generator depths**, not guaranteed counts of meaningful reasoning steps. Realized source depth can be the requested value or one greater. Expression-tree depth and nonlinear-path length are measured separately; algebraic simplification can remove substantial structure.
+
+For the original ten depth-512 questions in the reasoning study, the medians were **14,172 expression characters**, **503.5 raw nonlinear-path steps** and **337.5 after simplification**. These are subset statistics, not a description of every question in the full 100-case bucket. Long expressions alone do not establish mathematical difficulty, and scores need not decline monotonically with requested depth.
+
+### Evaluation settings
+
+| Setting | Reasoning study | Fast-model screen |
+| --- | --- | --- |
+| Models | Astra, GPT-5.4 Mini, GPT-6 Luna | GPT-4.1 Mini, GPT-4o Mini, GPT-5.6 Luna |
+| Reasoning | Astra max; Mini xhigh; Luna max | GPT-5.6 Luna none; legacy models omit the parameter |
+| Output-token ceiling | 32,768 per request | 8,192 per request |
+| Request deadline | 600 seconds | 180 seconds |
+| Questions per model | 620: 100/depth through 160, then 10 at 320 and 512 | 800: 100 at every depth |
+| Responses per question | 1 | 1 |
+
+These are the settings of the retained research runs. The ordinary browser workbench and configurable CLI have their own profiles and limits; the command below does not reproduce these research profiles.
 
 The retained OpenAI replication includes these four completed confirmation runs:
 
@@ -121,6 +144,8 @@ The [terminal guide](docs/terminal.md) covers configurable generation by depth, 
 
 The [testing guide](docs/testing.md) maps the remaining checks to supported features. Obsolete landing-table and completed structural-pilot tests have been removed; current mathematical, scoring, credential, execution and CLI coverage remains.
 
+### Generate, verify and evaluate from the terminal
+
 After configuring the pinned generator checkout and its isolated interpreter as described in that guide, request **800 tasks** and evaluate each once:
 
 ```sh
@@ -141,6 +166,8 @@ bun --env-file=apps/api/.env run eval:run \
 ```
 
 Set your key in the ignored `apps/api/.env` file; evaluation incurs provider charges. Generation supports requested depths 1–1000 and at most 1000 tasks, with near-balanced class quotas and a finite proposal budget. Uncertified or underfilled populations fail visibly. Keep the generated JSON and its sibling `.evidence` directory together. Exact-file evaluations support 1–10 trials and at most 10,000 inference requests: 800 tasks × three trials would plan 2,400 calls. This example creates a new population, not a replay of the published research cohorts.
+
+Inspect the resulting `apps/api/data/private/luna-generated-run/report.json` for overall and per-depth scores. Keep `run.json`, the attempt evidence and generated references private. Neither generation nor verification requires an API key; only the evaluation step sends charged model requests. No web or API server is required for these terminal commands.
 
 The CLI checkpoint passed **32 tests / 1,142 assertions**, lint and type checking, plus real nine-task generation/replay at requested depths 5, 40 and 512. An 800-task fixture verifies configurable counts; a full new external 800-task generation was not run for that checkpoint. Its [handoff](docs/handoffs/configurable-terminal-workflow.md) records the independent review, web verification and limits.
 
