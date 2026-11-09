@@ -2,7 +2,7 @@
 import results from "../../../public/composition-scores.json";
 import audit from "../../../../api/data/quality/composition-results-audit-v1.json";
 import { cheapDepthSummary } from "@/lib/cheap-depth-summary";
-import { deepStudySummary, deepStudyTaskCounts, deepStudyTaskTotal, hasPublishedDeepStudy, type DeepStudyScore, type DeepStudySummary } from "@/lib/deep-study-summary";
+import { deepStudySummary, deepStudyTaskCounts, deepStudyTaskTotal, hasPublishedDeepStudy, type DeepStudyScore } from "@/lib/deep-study-summary";
 import { directoryModels } from "@/lib/model-directory-data";
 import styles from "./model-scores.module.css";
 
@@ -43,13 +43,15 @@ function ScoreCell({ score }: { score: DeepStudyScore }) {
   );
 }
 
-function StudyRows({ study, label, id }: { study: DeepStudySummary; label: string; id: string }) {
-  const sortedModels = [...study.models].sort((a, b) => (b.overall.macroF1 ?? -1) - (a.overall.macroF1 ?? -1));
+function StudyRows() {
+  const sortedModels = [deepStudySummary, cheapDepthSummary].flatMap(study => study.models.map(model => ({ model, study })))
+    .sort((a, b) => (b.model.overall.macroF1 ?? -1) - (a.model.overall.macroF1 ?? -1));
   return (
-    <tbody aria-labelledby={id}>
-      <tr><th id={id} scope="rowgroup" colSpan={study.requestedDepths.length + 1} className={styles.studyGroup}><span>{label} · {deepStudyTaskTotal(study)} tasks per model · {study.state === "complete" ? "Complete" : "Incomplete"}</span></th></tr>
-      {sortedModels.map(model => <tr key={model.modelId}>
-        <th scope="row" className={styles.model}><span className="mr-3 text-muted-foreground">{model.overall.macroF1 === null ? "—" : sortedModels.findIndex(row => row.overall.macroF1 === model.overall.macroF1) + 1}.</span>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
+    <tbody>
+      {sortedModels.map(({ model, study }) => <tr key={model.modelId}>
+        <th scope="row" className={styles.model}><span className="mr-3 text-muted-foreground">{model.overall.macroF1 === null ? "—" : sortedModels.findIndex(row => row.model.overall.macroF1 === model.overall.macroF1) + 1}.</span>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}
+          <span className={styles.pilotLabel}>{study === cheapDepthSummary ? "Fast screen" : "Reasoning study"} · {deepStudyTaskTotal(study)} tasks · {study.state === "complete" ? "Complete" : "Incomplete"}</span>
+        </th>
         {model.byDepth.map(slice => <ScoreCell key={slice.requestedDepth} score={slice.score} />)}
       </tr>)}
     </tbody>
@@ -67,8 +69,8 @@ function DeepStudyResults() {
           Hide details
         </label>
       </div>
-      <p className={styles.metric}>Audited results · One response per task · Ordered by overall macro-F1 within each study · Incomplete scores are provisional</p>
-      <p className={styles.sources}>Reasoning study: 100 tasks per depth through 160, then 10 at 320 and 512. Fast screen: 100 at every depth. Reasoning settings and populations differ; compare scores within each group.</p>
+      <p className={styles.metric}>Audited results · One response per task · Ordered by overall macro-F1, highest first · Incomplete scores are provisional</p>
+      <p className={styles.sources}>Reasoning study: 100 tasks per depth through 160, then 10 at 320 and 512. Fast screen: 100 at every depth. Reasoning settings and populations differ; ordering is descriptive, not a controlled model ranking.</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Deep study scores by requested generator depth">
         <table className={styles.table} aria-describedby="deep-study-note">
           <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy, correct model outcomes and settled coverage. Depth columns use requested generator settings.</caption>
@@ -76,8 +78,7 @@ function DeepStudyResults() {
             <th scope="col" className={styles.model}>Model</th>
             {study.requestedDepths.map(requestedDepth => <th scope="col" key={requestedDepth}>Depth {requestedDepth}</th>)}
           </tr></thead>
-          <StudyRows study={study} label="Reasoning study" id="reasoning-study-group" />
-          <StudyRows study={cheapDepthSummary} label="Fast screen" id="fast-study-group" />
+          <StudyRows />
         </table>
       </div>
       <div className={styles.sources}>
