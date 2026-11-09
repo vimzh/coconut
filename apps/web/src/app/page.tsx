@@ -31,7 +31,7 @@ export default function Home() {
           </p>
           <p className="mt-5 text-sm leading-6 text-muted-foreground">
             {hasPublishedDeepStudy
-              ? `Latest research study: ${deepStudyTaskTotal(deepStudySummary)} planned tasks per model at eight requested generator depths, from 5 to 512. One response per task. The visitor workbench remains a separate 27-task study with three responses per task.`
+              ? `Reasoning study: ${deepStudyTaskTotal(deepStudySummary)} planned tasks per model at eight requested generator depths, from 5 to 512, plus an 800-task fast screen below. One response per task. The visitor workbench remains a separate 27-task study with three responses per task.`
               : "Current benchmark: 27 tasks at 2, 4 and 6 nonlinear composition stages. Three fresh responses per task make 81 requests per model."}
           </p>
           <div className={styles.heroActions}>

@@ -1,0 +1,788 @@
+{
+  "version": "1",
+  "studyId": "cheap-depth-expand-v1-ec3c585b521a4e1dbd9b552de33521c160c37c501b644a168751e8d1ff0c4b40",
+  "state": "complete",
+  "depthMeasure": "requested-generator-depth",
+  "requestedDepths": [
+    5,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    512
+  ],
+  "tasksPerDepth": 100,
+  "trialsPerTask": 1,
+  "cohortId": "population-cc9a5447bf3668bf69de0d97d371fe57748aa508af51633363e82ab05c786b18",
+  "cohortSourceId": "6f156c8c9b6b0b85f6a191bd4eb912e12e670082",
+  "cohortSha256": "cc9a5447bf3668bf69de0d97d371fe57748aa508af51633363e82ab05c786b18",
+  "reportSha256": "4236053a3e8a950707d0727f647150d86d0879ed800151c0a7468ba0395605e5",
+  "audit": {
+    "verdict": "pass",
+    "reportSha256": "4236053a3e8a950707d0727f647150d86d0879ed800151c0a7468ba0395605e5",
+    "referenceReviewSha256": "f03e692a7ef943c35c6929a1c35eb9f3df6ed815010aa1ca15f3f0fed12eea53"
+  },
+  "models": [
+    {
+      "modelId": "gpt-4.1-mini",
+      "reportedModelIds": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "settings": {
+        "profileId": "cheap-depth-screen-8k-180s-v1",
+        "reasoning": null,
+        "maxOutputTokens": 8192,
+        "inferenceTimeoutMs": 180000
+      },
+      "overall": {
+        "planned": 800,
+        "dispatched": 800,
+        "modelOutcomes": 800,
+        "correct": 320,
+        "wrongValid": 464,
+        "unusable": 16,
+        "providerFailures": 0,
+        "unknownRemote": 0,
+        "inFlight": 0,
+        "unattempted": 0,
+        "accuracy": 0.4,
+        "macroF1": 0.39587489830820527,
+        "status": "complete"
+      },
+      "byDepth": [
+        {
+          "requestedDepth": 5,
+          "realizedDepths": [
+            {
+              "depth": 5,
+              "count": 67
+            },
+            {
+              "depth": 6,
+              "count": 33
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 45,
+            "wrongValid": 52,
+            "unusable": 3,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.45,
+            "macroF1": 0.4031848070418689,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 10,
+          "realizedDepths": [
+            {
+              "depth": 10,
+              "count": 68
+            },
+            {
+              "depth": 11,
+              "count": 32
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 35,
+            "wrongValid": 64,
+            "unusable": 1,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.35,
+            "macroF1": 0.35705737221976724,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 20,
+          "realizedDepths": [
+            {
+              "depth": 20,
+              "count": 65
+            },
+            {
+              "depth": 21,
+              "count": 35
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 37,
+            "wrongValid": 61,
+            "unusable": 2,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.37,
+            "macroF1": 0.36239119303635436,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 40,
+          "realizedDepths": [
+            {
+              "depth": 40,
+              "count": 69
+            },
+            {
+              "depth": 41,
+              "count": 31
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 37,
+            "wrongValid": 62,
+            "unusable": 1,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.37,
+            "macroF1": 0.3666666666666667,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 80,
+          "realizedDepths": [
+            {
+              "depth": 80,
+              "count": 63
+            },
+            {
+              "depth": 81,
+              "count": 37
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 40,
+            "wrongValid": 55,
+            "unusable": 5,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.4,
+            "macroF1": 0.4145766411333498,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 160,
+          "realizedDepths": [
+            {
+              "depth": 160,
+              "count": 69
+            },
+            {
+              "depth": 161,
+              "count": 31
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 39,
+            "wrongValid": 59,
+            "unusable": 2,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.39,
+            "macroF1": 0.36045278326384317,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 320,
+          "realizedDepths": [
+            {
+              "depth": 320,
+              "count": 66
+            },
+            {
+              "depth": 321,
+              "count": 34
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 44,
+            "wrongValid": 55,
+            "unusable": 1,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.44,
+            "macroF1": 0.3682844932844933,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 512,
+          "realizedDepths": [
+            {
+              "depth": 512,
+              "count": 63
+            },
+            {
+              "depth": 513,
+              "count": 37
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 43,
+            "wrongValid": 56,
+            "unusable": 1,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.43,
+            "macroF1": 0.3411195286195286,
+            "status": "complete"
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "reportedModelIds": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "settings": {
+        "profileId": "cheap-depth-screen-8k-180s-v1",
+        "reasoning": null,
+        "maxOutputTokens": 8192,
+        "inferenceTimeoutMs": 180000
+      },
+      "overall": {
+        "planned": 800,
+        "dispatched": 800,
+        "modelOutcomes": 800,
+        "correct": 282,
+        "wrongValid": 468,
+        "unusable": 50,
+        "providerFailures": 0,
+        "unknownRemote": 0,
+        "inFlight": 0,
+        "unattempted": 0,
+        "accuracy": 0.3525,
+        "macroF1": 0.30265679073931384,
+        "status": "complete"
+      },
+      "byDepth": [
+        {
+          "requestedDepth": 5,
+          "realizedDepths": [
+            {
+              "depth": 5,
+              "count": 67
+            },
+            {
+              "depth": 6,
+              "count": 33
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 34,
+            "wrongValid": 38,
+            "unusable": 28,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.34,
+            "macroF1": 0.3409090909090909,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 10,
+          "realizedDepths": [
+            {
+              "depth": 10,
+              "count": 68
+            },
+            {
+              "depth": 11,
+              "count": 32
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 40,
+            "wrongValid": 54,
+            "unusable": 6,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.4,
+            "macroF1": 0.33361390382666983,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 20,
+          "realizedDepths": [
+            {
+              "depth": 20,
+              "count": 65
+            },
+            {
+              "depth": 21,
+              "count": 35
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 27,
+            "wrongValid": 69,
+            "unusable": 4,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.27,
+            "macroF1": 0.22674838912462678,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 40,
+          "realizedDepths": [
+            {
+              "depth": 40,
+              "count": 69
+            },
+            {
+              "depth": 41,
+              "count": 31
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 32,
+            "wrongValid": 66,
+            "unusable": 2,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.32,
+            "macroF1": 0.20608899297423888,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 80,
+          "realizedDepths": [
+            {
+              "depth": 80,
+              "count": 63
+            },
+            {
+              "depth": 81,
+              "count": 37
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 31,
+            "wrongValid": 69,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.31,
+            "macroF1": 0.18556430446194228,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 160,
+          "realizedDepths": [
+            {
+              "depth": 160,
+              "count": 69
+            },
+            {
+              "depth": 161,
+              "count": 31
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 39,
+            "wrongValid": 58,
+            "unusable": 3,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.39,
+            "macroF1": 0.30024946804607827,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 320,
+          "realizedDepths": [
+            {
+              "depth": 320,
+              "count": 66
+            },
+            {
+              "depth": 321,
+              "count": 34
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 41,
+            "wrongValid": 56,
+            "unusable": 3,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.41,
+            "macroF1": 0.333375104427736,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 512,
+          "realizedDepths": [
+            {
+              "depth": 512,
+              "count": 63
+            },
+            {
+              "depth": 513,
+              "count": 37
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 38,
+            "wrongValid": 58,
+            "unusable": 4,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.38,
+            "macroF1": 0.2973856209150327,
+            "status": "complete"
+          }
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-5.6-luna",
+      "reportedModelIds": [
+        "gpt-5.6-luna"
+      ],
+      "settings": {
+        "profileId": "cheap-depth-screen-8k-180s-v1",
+        "reasoning": "none",
+        "maxOutputTokens": 8192,
+        "inferenceTimeoutMs": 180000
+      },
+      "overall": {
+        "planned": 800,
+        "dispatched": 800,
+        "modelOutcomes": 800,
+        "correct": 296,
+        "wrongValid": 504,
+        "unusable": 0,
+        "providerFailures": 0,
+        "unknownRemote": 0,
+        "inFlight": 0,
+        "unattempted": 0,
+        "accuracy": 0.37,
+        "macroF1": 0.30106801369098024,
+        "status": "complete"
+      },
+      "byDepth": [
+        {
+          "requestedDepth": 5,
+          "realizedDepths": [
+            {
+              "depth": 5,
+              "count": 67
+            },
+            {
+              "depth": 6,
+              "count": 33
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 54,
+            "wrongValid": 46,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.54,
+            "macroF1": 0.5495347564313082,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 10,
+          "realizedDepths": [
+            {
+              "depth": 10,
+              "count": 68
+            },
+            {
+              "depth": 11,
+              "count": 32
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 37,
+            "wrongValid": 63,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.37,
+            "macroF1": 0.3505614882273825,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 20,
+          "realizedDepths": [
+            {
+              "depth": 20,
+              "count": 65
+            },
+            {
+              "depth": 21,
+              "count": 35
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 36,
+            "wrongValid": 64,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.36,
+            "macroF1": 0.29651629072681707,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 40,
+          "realizedDepths": [
+            {
+              "depth": 40,
+              "count": 69
+            },
+            {
+              "depth": 41,
+              "count": 31
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 35,
+            "wrongValid": 65,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.35,
+            "macroF1": 0.2642266824085006,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 80,
+          "realizedDepths": [
+            {
+              "depth": 80,
+              "count": 63
+            },
+            {
+              "depth": 81,
+              "count": 37
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 34,
+            "wrongValid": 66,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.34,
+            "macroF1": 0.18571428571428572,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 160,
+          "realizedDepths": [
+            {
+              "depth": 160,
+              "count": 69
+            },
+            {
+              "depth": 161,
+              "count": 31
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 32,
+            "wrongValid": 68,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.32,
+            "macroF1": 0.16161616161616163,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 320,
+          "realizedDepths": [
+            {
+              "depth": 320,
+              "count": 66
+            },
+            {
+              "depth": 321,
+              "count": 34
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 34,
+            "wrongValid": 66,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.34,
+            "macroF1": 0.18571428571428572,
+            "status": "complete"
+          }
+        },
+        {
+          "requestedDepth": 512,
+          "realizedDepths": [
+            {
+              "depth": 512,
+              "count": 63
+            },
+            {
+              "depth": 513,
+              "count": 37
+            }
+          ],
+          "score": {
+            "planned": 100,
+            "dispatched": 100,
+            "modelOutcomes": 100,
+            "correct": 34,
+            "wrongValid": 66,
+            "unusable": 0,
+            "providerFailures": 0,
+            "unknownRemote": 0,
+            "inFlight": 0,
+            "unattempted": 0,
+            "accuracy": 0.34,
+            "macroF1": 0.18627450980392157,
+            "status": "complete"
+          }
+        }
+      ]
+    }
+  ]
+}

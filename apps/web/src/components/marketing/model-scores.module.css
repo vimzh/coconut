@@ -27,6 +27,8 @@
 .cellDetails summary { cursor: pointer; }
 .cellDetails summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
 .scoreValue { font-size: 16px; }
+.table .studyGroup { padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 400; }
+.studyGroup > span { position: sticky; left: 16px; }
 .detailsToggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; }
 .hideDetails { accent-color: var(--foreground); }
 .deepStudy:has(.hideDetails:checked) .scoreLine,

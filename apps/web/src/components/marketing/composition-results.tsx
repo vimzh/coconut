@@ -1,7 +1,8 @@
-// Publish the latest audited study while retaining the earlier result artifact separately.
+// Publish audited studies with explicit populations and settings while retaining earlier artifacts.
 import results from "../../../public/composition-scores.json";
 import audit from "../../../../api/data/quality/composition-results-audit-v1.json";
-import { deepStudySummary, deepStudyTaskCounts, deepStudyTaskTotal, hasPublishedDeepStudy, type DeepStudyScore } from "@/lib/deep-study-summary";
+import { cheapDepthSummary } from "@/lib/cheap-depth-summary";
+import { deepStudySummary, deepStudyTaskCounts, deepStudyTaskTotal, hasPublishedDeepStudy, type DeepStudyScore, type DeepStudySummary } from "@/lib/deep-study-summary";
 import { directoryModels } from "@/lib/model-directory-data";
 import styles from "./model-scores.module.css";
 
@@ -42,11 +43,21 @@ function ScoreCell({ score }: { score: DeepStudyScore }) {
   );
 }
 
+function StudyRows({ study, label, id }: { study: DeepStudySummary; label: string; id: string }) {
+  const sortedModels = [...study.models].sort((a, b) => (b.overall.macroF1 ?? -1) - (a.overall.macroF1 ?? -1));
+  return (
+    <tbody aria-labelledby={id}>
+      <tr><th id={id} scope="rowgroup" colSpan={study.requestedDepths.length + 1} className={styles.studyGroup}><span>{label} · {deepStudyTaskTotal(study)} tasks per model · {study.state === "complete" ? "Complete" : "Incomplete"}</span></th></tr>
+      {sortedModels.map(model => <tr key={model.modelId}>
+        <th scope="row" className={styles.model}><span className="mr-3 text-muted-foreground">{model.overall.macroF1 === null ? "—" : sortedModels.findIndex(row => row.overall.macroF1 === model.overall.macroF1) + 1}.</span>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
+        {model.byDepth.map(slice => <ScoreCell key={slice.requestedDepth} score={slice.score} />)}
+      </tr>)}
+    </tbody>
+  );
+}
+
 function DeepStudyResults() {
   const study = deepStudySummary;
-  const sortedModels = [...study.models].sort((a, b) => (b.overall.macroF1 ?? -1) - (a.overall.macroF1 ?? -1));
-  const taskCounts = deepStudyTaskCounts(study), total = deepStudyTaskTotal(study);
-  const state = study.state === "complete" ? "Audited study" : study.state === "running" ? "Audited partial snapshot" : study.state === "unavailable" ? "Scores unavailable" : "Audited incomplete study";
   return (
     <section id="model-scores-title" aria-labelledby="deep-study-title" className={`${styles.section} ${styles.deepStudy}`}>
       <div className={styles.heading}>
@@ -56,18 +67,17 @@ function DeepStudyResults() {
           Hide details
         </label>
       </div>
-      <p className={styles.metric}>{state} · {total} planned tasks per model · One response per task · Ordered by overall macro-F1 · Incomplete scores are provisional</p>
+      <p className={styles.metric}>Audited results · One response per task · Ordered by overall macro-F1 within each study · Incomplete scores are provisional</p>
+      <p className={styles.sources}>Reasoning study: 100 tasks per depth through 160, then 10 at 320 and 512. Fast screen: 100 at every depth. Reasoning settings and populations differ; compare scores within each group.</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Deep study scores by requested generator depth">
         <table className={styles.table} aria-describedby="deep-study-note">
           <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy, correct model outcomes and settled coverage. Depth columns use requested generator settings.</caption>
           <thead><tr>
             <th scope="col" className={styles.model}>Model</th>
-            {taskCounts.map(({ requestedDepth, tasks }) => <th scope="col" key={requestedDepth}>Depth {requestedDepth}<span className={styles.pilotLabel}>{tasks} tasks</span></th>)}
+            {study.requestedDepths.map(requestedDepth => <th scope="col" key={requestedDepth}>Depth {requestedDepth}</th>)}
           </tr></thead>
-          <tbody>{sortedModels.map(model => <tr key={model.modelId}>
-            <th scope="row" className={styles.model}><span className="mr-3 text-muted-foreground">{model.overall.macroF1 === null ? "—" : sortedModels.findIndex(row => row.overall.macroF1 === model.overall.macroF1) + 1}.</span>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
-            {model.byDepth.map(slice => <ScoreCell key={slice.requestedDepth} score={slice.score} />)}
-          </tr>)}</tbody>
+          <StudyRows study={study} label="Reasoning study" id="reasoning-study-group" />
+          <StudyRows study={cheapDepthSummary} label="Fast screen" id="fast-study-group" />
         </table>
       </div>
       <div className={styles.sources}>
@@ -82,14 +92,17 @@ function DeepStudyResults() {
         Macro-F1 is the primary score, on a 0–100 scale over three fixed classes. Accuracy and correct counts use retained model outcomes, including unusable replies as failures. Settled coverage includes provider failures; expand a cell for model-outcome coverage and all outcome counts. Missing replies and provider failures make scores provisional or unavailable.
       </p>
       <details className={`${styles.sources} ${styles.details}`}>
-        <summary>Study identity, depth definitions and model settings</summary>
-        <p>Study: <code>{study.studyId}</code>. Frozen cohort: <code>{study.cohortId}</code>. Source: <code>{study.cohortSourceId}</code>. Each model receives the same admitted tasks, with one attempt per task. Tasks by requested depth: {taskCounts.map(row => `${row.requestedDepth}: ${row.tasks}`).join("; ")}. Remaining semantic equivalence is unknown after exact and bounded simplification checks. Individual answers and reference evidence remain in authorized research reports.</p>
+        <summary>Study identities, depth definitions and model settings</summary>
         <p>Depth is the requested generator setting. Realized source depth may be that setting or its successor; neither measure is expression-tree depth or a count of nonlinear composition stages. One response per question does not measure repeat consistency. Input size and mathematical structure can change with depth, so these scores do not isolate a causal depth effect or establish a failure threshold.</p>
-        {study.models.map(model => <div key={model.modelId}>
-          <p>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}: profile {model.settings.profileId}; reasoning {model.settings.reasoning ?? "unspecified"}; {model.settings.maxOutputTokens.toLocaleString("en-US")} maximum output tokens; {model.settings.inferenceTimeoutMs / 1000}-second deadline. Reported identities: {model.reportedModelIds.length ? model.reportedModelIds.join(", ") : "none retained"}.</p>
-          <p>Realized source depth by requested setting: {model.byDepth.map(slice => `${slice.requestedDepth}: ${slice.realizedDepths.map(item => `${item.count} at ${item.depth}`).join(", ")}`).join("; ")}.</p>
+        {[study, cheapDepthSummary].map(current => <div key={current.studyId}>
+          <p>Study: <code>{current.studyId}</code>. Frozen cohort: <code>{current.cohortId}</code>. Source: <code>{current.cohortSourceId}</code>. Within this study, each model receives the same admitted tasks, with one attempt per task. Tasks by requested depth: {deepStudyTaskCounts(current).map(row => `${row.requestedDepth}: ${row.tasks}`).join("; ")}. Remaining semantic equivalence is unknown after exact and bounded simplification checks. Individual answers and reference evidence remain in authorized research reports.</p>
+          {current.models.map(model => <div key={model.modelId}>
+            <p>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}: profile {model.settings.profileId}; reasoning {model.settings.reasoning ?? "parameter omitted"}; {model.settings.maxOutputTokens.toLocaleString("en-US")} maximum output tokens; {model.settings.inferenceTimeoutMs / 1000}-second deadline. Reported identities: {model.reportedModelIds.length ? model.reportedModelIds.join(", ") : "none retained"}.</p>
+            <p>Realized source depth by requested setting: {model.byDepth.map(slice => `${slice.requestedDepth}: ${slice.realizedDepths.map(item => `${item.count} at ${item.depth}`).join(", ")}`).join("; ")}.</p>
+          </div>)}
+          <p>Audited report SHA-256: <code>{current.reportSha256}</code>. Cohort SHA-256: <code>{current.cohortSha256}</code>. Independent reference review SHA-256: <code>{current.audit.referenceReviewSha256}</code>.</p>
         </div>)}
-        <p>Audited report SHA-256: <code>{study.reportSha256}</code>. Cohort SHA-256: <code>{study.cohortSha256}</code>. Independent reference review SHA-256: <code>{study.audit.referenceReviewSha256}</code>.</p>
+        <p>The fast screen reuses the certified 800-task source pool, including all 240 earlier screening answers. All 2,400 outcomes mechanically replayed; 312 visible replies were inspected, including 119 correct-label explanations with 32 separate findings. The other 2,088 explanations were not manually verified. Only final labels determine these scores.</p>
       </details>
     </section>
   );
