@@ -38,6 +38,7 @@ export function TaskSlide() {
     <div className={styles.definitionSlide}>
       <SlideHeading>Convex, concave, or neither.</SlideHeading>
       <p className={styles.lead}>All three functions use the interval D = [−1, 1].</p>
+      <p className={styles.lead}>“Process these refunds, except for accounts under investigation.” The goal is to process refunds; the exclusion still applies to every decision. In the examples below, the interval is a condition that must stay intact.</p>
       <div className={styles.classificationGrid}>
         <article className={styles.classification}>
           <h3>Convex</h3>
