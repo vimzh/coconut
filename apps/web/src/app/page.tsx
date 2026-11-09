@@ -6,6 +6,7 @@ import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { CompositionResults } from "@/components/marketing/composition-results";
 import { ProjectFaq } from "@/components/marketing/project-faq";
+import { EvaluationPrompt } from "@/components/marketing/evaluation-prompt";
 import { TerminalCommands } from "@/components/marketing/terminal-commands";
 import { Button } from "@/components/ui/button";
 import { deepStudySummary, deepStudyTaskTotal, hasPublishedDeepStudy } from "@/lib/deep-study-summary";
@@ -67,6 +68,7 @@ export default function Home() {
       </section>
 
       <ProjectFaq />
+      <EvaluationPrompt />
     </AppShell>
   );
 }
