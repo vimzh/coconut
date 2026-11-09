@@ -148,7 +148,3 @@ bun run score:report \
 The scoring example uses synthetic replies to demonstrate the calculation. See [testing](docs/testing.md) for application checks and [development](docs/development.md) for configuration.
 
 **Built with:** TypeScript, Bun, Hono, Next.js, React, SQLite, the official OpenAI SDK, Python and python-flint/Arb.
-
-<a id="prior-work-and-review"></a>
-
-The external formula generator is prior work; Coconut adds reference certification, LLM execution, scoring and response inspection. [Generator attribution and provenance](docs/research/upstream-import-integration-v1.md) document the source and reuse boundaries.

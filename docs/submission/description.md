@@ -16,4 +16,4 @@ The project provides a deterministic label grader, a browser workbench and confi
 
 ## Before pasting
 
-The imported generation method is prior work credited in the [README](../../README.md#prior-work-and-review). Raw-question/transcript redistribution clearance, representative transcript inclusion, the public video and the author's personal review remain open in the [readiness record](readiness.md). This draft does not imply those requirements are complete or that anything has been uploaded.
+The imported generation method is prior work credited in the [source and provenance record](../research/upstream-import-integration-v1.md). Raw-question/transcript redistribution clearance, representative transcript inclusion, the public video and the author's personal review remain open in the [readiness record](readiness.md). This draft does not imply those requirements are complete or that anything has been uploaded.
