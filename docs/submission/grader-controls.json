@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-09T03:15:45.155Z",
+  "kind": "offline-reference-label-and-wrong-label-controls",
+  "populationSha256": "cc9a5447bf3668bf69de0d97d371fe57748aa508af51633363e82ab05c786b18",
+  "tasks": 800,
+  "passingReferenceLabels": 800,
+  "rejectedWrongLabels": 1600,
+  "comparisons": 2400,
+  "controlsSha256": "36d0afee2a21e1a68305f1724de969e2a92775654e7ac8ee21734cb708255e92",
+  "note": "Constructed protocol-valid answers, not model trials or a fresh mathematical-proof replay."
+}

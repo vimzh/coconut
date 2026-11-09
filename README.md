@@ -91,6 +91,12 @@ For the original ten depth-512 questions in the reasoning study, the medians wer
 
 These are the settings of the retained research runs. The ordinary browser workbench and configurable CLI have their own profiles and limits; the command below does not reproduce these research profiles.
 
+### Runtime and cost
+
+The 2,160-call continuation of the fast screen took **64.940 seconds at up to 120 concurrent calls**; the original 240-call screen took another **41.885 seconds**. Across all 2,400 answers, reported usage was **5,913,616 input tokens and 384,365 output tokens**. At uncached list prices checked on 9 November 2026, the estimated total is **about $1.95**; this is not a provider bill and cache discounts may change it. The [fast-study record](docs/research/cheap-depth-expand-v1.md#usage-and-listed-price-estimate) links the model pricing sources and per-model calculations.
+
+The reasoning study's continuation took **44 minutes 51 seconds**; elapsed time from its original start, including the transition gap, was **104 minutes 24 seconds**. Its 1,844 returned outcomes reported **2,262,473 input tokens and 36,985,320 output tokens**, including reasoning. Usage for 16 unknown remote outcomes and actual billed dollar costs remain unknown. The [reasoning-study record](docs/research/deep-study-results-v2.md) preserves this accounting. These measurements describe retained runs, not guaranteed future runtimes or the cost of the ordinary CLI example.
+
 The retained OpenAI replication includes these four completed confirmation runs:
 
 | Requested model | Reasoning effort | Correct / planned responses | Macro-F1 |
@@ -134,6 +140,8 @@ bun run dev
 
 Open [localhost:3200](http://localhost:3200); the API runs on loopback port 3201. Numerical setup installs pinned Python 3.13 and its dependencies. Use one API process for the local run store. Live evaluations require your own provider key and incur provider charges.
 
+Pinned dependencies include Next.js **16.4.5**, the OpenAI SDK **7.53.0** and python-flint **0.9.0**. The external generation environment requires Python **3.13.17**, NumPy **2.1.2**, pandas **2.3.1** and tqdm **4.67.1**; the terminal guide explains its separate setup. The committed `bun.lock` and `services/numerics/uv.lock` bind transitive dependencies.
+
 Verify the frozen challenge without making model calls:
 
 ```sh
@@ -172,6 +180,12 @@ Inspect the resulting `apps/api/data/private/luna-generated-run/report.json` for
 The CLI checkpoint passed **32 tests / 1,142 assertions**, lint and type checking, plus real nine-task generation/replay at requested depths 5, 40 and 512. An 800-task fixture verifies configurable counts; a full new external 800-task generation was not run for that checkpoint. Its [handoff](docs/handoffs/configurable-terminal-workflow.md) records the independent review, web verification and limits.
 
 A separate private deep-import workflow integrates a pinned external generator with exact-display reference checks. The [14b handoff](docs/handoffs/14b-randomized-certified-evaluation.md) records its inconclusive two-send Astra pilot. The [Module 15 handoff](docs/handoffs/15-deep-composition-stress-evaluation.md) records the independently reviewed 800-case source pool, the user-amended 620-task/model evaluation, immutable attempt ledgers, all-result audits and safe aggregate export. Raw-source/output redistribution clearance remains unresolved, so expressions and provider transcripts stay private.
+
+## Prior work and review
+
+The deep-task workflow adapts the [ConvexBench generator](https://github.com/yepengliu/ConvexBench) by **Yepeng Liu, Yu Huang, Yu-Xiang Wang, Yingbin Liang and Yuheng Bu**, at revision `6f156c8c9b6b0b85f6a191bd4eb912e12e670082`. Coconut adds exact-display import, independent reference certification, exposure controls, the evaluation harness, scoring and evidence inspection. The external generator is prior work, not Coconut's original invention. No upstream implementation is bundled; raw imported questions and transcripts stay excluded while redistribution clearance is unresolved. See the [provenance and permission record](docs/research/upstream-import-integration-v1.md).
+
+AI coding tools assisted implementation, documentation, reference replay and transcript analysis. Independent AI-assisted checks are distinguished from formal proof and personal human review. The author's personal review of every final task, reference and grading rule still needs confirmation in the [submission checklist](docs/submission/readiness.md); AI-assisted review does not supply that attestation.
 
 ## What's next
 

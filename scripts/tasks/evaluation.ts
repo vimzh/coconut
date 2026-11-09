@@ -124,7 +124,11 @@ export async function runTaskEvaluation(args: readonly string[], options: TaskEv
     const tasks = await (options.loadTasks ?? loadTasks)(parsed.input, controller.signal);
     if (tasks.state !== "complete" || !tasks.cases.length || tasks.cases.length * parsed.trials > 10000) throw new Error();
     const requests = tasks.cases.map(task => {
-      const prompt = { ...buildImportedPrompt(task), profileId: parsed.profile.id, responseFormat: parsed.profile.responseFormat,
+      const imported = buildImportedPrompt(task);
+      // Declare the extractor's Unicode rule in new runs without rewriting frozen research prompts.
+      const messages = imported.messages.map(message => message.role === "system"
+        ? { ...message, content: `${message.content}\nUse well-formed Unicode in the explanation.` } : message);
+      const prompt = { ...imported, messages, profileId: parsed.profile.id, responseFormat: parsed.profile.responseFormat,
         generation: { maxOutputTokens: parsed.profile.maxOutputTokens, sampling: parsed.profile.sampling, reasoning: parsed.profile.reasoning, tools: parsed.profile.tools } };
       return parseInferenceRequest({ selection: { provider: "openai", modelId: parsed.model, servingProvider: null, profileId: parsed.profile.id, verification: "metadata" }, prompt, acceptCharges: true });
     });

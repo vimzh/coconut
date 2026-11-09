@@ -34,6 +34,7 @@ function fixture(mode: "correct" | "wrong" | "invalid" | "network" | "reflection
     sends++; active++; peak = Math.max(active, peak);
     if (mode === "network") { active--; throw new Error(credential); }
     const body = JSON.parse(init.body as string);
+    expect(body.input[0].content).toContain("Use well-formed Unicode in the explanation.");
     const task = cases.find(task => body.input[1].content.startsWith(`f(x) = ${task.expression}\n`))!;
     const text = mode === "invalid" ? "invalid JSON" : JSON.stringify({ label: mode === "wrong" ? task.label === "convex" ? "concave" : "convex" : task.label,
       explanation: mode === "reflection" ? credential : "Fixture explanation." });
@@ -55,6 +56,8 @@ describe("exact-file terminal evaluation", () => {
     expect(await runTaskEvaluation([...f.args, "--trials", "2", "--concurrency", "2", "--profile", "one-shot-json-v2-low"], f.options)).toBe(0);
     expect(f.sends).toBe(6); expect(f.metadata).toBe(6); expect(f.peak).toBeLessThanOrEqual(2);
     const manifest = json(f.output, "manifest.json"), run = json(f.output, "run.json"), report = json(f.output, "report.json");
+    expect(manifest.requests.every((request: { prompt: { messages: { content: string }[] } }) =>
+      request.prompt.messages[0].content.includes("Use well-formed Unicode in the explanation."))).toBe(true);
     expect(manifest.profile.reasoning).toBe("low"); expect(manifest.budget).toMatchObject({ maxInferenceRequests: 6, retries: 0, inferenceTimeoutMs: 180000 });
     expect(run.rows).toHaveLength(6); expect(run.rows.every((row: TaskEvaluationRow) => row.result?.evidence.usage?.input?.count === 23)).toBe(true);
     expect(report.overall.classification).toMatchObject({ accuracy: { numerator: 6, denominator: 6, value: 1 }, population: { plannedTrials: 6, status: "complete" } });
