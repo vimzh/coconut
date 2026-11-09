@@ -63,6 +63,14 @@ function DeepStudyResults() {
           </tr>)}</tbody>
         </table>
       </div>
+      <div className={styles.sources}>
+        <h3 className="mt-5 font-medium">How the score is computed</h3>
+        <p>Each depth column reports macro-F1: compute F1 separately for convex, concave and neither, then give all three classes equal weight.</p>
+        <p className="mt-2 font-mono">F1(class) = 2 × TP / (2 × TP + FP + FN)</p>
+        <p className="mt-2 font-mono">Score = 100 × (F1(convex) + F1(concave) + F1(neither)) / 3</p>
+        <p className="mt-2">TP counts correct predictions of a class; FP counts predictions of that class when the reference is different; FN counts reference cases of that class without a correct prediction. A zero denominator gives F1 = 0. Unusable replies count as FN for their reference class.</p>
+        <p className="mt-2">Accuracy = 100 × correct labels / retained model outcomes. Provider failures and missing replies are excluded from this denominator and keep scores provisional or unavailable.</p>
+      </div>
       <p id="deep-study-note" className={styles.notes}>
         Macro-F1 is the primary score, on a 0–100 scale over three fixed classes. Accuracy and correct counts use retained model outcomes, including unusable replies as failures. Settled coverage includes provider failures; expand a cell for model-outcome coverage and all outcome counts. Missing replies and provider failures make scores provisional or unavailable.
       </p>
