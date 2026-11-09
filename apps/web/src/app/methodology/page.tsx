@@ -8,17 +8,25 @@ import styles from "./page.module.css";
 import { CurvatureExamples } from "@/components/marketing/curvature-examples";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { cheapDepthSummary } from "@/lib/cheap-depth-summary";
+import { deepStudySummary, deepStudyTaskCounts, deepStudyTaskTotal } from "@/lib/deep-study-summary";
 
 export const metadata: Metadata = {
   title: "Methodology | Coconut",
-  description: "How Coconut certifies curvature references, runs three fresh trials, scores answers, and separates meaningful comparisons from incomplete evidence.",
+  description: "How Coconut generates verified curvature tasks, evaluates models, scores answers and retains the evidence behind each result.",
 };
 
 const contents = [
-  ["task", "The task"], ["suites", "Current and advanced workloads"], ["references", "Reference validation"],
-  ["execution", "Trials and settings"], ["scoring", "Scores and missing work"], ["comparisons", "Comparisons and uncertainty"],
+  ["task", "The task"], ["suites", "Studies and workbench"], ["references", "Reference validation"],
+  ["execution", "Trials and settings"], ["scoring", "Scores and coverage"], ["comparisons", "Comparing results"],
+  ["terminal", "Terminal workflow"],
   ["access", "Keys, charges and records"],
 ] as const;
+
+const publishedStudies = [
+  { name: "Reasoning study", summary: deepStudySummary },
+  { name: "Fast screen", summary: cheapDepthSummary },
+];
 
 function MethodSection({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
@@ -36,7 +44,7 @@ export default function MethodologyPage() {
       <header className={styles.intro}>
         <h1 className={styles.title}>How the evaluation works</h1>
         <p className={styles.description}>
-          The current nested composition benchmark contains 27 tasks at 2, 4 and 6 nonlinear stages. Three fresh responses per task make 81 requests per model. Each response classifies a function on its exact domain.
+          Generate a function, verify its curvature, ask a model and score the answer. Every result connects the exact question, model settings and returned outcome so you can inspect how the score was produced.
         </p>
         <Link href="/#model-scores-title" className="mt-5 inline-block text-sm underline underline-offset-4">View current results</Link>
       </header>
@@ -57,20 +65,23 @@ export default function MethodologyPage() {
             <p>For x³, restricting the domain to [0, 1] makes it convex; on [−1, 0] it is concave. On [−1, 1] it is neither. Affine and constant functions satisfy both definitions, so they are excluded from the three-label population.</p>
           </MethodSection>
 
-          <MethodSection id="suites" title="One current benchmark, separate workloads">
-            <p>The recommended nested composition exploration applies successive quadratic and reciprocal atoms in three sequence patterns, at two, four and six nonlinear composition stages. Every pattern and stage count includes all three labels with the same outer expression form.</p>
+          <MethodSection id="suites" title="Published studies and the evaluation workbench">
+            <p>The homepage shows two audited studies. Within each study, every model receives the same admitted task set with one response per task. The reasoning study and fast screen retain their own task populations and inference settings.</p>
             <Table>
-              <TableCaption>The current benchmark is exploratory and unranked</TableCaption>
-              <TableHeader><TableRow><TableHead>Benchmark version</TableHead><TableHead>Tasks</TableHead><TableHead>Nonlinear stages</TableHead><TableHead>Expression-tree depths</TableHead></TableRow></TableHeader>
+              <TableCaption>Published populations; counts are tasks per model</TableCaption>
+              <TableHeader><TableRow><TableHead>Study</TableHead><TableHead>Planned tasks</TableHead><TableHead className="whitespace-normal">Tasks at each requested depth</TableHead></TableRow></TableHeader>
               <TableBody>
-                <TableRow><TableCell className="font-mono">composition-v1</TableCell><TableCell>27</TableCell><TableCell className="font-mono">2, 4, 6</TableCell><TableCell className="font-mono">7, 13, 19</TableCell></TableRow>
+                {publishedStudies.map(({ name, summary }) => <TableRow key={summary.studyId}>
+                  <TableCell>{name}</TableCell><TableCell>{deepStudyTaskTotal(summary)}</TableCell>
+                  <TableCell>{deepStudyTaskCounts(summary).map(row => `${row.requestedDepth}: ${row.tasks}`).join(" · ")}</TableCell>
+                </TableRow>)}
               </TableBody>
             </Table>
-            <p>The 27 tasks share nine related base chains. Exact rational derivative checks and an independent implementation supplement whole-domain numerical certificates. Shared atoms, coefficient cues and contracting ranges limit generalization; this is exploratory evidence, without ranking or a causal depth claim.</p>
-            <p>Expression-tree depth counts operations: a leaf has depth zero, and each operation adds one to its deepest child. For example, x has depth 0, x² has depth 1 and exp(x²) has depth 2. It is a different measure from nonlinear composition stages. Simplifying or rebalancing an expression can change tree depth while preserving its function.</p>
+            <p>The workbench opens with <span className="font-mono text-sm">composition-v1</span>: 27 tasks, three fresh responses each, giving 81 planned requests per model. Nine related base chains apply quadratic and reciprocal atoms in three sequence patterns at 2, 4 and 6 nonlinear stages. Every pattern and stage count includes all three labels.</p>
+            <p><span className="font-medium text-foreground">Read the depth measure with the task.</span> The published studies use requested generator depth; realized source depth is that setting or its successor. Expression-tree depth counts operations from a leaf at zero: x has depth 0, x² has depth 1 and exp(x²) has depth 2. Nonlinear stages count the successive nonlinear functions on a path. The workbench’s 2, 4 and 6 stages have expression-tree depths 7, 13 and 19.</p>
             <details className={styles.details}>
               <summary>Advanced workloads</summary>
-              <p>Six other suites remain available under Advanced workloads in evaluation setup. Each is frozen with its own tasks and reference evidence. Different suites or prompt versions belong to separate comparison populations.</p>
+              <p>Six additional suites are available in evaluation setup. Each has a frozen task set and retained reference evidence.</p>
               <Table>
                 <TableCaption>Separate workloads; the depths below are expression-tree depths</TableCaption>
                 <TableHeader><TableRow><TableHead>Suite</TableHead><TableHead>Tasks</TableHead><TableHead>Expression-tree depths</TableHead></TableRow></TableHeader>
@@ -79,41 +90,37 @@ export default function MethodologyPage() {
                 <TableRow><TableCell><span className="font-medium text-foreground">Exploratory screening</span><br /><span className="font-mono text-xs">screening-v1</span></TableCell><TableCell>9</TableCell><TableCell className="font-mono">3, 5, 14</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Smooth reference</span><br /><span className="font-mono text-xs">smooth-v2</span></TableCell><TableCell>27</TableCell><TableCell className="font-mono">7, 9, 11</TableCell></TableRow>
                 <TableRow><TableCell><span className="font-medium text-foreground">Exact reference</span><br /><span className="font-mono text-xs">reference-v1</span></TableCell><TableCell>75</TableCell><TableCell className="font-mono">5, 10, 20, 40, 80</TableCell></TableRow>
-                <TableRow><TableCell><span className="font-medium text-foreground">Interior exploration · unranked</span><br /><span className="font-mono text-xs">interior-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">13</TableCell></TableRow>
-                <TableRow><TableCell><span className="font-medium text-foreground">Fine-scale curvature exploration · unranked</span><br /><span className="font-mono text-xs">reserve-v1</span></TableCell><TableCell>18</TableCell><TableCell className="font-mono">17, 23</TableCell></TableRow>
+                <TableRow><TableCell><span className="font-medium text-foreground">Interior exploration</span><br /><span className="font-mono text-xs">interior-v1</span></TableCell><TableCell>72</TableCell><TableCell className="font-mono">13</TableCell></TableRow>
+                <TableRow><TableCell><span className="font-medium text-foreground">Fine-scale curvature exploration</span><br /><span className="font-mono text-xs">reserve-v1</span></TableCell><TableCell>18</TableCell><TableCell className="font-mono">17, 23</TableCell></TableRow>
                 </TableBody>
               </Table>
-            <p>The challenge has eight families and three parameter groups per family. Each group contains all three labels: 24 related-task groups and 24 tasks per class. Its families cover logarithmic, reciprocal, exponential, rational, mixed-branch and polynomial curvature.</p>
-            <p>The separate interior exploration applies three nonlinear functions to eight source quintics. Each source polynomial is shared across nine related tasks, giving eight groups and 24 tasks per class. Its interior curvature changes can be missed by checking endpoints and midpoint alone. This narrower population is descriptive and unranked; it does not meet the confirmation coverage or confidence-interval requirements.</p>
-            <p>Fine-scale curvature exploration has logarithm, reciprocal and square-root families built from two related source polynomials of degrees nine and ten, with nonzero quadratic terms. The 18 tasks share the domain [−1, 1] and have six tasks per class. Each source group spans nine tasks across all families and labels, so there are two related groups. This adaptive exploration remains unranked, has no eligible confidence interval and inherits no confirmation status.</p>
-            <p>All six fine-scale neither cases have strict opposite second-derivative signs at 0 and −15/16, while their nine fixed coarse curvature probes each see only one sign. This is a proved structural property; it does not establish model difficulty or a model failure.</p>
-            <p><span className="font-medium text-foreground">Expression-tree depth is descriptive.</span> Each challenge family occurs at one depth, so family and depth cannot be separated. Expression size and mathematical structure also vary. The exact and smooth reference suites have their own confounds; these plots do not establish a causal effect of nesting.</p>
-            <p>The nine-task screening set uses separate parameter groups for exploratory checks. It is distinct from the full 72-task confirmation set. Public teaching examples are separate from both.</p>
+              <p>The challenge spans eight function families and 24 related-task groups. Interior exploration tests curvature changes inside the interval. Fine-scale exploration uses logarithm, reciprocal and square-root families with narrow curvature changes checked by exact witnesses. The composition, interior and fine-scale suites are exploratory workloads excluded from public leaderboard ranking. Teaching examples are kept separate from these scored suites.</p>
             </details>
           </MethodSection>
 
-          <MethodSection id="references" title="Reference labels need global evidence">
-            <p>For smooth functions, outward-rounded interval arithmetic encloses the second derivative over a complete cover of the domain. A consistent nonnegative or nonpositive sign establishes convexity or concavity. Strict evidence excludes the opposite label. Neither requires strict second-derivative signs in both directions at interior points, together with domain validity.</p>
-            <p>The challenge also retains independently derived curvature formulas and exact polynomial identities. These provide a separate mathematical check. The exact reference suite uses exact rational arithmetic, sufficient composition rules and strict midpoint witnesses for its supported piecewise expressions.</p>
-            <p>Interior references additionally use exact rational Bernstein bounds and rigorously bounded exponential series to check the derived curvature formulas. Neither cases retain strict opposite-sign witnesses inside the supplied interval.</p>
-            <p>Fine-scale references supplement native certificates with exact rational polynomial checks of global curvature bounds and strict interior witnesses. Exact comparisons at −15/16 also separate functions whose retained native probe values coincide. Finite probes alone do not prove global curvature.</p>
-            <p>A failed sufficient rule is inconclusive. Invalid domains, unresolved bounds and exhausted certification budgets never become a neither label. Native arithmetic and the implemented differentiation/domain rules remain trusted dependencies; this is bounded computational certification.</p>
-            <p>Models receive the function and interval. They do not receive the reference label, family tag, task ID, proof or witness coordinates. Reference evidence is available when inspecting the retained result.</p>
+          <MethodSection id="references" title="Verify the exact question before asking the model">
+            <p>Admission requires mathematical evidence for the selected label on the entire supplied interval. The independent verifier for imported deep tasks parses the exact displayed scalar expression, preserves its written coefficients, checks the fixed domain [−1, 1] and replays its reference proof. Every admitted task retains its expression hash, domain, label and verification evidence.</p>
+            <p>Native smooth suites use outward-rounded interval arithmetic to enclose the second derivative over a complete cover of the domain. A nonnegative or nonpositive enclosure proves convexity or concavity, with strict evidence distinguishing the labels. Neither cases retain strict witnesses for both curvature directions inside the interval.</p>
+            <p>Other supported families use exact rational arithmetic, independently derived derivative formulas, polynomial bounds, composition rules and strict midpoint witnesses. The nested composition suite supplements whole-domain numerical certificates with exact rational derivative checks and an independent implementation.</p>
+            <p>Invalid domains, unresolved proofs and exhausted verification budgets stay in the rejection record. A neither label requires evidence that convexity and concavity both fail. Sampling points alone cannot certify a global curvature label.</p>
+            <p>The prompt contains the expression, interval and neutral response instructions. Reference labels, family tags, task IDs, proofs and witness coordinates stay outside the model’s prompt. Retained evidence supports replay and answer inspection.</p>
           </MethodSection>
 
-          <MethodSection id="execution" title="Three fresh trials under explicit settings">
-            <p>A task is evaluated in three fresh conversations. The prompt contains its expression, domain and neutral instructions. Tools are disabled. Each returned JSON label is graded separately, with a brief explanation retained for inspection. Only the label determines mathematical correctness.</p>
+          <MethodSection id="execution" title="Fresh requests with recorded settings">
+            <p>The published studies use one response per task. The visitor workbench uses three fresh conversations per task. Exact-file terminal evaluations support 1–10 trials. Each request starts with fresh conversation history, disables tools and requests a structured answer containing a label and explanation.</p>
             <Table>
-              <TableCaption>Different profiles remain separate comparison populations</TableCaption>
-              <TableHeader><TableRow><TableHead>Profile family</TableHead><TableHead>Output ceiling</TableHead><TableHead>Reasoning</TableHead></TableRow></TableHeader>
+              <TableCaption>Output ceilings and per-request deadlines; model-specific settings are retained with results</TableCaption>
+              <TableHeader><TableRow><TableHead>Workload / profile</TableHead><TableHead>Output tokens</TableHead><TableHead>Deadline</TableHead></TableRow></TableHeader>
               <TableBody>
-                <TableRow><TableCell>Original profiles</TableCell><TableCell className="font-mono">4,096 tokens</TableCell><TableCell className="whitespace-normal">Provider default</TableCell></TableRow>
-                <TableRow><TableCell>Explicit-effort profiles</TableCell><TableCell className="font-mono">16,384 tokens</TableCell><TableCell className="whitespace-normal">Named effort, verified for the model</TableCell></TableRow>
+                <TableRow><TableCell>Published reasoning study</TableCell><TableCell>32,768</TableCell><TableCell>600 seconds</TableCell></TableRow>
+                <TableRow><TableCell>Published fast screen</TableCell><TableCell>8,192</TableCell><TableCell>180 seconds</TableCell></TableRow>
+                <TableRow><TableCell>Workbench / CLI default profiles</TableCell><TableCell>4,096</TableCell><TableCell>180 seconds</TableCell></TableRow>
+                <TableRow><TableCell>Workbench / CLI explicit-effort profiles</TableCell><TableCell>16,384</TableCell><TableCell>180 seconds</TableCell></TableRow>
               </TableBody>
             </Table>
-            <p>Original profiles use each provider’s sampling and reasoning defaults. Explicit-effort profiles fix the named reasoning setting while retaining provider-default sampling.</p>
-            <p>Prompted JSON and native strict-schema enforcement are distinct formats. Explicit reasoning profiles currently require OpenAI. A token ceiling limits requested output; it is neither measured usage nor an equal-compute guarantee across models. Unsupported settings do not silently fall back to another profile.</p>
-            <p>Each logical trial has one inference attempt and no automatic retry. Cancellation stops new work and aborts active requests. A lost connection, timeout or cancellation may leave remote execution and charges uncertain.</p>
+            <p>Default profiles retain provider sampling and reasoning defaults. Explicit-effort profiles select a named OpenAI reasoning setting. Prompted JSON and native strict-schema enforcement have separate profile identities. Research runs retain their own model-specific effort settings, shown in the homepage’s study details.</p>
+            <p>Each result records its requested and reported model identities, prompt version, profile, reasoning setting, token ceiling and execution settings. Requested ceilings and actual token usage are reported separately. Unsupported settings produce a visible error.</p>
+            <p>Each logical trial has one inference attempt, with automatic retries disabled. Terminal evaluations default to four concurrent requests and support up to twelve. Cancellation stops new work and aborts active requests; dispatched work can still incur provider charges or leave its remote outcome unknown.</p>
           </MethodSection>
 
           <MethodSection id="scoring" title="Scores retain their denominators">
@@ -123,6 +130,7 @@ export default function MethodologyPage() {
               Macro-F1 = (F1convex + F1concave + F1neither) / 3
             </div>
             <p>TP counts correct predictions of a class. FP counts predictions assigned to that class incorrectly. FN counts reference-class outcomes that were missed.</p>
+            <p>The homepage displays macro-F1 on a 0–100 scale by multiplying this fraction by 100. Machine-readable reports retain the 0–1 value. Each final label is scored against the verified reference; explanations are retained for inspection and remain ungraded.</p>
             <Table>
               <TableCaption>Model outcomes and incomplete execution have different score treatment</TableCaption>
               <TableHeader><TableRow><TableHead>Outcome</TableHead><TableHead>Score treatment</TableHead></TableRow></TableHeader>
@@ -132,26 +140,33 @@ export default function MethodologyPage() {
                 <TableRow><TableCell className="whitespace-normal">Provider error, interruption, cancellation, unattempted work</TableCell><TableCell className="whitespace-normal">Excluded from mathematical counts; retained against the planned workload</TableCell></TableRow>
               </TableBody>
             </Table>
-            <p>Incomplete execution leaves scores provisional, or unavailable when no model outcome is included. A complete population can still contain wrong or unusable replies. Reports also show class precision/recall, confusion counts, depth slices, agreement and eligible three-trial spread. Missing usage, cost or timing remains unknown rather than zero.</p>
+            <p>Every score shows its included model outcomes against the planned workload. Incomplete execution leaves scores provisional, or unavailable when no model outcome is included. Reports include class precision and recall, confusion counts and depth slices; repeated-trial reports also show agreement and score spread. Missing usage, cost or timing is recorded as unknown.</p>
             <p>A zero F1 denominator contributes zero for that class in a nonempty population. An empty population has no macro-F1 value. Truncated JSON is unusable even when a partial label looks valid; explanations never silently repair the grade.</p>
-            <p>Unusable replies lower performance under the answer policy. They do not by themselves establish a mathematical reasoning error.</p>
+            <p>Wrong valid labels and unusable replies have separate counts. Both lower the score; the wrong-label count identifies classification errors.</p>
           </MethodSection>
 
-          <MethodSection id="comparisons" title="Comparison limits and uncertainty">
-            <p>Compare the exact suite, prompt/protocol, answer format, reasoning setting, output ceiling, concurrency and trial count. Requested and reported model/provider identities stay visible. Different serving routes, defaults or incomplete work can change the interpretation of a score difference.</p>
-            <p>Three trials are repeated requests on the same tasks. They are not three independent sets of mathematical problems. Ordinary trial spread is descriptive, not a confidence interval. The challenge’s related parameter/domain variants stay grouped when uncertainty is assessed.</p>
-            <p>Eligible uncertainty analysis uses 10,000 seeded bootstrap repetitions that resample whole groups within families and preserve all their trials. It requires complete compared populations, at least 20 effective groups overall and at least three per family. Sparse or incomplete evidence cannot support that interval. Its interpretation remains conditional on the fixed families and the group-exchangeability assumption.</p>
-            <p>A valid wrong label supports an inspected point error under its recorded settings. A reproducible mathematical-failure claim needs at least two valid wrong answers out of three on each of two distinct core-task groups in two families, at the model’s highest verified effort in the experiment. All trials must finish without truncation and the references require independent review. Format, budget or provider failures do not establish that claim.</p>
-            <p>These synthetic scalar tasks do not establish general mathematical ability or production usefulness. Public tasks may have been exposed elsewhere.</p>
+          <MethodSection id="comparisons" title="Compare the same tasks under matching settings">
+            <p>For a controlled comparison, use the same verified task file, prompt version, answer format, reasoning setting, output ceiling and trial count. Keep provider routing and concurrency consistent, then inspect completion coverage alongside the score.</p>
+            <p>The homepage orders all model rows by overall macro-F1. Each row identifies its study, planned population and completion status. The reasoning study and fast screen share a reviewed source pool, with different populations at the highest depths and different execution settings. Open a score cell to inspect its denominator and outcome counts.</p>
+            <p>Read requested-depth slices alongside expression size and mathematical structure. Repeated trials measure response agreement on the same questions. Related tasks retain their group identities, and eligible statistical analyses resample those groups together. Trial spread describes variation between repeated runs.</p>
+            <p>For answer-level inspection, follow the retained question, verified reference, final label and explanation. This makes each observed classification error traceable to a specific expression, domain and model configuration.</p>
+          </MethodSection>
+
+          <MethodSection id="terminal" title="Generate, verify and evaluate from the terminal">
+            <p>Choose requested depths, cases per depth and a seed with <span className="font-mono text-sm">tasks:generate</span>. The generator fills near-balanced class quotas from independently verified candidates, excludes exact duplicates and saves the admission record with the task file. Generation supports depths 1–1,000 and up to 1,000 total tasks.</p>
+            <p>Keep the generated JSON and its sibling <span className="font-mono text-sm">.evidence</span> directory together. Run <span className="font-mono text-sm">tasks:verify</span> to replay the source receipts, expression identities, domains and reference proofs. Generation retains an incomplete artifact if it exhausts the proposal budget before filling its quotas. Verification exits with an error when the saved artifact is invalid or incomplete.</p>
+            <p>Pass that exact file to <span className="font-mono text-sm">eval:run --input</span>, selecting the model, registered profile, trials, concurrency and credential environment variable. Planned inference requests equal admitted tasks × selected trials. Charge consent is required before dispatch.</p>
+            <p>The output directory retains the frozen manifest, per-attempt evidence, run record and score report. These local results stay under your control; web publication is a separate action. The checkout’s <span className="font-mono text-sm">docs/terminal.md</span> covers source setup, all flags and examples.</p>
+            <Link href="/#terminal-commands-title" className="text-foreground underline underline-offset-4">Open the terminal command examples</Link>
           </MethodSection>
 
           <MethodSection id="access" title="Your credentials, provider charges and retained evidence">
-            <p>Visitors supply their own OpenAI, OpenRouter or Hugging Face Inference Providers credential and pay the selected provider. A searchable model is not necessarily hosted, permitted or compatible. OpenAI has live inference checks. OpenRouter/Hugging Face adapters have controlled software tests; live execution remains unverified.</p>
+            <p>The published studies run through OpenAI. The workbench offers OpenAI, OpenRouter and Hugging Face Inference Providers connections using your own credential. Access checks cover provider authentication. A separately approved compatibility request tests inference with the selected model and settings.</p>
             <p>Your key stays in current-page memory and is sent to the evaluation server for the selected foreground provider operation. It is excluded from saved runs and public exports. Refresh or disconnect clears the page-held credential. A compatibility check can itself make a charged inference request; review its consent separately from evaluation launch.</p>
-            <p>Runs are private by default and retained for seven days. The separate private access code is returned once; save it to return after a refresh. Publishing is an explicit, reversible action, and public ranking additionally requires the leaderboard’s eligibility checks. Expiry or deletion removes public visibility with the retained record.</p>
+            <p>Web runs are private by default and retained for seven days. The separate private access code is returned once; save it to return after a refresh. Publishing and withdrawal are explicit actions. Public comparison eligibility is checked separately. Expiry or deletion removes public visibility with the retained record. Terminal output stays in your chosen directory until you remove it.</p>
             <p>Keep the evaluation page open while the run executes. Disconnect, cancellation or server restart preserves recorded work but does not resume paid requests. Starting again requires a fresh intentional launch and provider credential. Requests already sent may still incur charges.</p>
             <div className="flex flex-wrap items-center gap-5 pt-2">
-              <Button asChild size="lg"><Link href="/evaluate">Run this benchmark</Link></Button>
+              <Button asChild size="lg"><Link href="/evaluate">Open the workbench</Link></Button>
               <Link href="/#model-scores-title" className="rounded-sm text-sm font-medium text-foreground underline underline-offset-4">View results</Link>
             </div>
           </MethodSection>

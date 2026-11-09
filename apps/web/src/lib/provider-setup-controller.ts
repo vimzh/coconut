@@ -24,7 +24,7 @@ type Operation = "access" | "search" | "metadata" | "probe";
 function errorMessage(error: unknown): string {
   return error instanceof ProviderApiError
     ? error.message
-    : "The operation could not be completed. No access or compatibility claim was accepted.";
+    : "The operation could not be completed. Try the check again.";
 }
 
 export function useProviderSetup({

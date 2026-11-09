@@ -7,7 +7,7 @@ const questions = [
   },
   {
     question: "Why test this particular skill?",
-    answer: "A model can recognize individual operations yet struggle to track how they interact inside a larger expression. Curvature classification gives us a precise question with checkable answers. Coconut combines task generation, reference verification, model execution and evidence-based scoring so visitors can inspect what succeeded, what failed and what remains unknown.",
+    answer: "A model can recognize individual operations yet struggle to track how they interact inside a larger expression. Curvature classification gives us a precise question with checkable answers. Coconut combines task generation, reference verification, model execution and evidence-based scoring so visitors can inspect correct answers, model mistakes and execution coverage.",
   },
   {
     question: "What do convex, concave and neither mean?",
@@ -23,27 +23,27 @@ const questions = [
   },
   {
     question: "Does a higher depth always mean a harder question?",
-    answer: "No. A long expression may simplify, while a shorter expression may require a delicate argument. Expression length and mathematical structure can change alongside depth. The table describes performance on these task groups; it does not prove that depth alone caused a change or identify a universal failure threshold.",
+    answer: "No. A long expression may simplify, while a shorter expression may require a delicate argument. Depth, expression length and mathematical structure can change together. Use each depth slice to compare performance on its stated tasks and settings.",
   },
   {
     question: "How do you know the reference answers are correct?",
-    answer: "Tasks are admitted with retained mathematical verification evidence, and the current published deep study is bound to an independent reference review. Depending on the suite, verification uses exact analytic arguments or rigorous interval bounds that cover the domain. Unresolved cases are not treated as certified tasks. Reference labels and verification evidence are kept out of the model’s prompt.",
+    answer: "Tasks are admitted with retained mathematical verification evidence, and both published deep studies are bound to independent reference reviews. Depending on the suite, verification uses exact analytic arguments or rigorous interval bounds that cover the domain. Only verified cases enter the task set. Reference labels and verification evidence are kept out of the model’s prompt.",
   },
   {
     question: "What does the score tell me?",
-    answer: "The main score is macro-F1 on a 0–100 scale. It gives convex, concave and neither equal weight, accounting for both missed cases and incorrect predictions of each class. Accuracy is the percentage of retained model outcomes with a correct label. The formulas appear directly below the table. Only the final label is scored; a correct label does not certify the model’s explanation.",
+    answer: "The main score is macro-F1 on a 0–100 scale. It gives convex, concave and neither equal weight, accounting for both missed cases and incorrect predictions of each class. Accuracy is the percentage of retained model outcomes with a correct label. The formulas appear directly below the table. The grade covers the final label; explanations are retained for inspection and remain ungraded.",
   },
   {
     question: "What happens when a model gives no usable answer?",
-    answer: "Malformed answers, refusals and output-limit truncations count as unsuccessful model outcomes. Provider failures and missing work are tracked separately and make scores provisional or unavailable. Expand a score cell to inspect the counts. A cut-off answer or service error does not by itself establish a mathematical reasoning error.",
+    answer: "Malformed answers, refusals and output-limit truncations count as unsuccessful model outcomes. Provider failures and missing work are tracked separately and make scores provisional or unavailable. Expand a score cell to inspect the counts. These categories distinguish wrong labels, unusable replies and service interruptions.",
   },
   {
-    question: "Is the results table a ranking of the best AI models?",
-    answer: "The deep function study is exploratory and unranked. Its models receive the same admitted tasks, with one response per task, but their recorded reasoning settings and output limits can differ. One response does not measure repeat consistency. A score here describes this task population under those settings; it does not establish general mathematical ability or overall model superiority.",
+    question: "How should I compare models?",
+    answer: "Compare the same admitted tasks with matching prompts, reasoning settings, output limits and trial counts. The homepage orders rows by overall macro-F1. Its reasoning study plans 620 tasks per model, and its fast screen uses 800; settings and high-depth populations differ. Each study plans one response per task. Use repeated trials to inspect consistency, and read each score with its task population, recorded settings and completion status.",
   },
   {
-    question: "Can I run the same study myself?",
-    answer: "The visitor workbench currently offers a separate 27-task nested composition study, with three fresh responses per task: 81 planned inference requests. It is different from the deep function research table. You supply your own provider credential and approve provider charges before launching. Model availability depends on the provider, your access and compatibility with the selected settings.",
+    question: "How can I run an evaluation?",
+    answer: "The visitor workbench runs 27 nested composition tasks with three fresh responses each: 81 planned inference requests. From the terminal, generate and verify a task file, then select a model, profile and 1–10 trials for that exact file. The two published deep studies use separate frozen task sets with one planned response per task. You supply your own provider credential and approve charges before launch. Availability depends on your provider access and the selected settings.",
   },
   {
     question: "Are my API key and results public?",

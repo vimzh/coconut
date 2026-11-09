@@ -40,7 +40,7 @@ bun run reserve:verify --input /tmp/coconut-reserve.json`,
   },
   {
     title: "Inspect reports and check model access",
-    description: "The first command opens your local report. Search reads the anonymous model catalog; access and selection commands below check metadata without inference. Catalog presence does not establish inference access.",
+    description: "The first command opens your local report. Search reads the anonymous model catalog. The access command validates your credential, and selection reads model metadata; both run without inference. Use a charge-approved compatibility probe to test selected inference settings.",
     commands: `cat apps/api/data/private/luna-run/report.json
 bun run model:search --query gpt-oss --limit 5
 bun --env-file=apps/api/.env run provider:check --provider openai --credential-env OPENAI_API_KEY

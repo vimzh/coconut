@@ -244,7 +244,7 @@ function ResultsWorkbench({ runs }: ResultsDashboardProps) {
             ? "Infrastructure failures or missing work are excluded from this provisional score. Partial results are not complete comparisons."
             : slice?.population.status === "unavailable" || !slice
               ? "No eligible returned model outcomes are available for this population. Unattempted work and infrastructure failures remain visible below."
-              : "All planned trials returned model outcomes, including unusable replies. Completion alone does not establish leaderboard eligibility."}{" "}
+              : "All planned trials returned model outcomes, including unusable replies. Leaderboard eligibility is checked separately."}{" "}
           Headline figures are rounded; tables and tooltips retain exact values.
         </p>
       <Tabs defaultValue="overview" className={styles.tabs}>

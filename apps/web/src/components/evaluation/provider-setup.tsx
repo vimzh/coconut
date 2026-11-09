@@ -54,8 +54,8 @@ function selectionDescription(result: ProviderSelectionResult): string {
     return "The selected route or settings conflict with this profile. Choose a permitted provider, model, serving provider, or answer format explicitly.";
   }
   if (result.metadata?.hosted === "unknown")
-    return "Model metadata was retrieved, but hosting or execution support remains unknown. An access check alone does not establish compatibility.";
-  return "Metadata was retrieved. Compatibility remains unverified until a separate, charge-approved probe succeeds.";
+    return "Model metadata is available. Hosting details are unknown; the compatibility check tests the selected model and settings with your charge approval.";
+  return "Metadata is available. Compatibility checks test the selected model and profile with one charge-approved request.";
 }
 
 export function ProviderSetup({
@@ -212,8 +212,8 @@ export function ProviderSetup({
                   id={`${id}-search-help`}
                   className="text-xs leading-5 text-muted-foreground"
                 >
-                  Anonymous catalog search, up to 80 characters. A listing does
-                  not establish execution access.
+                  Anonymous catalog search, up to 80 characters. Select a model
+                  and use the compatibility check to test execution.
                 </p>
               </div>
               <Button
@@ -330,14 +330,14 @@ export function ProviderSetup({
               </p>
               {selectedSearchModel?.routes === null && (
                 <p className="text-xs leading-5 text-muted-foreground">
-                  This catalog entry does not report hosting routes.
-                  Availability remains unknown.
+                  Hosting routes are unknown for this catalog entry. Check the
+                  provider’s hosting information before choosing a route.
                 </p>
               )}
               {selectedSearchModel?.routes?.length === 0 && (
                 <p className="text-xs leading-5 text-muted-foreground">
-                  This catalog entry advertises no serving route. A catalog
-                  listing alone cannot run an evaluation.
+                  This catalog entry advertises no serving route. Choose a
+                  model with an advertised hosting route.
                 </p>
               )}
             </div>
@@ -403,7 +403,7 @@ export function ProviderSetup({
                   {active === "access" ? "Checking access…" : "Check access"}
                 </Button>
                 <p className="text-xs leading-5 text-muted-foreground">
-                  Checks authentication. Model execution permission remains unverified.
+                  Validates your credential. Use the compatibility check to test model execution with the selected settings.
                 </p>
               </div>
               <div className="space-y-2">
@@ -411,7 +411,7 @@ export function ProviderSetup({
                   {active === "metadata" ? "Inspecting model…" : "Inspect model"}
                 </Button>
                 <p className="text-xs leading-5 text-muted-foreground">
-                  Reads model capabilities. Missing metadata stays unknown.
+                  Reads advertised model capabilities and hosting details when available.
                 </p>
               </div>
             </div>
@@ -449,8 +449,8 @@ export function ProviderSetup({
                   : "Check compatibility"}
               </Button>
               <p className="text-xs leading-5 text-muted-foreground">
-                A compatibility check is separate from an evaluation and does not
-                measure mathematical performance. No automatic retry is made.
+                Tests the selected model and profile with one inference request.
+                Mathematical performance is measured in the evaluation. No automatic retry is made.
               </p>
             </div>
           </fieldset>
@@ -459,7 +459,7 @@ export function ProviderSetup({
 
         {access && (
           <div role="status" className="rounded-lg border px-4 py-3 text-sm leading-5">
-            {access.status === "authenticated" && <p>Access checked. Model execution permission remains unverified.</p>}
+            {access.status === "authenticated" && <p>Credential authenticated. Use the compatibility check to test the selected model and settings.</p>}
             {access.failure && <p className="text-destructive">{providerFailureMessage(access.failure.code)}</p>}
           </div>
         )}

@@ -21,13 +21,13 @@ export const failureMessages: Record<ProviderFailureCode, string> = {
   "redirect-blocked":
     "A redirect was blocked. Check the provider configuration.",
   "invalid-provider-response":
-    "The response did not establish the requested compatibility. Check the selected settings.",
+    "The provider returned an invalid compatibility response. Check the selected settings.",
   "response-too-large":
     "The response exceeded the permitted size and was discarded.",
   "output-incomplete":
-    "The compatibility reply did not complete. Compatibility remains unverified.",
+    "The compatibility reply was cut off. Review the selected settings before checking again.",
   "no-output":
-    "The provider returned no usable reply. Compatibility remains unverified.",
+    "The provider returned no usable reply. Review the selected settings before checking again.",
   "credential-reflection":
     "The response contained authorization material and was discarded.",
 };
@@ -48,7 +48,7 @@ export class ProviderApiError extends Error {
   ) {
     const messages = {
       "unexpected-response":
-        "The evaluation service returned an unexpected response. No access or compatibility claim was accepted.",
+        "The evaluation service returned an unexpected response. The check did not complete.",
       "network-error":
         "The evaluation service could not be reached. Check your connection and try again.",
       cancelled: "The operation was cancelled",

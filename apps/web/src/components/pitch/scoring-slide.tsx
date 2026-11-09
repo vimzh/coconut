@@ -12,7 +12,7 @@ export function ScoringSlide() {
   return (
     <div className={styles.scoring}>
       <div className={`${deck.heading} ${styles.heading}`}><h2>How we evaluate and score.</h2></div>
-      <p className={styles.workload}>Published research: <strong>620 or 800 tasks × 1 response per model.</strong> Visitor workbench: 27 × 3 = 81 requests. Exact-file CLI: tasks × your selected trials.</p>
+      <p className={styles.workload}>Reasoning study: <strong>620 planned tasks per model.</strong> Fast screen: <strong>800 tasks per model.</strong> Both use one response per task. Visitor workbench: 27 × 3 = 81 requests. Exact-file CLI: tasks × 1–10 selected trials.</p>
       <div className={styles.grid}>
         <section className={styles.panel} aria-label="Evaluation procedure">
           <h3>1. Evaluate every answer</h3>
@@ -36,7 +36,7 @@ export function ScoringSlide() {
         </section>
         <section className={styles.panel} aria-label="Synthetic scoring example">
           <h3>3. Follow a worked example</h3>
-          <p className={styles.exampleNote}>Synthetic fixture: 9 returned outcomes, including 1 unusable reply. This is not a measured model result.</p>
+          <p className={styles.exampleNote}>Synthetic scoring example: 9 returned outcomes, including 1 unusable reply.</p>
           <table className={styles.example}>
             <caption className="sr-only">Per-class counts from the synthetic scoring fixture</caption>
             <thead><tr><th scope="col">Class</th><th scope="col">TP</th><th scope="col">FP</th><th scope="col">FN</th><th scope="col">F1</th></tr></thead>
@@ -50,7 +50,7 @@ export function ScoringSlide() {
         <section><h3>Invalid JSON, refusal, or truncation</h3><p>Included as a false negative for the reference class, with no predicted class. These replies stay in the accuracy denominator.</p></section>
         <section><h3>Provider failure, cancellation, or unattempted work</h3><p>Excluded from mathematical counts and reported separately. Incomplete runs are provisional, or unavailable if no model outcomes exist; they are unranked.</p></section>
       </div>
-      <p className={styles.note}>Also report per-class recall and requested-depth slices. Spread and agreement require repeated trials; a single response cannot establish repeat consistency. Trial spread is descriptive, not a confidence interval.</p>
+      <p className={styles.note}>Also report per-class recall and requested-depth slices. Repeated trials add descriptive score spread and answer agreement. Single-trial studies report the observed task outcomes.</p>
     </div>
   );
 }

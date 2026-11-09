@@ -70,7 +70,7 @@ function DeepStudyResults() {
         </label>
       </div>
       <p className={styles.metric}>Audited results · One response per task · Ordered by overall macro-F1, highest first · Incomplete scores are provisional</p>
-      <p className={styles.sources}>Reasoning study: 100 tasks per depth through 160, then 10 at 320 and 512. Fast screen: 100 at every depth. Reasoning settings and populations differ; ordering is descriptive, not a controlled model ranking.</p>
+      <p className={styles.sources}>Reasoning study: 100 tasks per depth through 160, then 10 at 320 and 512. Fast screen: 100 at every depth. Each row identifies its study population; recorded reasoning settings appear in the study details below.</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Deep study scores by requested generator depth">
         <table className={styles.table} aria-describedby="deep-study-note">
           <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy, correct model outcomes and settled coverage. Depth columns use requested generator settings.</caption>
@@ -94,16 +94,16 @@ function DeepStudyResults() {
       </p>
       <details className={`${styles.sources} ${styles.details}`}>
         <summary>Study identities, depth definitions and model settings</summary>
-        <p>Depth is the requested generator setting. Realized source depth may be that setting or its successor; neither measure is expression-tree depth or a count of nonlinear composition stages. One response per question does not measure repeat consistency. Input size and mathematical structure can change with depth, so these scores do not isolate a causal depth effect or establish a failure threshold.</p>
+        <p>Depth is the requested generator setting. Realized source depth is that setting or its successor. Expression-tree depth and nonlinear composition stages are recorded separately. Each score summarizes one response per question on its stated population. Compare depth slices alongside expression size, mathematical structure and model settings.</p>
         {[study, cheapDepthSummary].map(current => <div key={current.studyId}>
-          <p>Study: <code>{current.studyId}</code>. Frozen cohort: <code>{current.cohortId}</code>. Source: <code>{current.cohortSourceId}</code>. Within this study, each model receives the same admitted tasks, with one attempt per task. Tasks by requested depth: {deepStudyTaskCounts(current).map(row => `${row.requestedDepth}: ${row.tasks}`).join("; ")}. Remaining semantic equivalence is unknown after exact and bounded simplification checks. Individual answers and reference evidence remain in authorized research reports.</p>
+          <p>Study: <code>{current.studyId}</code>. Frozen cohort: <code>{current.cohortId}</code>. Source: <code>{current.cohortSourceId}</code>. Within this study, each model receives the same admitted tasks, with one attempt per task. Tasks by requested depth: {deepStudyTaskCounts(current).map(row => `${row.requestedDepth}: ${row.tasks}`).join("; ")}. Task review includes exact and bounded simplification checks for repeated expressions. Individual answers and reference evidence remain in authorized research reports.</p>
           {current.models.map(model => <div key={model.modelId}>
             <p>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}: profile {model.settings.profileId}; reasoning {model.settings.reasoning ?? "parameter omitted"}; {model.settings.maxOutputTokens.toLocaleString("en-US")} maximum output tokens; {model.settings.inferenceTimeoutMs / 1000}-second deadline. Reported identities: {model.reportedModelIds.length ? model.reportedModelIds.join(", ") : "none retained"}.</p>
             <p>Realized source depth by requested setting: {model.byDepth.map(slice => `${slice.requestedDepth}: ${slice.realizedDepths.map(item => `${item.count} at ${item.depth}`).join(", ")}`).join("; ")}.</p>
           </div>)}
           <p>Audited report SHA-256: <code>{current.reportSha256}</code>. Cohort SHA-256: <code>{current.cohortSha256}</code>. Independent reference review SHA-256: <code>{current.audit.referenceReviewSha256}</code>.</p>
         </div>)}
-        <p>The fast screen reuses the certified 800-task source pool, including all 240 earlier screening answers. All 2,400 outcomes mechanically replayed; 312 visible replies were inspected, including 119 correct-label explanations with 32 separate findings. The other 2,088 explanations were not manually verified. Only final labels determine these scores.</p>
+        <p>The fast screen reuses the certified 800-task source pool, including all 240 earlier screening answers. All 2,400 outcomes mechanically replayed; 312 visible replies were inspected, including 119 correct-label explanations with 32 separate findings. Manual explanation review covers those 312 replies. Only final labels determine these scores.</p>
       </details>
     </section>
   );
@@ -113,7 +113,7 @@ function CompositionStudyResults() {
   return (
     <section id="model-scores-title" aria-labelledby="composition-results-title" className={styles.section}>
       <div className={styles.heading}><h2 id="composition-results-title">Nested composition results</h2></div>
-      <p className={styles.metric}>Audited score summary · Same 27 tasks per model · Exploratory, unranked</p>
+      <p className={styles.metric}>Audited score summary · Same 27 tasks per model · Three responses per task</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Matched nonlinear composition results">
         <table className={styles.table} aria-describedby="composition-results-note">
           <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy and response counts on successive nonlinear compositions, with three responses per task</caption>
@@ -132,10 +132,10 @@ function CompositionStudyResults() {
         Macro-F1, including the stage columns, uses a 0–100 scale. All 81 model outcomes were recorded per model; there were no service failures. Unusable responses count as unsuccessful outcomes. Individual answers and reference evidence are available in authorized run reports; this summary has no public transcripts.
       </p>
       <details className={`${styles.sources} ${styles.details}`}>
-        <summary>Study settings and limits</summary>
-        <p>Each stage applies a nonlinear function to the previous result. Two, four and six stages have expression-tree depths 7, 13 and 19. The 27 certified tasks form nine related groups using two shared atoms and three sequence patterns. Every pattern and stage count includes all three labels with the same outer expression form. Repeated responses are not independent functions.</p>
-        <p>Default reasoning, 4,096 output tokens and three fresh responses per task. Luna returned five wrong labels and 11 output-limit truncations; Mini returned 51 wrong labels and no unusable responses. Only final labels are scored; explanations are not certified. Truncation does not establish a mathematical error.</p>
-        <p>Nesting changes function shape, range and length. These results do not isolate a causal depth effect or establish general mathematical reliability.</p>
+        <summary>Task structure and study settings</summary>
+        <p>Each stage applies a nonlinear function to the previous result. Two, four and six stages have expression-tree depths 7, 13 and 19. The 27 certified tasks form nine related groups using two shared atoms and three sequence patterns. Every pattern and stage count includes all three labels with the same outer expression form. The three responses repeat each task in fresh conversations. This exploratory suite is excluded from public leaderboard ranking.</p>
+        <p>Default reasoning, 4,096 output tokens and three fresh responses per task. Luna returned five wrong labels and 11 output-limit truncations; Mini returned 51 wrong labels and no unusable responses. Final labels determine the score. Explanations, wrong labels and truncations remain available for separate inspection.</p>
+        <p>Each depth slice reports the tasks at that stage count. Inspect their function shape, range and expression length alongside the score.</p>
       </details>
     </section>
   );

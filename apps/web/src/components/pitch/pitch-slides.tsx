@@ -88,7 +88,7 @@ export function RelevanceSlide() {
           </article>
         ))}
       </div>
-      <p className={styles.caveat}>CoconutEval measures scalar function classification. These applications are illustrative; transfer to full optimization systems remains untested.</p>
+      <p className={styles.caveat}>These examples show why curvature matters when choosing optimization methods. CoconutEval measures the scalar function classification step.</p>
     </div>
   );
 }
@@ -98,7 +98,7 @@ export function AgentSlide() {
     <div className={styles.agentSlide}>
       <SlideHeading>Simple rules. Nested exceptions.</SlideHeading>
       <AgentScenarios />
-      <p className={styles.caveat}>Hypothetical policies illustrate condition tracking. CoconutEval tests mathematical function classification; transfer to agent workflows remains untested.</p>
+      <p className={styles.caveat}>Hypothetical policies illustrate how conditions and exceptions interact. The measured task is mathematical function classification.</p>
     </div>
   );
 }
@@ -130,14 +130,14 @@ export function CompositionSlide() {
           {compositionChecks.map(({ title, detail }) => <article className={styles.signal} key={title}><h4>{title}</h4><p>{detail}</p></article>)}
         </div>
       </div>
-      <div className={styles.closing}><p>Every condition and output rule is stated. Requested depth records a generator setting; it does not establish difficulty on its own.</p></div>
+      <div className={styles.closing}><p>Every condition and output rule is stated. Inspect the expression’s structure and length alongside its requested generator depth.</p></div>
     </div>
   );
 }
 
 const methodSteps = [
   { title: "Verify the reference answer", detail: "Generate a function and interval. Verify its label before adding it to the evaluation." },
-  { title: "Ask the model", detail: "Send the expression and interval in fresh requests. Published depth studies use one response per task; the visitor workbench uses three. Keep the reference answer and proof out of the prompt." },
+  { title: "Ask the model", detail: "Send the expression and interval in fresh requests. Published depth studies use one response per task, the visitor workbench uses three, and exact-file CLI trials are selectable from 1–10. Keep the reference answer and proof out of the prompt." },
   { title: "Score and inspect the answers", detail: "Report macro-F1 and each class’s recall. Track unusable replies and provider failures separately. Read the wrong answers." },
 ];
 
@@ -164,10 +164,10 @@ export function MethodSlide() {
             </figure>
           </div>
           <p>The first squares the term, then negates it. The second negates the term, then squares it.</p>
-          <p className={styles.studyCaption}>Examples on [−1, 1]. These are not measured model errors.</p>
+          <p className={styles.studyCaption}>Teaching examples on [−1, 1], separate from the scored task sets.</p>
         </aside>
       </div>
-      <p className={styles.evidenceNote}><strong>The evidence so far</strong> The newer reasoning study includes one independently checked Astra misclassification at requested depth 40. The fast screen retains 1,436 wrong valid labels across three models. These are observed errors on specific tasks, not a universal failure threshold or proof of repeat consistency.</p>
+      <p className={styles.evidenceNote}><strong>The measured outcomes</strong> The reasoning study includes one independently checked Astra misclassification at requested depth 40. Across 2,400 retained outcomes, the fast screen records 1,436 wrong valid labels and 66 unusable replies. Both studies use a single-trial protocol, with settings and coverage reported alongside the scores.</p>
     </div>
   );
 }
@@ -200,7 +200,7 @@ export function InterpretationSlide() {
         </div>
       </div>
       <div className={styles.closing}>
-        <p>Hypothetical policy pitfalls. Transfer from CoconutEval scores to agent workflows remains untested.</p>
+        <p>Alex’s policy is a hypothetical example of condition tracking. CoconutEval scores the mathematical classification task.</p>
         <Link href="/evaluate">Explore CoconutEval <span aria-hidden="true">↗</span></Link>
       </div>
     </div>
