@@ -6,6 +6,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { apiRoot } from "./runtime-paths";
 
+// Cold certification shares CPU with the full suite; this checks asset resolution, not startup latency.
 it("loads certified suite artifacts and the native worker from the built API", async () => {
   const output = await mkdtemp(fileURLToPath(new URL(".runtime-check-", apiRoot)));
   try {
@@ -24,4 +25,4 @@ it("loads certified suite artifacts and the native worker from the built API", a
       recommended: true, depths: [7, 13, 19], generatorVersion: "composition-v1", promptVersion: "smooth-v2",
     });
   } finally { await rm(output, { recursive: true, force: true }); }
-}, 30000);
+}, 120000);

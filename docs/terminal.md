@@ -17,9 +17,23 @@ Offline generation and verification need no provider key. To run a model, set `O
 
 No web or API server needs to be running for these CLI commands. Do not share an evaluation output database with a running API process.
 
+For a first judge check, start with the [README's no-key smoke test](../README.md#judge-smoke-test-no-api-key-or-external-generator). The bundled 27-task and 72-task suites, reference verifiers and synthetic scoring fixture work without an external generator checkout. The imported-task workflow below has additional prerequisites and does not recreate the excluded private research cohorts from the source ZIP alone.
+
 ## Generate your own task population
 
 Configure the pinned external generator described in the [import integration record](research/upstream-import-integration-v1.md). Its checkout must be clean at revision `6f156c8c9b6b0b85f6a191bd4eb912e12e670082`. Set `COCONUT_GENERATOR_SOURCE` to its local checkout path and `COCONUT_GENERATOR_PYTHON` to its isolated Python executable. Alternatively pass `--source <checkout>` and `--python <interpreter>` explicitly to generation. No external code is copied into Coconut.
+
+To obtain a separate checkout and select the exact revision:
+
+```sh
+export COCONUT_GENERATOR_SOURCE="$(mktemp -d)/source"
+git clone https://github.com/yepengliu/ConvexBench.git "$COCONUT_GENERATOR_SOURCE"
+git -C "$COCONUT_GENERATOR_SOURCE" checkout --detach 6f156c8c9b6b0b85f6a191bd4eb912e12e670082
+test "$(git -C "$COCONUT_GENERATOR_SOURCE" rev-parse HEAD)" = 6f156c8c9b6b0b85f6a191bd4eb912e12e670082
+test -z "$(git -C "$COCONUT_GENERATOR_SOURCE" status --porcelain --untracked-files=all)"
+```
+
+The last two commands must succeed. Public access to a repository does not establish redistribution permission for its code or generated output; keep that checkout and generated artifacts outside the submission until applicable rights are established.
 
 The required generation environment is Python **3.13.17**, numpy **2.1.2**, pandas **2.3.1** and tqdm **4.67.1**. This environment is separate from Coconut's native reference environment installed by `numerics:setup`. To create it at a path of your choosing:
 

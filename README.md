@@ -6,7 +6,7 @@
 
 <p align="center">A convexity evaluation workbench for people comparing language models, with certified mathematical tasks and inspectable answers behind every score.</p>
 
-<p align="center"><a href="docs/research/deep-study-results-v2.md">Reasoning study</a> · <a href="docs/research/cheap-depth-expand-v1.md">Fast-model results</a> · <a href="#run-locally">Run locally</a></p>
+<p align="center"><a href="docs/research/deep-study-results-v2.md">Reasoning study</a> · <a href="docs/research/cheap-depth-expand-v1.md">Fast-model results</a> · <a href="#run-locally">Run locally</a> · <a href="#judge-smoke-test-no-api-key-or-external-generator">Offline judge check</a></p>
 
 <!-- README-HACK:NEEDS-OWNER key="demo-video" instruction="Add the final public demo video link beside the results link above." -->
 <!-- README-HACK:NEEDS-OWNER key="live-demo" instruction="Add a verified public deployment URL beside the results link above; the repository currently documents local operation only." -->
@@ -130,23 +130,50 @@ placement: after "How it works"
 
 ## Run locally
 
-Install **Bun 1.4.4**, **Node.js 24 LTS**, and **uv**. From the repository root:
+Install **Bun 1.4.4**, **Node.js 24 LTS**, and **uv**. Obtain a checkout and install from its root:
 
 ```sh
+git clone https://github.com/vimzh/coconut.git
+cd coconut
 bun install --frozen-lockfile
 bun run numerics:setup
-bun run dev
 ```
 
-Open [localhost:3200](http://localhost:3200); the API runs on loopback port 3201. Numerical setup installs pinned Python 3.13 and its dependencies. Use one API process for the local run store. Live evaluations require your own provider key and incur provider charges.
+For a private repository, judges need read access before cloning. Alternatively, extract the source ZIP, enter its `coconut` directory and start at `bun install --frozen-lockfile`.
+
+For the browser workbench, run `bun run dev`, then open [localhost:3200](http://localhost:3200); the API runs on loopback port 3201. Numerical setup installs pinned Python 3.13 and its dependencies. Use one API process for the local run store. Live evaluations require your own provider key and incur provider charges.
 
 Pinned dependencies include Next.js **16.4.5**, the OpenAI SDK **7.53.0** and python-flint **0.9.0**. The external generation environment requires Python **3.13.17**, NumPy **2.1.2**, pandas **2.3.1** and tqdm **4.67.1**; the terminal guide explains its separate setup. The committed `bun.lock` and `services/numerics/uv.lock` bind transitive dependencies.
 
-Verify the frozen challenge without making model calls:
+### Judge smoke test: no API key or external generator
+
+After installation and numerical setup, these commands verify the bundled tasks and exercise scoring without either server running:
 
 ```sh
+COCONUT_REVIEW_OUTPUT="$(mktemp -d)"
+bun run composition:generate --output "$COCONUT_REVIEW_OUTPUT/composition.json"
+bun run composition:verify --input "$COCONUT_REVIEW_OUTPUT/composition.json"
 bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
+bun run score:report \
+  --input apps/api/data/scoring/mixed-v1.input.json \
+  --output "$COCONUT_REVIEW_OUTPUT/scoring-report.json"
+bun run test:cli
 ```
+
+The first two commands reproduce and verify the 27-task suite; the third verifies the 72-task challenge. The scoring input contains **synthetic replies**, so its report demonstrates the grader rather than model performance. The temporary directory gives every generated artifact a fresh path. See [current verification commands](docs/testing.md) for the full test/lint/type/build checks.
+
+To make a real bundled-suite evaluation, set your own `OPENAI_API_KEY` in ignored `apps/api/.env`, then run:
+
+```sh
+mkdir -p apps/api/data/private
+bun --env-file=apps/api/.env run eval:run \
+  --suite composition-v1 --model gpt-6-luna \
+  --credential-env OPENAI_API_KEY \
+  --output apps/api/data/private/judge-composition-run \
+  --accept-charges
+```
+
+This separate command makes up to **81 paid requests**: 27 tasks, three fresh responses each. The output directory must not exist. Reports and attempt evidence stay private. This bundled workload does not require the external generator; it is separate from the one-response research studies.
 
 The [terminal guide](docs/terminal.md) covers configurable generation by depth, case count and seed, verification, and OpenAI evaluation of the exact saved tasks with selected trial/profile settings. It also retains the bundled composition commands. The landing page includes a terminal quickstart. See the [development guide](docs/development.md) for production operation and origin configuration.
 
