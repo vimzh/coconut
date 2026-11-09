@@ -1,0 +1,12 @@
+{
+  "extends": "./apps/api/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["./apps/api/node_modules/@types"]
+  },
+  "include": [
+    "scripts/composition-suite.ts",
+    "scripts/composition-suite.test.ts",
+    "scripts/evaluate.ts",
+    "scripts/evaluate.test.ts"
+  ]
+}

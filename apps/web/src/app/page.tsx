@@ -6,6 +6,7 @@ import { LandingBackground } from "@/components/marketing/landing-background";
 import { CurvatureIllustration } from "@/components/marketing/curvature-illustration";
 import { CompositionResults } from "@/components/marketing/composition-results";
 import { ProjectFaq } from "@/components/marketing/project-faq";
+import { TerminalCommands } from "@/components/marketing/terminal-commands";
 import { Button } from "@/components/ui/button";
 import { deepStudySummary, deepStudyTaskTotal, hasPublishedDeepStudy } from "@/lib/deep-study-summary";
 import styles from "./page.module.css";
@@ -38,11 +39,14 @@ export default function Home() {
             <Button asChild size="lg" variant="outline" className="h-12 px-5"><Link href="/evaluate">{hasPublishedDeepStudy ? "Open 27-task workbench" : "Run this benchmark"}</Link></Button>
           </div>
           <p className="mt-4 text-xs leading-5 text-muted-foreground">Runs use your own provider key. Provider charges apply.</p>
+          <Link href="#terminal-commands-title" className="mt-3 inline-block text-sm underline underline-offset-4">Run from the terminal</Link>
         </div>
         <div className={styles.heroGraph}><CurvatureIllustration /></div>
       </section>
 
       <CompositionResults />
+
+      <TerminalCommands />
 
       <section aria-labelledby="task-title" className="grid gap-8 border-t border-border py-12 sm:py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-x-16">
         <h2 id="task-title" className="text-2xl leading-tight font-medium sm:text-3xl lg:col-span-2">Classify the whole interval</h2>

@@ -15,6 +15,8 @@ bun run dev
 
 Run all commands from the repository root:
 
+The [terminal command guide](terminal.md) covers offline task generation/reference checks, consented OpenAI evaluations, private reports, metadata/probe distinctions and the complete ordinary command catalog. A terminal evaluation does not require either local server.
+
 ```sh
 bun run lint
 bun run typecheck
@@ -35,7 +37,9 @@ Each launch is foreground work: keep the page open. Cancellation stops new trial
 
 The leaderboard reads actual publications and retains partial/unsupported evidence as exclusions. Ranking requires a complete comparable population, stable reported identity and verified execution settings. Screening is exploratory and unranked. Repeats use the earliest-created eligible currently published execution rather than the highest score; private, withdrawn and expired history remains unknown. Exact score ties share a rank, and small differences do not prove model superiority.
 
-The recommended **curvature challenge** contains 72 tasks across eight families and 24 parameter clusters, with all three labels represented in every family. It plans 216 inference requests. Independent analytic references and native interval certificates are retained. Its measured depths are 3, 4, 5, 6 and 14; family, expression size and depth are confounded, so depth curves are descriptive. A disjoint nine-task screening population is available separately.
+The recommended visitor workload is the **nested composition exploration**: 27 tasks in nine related groups, three responses each, for 81 inference requests. Its 2, 4 and 6 nonlinear stages correspond to expression-tree depths 7, 13 and 19. `composition:generate`, `composition:verify` and the consented OpenAI `eval:run` command use this registered population; see the [terminal guide](terminal.md). The larger single-response research population on the landing page remains separate.
+
+The preserved **curvature challenge**, available under Advanced workloads, contains 72 tasks across eight families and 24 parameter clusters, with all three labels represented in every family. It plans 216 inference requests. Independent analytic references and native interval certificates are retained. Its measured depths are 3, 4, 5, 6 and 14; family, expression size and depth are confounded, so depth curves are descriptive. A disjoint nine-task screening population is available separately.
 
 ```sh
 bun run challenge:verify --input apps/api/data/suites/challenge-v1.json

@@ -97,7 +97,7 @@ Verify the frozen challenge without making model calls:
 bun run challenge:verify --input apps/api/data/suites/challenge-v1.json
 ```
 
-See the [development guide](docs/development.md) for tests, production build/start commands, origin configuration, and additional suite tools.
+The [terminal guide](docs/terminal.md) covers the full command catalog, including composition generation/verification and consented OpenAI evaluations with private reports. The landing page also includes a terminal quickstart. See the [development guide](docs/development.md) for production operation and origin configuration.
 
 A separate private deep-import workflow integrates a pinned external generator with exact-display reference checks. The [14b handoff](docs/handoffs/14b-randomized-certified-evaluation.md) records its inconclusive two-send Astra pilot. The [Module 15 handoff](docs/handoffs/15-deep-composition-stress-evaluation.md) records the independently reviewed 800-case source pool, the user-amended 620-task/model evaluation, immutable attempt ledgers, all-result audits and safe aggregate export. Raw-source/output redistribution clearance remains unresolved, so expressions and provider transcripts stay private.
 
