@@ -6,9 +6,8 @@
 
 <p align="center">Evaluate language models on mathematical functions with verified answers. Generate tests, run a model, and see what it gets right.</p>
 
-<p align="center"><a href="#how-it-works">How it works</a> · <a href="#generate-and-evaluate-tests">Generate tests</a> · <a href="#run-locally">Run locally</a> · <a href="docs/research/deep-study-results-v2.md">Reasoning results</a> · <a href="docs/research/cheap-depth-expand-v1.md">Fast-model results</a></p>
+<p align="center"><a href="https://youtu.be/43nhPerzpHc">Watch the demo</a> · <a href="#how-it-works">How it works</a> · <a href="#generate-and-evaluate-tests">Generate tests</a> · <a href="#run-locally">Run locally</a> · <a href="docs/research/deep-study-results-v2.md">Reasoning results</a> · <a href="docs/research/cheap-depth-expand-v1.md">Fast-model results</a></p>
 
-<!-- README-HACK:NEEDS-OWNER key="demo-video" instruction="Add the final public demo video link beside the results links above." -->
 <!-- README-HACK:NEEDS-OWNER key="live-demo" instruction="Add a verified public deployment URL beside the results links above." -->
 
 ## What is Coconut?
