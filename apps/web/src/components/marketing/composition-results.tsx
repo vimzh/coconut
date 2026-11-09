@@ -44,6 +44,7 @@ function ScoreCell({ score }: { score: DeepStudyScore }) {
 
 function DeepStudyResults() {
   const study = deepStudySummary;
+  const sortedModels = [...study.models].sort((a, b) => (b.overall.macroF1 ?? -1) - (a.overall.macroF1 ?? -1));
   const taskCounts = deepStudyTaskCounts(study), total = deepStudyTaskTotal(study);
   const state = study.state === "complete" ? "Audited study" : study.state === "running" ? "Audited partial snapshot" : study.state === "unavailable" ? "Scores unavailable" : "Audited incomplete study";
   return (
@@ -55,7 +56,7 @@ function DeepStudyResults() {
           Hide details
         </label>
       </div>
-      <p className={styles.metric}>{state} · {total} planned tasks per model · One response per task · Exploratory, unranked</p>
+      <p className={styles.metric}>{state} · {total} planned tasks per model · One response per task · Ordered by overall macro-F1 · Incomplete scores are provisional</p>
       <div className={styles.scroll} role="region" tabIndex={0} aria-label="Deep study scores by requested generator depth">
         <table className={styles.table} aria-describedby="deep-study-note">
           <caption className="sr-only">Macro-F1 on a 0–100 scale, accuracy, correct model outcomes and settled coverage. Depth columns use requested generator settings.</caption>
@@ -63,8 +64,8 @@ function DeepStudyResults() {
             <th scope="col" className={styles.model}>Model</th>
             {taskCounts.map(({ requestedDepth, tasks }) => <th scope="col" key={requestedDepth}>Depth {requestedDepth}<span className={styles.pilotLabel}>{tasks} tasks</span></th>)}
           </tr></thead>
-          <tbody>{study.models.map(model => <tr key={model.modelId}>
-            <th scope="row" className={styles.model}>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
+          <tbody>{sortedModels.map(model => <tr key={model.modelId}>
+            <th scope="row" className={styles.model}><span className="mr-3 text-muted-foreground">{model.overall.macroF1 === null ? "—" : sortedModels.findIndex(row => row.overall.macroF1 === model.overall.macroF1) + 1}.</span>{directoryModels.find(row => row.id === model.modelId)?.name ?? model.modelId}</th>
             {model.byDepth.map(slice => <ScoreCell key={slice.requestedDepth} score={slice.score} />)}
           </tr>)}</tbody>
         </table>
